@@ -13,6 +13,7 @@
   --color-blanc: #ffffff;
   --color-marro: #5c4a3d;
   --color-terracota: #b85c38;
+  --icona-flor: "✿";
 
   --font-titol: 'Playfair Display', serif;
   --font-subtitol: 'Cormorant Garamond', serif;
@@ -20,6 +21,10 @@
 
   --transicio: all 0.3s ease;
   --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  --icona-flor: "\1F338";
 }
 
 * {
@@ -124,6 +129,12 @@ button:focus-visible,
 .nav-menu a.active {
   background: var(--color-daurat);
   color: white;
+}
+
+/* Forcem que la marca mostri la flor definida a :root */
+.nav-logo::before {
+  content: var(--icona-flor);
+  font-size: 1.3rem;
 }
 
 /* Hero */
