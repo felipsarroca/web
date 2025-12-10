@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="El Modernisme a Catalunya: context històric, urbanisme i societat al tombant de segle.">
+
+    <title>Catalunya | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-interna">
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
+    <nav class="nav-principal">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">El Modernisme</a>
+            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="que-es.html">Què és?</a></li>
+                <li><a href="mon.html">Al món</a></li>
+                <li><a href="catalunya.html" class="active" aria-current="page">Catalunya</a></li>
+                <li><a href="arquitectura.html">Arquitectura</a></li>
+                <li><a href="arts.html">Arts</a></li>
+                <li><a href="cartellisme.html">Cartellisme</a></li>
+                <li><a href="autors.html">Autors</a></li>
+                <li><a href="obres.html">Obres</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="temps.html">Línia del temps</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="header-seccio">
+        <h1>El context català</h1>
+        <p>Per què Barcelona va explotar de creativitat?</p>
+    </header>
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+            <div class="caracteristiques-grid grid-2-cols reveal">
+                <div class="caracteristica">
+                    <span class="caracteristica-icona">🏭</span>
+                    <div class="caracteristica-text">
+                        <strong>Revolució Industrial</strong>
+                        Riquesa tèxtil i burgesia amb diners per gastar en art.
+                        <br><img src="img/vapor-aymerich.jpg" alt="Vapor Aymerich" class="img-mini zoomable"
+                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
+                    </div>
+                </div>
+                <div class="caracteristica">
+                    <span class="caracteristica-icona">🧱</span>
+                    <div class="caracteristica-text">
+                        <strong>L'Eixample</strong>
+                        El Pla Cerdà (1859) oferia espai il·limitat.
+                        <br><img src="img/pla-cerda.jpg" alt="Pla Cerdà 1859" class="img-mini zoomable"
+                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
+                    </div>
+                </div>
+                <div class="caracteristica">
+                    <span class="caracteristica-icona">🦅</span>
+                    <div class="caracteristica-text">
+                        <strong>Renaixença</strong>
+                        Recuperació de la identitat nacional.
+                        <br><img src="img/jocs-florals.jpg" alt="Jocs Florals" class="img-mini zoomable"
+                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
+                    </div>
+                </div>
+                <div class="caracteristica">
+                    <span class="caracteristica-icona">🌍</span>
+                    <div class="caracteristica-text">
+                        <strong>Exposició 1888</strong>
+                        Barcelona al món.
+                        <br><img src="img/arc-triomf.jpg" alt="Arc de Triomf 1888" class="img-mini zoomable"
+                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <h3 class="footer-titol">El Modernisme</h3>
+        <p class="footer-text">
+            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
+        </p>
+        <div class="footer-links">
+            <a href="index.html">Tornar a l'inici</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
+            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
+            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
+        </p>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-contingut"><span class="modal-tancar" onclick="tancarModal()">×</span><img src=""
+                id="modalImatge">
+            <div class="modal-info">
+                <h3 id="modalTitol"></h3>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

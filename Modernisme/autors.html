@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Coneix els grans genis del Modernisme català: Gaudí, Domènech i Montaner, Puig i Cadafalch i Muncunill.">
+    <title>Autors i Autores | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body class="pagina-interna">
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <span class="loader-flor">🌸</span>
+    </div>
+
+    <!-- Navegació -->
+    <nav class="nav-principal">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">El Modernisme</a>
+            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="que-es.html">Què és?</a></li>
+                <li><a href="mon.html">Al món</a></li>
+                <li><a href="catalunya.html">Catalunya</a></li>
+                <li><a href="arquitectura.html">Arquitectura</a></li>
+                <li><a href="arts.html">Arts</a></li>
+                <li><a href="cartellisme.html">Cartellisme</a></li>
+                <li><a href="autors.html" class="active" aria-current="page">Autors</a></li>
+                <li><a href="obres.html">Obres</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="temps.html">Línia del temps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Secció -->
+    <header class="header-seccio">
+        <h1>Autors i Autores</h1>
+        <p>Els genis que van somiar i construir el Modernisme</p>
+    </header>
+
+    <!-- Contingut Principal -->
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/gaudi-retrat.jpg" alt="Antoni Gaudí" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Antoni Gaudí i Cornet</h3>
+                    <p class="autor-professio">🏛️ Arquitecte | Reus 1852 - Barcelona 1926</p>
+                    <p class="autor-bio">
+                        <strong>El geni més original</strong> del Modernisme. Figura universal. Va portar les formes de
+                        la <strong>natura a l'arquitectura</strong>:
+                        arbres, ossos, escames. Creia que la línia recta era de l'home i la corba de Déu. <strong>7
+                            obres Patrimoni de la Humanitat</strong>.
+                    </p>
+                    <p class="autor-cita">"L'originalitat consisteix a tornar a l'origen."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/domenech-retrat.jpg" alt="Lluís Domènech i Montaner" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Lluís Domènech i Montaner</h3>
+                    <p class="autor-professio">🏛️ Arquitecte i polític | Barcelona 1850-1923</p>
+                    <p class="autor-bio">
+                        Arquitecte, historiador i polític clau del catalanisme. Creador del <strong>Palau de la
+                            Música</strong> i l'<strong>Hospital de Sant Pau</strong>.
+                        Combinava el <strong>racionalisme estructural</strong> (ferro, maó) amb una decoració exuberant
+                        inspirada en l'art floral i heràldic.
+                    </p>
+                    <p class="autor-cita">"L'arquitectura ha de ser útil i bella alhora."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/puig-cadafalch-retrat.jpg" alt="Josep Puig i Cadafalch" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Josep Puig i Cadafalch</h3>
+                    <p class="autor-professio">🏛️ Arquitecte, historiador i polític | Mataró 1867 - Barcelona 1956</p>
+                    <p class="autor-bio">
+                        President de la Mancomunitat de Catalunya. Les seves obres tenen influències del <strong>gòtic
+                            català</strong> i del nord d'Europa (flamenques).
+                        Obres: <strong>Casa Amatller</strong>, <strong>Casa de les Punxes</strong>, Fàbrica Casaramona.
+                    </p>
+                    <p class="autor-cita">"L'arquitectura és la memòria construïda d'un poble."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/muncunill-retrat.jpg" alt="Lluís Muncunill i Parellada" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Lluís Muncunill i Parellada</h3>
+                    <p class="autor-professio">🏭 Arquitecte Municipal | Sant Vicenç de Fals 1868 - Terrassa 1931</p>
+                    <p class="autor-bio">
+                        El gran arquitecte del <strong>Modernisme industrial a Terrassa</strong>. Va definir el perfil
+                        de la ciutat amb xemeneies i vapors.
+                        Mestre de l'<strong>arc catenari</strong> (com Gaudí) aplicat a teulades i estructures
+                        industrials. Obres: <strong>Masia Freixa</strong>, Vapor Aymerich.
+                    </p>
+                    <p class="autor-cita">"La bellesa industrial neix de la funció i l'estructura."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/maragall-retrat.jpg" alt="Joan Maragall" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Joan Maragall i Gorina</h3>
+                    <p class="autor-professio">📖 Poeta i periodista | Barcelona 1860-1911</p>
+                    <p class="autor-bio">
+                        L'ànima literària del Modernisme. Defensor de la "Paraula Viva" (espontaneïtat).
+                        Va escriure obres cabdals com el <strong>"Cant espiritual"</strong> o <strong>"La vaca
+                            cega"</strong>. Va connectar el Modernisme amb la societat a través dels seus articles.
+                    </p>
+                    <p class="autor-cita">"Tot és bonic i m'és bé, i vull totes les coses que ja tinc o que algun dia
+                        podré tenir."</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Secció: Altres Genis -->
+        <section class="seccio seccio-alternativa">
+            <h2 class="seccio-titol" style="text-align: center; margin-bottom: 3rem;">Altres Genis del Modernisme</h2>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/jujol-retrat.jpg" alt="Josep Maria Jujol" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Josep Maria Jujol i Gibert</h3>
+                    <p class="autor-professio">🎨 Arquitecte i Dibuixant | Tarragona 1879 - Barcelona 1949</p>
+                    <p class="autor-bio">
+                        El col·laborador més estret de Gaudí (va fer els bancs del Park Güell i la façana de la Casa
+                        Batlló).
+                        La seva obra personal és una <strong>explosió de color i llibertat</strong>, utilitzant
+                        materials humils i reciclatge.
+                        Obres destacades: <strong>Torre de la Creu</strong>, Casa Canals, Casa Negre.
+                    </p>
+                    <p class="autor-cita">"L'art és la vida, i la vida és color i moviment."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/rusinol-retrat.jpg" alt="Santiago Rusiñol" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Santiago Rusiñol i Prats</h3>
+                    <p class="autor-professio">🖌️ Pintor i Escriptor | Barcelona 1861 - Aranjuez 1931</p>
+                    <p class="autor-bio">
+                        Artista total i líder del Modernisme bohemi. Va convertir Sitges (Cau Ferrat) en la meca del
+                        moviment.
+                        Pintava <strong>jardins melancòlics</strong> i escrivia teatre costumista (<em>L'auca del senyor
+                            Esteve</em>).
+                    </p>
+                    <p class="autor-cita">"Viure no és res més que anar-se'n anant."</p>
+                </div>
+            </div>
+
+            <div class="autor-fitxa reveal">
+                <div class="zoomable-container">
+                    <img src="img/casas-retrat.jpg" alt="Ramon Casas" class="autor-imatge zoomable">
+                </div>
+                <div class="autor-info">
+                    <h3>Ramon Casas i Carbó</h3>
+                    <p class="autor-professio">✒️ Pintor i Cartellista | Barcelona 1866 - 1932</p>
+                    <p class="autor-bio">
+                        El cronista de la burgesia catalana i el gran mestre del <strong>cartellisme
+                            publicitari</strong>.
+                        Fundador de la revista <em>Pèl & Ploma</em> i un dels impulsors de la cerveseria <strong>Els
+                            Quatre Gats</strong>.
+                        El seu estil era elegant, cosmopolita i influït per París.
+                    </p>
+                    <p class="autor-cita">"En l'art l'important és la personalitat."</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    
+    <footer class="footer">
+        <h3 class="footer-titol">El Modernisme</h3>
+        <p class="footer-text">
+            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
+        </p>
+        <div class="footer-links">
+            <a href="index.html">Tornar a l'inici</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
+            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
+            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
+        </p>
+    </footer>
+
+
+    <!-- Modal per imatges -->
+    <div class="modal" id="modal">
+        <div class="modal-contingut">
+            <span class="modal-tancar" onclick="tancarModal()">×</span>
+            <img src="" alt="" class="modal-imatge" id="modalImatge">
+            <div class="modal-info">
+                <h3 id="modalTitol"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

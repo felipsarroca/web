@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Les obres mestres del Modernisme: Sagrada Família, Pedrera, Palau de la Música, Masia Freixa...">
+    <title>Obres Destacades | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body class="pagina-interna">
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <span class="loader-flor">🌸</span>
+    </div>
+
+    <!-- Navegació -->
+    <nav class="nav-principal">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">El Modernisme</a>
+            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="que-es.html">Què és?</a></li>
+                <li><a href="mon.html">Al món</a></li>
+                <li><a href="catalunya.html">Catalunya</a></li>
+                <li><a href="arquitectura.html">Arquitectura</a></li>
+                <li><a href="arts.html">Arts</a></li>
+                <li><a href="cartellisme.html">Cartellisme</a></li>
+                <li><a href="autors.html">Autors</a></li>
+                <li><a href="obres.html" class="active" aria-current="page">Obres</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="temps.html">Línia del temps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Secció -->
+    <header class="header-seccio">
+        <h1>Obres Destacades</h1>
+        <p>Un recorregut visual per les joies de l'arquitectura modernista</p>
+    </header>
+
+    <!-- Contingut Principal -->
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+            <div class="galeria reveal">
+                <!-- Gaudí -->
+                <div class="galeria-item zoomable" onclick="obrirModal(this)"
+                    data-desc="El temple expiatori, símbol de Barcelona." data-titol="Sagrada Família">
+                    <img src="img/sagrada-familia.jpg" alt="Sagrada Família">
+                    <div class="galeria-overlay">
+                        <h4>Sagrada Família</h4>
+                        <p>Gaudí · 1882-avui</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/casa-batllo.jpg" alt="Casa Batlló">
+                    <div class="galeria-overlay">
+                        <h4>Casa Batlló</h4>
+                        <p>Gaudí · 1904-1906</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/casa-mila.jpg" alt="La Pedrera">
+                    <div class="galeria-overlay">
+                        <h4>La Pedrera</h4>
+                        <p>Gaudí · 1906-1912</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/park-guell.jpg" alt="Park Güell">
+                    <div class="galeria-overlay">
+                        <h4>Park Güell</h4>
+                        <p>Gaudí · 1900-1914</p>
+                    </div>
+                </div>
+
+                <!-- Domènech i Montaner -->
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/palau-musica.jpg" alt="Palau de la Música">
+                    <div class="galeria-overlay">
+                        <h4>Palau de la Música</h4>
+                        <p>Domènech · 1905</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/hospital-sant-pau.jpg" alt="Hospital de Sant Pau">
+                    <div class="galeria-overlay">
+                        <h4>Hospital de Sant Pau</h4>
+                        <p>Domènech · 1901</p>
+                    </div>
+                </div>
+
+                <!-- Puig i Cadafalch -->
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/casa-amatller.jpg" alt="Casa Amatller">
+                    <div class="galeria-overlay">
+                        <h4>Casa Amatller</h4>
+                        <p>Puig i Cadafalch · 1898</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/casa-punxes.jpg" alt="Casa de les Punxes">
+                    <div class="galeria-overlay">
+                        <h4>Casa de les Punxes</h4>
+                        <p>Puig i Cadafalch · 1905</p>
+                    </div>
+                </div>
+
+                <!-- Muncunill -->
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/masia-freixa.jpg" alt="Masia Freixa (Terrassa)">
+                    <div class="galeria-overlay">
+                        <h4>Masia Freixa</h4>
+                        <p>Lluís Muncunill · 1907</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/vapor-aymerich.jpg" alt="Vapor Aymerich (mNACTEC)">
+                    <div class="galeria-overlay">
+                        <h4>Vapor Aymerich</h4>
+                        <p>Lluís Muncunill · 1907</p>
+                    </div>
+                </div>
+
+                <!-- Altres Obres Mestres -->
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/els-4-gats-interior.jpg" alt="Els Quatre Gats">
+                    <div class="galeria-overlay">
+                        <h4>Els Quatre Gats</h4>
+                        <p>Puig i Cadafalch (decoració) · 1897</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/rusinol-jardins.jpg" alt="Jardins d'Espanya">
+                    <div class="galeria-overlay">
+                        <h4>Jardins d'Espanya</h4>
+                        <p>Santiago Rusiñol · Pintura</p>
+                    </div>
+                </div>
+                <div class="galeria-item zoomable" onclick="obrirModal(this)">
+                    <img src="img/cartell-4gats.jpg" alt="Tàndem (Els 4 Gats)">
+                    <div class="galeria-overlay">
+                        <h4>Ramon Casas i Pere Romeu en tàndem</h4>
+                        <p>Ramon Casas · 1897</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    
+    <footer class="footer">
+        <h3 class="footer-titol">El Modernisme</h3>
+        <p class="footer-text">
+            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
+        </p>
+        <div class="footer-links">
+            <a href="index.html">Tornar a l'inici</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
+            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
+            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
+        </p>
+    </footer>
+
+
+    <!-- Modal per imatges -->
+    <div class="modal" id="modal">
+        <div class="modal-contingut">
+            <span class="modal-tancar" onclick="tancarModal()">×</span>
+            <img src="" alt="" class="modal-imatge" id="modalImatge">
+            <div class="modal-info">
+                <h3 id="modalTitol"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

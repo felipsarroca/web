@@ -1,0 +1,878 @@
+/* CSS Actualitzat per a la versió multipàgina */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+:root {
+  --color-fons: #faf8f3;
+  --color-crema: #f5f0e6;
+  --color-beix: #e8e0d0;
+  --color-daurat: #c9a959;
+  --color-daurat-fosc: #9e7c2e;
+  --color-verd-oliva: #6b7c5e;
+  --color-text: #3a3a3a;
+  --color-text-clar: #666;
+  --color-blanc: #ffffff;
+  --color-marro: #5c4a3d;
+  --color-terracota: #b85c38;
+
+  --font-titol: 'Playfair Display', serif;
+  --font-subtitol: 'Cormorant Garamond', serif;
+  --font-cos: 'Lora', serif;
+
+  --transicio: all 0.3s ease;
+  --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-cos);
+  background-color: var(--color-fons);
+  color: var(--color-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Focus visible */
+a:focus-visible,
+button:focus-visible,
+.cta-button:focus-visible,
+.nav-menu a:focus-visible {
+  outline: 3px solid var(--color-daurat);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Enllaç d'accés ràpid */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 1rem;
+  background: var(--color-daurat);
+  color: var(--color-blanc);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1100;
+  box-shadow: var(--ombra);
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+/* Navegació */
+.nav-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(250, 248, 243, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid var(--color-beix);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-titol);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-marro);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo::before {
+  content: "🌸";
+  font-size: 1.3rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+.nav-menu a {
+  font-family: var(--font-subtitol);
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: var(--transicio);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: var(--color-daurat);
+  color: white;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('img/hero-pattern.jpg');
+  background-size: 400px;
+  padding-top: 80px;
+}
+
+.hero-contingut {
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-titol {
+  font-family: var(--font-titol);
+  font-size: 5rem;
+  color: var(--color-marro);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitol {
+  font-family: var(--font-subtitol);
+  font-size: 1.8rem;
+  color: var(--color-verd-oliva);
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+.hero-frase {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--color-daurat);
+}
+
+.hero-button-container {
+  margin-bottom: 3rem;
+}
+
+.cta-button {
+  background: var(--color-marro);
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-family: var(--font-titol);
+  font-size: 1.2rem;
+  transition: var(--transicio);
+}
+
+.cta-button:hover {
+  background: var(--color-daurat);
+  transform: scale(1.05);
+}
+
+.hero-icones {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-icona {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: var(--ombra);
+  transition: var(--transicio);
+  width: 120px;
+  text-align: center;
+}
+
+.hero-icona:hover {
+  transform: translateY(-5px);
+  background: var(--color-daurat);
+  color: white;
+}
+
+.hero-icona span {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Headers Interns */
+.header-seccio {
+  background: var(--color-crema);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-beix);
+}
+
+.header-seccio h1 {
+  font-family: var(--font-titol);
+  font-size: 3.5rem;
+  color: var(--color-marro);
+  margin-bottom: 1rem;
+}
+
+.header-seccio p {
+  font-family: var(--font-subtitol);
+  font-size: 1.5rem;
+  color: var(--color-verd-oliva);
+  font-style: italic;
+}
+
+.contingut-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Grid Galeria i Autors */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.galeria-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 250px;
+  cursor: pointer;
+  box-shadow: var(--ombra);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transicio);
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+.galeria-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: var(--transicio);
+}
+
+.galeria-item:hover .galeria-overlay {
+  transform: translateY(0);
+}
+
+.autor-fitxa {
+  display: flex;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: var(--ombra);
+  align-items: center;
+}
+
+.autor-imatge {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--color-daurat);
+  flex-shrink: 0;
+}
+
+.autor-info h3 {
+  font-family: var(--font-titol);
+  font-size: 1.8rem;
+  color: var(--color-marro);
+}
+
+.autor-professio {
+  color: var(--color-daurat-fosc);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.autor-cita {
+  margin-top: 1rem;
+  font-style: italic;
+  background: var(--color-crema);
+  padding: 1rem;
+  border-left: 3px solid var(--color-verd-oliva);
+}
+
+/* Noves classes per a ZOOM */
+.zoomable-container {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.zoomable-container:hover {
+  transform: scale(1.02);
+}
+
+.zoomable {
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-imatge {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-imatge.zoomed {
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: auto;
+  cursor: zoom-out;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.modal-contingut {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.modal-contingut.has-zoomed-image {
+  display: block;
+  overflow: auto;
+  padding: 0;
+  text-align: center;
+}
+
+.modal-contingut.has-zoomed-image .modal-imatge.zoomed {
+  margin: 2rem auto;
+}
+
+.modal-info {
+  color: white;
+  margin-top: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.modal-zoom-btn {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-blanc);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.modal-zoom-btn:hover {
+  background: var(--color-daurat);
+  border-color: var(--color-daurat);
+  transform: translateY(-2px);
+}
+
+.modal-tancar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2005;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.modal-tancar:hover {
+  transform: rotate(90deg);
+  color: var(--color-daurat);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-marro);
+  color: var(--color-crema);
+  padding: 3rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer a {
+  color: var(--color-daurat);
+  text-decoration: none;
+}
+
+/* Característiques Grid */
+.caracteristiques-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.caracteristica {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--ombra);
+  display: flex;
+  gap: 1rem;
+}
+
+.caracteristica-icona {
+  font-size: 2rem;
+}
+
+.caracteristica-text {
+  line-height: 1.8;
+}
+
+.caracteristica-text strong {
+  display: inline-block;
+  margin-right: 0.4rem;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-titol);
+}
+
+.llista-caracteristiques {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.llista-caracteristiques li {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--ombra);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.llista-caracteristiques li::before {
+  content: "🎨";
+  font-size: 1.5rem;
+}
+
+/* Imatge Destacada */
+.img-destacada {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--ombra);
+  margin-bottom: 0.5rem;
+}
+
+.peu-foto {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text-clar);
+  font-size: 0.9rem;
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-fons);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-flor {
+  font-size: 3rem;
+  animation: girar 2s infinite linear;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive basics */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-marro);
+  }
+
+  .autor-fitxa {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-titol {
+    font-size: 3rem;
+  }
+}
+
+/* Timeline Eix Cronològic */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Línia central (o lateral) */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 4px;
+  background: var(--color-daurat);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 60px;
+}
+
+/* El punt del timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--color-marro);
+  border: 4px solid var(--color-crema);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 3px var(--color-daurat);
+}
+
+.timeline-any {
+  display: inline-block;
+  background: var(--color-marro);
+  color: white;
+  padding: 0.2rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-titol);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--ombra);
+}
+
+.timeline-contingut {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--ombra);
+  position: relative;
+  transition: var(--transicio);
+}
+
+.timeline-contingut:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-contingut::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+.timeline-contingut h4 {
+  font-family: var(--font-titol);
+  font-size: 1.5rem;
+  color: var(--color-marro);
+  margin-bottom: 0.5rem;
+}
+
+/* Utilitats noves per disseny */
+.grid-2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid-2-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Index Redesign */
+.hero-index {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/vitrall-palau.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-blanc);
+  padding: 2rem;
+}
+
+.hero-index h1 {
+  font-family: var(--font-titol);
+  font-size: 5rem;
+  color: var(--color-blanc);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.35);
+  margin-bottom: 1rem;
+  animation: fadeInDown 1.5s ease-out;
+}
+
+.hero-index p {
+  font-size: 1.8rem;
+  max-width: 800px;
+  color: var(--color-blanc);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 0 4px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.35);
+  margin-bottom: 3rem;
+  animation: fadeInUp 1.5s ease-out 0.5s backwards;
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  animation: fadeInUp 1.5s ease-out 1s backwards;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-card span {
+  font-size: 2.5rem;
+}
+
+.hero-card h3 {
+  font-family: var(--font-principal);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustos específics per a imatges grans en graelles */
+.galeria-item-gran {
+  height: 400px;
+  /* Més alçada per les imatges de 'Al Món' */
+}
+
+.galeria-item-gran img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image-based Characteristics Grid for Cartellisme */
+.graella-caracteristiques-imatges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Modificat: Ara sense imatge de fons, card simple i elegant */
+.targeta-caracteristica-foto {
+  position: relative;
+  height: auto;
+  /* Alçada automàtica segons el contingut */
+  background: linear-gradient(135deg, var(--color-daurat-fosc) 0%, var(--color-marro) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.targeta-caracteristica-foto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay ara és el contingut directament */
+.overlay-targeta {
+  position: relative;
+  background: none;
+  padding: 0;
+  color: white;
+  width: 100%;
+}
+
+.overlay-targeta h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+  color: #fff;
+  font-family: var(--font-titol);
+  text-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.overlay-targeta p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: none;
+}
