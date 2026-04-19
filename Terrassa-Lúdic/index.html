@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opcions de sortida trimestral</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="tagline">Sortida trimestral · Terrassa</p>
+      <h1>Opcions per votar</h1>
+      <p class="intro">Les activitats estan agrupades per lloc perquè es vegi què es pot fer i què es pot combinar.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="option-tabs" aria-label="Activitats agrupades per lloc">
+      <div class="tabs" role="tablist" aria-label="Llocs i combinacions">
+        <button class="tab-button active" id="tab-parcvalles" role="tab" aria-selected="true" aria-controls="panel-parcvalles" data-tab="parcvalles">Parc Vallès</button>
+        <button class="tab-button" id="tab-vallparadis" role="tab" aria-selected="false" aria-controls="panel-vallparadis" data-tab="vallparadis">Vallparadís</button>
+        <button class="tab-button" id="tab-gravetat" role="tab" aria-selected="false" aria-controls="panel-gravetat" data-tab="gravetat">Gravetat Zero</button>
+        <button class="tab-button" id="tab-geoboulder" role="tab" aria-selected="false" aria-controls="panel-geoboulder" data-tab="geoboulder">Geo Boulder</button>
+        <button class="tab-button" id="tab-altres" role="tab" aria-selected="false" aria-controls="panel-altres" data-tab="altres">Altres llocs</button>
+      </div>
+
+      <article class="place-card highlight panel active" id="panel-parcvalles" role="tabpanel" aria-labelledby="tab-parcvalles" data-panel="parcvalles">
+        <div class="place-copy">
+          <p class="option-code">Opció C · Parc Vallès</p>
+          <h2>Salting + bitlles en un mateix recinte</h2>
+          <p class="lead">
+            La proposta més fàcil de combinar: tot és al Parc Vallès i no cal canviar de zona.
+            Ideal si es vol una sortida molt lúdica i amb poca logística.
+          </p>
+
+          <div class="activity-grid">
+            <div class="activity">
+              <h3>Urban Planet</h3>
+              <p><strong>Què és?</strong> Un parc de llits elàstics. Es salta, es cau sobre matalassos, es fan reptes tipus ninja i zones com airbag, foam pit o dodgeball.</p>
+              <p><strong>Durada:</strong> 60, 90 o 120 minuts.</p>
+              <p><strong>Preu:</strong> 11, 14 o 17 euros. Mitjons obligatoris: 2,50 euros.</p>
+              <p><strong>Horari:</strong> dilluns-dijous 17.00-21.00; divendres 17.00-22.00; no lectius també 12.00-14.00.</p>
+            </div>
+            <div class="activity">
+              <h3>New Park Bowling</h3>
+              <p><strong>Què és?</strong> Una bolera. Cada alumne llança boles per tombar bitlles i competeix per punts en petits grups.</p>
+              <p><strong>Durada:</strong> una partida pot allargar-se força si hi ha 7-8 persones per pista.</p>
+              <p><strong>Preu:</strong> 5,50 euros de dilluns a dijous; sabates incloses.</p>
+              <p><strong>Horari:</strong> dilluns-dijous 16.00-00.00; divendres 16.00-01.00.</p>
+            </div>
+          </div>
+
+          <div class="combo-box">
+            <strong>Combinació recomanada:</strong> 60 o 90 minuts d'Urban Planet + partida de bitlles. Si el pressupost és ajustat, fer només Urban Planet ja és una opció completa.
+          </div>
+
+          <div class="link-row">
+            <a href="https://urbanplanetjump.es/ca/parques/terrassa/" target="_blank" rel="noopener">Urban Planet</a>
+            <a href="https://newparkbowling.com/" target="_blank" rel="noopener">New Park Bowling</a>
+            <a href="https://www.parcvalles.com/ca/horaris" target="_blank" rel="noopener">Horaris Parc Vallès</a>
+          </div>
+        </div>
+
+        <div class="photo-strip">
+          <img src="assets/urban-planet-1.png" alt="Urban Planet Terrassa al Parc Vallès">
+          <img src="assets/urban-planet-2.png" alt="Zona de salting d'Urban Planet Terrassa">
+          <img src="assets/newpark-bowling.jpg" alt="Pistes de New Park Bowling al Parc Vallès">
+        </div>
+      </article>
+
+      <article class="place-card panel" id="panel-vallparadis" role="tabpanel" aria-labelledby="tab-vallparadis" data-panel="vallparadis" hidden>
+        <div class="place-copy">
+          <p class="option-code">Opció B · Parc de Vallparadís</p>
+          <h2>Multiaventura al parc</h2>
+          <p class="lead">
+            Una activitat per equips dins el parc. Es poden escollir d'1 a 4 proves,
+            i la durada pot anar d'1 a 6 hores segons el paquet.
+          </p>
+
+          <div class="activity-grid compact">
+            <div class="activity">
+              <h3>Canoa canadenca</h3>
+              <p>Barca ampla i estable. Cal remar coordinats per moure's pel llac.</p>
+            </div>
+            <div class="activity">
+              <h3>Cursa d'orientació</h3>
+              <p>Joc per equips amb mapa o pistes. L'objectiu és trobar punts del parc.</p>
+            </div>
+            <div class="activity">
+              <h3>Tirolina</h3>
+              <p>Baixada subjecte amb arnès per un cable. És curta, ràpida i molt visual.</p>
+            </div>
+            <div class="activity">
+              <h3>Escalada en rocòdrom</h3>
+              <p>Pujar per una paret artificial amb preses, sempre amb material i monitoratge.</p>
+            </div>
+            <div class="activity">
+              <h3>Tir amb arc</h3>
+              <p>Activitat de punteria. Es dispara amb arc cap a una diana, seguint normes de seguretat.</p>
+            </div>
+            <div class="activity">
+              <h3>Raid d'aventura</h3>
+              <p>Proves variades per equips. Guanya qui combina orientació, rapidesa i cooperació.</p>
+            </div>
+          </div>
+
+          <div class="combo-box">
+            <strong>Combinació recomanada:</strong> cursa d'orientació + tirolina + canoa o tir amb arc. És la més variada i aprofita molt bé Vallparadís.
+          </div>
+
+          <ul class="quick-data">
+            <li><strong>Preu:</strong> a confirmar amb Emocions/Mogador Outdoor.</li>
+            <li><strong>Durada:</strong> 1-6 hores segons activitats; per a una sortida escolar encaixa millor 2-3 hores.</li>
+            <li><strong>Després:</strong> pícnic i jocs al mateix parc, sense desplaçar-se.</li>
+          </ul>
+
+          <div class="link-row">
+            <a href="https://emocions.cat/parc-del-vallparadis-cat" target="_blank" rel="noopener">Emocions</a>
+            <a href="https://visitaterrassa.cat/multiactivitats-vallparadis-esport-al-parc-urba-mes-llarg-de-catalunya/" target="_blank" rel="noopener">Multiactivitats</a>
+            <a href="https://www.terrassa.cat/activitats-al-parc-vallparadis" target="_blank" rel="noopener">Activitats al parc</a>
+          </div>
+        </div>
+
+        <div class="photo-strip">
+          <img src="assets/vallparadis-emocions.jpg" alt="Activitats d'Emocions al parc de Vallparadís">
+          <img src="assets/vallparadis-canoa.jpg" alt="Canoa al llac de Vallparadís">
+          <img src="assets/parc-vallparadis.jpg" alt="Parc de Vallparadís de Terrassa">
+        </div>
+      </article>
+
+      <article class="place-card panel" id="panel-gravetat" role="tabpanel" aria-labelledby="tab-gravetat" data-panel="gravetat" hidden>
+        <div class="place-copy">
+          <p class="option-code">Opció A · Gravetat Zero</p>
+          <h2>Escalada amb corda i arnès</h2>
+          <p class="lead">
+            Gravetat Zero és un rocòdrom gran situat a la zona de Parc Vallès. La proposta escolar
+            seria fer una sessió d'iniciació a l'escalada esportiva amb monitoratge.
+          </p>
+
+          <div class="activity-grid">
+            <div class="activity">
+              <h3>En què consisteix?</h3>
+              <p>L'alumne puja per una paret artificial amb preses de colors. Porta arnès i va assegurat amb corda.</p>
+              <p>El monitor controla la seguretat i explica com moure peus i mans.</p>
+              <p>És una activitat de superació: no cal arribar a dalt, sinó atrevir-se a provar-ho.</p>
+            </div>
+            <div class="activity">
+              <h3>Dades pràctiques</h3>
+              <p><strong>Durada:</strong> 90 minuts.</p>
+              <p><strong>Preu:</strong> 7 euros + IVA aprox. per alumne, segons informació escolar orientativa.</p>
+              <p><strong>Horari:</strong> la web indica que les activitats escolars es poden fer matí o migdia entre setmana, amb reserva.</p>
+              <p><strong>Material:</strong> monitoratge i material inclosos en el pressupost escolar.</p>
+            </div>
+            <div class="activity">
+              <h3>Per què pot agradar?</h3>
+              <p>És una activitat molt visual: parets altes, cordes i reptes clars.</p>
+              <p>Funciona bé per alumnes que volen provar un esport diferent.</p>
+              <p>També permet animar els companys i celebrar petits progressos.</p>
+            </div>
+            <div class="activity">
+              <h3>Després de l'activitat</h3>
+              <p>La combinació prevista és anar al parc de les Nacions Unides.</p>
+              <p>És un espai ampli, amb molta gespa, adequat per pícnic i jocs de grup.</p>
+            </div>
+          </div>
+
+          <div class="link-row">
+            <a href="https://gravetat-zero.net/tarifes-i-horaris" target="_blank" rel="noopener">Gravetat Zero</a>
+            <a href="https://gravetatzero.wordpress.com/escoles/" target="_blank" rel="noopener">Gravetat Zero escoles</a>
+            <a href="https://www.terrassa.cat/parc-de-les-nacions-unides" target="_blank" rel="noopener">Parc de les Nacions Unides</a>
+          </div>
+        </div>
+
+        <div class="photo-strip">
+          <img src="assets/gravetat-zero.png" alt="Escalada indoor a Gravetat Zero">
+          <img src="assets/parc-nacions-unides.png" alt="Parc de les Nacions Unides">
+        </div>
+      </article>
+
+      <article class="place-card panel" id="panel-geoboulder" role="tabpanel" aria-labelledby="tab-geoboulder" data-panel="geoboulder" hidden>
+        <div class="place-copy">
+          <p class="option-code">Opció D · Geo Boulder</p>
+          <h2>Boulder indoor sense corda</h2>
+          <p class="lead">
+            Geo Boulder és una sala d'escalada en bloc. No es puja tan amunt com en l'escalada amb corda:
+            es fan recorreguts curts, amb matalassos a sota, i es resolen com si fossin petits reptes.
+          </p>
+
+          <div class="activity-grid">
+            <div class="activity">
+              <h3>En què consisteix?</h3>
+              <p>L'alumne intenta arribar al final d'un recorregut de preses de colors.</p>
+              <p>No porta corda perquè l'alçada és menor i el terra està protegit amb matalassos.</p>
+              <p>Es treballa molt l'estratègia: mirar, pensar la ruta, provar i corregir.</p>
+            </div>
+            <div class="activity">
+              <h3>Dades pràctiques</h3>
+              <p><strong>Preu:</strong> entrada de dia 10 euros; escoles i grups a consultar.</p>
+              <p><strong>Horari:</strong> de dilluns a divendres, 10.00-22.00.</p>
+              <p><strong>Durada orientativa:</strong> 90 minuts per a una sessió escolar.</p>
+              <p><strong>Adreça:</strong> carrer de Murillo, 18.</p>
+            </div>
+            <div class="activity">
+              <h3>Per què pot agradar?</h3>
+              <p>És molt social: mentre un escala, els altres observen i proposen moviments.</p>
+              <p>No fa tanta impressió d'alçada com una paret amb corda.</p>
+              <p>És moderna, urbana i molt fàcil d'entendre mirant les imatges.</p>
+            </div>
+            <div class="activity">
+              <h3>Després de l'activitat</h3>
+              <p>Es pot anar caminant fins a Vallparadís en uns 15-20 minuts.</p>
+              <p>Allà es podria fer pícnic i una estona de jocs al parc.</p>
+            </div>
+          </div>
+
+          <div class="link-row">
+            <a href="https://www.geoboulder.es/" target="_blank" rel="noopener">Geo Boulder</a>
+            <a href="https://www.geoboulder.es/catalogo%26lang%3Dcat" target="_blank" rel="noopener">Tarifes</a>
+            <a href="https://www.geoboulder.es/escuelas%26lang%3Dcat" target="_blank" rel="noopener">Escoles i grups</a>
+          </div>
+        </div>
+
+        <div class="photo-strip">
+          <img src="assets/geoboulder-1.png" alt="Instal·lacions de Geo Boulder">
+          <img src="assets/geoboulder-2.png" alt="Activitat juvenil a Geo Boulder">
+          <img src="assets/parc-vallparadis.jpg" alt="Parc de Vallparadís">
+        </div>
+      </article>
+
+      <article class="place-card secondary panel" id="panel-altres" role="tabpanel" aria-labelledby="tab-altres" data-panel="altres" hidden>
+        <div class="place-copy">
+          <p class="option-code">Altres llocs detectats</p>
+          <h2>Més salting a Terrassa</h2>
+          <div class="activity-grid">
+            <div class="activity">
+              <h3>HiJump Park Terrassa</h3>
+              <p><strong>Què és?</strong> Parc de tobogans, salts, tirolines petites i zones de joc físic. És una alternativa semblant a Urban Planet.</p>
+              <p><strong>Horari:</strong> dilluns-dijous 17.00-21.00; divendres 17.00-22.00; caps de setmana 11.00-22.00 o 21.00.</p>
+              <a href="https://hijump.es/terrassa/" target="_blank" rel="noopener">Veure HiJump</a>
+            </div>
+            <div class="activity">
+              <h3>Només Urban Planet</h3>
+              <p><strong>Què és?</strong> Si no es volen bitlles, es pot fer una sessió llarga de salting i prou.</p>
+              <p><strong>Avantatge:</strong> és fàcil d'explicar, molt visual i agrada a qui vol moure's molt.</p>
+              <a href="https://urbanplanetjump.es/ca/parques/terrassa/" target="_blank" rel="noopener">Veure Urban Planet</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-strip">
+          <img src="assets/hijump-terrassa.jpg" alt="Instal·lacions de HiJump Park Terrassa">
+          <img src="assets/urban-planet-2.png" alt="Urban Planet Terrassa">
+        </div>
+      </article>
+    </section>
+
+    <section class="summary">
+      <div class="section-title">
+        <p class="tagline">Resum ràpid</p>
+        <h2>Què té cada lloc?</h2>
+      </div>
+      <div class="summary-grid">
+        <div><strong>Parc Vallès:</strong> salting i bitlles en un mateix recinte.</div>
+        <div><strong>Vallparadís:</strong> multiaventura amb proves diverses al parc.</div>
+        <div><strong>Gravetat Zero:</strong> escalada amb corda i arnès.</div>
+        <div><strong>Geo Boulder:</strong> escalada en bloc, sense corda i amb matalassos.</div>
+        <div><strong>HiJump:</strong> alternativa de salting, tobogans i joc físic.</div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="section-title">
+        <p class="tagline">Ubicacions</p>
+        <h2>Mapa de les propostes</h2>
+      </div>
+      <div id="map" class="map" aria-label="Mapa interactiu de Terrassa amb les ubicacions"></div>
+      <p class="map-note">El mapa necessita internet per carregar OpenStreetMap.</p>
+    </section>
+
+    <section class="sources">
+      <h2>Fonts consultades</h2>
+      <ul>
+        <li><a href="https://urbanplanetjump.es/ca/parques/terrassa/" target="_blank" rel="noopener">Urban Planet Terrassa</a></li>
+        <li><a href="https://www.parcvalles.com/en/leisure/urban-planet" target="_blank" rel="noopener">Urban Planet a Parc Vallès</a></li>
+        <li><a href="https://newparkbowling.com/" target="_blank" rel="noopener">New Park Bowling</a></li>
+        <li><a href="https://www.parcvalles.com/en/leisure/new-park-bowling" target="_blank" rel="noopener">New Park Bowling a Parc Vallès</a></li>
+        <li><a href="https://emocions.cat/parc-del-vallparadis-cat" target="_blank" rel="noopener">Emocions Vallparadís</a></li>
+        <li><a href="https://visitaterrassa.cat/multiactivitats-vallparadis-esport-al-parc-urba-mes-llarg-de-catalunya/" target="_blank" rel="noopener">Turisme Terrassa · Multiactivitats Vallparadís</a></li>
+        <li><a href="https://www.terrassa.cat/activitats-al-parc-vallparadis" target="_blank" rel="noopener">Ajuntament de Terrassa · Activitats al parc</a></li>
+        <li><a href="https://hijump.es/terrassa/" target="_blank" rel="noopener">HiJump Park Terrassa</a></li>
+        <li><a href="https://gravetat-zero.net/tarifes-i-horaris" target="_blank" rel="noopener">Gravetat Zero</a></li>
+        <li><a href="https://www.geoboulder.es/catalogo%26lang%3Dcat" target="_blank" rel="noopener">Geo Boulder</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
