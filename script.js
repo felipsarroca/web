@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
             icon: 'Modernisme/favicon.svg'
         },
         {
+            name: 'Les tabes',
+            path: 'https://ja.cat/tabes',
+            category: 'Webs educatives',
+            description: 'Web visual sobre l’origen, la preparació, les formes de joc i el valor cultural de les tabes.',
+            icon: 'Tabes/assets/favicon-principal.png'
+        },
+        {
             name: 'Terrassa lúdic',
             path: 'https://ja.cat/terrassaludic',
             category: 'Webs educatives',
