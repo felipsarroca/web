@@ -238,6 +238,11 @@ li {
   font-size: 1.01rem;
 }
 
+.hero-lead strong {
+  color: #1565c0;
+  font-weight: 800;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
