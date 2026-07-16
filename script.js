@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Astúries i Navarra',
             path: 'https://ja.cat/asturies',
-            category: 'Webs educatives',
+            category: 'Viatges i turisme',
             description: 'Guia familiar visual per descobrir indrets d’Astúries i Navarra, comparar propostes, consultar-les al mapa i preparar cada sortida.',
-            icon: 'Asturies-Navarra/public/favicon.svg'
+            icon: 'Asturies-Navarra/favicon.svg'
         }
     ];
 
