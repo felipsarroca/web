@@ -15,5 +15,8 @@ test("totes les activitats tenen una justificació i camps geogràfics", () => {
     assert.ok(activity.appeal.length >= 12, activity.name);
     assert.ok(Object.hasOwn(activity, "latitude"), activity.name);
     assert.ok(Object.hasOwn(activity, "longitude"), activity.name);
+    assert.ok(["àncora", "complement"].includes(activity.role), activity.name);
+    assert.ok(Array.isArray(activity.weather), activity.name);
+    assert.equal(typeof activity.bookingRecommended, "boolean", activity.name);
   }
 });

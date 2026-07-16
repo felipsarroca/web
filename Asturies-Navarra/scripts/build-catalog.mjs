@@ -18,6 +18,23 @@ const parseMinutes = (value) => {
   return matches.length ? Math.min(...matches) : 60;
 };
 
+const anchorPattern = /MUJA|Tito Bustillo|Aquari|Jardí Botànic|MUMI|Samuño|Bodegues El Gaitero|Villaviciosa històrica|Museu de la Sidra|Fitu|Cangas de Onís|Santxotena|Señorío de Bertiz|Trikuharri|Granja Escola Ultzama|Coves d’Urdax|Zugarramurdi|Irrisarri|Xorroxin|Amaiur/i;
+function classify(name, type, appeal, duration) {
+  const text = `${name} ${type} ${appeal}`.toLowerCase();
+  const weather = [];
+  if (/museu|aquari|cova|celler|centre d.interpretació|taller|exposició/.test(text)) weather.push("pluja");
+  if (/platja|riu|llac|cova|bosc|ombra|piscina/.test(text)) weather.push("calor");
+  if (/mirador|muntanya|costa|platja|sender|ruta|cascada/.test(text)) weather.push("bon temps");
+  return {
+    role: anchorPattern.test(name) ? "àncora" : "complement",
+    setting: /museu|aquari|cova|celler|centre|taller|exposició/.test(text) ? "interior o cobert" : "exterior",
+    weather: [...new Set(weather)],
+    bookingRecommended: /reserva|visita guiada|taller|cova|aquari|museu/.test(text),
+    picnicFriendly: /parc|platja|bosc|àrea|jardí|llac|riu/.test(text),
+    familyNote: /desnivell|escales|onatge|penya-segat|fang|difícil/.test(text) ? "Revisa les condicions i l’adequació per a l’infant de 4 anys." : "Proposta inclosa segons els criteris familiars de la guia.",
+  };
+}
+
 function findRichDetails(raw, name) {
   const pattern = new RegExp(escapeRegExp(name), "g");
   const candidates = [];
@@ -43,6 +60,7 @@ async function parseSource(source) {
     const [block, name, drive, duration, type, appealShort, cost] = lines.slice(index, index + 7);
     if (!name || !drive || !duration) continue;
     const rich = findRichDetails(raw, name);
+    const classification = classify(name, type, rich?.appeal ?? appealShort, duration);
     activities.push({
       id: `${source.prefix}-${String(activities.length + 1).padStart(3, "0")}`,
       region: source.region,
@@ -56,8 +74,7 @@ async function parseSource(source) {
       appealShort,
       cost,
       practicalNotes: rich?.practicalNotes ?? "",
-      role: "complement",
-      weather: [],
+      ...classification,
       officialUrl: null,
       latitude: null,
       longitude: null,
