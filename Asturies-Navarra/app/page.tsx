@@ -114,7 +114,7 @@ export default function Home() {
 
   return <main className="app-shell">
     <header className="topbar">
-      <button className="brand" onClick={() => setTab("Resum")}>Astúries i Navarra <span>en família 2026</span></button>
+      <button className="brand" onClick={() => setTab("Resum")}><img src={`${basePath}/favicon.svg`} alt="" aria-hidden="true"/> <span className="brand-title">Astúries i Navarra <small>en família 2026</small></span></button>
       <nav aria-label="Navegació principal">{(["Resum", "Explora", "Mapa", "Clústers", "Planificador"] as Tab[]).map((item) => <button className={tab === item ? "active" : ""} onClick={() => setTab(item)} key={item}>{item}{item === "Planificador" && saved.length > 0 ? <b>{saved.length}</b> : null}</button>)}</nav>
       <div className="region-switch" aria-label="Destinació"><button className={region === "Astúries" ? "active" : ""} onClick={() => changeRegion("Astúries")}>Astúries</button><button className={region === "Navarra" ? "active" : ""} onClick={() => changeRegion("Navarra")}>Navarra</button></div>
     </header>

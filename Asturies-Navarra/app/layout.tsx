@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/web/Asturies-Navarra/favicon.svg",
+    shortcut: "/web/Asturies-Navarra/favicon.svg",
+    apple: "/web/Asturies-Navarra/favicon.svg",
   },
 };
 
