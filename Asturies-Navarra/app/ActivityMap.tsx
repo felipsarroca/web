@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from "react-leaflet";
-import { latLngBounds } from "leaflet";
+import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
+import { divIcon, latLngBounds } from "leaflet";
 
 type MapActivity = {
   id: string; name: string; block: string; drive: string; duration: string; appeal: string;
@@ -41,6 +41,7 @@ export default function ActivityMap({ activities, region, onSelect }: { activiti
   const base = region === "Astúries"
     ? { name: "Casa de Villaviciosa", position: [43.4814, -5.4357] as [number, number] }
     : { name: "Casa d’Azpilkueta", position: [43.2004, -1.4809] as [number, number] };
+  const baseIcon = divIcon({ className: "base-map-marker", html: "<span aria-hidden='true'>⌂</span>", iconSize: [42, 42], iconAnchor: [21, 21] });
 
   return <div className="map-shell">
     <div className="map-toolbar">
@@ -52,15 +53,16 @@ export default function ActivityMap({ activities, region, onSelect }: { activiti
       <MapContainer center={center} zoom={9} scrollWheelZoom className="activity-map">
         <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={19} attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'/>
         <FitActivities groups={groups}/>
-        <CircleMarker center={base.position} radius={11} pathOptions={{ color: "#17324b", weight: 3, fillColor: "#f2b632", fillOpacity: 1 }}>
-          <Popup><div className="base-popup"><b>⌂ {base.name}</b><small>Punt d’origen dels trajectes</small></div></Popup>
-        </CircleMarker>
         {groups.map((group) => <CircleMarker key={group.key} center={[group.latitude, group.longitude]} radius={Math.min(9 + Math.sqrt(group.activities.length) * 3, 23)} pathOptions={{ color: "#fff", weight: 2, fillColor: group.approximate ? "#d4a24c" : region === "Astúries" ? "#176b87" : "#b85c3d", fillOpacity: .92 }}>
           <Popup maxWidth={330}>
             <div className="map-popup-head"><strong>{group.approximate ? `Clúster ${group.activities[0].block}` : group.activities[0].name}</strong><span>{group.approximate ? `${group.activities.length} propostes amb ubicació aproximada` : "Ubicació geocodificada"}</span></div>
             <div className="map-popup-list">{group.activities.map((activity) => <button type="button" key={activity.id} onClick={() => onSelect(activity.id)}><b>{activity.name}</b><small>{activity.type} · {activity.drive} · {activity.duration}</small></button>)}</div>
           </Popup>
         </CircleMarker>)}
+        <Marker position={base.position} icon={baseIcon} zIndexOffset={1000}>
+          <Tooltip permanent direction="right" offset={[19, 0]} className="base-map-label">{base.name}</Tooltip>
+          <Popup><div className="base-popup"><b>⌂ {base.name}</b><small>Punt d’origen dels trajectes</small></div></Popup>
+        </Marker>
       </MapContainer>
       <div className="map-legend"><span><i className="home">⌂</i>Punt d’origen</span><span><i className={region === "Astúries" ? "exact asturies" : "exact navarra"}></i>Ubicació geocodificada</span><span><i className="approximate"></i>Centre aproximat del clúster</span><span>La mida indica quantes propostes comparteixen el punt</span></div>
       <p className="map-caption">Les ubicacions aproximades s’utilitzen només quan una activitat no té un punt físic únic o encara necessita verificació manual.</p>
