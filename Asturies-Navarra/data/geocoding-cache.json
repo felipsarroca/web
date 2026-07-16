@@ -1,6 +1,18 @@
 {
-  "Astúries|A1|Bodegues El Gaitero": null,
-  "Astúries|A1|Centre d’Interpretació de la Ría": null,
+  "Astúries|A1|Bodegues El Gaitero": {
+    "latitude": 43.4929164,
+    "longitude": -5.4241657,
+    "displayName": "Sidra El Gaitero, Villaviciosa, Principado de Asturias",
+    "osmType": "alcohol",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Centre d’Interpretació de la Ría": {
+    "latitude": 43.5100396,
+    "longitude": -5.4170384,
+    "displayName": "Centro de Interpretación de la Ría de Villaviciosa, Villaviciosa, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
   "Astúries|A1|Los Caserinos · granja i formatgeria": null,
   "Astúries|A1|Platja de Misiego i passeig de la ría": null,
   "Astúries|A1|Platja d’Espanya": null,
@@ -17,13 +29,681 @@
     "displayName": "Bufones de Pría, Llames, Pría, Llanes, Asturias / Asturies, 33591, España",
     "osmType": "blowhole"
   },
-  "Astúries|A1|Cueva de Ardines": null,
+  "Astúries|A1|Cueva de Ardines": {
+    "latitude": 43.4605672,
+    "longitude": -5.0674404,
+    "displayName": "Acceso cuevas de Tito Bustillo y Ardines, Ribadesella / Ribeseya, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
   "Astúries|A1|El Malain · recollida de fruits vermells": null,
   "Astúries|A1|Església romànica de San Juan de Amandi": null,
   "Astúries|A1|Jaciment de petjades de Merón": null,
   "Astúries|A1|Mercat setmanal de Villaviciosa": null,
-  "Astúries|A1|Monestir de Santa María de Valdediós": null,
+  "Astúries|A1|Monestir de Santa María de Valdediós": {
+    "latitude": 43.436433,
+    "longitude": -5.5071141,
+    "displayName": "Monasterio de Santa María de Valdediós, Villaviciosa, Principado de Asturias",
+    "osmType": "place_of_worship",
+    "provider": "Photon/OSM"
+  },
   "Astúries|A1|Paddle surf en ría o platja protegida": null,
-  "Astúries|A1|Parc de La Ballina": null,
-  "Astúries|A1|Passeig a cavall": null
+  "Astúries|A1|Parc de La Ballina": {
+    "latitude": 43.4779753,
+    "longitude": -5.4384738,
+    "displayName": "Calle Norberto de la Ballina Fernández, Villaviciosa, Principado de Asturias",
+    "osmType": "residential",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Passeig a cavall": {
+    "latitude": 43.4642007,
+    "longitude": -5.0660123,
+    "displayName": "Restaurante Pizzería de Pepe Cavall, Ribadesella/Ribeseya, Principado de Asturias",
+    "osmType": "restaurant",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Platja de La Ñora": {
+    "latitude": 43.5469875,
+    "longitude": -5.5898336,
+    "displayName": "Playa de La Ñora, Villaviciosa, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Platja de Merón": {
+    "latitude": 43.5440024,
+    "longitude": -5.4940404,
+    "displayName": "Playa de Merón, Villaviciosa, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Playa de Guadamía": {
+    "latitude": 43.455754,
+    "longitude": -4.9815286,
+    "displayName": "Playa de Guadamía, Ribadesella/Ribeseya, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Santa María del Naranco i San Miguel": {
+    "latitude": 43.3790469,
+    "longitude": -5.8659892,
+    "displayName": "Santa María del Naranco, Oviedo, Principado de Asturias",
+    "osmType": "place_of_worship",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Splatmaster infantil": {
+    "latitude": 43.3833027,
+    "longitude": -5.8199567,
+    "displayName": "Escuela de educación infantil Jardín de la Infancia La Carisa, La Corredoria, Principado de Asturias",
+    "osmType": "school",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Villa romana de Veranes": {
+    "latitude": 43.4841318,
+    "longitude": -5.7537202,
+    "displayName": "Villa romana de Veranes, Gijón / Xixón, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A1|Área recreativa de Cueva Deboyu": {
+    "latitude": 43.124111,
+    "longitude": -6.0587694,
+    "displayName": "Área Recreativa Cueva Güerta, Teverga, Principado de Asturias",
+    "osmType": "picnic_site",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A2|Platja de Rodiles": {
+    "latitude": 43.3313615,
+    "longitude": -6.1009849,
+    "displayName": "Rodiles, Grau / Grado, Principado de Asturias",
+    "osmType": "administrative",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A2|Platja d’El Puntal": {
+    "latitude": 43.5270996,
+    "longitude": -5.3917601,
+    "displayName": "El Puntal, Villaviciosa, Principado de Asturias",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A3|Nava i Museu de la Sidra": {
+    "latitude": 43.3573258,
+    "longitude": -5.5048257,
+    "displayName": "Museo de la Sidra, Nava, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A3|Ruta dels Covarones del riu Tuernes": {
+    "latitude": 43.419598,
+    "longitude": -5.9018608,
+    "displayName": "Los Covarones del río Tuernes, Oviedo, Principado de Asturias",
+    "osmType": "attraction",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A3|Museu de la Sidra de Nava": {
+    "latitude": 43.3573258,
+    "longitude": -5.5048257,
+    "displayName": "Museo de la Sidra, Nava, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A3|Tuernes el Pequeño": {
+    "latitude": 43.433941,
+    "longitude": -5.9063083,
+    "displayName": "Tuernes el Pequeño, Llanera, Principado de Asturias",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A4|Lastres i mirador de San Roque": {
+    "latitude": 43.5165275,
+    "longitude": -5.2690327,
+    "displayName": "Mirador de San Roque, Colunga, Principado de Asturias",
+    "osmType": "viewpoint",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A4|MUJA · Museu del Juràssic": {
+    "latitude": 43.5016048,
+    "longitude": -5.2747882,
+    "displayName": "El café del MUJA, Colunga, Principado de Asturias",
+    "osmType": "cafe",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A4|Platja de La Griega i petjades": {
+    "latitude": 43.5003885,
+    "longitude": -5.2551165,
+    "displayName": "Yacimiento de icnitas de dinosaurio de la playa de la Griega, Colunga, Principado de Asturias",
+    "osmType": "attraction",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A4|Mirador de San Roque": {
+    "latitude": 43.5165275,
+    "longitude": -5.2690327,
+    "displayName": "Mirador de San Roque, Colunga, Principado de Asturias",
+    "osmType": "viewpoint",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A5|Platja de La Isla": {
+    "latitude": 43.4817005,
+    "longitude": -5.2272209,
+    "displayName": "La Isla, Colunga, Principado de Asturias",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A5|Platja d’Espasa": {
+    "latitude": 43.4748032,
+    "longitude": -5.2133866,
+    "displayName": "Playa Espasa, Caravia, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A6|Jardí Botànic Atlàntic": {
+    "latitude": 43.5199945,
+    "longitude": -5.6233138,
+    "displayName": "Jardín Botánico Atlántico, Gijón / Xixón, Principado de Asturias",
+    "osmType": "garden",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A6|Laboral Ciudad de la Cultura": {
+    "latitude": 43.5247258,
+    "longitude": -5.6151031,
+    "displayName": "Laboral Centro de Arte y Ciudad de la Cultura, Gijón / Xixón, Principado de Asturias",
+    "osmType": "arts_centre",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A6|Muséu del Pueblu d’Asturies": {
+    "latitude": 43.5379511,
+    "longitude": -5.6340373,
+    "displayName": "Museu etnográficu Pueblu d'Asturies, Gijón/Xixón, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A6|Museu Evaristo Valle": {
+    "latitude": 43.5345073,
+    "longitude": -5.6188016,
+    "displayName": "Museo Evaristo Valle, Somió, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A6|Parc d’Isabel la Católica": {
+    "latitude": 43.5379676,
+    "longitude": -5.6428881,
+    "displayName": "Parque de Isabel la Católica, Gijón / Xixón, Principado de Asturias",
+    "osmType": "park",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Gijón · Bioparc Acuario": {
+    "latitude": 43.5421035,
+    "longitude": -5.6769879,
+    "displayName": "Acuario de Gijón, Gijón / Xixón, Principado de Asturias",
+    "osmType": "aquarium",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Cerro de Santa Catalina i Elogio": {
+    "latitude": 43.5487661,
+    "longitude": -5.6621719,
+    "displayName": "Cerro de Santa Catalina, Gijón / Xixón, Principado de Asturias",
+    "osmType": "cliff",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Museu del Ferrocarril de Gijón": {
+    "latitude": 43.5405624,
+    "longitude": -5.6740417,
+    "displayName": "Museo del Ferrocarril de Asturias, Gijón/Xixón, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Platja de Poniente": {
+    "latitude": 43.5434335,
+    "longitude": -5.6759012,
+    "displayName": "Playa de Poniente, Gijón / Xixón, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Platja de San Lorenzo": {
+    "latitude": 43.5427445,
+    "longitude": -5.6590204,
+    "displayName": "Playa de San Lorenzo, Gijón / Xixón, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A7|Termes romanes de Campo Valdés": {
+    "latitude": 43.545452,
+    "longitude": -5.6611724,
+    "displayName": "Museo de las Termas Romanas de Campo Valdés / Muséu de les Termes Romanes d'El Campu Valdés, Gijón / Xixón, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A8|Área recreativa de La Pesanca": {
+    "latitude": 43.2660638,
+    "longitude": -5.3351444,
+    "displayName": "Área recreativa La Pesanca, Piloña, Principado de Asturias",
+    "osmType": "picnic_site",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A9|Centre d’Art Rupestre Tito Bustillo": {
+    "latitude": 43.458123,
+    "longitude": -5.0674735,
+    "displayName": "Centro de Arte Rupestre de Tito Bustillo, Ribadesella / Ribeseya, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A9|Cova de Tito Bustillo": {
+    "latitude": 43.4606631,
+    "longitude": -5.0676633,
+    "displayName": "Cueva de Tito Bustillo, Ribadesella/Ribeseya, Principado de Asturias",
+    "osmType": "cave_entrance",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A9|Descens familiar del Sella": {
+    "latitude": 43.4616019,
+    "longitude": -5.0604751,
+    "displayName": "Monumento al Descenso del Sella, Ribadesella/Ribeseya, Principado de Asturias",
+    "osmType": "artwork",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A9|Ribadesella i passeig de Santa Marina": {
+    "latitude": 43.466719,
+    "longitude": -5.0640131,
+    "displayName": "Playa de Santa Marina, Ribadesella/Ribeseya, Principado de Asturias",
+    "osmType": "beach",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A9|Parque Aventura de Arriondas": {
+    "latitude": 43.5442052,
+    "longitude": -6.9116965,
+    "displayName": "Parque aventuras Aguaxosa, Tapia de Casariego, Principado de Asturias",
+    "osmType": "park",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A10|Cangas de Onís": {
+    "latitude": 43.3136138,
+    "longitude": -5.0658503,
+    "displayName": "Cangas de Onís, Principado de Asturias",
+    "osmType": "administrative",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A10|Cangas de Onís · mercat i pont": {
+    "latitude": 43.3499796,
+    "longitude": -5.113787,
+    "displayName": "Mercado de Ganados de Cangas de Onís, Cangas de Onís, Principado de Asturias",
+    "osmType": "yes",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A11|Oviedo històric i parc de San Francisco": {
+    "latitude": 43.3617483,
+    "longitude": -5.8465155,
+    "displayName": "Edificio histórico Universidad de Oviedo, Oviedo / Uviéu, Principado de Asturias",
+    "osmType": "university",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A11|Preromànic d’Oviedo": {
+    "latitude": 43.3533452,
+    "longitude": -5.8795096,
+    "displayName": "Oviedo, Principado de Asturias",
+    "osmType": "administrative",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A11|Museu Arqueològic d’Astúries": {
+    "latitude": 43.3627055,
+    "longitude": -5.8425433,
+    "displayName": "Museo Arqueológico de Asturias, Oviedo / Uviéu, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A11|Parc d’hivern d’Oviedo": {
+    "latitude": 43.3616775,
+    "longitude": -5.8412084,
+    "displayName": "D-espacio - Partycipa, Uviéu - Oviedo, Principado de Asturias",
+    "osmType": "yes",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A11|Zoo El Bosque": {
+    "latitude": 43.3516665,
+    "longitude": -5.8131466,
+    "displayName": "Núcleo Zoológico el Bosque, Oviedo, Principado de Asturias",
+    "osmType": "zoo",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A12|Ecomuseu Miner de la Vall de Samuño": {
+    "latitude": 43.2751879,
+    "longitude": -5.6758739,
+    "displayName": "Ferrocarril Ecomuseo Minero Valle de Samuño, Llangréu / Langreo, Principado de Asturias",
+    "osmType": "narrow_gauge",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A12|Museu de la Mineria MUMI": {
+    "latitude": 43.2886246,
+    "longitude": -5.6531105,
+    "displayName": "Museo de la Minería y de la Industria de Asturias, Samartín del Rei Aurelio, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A12|Ecomuseu miner de Samuño": {
+    "latitude": 43.2751879,
+    "longitude": -5.6758739,
+    "displayName": "Ferrocarril Ecomuseo Minero Valle de Samuño, Llangréu / Langreo, Principado de Asturias",
+    "osmType": "narrow_gauge",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A13|Avilés històric i Niemeyer": {
+    "latitude": 43.5579231,
+    "longitude": -5.9182096,
+    "displayName": "Cúpula C.C.I. Oscar Niemeyer, Aviles, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A13|Museu Marítim de Luanco": {
+    "latitude": 43.6135516,
+    "longitude": -5.7932832,
+    "displayName": "Museo Marítimo de Asturias, Lluanco/Luanco, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Astúries|A13|Museu de l’Ancla Philippe Cousteau": {
+    "latitude": 43.5803108,
+    "longitude": -5.9675164,
+    "displayName": "Museo de las Anclas Philippe Cousteau, Castrillón, Principado de Asturias",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N1|Parc-Museu Santxotena": {
+    "latitude": 43.1815234,
+    "longitude": -1.4722832,
+    "displayName": "Santxotena parke museoa, Arizkun, Navarra / Nafarroa",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N1|Casa-Museu Gorrienea": {
+    "latitude": 43.1829291,
+    "longitude": -1.4725966,
+    "displayName": "Santxotena - Gorrienea museo etxea, Arizkun, Navarra / Nafarroa",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Baztan Abentura Park": {
+    "latitude": 43.128253,
+    "longitude": -1.4864265,
+    "displayName": "Baztan Abentura Park, Baztan, Navarra / Nafarroa",
+    "osmType": "recreation_ground",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Elizondo": {
+    "latitude": 43.1463292,
+    "longitude": -1.5183842,
+    "displayName": "Elizondo, Baztan, Navarra / Nafarroa",
+    "osmType": "town",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Pamplona històrica i Taconera": {
+    "latitude": 42.8156364,
+    "longitude": -1.65152,
+    "displayName": "Portal de La Taconera, Pamplona / Iruña, Navarra / Nafarroa",
+    "osmType": "city_gate",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Saint-Jean-de-Luz · platja gran": {
+    "latitude": 43.3983447,
+    "longitude": -1.6207315,
+    "displayName": "Le Grand Isaka, Saint-Jean-de-Luz, Nouvelle-Aquitaine",
+    "osmType": "stream",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Almandoz": {
+    "latitude": 43.090489,
+    "longitude": -1.6055788,
+    "displayName": "Almandoz, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Aniz": {
+    "latitude": 43.1120269,
+    "longitude": -1.5808908,
+    "displayName": "Aniz, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Berroeta": {
+    "latitude": 43.1045979,
+    "longitude": -1.5895632,
+    "displayName": "Berroeta, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Eugi i embassament": {
+    "latitude": 42.9840763,
+    "longitude": -1.5162494,
+    "displayName": "Eugiko urtegia, Esteribar, Navarra / Nafarroa",
+    "osmType": "reservoir",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Irurita": {
+    "latitude": 43.1310575,
+    "longitude": -1.5470331,
+    "displayName": "Irurita, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Lekaroz": {
+    "latitude": 43.1460788,
+    "longitude": -1.5404937,
+    "displayName": "Lekaroz, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Mirador de Ziga": {
+    "latitude": 43.1186354,
+    "longitude": -1.5705581,
+    "displayName": "La Posada de Ziga, Ziga, Navarra / Nafarroa",
+    "osmType": "chalet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Pamplona · muralles": {
+    "latitude": 42.815686,
+    "longitude": -1.6522353,
+    "displayName": "Pamplona / Iruña, Navarra / Nafarroa",
+    "osmType": "administrative",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Parc de la Taconera": {
+    "latitude": 42.8156364,
+    "longitude": -1.65152,
+    "displayName": "Portal de La Taconera, Pamplona / Iruña, Navarra / Nafarroa",
+    "osmType": "city_gate",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Parc fluvial de la Comarca": {
+    "latitude": 42.7980922,
+    "longitude": -1.6832755,
+    "displayName": "Parque fluvial de la comarca, Pamplona / Iruña, Navarra / Nafarroa",
+    "osmType": "board",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Planetari de Pamplona": {
+    "latitude": 42.8095965,
+    "longitude": -1.6652186,
+    "displayName": "Cava Puros Estanco Planetario nº 11, Pamplona/Iruña, Navarra / Nafarroa",
+    "osmType": "tobacco",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Quesería Jauregia": {
+    "latitude": 42.6694295,
+    "longitude": -2.0298315,
+    "displayName": "Nafarroako Erregeen Jauregia, Estella-Lizarra, Navarra / Nafarroa",
+    "osmType": "yes",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N2|Ziga": {
+    "latitude": 43.1196494,
+    "longitude": -1.571835,
+    "displayName": "Ziga, Baztan, Navarra / Nafarroa",
+    "osmType": "hamlet",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N3|Cascada d’Oinaska": {
+    "latitude": 43.1572854,
+    "longitude": -1.5222016,
+    "displayName": "Oinaskako ur-jauzia, Baztan, Navarra / Nafarroa",
+    "osmType": "waterfall",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N3|Kortariko Gasna · formatgeria": {
+    "latitude": 43.2143491,
+    "longitude": -1.5580797,
+    "displayName": "Kortariko gasnak, Baztan, Navarra / Nafarroa",
+    "osmType": "farm",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N4|Museu de les Bruixes de Zugarramurdi": {
+    "latitude": 43.2684065,
+    "longitude": -1.5480592,
+    "displayName": "Zugarramurdiko Sorginen Leizea, Zugarramurdi, Navarra / Nafarroa",
+    "osmType": "cave_entrance",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N4|Urdazubi/Urdax · monestir i molí": {
+    "latitude": 43.266195,
+    "longitude": -1.5031749,
+    "displayName": "Urdazubiko monasterioa, Urdazubi/Urdax, Navarra / Nafarroa",
+    "osmType": "monastery",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N4|Zugarramurdi · cova": {
+    "latitude": 43.2684065,
+    "longitude": -1.5480592,
+    "displayName": "Zugarramurdiko Sorginen Leizea, Zugarramurdi, Navarra / Nafarroa",
+    "osmType": "cave_entrance",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N5|Bertiz · sender Erreparatzea": {
+    "latitude": 43.1388422,
+    "longitude": -1.6179766,
+    "displayName": "Erreparatzea basabidea, Bertizarana, Navarra / Nafarroa",
+    "osmType": "path",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N5|Señorío de Bertiz · Jardí Històric": {
+    "latitude": 43.1393446,
+    "longitude": -1.6104561,
+    "displayName": "Mirador del Jardín del Parque Natural Señorío de Bertiz, Oieregi, Navarra / Nafarroa",
+    "osmType": "yes",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N5|Doneztebe/Santesteban": {
+    "latitude": 43.1314091,
+    "longitude": -1.6690844,
+    "displayName": "Doneztebe / Santesteban, Navarra / Nafarroa",
+    "osmType": "village",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N5|Sunbilla": {
+    "latitude": 43.1640996,
+    "longitude": -1.6710173,
+    "displayName": "Sunbilla, Navarra / Nafarroa",
+    "osmType": "village",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N5|Via Verda del Bidasoa a peu": {
+    "latitude": 43.1397484,
+    "longitude": -1.6146567,
+    "displayName": "Via Verde del Bidasoa 2026, Bertizarana, Navarra / Nafarroa",
+    "osmType": "path",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Etxalar": {
+    "latitude": 43.233558,
+    "longitude": -1.637321,
+    "displayName": "Etxalar, Navarra / Nafarroa",
+    "osmType": "village",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Infernuko Errota": {
+    "latitude": 43.2079739,
+    "longitude": -1.571401,
+    "displayName": "Infernuko errota, Etxalar, Navarra / Nafarroa",
+    "osmType": "watermill",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|IrriSarri Land": {
+    "latitude": 43.2036585,
+    "longitude": -1.6974529,
+    "displayName": "Irrisarri Land, Igantzi, Navarra / Nafarroa",
+    "osmType": "recreation_ground",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Ituren i Zubieta": {
+    "latitude": 43.1288633,
+    "longitude": -1.7073185,
+    "displayName": "Ituren, Navarra / Nafarroa",
+    "osmType": "village",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Lesaka": {
+    "latitude": 43.2480353,
+    "longitude": -1.7051334,
+    "displayName": "Lesaka, Lesaka, Navarra / Nafarroa",
+    "osmType": "administrative",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Molino de Zubieta": {
+    "latitude": 43.1261366,
+    "longitude": -1.7396596,
+    "displayName": "Zubietako errota, Zubieta, Navarra / Nafarroa",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N6|Palomeras d’Etxalar": {
+    "latitude": 43.2569717,
+    "longitude": -1.6220507,
+    "displayName": "Palomeras, Etxalar, Navarra / Nafarroa",
+    "osmType": "locality",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N7|Parc animal Etxola · Sare": {
+    "latitude": 43.2768622,
+    "longitude": -1.5882407,
+    "displayName": "Parc Animalier Etxola, Sare, Nouvelle-Aquitaine",
+    "osmType": "zoo",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N7|Cova de Sara": {
+    "latitude": 43.0828022,
+    "longitude": -1.3964962,
+    "displayName": "Sarako bidea, Urepel, Nouvelle-Aquitaine",
+    "osmType": "unclassified",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N7|Parc animalier Etxola": {
+    "latitude": 43.2768622,
+    "longitude": -1.5882407,
+    "displayName": "Parc Animalier Etxola, Sare, Nouvelle-Aquitaine",
+    "osmType": "zoo",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N7|Tren de La Rhune": {
+    "latitude": 43.3164536,
+    "longitude": -1.6111706,
+    "displayName": "Petit Train de la Rhune, Sare, Nouvelle-Aquitaine",
+    "osmType": "narrow_gauge",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N8|Ttiki Leku · parc de jocs a Souraïde": {
+    "latitude": 43.3577838,
+    "longitude": -1.5000416,
+    "displayName": "Parc Ttiki Leku, Souraïde, Nouvelle-Aquitaine",
+    "osmType": "house",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N10|Irun · Museu Oiasso": {
+    "latitude": 43.3399692,
+    "longitude": -1.787789,
+    "displayName": "Oiasso Museoa, Irun, Euskadi",
+    "osmType": "museum",
+    "provider": "Photon/OSM"
+  },
+  "Navarra|N10|Platja d’Hondarribia": {
+    "latitude": 43.374687,
+    "longitude": -1.7994274,
+    "displayName": "Albergue Juvenil - Blanca de Navarra, Hondarribia, Euskadi",
+    "osmType": "community_centre",
+    "provider": "Photon/OSM"
+  }
 }

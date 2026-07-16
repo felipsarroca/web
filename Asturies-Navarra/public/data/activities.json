@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-16T07:02:26.100Z",
+  "generatedAt": "2026-07-16T07:22:38.037Z",
   "verifiedAt": "2026-07-15",
   "attribution": "Coordenades geocodificades amb dades d’OpenStreetMap, disponibles sota ODbL.",
   "activities": [
@@ -26,12 +26,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4929164,
+      "longitude": -5.4241657,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Sidra El Gaitero, Villaviciosa, Principado de Asturias",
+      "osmType": "alcohol",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-002",
@@ -55,12 +58,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5100396,
+      "longitude": -5.4170384,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centro de Interpretación de la Ría de Villaviciosa, Villaviciosa, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-003",
@@ -82,12 +88,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-004",
@@ -112,12 +120,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-005",
@@ -142,12 +152,14 @@
       "picnicFriendly": true,
       "familyNote": "Revisa les condicions i l’adequació per a l’infant de 4 anys.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-006",
@@ -169,12 +181,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-007",
@@ -262,12 +276,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4605672,
+      "longitude": -5.0674404,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Acceso cuevas de Tito Bustillo y Ardines, Ribadesella / Ribeseya, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-010",
@@ -291,12 +308,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-011",
@@ -320,12 +339,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-012",
@@ -350,12 +371,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-013",
@@ -379,12 +402,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-014",
@@ -408,12 +433,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.436433,
+      "longitude": -5.5071141,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Monasterio de Santa María de Valdediós, Villaviciosa, Principado de Asturias",
+      "osmType": "place_of_worship",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-015",
@@ -439,12 +467,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-016",
@@ -466,12 +496,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4779753,
+      "longitude": -5.4384738,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Calle Norberto de la Ballina Fernández, Villaviciosa, Principado de Asturias",
+      "osmType": "residential",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-017",
@@ -495,12 +528,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "osmType": "restaurant",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-018",
@@ -526,12 +562,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5469875,
+      "longitude": -5.5898336,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de La Ñora, Villaviciosa, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-019",
@@ -556,12 +595,15 @@
       "picnicFriendly": true,
       "familyNote": "Revisa les condicions i l’adequació per a l’infant de 4 anys.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5440024,
+      "longitude": -5.4940404,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de Merón, Villaviciosa, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-020",
@@ -587,12 +629,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.455754,
+      "longitude": -4.9815286,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de Guadamía, Ribadesella/Ribeseya, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-021",
@@ -616,12 +661,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-022",
@@ -645,12 +692,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-023",
@@ -674,12 +723,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3790469,
+      "longitude": -5.8659892,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Santa María del Naranco, Oviedo, Principado de Asturias",
+      "osmType": "place_of_worship",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-024",
@@ -703,12 +755,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "osmType": "school",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-025",
@@ -732,12 +787,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4841318,
+      "longitude": -5.7537202,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Villa romana de Veranes, Gijón / Xixón, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-026",
@@ -761,12 +819,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4814,
+      "longitude": -5.4357,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A1",
+      "osmType": "picnic_site",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-027",
@@ -791,12 +852,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5304,
+      "longitude": -5.3933,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A2",
+      "osmType": "administrative",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-028",
@@ -818,12 +882,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5304,
+      "longitude": -5.3933,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-029",
@@ -848,12 +914,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5270996,
+      "longitude": -5.3917601,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "El Puntal, Villaviciosa, Principado de Asturias",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-030",
@@ -877,12 +946,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5304,
+      "longitude": -5.3933,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-031",
@@ -904,12 +975,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3577,
+      "longitude": -5.5066,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A3",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-032",
@@ -933,12 +1006,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3573258,
+      "longitude": -5.5048257,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo de la Sidra, Nava, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-033",
@@ -964,12 +1040,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.419598,
+      "longitude": -5.9018608,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Los Covarones del río Tuernes, Oviedo, Principado de Asturias",
+      "osmType": "attraction",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-034",
@@ -993,12 +1072,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3577,
+      "longitude": -5.5066,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A3",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-035",
@@ -1022,12 +1103,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3573258,
+      "longitude": -5.5048257,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo de la Sidra, Nava, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-036",
@@ -1051,12 +1135,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3577,
+      "longitude": -5.5066,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A3",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-037",
@@ -1080,12 +1166,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3577,
+      "longitude": -5.5066,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A3",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-038",
@@ -1107,12 +1195,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.433941,
+      "longitude": -5.9063083,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Tuernes el Pequeño, Llanera, Principado de Asturias",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-039",
@@ -1136,12 +1227,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5165275,
+      "longitude": -5.2690327,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Mirador de San Roque, Colunga, Principado de Asturias",
+      "osmType": "viewpoint",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-040",
@@ -1165,12 +1259,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5016048,
+      "longitude": -5.2747882,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "El café del MUJA, Colunga, Principado de Asturias",
+      "osmType": "cafe",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-041",
@@ -1192,12 +1289,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4852,
+      "longitude": -5.2707,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A4",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-042",
@@ -1222,12 +1321,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5003885,
+      "longitude": -5.2551165,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Yacimiento de icnitas de dinosaurio de la playa de la Griega, Colunga, Principado de Asturias",
+      "osmType": "attraction",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-043",
@@ -1251,12 +1353,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5165275,
+      "longitude": -5.2690327,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Mirador de San Roque, Colunga, Principado de Asturias",
+      "osmType": "viewpoint",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-044",
@@ -1280,12 +1385,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4637,
+      "longitude": -5.1854,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-045",
@@ -1309,12 +1416,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4637,
+      "longitude": -5.1854,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-046",
@@ -1339,12 +1448,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4817005,
+      "longitude": -5.2272209,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "La Isla, Colunga, Principado de Asturias",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-047",
@@ -1369,12 +1481,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4748032,
+      "longitude": -5.2133866,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa Espasa, Caravia, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-048",
@@ -1399,12 +1514,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5199945,
+      "longitude": -5.6233138,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Jardín Botánico Atlántico, Gijón / Xixón, Principado de Asturias",
+      "osmType": "garden",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-049",
@@ -1428,12 +1546,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5247258,
+      "longitude": -5.6151031,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Laboral Centro de Arte y Ciudad de la Cultura, Gijón / Xixón, Principado de Asturias",
+      "osmType": "arts_centre",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-050",
@@ -1457,12 +1578,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5379511,
+      "longitude": -5.6340373,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museu etnográficu Pueblu d'Asturies, Gijón/Xixón, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-051",
@@ -1487,12 +1611,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5345073,
+      "longitude": -5.6188016,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo Evaristo Valle, Somió, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-052",
@@ -1516,12 +1643,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5379676,
+      "longitude": -5.6428881,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Parque de Isabel la Católica, Gijón / Xixón, Principado de Asturias",
+      "osmType": "park",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-053",
@@ -1543,12 +1673,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5357,
+      "longitude": -5.6615,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A7",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-054",
@@ -1570,12 +1702,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5421035,
+      "longitude": -5.6769879,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Acuario de Gijón, Gijón / Xixón, Principado de Asturias",
+      "osmType": "aquarium",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-055",
@@ -1597,12 +1732,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5357,
+      "longitude": -5.6615,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A7",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-056",
@@ -1624,12 +1761,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5487661,
+      "longitude": -5.6621719,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Cerro de Santa Catalina, Gijón / Xixón, Principado de Asturias",
+      "osmType": "cliff",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-057",
@@ -1653,12 +1793,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5405624,
+      "longitude": -5.6740417,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo del Ferrocarril de Asturias, Gijón/Xixón, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-058",
@@ -1683,12 +1826,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5434335,
+      "longitude": -5.6759012,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de Poniente, Gijón / Xixón, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-059",
@@ -1713,12 +1859,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5427445,
+      "longitude": -5.6590204,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de San Lorenzo, Gijón / Xixón, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-060",
@@ -1742,12 +1891,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.545452,
+      "longitude": -5.6611724,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo de las Termas Romanas de Campo Valdés / Muséu de les Termes Romanes d'El Campu Valdés, Gijón / Xixón, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-061",
@@ -1771,12 +1923,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3476,
+      "longitude": -5.3647,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A8",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-062",
@@ -1800,12 +1954,14 @@
       "picnicFriendly": false,
       "familyNote": "Revisa les condicions i l’adequació per a l’infant de 4 anys.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3476,
+      "longitude": -5.3647,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A8",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-063",
@@ -1830,12 +1986,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2660638,
+      "longitude": -5.3351444,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Área recreativa La Pesanca, Piloña, Principado de Asturias",
+      "osmType": "picnic_site",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-064",
@@ -1857,12 +2016,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.458123,
+      "longitude": -5.0674735,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centro de Arte Rupestre de Tito Bustillo, Ribadesella / Ribeseya, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-065",
@@ -1887,12 +2049,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4606631,
+      "longitude": -5.0676633,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Cueva de Tito Bustillo, Ribadesella/Ribeseya, Principado de Asturias",
+      "osmType": "cave_entrance",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-066",
@@ -1916,12 +2081,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4616019,
+      "longitude": -5.0604751,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Monumento al Descenso del Sella, Ribadesella/Ribeseya, Principado de Asturias",
+      "osmType": "artwork",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-067",
@@ -1943,12 +2111,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4615,
+      "longitude": -5.0592,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-068",
@@ -1973,12 +2143,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.466719,
+      "longitude": -5.0640131,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Playa de Santa Marina, Ribadesella/Ribeseya, Principado de Asturias",
+      "osmType": "beach",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-069",
@@ -2000,12 +2173,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4615,
+      "longitude": -5.0592,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A9",
+      "osmType": "park",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-070",
@@ -2030,12 +2206,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4615,
+      "longitude": -5.0592,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-071",
@@ -2059,12 +2237,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.4615,
+      "longitude": -5.0592,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-072",
@@ -2089,12 +2269,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3136138,
+      "longitude": -5.0658503,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Cangas de Onís, Principado de Asturias",
+      "osmType": "administrative",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-073",
@@ -2119,12 +2302,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3499796,
+      "longitude": -5.113787,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Mercado de Ganados de Cangas de Onís, Cangas de Onís, Principado de Asturias",
+      "osmType": "yes",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-074",
@@ -2146,12 +2332,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3617483,
+      "longitude": -5.8465155,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Edificio histórico Universidad de Oviedo, Oviedo / Uviéu, Principado de Asturias",
+      "osmType": "university",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-075",
@@ -2173,12 +2362,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3533452,
+      "longitude": -5.8795096,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Oviedo, Principado de Asturias",
+      "osmType": "administrative",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-076",
@@ -2202,12 +2394,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3627055,
+      "longitude": -5.8425433,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo Arqueológico de Asturias, Oviedo / Uviéu, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-077",
@@ -2231,12 +2426,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3614,
+      "longitude": -5.8494,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A11",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-078",
@@ -2260,12 +2457,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3614,
+      "longitude": -5.8494,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A11",
+      "osmType": "yes",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-079",
@@ -2287,12 +2487,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3516665,
+      "longitude": -5.8131466,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Núcleo Zoológico el Bosque, Oviedo, Principado de Asturias",
+      "osmType": "zoo",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-080",
@@ -2316,12 +2519,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2751879,
+      "longitude": -5.6758739,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Ferrocarril Ecomuseo Minero Valle de Samuño, Llangréu / Langreo, Principado de Asturias",
+      "osmType": "narrow_gauge",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-081",
@@ -2345,12 +2551,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2886246,
+      "longitude": -5.6531105,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo de la Minería y de la Industria de Asturias, Samartín del Rei Aurelio, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-082",
@@ -2372,12 +2581,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2945,
+      "longitude": -5.6814,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A12",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-083",
@@ -2399,12 +2610,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2945,
+      "longitude": -5.6814,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A12",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-084",
@@ -2428,12 +2641,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2751879,
+      "longitude": -5.6758739,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Ferrocarril Ecomuseo Minero Valle de Samuño, Llangréu / Langreo, Principado de Asturias",
+      "osmType": "narrow_gauge",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-085",
@@ -2455,12 +2671,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2945,
+      "longitude": -5.6814,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster A12",
+      "provider": "Clúster editorial"
     },
     {
       "id": "A-086",
@@ -2482,12 +2700,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5579231,
+      "longitude": -5.9182096,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Cúpula C.C.I. Oscar Niemeyer, Aviles, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-087",
@@ -2511,12 +2732,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.6135516,
+      "longitude": -5.7932832,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo Marítimo de Asturias, Lluanco/Luanco, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "A-088",
@@ -2542,12 +2766,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.5803108,
+      "longitude": -5.9675164,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Museo de las Anclas Philippe Cousteau, Castrillón, Principado de Asturias",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-001",
@@ -2569,12 +2796,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2004,
+      "longitude": -1.4809,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-002",
@@ -2596,12 +2825,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2004,
+      "longitude": -1.4809,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-003",
@@ -2625,12 +2856,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2004,
+      "longitude": -1.4809,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-004",
@@ -2654,12 +2887,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2004,
+      "longitude": -1.4809,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N1",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-005",
@@ -2683,12 +2918,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1815234,
+      "longitude": -1.4722832,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Santxotena parke museoa, Arizkun, Navarra / Nafarroa",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-006",
@@ -2712,12 +2950,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1829291,
+      "longitude": -1.4725966,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Santxotena - Gorrienea museo etxea, Arizkun, Navarra / Nafarroa",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-007",
@@ -2739,12 +2980,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.128253,
+      "longitude": -1.4864265,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Baztan Abentura Park, Baztan, Navarra / Nafarroa",
+      "osmType": "recreation_ground",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-008",
@@ -2766,12 +3010,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1463292,
+      "longitude": -1.5183842,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Elizondo, Baztan, Navarra / Nafarroa",
+      "osmType": "town",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-009",
@@ -2793,12 +3040,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.8156364,
+      "longitude": -1.65152,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Portal de La Taconera, Pamplona / Iruña, Navarra / Nafarroa",
+      "osmType": "city_gate",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-010",
@@ -2822,12 +3072,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-011",
@@ -2852,12 +3104,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "osmType": "stream",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-012",
@@ -2879,12 +3134,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.090489,
+      "longitude": -1.6055788,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Almandoz, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-013",
@@ -2906,12 +3164,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1120269,
+      "longitude": -1.5808908,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Aniz, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-014",
@@ -2933,12 +3194,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1045979,
+      "longitude": -1.5895632,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Berroeta, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-015",
@@ -2963,12 +3227,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-016",
@@ -2992,12 +3258,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.9840763,
+      "longitude": -1.5162494,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Eugiko urtegia, Esteribar, Navarra / Nafarroa",
+      "osmType": "reservoir",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-017",
@@ -3021,12 +3290,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-018",
@@ -3048,12 +3319,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1310575,
+      "longitude": -1.5470331,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Irurita, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-019",
@@ -3077,12 +3351,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1460788,
+      "longitude": -1.5404937,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Lekaroz, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-020",
@@ -3106,12 +3383,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1186354,
+      "longitude": -1.5705581,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "La Posada de Ziga, Ziga, Navarra / Nafarroa",
+      "osmType": "chalet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-021",
@@ -3135,12 +3415,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-022",
@@ -3164,12 +3446,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-023",
@@ -3193,12 +3477,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.815686,
+      "longitude": -1.6522353,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Pamplona / Iruña, Navarra / Nafarroa",
+      "osmType": "administrative",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-024",
@@ -3220,12 +3507,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.8156364,
+      "longitude": -1.65152,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Portal de La Taconera, Pamplona / Iruña, Navarra / Nafarroa",
+      "osmType": "city_gate",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-025",
@@ -3249,12 +3539,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.7980922,
+      "longitude": -1.6832755,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Parque fluvial de la comarca, Pamplona / Iruña, Navarra / Nafarroa",
+      "osmType": "board",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-026",
@@ -3276,12 +3569,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "osmType": "tobacco",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-027",
@@ -3303,12 +3599,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "osmType": "yes",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-028",
@@ -3332,12 +3631,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-029",
@@ -3359,12 +3660,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1452,
+      "longitude": -1.517,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N2",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-030",
@@ -3386,12 +3689,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1196494,
+      "longitude": -1.571835,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Ziga, Baztan, Navarra / Nafarroa",
+      "osmType": "hamlet",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-031",
@@ -3415,12 +3721,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1745,
+      "longitude": -1.4531,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N3",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-032",
@@ -3444,12 +3752,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1572854,
+      "longitude": -1.5222016,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Oinaskako ur-jauzia, Baztan, Navarra / Nafarroa",
+      "osmType": "waterfall",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-033",
@@ -3473,12 +3784,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2143491,
+      "longitude": -1.5580797,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Kortariko gasnak, Baztan, Navarra / Nafarroa",
+      "osmType": "farm",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-034",
@@ -3503,12 +3817,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2671,
+      "longitude": -1.5038,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N4",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-035",
@@ -3533,12 +3849,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2684065,
+      "longitude": -1.5480592,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Zugarramurdiko Sorginen Leizea, Zugarramurdi, Navarra / Nafarroa",
+      "osmType": "cave_entrance",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-036",
@@ -3562,12 +3881,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2671,
+      "longitude": -1.5038,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N4",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-037",
@@ -3592,12 +3913,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.266195,
+      "longitude": -1.5031749,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Urdazubiko monasterioa, Urdazubi/Urdax, Navarra / Nafarroa",
+      "osmType": "monastery",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-038",
@@ -3622,12 +3946,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2684065,
+      "longitude": -1.5480592,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Zugarramurdiko Sorginen Leizea, Zugarramurdi, Navarra / Nafarroa",
+      "osmType": "cave_entrance",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-039",
@@ -3651,12 +3978,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1388422,
+      "longitude": -1.6179766,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Erreparatzea basabidea, Bertizarana, Navarra / Nafarroa",
+      "osmType": "path",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-040",
@@ -3681,12 +4011,14 @@
       "picnicFriendly": true,
       "familyNote": "Revisa les condicions i l’adequació per a l’infant de 4 anys.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-041",
@@ -3708,12 +4040,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1393446,
+      "longitude": -1.6104561,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Mirador del Jardín del Parque Natural Señorío de Bertiz, Oieregi, Navarra / Nafarroa",
+      "osmType": "yes",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-042",
@@ -3737,12 +4072,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-043",
@@ -3767,12 +4104,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-044",
@@ -3794,12 +4133,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-045",
@@ -3823,12 +4164,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1314091,
+      "longitude": -1.6690844,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Doneztebe / Santesteban, Navarra / Nafarroa",
+      "osmType": "village",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-046",
@@ -3850,12 +4194,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-047",
@@ -3877,12 +4223,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1640996,
+      "longitude": -1.6710173,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Sunbilla, Navarra / Nafarroa",
+      "osmType": "village",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-048",
@@ -3906,12 +4255,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1397484,
+      "longitude": -1.6146567,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Via Verde del Bidasoa 2026, Bertizarana, Navarra / Nafarroa",
+      "osmType": "path",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-049",
@@ -3933,12 +4285,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1674,
+      "longitude": -1.6107,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N5",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-050",
@@ -3960,12 +4314,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.233558,
+      "longitude": -1.637321,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Etxalar, Navarra / Nafarroa",
+      "osmType": "village",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-051",
@@ -3989,12 +4346,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2079739,
+      "longitude": -1.571401,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Infernuko errota, Etxalar, Navarra / Nafarroa",
+      "osmType": "watermill",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-052",
@@ -4016,12 +4376,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2036585,
+      "longitude": -1.6974529,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Irrisarri Land, Igantzi, Navarra / Nafarroa",
+      "osmType": "recreation_ground",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-053",
@@ -4043,12 +4406,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1288633,
+      "longitude": -1.7073185,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Ituren, Navarra / Nafarroa",
+      "osmType": "village",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-054",
@@ -4070,12 +4436,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2480353,
+      "longitude": -1.7051334,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Lesaka, Lesaka, Navarra / Nafarroa",
+      "osmType": "administrative",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-055",
@@ -4099,12 +4468,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.1261366,
+      "longitude": -1.7396596,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Zubietako errota, Zubieta, Navarra / Nafarroa",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-056",
@@ -4126,12 +4498,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2569717,
+      "longitude": -1.6220507,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Palomeras, Etxalar, Navarra / Nafarroa",
+      "osmType": "locality",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-057",
@@ -4155,12 +4530,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.312,
+      "longitude": -1.58,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N7",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-058",
@@ -4184,12 +4561,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2768622,
+      "longitude": -1.5882407,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Parc Animalier Etxola, Sare, Nouvelle-Aquitaine",
+      "osmType": "zoo",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-059",
@@ -4214,12 +4594,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.312,
+      "longitude": -1.58,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N7",
+      "osmType": "unclassified",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-060",
@@ -4243,12 +4626,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.2768622,
+      "longitude": -1.5882407,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Parc Animalier Etxola, Sare, Nouvelle-Aquitaine",
+      "osmType": "zoo",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-061",
@@ -4272,12 +4658,15 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3164536,
+      "longitude": -1.6111706,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Petit Train de la Rhune, Sare, Nouvelle-Aquitaine",
+      "osmType": "narrow_gauge",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-062",
@@ -4302,12 +4691,14 @@
       "picnicFriendly": true,
       "familyNote": "Revisa les condicions i l’adequació per a l’infant de 4 anys.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3562,
+      "longitude": -1.5506,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N8",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-063",
@@ -4329,12 +4720,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3577838,
+      "longitude": -1.5000416,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Parc Ttiki Leku, Souraïde, Nouvelle-Aquitaine",
+      "osmType": "house",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-064",
@@ -4359,12 +4753,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.9817,
+      "longitude": -1.6768,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-065",
@@ -4388,12 +4784,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.9817,
+      "longitude": -1.6768,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-066",
@@ -4417,12 +4815,14 @@
       "picnicFriendly": false,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 42.9817,
+      "longitude": -1.6768,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N9",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-067",
@@ -4447,12 +4847,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3635,
+      "longitude": -1.79,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N10",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-068",
@@ -4477,12 +4879,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3635,
+      "longitude": -1.79,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N10",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-069",
@@ -4508,12 +4912,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3399692,
+      "longitude": -1.787789,
+      "locationPrecision": "geocodificada",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Oiasso Museoa, Irun, Euskadi",
+      "osmType": "museum",
+      "provider": "Photon/OSM"
     },
     {
       "id": "N-070",
@@ -4538,12 +4945,15 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.3635,
+      "longitude": -1.79,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N10",
+      "osmType": "community_centre",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-071",
@@ -4568,12 +4978,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.133,
+      "longitude": -1.69,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N11",
+      "provider": "Clúster editorial"
     },
     {
       "id": "N-072",
@@ -4598,12 +5010,14 @@
       "picnicFriendly": true,
       "familyNote": "Proposta inclosa segons els criteris familiars de la guia.",
       "officialUrl": null,
-      "latitude": null,
-      "longitude": null,
-      "locationPrecision": null,
+      "latitude": 43.133,
+      "longitude": -1.69,
+      "locationPrecision": "clúster aproximat",
       "image": null,
       "imageAlt": null,
-      "imageCredit": null
+      "imageCredit": null,
+      "displayName": "Centre aproximat del clúster N11",
+      "provider": "Clúster editorial"
     }
   ]
 }

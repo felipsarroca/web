@@ -3,13 +3,22 @@ import path from "node:path";
 
 const root = process.cwd();
 const shouldGeocode = process.argv.includes("--geocode");
+const shouldGeocodePhoton = process.argv.includes("--geocode-photon");
 const cachePath = path.join(root, "data", "geocoding-cache.json");
 const outputPath = path.join(root, "public", "data", "activities.json");
 
 const sources = [
-  { file: "asturies.txt", region: "Astúries", prefix: "A", country: "Espanya", viewbox: "-7.3,43.8,-4.3,42.8" },
-  { file: "navarra.txt", region: "Navarra", prefix: "N", country: "Espanya o França", viewbox: "-2.7,43.7,-0.7,42.5" },
+  { file: "asturies.txt", region: "Astúries", prefix: "A", country: "Espanya", viewbox: "-7.3,43.8,-4.3,42.8", bbox: "-7.3,42.8,-4.3,43.8" },
+  { file: "navarra.txt", region: "Navarra", prefix: "N", country: "Espanya o França", viewbox: "-2.7,43.7,-0.7,42.5", bbox: "-2.7,42.5,-0.7,43.7" },
 ];
+
+const clusterCenters = {
+  A1:[43.4814,-5.4357],A2:[43.5304,-5.3933],A3:[43.3577,-5.5066],A4:[43.4852,-5.2707],A5:[43.4637,-5.1854],A6:[43.5248,-5.6150],A7:[43.5357,-5.6615],A8:[43.3476,-5.3647],A9:[43.4615,-5.0592],A10:[43.3501,-5.1290],A11:[43.3614,-5.8494],A12:[43.2945,-5.6814],A13:[43.5560,-5.9220],
+  N1:[43.2004,-1.4809],N2:[43.1452,-1.5170],N3:[43.1745,-1.4531],N4:[43.2671,-1.5038],N5:[43.1674,-1.6107],N6:[43.2467,-1.7023],N7:[43.3120,-1.5800],N8:[43.3562,-1.5506],N9:[42.9817,-1.6768],N10:[43.3635,-1.7900],N11:[43.1330,-1.6900],
+};
+// Coincidències homònimes o de categoria retornades pel geocodificador que no
+// corresponen a l'indret descrit. Es prefereix el centre honest del clúster.
+const rejectedGeocodes = new Set(["A-017","A-024","A-026","A-027","A-069","A-078","N-011","N-026","N-027","N-059","N-070"]);
 
 const clean = (value = "") => value.replace(/\s+/g, " ").trim();
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -113,16 +122,51 @@ async function geocode(activity, source) {
   return value;
 }
 
+const normalize = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ");
+const significantTokens = (value) => normalize(value).split(/\s+/).filter((token) => token.length > 3 && !["museu","centre","parc","platja","ruta","passeig","visita","asturies","navarra"].includes(token));
+async function geocodePhoton(activity, source) {
+  const query = `${activity.name}, ${activity.region === "Astúries" ? "Asturias" : activity.block.startsWith("N7") || activity.block.startsWith("N8") ? "France" : "Navarra"}`;
+  const params = new URLSearchParams({ q: query, limit: "5", bbox: source.bbox });
+  const response = await fetch(`https://photon.komoot.io/api/?${params}`, { headers: { "User-Agent": "AsturiesNavarraFamilia/1.0 (+https://felipsarroca.github.io/web/Asturies-Navarra/)" } });
+  if (!response.ok) return null;
+  const data = await response.json();
+  const tokens = significantTokens(activity.name);
+  const ranked = (data.features ?? []).map((feature) => {
+    const label = `${feature.properties?.name ?? ""} ${feature.properties?.city ?? ""} ${feature.properties?.district ?? ""}`;
+    const normalizedLabel = normalize(label);
+    const matches = tokens.filter((token) => normalizedLabel.includes(token)).length;
+    return { feature, score: tokens.length ? matches / Math.min(tokens.length, 3) : 0 };
+  }).sort((a,b) => b.score-a.score);
+  const best = ranked[0];
+  if (!best || best.score < 0.34) return null;
+  const [longitude, latitude] = best.feature.geometry.coordinates;
+  return { latitude, longitude, displayName: [best.feature.properties.name,best.feature.properties.city,best.feature.properties.state].filter(Boolean).join(", "), osmType: best.feature.properties.osm_value, provider: "Photon/OSM" };
+}
+
 const activities = [];
 for (const source of sources) {
   const parsed = await parseSource(source);
   for (const activity of parsed) {
-    if (shouldGeocode) {
+    if (shouldGeocodePhoton) {
+      const key = `${activity.region}|${activity.block}|${activity.name}`;
+      let location = cache[key];
+      if (!location) {
+        location = await geocodePhoton(activity, source);
+        if (location) { cache[key] = location; await writeFile(cachePath, `${JSON.stringify(cache, null, 2)}\n`, "utf8"); }
+        await sleep(650);
+      }
+      if (location) Object.assign(activity, location, { locationPrecision: "geocodificada" });
+    } else if (shouldGeocode) {
       const location = await geocode(activity, source);
       if (location) Object.assign(activity, location, { locationPrecision: "geocodificada" });
     } else {
       const key = `${activity.region}|${activity.block}|${activity.name}`;
       if (cache[key]) Object.assign(activity, cache[key], { locationPrecision: "geocodificada" });
+    }
+    if (rejectedGeocodes.has(activity.id)) Object.assign(activity, { latitude:null, longitude:null, displayName:null, provider:null, locationPrecision:null });
+    if (activity.latitude == null) {
+      const center = clusterCenters[activity.block];
+      if (center) Object.assign(activity, { latitude:center[0], longitude:center[1], displayName:`Centre aproximat del clúster ${activity.block}`, locationPrecision:"clúster aproximat", provider:"Clúster editorial" });
     }
     activities.push(activity);
   }
