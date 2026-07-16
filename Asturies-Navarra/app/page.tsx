@@ -43,7 +43,7 @@ const clusterData = {
     ["N9", "Ultzama: granja, bosc i mel", "50–60 min", 3, "Granja Escola + Orgi"], ["N10", "Costa del Bidasoa", "55–60 min", 4, "Hondarribia"],
     ["N11", "Malerreka i Leurtza", "45–60 min", 2, "Embassaments i natura"],
   ],
-} as const;
+};
 
 const highlightedNames: Record<Region, string[]> = {
   Astúries: ["MUJA", "Ecomuseu Miner", "Platja de Rodiles"],
