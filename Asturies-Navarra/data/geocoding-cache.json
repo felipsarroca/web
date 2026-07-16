@@ -1,0 +1,29 @@
+{
+  "Astúries|A1|Bodegues El Gaitero": null,
+  "Astúries|A1|Centre d’Interpretació de la Ría": null,
+  "Astúries|A1|Los Caserinos · granja i formatgeria": null,
+  "Astúries|A1|Platja de Misiego i passeig de la ría": null,
+  "Astúries|A1|Platja d’Espanya": null,
+  "Astúries|A1|Villaviciosa històrica i Casa de los Hevia": null,
+  "Astúries|A1|Arenal de Morís": {
+    "latitude": 43.4755857,
+    "longitude": -5.1750478,
+    "displayName": "Playa Arenal de Morís, La Cantiella, Caravia l'Alta, Caravia, Asturias / Asturies, España",
+    "osmType": "beach"
+  },
+  "Astúries|A1|Bufones de Pría": {
+    "latitude": 43.4587103,
+    "longitude": -4.9798563,
+    "displayName": "Bufones de Pría, Llames, Pría, Llanes, Asturias / Asturies, 33591, España",
+    "osmType": "blowhole"
+  },
+  "Astúries|A1|Cueva de Ardines": null,
+  "Astúries|A1|El Malain · recollida de fruits vermells": null,
+  "Astúries|A1|Església romànica de San Juan de Amandi": null,
+  "Astúries|A1|Jaciment de petjades de Merón": null,
+  "Astúries|A1|Mercat setmanal de Villaviciosa": null,
+  "Astúries|A1|Monestir de Santa María de Valdediós": null,
+  "Astúries|A1|Paddle surf en ría o platja protegida": null,
+  "Astúries|A1|Parc de La Ballina": null,
+  "Astúries|A1|Passeig a cavall": null
+}
