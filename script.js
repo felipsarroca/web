@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
             category: 'Webs educatives',
             description: 'Propostes d’activitats lúdiques a Terrassa, agrupades per espais i pensades per comparar opcions de sortida.',
             icon: 'Terrassa-Lúdic/assets/favicon.svg'
+        },
+        {
+            name: 'Astúries i Navarra',
+            path: 'https://ja.cat/asturies',
+            category: 'Webs educatives',
+            description: 'Guia familiar visual per descobrir indrets d’Astúries i Navarra, comparar propostes, consultar-les al mapa i preparar cada sortida.',
+            icon: 'Asturies-Navarra/public/favicon.svg'
         }
     ];
 
