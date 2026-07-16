@@ -9,3 +9,9 @@
 @media(min-width:1280px){.explore-workspace{max-width:1520px}.catalog{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:1000px){.topbar{height:auto}.workspace{padding:65px 20px 38px}.filters{top:122px}.activity-card{grid-template-columns:92px 1fr 25px}.activity-photo{width:92px}}
 @media(max-width:640px){.workspace{padding:60px 13px 34px}.activity-card{grid-template-columns:94px 1fr 25px;max-height:164px}.activity-photo{width:94px}.activity-main h3{font-size:18px}.activity-main>p{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.hero{min-height:0}.hero-image{height:155px}.place-art{height:120px}}
+
+/* Peu corporatiu fix, compacte i accessible */
+body{padding-bottom:58px}
+.felip-app-footer{position:fixed;right:0;bottom:0;left:0;z-index:40;display:flex;align-items:center;justify-content:flex-start;gap:9px;padding:7px clamp(14px,3vw,38px) 8px;border-top:1px solid var(--line);background:rgba(255,253,248,.97);backdrop-filter:blur(10px);color:#64716c;font-size:11px;line-height:1.2;text-align:left;box-shadow:0 -4px 16px rgba(38,51,47,.05)}
+.felip-license-image-link{display:block;flex:0 0 auto;line-height:0}.felip-license-image{display:block;width:76px;height:auto}.felip-footer-text{display:flex;flex-direction:column;align-items:flex-start;gap:2px}.felip-footer-text p{margin:0}.felip-footer-text a{color:var(--forest);font-weight:700;text-decoration:none}.felip-footer-text a:hover{text-decoration:underline}.felip-footer-text a:focus-visible{outline:2px solid var(--ochre);outline-offset:2px;border-radius:2px}
+@media(max-width:640px){.felip-app-footer{padding:6px 10px 7px;font-size:9.5px;gap:7px}.felip-license-image{width:64px}}

@@ -12,13 +12,13 @@ const regionMeta = {
 
 const clusterData = {
   "Astúries": [
-    ["A1","Villaviciosa i Amandi","0–18 min",14,"Bodegues, patrimoni i granja"], ["A2","Tazones, Rodiles i la ria","20–30 min",4,"Costa i platges"],
-    ["A3","Colunga, MUJA i Lastres","25–38 min",5,"Dinosaures i costa"], ["A4","Gijón","35–45 min",13,"Aquari, museus i ciutat"],
-    ["A5","Nava i Piloña","30–55 min",11,"Sidra, natura i activitats"], ["A6","Serra del Sueve i Fitu","45–55 min",4,"Miradors i muntanya"],
-    ["A7","Ribadesella","45–60 min",8,"Coves, mar i riu"], ["A8","Oviedo","45–58 min",6,"Art, història i parcs"],
-    ["A9","Conques mineres","45–60 min",6,"Tren i patrimoni miner"], ["A10","Siero i Noreña","25–42 min",5,"Titelles i plans tranquils"],
-    ["A11","Cangas de Onís","50–60 min",5,"Mercat i porta dels Picos"], ["A12","Costa central","35–60 min",4,"Penya-segats i platges"],
-    ["A13","Opcions límit","55–65 min",3,"Només si el navegador marca ≤60 min"],
+    ["A1","Villaviciosa i Amandi","0–15 min",26,"Vila, patrimoni, granja i ria"], ["A2","Ria, Rodiles i Tazones","20–30 min",4,"Costa, platja i poble mariner"],
+    ["A3","Valdediós, Cabranes, Nava i Siero","20–45 min",8,"Patrimoni, sidra i activitats"], ["A4","Colunga, MUJA, La Griega i Lastres","25–38 min",5,"Dinosaures, petjades i costa"],
+    ["A5","Caravia, La Isla, Espasa i el Sueve","35–55 min",4,"Platges, miradors i muntanya"], ["A6","Gijón est: Botànic i cultura","30–45 min",5,"Jardí, cultura i ciutat"],
+    ["A7","Gijón oest, centre i platges","35–48 min",8,"Aquari, museus i mar"], ["A8","Piloña i Infiesto","35–55 min",3,"Natura i passejos"],
+    ["A9","Ribadesella i Arriondas","45–60 min",8,"Coves, mar i riu"], ["A10","Cangas i vall baixa de Covadonga","50–60 min",2,"Mercat i porta dels Picos"],
+    ["A11","Oviedo i preromànic","45–58 min",6,"Art, història i parcs"], ["A12","Conques mineres","45–60 min",6,"Tren i patrimoni miner"],
+    ["A13","Avilés, Luanco i costa central","55–60 min",3,"Viles marineres i patrimoni"],
   ],
   "Navarra": [
     ["N1","Azpilkueta, Arizkun i Amaiur","0–18 min",6,"Pobles i Santxotena"], ["N2","Elizondo i Baztan central","12–30 min",24,"Pobles, riu i aventures"],
@@ -83,6 +83,14 @@ export default function Home(){
     {tab==="Planificador"&&<section className="workspace planner"><div className="workspace-head"><div><p className="eyebrow">PLA FAMILIAR FLEXIBLE</p><h1>Una àncora, un complement</h1><p>Les vacances funcionen millor quan el pla deixa espai per improvisar.</p></div><button className="primary" onClick={()=>setTab("Explora")}>+ Afegir activitats</button></div><div className="decision-grid"><article><span>01</span><h3>Comproveu el temps real</h3><p>Els minuts són orientatius. Si el navegador supera una hora, canvieu de clúster.</p></article><article><span>02</span><h3>Reserveu només l’àncora</h3><p>La resta són opcions properes, no obligacions.</p></article><article><span>03</span><h3>Adapteu-vos a l’energia</h3><p>Baixa: 60–90 min. Mitjana: àncora + complement. Alta: dues activitats.</p></article></div>{saved.length===0?<div className="empty-plan"><strong>Encara no hi ha activitats desades</strong><p>Prem l’estrella d’una proposta per afegir-la aquí.</p><button onClick={()=>setTab("Explora")}>Explora activitats</button></div>:<div className="saved-list"><h2>El vostre pla provisional</h2>{saved.map(id=>activities.find(a=>a.id===id)).filter(Boolean).map(a=><article key={a!.id}><div><span>{a!.block} · {a!.drive}</span><h3>{a!.name}</h3><p>{a!.duration} · {a!.type}</p></div><button onClick={()=>setSaved(s=>s.filter(x=>x!==a!.id))}>Retira</button></article>)}</div>}<aside className="specials"><h2>Especials que no convé perdre de vista</h2><div><article><b>⛏ Astúries minera</b><p>MUMI: la més fàcil amb els cinc. Samuño: tren real i galeria. Sotón exterior: més autenticitat. Arnao i Bustiello: opcions límit.</p></article><article><b>🦅 Trikuharri</b><p>Refugi i educació ambiental a Urdax; Fauna Halcón forma part de la mateixa proposta. Cal confirmar per telèfon.</p></article><article><b>🐄 Ultzama</b><p>Granja Escola (90 min, taller de quallada) + bosc d’Orgi; el Museu de la Mel és un bon tercer complement.</p></article></div></aside></section>}
 
     {selected&&<div className="modal-backdrop" onClick={()=>setSelected(null)}><aside className="detail" onClick={e=>e.stopPropagation()}><button className="close" onClick={()=>setSelected(null)}>×</button><p className="eyebrow">{selected.block} · {selected.region.toUpperCase()}</p><h2>{selected.name}</h2><div className="detail-facts"><span>🚗<b>{selected.drive}</b></span><span>◷<b>{selected.duration}</b></span><span>✦<b>{selected.type}</b></span></div><h3>Per què val la pena</h3><p>{selected.appeal}</p><h3>Cost orientatiu</h3><p>{selected.cost}</p><div className="notice"><b>Abans de sortir</b><p>Comprova l’horari, la reserva i el temps de conducció real. Les dades de la guia van ser verificades el 15 de juliol de 2026.</p></div><button className="primary" onClick={()=>setSaved(s=>s.includes(selected.id)?s:[...s,selected.id])}>{saved.includes(selected.id)?"✓ Ja és al pla":"☆ Afegeix al pla"}</button></aside></div>}
-    <footer><span>Família Sarrull · Astúries i Navarra 2026</span><span>160 propostes · 24 clústers · informació verificada el 15/07/2026</span></footer>
+    <footer className="felip-app-footer">
+      <a className="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0">
+        <img className="felip-license-image" src={`${process.env.NEXT_PUBLIC_BASE_PATH??""}/CC_BY-NC-SA.png`} alt="Creative Commons BY-NC-SA" />
+      </a>
+      <div className="felip-footer-text">
+        <p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p>
+        <p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
+      </div>
+    </footer>
   </main>
 }
