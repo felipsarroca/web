@@ -25,7 +25,7 @@ const regionMeta = {
   Navarra: { base: "Azpilkueta", count: 72, clusters: 11, hero: "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1800&q=82" },
 };
 
-const clusterData = {
+const clusterData: Record<Region, Array<[string, string, string, number, string]>> = {
   Astúries: [
     ["A1", "Villaviciosa i Amandi", "0–15 min", 26, "Vila, patrimoni, granja i ria"], ["A2", "Ria, Rodiles i Tazones", "20–30 min", 4, "Costa, platja i poble mariner"],
     ["A3", "Valdediós, Cabranes, Nava i Siero", "20–45 min", 8, "Patrimoni, sidra i activitats"], ["A4", "Colunga, MUJA, La Griega i Lastres", "25–38 min", 5, "Dinosaures, petjades i costa"],
