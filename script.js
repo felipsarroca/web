@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const webs = [
         {
+            name: 'El Renaixement',
+            path: 'https://ja.cat/renaixement',
+            category: 'Webs educatives',
+            description: 'Recurs educatiu per explorar el Renaixement: obres amb visor de detall, artistes, conceptes, arquitectura i cronologia interactiva.',
+            icon: 'Renaixement/logo.svg'
+        },
+        {
             name: 'El Modernisme',
             path: 'https://ja.cat/elmodernisme',
             category: 'Webs educatives',

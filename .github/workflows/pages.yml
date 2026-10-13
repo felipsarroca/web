@@ -34,12 +34,33 @@ jobs:
         working-directory: Asturies-Navarra
         run: npx next build
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - name: Instal·la les dependències del Renaixement
+        working-directory: Renaixement
+        run: bun install --frozen-lockfile
+
+      - name: Comprova el Renaixement
+        working-directory: Renaixement
+        run: bun run test
+
+      - name: Compila el Renaixement per a GitHub Pages
+        working-directory: Renaixement
+        env:
+          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_SITE_URL: https://felipsarroca.github.io/web/Renaixement/
+        run: bun run build:pages
+
       - name: Prepara el lloc complet
         run: |
           mkdir _site
           git archive HEAD | tar -x -C _site
           rm -rf _site/Asturies-Navarra
           mv Asturies-Navarra/out _site/Asturies-Navarra
+          rm -rf _site/Renaixement
+          mv Renaixement/out _site/Renaixement
           touch _site/.nojekyll
 
       - uses: actions/configure-pages@v5

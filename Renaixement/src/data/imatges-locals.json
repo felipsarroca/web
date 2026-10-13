@@ -1,0 +1,1755 @@
+{
+  "_comentari": "Manifest generat per scripts/web/genera-derivats.mjs. No editar a mà.",
+  "_format": {
+    "slug": {
+      "amplada": "px del màster",
+      "alcada": "px del màster",
+      "amplades": "derivats WebP disponibles",
+      "tiles": "piràmide DZI disponible"
+    }
+  },
+  "adoracio-mags-botticelli": {
+    "amplada": 1800,
+    "alcada": 1441,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Botticelli, adorazione dei magi uffizi.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Botticelli,_adorazione_dei_magi_uffizi.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Sandro Botticelli",
+      "transformacions": [
+        "màster local 1800×1441 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "ambaixadors": {
+    "amplada": 3840,
+    "alcada": 3784,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Hans Holbein the Younger - The Ambassadors - Google Art Project.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Hans Holbein the Younger",
+      "transformacions": [
+        "màster local 3840×3784 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "amor-sagrat-profà": {
+    "amplada": 3840,
+    "alcada": 1524,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Tiziano - Amor Sacro y Amor Profano (Galería Borghese, Roma, 1514).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tiziano_-_Amor_Sacro_y_Amor_Profano_(Galería_Borghese,_Roma,_1514).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "",
+      "transformacions": [
+        "màster local 3840×1524 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "assumcio-frari": {
+    "amplada": 1050,
+    "alcada": 1932,
+    "amplades": [
+      480,
+      800
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Tizian 041.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tizian_041.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Titian",
+      "transformacions": [
+        "màster local 1050×1932 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "autoretrat-durer-1498": {
+    "amplada": 1920,
+    "alcada": 2424,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Selbstporträt, by Albrecht Dürer, from Prado in Google Earth.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Selbstporträt,_by_Albrecht_Dürer,_from_Prado_in_Google_Earth.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Albrecht Dürer",
+      "transformacions": [
+        "màster local 1920×2424 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "autoretrat-durer-1500": {
+    "amplada": 1920,
+    "alcada": 2655,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Albrecht Dürer - 1500 self-portrait (High resolution and detail).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Albrecht_Dürer_-_1500_self-portrait_(High_resolution_and_detail).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Albrecht Dürer",
+      "transformacions": [
+        "màster local 1920×2655 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "bacus": {
+    "amplada": 1920,
+    "alcada": 3354,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Bacchus, Michelangelo, 1496-97, Bargello Florenz-06.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Bacchus,_Michelangelo,_1496-97,_Bargello_Florenz-06.jpg",
+      "llicencia": "CC BY-SA 3.0",
+      "autor_foto": "Rufus46",
+      "transformacions": [
+        "màster local 1920×3354 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "basilica-sant-pere": {
+    "amplada": 3840,
+    "alcada": 2553,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Dome of St. Peter in the afternoon.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Dome_of_St._Peter_in_the_afternoon.JPG",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Livioandronico2013",
+      "transformacions": [
+        "màster local 3840×2553 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "bateig-crist-piero": {
+    "amplada": 1920,
+    "alcada": 2805,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Piero, battesimo di cristo 04.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Piero,_battesimo_di_cristo_04.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Piero della Francesca",
+      "transformacions": [
+        "màster local 1920×2805 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "cacadors-neu": {
+    "amplada": 3840,
+    "alcada": 2733,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Pieter Bruegel the Elder - Hunters in the Snow (Winter) - Google Art Project.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Pieter Brueghel the Elder",
+      "transformacions": [
+        "màster local 3840×2733 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "cambra-esposats": {
+    "amplada": 1700,
+    "alcada": 1174,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Andrea Mantegna - Camera picta, la corte 01.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Andrea_Mantegna_-_Camera_picta,_la_corte_01.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Andrea Mantegna",
+      "transformacions": [
+        "màster local 1700×1174 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "cavaller-ma-pit": {
+    "amplada": 3840,
+    "alcada": 4920,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "The Nobleman with his hand on his chest, by El Greco (Museo del Prado, Madrid).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Nobleman_with_his_hand_on_his_chest,_by_El_Greco_(Museo_del_Prado,_Madrid).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "El Greco",
+      "transformacions": [
+        "màster local 3840×4920 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "chambord": {
+    "amplada": 3840,
+    "alcada": 1539,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Chambord Castle Northwest facade.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Chambord_Castle_Northwest_facade.jpg",
+      "llicencia": "CC BY-SA 3.0",
+      "autor_foto": "Benh LIEU SONG",
+      "transformacions": [
+        "màster local 3840×1539 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "colleoni": {
+    "amplada": 3840,
+    "alcada": 3438,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Bartolomeo Colleoni by Andrea del Verrocchio.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Bartolomeo_Colleoni_by_Andrea_del_Verrocchio.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Didier Descouens",
+      "transformacions": [
+        "màster local 3840×3438 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "crist-mort-mantegna": {
+    "amplada": 1920,
+    "alcada": 2585,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Andrea Mantegna 070.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Andrea_Mantegna_070.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Andrea Mantegna",
+      "transformacions": [
+        "màster local 1920×2585 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "cupula-fiore": {
+    "amplada": 3840,
+    "alcada": 2785,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Florence Duomo from Michelangelo hill.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Florence_Duomo_from_Michelangelo_hill.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Petar Milošević",
+      "transformacions": [
+        "màster local 3840×2785 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "dama-ermini": {
+    "amplada": 1920,
+    "alcada": 2510,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "The Lady with an Ermine.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Lady_with_an_Ermine.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Leonardo da Vinci",
+      "transformacions": [
+        "màster local 1920×2510 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "david-bronze-donatello": {
+    "amplada": 1066,
+    "alcada": 1719,
+    "amplades": [
+      480,
+      800
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Donatello - David - Florença.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Donatello_-_David_-_Florença.jpg",
+      "llicencia": "CC BY-SA 2.0",
+      "autor_foto": "original file by Patrick A. Rodgers",
+      "transformacions": [
+        "màster local 1066×1719 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "david-marbre": {
+    "amplada": 1920,
+    "alcada": 3075,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Michelangelo's David 2015.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Michelangelo's_David_2015.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Livioandronico2013",
+      "transformacions": [
+        "màster local 1920×3075 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "descens-creu": {
+    "amplada": 3840,
+    "alcada": 3048,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Weyden-descendimiento-prado-Ca-1435.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Weyden-descendimiento-prado-Ca-1435.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "",
+      "transformacions": [
+        "màster local 3840×3048 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "desposoris-verge": {
+    "amplada": 1417,
+    "alcada": 2032,
+    "amplades": [
+      480,
+      800,
+      1200
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Raffaello - Spozalizio - Web Gallery of Art.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Raffaello_-_Spozalizio_-_Web_Gallery_of_Art.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Raphael",
+      "transformacions": [
+        "màster local 1417×2032 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "diptic-melun": {
+    "amplada": 3840,
+    "alcada": 4272,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Fouquet Madonna.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Fouquet_Madonna.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Jean Fouquet",
+      "transformacions": [
+        "màster local 3840×4272 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "enterrament-orgaz": {
+    "amplada": 1316,
+    "alcada": 1612,
+    "amplades": [
+      480,
+      800,
+      1200
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "El Greco - The Burial of the Count of Orgaz.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:El_Greco_-_The_Burial_of_the_Count_of_Orgaz.JPG",
+      "llicencia": "Public domain",
+      "autor_foto": "El Greco",
+      "transformacions": [
+        "màster local 1316×1612 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "escola-atenes": {
+    "amplada": 1920,
+    "alcada": 1490,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "\"The School of Athens\" by Raffaello Sanzio da Urbino.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:\"The_School_of_Athens\"_by_Raffaello_Sanzio_da_Urbino.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Raphael",
+      "transformacions": [
+        "màster local 1920×1490 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "escorial": {
+    "amplada": 3840,
+    "alcada": 2880,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Monasterio El Escorial.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Monasterio_El_Escorial.jpg",
+      "llicencia": "CC BY-SA 3.0 es",
+      "autor_foto": "Diegoriofrio",
+      "transformacions": [
+        "màster local 3840×2880 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "expulsio-paradis": {
+    "amplada": 3840,
+    "alcada": 4934,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Masaccio-TheExpulsionOfAdamAndEveFromEden-Restoration.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Masaccio-TheExpulsionOfAdamAndEveFromEden-Restoration.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Masaccio",
+      "transformacions": [
+        "màster local 3840×4934 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "facade-santa-maria-novella": {
+    "amplada": 3840,
+    "alcada": 2550,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "The facade of Santa Maria Novella.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_facade_of_Santa_Maria_Novella.jpg",
+      "llicencia": "CC BY 2.0",
+      "autor_foto": "BIG ALBERT",
+      "transformacions": [
+        "màster local 3840×2550 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "flagellacio-piero": {
+    "amplada": 3840,
+    "alcada": 2627,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Piero, flagellazione.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Piero,_flagellazione.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Piero della Francesca",
+      "transformacions": [
+        "màster local 3840×2627 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "fontainebleau": {
+    "amplada": 3840,
+    "alcada": 2880,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Pavillon de la Porte Dorée @ Château de Fontainebleau 01.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pavillon_de_la_Porte_Dorée_@_Château_de_Fontainebleau_01.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Rémih",
+      "transformacions": [
+        "màster local 3840×2880 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "gattamelata": {
+    "amplada": 3840,
+    "alcada": 6040,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Statue of Gattamelata by Donatello - Padua 2016.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Statue_of_Gattamelata_by_Donatello_-_Padua_2016.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "José Luiz",
+      "transformacions": [
+        "màster local 3840×6040 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "gioconda": {
+    "amplada": 3840,
+    "alcada": 5723,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Leonardo da Vinci",
+      "transformacions": [
+        "màster local 3840×5723 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "hercules-anteu": {
+    "amplada": 1728,
+    "alcada": 3088,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Antonio del pollaiolo, ercole e anteo, 1470 ca. (bargello) 01.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Antonio_del_pollaiolo,_ercole_e_anteo,_1470_ca._(bargello)_01.JPG",
+      "llicencia": "CC BY 3.0",
+      "autor_foto": "",
+      "transformacions": [
+        "màster local 1728×3088 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "home-turbant": {
+    "amplada": 3315,
+    "alcada": 4226,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Portrait of a Man in a Turban (Jan van Eyck) with frame.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_in_a_Turban_(Jan_van_Eyck)_with_frame.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Jan van Eyck",
+      "transformacions": [
+        "màster local 3315×4226 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "hospital-innocents": {
+    "amplada": 3840,
+    "alcada": 2560,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Firenze - Florence - Piazza della Santissima Annunziata - View East on Ospedale degli Innocenti - Hospital for Foundlings, designed by Filippo Brunelleschi (1419-45) - Loggia built in 1432.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Piazza_della_Santissima_Annunziata_-_View_East_on_Ospedale_degli_Innocenti_-_Hospital_for_Foundlings,_designed_by_Filippo_Brunelleschi_(1419-45)_-_Loggia_built_in_1432.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Txllxt TxllxT",
+      "transformacions": [
+        "màster local 3840×2560 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "jardi-delicies": {
+    "amplada": 3840,
+    "alcada": 2186,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "The Garden of earthly delights.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Garden_of_earthly_delights.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Hieronymus Bosch",
+      "transformacions": [
+        "màster local 3840×2186 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "judici-final": {
+    "amplada": 3840,
+    "alcada": 4229,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Last Judgement (Michelangelo).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Last_Judgement_(Michelangelo).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Michelangelo",
+      "transformacions": [
+        "màster local 3840×4229 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "madonna-coll-llarg": {
+    "amplada": 1490,
+    "alcada": 2336,
+    "amplades": [
+      480,
+      800,
+      1200
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Parmigianino - Madonna and Child with Angels, known as the Madonna with the Long Neck.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Parmigianino_-_Madonna_and_Child_with_Angels,_known_as_the_Madonna_with_the_Long_Neck.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Parmigianino",
+      "transformacions": [
+        "màster local 1490×2336 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "madonna-granduca": {
+    "amplada": 1920,
+    "alcada": 2828,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Raffaello (1483-1520) - La Madonna del Granduca - 178 - Galleria Palatina.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Raffaello_(1483-1520)_-_La_Madonna_del_Granduca_-_178_-_Galleria_Palatina.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Raphael",
+      "transformacions": [
+        "màster local 1920×2828 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "magdalena-penitent": {
+    "amplada": 1920,
+    "alcada": 2880,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Penitent Magdalene (Donatello).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Penitent_Magdalene_(Donatello).jpg",
+      "llicencia": "CC BY 2.0",
+      "autor_foto": "George M. Groutas",
+      "transformacions": [
+        "màster local 1920×2880 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "matrimoni-arnolfini": {
+    "amplada": 3840,
+    "alcada": 5253,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Van Eyck - Arnolfini Portrait.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Jan van Eyck",
+      "transformacions": [
+        "màster local 3840×5253 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "moises": {
+    "amplada": 1772,
+    "alcada": 3072,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Michelangelo's Moses.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Michelangelo's_Moses.jpg",
+      "llicencia": "CC BY-SA 3.0",
+      "autor_foto": "Varcos",
+      "transformacions": [
+        "màster local 1772×3072 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "naixement-venus": {
+    "amplada": 3840,
+    "alcada": 2412,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Sandro Botticelli",
+      "transformacions": [
+        "màster local 3840×2412 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "noces-cana": {
+    "amplada": 1920,
+    "alcada": 1304,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Paolo Veronese 008.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Paolo_Veronese_008.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Unknown photographerUnknown photographer",
+      "transformacions": [
+        "màster local 1920×1304 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "palau-carles-v": {
+    "amplada": 3840,
+    "alcada": 2130,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Granada - Alhambra - Palacio de Carlos V.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Granada_-_Alhambra_-_Palacio_de_Carlos_V.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Benjamin Smith",
+      "transformacions": [
+        "màster local 3840×2130 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "palau-rucellai": {
+    "amplada": 3840,
+    "alcada": 2386,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Via della Vigna Nuova 18, palazzo rucellai, antica numerazione.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Via_della_Vigna_Nuova_18,_palazzo_rucellai,_antica_numerazione.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "Francesco Bini",
+      "transformacions": [
+        "màster local 3840×2386 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "perseu-cellini": {
+    "amplada": 2003,
+    "alcada": 3594,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Perseus Medusa Cellini Lanzi Florence.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Perseus_Medusa_Cellini_Lanzi_Florence.jpg",
+      "llicencia": "CC0",
+      "autor_foto": "Jebulon",
+      "transformacions": [
+        "màster local 2003×3594 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "pietat-vaticana": {
+    "amplada": 3840,
+    "alcada": 4024,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Michelangelo's Pieta 5450 cropncleaned edit.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Michelangelo's_Pieta_5450_cropncleaned_edit.jpg",
+      "llicencia": "CC BY 2.5",
+      "autor_foto": "Stanislav Traykov",
+      "transformacions": [
+        "màster local 3840×4024 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "placa-capitoli": {
+    "amplada": 3840,
+    "alcada": 2391,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Piazza del Campidoglio Roma.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Piazza_del_Campidoglio_Roma.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Jensens",
+      "transformacions": [
+        "màster local 3840×2391 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "portes-paradis": {
+    "amplada": 3840,
+    "alcada": 8887,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Schema della Porta del Paradiso.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Schema_della_Porta_del_Paradiso.JPG",
+      "llicencia": "Public domain",
+      "autor_foto": "Enne at Italian Wikipedia",
+      "transformacions": [
+        "màster local 3840×8887 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "primavera": {
+    "amplada": 3840,
+    "alcada": 2523,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Botticelli-primavera.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Botticelli-primavera.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Sandro Botticelli",
+      "transformacions": [
+        "màster local 3840×2523 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "rapte-sabines": {
+    "amplada": 3840,
+    "alcada": 7959,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Giambologna Rape of the Sabine Women.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Giambologna_Rape_of_the_Sabine_Women.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Giambologna",
+      "transformacions": [
+        "màster local 3840×7959 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "retaule-gant": {
+    "amplada": 3840,
+    "alcada": 2808,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Lamgods open.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Lamgods_open.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Jan van Eyck / Presumably Hubert van Eyck",
+      "transformacions": [
+        "màster local 3840×2808 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "retrat-francesc-i": {
+    "amplada": 1920,
+    "alcada": 2482,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "François Ier Louvre.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:François_Ier_Louvre.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "",
+      "transformacions": [
+        "màster local 1920×2482 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "rotonda": {
+    "amplada": 3840,
+    "alcada": 2589,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Villa Rotonda front.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Villa_Rotonda_front.jpg",
+      "llicencia": "CC BY-SA 2.5",
+      "autor_foto": "Stefan Bauer, http://www.ferras.at",
+      "transformacions": [
+        "màster local 3840×2589 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "sacrifici-isaac-berruguete": {
+    "amplada": 1131,
+    "alcada": 2073,
+    "amplades": [
+      480,
+      800
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Sacrificio de Isaac-1 (Alonso Berruguete).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Sacrificio_de_Isaac-1_(Alonso_Berruguete).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "José-Manuel Benito Álvarez (España) —> Locutus Borg",
+      "transformacions": [
+        "màster local 1131×2073 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "sant-andreu-mantua": {
+    "amplada": 1920,
+    "alcada": 2560,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Mantova-basilica di sant'andrea-facciata.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Mantova-basilica_di_sant'andrea-facciata.jpg",
+      "llicencia": "CC BY-SA 3.0",
+      "autor_foto": "Davide Papalini",
+      "transformacions": [
+        "màster local 1920×2560 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "sant-joan-desiderio": {
+    "amplada": 1920,
+    "alcada": 2880,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Desiderio da Settignano, San Giovannino, c1450-5, Florence, Bargello.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Desiderio_da_Settignano,_San_Giovannino,_c1450-5,_Florence,_Bargello.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "MenkinAlRire",
+      "transformacions": [
+        "màster local 1920×2880 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "sant-jordi-donatello": {
+    "amplada": 1920,
+    "alcada": 1280,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Florence, Bargello, Sala di Donatello (detail).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Florence,_Bargello,_Sala_di_Donatello_(detail).jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "MenkinAlRire",
+      "transformacions": [
+        "màster local 1920×1280 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "templet-montorio": {
+    "amplada": 3840,
+    "alcada": 5185,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Tempietto und Glockenturm von San Pietro in Montorio.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tempietto_und_Glockenturm_von_San_Pietro_in_Montorio.jpg",
+      "llicencia": "CC BY-SA 4.0",
+      "autor_foto": "JTSH26",
+      "transformacions": [
+        "màster local 3840×5185 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "torre-babel": {
+    "amplada": 3840,
+    "alcada": 2810,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Pieter Bruegel the Elder - The Tower of Babel (Vienna) - Google Art Project.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Pieter Brueghel the Elder",
+      "transformacions": [
+        "màster local 3840×2810 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "tribut-sant-pere": {
+    "amplada": 1920,
+    "alcada": 1427,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Masaccio 006.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Masaccio_006.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Masaccio",
+      "transformacions": [
+        "màster local 1920×1427 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "trinitat-masaccio": {
+    "amplada": 1028,
+    "alcada": 2073,
+    "amplades": [
+      480,
+      800
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Masaccio, trinità.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Masaccio,_trinità.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Masaccio",
+      "transformacions": [
+        "màster local 1028×2073 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "ultim-sopar": {
+    "amplada": 3840,
+    "alcada": 2164,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Última Cena - Da Vinci 5.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Última_Cena_-_Da_Vinci_5.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Leonardo da Vinci",
+      "transformacions": [
+        "màster local 3840×2164 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "universitat-salamanca": {
+    "amplada": 1200,
+    "alcada": 900,
+    "amplades": [
+      480,
+      800,
+      1200
+    ],
+    "tiles": true,
+    "copia": "cerca-web",
+    "font": {
+      "fitxer": "Fachada de la Universidad de Salamanca.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Fachada_de_la_Universidad_de_Salamanca.jpg",
+      "llicencia": "CC BY 2.0",
+      "autor_foto": "Victoria Rachitzky",
+      "transformacions": [
+        "màster local 1200×900 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "venus-urbino": {
+    "amplada": 1920,
+    "alcada": 1350,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Tiziano - Venere di Urbino - Google Art Project.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Titian",
+      "transformacions": [
+        "màster local 1920×1350 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "verge-roques": {
+    "amplada": 3840,
+    "alcada": 6090,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Leonardo Da Vinci - Vergine delle Rocce (Louvre).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Leonardo_Da_Vinci_-_Vergine_delle_Rocce_(Louvre).jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "Leonardo da Vinci",
+      "transformacions": [
+        "màster local 3840×6090 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "vista-toledo": {
+    "amplada": 1920,
+    "alcada": 2167,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "El Greco View of Toledo.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:El_Greco_View_of_Toledo.jpg",
+      "llicencia": "Public domain",
+      "autor_foto": "El Greco",
+      "transformacions": [
+        "màster local 1920×2167 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  },
+  "volta-sixtina": {
+    "amplada": 1920,
+    "alcada": 3551,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "font": {
+      "fitxer": "Ceiling of the Sistine Chapel.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Ceiling_of_the_Sistine_Chapel.jpg",
+      "llicencia": "CC BY 2.0",
+      "autor_foto": "KatieThebeau",
+      "transformacions": [
+        "màster local 1920×3551 (JPG)",
+        "derivat WebP q82 w480",
+        "derivat WebP q82 w800",
+        "derivat WebP q82 w1200",
+        "derivat WebP q82 w1600",
+        "piràmide DZI 256px tiles, overlap 1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,335 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* ── Paleta de paper càlid (auditoria estètica) ── */
+  --color-paper: var(--paper);              /* superfície de lectura #FFFCF6 */
+  --color-paper-2: var(--paper-2);          /* superfície alterna #E9E3D7 */
+  --color-tinta: var(--tinta);              /* text principal #252C2D */
+  --color-tinta-2: var(--tinta-2);          /* text secundari #4F5B5C */
+  --color-linia: var(--linia);              /* línies #D2C9B9 */
+  --color-accio: var(--accio);              /* accions #A64E32 */
+  --color-concepte: var(--concepte);        /* conceptes didàctics #806527 */
+  --color-visor: var(--visor);              /* fons del visor #13191D */
+  /* Colors semàntics de disciplina (cronologia): mai la única pista */
+  --color-pintura: var(--disc-pintura);
+  --color-escultura: var(--disc-escultura);
+  --color-arquitectura: var(--disc-arquitectura);
+  /* Aliases legacy (mig-desplegament): apunten a la paleta nova */
+  --color-terra: var(--accio);
+  --color-terra-suau: var(--terra-suau);
+  --color-aur: var(--concepte);
+  --color-superficie: var(--superficie);
+  --color-superficie-2: var(--superficie-2);
+  --color-ivori: var(--tinta);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ══════════ Paper càlid, pedra i tinta — auditoria estètica ══════════
+   Colors de partida amb contrast verificat sobre text normal i petit:
+   tinta #252C2D sobre paper #FFFCF6 ≈ 12,9:1 · tinta-2 #4F5B5C ≈ 6,7:1
+   acció #A64E32 sobre paper ≈ 4,9:1 (text gran i icones; text blanc dins
+   de botons ≈ 4,7:1) · concepte #806527 ≈ 5,6:1 · disciplines ≥ 4,9:1. */
+:root {
+  --radius: 0.5rem;
+  --paper: #fffcf6;
+  --paper-2: #e9e3d7;
+  --tinta: #252c2d;
+  --tinta-2: #4f5b5c;
+  --linia: #d2c9b9;
+  --accio: #a64e32;
+  --accio-fort: #8f4128;         /* hover de l'acció (més fosc sobre paper) */
+  --terra-suau: rgba(166, 78, 50, 0.1);
+  --concepte: #806527;
+  --concepte-suau: rgba(128, 101, 39, 0.1);
+  --visor: #13191d;              /* el fosc es conserva NOMÉS al visor */
+
+  /* Disciplines (cronologia): color semàntic estable a tot el lloc + icona/forma */
+  --disc-pintura: #2b6f78;       /* blau petroli */
+  --disc-escultura: #a64e32;     /* terracota */
+  --disc-arquitectura: #62754a;  /* verd oliva */
+  --context-visual: #3e4647;     /* context històric: gris fosc */
+  --artista-visual: #7d6b93;     /* artistes: violeta discret */
+  --banda-quattrocento: rgba(128, 101, 39, 0.12);
+  --banda-cinquecento: rgba(43, 111, 120, 0.12);
+  --banda-manierisme: rgba(125, 107, 147, 0.14);
+
+  --background: var(--paper);
+  --foreground: var(--tinta);
+  --muted: var(--paper-2);
+  --muted-foreground: var(--tinta-2);
+  --card: #ffffff;               /* fitxes i targetes: blanc càlid sobre paper */
+  --card-foreground: var(--tinta);
+  --popover: #ffffff;
+  --popover-foreground: var(--tinta);
+  --primary: var(--accio);
+  --primary-foreground: #ffffff;
+  --secondary: var(--paper-2);
+  --secondary-foreground: var(--tinta);
+  --accent: var(--paper-2);
+  --accent-foreground: var(--tinta);
+  --destructive: #a33b28;
+  --border: var(--linia);
+  --input: #c4baa8;
+  --ring: rgba(166, 78, 50, 0.55);
+  --chart-1: var(--disc-pintura);
+  --chart-2: var(--accio);
+  --chart-3: var(--disc-arquitectura);
+  --chart-4: var(--artista-visual);
+  --chart-5: var(--context-visual);
+  --sidebar: var(--paper-2);
+  --sidebar-foreground: var(--tinta);
+  --sidebar-primary: var(--accio);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5efe3;
+  --sidebar-accent-foreground: var(--tinta);
+  --sidebar-border: var(--linia);
+  --sidebar-ring: rgba(166, 78, 50, 0.55);
+  --superficie: #f5efe3;         /* targetes sobre paper (més càlid que blanc) */
+  --superficie-2: var(--paper-2);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  ::selection {
+    background: rgba(166, 78, 50, 0.22);
+  }
+  /* Focus visible per a navegació per teclat (accessibilitat) */
+  :focus-visible {
+    outline: 2px solid var(--accio);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  /* Etiquetes i peus: text secundari mai per sota de 12px */
+  small, .text-petit {
+    color: var(--tinta-2);
+  }
+}
+
+/* Amplada de lectura: 65-75 lletres (auditoria tipogràfica) */
+.prose-llegible {
+  max-width: 72ch;
+}
+
+/* ── Subratllat puntejat dels termes amb entrada de glossari ── */
+.term-glossari {
+  cursor: help;
+  border-bottom: 1px dotted var(--concepte);
+  text-decoration: none;
+}
+.term-glossari:hover,
+.term-glossari:focus-visible {
+  background: var(--concepte-suau);
+  border-bottom-color: var(--concepte);
+}
+
+/* ── Bloc destacat «Per què és rellevant» — interpretació/concepte (daurat fosc) ── */
+.bloc-relevancia {
+  border-left: 3px solid var(--concepte);
+  background: var(--concepte-suau);
+}
+
+/* ── Blocs semàntics: dada · interpretació · activitat · font (directriu estètica) ── */
+.bloc-dada {
+  border-left: 2px solid #8a9190;
+}
+.bloc-interpretacio {
+  border-left: 2px solid var(--concepte);
+}
+.bloc-activitat {
+  border: 1px dashed rgba(128, 101, 39, 0.55);
+  background: var(--concepte-suau);
+}
+.bloc-font {
+  border-top: 1px solid var(--linia);
+  color: var(--tinta-2);
+}
+.etiqueta-tipus {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+.etiqueta-tipus-aur {
+  color: var(--concepte);
+}
+
+/* ── Esquelet de càrrega que conserva la proporció de la imatge ──
+   NOTA: sense position aquí — la posició la dona el component (relative per defecte,
+   o la classe de posicionament del caller: absolute/fixed), sinó anul·laria les
+   utilitats Tailwind del caller (el CSS no en cap capa guanya les utilities). */
+.esquelet-obra {
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.esquelet-obra::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(37, 44, 45, 0.04) 45%, rgba(37, 44, 45, 0.08) 55%, transparent);
+  animation: esquelet-brill 1.4s ease-in-out infinite;
+}
+@keyframes esquelet-brill {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .esquelet-obra::after {
+    animation: none;
+  }
+}
+
+/* ── Anotació assenyalada (seqüència guiada: «clica el detall assenyalat») ──
+   Dins del visor fosc: daurat clar perquè el contrast sobre imatge fosca sigui alt. */
+@keyframes anotacio-pulsacio {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(233, 227, 215, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 7px rgba(233, 227, 215, 0.9));
+  }
+}
+.anotacio-pulsa {
+  animation: anotacio-pulsacio 1.4s ease-in-out infinite;
+  z-index: 12;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anotacio-pulsa {
+    animation: none;
+    outline: 2px solid #d8d3c8;
+    outline-offset: 2px;
+  }
+}
+
+/* ── Filets de secció amb el color de concepte ── */
+.filet-aur {
+  border-bottom: 1px solid rgba(128, 101, 39, 0.35);
+}
+
+/* ══════════ Àmbit fosc del visor: només aquí els colors s'inverteixen ══════════ */
+.visor-fosc {
+  background: var(--visor);
+  color: #f2eee6;
+}
+.visor-fosc ::selection {
+  background: rgba(233, 227, 215, 0.3);
+}
+
+/* ── Animació d'aparició sobria ── */
+@keyframes aparicio {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.apareix {
+  animation: aparicio 0.45s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apareix {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Barra de desplaçament clara (paper) ── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: #c4baa8;
+  border-radius: 6px;
+  border: 2px solid var(--paper-2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ab9f89;
+}
+.visor-fosc ::-webkit-scrollbar-track {
+  background: #0d1216;
+}
+.visor-fosc ::-webkit-scrollbar-thumb {
+  background: #2c313c;
+  border-color: #0d1216;
+}
+.visor-fosc ::-webkit-scrollbar-thumb:hover {
+  background: #3a404d;
+}
+
+/* ── Cursor del visor ── */
+.visor-pannable {
+  cursor: grab;
+}
+.visor-pannable:active {
+  cursor: grabbing;
+}
+
+/* Visor: únic espai fosc del lloc. Els tokens de tinta (i l'àlies legacy
+   text-ivori) passen a clars perquè el text no quedi fosc sobre fosc. */
+.visor-fosc {
+  --tinta: #f2eee6;
+  --tinta-2: #a8adb8;
+  --foreground: #f2eee6;
+  color: #f2eee6;
+}
