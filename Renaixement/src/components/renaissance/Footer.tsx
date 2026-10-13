@@ -11,8 +11,8 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto border-t border-border bg-paper-2">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
           <div className="max-w-2xl">
             <p className="font-serif text-lg">Renaixement</p>
             <p className="mt-1 text-sm leading-relaxed text-tinta-2">
@@ -29,24 +29,24 @@ export default function Footer() {
           </button>
         </div>
 
-        <div className="mt-5 border-t border-border pt-4">
-          <div className="flex items-start gap-3">
+        <div className="mt-4 grid gap-3 border-t border-border pt-3 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center lg:gap-8">
+          <div className="flex items-center gap-3">
             <a
               href={URL_LLICENCIA}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Llicència Creative Commons BY-NC-SA 4.0"
-              className="mt-0.5 shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accio"
+              className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accio"
             >
               <Image
                 src={camiPublic("/CC_BY-NC-SA.png")}
                 alt="Creative Commons BY-NC-SA"
-                width={83}
-                height={29}
-                className="h-auto w-[83px]"
+                width={80}
+                height={28}
+                className="h-auto w-20"
               />
             </a>
-            <div className="space-y-1 text-xs leading-relaxed text-tinta-2">
+            <div className="text-xs leading-[14px] text-tinta-2">
               <p>
                 Web creada per{" "}
                 <a
@@ -73,7 +73,7 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-tinta-2">
+          <p className="text-xs leading-snug text-tinta-2 lg:text-right">
             Totes les obres del corpus són de domini públic. Les fotografies provenen de
             Wikimedia Commons i respecten les llicències indicades a cada fitxa.
           </p>
