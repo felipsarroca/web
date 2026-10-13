@@ -1,0 +1,55 @@
+.selector { display: flex; flex-direction: column; gap: .4rem; font-size: .8rem; font-weight: 600; min-width: 0; }
+.selector select { width: 100%; min-width: 0; padding: .65rem .5rem; border: 1px solid var(--linia); border-radius: .5rem; background: var(--paper); font-size: .875rem; font-weight: 400; color: var(--tinta); }
+.timeline { border: 1px solid var(--linia); border-radius: .75rem; --label: 260px; }
+.axis, .row { display: grid; grid-template-columns: var(--label) minmax(0, 1fr); }
+.axis { position: sticky; top: 64px; z-index: 15; background: var(--paper); border-bottom: 1px solid var(--linia); border-radius: .75rem .75rem 0 0; box-shadow: 0 2px 4px #00000006; }
+.axisLabel { padding: 1.5rem 1rem; font-weight: 600; font-size: .875rem; }
+.axisTrack { position: relative; margin: 0 24px; height: 70px; }
+.periods { position: relative; height: 30px; margin-top: 8px; }
+.periods span { position: absolute; height: 27px; background: var(--paper-2); border-left: 2px solid var(--concepte); padding: 5px 8px; overflow: hidden; font-size: .75rem; font-weight: 600; white-space: nowrap; }
+.periods span:nth-child(2) { background: var(--terra-suau); border-color: var(--accio); }
+.ticks { position: relative; height: 26px; margin-top: 7px; }
+.ticks span { position: absolute; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.artist { border-bottom: 1px solid var(--linia); }
+.artist:last-child { border-bottom: 0; }
+.artist:nth-child(even) { background: var(--paper); }
+.name { padding: .85rem .75rem; font-size: .9rem; line-height: 1.35; overflow-wrap: anywhere; }
+.track { position: relative; margin: 0 24px; min-height: 54px; }
+.grid { position: absolute; inset: 0; pointer-events: none; }
+.grid span { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--linia); opacity: .45; }
+.activity { position: absolute; top: 23px; height: 7px; min-width: 3px; background: var(--artista-visual); border-radius: 4px; }
+.life { background: transparent; border: 1px dashed var(--tinta-2); }
+.activityDate { position: absolute; top: 6px; font-size: 10px; font-variant-numeric: tabular-nums; color: var(--tinta-2); white-space: nowrap; }
+.marker { position: absolute; transform: translateX(-50%); width: 25px; height: 25px; border: 2px solid var(--paper); border-radius: 50%; color: white; font-size: 11px; font-weight: 600; z-index: 1; }
+.marker:hover, .marker[aria-pressed=true] { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.workRow { border-top: 1px solid color-mix(in srgb, var(--linia) 45%, transparent); }
+.workName { display: flex; align-items: center; text-align: left; gap: .6rem; padding: .5rem .75rem .5rem 2rem; line-height: 1.3; font-size: .8rem; }
+.workName small { display: block; margin-top: 3px; color: var(--tinta-2); font-size: .7rem; }
+.workName:hover, .workName[aria-pressed=true] { background: var(--paper-2); }
+.workInterval { position: absolute; top: calc(50% - 6px); height: 12px; min-width: 12px; border-radius: 4px; transform: translateX(-6px); }
+.workInterval:hover, .workInterval[aria-pressed=true] { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.approx { outline: 1px dashed var(--tinta); outline-offset: 3px; }
+.continua { position: absolute; right: -10px; top: calc(50% - 15px); font-size: 22px; color: var(--tinta-2); pointer-events: none; }
+.detail { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-top: 1px solid var(--linia); background: var(--paper-2); }
+.context { border-bottom: 1px solid var(--linia); padding: .75rem 1rem; font-size: .8rem; background: var(--paper-2); }
+.context summary { cursor: pointer; font-weight: 600; }
+.contextList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1.5rem; margin-top: .75rem; }
+.contextList button { text-align: left; padding: .4rem 0; }
+.contextList button:hover { text-decoration: underline; }
+.keyActivity, .keyLife { display: inline-block; width: 22px; height: 7px; background: var(--artista-visual); border-radius: 4px; }
+.keyLife { background: transparent; border: 1px dashed var(--tinta-2); }
+@media (max-width: 767px) {
+  .timeline { --label: 155px; }
+  .axisLabel { padding: 1.5rem .5rem; font-size: .75rem; }
+  .axisTrack, .track { margin: 0 14px; }
+  .name { padding: .7rem .4rem; font-size: .8rem; }
+  .periods span { padding: 5px 3px; font-size: 9px; }
+  .ticks span { font-size: 9px; }
+  .activityDate { position: relative; display: block; top: 0; left: 0 !important; padding-top: 4px; font-size: 9px; white-space: normal; }
+  .activity { top: 26px; }
+  .workName { padding: .5rem .4rem; gap: .4rem; font-size: .75rem; }
+  .workName > div { display: none; }
+  .detail { align-items: flex-start; gap: .6rem; padding: .75rem; flex-wrap: wrap; }
+  .detail > div:first-child { width: 60px; height: 80px; }
+  .contextList { grid-template-columns: minmax(0, 1fr); }
+}

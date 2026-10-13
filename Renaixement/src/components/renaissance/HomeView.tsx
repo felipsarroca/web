@@ -122,7 +122,7 @@ export default function HomeView() {
             {
               icona: Clock,
               titol: "Explora per temps",
-              desc: "La franja 1400-1610 amb vistes preparades: què passava al mateix temps a Itàlia, a Flandes o a la península.",
+              desc: "Artistes i obres ordenats en el temps: filtra per època i tipus d’art i compara qui treballava al mateix temps.",
               desti: "cronologia",
             },
             {

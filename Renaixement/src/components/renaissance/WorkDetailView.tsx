@@ -8,7 +8,7 @@
 "use client";
 
 import { MapPin, ExternalLink, Maximize2, Eye, ZoomIn, PlayCircle, ArrowLeft } from "lucide-react";
-import { useApp } from "@/lib/renaissance/store";
+import { useApp, filtresACerca } from "@/lib/renaissance/store";
 import { obra } from "@/data/obres";
 import { artista } from "@/data/artistes";
 import { concepte } from "@/data/conceptes";
@@ -58,7 +58,7 @@ export default function WorkDetailView({ slug }: { slug: string }) {
     <article className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
       {desDeCronologia ? (
         <Enllac
-          desti={filtres.vista ? `cronologia?vista=${filtres.vista}` : "cronologia"}
+          desti={`cronologia?${filtresACerca({ ...filtres, desDe: undefined })}`}
           className="inline-flex items-center gap-1.5 text-sm text-tinta-2 hover:text-accio mb-6 transition-colors"
         >
           <ArrowLeft className="size-4" aria-hidden />
