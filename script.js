@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             path: 'https://ja.cat/renaixement',
             category: 'Webs educatives',
             description: 'Recurs educatiu per explorar el Renaixement: obres amb visor de detall, artistes, conceptes, arquitectura i cronologia interactiva.',
-            icon: 'Renaixement/logo.svg'
+            icon: 'Renaixement/favicon.svg'
         },
         {
             name: 'El Modernisme',

@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useApp, type Vista } from "@/lib/renaissance/store";
+import { camiPublic } from "@/lib/renaissance/camins";
 
 interface Enllac {
   desti: string;
@@ -92,11 +93,11 @@ export default function NavBar() {
         {/* Logo */}
         <button
           onClick={() => navegar("")}
-          className="flex items-baseline gap-2 shrink-0"
+          className="flex items-center gap-2 shrink-0"
           aria-label="Anar a l'inici"
         >
-          <span className="font-serif text-xl tracking-tight text-tinta">Renaixement</span>
-          <span className="hidden lg:inline text-[11px] text-tinta-2">· Referència en català</span>
+          <img src={camiPublic("/favicon.svg")} alt="" width={36} height={36} className="size-9 shrink-0 object-contain" />
+          <span className="font-serif text-xl tracking-tight text-tinta">El Renaixement</span>
         </button>
 
         {/* Enllaços principals d'escriptori */}
