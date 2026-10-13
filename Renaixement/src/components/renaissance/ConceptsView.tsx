@@ -3,7 +3,6 @@
 
 import { useApp } from "@/lib/renaissance/store";
 import { CONCEPTES } from "@/data/conceptes";
-import { obresConcepte } from "@/data/obres";
 import ImgObra from "./ImgObra";
 
 export default function ConceptsView() {
@@ -19,7 +18,6 @@ export default function ConceptsView() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {CONCEPTES.map((c) => {
-          const n = obresConcepte(c.slug).length;
           const repr = c.exemplarPrincipal;
           return (
             <button
@@ -46,9 +44,6 @@ export default function ConceptsView() {
                   </p>
                 </div>
               </div>
-              <p className="px-4 pb-4 text-[12px] text-tinta-2">
-                {n} obra{n !== 1 ? "s" : ""} exemplar{n !== 1 ? "s" : ""} al corpus
-              </p>
             </button>
           );
         })}

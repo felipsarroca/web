@@ -1243,8 +1243,8 @@
     }
   },
   "portes-paradis": {
-    "amplada": 3840,
-    "alcada": 8887,
+    "amplada": 2154,
+    "alcada": 3318,
     "amplades": [
       480,
       800,
@@ -1253,18 +1253,20 @@
     ],
     "tiles": true,
     "copia": "commons",
+    "versio": "60467fdb8fd7",
     "font": {
-      "fitxer": "Schema della Porta del Paradiso.JPG",
-      "url": "https://commons.wikimedia.org/wiki/File:Schema_della_Porta_del_Paradiso.JPG",
-      "llicencia": "Public domain",
-      "autor_foto": "Enne at Italian Wikipedia",
+      "fitxer": "Lorenzo ghiberti, porta del paradiso, 1425-52, 00.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Lorenzo_ghiberti%2C_porta_del_paradiso%2C_1425-52%2C_00.JPG",
+      "llicencia": "CC BY 3.0",
+      "url_llicencia": "https://creativecommons.org/licenses/by/3.0/",
+      "autor_foto": "Sailko",
       "transformacions": [
-        "màster local 3840×8887 (JPG)",
-        "derivat WebP q82 w480",
-        "derivat WebP q82 w800",
-        "derivat WebP q82 w1200",
-        "derivat WebP q82 w1600",
-        "piràmide DZI 256px tiles, overlap 1"
+        "Original local 2154×3318 (JPG), sense retall ni ampliació",
+        "Derivat WebP q82 w480",
+        "Derivat WebP q82 w800",
+        "Derivat WebP q82 w1200",
+        "Derivat WebP q82 w1600",
+        "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
       ]
     }
   },

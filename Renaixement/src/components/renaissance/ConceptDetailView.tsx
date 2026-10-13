@@ -8,7 +8,7 @@
 import { AlertTriangle, ArrowRight, GitCompareArrows, Maximize2, PlayCircle, Layers } from "lucide-react";
 import { useApp } from "@/lib/renaissance/store";
 import { concepte } from "@/data/conceptes";
-import { obra, obresConcepte } from "@/data/obres";
+import { obra } from "@/data/obres";
 import { teAnotacions } from "@/data/anotacions";
 import { comparacionsDeConcepte } from "@/data/comparacions";
 import ImgObra from "./ImgObra";
@@ -24,7 +24,6 @@ export default function ConceptDetailView({ slug }: { slug: string }) {
 
   const principal = obra(c.exemplarPrincipal);
   const secundaris = c.exemplarsSecundaris.map((s) => obra(s)).filter(Boolean);
-  const total = obresConcepte(slug).length;
   const comparacions = comparacionsDeConcepte(slug);
 
   // Exercici de transferència: una obra que NO és l'exemplar principal
@@ -167,11 +166,7 @@ export default function ConceptDetailView({ slug }: { slug: string }) {
       {/* Obres de contrast */}
       {secundaris.length > 0 && (
         <section className="mt-14" aria-label="Obres de contrast">
-          <h2 className="font-serif text-2xl mb-2">Obres de contrast</h2>
-          <p className="text-sm text-tinta-2 mb-5 max-w-2xl prose-llegible">
-            {total} obra{total !== 1 ? "s" : ""} del corpus porten aquesta etiqueta;
-            aquestes són les que millor serveixen per comparar.
-          </p>
+          <h2 className="font-serif text-2xl mb-5">Obres de contrast</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {secundaris.map((o) => o && <WorkCard key={o.slug} obra={o} />)}
           </div>

@@ -307,7 +307,7 @@ function Comptador({ filtre, vista }: { filtre: Filtre; vista: VistaPreparada })
   return (
     <>
       {esdev.length} esdeveniment{esdev.length !== 1 ? "s" : ""} · {artistes.length} artiste
-      {artistes.length !== 1 ? "s" : ""} · {obres.length} obra{obres.length !== 1 ? "s" : ""}
+      {artistes.length !== 1 ? "s" : ""} · {obres.length} {obres.length === 1 ? "obra" : "obres"}
     </>
   );
 }
@@ -850,7 +850,7 @@ function TargetaObres({ obres, onTanca, alinear }: { obres: Obra[]; onTanca: () 
       }`}
     >
       <div className="flex items-center justify-between px-1.5 pt-1 pb-1.5">
-        <p className="text-[11px] uppercase tracking-wider text-tinta-2">{obres.length} obra{obres.length !== 1 ? "s" : ""}</p>
+        <p className="text-[11px] uppercase tracking-wider text-tinta-2">{obres.length} {obres.length === 1 ? "obra" : "obres"}</p>
         <button onClick={onTanca} className="p-0.5 rounded hover:bg-tinta/5" aria-label="Tancar la targeta">
           <X className="size-3.5" aria-hidden />
         </button>

@@ -17,6 +17,8 @@ interface ImatgeLocal {
   tiles: boolean;
   /** Procedència de la còpia digital: "commons" (descàrrega directa) o "cerca-web". */
   copia?: string;
+  /** Versió de l'actiu per evitar que el navegador mostri una imatge substituïda. */
+  versio?: string;
 }
 
 // El manifest té claus "_..." de documentació: es filtren.
@@ -25,6 +27,11 @@ export const LOCALS: Record<string, ImatgeLocal> = Object.fromEntries(
 ) as Record<string, ImatgeLocal>;
 
 const BASE = camiPublic("/imatges/obres");
+
+function versionaUrl(url: string, slug: string): string {
+  const versio = LOCALS[slug]?.versio;
+  return versio ? `${url}?v=${encodeURIComponent(versio)}` : url;
+}
 
 /** Estat honest de la imatge d'una obra (P0-4: no anunciar "alta resolució" uniforme). */
 export function estatImatge(slug: string): "zoom" | "local" | "pendent" {
@@ -52,12 +59,12 @@ export function zoomDisponible(slug: string): boolean {
 
 /** URL del document DZI del visor. */
 export function urlDzi(slug: string): string {
-  return `${BASE}/${slug}.dzi`;
+  return versionaUrl(`${BASE}/${slug}.dzi`, slug);
 }
 
 /** Màster local (JPG) per al fallback del visor quan no hi ha piràmide. */
 export function urlMaster(slug: string): string {
-  return `${BASE}/${slug}-master.jpg`;
+  return versionaUrl(`${BASE}/${slug}-master.jpg`, slug);
 }
 
 /** Derivat WebP més proper a l'amplada demanada (mai superior, excepte si no queda remei). */
@@ -65,14 +72,14 @@ export function urlImatge(slug: string, amplada: number): string {
   const l = LOCALS[slug];
   if (!l || l.amplades.length === 0) return "";
   const candidata = [...l.amplades].reverse().find((w) => w <= amplada) ?? l.amplades[0];
-  return `${BASE}/${slug}/w${candidata}.webp`;
+  return versionaUrl(`${BASE}/${slug}/w${candidata}.webp`, slug);
 }
 
 /** String srcset amb tots els derivats disponibles. */
 export function srcsetImatge(slug: string): string {
   const l = LOCALS[slug];
   if (!l) return "";
-  return l.amplades.map((w) => `${BASE}/${slug}/w${w}.webp ${w}w`).join(", ");
+  return l.amplades.map((w) => `${versionaUrl(`${BASE}/${slug}/w${w}.webp`, slug)} ${w}w`).join(", ");
 }
 
 /** Proporció amplada/alcada de l'original (per reservar espai i evitar salts de layout). */

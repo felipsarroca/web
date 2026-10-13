@@ -95,7 +95,7 @@ export default function ArtistsView() {
                     {a.dates} · {a.llocs}
                   </p>
                   <p className="text-[12px] text-tinta-2 mt-1.5">
-                    {a.ambits.join(" · ")} · {obres.length} obra{obres.length !== 1 ? "s" : ""}
+                    {a.ambits.join(" · ")} · {obres.length} {obres.length === 1 ? "obra" : "obres"}
                   </p>
                 </div>
               </div>
