@@ -33,6 +33,9 @@ const BIBLIOGRAFIA: Record<string, FontFitxa[]> = {
     { tipus: "bibliografia", text: "R. Lightbown, «Sandro Botticelli: Life and Work» (Thames & Hudson, 1978)." },
     { tipus: "font-tradicional", text: "G. Vasari, «Le Vite» (1550/1568), vida de Botticelli.", nota: "Tradició vasariana: útil, però amb prejudicis de moral i gust del segle XVI." },
   ],
+  perugino: [
+    { tipus: "bibliografia", text: "Smarthistory, «Pietro Perugino, Christ Giving the Keys of the Kingdom to St. Peter». Anàlisi de la perspectiva i la iconografia.", url: "https://smarthistory.org/perugino-christ-giving-the-keys-of-the-kingdom-to-st-peter/" },
+  ],
   leonardo: [
     { tipus: "bibliografia", text: "M. Kemp, «Leonardo da Vinci: The Marvellous Works of Nature and Man» (Dent, 1981)." },
     { tipus: "bibliografia", text: "K. Clark, «Leonardo da Vinci» (Penguin, 1939; ed. revisada 1988)." },

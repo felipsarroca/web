@@ -5,6 +5,65 @@
 import type { Anotacio } from "./anotacions";
 
 export const ANOTACIONS: Record<string, Anotacio[]> = {
+  // Perugino: observar → seguir el paviment → comprovar la profunditat.
+  "crist-claus-sant-pere": [
+    {
+      id: "punt-fuga",
+      figura: "punt", capa: "perspectiva", etiqueta: "Punt de fuga",
+      pregunta: "Si prolongues les juntes del paviment, cap a quin lloc van?",
+      descripcio: "Les ortogonals condueixen la mirada fins a la porta de l'edifici central. El punt de fuga és un lloc geomètric del quadre, no pas un objecte pintat.",
+      x: 0.506, y: 0.415, nivell: "basico", visible_inicialment: true,
+    },
+    {
+      id: "ortogonals-paviment",
+      figura: "linia", capa: "perspectiva", etiqueta: "Ortogonals del paviment",
+      pregunta: "Quines juntes del terra apunten cap a la porta?",
+      descripcio: "Aquestes dues juntes s'allunyen de nosaltres i semblen convergir. Les línies són una guia de lectura aproximada sobre el paviment pintat.",
+      punts: [[0.37, 0.68], [0.506, 0.415], [0.62, 0.68]], nivell: "basico",
+    },
+    {
+      id: "franges-paviment",
+      figura: "zona", capa: "perspectiva", etiqueta: "Intervals que es comprimeixen",
+      pregunta: "Els rectangles del terra tenen la mateixa alçada al fons que al davant?",
+      descripcio: "Les franges transversals es veuen progressivament més juntes a mesura que s'acosten a l'edifici. Aquest canvi ajuda a mesurar visualment la distància.",
+      x: 0.40, y: 0.45, amplada: 0.20, alcada: 0.19, nivell: "intermedi",
+    },
+    {
+      id: "figures-distancia",
+      figura: "zona", capa: "perspectiva", etiqueta: "Figures cada cop més petites",
+      pregunta: "Compara la mida de les persones del primer pla i de les que caminen per la plaça.",
+      descripcio: "Perugino pinta figures menors a mesura que s'allunyen: és una altra pista de profunditat que acompanya la construcció geomètrica.",
+      x: 0.52, y: 0.41, amplada: 0.40, alcada: 0.15, nivell: "basico",
+    },
+    {
+      id: "porta-central",
+      figura: "zona", capa: "arquitectura", etiqueta: "Porta dins la porta",
+      pregunta: "Què pots veure més enllà de l'arc gran del temple?",
+      descripcio: "L'arc frontal emmarca una porta fosca amb figures al darrere. Aquestes obertures fan que l'edifici no sembli un mur pla, sinó un espai que es pot travessar amb la mirada.",
+      x: 0.48, y: 0.27, amplada: 0.075, alcada: 0.18, nivell: "basico",
+    },
+    {
+      id: "arcs-laterals",
+      figura: "zona", capa: "arquitectura", etiqueta: "Arcs que obren el fons",
+      pregunta: "Què queda visible a través dels arcs dels costats?",
+      descripcio: "Els buits dels pòrtics deixen veure el cel i el paisatge. La superposició d'arquitectura i fons fa més convincent la fondària de la plaça.",
+      x: 0.33, y: 0.27, amplada: 0.36, alcada: 0.18, nivell: "intermedi",
+    },
+    {
+      id: "vestits-quattrocento",
+      figura: "zona", capa: "personatges", etiqueta: "La Judea imaginada al segle XV",
+      pregunta: "Tots els personatges vesteixen com els apòstols?",
+      descripcio: "Al costat de les túniques d'inspiració antiga hi ha barrets i vestits de la Itàlia del Quattrocento. El fresc acosta un episodi bíblic al món dels seus espectadors, no reconstrueix la roba de la Judea del segle I.",
+      x: 0.81, y: 0.53, amplada: 0.17, alcada: 0.46, nivell: "basico",
+    },
+    {
+      id: "claus-pere",
+      figura: "zona", capa: "simbols", etiqueta: "Les claus de Pere",
+      pregunta: "Què està lliurant Crist a l'home agenollat?",
+      descripcio: "Les claus identifiquen Pere i fan visible la transmissió d'autoritat que dona sentit a l'escena central.",
+      x: 0.47, y: 0.66, amplada: 0.07, alcada: 0.24, nivell: "basico",
+    },
+  ],
   // ── 1. Masaccio, Trinitat — perspectiva lineal ──────────────────────────────
   "trinitat-masaccio": [
     {
@@ -278,7 +337,7 @@ export const ANOTACIONS: Record<string, Anotacio[]> = {
       amplada: 0.14,
       alcada: 0.05,
       nivell: "basico",
-      visible_inicialment: true,
+      visible_inicialment: false,
     },
     {
       id: "ulls",
@@ -323,26 +382,38 @@ export const ANOTACIONS: Record<string, Anotacio[]> = {
       nivell: "basico",
     },
     {
-      id: "horitzo-esq",
-      figura: "linia",
-      capa: "composicio",
-      etiqueta: "Horitzó esquerre",
-      pregunta: "A quin nivell està l'horitzó darrere l'espatlla esquerra?",
+      id: "roques-properes",
+      figura: "zona",
+      capa: "perspectiva",
+      etiqueta: "Formes properes més definides",
+      pregunta: "Quins perfils del paisatge pots distingir millor?",
       descripcio:
-        "El paisatge darrere l'espatlla esquerra té l'horitzó més alt que el de la dreta: l'asimetria desestabilitza subtilment i dona vida al fons.",
-      punts: [[0.02, 0.42], [0.27, 0.42]],
-      nivell: "avancat",
+        "Les roques i el camí de l'esquerra tenen formes i contrasts relativament definits. Pren-los com a referència abans de mirar les muntanyes llunyanes.",
+      x: 0.02, y: 0.37, amplada: 0.27, alcada: 0.22,
+      nivell: "basico",
+      visible_inicialment: true,
     },
     {
-      id: "horitzo-dret",
-      figura: "linia",
-      capa: "composicio",
-      etiqueta: "Horitzó dret",
-      pregunta: "Coincideix aquest horitzó amb el de l'altre costat? Què et fa aquest desacord?",
+      id: "muntanyes-llunyanes",
+      figura: "zona",
+      capa: "perspectiva",
+      etiqueta: "Muntanyes blavoses",
+      pregunta: "Què canvia en les muntanyes més allunyades: el to o la nitidesa?",
       descripcio:
-        "A la dreta l'horitzó és més baix: dues «meitats de món» que no encaixen — una imatge feta de transicions, com el somriure.",
-      punts: [[0.73, 0.29], [0.98, 0.29]],
-      nivell: "avancat",
+        "Al fons de la dreta, les muntanyes són més fredes i pàl·lides i els contorns es fonen amb l'aire. El color i la pèrdua de definició suggereixen distància sense traçar ortogonals.",
+      x: 0.73, y: 0.17, amplada: 0.26, alcada: 0.17,
+      nivell: "basico",
+    },
+    {
+      id: "paisatge-esquerre",
+      figura: "zona",
+      capa: "perspectiva",
+      etiqueta: "L'aire entre les formes",
+      pregunta: "Les formes del fons esquerre tenen vores tan nítides com les de sota?",
+      descripcio:
+        "Els relleus més distants de l'esquerra també perden contrast i precisió. Compara'ls amb el paisatge proper: és la gradació de la profunditat atmosfèrica, no pas la prova de dos horitzons diferents.",
+      x: 0.02, y: 0.20, amplada: 0.27, alcada: 0.17,
+      nivell: "intermedi",
     },
   ],
 

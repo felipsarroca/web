@@ -1773,5 +1773,33 @@
         "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
       ]
     }
+  },
+  "crist-claus-sant-pere": {
+    "amplada": 3055,
+    "alcada": 1893,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "versio": "8ebb9c3515ff",
+    "font": {
+      "fitxer": "Perugino - Entrega de las llaves a San Pedro (Capilla Sixtina, 1481-82).jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Perugino_-_Entrega_de_las_llaves_a_San_Pedro_(Capilla_Sixtina%2C_1481-82).jpg",
+      "llicencia": "Public domain",
+      "url_llicencia": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "autor_foto": "",
+      "transformacions": [
+        "Original de Commons 3055×1893, sense retall ni ampliació",
+        "Derivat WebP q82 w480",
+        "Derivat WebP q82 w800",
+        "Derivat WebP q82 w1200",
+        "Derivat WebP q82 w1600",
+        "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
+      ]
+    }
   }
 }

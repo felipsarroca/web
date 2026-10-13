@@ -307,6 +307,39 @@ export const PINTURA_ITALIA_1: Obra[] = [
     bloc: 1,
   },
   {
+    slug: "crist-claus-sant-pere",
+    titol: "Crist lliurant les claus a sant Pere",
+    titolOriginal: "Consegna delle chiavi a san Pietro",
+    autorSlug: "perugino",
+    autorNom: "Pietro Perugino",
+    data: "1481-1482",
+    anyInici: 1481, anyFi: 1482,
+    fontData: "Museus Vaticans, fitxa del fresc de la Capella Sixtina.",
+    tecnica: "Fresc",
+    dimensions: "335 × 550 cm",
+    ubicacio: { museu: "Capella Sixtina, Museus Vaticans", ciutat: "Vaticà", pais: "Ciutat del Vaticà", url: "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/parete-nord/storie-di-cristo/consegna-delle-chiavi.html" },
+    disciplina: "pintura", periode: "quattrocento", ambit: "italia",
+    concepts: ["perspectiva-lineal", "fresc", "perspectiva-aeria"],
+    relevancia:
+      "És una lliçó visual de perspectiva lineal: el paviment i l'arquitectura condueixen la mirada fins a un punt de fuga dins la porta central. La mida de les figures i els buits dels arcs reforcen la profunditat; el paisatge llunyà anticipa els efectes atmosfèrics que Leonardo desenvoluparà.",
+    context:
+      "Perugino pinta aquest fresc a la paret nord de la Capella Sixtina durant la campanya de 1481-1482 impulsada per Sixt IV. Al primer pla, Crist lliura les claus del regne del cel a Pere agenollat: és una imatge de la transmissió de l'autoritat a l'apòstol. Al fons es representen altres episodis de la vida de Crist. L'escenari bíblic, però, pren la forma d'una plaça i d'uns edificis concebuts amb llenguatge renaixentista.",
+    analisi:
+      "La quadrícula del paviment no és només decorativa: les línies que s'allunyen convergeixen a la porta de l'edifici central, aproximadament a l'altura de l'horitzó. Els trams transversals del terra semblen comprimir-se en la distància. Les figures del primer pla són grans i detallades; les que passegen per la plaça, més petites, fan llegible la profunditat. Els arcs laterals i les portes deixen veure espai al darrere, mentre el temple central fixa l'eix de simetria. Alguns personatges vesteixen com a italians del segle XV, al costat dels apòstols amb túniques d'inspiració antiga: no és una reconstrucció de la Judea del segle I. Les muntanyes blavoses del fons també perden contrast amb la distància.",
+    miraHiDeProp: [
+      "Segueix les juntes del paviment fins a la porta fosca del temple: on es trobarien si les prolonguessis?",
+      "Compara les persones que envolten Crist i Pere amb les del centre de la plaça; observa també què es veu a través dels arcs.",
+      "Busca els barrets i els vestits ajustats del Quattrocento entre les túniques dels apòstols: què ens diu aquesta barreja sobre el temps dels pintors?",
+    ],
+    curiositats: [
+      "Les claus fan referència al passatge de l'Evangeli de Mateu 16,19 i a l'autoritat atribuïda a Pere.",
+      "Els Museus Vaticans identifiquen l'edifici central amb el Temple de Jerusalem idealitzat i els arcs laterals amb l'arquitectura triomfal romana.",
+    ],
+    relacionades: ["trinitat-masaccio", "desposoris-verge", "gioconda"],
+    obraFita: true,
+    bloc: 1,
+  },
+  {
     slug: "dama-ermini",
     titol: "La dama de l'ermini",
     autorSlug: "leonardo",

@@ -195,6 +195,30 @@ export const ARTISTES: Artista[] = [
     cita: { text: "Botticelli va pintar dones tan belles que semblen éssers d'un altre món.", font: "Anònim, apunts de la Galleria dels Uffizi" },
   },
   {
+    slug: "perugino",
+    nom: "Pietro Perugino",
+    nomOriginal: "Pietro Vannucci",
+    dates: "aprox. 1450-1523",
+    activitatInici: 1472, activitatFi: 1523,
+    estatDocumentacio: "activitat_documentada",
+    llocs: "Perusa · Florència · Roma",
+    ambits: ["pintor"],
+    ambitFiltro: "italia" as Ambit,
+    periode: "quattrocento" as Periode,
+    biografia:
+      "Pietro Vannucci, conegut com a Perugino, va ser un dels pintors italians més sol·licitats del final del segle XV. Actiu entre l'Úmbria, Florència i Roma, va participar en la decoració de la Capella Sixtina per encàrrec de Sixt IV. Al fresc Crist lliurant les claus a sant Pere organitza una plaça oberta amb un punt de fuga central, una arquitectura idealitzada i grups de figures a diferents distàncies. La seva pintura combina ordre geomètric, gestos serens i paisatges amplis de tons suaus. Rafael va aprendre al seu entorn i va desenvolupar algunes d'aquestes solucions espacials en obres com Els desposoris de la Verge.",
+    tretsEstil: [
+      "Composicions simètriques i espais oberts ordenats per la perspectiva",
+      "Figures de gestos continguts, disposades en grups llegibles",
+      "Paisatges llunyans de tons freds i contorns suaus",
+      "Arquitectura idealitzada que ajuda a mesurar la profunditat",
+    ],
+    innovacions: [
+      "Integra la perspectiva central i l'arquitectura monumental en un relat religiós fàcil de recórrer amb la mirada",
+      "Fa del paisatge atmosfèric un recurs per ampliar l'espai pictòric",
+    ],
+  },
+  {
     slug: "van-eyck",
     nom: "Jan van Eyck",
     dates: "aprox. 1390-1441",

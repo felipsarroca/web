@@ -34,7 +34,7 @@ export const COMPARACIONS: Comparacio[] = [
     titol: "Perspectiva lineal en tres moments",
     concepte: "perspectiva-lineal",
     intro:
-      "El mateix sistema geomètric —un punt de fuga, ortogonals i horitzó— aplicat amb intencions diferents durant un segle: per fer plausible una capella, per ordenar un relat i per sostenir la pintura com a espai intel·lectual.",
+      "El mateix sistema geomètric —un punt de fuga, ortogonals i horitzó— aplicat amb intencions diferents: per obrir una capella fictícia, ordenar una plaça narrativa i sostenir un espai intel·lectual.",
     pregunta: "On cau el punt de fuga en cada obra, i quin contingut (religiós, narratiu, intel·lectual) hi deixa convergir?",
     obres: [
       {
@@ -43,9 +43,9 @@ export const COMPARACIONS: Comparacio[] = [
         text: "Masaccio col·loca el punt de fuga al peu de la creu: la geometria serveix a la teologia i l'espai pintat continua l'espai real del fidel.",
       },
       {
-        slug: "ultim-sopar",
-        rol: "L'ordenació del relat (Cinquecento)",
-        text: "Leonardo fa del punt de fuga el cap de Crist: totes les ortogonals de sostre i tapissos porten l'ull cap a ell, i la perspectiva organitza la psicologia de dotze figures.",
+        slug: "crist-claus-sant-pere",
+        rol: "La plaça mesurable (Quattrocento)",
+        text: "Perugino fa convergir el paviment a la porta del temple; la reducció de les figures i les obertures dels arcs amplien l'espai del relat bíblic.",
       },
       {
         slug: "escola-atenes",
@@ -54,7 +54,7 @@ export const COMPARACIONS: Comparacio[] = [
       },
     ],
     respostaModel:
-      "A la Trinitat el punt de fuga és al peu de la creu, a l'alçada de l'ull del fidel que mira el fresc: la revelació cristiana descansa sobre la geometria. A l'Últim Sopar cau al cap de Crist, i totes les línies del sostre i dels tapissos hi conflueixen: el sistema ordena el relat i converteix el gest de Crist en el centre emocional de la taula. A l'Escola d'Atenes el punt de fuga s'obre entre Plató i Aristòtil, sota l'arc central: la filosofia clàssica ocupa el lloc del sagrat i la pintura demostra que pot construir un espai tan ordenat com l'arquitectura real.",
+      "A la Trinitat, les ortogonals de la volta condueixen al punt de fuga, situat a l'altura de l'ull del fidel: l'espai pintat sembla continuar la capella real. Al fresc de Perugino, les juntes del paviment convergeixen a la porta central; figures més petites i arcs oberts fan llegible la profunditat d'una plaça narrativa. A l'Escola d'Atenes, les voltes dirigeixen la mirada cap a Plató i Aristòtil: l'arquitectura ideal ordena la reunió dels filòsofs.",
     criteris: [
       "Esmenta on cau el punt de fuga en almenys dues de les tres obres",
       "Relaciona cada punt de fuga amb un contingut (religiós, narratiu o intel·lectual)",

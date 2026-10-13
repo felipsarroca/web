@@ -43,7 +43,7 @@ export const PINTURA_ITALIA_2: Obra[] = [
     anyInici: 1503, anyFi: 1519,
     tecnica: "Oli sobre taula de pollancre",
     dimensions: "77 × 53 cm",
-    ubicacio: { museu: "Museu del Louvre", ciutat: "París", pais: "França", url: "https://www.louvre.fr" },
+    ubicacio: { museu: "Museu del Louvre", ciutat: "París", pais: "França", url: "https://collections.louvre.fr/ark:/53355/cl010062370" },
     disciplina: "pintura", periode: "cinquecento", ambit: "italia",
     concepts: ["sfumato", "perspectiva-aeria", "retrat-humanista"],
     relevancia:
@@ -51,11 +51,11 @@ export const PINTURA_ITALIA_2: Obra[] = [
     context:
       "El retrat correspon probablement a Lisa Gherardini, esposa del mercader florentí Francesco del Giocondo (d'aquí el nom italià, Monna Lisa o La Gioconda). Leonardo el va portar amb ell tota la vida: va treballar-hi anys, el va dur de Florència a Milà, a Roma i finalment a França, on el rei Francesc I el va adquirir. No és un retrat d'encàrrec convencional sinó un laboratori personal de totes les seves teories pictòriques.",
     analisi:
-      "La composició és una piràmide serena: el bust, les mans creuades i el rostre s'ordenen en un triangle estable que transmet calma. El sfumato actua sobre els racons dels ulls i de la boca, precisament els músculs de l'expressió: sense contorns definits, el somriure depèn de la zona que mireu, i per això sembla canviar. El paisatge, dividit per l'horitzó en dues meitats desiguals, s'apaga en blaus verdosos atmosfèrics; no hi ha línia entre el cos i el fons: la figura «és» l'aire. La perspectiva aèria descriu rius, ponts i muntanyes cada cop més dissoltes. Les mans, pintades amb el mateix rigor que el rostre, són el segon retrat: gest tranquil, anell absent (retirat en una restauració antiga), poder silenciós.",
+      "La composició és una piràmide serena: el bust, les mans creuades i el rostre s'ordenen en un triangle estable que transmet calma. El sfumato actua sobre els racons dels ulls i de la boca: sense contorns definits, el somriure sembla canviar segons on mirem. Al paisatge, les formes properes conserven més detall, mentre els turons llunyans perden contrast i adopten tons freds i blavosos; així Leonardo suggereix l'aire entre la figura i el fons. El relleu amaga trams del nivell de l'aigua, però no justifica parlar de dos horitzons diferents, com aclareix el catàleg del Louvre. Les mans creuades tanquen la composició amb un gest tranquil.",
     miraHiDeProp: [
-      "Els racons dels ulls i de la boca: tapau una mà sobre la boca i mirau només els ulls —el somriure desapareix; és el sfumato funcionant.",
-      "El paisatge a la dreta i a l'esquerra: les línies d'horitzó no coincideixen, i el món sembla una extrapolació geològica més que un lloc real.",
-      "Les mans creuades: el contrapès del braç i la feixuga del vestit valen un retrat per si soles.",
+      "Els racons dels ulls i de la boca: tapa't un moment la boca i mira només els ulls; observa com les ombres suaus fan ambigua l'expressió.",
+      "Compara les roques i els camins més propers amb les muntanyes pàl·lides del fons: com canvien el color, el contrast i la definició?",
+      "Les mans creuades: observa com el gest tranquil tanca la composició per sota del rostre.",
     ],
     curiositats: [
       "El quadre va ser robat del Louvre el 1911 per un treballador italià que pensava tornar-lo a Itàlia: dos anys de recerca mundial el van convertir en el quadre més famós del món.",
