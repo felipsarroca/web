@@ -26,6 +26,17 @@ export const GLOSSARI: TermeGlossari[] = [
   { terme: "Giornata", termeItalic: true, definicio: "Porció d'arrebossat fresc que es pinta en un dia de treball; les juntes entre giornate revelen el ritme de l'artista." },
   { terme: "Humanisme", definicio: "Corrent intel·lectual del Renaixement que posa l'ésser humà al centre del saber: transforma els temes de l'art i el lloc de l'artista." },
   { terme: "Pietà", termeItalic: true, definicio: "Tema de devoció: la Mare de Déu sostenint el cos mort de Crist. La Pietà vaticana de Miquel Àngel n'és el model." },
+  { terme: "Ordre clàssic", definicio: "Sistema de columna i entaulament amb proporcions pròpies (toscà, dòric, jònic, corinti o compost); es reconeix sobretot pel capitell.", vincle: "ordres-classics" },
+  { terme: "Ordre gegant", definicio: "Pilastres o columnes que abasten dos o més pisos d'una façana; Miquel Àngel l'aplica al Capitoli.", vincle: "ordres-classics" },
+  { terme: "Pilastra", definicio: "Columna aplanada i adossada al mur, amb base i capitell: ordena la façana més que no pas sosté.", vincle: "ordres-classics" },
+  { terme: "Capitell", definicio: "Part superior d'una columna o pilastra; la seva forma permet identificar l'ordre clàssic." },
+  { terme: "Entaulament", definicio: "Conjunt horitzontal que reposa sobre les columnes: arquitrau, fris i cornisa." },
+  { terme: "Frontó", definicio: "Remat triangular o corbat que corona una façana, una porta o una finestra, a la manera dels temples antics." },
+  { terme: "Finestra bífora", definicio: "Finestra dividida en dues obertures per una columneta; és habitual als palaus florentins." },
+  { terme: "Mòdul", definicio: "Unitat de mesura que es repeteix per fixar totes les proporcions d'un edifici.", vincle: "proporcio-modul" },
+  { terme: "Planta central", definicio: "Planta organitzada al voltant d'un punt central, igual en totes direccions (cercle, octògon, creu grega).", vincle: "planta-central" },
+  { terme: "Tambor", definicio: "Cilindre o prisma, normalment amb finestres, sobre el qual s'aixeca una cúpula.", vincle: "cupula" },
+  { terme: "Llanterna", definicio: "Petita torre amb obertures que corona una cúpula i hi deixa entrar la llum.", vincle: "cupula" },
 ];
 
 export const GLOSSARI_ORD: TermeGlossari[] = [...GLOSSARI].sort((a, b) =>

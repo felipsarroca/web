@@ -1,7 +1,9 @@
 // ArchitectureView.tsx — Bloc 4: arquitectura del Renaixement i escoles espanyoles (model 4.4)
 "use client";
 
+import { ArrowRight, Landmark } from "lucide-react";
 import { useApp } from "@/lib/renaissance/store";
+import { CONCEPTES } from "@/data/conceptes";
 import { ESCOLES } from "@/data/escoles";
 import { obresEscola } from "@/data/obres";
 import { artista } from "@/data/artistes";
@@ -18,7 +20,7 @@ export default function ArchitectureView() {
       <h1 className="font-serif text-3xl sm:text-4xl">Arquitectura i escoles</h1>
       <p className="mt-2 text-tinta-2 max-w-2xl text-[15px]">
         L&apos;arquitectura renaixentista torna a construir amb els ordres clàssics i
-        les proporcions matemàtiques; a Espanya aquesta reforma s&apos;hi arriba en
+        les proporcions matemàtiques; a Espanya aquesta reforma hi arriba en
         tres onades observables: Plateresca, Classicista i Herreriana.
       </p>
 
@@ -29,9 +31,29 @@ export default function ArchitectureView() {
         </p>
         <p className="text-[16px] leading-relaxed text-tinta">
           Ordres clàssics, proporcions mesurables i la cúpula com a corona: quan una
-          façana parleu amb la geometria dels antics, esteu davant del Renaixement.
+          façana parla amb la geometria dels antics, sou davant del Renaixement.
         </p>
       </div>
+
+      {/* Conceptes per llegir els edificis */}
+      <section className="mt-8" aria-label="Conceptes d'arquitectura">
+        <h2 className="font-serif text-xl flex items-center gap-2">
+          <Landmark className="size-5 text-concepte" aria-hidden />
+          Quatre conceptes per llegir un edifici
+        </h2>
+        <div className="mt-3 flex flex-wrap gap-2.5">
+          {CONCEPTES.filter((c) => c.grup === "arquitectura").map((c) => (
+            <button
+              key={c.slug}
+              onClick={() => navega("concepte/" + c.slug)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-concepte/55 bg-superficie px-4 py-2 text-sm text-concepte hover:bg-[var(--concepte-suau)] transition-colors"
+            >
+              {c.nom}
+              <ArrowRight className="size-3.5" aria-hidden />
+            </button>
+          ))}
+        </div>
+      </section>
 
       {/* ── La font italiana ── */}
       <section className="mt-12" aria-label="Renaixement italià">

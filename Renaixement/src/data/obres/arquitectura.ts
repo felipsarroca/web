@@ -14,7 +14,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Catedral de Santa Maria del Fiore (lloc mateix)", ciutat: "Florència", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["cupula"],
     relevancia:
       "És l'obra que obre el Renaixement: la cúpula més gran construïda des de l'antiguitat, resolta sense bastida central ni plànol previ, amb una doble pell de maó i una maquinària inventada per a l'ocasió. El problema tècnic del segle XV i el símbol de Florència.",
     context:
@@ -46,7 +46,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Piazza della Santissima Annunziata (lloc mateix)", ciutat: "Florència", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["proporcio-modul", "ordres-classics"],
     relevancia:
       "Se'l considera el primer edifici renaixentista: un pòrtic d'arcs de mig punt sobre columnes corínties, amb proporcions modulades i la pietra serena grisenca sobre parets blanques que defineix la gramàtica de l'arquitectura florentina durant quatre segles.",
     context:
@@ -73,25 +73,25 @@ export const ARQUITECTURA: Obra[] = [
     data: "1458-1470",
     anyInici: 1458, anyFi: 1470,
     tecnica: "Pedra i marbre",
-    dimensions: "Facciada de 34 m d'amplada",
+    dimensions: "Façana de marbre blanc i verd de Prato",
     ubicacio: { museu: "Santa Maria Novella (lloc mateix)", ciutat: "Florència", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["proporcio-modul", "ordres-classics"],
     relevancia:
-      "És la façana teòrica perfecta: Alberti resol el problema de unir una basílica gòtica amb la proporció clàssica mitjançant un sistema de quadrats i la màquina voladora de geometria —el clàssic manat pel raonament, no per la imitació.",
+      "Alberti havia de completar una façana gòtica a mig fer sense destruir-la. La solució és geomètrica: inscriu tota la façana en un quadrat, la divideix en quadrats més petits i uneix el pis baix amb l'alt amb dues grans volutes. És la primera gran façana d'església ordenada per la proporció.",
     context:
-      "El mercat Giovanni Rucellai, veí de l'església, encarrega a Alberti la remodelació de la façana gòtica de la basílica dominica el 1458, amb la condició de conservar els elements existents (el marbre verd i blanc, els portals, les tombes del costat). Alberti, autor del tractat De re aedificatoria (1452, el primer tractat d'arquitectura des de Vitruvi), resol el problema amb raonament geomètric: una façana enquadernada per un quadrat, amb el pis inferior (el gòtic conservat) i el superior (dissenyat per ell) units per unes volutes de connexió que seran el model de les façanes renaixentistes posteriors.",
+      "El mercader Giovanni Rucellai, que vivia a pocs carrers, paga la nova façana de la basílica dominica. La part baixa ja existia: arcs apuntats, tombes i incrustacions de marbre del segle XIV. Alberti, autor del tractat De re aedificatoria, havia de conservar-la. Hi afegeix el portal central amb columnes i arc de mig punt, un entaulament que separa els dos pisos i tot el pis superior. La inscripció de l'entaulament dona el nom del comitent i l'any d'acabament: IOHANES ORICELLARIUS PAV. F. AN. SAL. MCDLXX (Giovanni Rucellai, fill de Paolo, any 1470).",
     analisi:
-      "La composició és un sistema de proporcions: el quadrat de la façana és mòdul de tota la superfície, i les relacions entre parts segueixen el mateix sistema que Alberti explica al tractat. El pis inferior és el gòtic conservat, amb els portals arquejats i el marbre verd i blanc; el pis superior és completament albertià: un àtic amb les volutes de la nau i les volutes laterals que cobreixen la transició (les primeres volutes de la història de les façanes). El remat amb el sol de la família Rucellai corona el conjunt. Les volutes són la solució formal que Palladio, Vignola i tota la tradició acadèmica copiaran per a les façanes de basíliques.",
+      "La façana sencera cap en un quadrat, i la part inferior es pot dividir en dos quadrats més petits; el pis superior torna a ser un quadrat. La mateixa relació es repeteix a escala menor en els plafons de marbre: és la proporció entesa com un mòdul que es multiplica. El pis baix combina els arcs apuntats medievals amb pilastres i columnes clàssiques. El pis superior és un petit temple: quatre pilastres, un entaulament i un frontó triangular. Les dues volutes laterals tapen la diferència d'alçada entre la nau central i les naus laterals; la solució tindrà una gran descendència a les façanes d'esglésies dels segles següents.",
     miraHiDeProp: [
-      "Les volutes laterals: la solució d'Alberti per connectar la nau central amb els passatges laterals, copiada durant quatre segles.",
-      "El sol daurat de la família Rucellai al coronament: la signatura del comitent en el lloc exacte.",
-      "La proporció de la façana: la relació entre l'àtic i el pis inferior és la mateixa que entre la nau i els passatges laterals.",
+      "Les volutes laterals: amaguen la diferència d'alçada entre la nau central i les laterals, i uneixen els dos pisos.",
+      "L'entaulament amb la inscripció i el fris de veles inflades: el nom i l'emblema de Giovanni Rucellai. El sol del frontó, en canvi, és l'emblema del quarter de Santa Maria Novella.",
+      "Els arcs apuntats de la part baixa al costat del portal de mig punt d'Alberti: el gòtic conservat i el clàssic afegit, a la mateixa façana.",
     ],
     curiositats: [
-      "Alberti mai no va dirigir l'obra: era teòric i matemàtic, no arquitecte pràctic; la realització correspon a un taller local.",
-      "Les tombes gòtiques dels costats, conservades per encàrrec del comitent, són els únics elements medievals de la façana acabada.",
+      "Alberti donava els projectes i deixava l'execució a mestres d'obres: és la distinció entre projectar i construir que defensa al seu tractat.",
+      "El fris de veles inflades es repeteix al Palau Rucellai, a la lògia de la família i al Sant Sepulcre de San Pancrazio: és la marca del mateix comitent en tota la ciutat.",
     ],
     relacionades: ["palau-rucellai", "sant-andreu-mantua", "cupula-fiore"],
     bloc: 4,
@@ -103,26 +103,27 @@ export const ARQUITECTURA: Obra[] = [
     autorNom: "Leon Battista Alberti",
     data: "aprox. 1452-1470",
     anyInici: 1452, anyFi: 1470,
-    tecnica: "Pedra calcària",
-    dimensions: "Tres plantes, façana de 80 m",
+    fontData: "Datació debatuda: els documents originals s'han perdut; la bibliografia proposa un projecte cap a 1446-1451 i obres per fases fins a 1470.",
+    tecnica: "Carreus de pietraforte (gres)",
+    dimensions: "Tres plantes; façana de set trams, inacabada",
     ubicacio: { museu: "Via della Vigna Nuova (lloc mateix)", ciutat: "Florència", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["ordres-classics", "proporcio-modul"],
     relevancia:
-      "És el palau renaixentista per excel·lència: tres plantes amb ordres superposats (dòric, jònic, corinti) i una façana de rústica polida que defineix el tipus del palau urbà italià. Alberti transllada el Coliseu de Roma a la via de Florència.",
+      "És el primer palau florentí que ordena la façana amb pilastres i entaulaments clàssics, pis per pis. El model es relaciona sovint amb el Colosseu de Roma, on els ordres també se superposen: Alberti aplica a una casa privada el llenguatge dels edificis públics antics.",
     context:
-      "Giovanni Rucellai, el mercat enriquit que va finançar també la façana de Santa Maria Novella, encarrega a Alberti la remodelació de diverses cases familiars per crear un palau unificat. El tipus de palau florentí (façana de pedra amb tres plantes, pati central, loggia) existia ja (palau Mèdici, palau Pitti), però Alberti hi introdueix la gramàtica clàssica: cada planta té el seu ordre (dòric a baix, jònic al mig, corinti amunt), com el Coliseu, i la rústica polida uneix les plantes amb un ritme continu. És el palau més teòric de Florència: cada element és un article del tractat d'Alberti fet pedra.",
+      "Giovanni Rucellai, mercader i banquer, va unir diverses cases que la família tenia al carrer i les va convertir en un sol palau. El projecte de la façana s'atribueix a Leon Battista Alberti, i la direcció de les obres a Bernardo Rossellino. Els palaus florentins anteriors, com el Palau Mèdici (1444), ja tenien façana de pedra de tres plantes i pati, però la decoraven amb carreus de relleu cada cop més suau, sense ordres. Alberti hi afegeix la gramàtica clàssica que descriu al tractat De re aedificatoria. La façana va quedar inacabada: té set trams i se'n preveia, com a mínim, un altre.",
     analisi:
-      "La façana es divideix en tres registres horitzontals, cadascú amb el seu ordre clàssic en les pilastres adossades: dòric a la planta baixa (amb el banc i les finestres arquejades), jònic al pis noble (amb les finestres travadades) i corinti a la planta superior. La cornisa corona el conjunt amb un voladís pronunciat. La rústica polida, amb blocs de pedra llisos i finament ajustats, és la materialització de l'ordre i la dignitat: és més refinada que la rústica de qualsevol palau anterior. La proporció entre les tres plantes és exacta: cada pis és una mica més baix que l'inferior, començant des de la planta noble.",
+      "La façana es divideix en tres pisos separats per entaulaments horitzontals. A cada pis, pilastres poc sortints marquen el ritme vertical: a la planta baixa són d'ordre toscà, al pis noble d'un ordre lliure, proper al compost, i al pis superior d'ordre corinti. Entre les pilastres, els carreus són plans i tenen només les juntes marcades: la pedra fa de fons llis, no de massa rugosa. A la planta baixa hi ha finestres quadrades altes i dues portes; als pisos superiors, finestres bífores amb arc de mig punt. Una gran cornisa tanca el conjunt. Les pilastres són una mica més petites a cada pis, de manera que el palau sembla més alt del que és. Al peu de la façana, un banc de pedra recorre el carrer; el respatller imita l'opus reticulatum, la trama en diagonal dels murs romans.",
     miraHiDeProp: [
-      "Els tres ordres superposats: dòric, jònic i corinti, com al Coliseu de Roma —la citació antiga aplicada a un palau burgès.",
-      "La rústica polida: els blocs de pedra llis que donen a la façana un aspecte de vestimenta elegant.",
-      "Les finestres travadades del pis noble: la simetria que ordena el ritme de la façana.",
+      "Els capitells de les pilastres: compara'ls pis per pis. A baix, un toscà sense decoració; a dalt, fulles d'acant corínties.",
+      "La vora dreta de la façana: s'acaba de manera irregular, amb carreus que sobresurten com dents. És la prova que el palau es va deixar a mitges.",
+      "El banc de pedra al peu del palau i el fris de veles inflades sobre la planta baixa: l'emblema de Giovanni Rucellai.",
     ],
     curiositats: [
-      "El palau és avui un hotel de luxe i un museu: és un dels pocs palaus florentins que manté la funció residencial contínua des del segle XV.",
-      "Rucellai va escriure al seu dietari que volia «un palau que fos de gust més magnífic que qualsevol altre de Florència, però sense extravagància».",
+      "El palau continua sent propietat de la família Rucellai, més de cinc segles després.",
+      "Giovanni Rucellai va deixar escrit al seu Zibaldone que d'unes quantes cases n'havia fet una de sola: la façana unitària amaga un edifici fet a partir de construccions anteriors.",
     ],
     relacionades: ["facade-santa-maria-novella", "hospital-innocents", "palau-carles-v"],
     bloc: 4,
@@ -139,7 +140,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Piazza Andrea Mantegna (lloc mateix)", ciutat: "Màntua", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["ordres-classics", "proporcio-modul"],
     relevancia:
       "És el testament arquitectònic d'Alberti: una façana temple que uneix el pòrtic romà amb l'arc de triomf, i una planta de creu llatina amb una nau de 18 metres d'amplada que acull la relíquia de la Sang de Crist. El primer edifici on la teoria d'Alberti es fa arquitectura total.",
     context:
@@ -170,7 +171,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "San Pietro in Montorio (lloc mateix)", ciutat: "Roma", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["planta-central", "ordres-classics", "cupula"],
     relevancia:
       "És el manifest del Cinquecento: un temple circular clàssic de traçat perfecte, amb un perímetre de columnes toscanes i una cúpula, construït sobre el lloc on es creia que sant Pere havia estat crucificat. La primera arquitectura del Cinquecento i el model de tota la tradició del temple centralitzat.",
     context:
@@ -202,7 +203,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Ciutat del Vaticà (lloc mateix)", ciutat: "Ciutat del Vaticà", pais: "Vaticà", url: "https://www.museivaticani.va" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["planta-central", "cupula"],
     relevancia:
       "És l'obra més gran del Renaixement i l'església més important del cristianisme: planta centralitzada de Bramante, convertida en creu llatina per Miquel Àngel, amb la cúpula més famosa del món. Dos dels majors arquitectes de la història van treballar-hi; vint arquitectes més hi van morir abans d'acabar-la.",
     context:
@@ -212,7 +213,7 @@ export const ARQUITECTURA: Obra[] = [
     miraHiDeProp: [
       "La cúpula de Miquel Àngel: les 16 costelles de travertí i la llanterna corona el paisatge de Roma des de qualsevol angle.",
       "El tambor: les 16 finestres donen llum a l'interior i fan que la cúpula sembli surada.",
-      "La plaça de Bernini: els dos braços de colones que envolten la plaça són un afegit barroc del segle XVII.",
+      "La façana de Maderno, davant de la cúpula: el braç llarg afegit al segle XVII amaga, vista des de la plaça, part del tambor de Miquel Àngel.",
     ],
     curiositats: [
       "La basílica va trigar 120 anys a construir-se: hi van treballar almenys dotze arquitectes principals, des de Bramante fins a Bernini.",
@@ -234,7 +235,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Turó del Capitoli (lloc mateix)", ciutat: "Roma", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "manierisme", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["ordres-classics"],
     relevancia:
       "Se'l considera el primer espai urbà dissenyat com una unitat escultòrica: Miquel Àngel ordena tres palaus al voltant d'una plaça ovalada amb una estàtua al centre, i defineix el model de «plaça renaixentista» que seguirà l'urbanisme europeu durant segles.",
     context:
@@ -265,7 +266,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Via della Rotonda (lloc mateix)", ciutat: "Vicenza", pais: "Itàlia" },
     disciplina: "arquitectura", periode: "manierisme", ambit: "italia",
     escola: "italiana",
-    concepts: [],
+    concepts: ["planta-central", "ordres-classics"],
     relevancia:
       "És l'edifici més imitat de la història de l'arquitectura: una vil·la suburbana amb planta central quadrada, cúpula i quatre pòrtics temple idèntics, pensada per ser observada des de tots els angles com una escultura habitable. Tota l'arquitectura neoclàssica d'Europa i d'Amèrica deriva d'aquesta vil·la.",
     context:
@@ -297,7 +298,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Patio de Escuelas Mayores (lloc mateix)", ciutat: "Salamanca", pais: "Espanya" },
     disciplina: "arquitectura", periode: "quattrocento", ambit: "espanya",
     escola: "plateresca",
-    concepts: [],
+    concepts: ["ordres-classics"],
     relevancia:
       "És el manifest de l'escola plateresca: una façana tractada com un retaule d'argent, amb dos pisos de decoració minuciosa que fusiona el gòtic flamíger, els motius clàssics i l'heràldica dels Reis Catòlics. És la cara més famosa de l'educació espanyola del Renaixement.",
     context:
@@ -329,7 +330,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Alhambra (lloc mateix)", ciutat: "Granada", pais: "Espanya", url: "https://www.alhambra-patronato.es" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "espanya",
     escola: "classicista",
-    concepts: [],
+    concepts: ["planta-central", "ordres-classics"],
     relevancia:
       "És el manifest de l'escola classicista espanyola: una planta quadrada amb un pati circular, façana d'arc romà i ordres superposats, construït dins de l'Alhambra nassarita com a declaració del nou imperi sobre l'antic. L'edifici més pur i més discutit del Renaixement espanyol.",
     context:
@@ -361,7 +362,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "San Lorenzo de El Escorial (lloc mateix)", ciutat: "San Lorenzo de El Escorial", pais: "Espanya" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "espanya",
     escola: "herreriana",
-    concepts: [],
+    concepts: ["cupula", "proporcio-modul"],
     relevancia:
       "És el monument més gran del Renaixement espanyol i el manifest de l'escola herreriana: un reticle de granit de 207 × 161 metres, amb torres, patis i la basílica al centre, sense cap element decoratiu superflu. Felip II hi va construir el palau, el monestir, el panteó reial i la biblioteca: és el centre de poder més important del seu imperi.",
     context:
@@ -393,7 +394,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Dominis reials de Chambord (lloc mateix)", ciutat: "Chambord", pais: "França" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "franca",
     escola: "francesa",
-    concepts: [],
+    concepts: ["planta-central", "ordres-classics"],
     relevancia:
       "És el castell més gran de la vall del Loira i el manifest del Renaixement francès: un cos de castell medieval amb l'ala italiana (pòrtics, loggies, escales) i una escala de doble hèlix atribuïda a Leonardo. La síntesi de dues tradicions que defineix el Renaixement fora d'Itàlia.",
     context:
@@ -425,7 +426,7 @@ export const ARQUITECTURA: Obra[] = [
     ubicacio: { museu: "Palau de Fontainebleau (lloc mateix)", ciutat: "Fontainebleau", pais: "França" },
     disciplina: "arquitectura", periode: "cinquecento", ambit: "franca",
     escola: "francesa",
-    concepts: [],
+    concepts: ["ordres-classics"],
     relevancia:
       "És la seu de l'Escola de Fontainebleau, el principal centre de difusió del Renaixement italià a França: arquitectura francesa, decoració italiana (Rosso Fiorentino, Primaticcio) i un programa que defineix el gust de la cort francesa durant un segle. La galeria de Francesc I és el primer interior renaixentista complet de França.",
     context:

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2026-10-13T03:57:25.189092Z" version="8.17.3">
+<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2026-10-13T19:52:41.439133+02" version="8.17.3">
   <properties>
     <property>
       <name>width</name>
-      <value type="gint">3840</value>
+      <value type="gint">3508</value>
     </property>
     <property>
       <name>height</name>
-      <value type="gint">6040</value>
+      <value type="gint">2996</value>
     </property>
     <property>
       <name>bands</name>
@@ -35,11 +35,15 @@
     </property>
     <property>
       <name>jpeg-multiscan</name>
-      <value type="gint">0</value>
+      <value type="gint">1</value>
+    </property>
+    <property>
+      <name>interlaced</name>
+      <value type="gint">1</value>
     </property>
     <property>
       <name>jpeg-chroma-subsample</name>
-      <value type="VipsRefString">4:4:4</value>
+      <value type="VipsRefString">4:2:0</value>
     </property>
     <property>
       <name>vips-sequential</name>

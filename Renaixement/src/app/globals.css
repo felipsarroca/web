@@ -220,6 +220,9 @@
   background: linear-gradient(90deg, transparent, rgba(37, 44, 45, 0.04) 45%, rgba(37, 44, 45, 0.08) 55%, transparent);
   animation: esquelet-brill 1.4s ease-in-out infinite;
 }
+.esquelet-obra[data-carregada]::after {
+  display: none;
+}
 @keyframes esquelet-brill {
   100% {
     transform: translateX(100%);

@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import { ImageOff, RotateCcw } from "lucide-react";
-import { urlImatge, srcsetImatge, proporció } from "@/data/imatges";
+import { urlImatge, srcsetImatge, proporció, lqipImatge } from "@/data/imatges";
 
 export default function ImgObra({
   slug,
@@ -38,6 +38,7 @@ export default function ImgObra({
   const ratio = proporció(slug);
   const src = urlImatge(slug, amplada);
   const srcset = srcsetImatge(slug);
+  const lqip = lqipImatge(slug);
 
   if (err || !src) {
     return (
@@ -75,7 +76,20 @@ export default function ImgObra({
   return (
     <div
       className={`esquelet-obra ${posicio} ${className ?? ""}`}
-      style={{ aspectRatio: `${ratio}`, ...style }}
+      style={{
+        aspectRatio: `${ratio}`,
+        // La miniatura LQIP ampliada (borrosa) fa de fons: es veu mentre carrega i durant
+        // el fos d'entrada, i la imatge real la tapa quan és opaca
+        ...(lqip
+          ? {
+              backgroundImage: `url(${lqip})`,
+              backgroundSize: fit === "contain" ? "contain" : "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }
+          : {}),
+        ...style,
+      }}
       data-carregada={carregada || undefined}
     >
       <img

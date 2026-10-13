@@ -125,12 +125,12 @@ export const COMPARACIONS: Comparacio[] = [
       {
         slug: "cupula-fiore",
         rol: "Brunelleschi: la fórmula florentina",
-        text: "La cúpula de Santa Maria del Fiore resol amb ogiva doble i maó en espiga un problema que ningú sabia plantejar: l'enginyeria com a art i la geometria com a fonament del Renaixement.",
+        text: "La cúpula de Santa Maria del Fiore es tanca sense cintres de fusta gràcies a una doble closca, al maó col·locat en espiga i a un perfil apuntat: l'enginyeria com a art i la geometria com a fonament del Renaixement.",
       },
       {
         slug: "palau-rucellai",
         rol: "Alberti: la teoria a la façana",
-        text: "El Palau Rucellai superposa ordres clàssics en tres pisos sobre una graella proporcional: l'arquitectura escrita en el llenguatge dels antics, com codificarà De re aedificatoria.",
+        text: "El Palau Rucellai superposa tres ordres de pilastres —toscà, un ordre lliure proper al compost i corinti— separats per entaulaments: una graella que ordena tota la façana amb el llenguatge dels antics que Alberti descriu a De re aedificatoria.",
       },
       {
         slug: "fontainebleau",
@@ -139,11 +139,11 @@ export const COMPARACIONS: Comparacio[] = [
       },
     ],
     respostaModel:
-      "A Florència, Brunelleschi aporta l'enginyeria: ogiva doble, espina de peix i un mòdul geomètric que sosté la cúpula sense cimbrà. Al Palau Rucellai, Alberti aplica el vocabulari clàssic literal: pilastres d'ordre superposat (tosc, compost, corinti) sobre una trama proporcional amb entaulaments continus. A Fontainebleau, els mateixos elements italians (pilastres, fronts, medallons) es posen sobre un cos francès: murs massissos, finestres travades i teulada alta amb xemeneies. El vocabulari viatja; la massa i la coberta indiquen cada territori.",
+      "A Florència, Brunelleschi aporta l'enginyeria: doble closca, maó en espiga i un perfil apuntat que permeten tancar la cúpula sense cintres. Al Palau Rucellai, Alberti aplica el vocabulari clàssic de manera literal: pilastres de tres ordres superposats (toscà, un ordre lliure proper al compost i corinti) i entaulaments continus que formen una graella sobre tota la façana. A Fontainebleau, els elements italians (pilastres, frontons, medallons) es posen sobre un cos francès: murs massissos, finestres amb creuers de pedra i teulada alta amb xemeneies. El vocabulari viatja; la massa i la coberta indiquen cada territori.",
     criteris: [
       "Nomena almenys dos elements clàssics (pilastres, ordres, entaulament, frontó…)",
       "Diu què és propi de cada regió (teulada alta, massa del mur, material)",
-      "Ordena els tres monuments del més teòric al més adaptat (o justifica l'ordre)",
+      "Assenyala una diferència concreta entre dos dels edificis i la justifica amb el que es veu a la imatge",
     ],
   },
   {

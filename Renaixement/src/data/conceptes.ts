@@ -1,4 +1,5 @@
-// conceptes.ts — Les 12 fitxes de concepte (bloc 3 i model 4.3 de la programació)
+// conceptes.ts — Fitxes de concepte (bloc 3 i model 4.3 de la programació):
+// 12 de pintura i escultura i 4 d'arquitectura (grup "arquitectura").
 import type { Concepte } from "./types";
 
 export const CONCEPTES: Concepte[] = [
@@ -10,7 +11,7 @@ export const CONCEPTES: Concepte[] = [
     explicacio:
       "La perspectiva lineal (o geomètrica) és una convenció matemàtica, no una imitació de la vista: el món no té punts de fuga, però la pintura renaixentista decideix representar-lo com si l'espai fos un sòlid mesurable. El mecanisme té tres peces: la línia d'horitzó, que se situa a l'altura dels ulls de l'espectador i defineix tot el que és vist des de dalt o des de baix; el punt o els punts de fuga, cap on convergixen les línies ortogonals (les paral·leles del món real que s'allunyen de nosaltres); i la quadrícula o cadratura, la graella del paviment que mesura el recés de cada element. Brunelleschi en fa la demostració experimental cap a 1415 amb miralls davant del baptisteri de Florència; Masaccio l'aplica per primera vegada a un fresc monumental a la Santíssima Trinitat; Alberti la escriu com a sistema a De pictura (1435); Piero della Francesca la fa objecte d'un tractat complet (De prospectiva pingendi). Resultat: l'espai del quadre esdevé racional, mesurable i comprovat per l'espectador, que se sent dins de l'escena perquè el quadre està construït amb el seu mateix punt de vista.",
     exemplarPrincipal: "trinitat-masaccio",
-    zonaExemplar: "els cassetons de la volta i les línies del paviment, que convergeixen sota el peu de la creu",
+    zonaExemplar: "els cassetons de la volta i les arestes de les cornises: si les prolongues, convergeixen a l'altura de la plataforma on s'agenollen els donants, al peu de la creu",
     exemplarsSecundaris: ["escola-atenes", "desposoris-verge", "flagellacio-piero", "ultim-sopar"],
     confusions: [
       { amb: "Perspectiva aèria", diferencia: "La perspectiva lineal és geometria (línia, mesura, punts de fuga); la perspectiva aèria és color i atmosfera (dessaturació i contorns difusos a mesura que les coses s'allunyen). Es poden donar juntes en el mateix quadre." },
@@ -195,6 +196,75 @@ export const CONCEPTES: Concepte[] = [
       { amb: "Veladura", diferencia: "La veladura no és una tècnica sinó un recurs de l'oli: capa fina translúcida que modifica el to de la capa inferior. És el que fa brillar la Gioconda i el que la tempera no pot fer." },
     ],
     relacionats: ["sfumato", "fresc", "retrat-humanista"],
+  },
+  // ── Arquitectura ─────────────────────────────────────────────────────────
+  {
+    slug: "ordres-classics",
+    nom: "Ordres clàssics",
+    grup: "arquitectura",
+    definicio:
+      "Sistemes de columna i entaulament heretats de Grècia i Roma —toscà, dòric, jònic, corinti i compost— que es reconeixen sobretot pel capitell i que fixen les proporcions de tot l'edifici.",
+    explicacio:
+      "Un ordre no és només una columna decorada: és un conjunt format per base, fust, capitell i entaulament, amb unes proporcions pròpies. Vitruvi, arquitecte romà del segle I aC, en descriu quatre; els humanistes del Quattrocento rellegeixen el seu tractat i mesuren les ruïnes de Roma, i Sebastiano Serlio, el 1537, en fixa cinc amb el compost. Per reconèixer-los, cal mirar el capitell: el toscà és llis i el fust no té estries; el dòric té un capitell senzill i un fris amb tríglifs i mètopes; el jònic té volutes en espiral; el corinti, fulles d'acant; el compost combina volutes jòniques i fulles d'acant. Al Colosseu, els ordres s'apilen del més robust al més lleuger, i el Renaixement copia aquesta regla: Alberti l'aplica a la façana del Palau Rucellai i Pedro Machuca al pati del Palau de Carles V. Sovint no són columnes sinó pilastres, columnes aplanades i adossades al mur que ordenen la façana. Miquel Àngel, al Capitoli, inventa l'ordre gegant, que abasta dos pisos alhora. Fora d'Itàlia, els ordres arriben primer com a decoració (Salamanca, Fontainebleau) i més tard com a sistema complet (l'Escorial).",
+    exemplarPrincipal: "palau-rucellai",
+    zonaExemplar: "els capitells de les pilastres, pis per pis: toscans a la planta baixa, un ordre lliure proper al compost al pis noble i corintis a dalt",
+    exemplarsSecundaris: ["palau-carles-v", "placa-capitoli", "templet-montorio", "fontainebleau"],
+    confusions: [
+      { amb: "Columna i pilastra", diferencia: "La columna és exempta i de secció circular; la pilastra és plana i adossada al mur. Al Palau Rucellai totes són pilastres: ordenen la façana, però el pes el porta el mur." },
+      { amb: "Decoració a l'antiga", diferencia: "Posar motius antics (medallons, grotescos, candelers) no és fer servir un ordre. La façana de la Universitat de Salamanca és plena de decoració a la italiana, però no s'organitza amb un sistema d'ordres i proporcions." },
+    ],
+    relacionats: ["proporcio-modul", "planta-central", "cupula"],
+  },
+  {
+    slug: "proporcio-modul",
+    nom: "Proporció i mòdul",
+    grup: "arquitectura",
+    definicio:
+      "Principi que fa dependre totes les mides d'un edifici d'una unitat de mesura, el mòdul, i de relacions numèriques senzilles (1:1, 1:2, 2:3), de manera que cada part està en harmonia amb el tot.",
+    explicacio:
+      "Per als arquitectes del Renaixement, la bellesa es pot mesurar. Alberti, a De re aedificatoria, la defineix com l'harmonia de totes les parts, de manera que no s'hi pugui afegir, treure ni canviar res sense fer-la pitjor. A la pràctica, això vol dir triar una unitat i repetir-la. A l'Hospital dels Innocents, Brunelleschi fa coincidir l'amplada de cada arc, l'alçada de les columnes i la profunditat de la lògia: cada tram és un cub cobert amb una volta. A Santa Maria Novella, Alberti inscriu tota la façana en un quadrat i la divideix en quadrats més petits; el pis superior és un altre quadrat, i els plafons de marbre repeteixen la figura a escala menor. Alberti relaciona aquestes proporcions amb els intervals musicals (l'octava és 1:2; la quinta, 2:3): per als humanistes, era la prova que la proporció és una llei de la natura. Per observar-la, cal buscar repeticions iguals, quadrats i meitats, i comprovar si l'edifici es pot dividir en parts que es repeteixen. El gòtic també fa servir la geometria, però busca alçada i llum; el Renaixement busca equilibri, horitzontalitat i una mesura a escala humana.",
+    exemplarPrincipal: "facade-santa-maria-novella",
+    zonaExemplar: "la façana sencera cap en un quadrat; el pis superior és un altre quadrat, i els plafons de marbre repeteixen la mateixa figura a escala menor",
+    exemplarsSecundaris: ["hospital-innocents", "palau-rucellai", "sant-andreu-mantua", "escorial"],
+    confusions: [
+      { amb: "Simetria", diferencia: "Un edifici pot ser simètric sense proporcions modulars: dues meitats iguals amb mides arbitràries. La proporció és una relació numèrica entre les parts; la simetria, la igualtat entre dos costats." },
+      { amb: "Perspectiva lineal", diferencia: "Totes dues neixen de la geometria de Brunelleschi i d'Alberti, però la perspectiva representa l'espai sobre una superfície plana, i la proporció ordena l'espai real que es construeix." },
+    ],
+    relacionats: ["ordres-classics", "perspectiva-lineal", "planta-central"],
+  },
+  {
+    slug: "planta-central",
+    nom: "Planta central",
+    grup: "arquitectura",
+    definicio:
+      "Planta organitzada al voltant d'un punt central —cercle, quadrat, octògon o creu grega—, igual en totes direccions, que el Renaixement considera la forma més perfecta.",
+    explicacio:
+      "L'església medieval habitual té planta basilical: una nau llarga que porta de la porta a l'altar. Els arquitectes del Renaixement, que llegeixen Vitruvi i estudien el Panteó de Roma, admiren una altra idea: un edifici que, des del centre, és igual en totes direccions. Alberti recomana el cercle com la forma preferida per la natura, i Leonardo omple quaderns de dibuixos d'esglésies centrals. El Tempietto de Bramante, a Roma, n'és el manifest: un cilindre envoltat de columnes i coronat per una cúpula, construït en el lloc on la tradició situava el martiri de sant Pere. Bramante projecta la nova Basílica de Sant Pere en creu grega i Miquel Àngel hi torna, però a començament del segle XVII Maderno l'allarga amb una nau. La planta central passa també a l'arquitectura civil: el pati circular del Palau de Carles V, la Villa Rotonda de Palladio, amb quatre pòrtics iguals, o el donjon de Chambord, ordenat al voltant d'una escala. Per reconèixer-la, cal buscar un eix vertical (cúpula, llanterna, escala) i comprovar si l'edifici es veu igual des de diversos costats. El seu inconvenient és pràctic: la litúrgia necessita una nau on se situïn els fidels.",
+    exemplarPrincipal: "templet-montorio",
+    zonaExemplar: "els graons i el peristil circulars: l'edifici és igual des de qualsevol costat, i la cúpula en marca el centre",
+    exemplarsSecundaris: ["rotonda", "palau-carles-v", "basilica-sant-pere", "chambord"],
+    confusions: [
+      { amb: "Planta basilical", diferencia: "La planta basilical és longitudinal (nau central, naus laterals i absis) i dirigeix el recorregut cap a l'altar; la planta central no té cap direcció privilegiada." },
+      { amb: "Cúpula", diferencia: "Una cúpula pot cobrir el creuer d'una església longitudinal, com a Santa Maria del Fiore. La planta central es refereix a la forma de tot l'edifici, no només a la coberta." },
+    ],
+    relacionats: ["cupula", "proporcio-modul", "ordres-classics"],
+  },
+  {
+    slug: "cupula",
+    nom: "Cúpula",
+    grup: "arquitectura",
+    definicio:
+      "Coberta corba que tanca un espai de planta circular, octogonal o quadrada. Al Renaixement esdevé el signe més visible de la ciutat i de la capacitat tècnica dels arquitectes.",
+    explicacio:
+      "Les cúpules existien des de l'antiguitat (el Panteó de Roma), però la de Santa Maria del Fiore planteja un problema nou: cobrir un buit octogonal de més de 40 metres de diàmetre sense poder construir una cintra de fusta prou gran per sostenir-la mentre s'aixecava. Brunelleschi el resol entre 1420 i 1436 amb una doble closca —una interior més gruixuda i una exterior més lleugera—, amb maons col·locats en espiga, que es travaven a mesura que pujaven, i amb un perfil apuntat, que empeny menys cap als costats que un de semicircular. Vuit costelles de marbre blanc marquen les arestes, i la llanterna, a dalt de tot, fa de pes que estabilitza el conjunt. Més endavant, la cúpula s'eleva sobre un tambor, un cilindre amb finestres que hi deixa entrar la llum: Bramante ho fa al Tempietto, Miquel Àngel a Sant Pere (la cúpula l'acaba Giacomo della Porta el 1590) i Juan de Herrera a l'Escorial. Per observar-la, cal identificar quatre parts: tambor, closca, costelles i llanterna. I preguntar-se quin paper té a la ciutat: la cúpula de Florència domina el paisatge des de qualsevol turó.",
+    exemplarPrincipal: "cupula-fiore",
+    zonaExemplar: "les costelles de marbre blanc, el perfil apuntat i la llanterna que corona el conjunt, damunt del tambor octogonal amb ulls de bou",
+    exemplarsSecundaris: ["basilica-sant-pere", "templet-montorio", "escorial"],
+    confusions: [
+      { amb: "Volta", diferencia: "La volta cobreix un espai allargat (volta de canó, volta d'aresta); la cúpula cobreix un espai centrat i es tanca en un punt." },
+      { amb: "Tambor", diferencia: "El tambor és el cilindre o prisma amb finestres que eleva la cúpula, no la cúpula mateixa. A Santa Maria del Fiore és octogonal i té ulls de bou circulars." },
+    ],
+    relacionats: ["planta-central", "proporcio-modul", "ordres-classics"],
   },
 ];
 

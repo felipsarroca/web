@@ -23,7 +23,7 @@ export const PINTURA_ITALIA_1: Obra[] = [
     miraHiDeProp: [
       "Els cassetons de la volta: cada reducció de mida està calculada per forçar la sensació de profunditat real.",
       "El gest de la Mare de Déu: els seus ulls dirigeixen l'espectador cap a Crist, l'única figura que no mira cap a dins de l'escena.",
-      "L'esquelet del sarcòfag amb la inscripció sobre la caducitat de la vida humana.",
+      "Les columnes jòniques que sostenen l'arc i les pilastres corínties que emmarquen el conjunt: Masaccio pinta l'arquitectura clàssica de Brunelleschi.",
     ],
     curiositats: [
       "Al segle XVI el fresc va quedar tapat per un retaule i no es va redescobrir fins al 1861; la perspectiva completa es va veure de nou després de la restauració de 1952.",

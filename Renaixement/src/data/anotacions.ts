@@ -76,7 +76,8 @@ export const ANOTACIONS: Record<string, Anotacio[]> = {};
 // Fusiona el pilot d'anotacions (anotacions-pilot.ts només importa TIPUS d'aquest
 // fitxer, per evitar cicles en temps d'execució)
 import { ANOTACIONS as PILOT } from "./anotacions-pilot";
-Object.assign(ANOTACIONS, PILOT);
+import { ANOTACIONS as ARQUITECTURA } from "./anotacions-arquitectura";
+Object.assign(ANOTACIONS, PILOT, ARQUITECTURA);
 
 export function anotacionsDe(slug: string): Anotacio[] {
   return ANOTACIONS[slug] ?? [];

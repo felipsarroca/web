@@ -134,7 +134,7 @@ export default function HomeView() {
             {
               icona: Shapes,
               titol: "Apren els conceptes",
-              desc: "Perspectiva lineal i aèria, sfumato, contrapposto, clarobscur: definició citable, exemplar per mirar i activitat guiada.",
+              desc: "Perspectiva, sfumato, contrapposto, ordres clàssics o planta central: definició citable, exemplar per mirar i activitat guiada.",
               desti: "conceptes",
             },
             {

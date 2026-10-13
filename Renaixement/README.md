@@ -1,6 +1,6 @@
 # El Renaixement
 
-Web educativa en català amb 68 obres, 33 artistes, 12 conceptes, arquitectura, cronologia i visor Deep Zoom.
+Web educativa en català amb 68 obres, 33 artistes, 16 conceptes (4 d'arquitectura), arquitectura, cronologia i visor Deep Zoom.
 
 - Web: https://felipsarroca.github.io/web/Renaixement/
 - Enllaç curt: https://ja.cat/renaixement

@@ -15,7 +15,7 @@ import { concepte } from "@/data/conceptes";
 import { credit, urlFitxer, estatImatge, nivellZoom, dominiPublic, IMATGES, proporció } from "@/data/imatges";
 import { teAnotacions, anotacionsDe } from "@/data/anotacions";
 import { fontsDe } from "@/data/fonts";
-import { precisioDeData, ETIQUETES, type PrecisioData } from "@/data/types";
+import { precisioDeData, ETIQUETES, type PrecisioData, type Obra } from "@/data/types";
 import ImgObra from "./ImgObra";
 import Enllac from "./Enllac";
 import { etiqueta, textUbicacio } from "@/lib/renaissance/utils";
@@ -130,7 +130,7 @@ export default function WorkDetailView({ slug }: { slug: string }) {
         {/* ── Dades en una columna ben ordenada ── */}
         <div>
           <p className="text-concepte text-xs uppercase tracking-[0.18em]">
-            {etiqueta("disciplina", o.disciplina)} · {ETIQUETES_BLOC(o.bloc)}
+            {etiqueta("disciplina", o.disciplina)} · {segonaEtiqueta(o)}
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl mt-2 leading-tight">{o.titol}</h1>
           {o.titolOriginal && (
@@ -361,6 +361,14 @@ export default function WorkDetailView({ slug }: { slug: string }) {
       )}
     </article>
   );
+}
+
+/** Segona etiqueta de la capçalera: l'escola (arquitectura) o el bloc temàtic, i el
+ *  període quan el bloc repetiria la disciplina («Arquitectura · Arquitectura»). */
+function segonaEtiqueta(o: Obra): string {
+  const disciplina = ETIQUETES.disciplina[o.disciplina];
+  const candidata = o.escola ? ETIQUETES.escola[o.escola] : ETIQUETES_BLOC(o.bloc);
+  return candidata && candidata !== disciplina ? candidata : ETIQUETES.periode[o.periode];
 }
 
 function ETIQUETES_BLOC(bloc: number): string {

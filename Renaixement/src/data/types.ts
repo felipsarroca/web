@@ -127,6 +127,8 @@ export interface Concepte {
   slug: string;
   nom: string;
   nomItalic?: boolean;         // termes italians en cursiva (sfumato, contrapposto...)
+  /** Grup de l'índex de conceptes: per defecte, pintura i escultura. */
+  grup?: "arquitectura";
   definicio: string;           // 1-2 frases memorables, citables en examen
   explicacio: string;          // 150-250 paraules
   exemplarPrincipal: string;   // slug d'obra + zona

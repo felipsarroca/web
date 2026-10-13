@@ -16,7 +16,10 @@ const ok = (cond: boolean, missatge: string) => {
 };
 
 // ── Anotacions (estructura del fitxer TS: un bloc per obra) ──
-const anotacionsPilot = fs.readFileSync(path.join(ARREL, "src/data/anotacions-pilot.ts"), "utf8");
+const anotacionsPilot = ["anotacions-pilot.ts", "anotacions-arquitectura.ts"]
+  .map((f) => fs.readFileSync(path.join(ARREL, "src/data", f), "utf8"))
+  .join("\n")
+  .replace(/\r\n/g, "\n"); // checkouts de Windows amb CRLF
 // Blocs per obra: després de cada clau "slug": [ fins a la següent clau o final.
 const claus = [...anotacionsPilot.matchAll(/\n\s{2}"?([a-z0-9-]+)"?:\s\[\n/g)];
 const blocsObra: { slug: string; cos: string }[] = [];
@@ -128,6 +131,29 @@ ok(!/naixement \+ 20/.test(artistesSrc), "Càlcul de «naixement + 20» detectat
 // Llengua: formes errades que l'auditoria va detectar
 ok(!esdeveniments.includes("el esdeveniment"), "Errada de llengua «el esdeveniment»");
 ok(!/tipus: "fita"[\s\S]{0,50}el esdeveniment/.test(esdeveniments), "Errada de llengua a esdeveniments.ts");
+
+// ── Crèdits fotogràfics: l'autor de la foto no pot ser l'artista de l'obra ──
+// (Commons posa l'artista al camp «Artist» de les reproduccions de domini públic)
+const { OBRES } = await import("../src/data/obres/index.ts");
+const normalitza = (t: string) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const ALIES: Record<string, string[]> = {
+  titia: ["titian", "tiziano"], rafael: ["raphael", "raffaello"], "miquel-angel": ["michelangelo"],
+  "el-bosch": ["bosch"], bruegel: ["brueghel"],
+};
+for (const o of OBRES) {
+  const foto = normalitza(corpus[o.slug]?.autor_foto ?? "");
+  if (!foto) continue;
+  const noms = normalitza(o.autorNom).split(/[\s,()]+/).filter((w: string) => w.length > 3);
+  const coincideix = noms.some((w: string) => foto.includes(w)) || (ALIES[o.autorSlug] ?? []).some((w) => foto.includes(w));
+  ok(!coincideix && !foto.includes("unknown"), `Crèdit fotogràfic erroni a ${o.slug}: «${corpus[o.slug].autor_foto}»`);
+}
+// Totes les obres d'arquitectura tenen almenys un concepte vinculat i anotacions
+const arquitectura = OBRES.filter((o: { disciplina: string }) => o.disciplina === "arquitectura");
+for (const o of arquitectura) {
+  ok(o.concepts.length > 0, `Obra d'arquitectura sense concepte: ${o.slug}`);
+  for (const c of o.concepts) ok(slugsConceptes.has(c), `Concepte inexistent a ${o.slug}: ${c}`);
+  ok(blocsObra.some((b) => b.slug === o.slug), `Obra d'arquitectura sense anotacions: ${o.slug}`);
+}
 
 console.log(`dades.test.ts: ${comprovacions} comprovacions · ${errors.length} errors`);
 if (errors.length) {

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2026-10-13T03:56:58.700041Z" version="8.17.3">
+<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2026-10-13T19:52:36.755053+02" version="8.17.3">
   <properties>
     <property>
       <name>width</name>
-      <value type="gint">3840</value>
+      <value type="gint">4729</value>
     </property>
     <property>
       <name>height</name>
-      <value type="gint">2553</value>
+      <value type="gint">3547</value>
     </property>
     <property>
       <name>bands</name>
@@ -35,7 +35,11 @@
     </property>
     <property>
       <name>jpeg-multiscan</name>
-      <value type="gint">0</value>
+      <value type="gint">1</value>
+    </property>
+    <property>
+      <name>interlaced</name>
+      <value type="gint">1</value>
     </property>
     <property>
       <name>jpeg-chroma-subsample</name>

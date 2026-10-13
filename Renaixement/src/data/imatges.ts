@@ -6,6 +6,7 @@
 import { camiPublic } from "@/lib/renaissance/camins";
 import raw from "./imatges.json";
 import localsRaw from "./imatges-locals.json";
+import lqipRaw from "./imatges-lqip.json";
 import type { ImatgeObra } from "./types";
 
 export const IMATGES: Record<string, ImatgeObra> = raw as Record<string, ImatgeObra>;
@@ -73,6 +74,12 @@ export function urlImatge(slug: string, amplada: number): string {
   if (!l || l.amplades.length === 0) return "";
   const candidata = [...l.amplades].reverse().find((w) => w <= amplada) ?? l.amplades[0];
   return versionaUrl(`${BASE}/${slug}/w${candidata}.webp`, slug);
+}
+
+/** Miniatura minúscula en base64 (scripts/genera-lqip.mjs) per mostrar mentre carrega. */
+const LQIP: Record<string, string> = lqipRaw as Record<string, string>;
+export function lqipImatge(slug: string): string | undefined {
+  return LQIP[slug];
 }
 
 /** String srcset amb tots els derivats disponibles. */
