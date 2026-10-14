@@ -824,7 +824,7 @@ function ViewerInner({ slug, onTanca }: { slug: string; onTanca: () => void }) {
       </div>
 
       {/* Controls de zoom */}
-      <div className={`absolute bottom-4 ${panellObert ? "lg:left-[calc(50%-180px)]" : "lg:left-1/2"} left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-black/70 border border-white/10 px-2 py-1.5 backdrop-blur transition-[left]`}>
+      <div className="absolute bottom-4 left-5 flex items-center gap-1 rounded-full bg-black/70 border border-white/10 px-2 py-1.5 backdrop-blur">
         <button
           onClick={() => zoomBtn(1 / 1.3)}
           className="p-2 rounded-full hover:bg-white/10"
@@ -853,7 +853,7 @@ function ViewerInner({ slug, onTanca }: { slug: string; onTanca: () => void }) {
       </div>
 
       {/* Instruccions anunciades */}
-      <p className="absolute bottom-5 left-5 text-[11px] text-white/45 hidden lg:block max-w-72" role="status">
+      <p className="absolute bottom-16 left-5 text-[11px] text-white/45 hidden lg:block max-w-72" role="status">
         {instruaccions}
       </p>
 

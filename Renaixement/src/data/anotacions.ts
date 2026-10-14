@@ -24,6 +24,8 @@ interface AnotacioBase {
   id: string;
   capa: CapaId;
   etiqueta: string;
+  /** Rètol breu sobre la imatge; el panell conserva l'etiqueta completa. */
+  etiquetaCurta?: string;
   /**
    * Pregunta d'observació: es mostra ABANS de l'explicació (seqüència didàctica
    * «pregunta → mira → comprova»). Si no hi és, l'anotació només té explicació.
@@ -58,7 +60,7 @@ export type Anotacio =
   | (AnotacioBase & { figura: "etiqueta"; x: number; y: number; costat?: "esquerra" | "dreta" })
   | (AnotacioBase & { figura: "rect"; x: number; y: number; amplada: number; alcada: number })
   | (AnotacioBase & { figura: "zona"; x: number; y: number; amplada: number; alcada: number })
-  | (AnotacioBase & { figura: "linia"; punts: [number, number][] })
+  | (AnotacioBase & { figura: "linia"; punts: [number, number][]; discontinua?: boolean })
   | (AnotacioBase & { figura: "poligon"; punts: [number, number][] });
 
 // Colors per capa (més el text sempre accessible)

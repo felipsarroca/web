@@ -173,5 +173,10 @@ export function fontsDe(slug: string): FontFitxa[] {
   ];
   fonts.push(...(BIBLIOGRAFIA[o.autorSlug] ?? GENERIC));
   if (FONTS_OBRA[slug]) fonts.push(FONTS_OBRA[slug]);
+  if (slug === "escola-atenes") fonts.push({
+    tipus: "bibliografia",
+    text: "WebExhibits, «The Rise of Renaissance Perspective», figura 6: reconstrucció geomètrica de la convergència central, per sota del gest d'Aristòtil.",
+    url: "https://www.webexhibits.org/sciartperspective/raphaelperspective3.html",
+  });
   return fonts;
 }

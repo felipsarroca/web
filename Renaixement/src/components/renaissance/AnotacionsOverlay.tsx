@@ -52,11 +52,15 @@ export default function AnotacionsOverlay({
         if (!item) return;
         const cs = item.getContentSize();
         if (!cs.x || !cs.y) return;
-        const p0 = v.imageToViewerElementCoordinates(new osdMod!.Point(0, 0));
-        const p1 = v.imageToViewerElementCoordinates(new osdMod!.Point(cs.x, 0));
+        // Converteix des del TiledImage real i usa la posició actual de l'animació.
+        const p0 = v.pixelFromPoint(item.imageToViewportCoordinates(new osdMod!.Point(0, 0)), true);
+        const p1 = v.pixelFromPoint(item.imageToViewportCoordinates(new osdMod!.Point(cs.x, 0)), true);
+        const host = osd.element.getBoundingClientRect();
+        const parent = el.offsetParent?.getBoundingClientRect();
+        if (!parent) return;
         const amplada = p1.x - p0.x;
         if (amplada < 2) return; // massa petit per ser visible
-        el.style.transform = `translate(${p0.x}px, ${p0.y}px)`;
+        el.style.transform = `translate(${p0.x + host.left - parent.left}px, ${p0.y + host.top - parent.top}px)`;
         el.style.width = `${amplada}px`;
         el.style.height = `${amplada / (cs.x / cs.y)}px`;
       } catch {
@@ -65,9 +69,16 @@ export default function AnotacionsOverlay({
     };
     update();
     osd.addHandler("update-viewport", update);
+    osd.addHandler("open", update);
+    osd.addHandler("resize", update);
+    const observer = new ResizeObserver(update);
+    observer.observe(osd.element);
     return () => {
       try {
         osd.removeHandler("update-viewport", update);
+        osd.removeHandler("open", update);
+        osd.removeHandler("resize", update);
+        observer.disconnect();
       } catch {
         /* noop */
       }
@@ -86,7 +97,7 @@ export default function AnotacionsOverlay({
   return (
     <div
       ref={ref}
-      className="absolute left-0 top-0 pointer-events-none"
+      className={`absolute left-0 top-0 pointer-events-none ${mode === "fallback" ? "w-full h-full" : ""}`}
       style={{ willChange: "transform", zIndex: 10 }}
       data-testid="anotacions-overlay"
     >
@@ -105,8 +116,8 @@ export default function AnotacionsOverlay({
               const d = a.punts.map(([px, py], i) => `${i === 0 ? "M" : "L"}${px * 100},${py * vbH}`).join(" ");
               return (
                 <g key={a.id}>
-                  <path d={d} fill="none" stroke="#101820" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" opacity="0.88" />
-                  <path d={d} fill="none" stroke={color} strokeWidth={destacatId === a.id ? 5 : 4} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                  <path d={d} fill="none" stroke="#101820" strokeWidth="9" strokeDasharray={a.discontinua ? "12 8" : undefined} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" opacity="0.88" />
+                  <path d={d} fill="none" stroke={color} strokeWidth={destacatId === a.id ? 5 : 4} strokeDasharray={a.discontinua ? "12 8" : undefined} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
                 </g>
               );
             }
@@ -227,11 +238,11 @@ export default function AnotacionsOverlay({
                   aria-hidden="true"
                 />
                 <span
-                  className={`absolute left-0 ${a.y < 0.06 ? "top-1" : "bottom-full mb-1"} whitespace-nowrap rounded px-1.5 py-0.5 text-[11px] font-medium text-[#13191d] shadow`}
+                  className={`absolute left-1/2 -translate-x-1/2 ${a.y < 0.06 ? "top-1" : "bottom-full mb-1"} whitespace-nowrap rounded px-1.5 py-0.5 text-[11px] font-medium text-[#13191d] shadow`}
                   style={{ backgroundColor: dest || act ? "#c9a84c" : color }}
                 >
                   {dest ? "? " : "+ "}
-                  {a.etiqueta}
+                  {a.etiquetaCurta ?? a.etiqueta}
                 </span>
               </button>
             );
