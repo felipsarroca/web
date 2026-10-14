@@ -43,6 +43,29 @@ for (const slug of Object.keys(CORPUS)) {
   if (!(slug in MANIFEST)) errors.push(`El manifest no té entrada per a ${slug}`);
 }
 
+// Regressió: l'antic fitxer de Mantegna mostrava gossos, no el Crist mort.
+// El quadre de Brera és horitzontal (81 × 68 cm) i ha de conservar la font verificada.
+const cristMort = CORPUS["crist-mort-mantegna"];
+const imatgeCristMort = MANIFEST["crist-mort-mantegna"];
+comprovacions += 3;
+if (cristMort?.fitxer !== "Lamentación sobre Cristo muerto, por Andrea Mantegna.jpg") {
+  errors.push("El Crist mort de Mantegna no apunta al fitxer verificat de Commons");
+}
+if (imatgeCristMort?.font?.fitxer !== cristMort?.fitxer) {
+  errors.push("La procedència del màster de Mantegna no coincideix amb el corpus");
+}
+if (!(imatgeCristMort?.amplada > imatgeCristMort?.alcada)) {
+  errors.push("El Crist mort de Mantegna ha de mostrar el quadre horitzontal de Brera");
+}
+
+// Regressió: el Tribut ha de ser el fresc complet, no un fragment dels apòstols.
+const tribut = CORPUS["tribut-sant-pere"];
+const imatgeTribut = MANIFEST["tribut-sant-pere"];
+comprovacions += 3;
+if (tribut?.fitxer !== "The Tribute Money by Masaccio.jpg") errors.push("El Tribut no apunta a la reproducció completa");
+if (imatgeTribut?.font?.fitxer !== tribut?.fitxer) errors.push("La procedència del Tribut no coincideix amb el corpus");
+if (!(imatgeTribut?.amplada / imatgeTribut?.alcada > 2)) errors.push("El Tribut ha de tenir el format panoràmic del fresc complet");
+
 console.log(`actius.test.ts: ${comprovacions} comprovacions · ${errors.length} errors`);
 if (errors.length) {
   for (const e of errors) console.error("  ✗ " + e);

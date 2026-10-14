@@ -200,7 +200,7 @@ function ViewerInner({ slug, onTanca }: { slug: string; onTanca: () => void }) {
           maxZoomPixelRatio: 5,
           visibilityRatio: 0.85,
           constrainDuringPan: true,
-          animationTime: 0.35,
+          animationTime: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 0.35,
           blendTime: 0.15,
           keyboardNavEnabled: true,
           showFullPageControl: false,
@@ -227,7 +227,7 @@ function ViewerInner({ slug, onTanca }: { slug: string; onTanca: () => void }) {
           // Enllaç a detall: ?v=x,y,w (coordenades d'imatge) — compatible amb les filtres
           const params = new URLSearchParams(window.location.search);
           const m = params.get("v");
-          const item = viewer.world.getItemAt(0); // OSD 6: la mida viu al TiledImage
+          const item = viewer?.world.getItemAt(0); // OSD 6: la mida viu al TiledImage
           const cs = item ? item.getContentSize() : null;
           if (m && cs && cs.x > 0 && cs.y > 0) {
             const [x, y, w] = m.split(",").map(Number);
@@ -275,13 +275,6 @@ function ViewerInner({ slug, onTanca }: { slug: string; onTanca: () => void }) {
       setOsdMod(null);
     };
   }, [slug]);
-
-  // Respecta prefers-reduced-motion al visor (accés a refs dins d'efectes: permès)
-  useEffect(() => {
-    if (osdRef.current && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      osdRef.current.viewport.zoomPerSecond = 1.5;
-    }
-  }, [osdLlest]);
 
   const zoomBtn = useCallback((factor: number) => {
     const v = osdRef.current?.viewport;

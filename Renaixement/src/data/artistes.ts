@@ -3,6 +3,21 @@ import type { Artista, Periode, Ambit } from "./types";
 
 export const ARTISTES: Artista[] = [
   {
+    slug: "fra-angelico",
+    nom: "Fra Angelico",
+    nomOriginal: "Guido di Piero, fra Giovanni da Fiesole",
+    dates: "cap a 1395-1455",
+    activitatInici: 1423, activitatFi: 1455,
+    estatDocumentacio: "activitat_documentada",
+    llocs: "Fiesole · Florència · Roma",
+    ambits: ["pintor"],
+    ambitFiltro: "italia" as Ambit,
+    periode: "quattrocento" as Periode,
+    biografia: "Pintor i frare dominic, Fra Angelico treballa entre la tradició del gòtic internacional i els nous experiments espacials florentins. L'Anunciació conservada al Prado, pintada cap a 1425-1426 per al convent de San Domenico de Fiesole, permet veure aquesta transició: or, delicadesa lineal i una arquitectura que comença a construir profunditat. Més endavant treballa al convent de San Marco de Florència i a Roma.",
+    tretsEstil: ["Color clar i delicadesa de la tradició gòtica", "Arquitectures que exploren la nova perspectiva", "Narració religiosa llegible i expressiva"],
+    innovacions: ["Integració primerenca de l'espai renaixentista en la pintura devocional"],
+  },
+  {
     slug: "brunelleschi",
     nom: "Filippo Brunelleschi",
     dates: "1377-1446",

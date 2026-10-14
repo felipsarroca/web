@@ -3,6 +3,30 @@ import type { Obra } from "../types";
 
 export const PINTURA_ITALIA_1: Obra[] = [
   {
+    slug: "anunciacio-fra-angelico",
+    titol: "L'Anunciació",
+    autorSlug: "fra-angelico",
+    autorNom: "Fra Angelico",
+    data: "cap a 1425-1426",
+    anyInici: 1425, anyFi: 1426,
+    tecnica: "Tempera i or sobre taula",
+    dimensions: "190,3 × 191,5 cm",
+    ubicacio: { museu: "Museu del Prado", ciutat: "Madrid", pais: "Espanya", url: "https://www.museodelprado.es/coleccion/obra-de-arte/la-anunciacion/9b02b6c9-3618-4a92-a6b7-26f9076fcb67" },
+    disciplina: "pintura", periode: "quattrocento", ambit: "italia",
+    concepts: ["perspectiva-lineal", "oli-tempera", "iconografia"],
+    relevancia: "Una obra de transició ideal per comparar amb la Trinitat de Masaccio: Fra Angelico obre un espai arquitectònic cap a l'habitació de Maria, però la representació dels plans interiors encara és forçada i no té la coherència geomètrica del fresc florentí.",
+    context: "Pintada per al convent dominic de San Domenico de Fiesole, l'obra combina l'Anunciació sota el pòrtic amb l'expulsió d'Adam i Eva al jardí. La imatge d'aquesta fitxa mostra la taula principal; la predel·la narrativa no hi apareix.",
+    analisi: "Les columnes, l'arcada i les diagonals del pòrtic intenten donar profunditat i orienten la mirada cap a l'habitació del fons. El Prado hi reconeix un punt de fuga i un primer ús de la perspectiva renaixentista, però també una resolució forçada dels tres plans de la cambra de Maria. No és una perspectiva sense punt de fuga ni simplement un fracàs: és un assaig primerenc en què conviuen espai mesurable i convencions gòtiques. Compara'l amb la volta de cassetons i les ortogonals més sistemàtiques de la Trinitat de Masaccio.",
+    miraHiDeProp: [
+      "Segueix les vores del pòrtic i localitza la porta que deixa entreveure l'habitació de Maria: què ajuda a imaginar-hi al darrere?",
+      "Compara les línies de la cambra del fons: totes descriuen un espai tan coherent com el de la volta de Masaccio?",
+      "Observa Adam i Eva al jardí i l'àngel i Maria sota el pòrtic: quin contrast narratiu uneix les dues escenes?",
+    ],
+    curiositats: ["El Prado descriu aquesta Anunciació com una de les primeres grans obres renaixentistes de Florència que fa ús de la perspectiva."],
+    relacionades: ["trinitat-masaccio", "tribut-sant-pere", "desposoris-verge"],
+    bloc: 1,
+  },
+  {
     slug: "trinitat-masaccio",
     titol: "La Santíssima Trinitat",
     autorSlug: "masaccio",
@@ -15,11 +39,11 @@ export const PINTURA_ITALIA_1: Obra[] = [
     disciplina: "pintura", periode: "quattrocento", ambit: "italia",
     concepts: ["perspectiva-lineal", "fresc", "composicio-piramidal"],
     relevancia:
-      "És el primer fresc construït amb la perspectiva lineal matemàtica de Brunelleschi: per primera vegada una pintura es planta com un espai mesurable i racional, amb el punt de fuga situat a l'altura exacta de l'ull de l'espectador. Tot el sistema de representació europeu posterior hi té l'arrel.",
+      "És una de les primeres grans aplicacions pictòriques de la perspectiva lineal associada als experiments de Brunelleschi: una capella fictícia sembla prolongar l'espai real gràcies a un punt de fuga situat a l'altura dels ulls de l'espectador.",
     context:
       "El fresc decora la nau de la basílica florentina de Santa Maria Novella, probablement per encàrrec de la família Lenzi, el sepulcre de la qual ocupa la base del compartiment. Es pinta entre 1425 i 1428, en els anys en què Brunelleschi aixecava la cúpula de la catedral i Florència es pensava com la nova Roma. El tema respon a una devoció concreta: la Trinitat —Déu Pare que sosté la creu, amb la colometa de l'Esperit Sant—, flanquejada per la Mare de Déu i sant Joan, amb els comitents agenollats fora de l'espai sagrat. Al davant, un esquelet tombat sobre el sarcòfag recorda al visitant que davant la mort només la fe salva: «Jo ja era allò que sou, i allò que sou encara sóc».",
     analisi:
-      "La composició organitza l'espai com una capella real: un nínxol amb volta de canó conformada per cassetons, amb la profunditat calculada mitjançant la quadrícula de Brunelleschi i el punt de fuga sota la mirada de l'espectador, al peu de la creu. Les figures s'ordenen en piràmide: Déu Pare al vèrtex, la Mare de Déu assenyalant el Fill i dirigint la mirada de l'espectador cap a ell. Els cossos tenen pes escultòric, amb llums i ombres construïdes com si la llum entrés per la finestra real de la nau. La diferència d'escala i de posició separa amb precisió el món diví (dins de la capella), els comitents (agenollats sobre el graó) i l'esquelet (a sota, en el temps de la mort).",
+      "La composició fa semblar real una capella pintada: l'arc i la volta de canó cassetonada reculen cap a un punt de fuga al centre del graó dels donants, aproximadament a l'altura dels ulls d'un espectador que mira des de la nau. Les vores dels cassetons marquen les direccions de profunditat; si les prolonguem, conflueixen en aquell punt. Aquesta coherència geomètrica és més sistemàtica que l'assaig de l'habitació de Fra Angelico. Les figures formen un eix vertical, de Déu Pare a Crist i fins al nivell dels comitents. Maria assenyala el Fill; la llum modela els cossos amb pes escultòric. Sota el graó, el sepulcre recorda la mortalitat humana.",
     miraHiDeProp: [
       "Els cassetons de la volta: cada reducció de mida està calculada per forçar la sensació de profunditat real.",
       "El gest de la Mare de Déu: els seus ulls dirigeixen l'espectador cap a Crist, l'única figura que no mira cap a dins de l'escena.",
@@ -29,7 +53,7 @@ export const PINTURA_ITALIA_1: Obra[] = [
       "Al segle XVI el fresc va quedar tapat per un retaule i no es va redescobrir fins al 1861; la perspectiva completa es va veure de nou després de la restauració de 1952.",
       "Vasari, quan va col·locar el retaule que amagava el fresc, va descriure'l amb detall: gràcies a ell sabem com era abans de ser tapat.",
     ],
-    relacionades: ["escola-atenes", "desposoris-verge", "expulsio-paradis"],
+    relacionades: ["anunciacio-fra-angelico", "desposoris-verge", "expulsio-paradis"],
     obraFita: true,
     bloc: 1,
   },
@@ -46,13 +70,13 @@ export const PINTURA_ITALIA_1: Obra[] = [
     disciplina: "pintura", periode: "quattrocento", ambit: "italia",
     concepts: ["clarobscur", "fresc", "perspectiva-lineal"],
     relevancia:
-      "És la lliçó mestra de la narració renaixentista: tres moments d'una mateixa història (cobrar el tribut, trobar la moneda, pagar-lo) en una sola escena unida, amb figures que tenen pes real i una llum única com en el món físic. Tota la pintura narrativa europea hi naixerà.",
+      "Una lliçó de narració renaixentista: tres moments d'una mateixa història —la reclamació, la troballa de la moneda i el pagament— conviuen en un únic paisatge. Les figures tenen volum i la perspectiva de l'edifici dirigeix l'atenció cap a Crist.",
     context:
       "El fresc pertany al cicle de la Capella Brancacci, començat per Masolino i Masaccio el 1425 i acabat per Filippino Lippi el 1480, per encàrrec de Felice Brancacci, ric mercader de seda i membre del govern florentí. El tema del tribut miracle de Mateu era d'actualitat: el 1427 Florència va instituir el catasto, el primer impost personal modern, i l'escena del pagament a l'autoritat es llegia com una al·legoria cívica. L'acció es desenvolupa a Cafarnaüm, davant el llac on Pere trobarà la moneda a la boca d'un peix.",
     analisi:
-      "L'escena central agrupa Crist i els apòstols en semicercle davant de la població; Crist, al centre geomètric, és el node de la narració: amb la mà envia Pere cap a l'esquerra —on el veiem agenollat a la vora del llac recollint la moneda— i amb l'altra assenyala el recaptador, a la dreta —on Pere paga. La llum ve d'una única font exterior, a l'esquerra, i modula els volums amb una coherència que cap pintura gòtica no tenia: les figures projecten ombres reals sobre el terra. El contrast entre siluetes fosques i zones il·luminades (clarobscur) construeix profunditat sense necessitat d'un paviment en perspectiva. El paisatge del fons, amb la seva gradació tonal, ja anuncia la perspectiva aèria.",
+      "Al centre, el recaptador reclama el tribut i Crist indica a Pere el llac. A l'esquerra, Pere troba la moneda al peix; a la dreta, paga al recaptador. El mateix personatge apareix tres vegades en un paisatge continu. Les ortogonals de l'edifici de la dreta, prolongades visualment, condueixen cap al cap de Crist i reforcen el centre narratiu. Una llum coherent modela els cossos i fa que projectin ombres al terra. Les muntanyes del fons perden intensitat i contrast: és un altre recurs de profunditat, atmosfèric, diferent de la geometria de l'edifici.",
     miraHiDeProp: [
-      "El recaptador de tributs de la dreta, de llom curt i túnica vermella: és un retrat contemporani, possiblement el propi Masaccio.",
+      "Segueix les vores de l'edifici de la dreta fins al cap de Crist: la perspectiva ajuda a identificar el centre de l'episodi.",
       "La mirada dels apòstols: cadascú reacciona amb un gest diferent a la notícia del tribut.",
       "Sant Pere agenollat al llac: l'escala de la figura segueix la perspectiva del paisatge.",
     ],
@@ -250,27 +274,28 @@ export const PINTURA_ITALIA_1: Obra[] = [
     titol: "El Crist mort (Lamentació sobre Crist mort)",
     autorSlug: "mantegna",
     autorNom: "Andrea Mantegna",
-    data: "aprox. 1480",
-    anyInici: 1474, anyFi: 1483,
+    data: "aprox. 1483",
+    anyInici: 1480, anyFi: 1486,
+    fontData: "Pinacoteca di Brera, fitxa de l'obra, datada cap al 1483.",
     tecnica: "Tempera sobre llenç",
     dimensions: "68 × 81 cm",
-    ubicacio: { museu: "Pinacoteca di Brera", ciutat: "Milà", pais: "Itàlia" },
+    ubicacio: { museu: "Pinacoteca di Brera", ciutat: "Milà", pais: "Itàlia", url: "https://pinacotecabrera.org/en/collezioni/collezione-on-line/lamentation-over-the-dead-christ/" },
     disciplina: "pintura", periode: "quattrocento", ambit: "italia",
     concepts: ["escorc", "perspectiva-lineal"],
     relevancia:
-      "És l'exercici d'escorç més famós de la història de la pintura: un cos mort vist des dels peus, amb el furat de les ferides descrit amb una geometria implacable. Cap obra no ha ensenyat mai tant, amb tan poques eines, com es construeix la profunditat.",
+      "És un dels escorços més cèlebres de la pintura: el cos de Crist, vist des dels peus, sembla penetrar en l'espai del quadre. Les plantes en primer terme, les cames escurçades i el rostre més llunyà permeten entendre visualment com funciona aquest recurs.",
     context:
-      "El llenç es trobava a l'estudi de Mantegna quan va morir el 1506, i els seus fills el van vendre: probablement era una obra d'estudi i devoció personal, no un encàrrec. La meditació sobre el Crist mort aïllat, sense dolors visibles ni presència divina, és típica de l'espiritualitat del nord d'Itàlia de la segona meitat del segle XV, centrada en la humanitat i la soledat de Crist.",
+      "La Pinacoteca di Brera data l'obra cap al 1483 i considera probable, però no segur, que sigui el Crist en escorç trobat a l'estudi de Mantegna després de la seva mort el 1506. Potser estava destinada a la devoció privada del pintor. Tres plorants a l'esquerra acompanyen el cos preparat per a la sepultura sobre la pedra de la unció.",
     analisi:
-      "El cos de Crist es projecta en diagonal sobre la pedra de la unció, comprimint el tronc i el rostre i amplificant el pla dels peus, on les ferides dels claus són el centre emocional i visual. L'escorç és tractat com un problema de geometria: cada volum del cos segueix la lògica de la perspectiva central, i el forat de les ferides pintat als peus és una demostració tècnica. Dues figures de plorants, tallades pel marc, amplifiquen la soledat: la Mare de Déu, sant Joan i Maria Magdalena no miren el cos, ploren cap a dins. La llum freda i lateral, sense drama cromàtic, reforça el silenci.",
+      "La mirada entra pels peus ferits del primer pla i recorre les cames fins al tors i el rostre: el cos, col·locat gairebé perpendicular al marc, s'escurça visualment. Les plantes són molt visibles, però Mantegna no les engrandeix tant com dictaria una projecció geomètrica estricta; l'efecte és alhora versemblant i expressiu. Les ferides de les mans i dels peus i els plecs del sudari obliguen a mirar de prop. Els tres plorants, tallats pel marge esquerre, intensifiquen el dolor sense apartar l'atenció del cos. L'escorç no és simplement un cos petit: és la representació d'un cos que avança o retrocedeix en profunditat.",
     miraHiDeProp: [
-      "Els peus de Crist: les dues ferides dels claus són el centre exacte de la composició, i la cera de l'ungció és pintada amb precisió d'escultor.",
-      "El rostre de Crist: una paleta de grisos i verds amb la llum tallada per les orelles i el nas.",
-      "Les llàgrimes de les plorants: cada gota té la seva llum pròpia.",
+      "Compara la mida aparent de les plantes, els genolls i el rostre: quina part és més pròxima a tu?",
+      "Segueix l'eix dels peus fins al cap i observa com el cos sembla escurçar-se sobre la llosa.",
+      "Mira les tres figures plorants del marge esquerre: quina diferència hi ha entre la seva posició i la del cos de Crist?",
     ],
     curiositats: [
-      "El llenç es va vendre a la subhasta posterior de l'estudi de Mantegna per 2 ducats, segons els documents conservats: un preu irrisori per a una obra cabdal.",
-      "Mantegna va pintar una versió anterior del mateix tema, avui perduda, citada pels inventaris dels Gonzaga.",
+      "La identificació amb el Crist en escorç conservat al taller de Mantegna és la hipòtesi més acceptada per Brera, però la documentació de la seva trajectòria posterior és incompleta.",
+      "La pintura va arribar a la Pinacoteca di Brera el 1824.",
     ],
     relacionades: ["judici-final", "desposoris-verge", "descens-creu"],
     obraFita: true,

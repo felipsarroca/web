@@ -5,6 +5,37 @@
 import type { Anotacio } from "./anotacions";
 
 export const ANOTACIONS: Record<string, Anotacio[]> = {
+  // Mantegna: l'escorç es descobreix recorrent el cos dels peus al rostre.
+  "crist-mort-mantegna": [
+    {
+      id: "peus-primer-terme",
+      figura: "zona", capa: "perspectiva", etiqueta: "Els peus, molt a prop",
+      pregunta: "Quina part del cos sembla més propera a tu?",
+      descripcio: "Les plantes ferides ocupen el primer terme. Des d'aquí, la mirada recorre el cos cap al cap, que queda molt més lluny dins l'espai pintat.",
+      x: 0.34, y: 0.76, amplada: 0.45, alcada: 0.23, nivell: "basico", visible_inicialment: true,
+    },
+    {
+      id: "cames-escorcades",
+      figura: "zona", capa: "perspectiva", etiqueta: "Cames escurçades",
+      pregunta: "Per què les cames no es veuen tan llargues com si el cos fos de perfil?",
+      descripcio: "Crist està col·locat gairebé perpendicular al pla del quadre: per això la longitud de les cames queda comprimida en la imatge. Aquest és l'escorç.",
+      x: 0.22, y: 0.42, amplada: 0.52, alcada: 0.40, nivell: "basico",
+    },
+    {
+      id: "rostre-llunya",
+      figura: "zona", capa: "perspectiva", etiqueta: "El rostre, al fons",
+      pregunta: "On queda el cap respecte als peus i als genolls?",
+      descripcio: "El rostre tanca el recorregut visual al fons de la llosa. Compara'n la posició amb la dels peus per percebre la profunditat del cos.",
+      x: 0.35, y: 0.03, amplada: 0.29, alcada: 0.23, nivell: "intermedi",
+    },
+    {
+      id: "plorants-esquerra",
+      figura: "zona", capa: "personatges", etiqueta: "Tres plorants",
+      pregunta: "Cap a on miren els personatges del marge esquerre?",
+      descripcio: "Les tres figures ploren al costat del cap de Crist i queden parcialment tallades pel marc. La seva posició lateral contrasta amb l'eix frontal del cos escorçat.",
+      x: 0.0, y: 0.0, amplada: 0.21, alcada: 0.52, nivell: "intermedi",
+    },
+  ],
   // Perugino: observar → seguir el paviment → comprovar la profunditat.
   "crist-claus-sant-pere": [
     {

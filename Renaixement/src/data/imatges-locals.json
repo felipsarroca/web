@@ -371,8 +371,8 @@
     }
   },
   "crist-mort-mantegna": {
-    "amplada": 1920,
-    "alcada": 2585,
+    "amplada": 2446,
+    "alcada": 2068,
     "amplades": [
       480,
       800,
@@ -381,18 +381,20 @@
     ],
     "tiles": true,
     "copia": "commons",
+    "versio": "ae75c09f25e1",
     "font": {
-      "fitxer": "Andrea Mantegna 070.jpg",
-      "url": "https://commons.wikimedia.org/wiki/File:Andrea_Mantegna_070.jpg",
+      "fitxer": "Lamentación sobre Cristo muerto, por Andrea Mantegna.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Lamentaci%C3%B3n_sobre_Cristo_muerto%2C_por_Andrea_Mantegna.jpg",
       "llicencia": "Public domain",
+      "url_llicencia": "https://creativecommons.org/publicdomain/mark/1.0/",
       "autor_foto": "",
       "transformacions": [
-        "màster local 1920×2585 (JPG)",
-        "derivat WebP q82 w480",
-        "derivat WebP q82 w800",
-        "derivat WebP q82 w1200",
-        "derivat WebP q82 w1600",
-        "piràmide DZI 256px tiles, overlap 1"
+        "Original de Commons 2446×2068, sense retall ni ampliació",
+        "Derivat WebP q82 w480",
+        "Derivat WebP q82 w800",
+        "Derivat WebP q82 w1200",
+        "Derivat WebP q82 w1600",
+        "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
       ]
     }
   },
@@ -1565,8 +1567,8 @@
     }
   },
   "tribut-sant-pere": {
-    "amplada": 1920,
-    "alcada": 1427,
+    "amplada": 2200,
+    "alcada": 1015,
     "amplades": [
       480,
       800,
@@ -1575,18 +1577,20 @@
     ],
     "tiles": true,
     "copia": "commons",
+    "versio": "dae76c2f6f35",
     "font": {
-      "fitxer": "Masaccio 006.jpg",
-      "url": "https://commons.wikimedia.org/wiki/File:Masaccio_006.jpg",
+      "fitxer": "The Tribute Money by Masaccio.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Tribute_Money_by_Masaccio.jpg",
       "llicencia": "Public domain",
+      "url_llicencia": "https://creativecommons.org/publicdomain/mark/1.0/",
       "autor_foto": "",
       "transformacions": [
-        "màster local 1920×1427 (JPG)",
-        "derivat WebP q82 w480",
-        "derivat WebP q82 w800",
-        "derivat WebP q82 w1200",
-        "derivat WebP q82 w1600",
-        "piràmide DZI 256px tiles, overlap 1"
+        "Original de Commons 2200×1015, sense retall ni ampliació",
+        "Derivat WebP q82 w480",
+        "Derivat WebP q82 w800",
+        "Derivat WebP q82 w1200",
+        "Derivat WebP q82 w1600",
+        "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
       ]
     }
   },
@@ -1794,6 +1798,34 @@
       "autor_foto": "",
       "transformacions": [
         "Original de Commons 3055×1893, sense retall ni ampliació",
+        "Derivat WebP q82 w480",
+        "Derivat WebP q82 w800",
+        "Derivat WebP q82 w1200",
+        "Derivat WebP q82 w1600",
+        "Piràmide DZI JPEG q90, fragments de 256 px, solapament 1"
+      ]
+    }
+  },
+  "anunciacio-fra-angelico": {
+    "amplada": 3840,
+    "alcada": 3054,
+    "amplades": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "tiles": true,
+    "copia": "commons",
+    "versio": "aa6a66e3f08a",
+    "font": {
+      "fitxer": "La Anunciación, by Fra Angelico, from Prado in Google Earth - main panel.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:La_Anunciaci%C3%B3n%2C_by_Fra_Angelico%2C_from_Prado_in_Google_Earth_-_main_panel.jpg",
+      "llicencia": "Public domain",
+      "url_llicencia": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "autor_foto": "",
+      "transformacions": [
+        "Derivat de Commons 3840×3054 de l'original 20039×15939; sense retall ni ampliació",
         "Derivat WebP q82 w480",
         "Derivat WebP q82 w800",
         "Derivat WebP q82 w1200",

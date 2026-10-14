@@ -77,7 +77,8 @@ export const ANOTACIONS: Record<string, Anotacio[]> = {};
 // fitxer, per evitar cicles en temps d'execució)
 import { ANOTACIONS as PILOT } from "./anotacions-pilot";
 import { ANOTACIONS as ARQUITECTURA } from "./anotacions-arquitectura";
-Object.assign(ANOTACIONS, PILOT, ARQUITECTURA);
+import { ANOTACIONS as LECTURES_VISUALS } from "./anotacions-lectures-visuals";
+Object.assign(ANOTACIONS, PILOT, ARQUITECTURA, LECTURES_VISUALS);
 
 export function anotacionsDe(slug: string): Anotacio[] {
   return ANOTACIONS[slug] ?? [];

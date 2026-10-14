@@ -7,9 +7,9 @@
     "autor_foto": "MenkinAlRire"
   },
   "tribut-sant-pere": {
-    "fitxer": "Masaccio 006.jpg",
-    "amplada": 2536,
-    "alcada": 1885,
+    "fitxer": "The Tribute Money by Masaccio.jpg",
+    "amplada": 2200,
+    "alcada": 1015,
     "llicencia": "Public domain",
     "autor_foto": ""
   },
@@ -56,9 +56,9 @@
     "autor_foto": ""
   },
   "crist-mort-mantegna": {
-    "fitxer": "Andrea Mantegna 070.jpg",
-    "amplada": 2536,
-    "alcada": 3415,
+    "fitxer": "Lamentación sobre Cristo muerto, por Andrea Mantegna.jpg",
+    "amplada": 2446,
+    "alcada": 2068,
     "llicencia": "Public domain",
     "autor_foto": ""
   },
@@ -479,6 +479,13 @@
     "fitxer": "Perugino - Entrega de las llaves a San Pedro (Capilla Sixtina, 1481-82).jpg",
     "amplada": 3055,
     "alcada": 1893,
+    "llicencia": "Public domain",
+    "autor_foto": ""
+  },
+  "anunciacio-fra-angelico": {
+    "fitxer": "La Anunciación, by Fra Angelico, from Prado in Google Earth - main panel.jpg",
+    "amplada": 3840,
+    "alcada": 3054,
     "llicencia": "Public domain",
     "autor_foto": ""
   }

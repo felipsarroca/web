@@ -96,39 +96,27 @@ export default function AnotacionsOverlay({
           className="absolute inset-0 w-full h-full overflow-visible"
           viewBox={`0 0 100 ${vbH}`}
           preserveAspectRatio="none"
-          style={{ filter: "drop-shadow(0 0 1.5px rgba(0,0,0,0.85))" }}
+          style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.9))" }}
           aria-hidden="true"
         >
           {anotacions.map((a) => {
-            const color = COLOR_CAPA[a.capa];
+            const color = a.color ?? COLOR_CAPA[a.capa];
             if (a.figura === "linia") {
               const d = a.punts.map(([px, py], i) => `${i === 0 ? "M" : "L"}${px * 100},${py * vbH}`).join(" ");
               return (
-                <path
-                  key={a.id}
-                  d={d}
-                  fill="none"
-                  stroke={color}
-                  strokeWidth={destacatId === a.id ? 4 : 3}
-                  strokeDasharray="10 6"
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  opacity={destacatId === a.id ? 1 : 0.85}
-                />
+                <g key={a.id}>
+                  <path d={d} fill="none" stroke="#101820" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" opacity="0.88" />
+                  <path d={d} fill="none" stroke={color} strokeWidth={destacatId === a.id ? 5 : 4} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                </g>
               );
             }
             if (a.figura === "poligon") {
               const pts = a.punts.map(([px, py]) => `${px * 100},${py * vbH}`).join(" ");
               return (
-                <polygon
-                  key={a.id}
-                  points={pts}
-                  fill={color + "24"}
-                  stroke={color}
-                  strokeWidth={destacatId === a.id ? 4 : 3}
-                  strokeDasharray="10 6"
-                  vectorEffect="non-scaling-stroke"
-                />
+                <g key={a.id}>
+                  <polygon points={pts} fill={color + "20"} stroke="#101820" strokeWidth="9" vectorEffect="non-scaling-stroke" />
+                  <polygon points={pts} fill="none" stroke={color} strokeWidth={destacatId === a.id ? 5 : 4} vectorEffect="non-scaling-stroke" />
+                </g>
               );
             }
             if (a.figura === "rect") {
@@ -141,7 +129,7 @@ export default function AnotacionsOverlay({
                   height={a.alcada * vbH}
                   fill={color + "1c"}
                   stroke={color}
-                  strokeWidth="2.5"
+                  strokeWidth="4"
                   vectorEffect="non-scaling-stroke"
                   rx="0.6"
                 />
@@ -153,7 +141,7 @@ export default function AnotacionsOverlay({
 
         {/* Punts, etiquetes i zones (HTML: forma neta, clic i text accessible) */}
         {anotacions.map((a) => {
-          const color = COLOR_CAPA[a.capa];
+          const color = a.color ?? COLOR_CAPA[a.capa];
           const dest = destacatId === a.id;
           const act = activaId === a.id;
           const anim = dest ? "anotacio-pulsa" : "";
@@ -171,7 +159,7 @@ export default function AnotacionsOverlay({
                 aria-label={`${a.etiqueta}${a.pregunta ? `. Pregunta: ${a.pregunta}` : ""}`}
               >
                 <span
-                  className={`block size-3 rounded-full border-2 border-white shadow-md ${dest ? "size-4 ring-4 ring-[#c9a84c]/70" : ""} ${act ? "ring-4 ring-white/60" : ""}`}
+                  className={`block size-4 rounded-full border-2 border-white shadow-[0_0_0_3px_#101820,0_2px_8px_#101820] ${dest ? "size-5 ring-4 ring-[#c9a84c]/70" : ""} ${act ? "ring-4 ring-white/60" : ""}`}
                   style={{ backgroundColor: color }}
                 />
                 {mostraExplicacioCurta && (
@@ -230,11 +218,11 @@ export default function AnotacionsOverlay({
                 aria-label={`Detall assenyalat: ${a.etiqueta}. ${a.pregunta ?? a.descripcio}. Activeu-la per obrir la pregunta.`}
               >
                 <span
-                  className="absolute inset-0 rounded-md border-2 opacity-80 group-hover:opacity-100 transition-opacity"
+                  className="absolute inset-0 rounded-md border-[3px] opacity-100 group-hover:opacity-100 transition-opacity"
                   style={{
                     borderColor: dest || act ? "#c9a84c" : color,
                     borderStyle: dest || act ? "solid" : "dashed",
-                    boxShadow: dest || act ? "0 0 0 3px rgba(201,168,76,0.25)" : undefined,
+                    boxShadow: dest || act ? "0 0 0 3px rgba(201,168,76,0.4), 0 1px 5px #101820" : "0 0 0 2px #101820, 0 1px 5px #101820",
                   }}
                   aria-hidden="true"
                 />

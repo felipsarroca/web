@@ -6,6 +6,7 @@
 // Execució: bun tests/dades.test.ts
 import fs from "node:fs";
 import path from "node:path";
+import { anotacionsDe, validaAnotacions } from "../src/data/anotacions";
 
 const ARREL = path.resolve(import.meta.dirname, "..");
 let comprovacions = 0;
@@ -14,6 +15,11 @@ const ok = (cond: boolean, missatge: string) => {
   comprovacions++;
   if (!cond) errors.push(missatge);
 };
+ok(validaAnotacions().length === 0, `Coordenades invalides a les capes efectives: ${validaAnotacions().join(", ")}`);
+for (const slug of ["anunciacio-fra-angelico", "trinitat-masaccio", "tribut-sant-pere", "ultim-sopar", "escola-atenes", "david-marbre", "pietat-vaticana"]) {
+  ok(anotacionsDe(slug).length >= 3, `Falten capes visuals a ${slug}`);
+}
+ok(anotacionsDe("ultim-sopar").filter((a) => a.capa === "personatges").length === 4, "L'Últim Sopar ha de mostrar quatre grups de deixebles");
 
 // ── Anotacions (estructura del fitxer TS: un bloc per obra) ──
 const anotacionsPilot = ["anotacions-pilot.ts", "anotacions-arquitectura.ts"]
@@ -70,8 +76,8 @@ const slugsComparacio = [...comparacions.matchAll(/\bslug:\s*"([a-z0-9-]+)"/g)].
 ok(slugsComparacio.length >= 12, `Les comparacions haurien de tenir ≥12 obres (són ${slugsComparacio.length})`);
 for (const s of slugsComparacio) ok(slugsObres.has(s), `Comparació amb obra inexistent: ${s}`);
 const presets = [...comparacions.matchAll(/\bid:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]);
-ok(presets.length === 5, `Hauria d'haver 5 comparacions preconfigurades (són ${presets.length})`);
-ok([...comparacions.matchAll(/\bpregunta:\s*"/g)].length === 5, "Cada comparació ha de tenir pregunta comparativa");
+ok(presets.length === 6, `Hauria d'haver 6 comparacions preconfigurades (són ${presets.length})`);
+ok([...comparacions.matchAll(/\bpregunta:\s*"/g)].length === 6, "Cada comparació ha de tenir pregunta comparativa");
 // Els conceptes referenciats han d'existir
 const slugsConceptes = new Set(
   [...fs.readFileSync(path.join(ARREL, "src/data/conceptes.ts"), "utf8").matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
@@ -134,7 +140,7 @@ ok(!/tipus: "fita"[\s\S]{0,50}el esdeveniment/.test(esdeveniments), "Errada de l
 
 // ── Crèdits fotogràfics: l'autor de la foto no pot ser l'artista de l'obra ──
 // (Commons posa l'artista al camp «Artist» de les reproduccions de domini públic)
-const { OBRES } = await import("../src/data/obres/index.ts");
+const { OBRES } = await import("../src/data/obres/index");
 const normalitza = (t: string) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const ALIES: Record<string, string[]> = {
   titia: ["titian", "tiziano"], rafael: ["raphael", "raffaello"], "miquel-angel": ["michelangelo"],

@@ -76,7 +76,7 @@ export default function HomeView() {
             <p className="mt-4 prose-llegible text-[15.5px] sm:text-base leading-relaxed text-tinta-2">
               Obres amb visor de detall, fitxes amb preguntes d&apos;observació i una cronologia
               que ensenya què passava al mateix temps. Cada fitxa separa fet documentat,
-              interpretació i font: ho que necessites per estudiar i per a classe.
+              interpretació i font: el que necessites per estudiar i per a classe.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {ambZoom ? (
@@ -128,7 +128,7 @@ export default function HomeView() {
             {
               icona: GitCompareArrows,
               titol: "Compara obres",
-              desc: "Cinc activitats preparades amb pregunta i resposta model: perspectiva lineal i aèria, contrapposto, arquitectura i retrat.",
+              desc: "Sis activitats preparades amb pregunta i resposta model: els primers assajos de perspectiva, perspectiva lineal i aèria, contrapposto, arquitectura i retrat.",
               desti: "comparacions",
             },
             {

@@ -24,6 +24,9 @@ const GENERIC: FontFitxa[] = [
 ];
 
 const BIBLIOGRAFIA: Record<string, FontFitxa[]> = {
+  "fra-angelico": [
+    { tipus: "bibliografia", text: "Museu del Prado, fitxa i estudi de L'Anunciació (P000015): datació, tècnica i context.", url: "https://www.museodelprado.es/coleccion/obra-de-arte/la-anunciacion/9b02b6c9-3618-4a92-a6b7-26f9076fcb67" },
+  ],
   masaccio: [
     { tipus: "bibliografia", text: "J. Poeschke, «Masaccio: Frescoes, Fragments, Paintings» (Hirmer, 2002)." },
     { tipus: "bibliografia", text: "M. Baxandall, «Painting and Experience in Fifteenth-Century Italy» (Oxford UP, 1972)." },
@@ -149,6 +152,14 @@ const BIBLIOGRAFIA: Record<string, FontFitxa[]> = {
   ],
 };
 
+const FONTS_OBRA: Record<string, FontFitxa> = {
+  "trinitat-masaccio": { tipus: "bibliografia", text: "Smarthistory, «Masaccio, Holy Trinity»: punt de fuga, graó dels donants i volta.", url: "https://smarthistory.org/masaccio-holy-trinity/" },
+  "tribut-sant-pere": { tipus: "bibliografia", text: "Smarthistory, «The Tribute Money»: punt de fuga al cap de Crist i tres moments narratius.", url: "https://smarthistory.org/masaccio-the-tribute-money-in-the-brancacci-chapel/" },
+  "ultim-sopar": { tipus: "museu", text: "Museo del Cenacolo Vinciano, «A powerful theatrical machine»: perspectiva i punt de fuga prop de la templa dreta de Crist.", url: "https://cenacolovinciano.org/en/story/a-powerful-theatrical-machine/" },
+  "escola-atenes": { tipus: "museu", text: "Museus Vaticans, «L'escola d'Atenes»: identificació de figures i gestos.", url: "https://www.museivaticani.va/content/museivaticani/es/collezioni/musei/stanze-di-raffaello/stanza-della-segnatura/scuola-di-atene.html" },
+  "pietat-vaticana": { tipus: "museu", text: "Museus Vaticans, estudi de la Pietat de Sant Pere: composició piramidal.", url: "https://www.museivaticani.va/content/dam/museivaticani/pdf/eventi_novita/iniziative/spazioincontro/2013/MV_4_Pieta_san_pietro_approfond.pdf" },
+};
+
 /** Fonts editorials d'una fitxa: museu (ubicació) + bibliografia per artista. */
 export function fontsDe(slug: string): FontFitxa[] {
   const o = obra(slug);
@@ -161,5 +172,6 @@ export function fontsDe(slug: string): FontFitxa[] {
     },
   ];
   fonts.push(...(BIBLIOGRAFIA[o.autorSlug] ?? GENERIC));
+  if (FONTS_OBRA[slug]) fonts.push(FONTS_OBRA[slug]);
   return fonts;
 }

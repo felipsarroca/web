@@ -15,11 +15,11 @@ export const PINTURA_ITALIA_2: Obra[] = [
     disciplina: "pintura", periode: "quattrocento", ambit: "italia",
     concepts: ["perspectiva-lineal", "composicio-piramidal", "fresc"],
     relevancia:
-      "És el fresc més famós del món i una de les demostracions més clares que la perspectiva pot servir la narració: totes les línies convergeixen en el cap de Crist, i tots els apòstols reaccionen a la mateixa frase —«un de vosaltres em trairà»— amb un gest diferent. Drama i geometria en un sol sistema.",
+      "Una de les pintures murals més conegudes del món mostra com la perspectiva pot servir la narració: les ortogonals de la sala convergeixen prop de la templa dreta de Crist, a l'altura dels ulls, i els apòstols reaccionen a l'anunci de la traïció. Drama i geometria en un sol sistema.",
     context:
       "Ludovico Sforza encarrega a Leonardo la decoració del refetor dels dominics de Santa Maria delle Grazie, al costat del seu sepulcre. El tema és l'instant posterior a l'anunci de la traïció de Judes, no la institució de l'eucaristia tradicional. Leonardo treballa-hi entre 1495 i 1498 amb un mètode experimental: en lloc del fresc clàssic (pintar sobre arrebossat fresc), pinta en sec sobre dues capes de guix, cosa que li permetia corregir i treballar lentament, però condemna l'obra a degradar-se ràpidament.",
     analisi:
-      "La composició és un mecanisme de rellotgeria: Crist, al centre, forma un triangle estable amb els braços estesos, i la finestra central del fons li serveix d'aureola natural. Els dotze apòstols es reparteixen en quatre grups de tres, cadascú amb una reacció emocional diferent a l'anunci: sorpresa, indignació, dubte, desmentiment. Judes, dins del grup de la dreta, retira el braç i enfonsa el colze a la taula: és el punt fosc de la composició, amb el sarró de la moneda i el tros de pa. Les ortogonals del sostre i dels tapissos converteixen la sala real del refetor en una prolongació pintada: els monjos menjaven com si soparessin amb Crist. La perspectiva lineal no és aquí ornament, és teologia visual.",
+      "Crist forma un triangle estable amb els braços estesos, davant la finestra central. Els dotze apòstols es distribueixen en quatre grups de tres, dos a cada banda: els gestos permeten llegir les reaccions a l'anunci de la traïció. Judes és al primer grup a l'esquerra de Crist per a qui mira el mural, entre Pere i Joan; Leonardo l'integra a la taula, però el deixa més endins de l'ombra. Les línies de profunditat del sostre i dels tapissos de les parets convergeixen prop de la templa dreta de Crist, a l'altura dels ulls: no són totes les línies de la pintura. La sala pintada sembla prolongar el refetor real.",
     miraHiDeProp: [
       "Les mans de Crist i de Judes, que estenen alhora cap al mateix plat: és la signatura visual de la traïció.",
       "Sant Pere, amb el ganivet a la mà dreta, girat cap a Judes: anticipa la violència de Getsemaní.",
@@ -136,21 +136,21 @@ export const PINTURA_ITALIA_2: Obra[] = [
     dimensions: "500 × 770 cm",
     ubicacio: { museu: "Estança de la Signatura, Museus Vaticans", ciutat: "Ciutat del Vaticà", pais: "Vaticà", url: "https://www.museivaticani.va" },
     disciplina: "pintura", periode: "cinquecento", ambit: "italia",
-    concepts: ["perspectiva-lineal", "perspectiva-aeria", "retrat-humanista"],
+    concepts: ["perspectiva-lineal", "retrat-humanista"],
     relevancia:
       "És el manifest del Cinquecento: la filosofia antiga reunida en una arquitectura monumental, amb Plató i Aristòtil al centre i els grans pensadors disposats com una cort. El passat clàssic i el present papal es funden en una sola imatge que defineix l'ideal renaixentista.",
     context:
-      "El papa Juli II encarrega a Rafael la decoració de les seves estances privades del Vaticà el 1509, quan Miquel Àngel treballava a la Sixtina de l'altra banda. L'Estança de la Signatura, sala de la signatura de gràcies, correspon a laIntel·ligència: el fresc contraposa la filosofia (aquesta paret) a la teologia (Disputa del Santíssim Sagrament), a la poesia (Parnàs) i al dret (Les virtuts i el dret). Els filòsofs antics tenen els rostres dels contemporanis: Leonardo és Plató, Miquel Àngel és Heràclit, el propi Rafael es pinta a la vora dreta amb el barret negre.",
+      "El papa Juli II encarrega a Rafael la decoració de les seves estances privades del Vaticà el 1509, mentre Miquel Àngel treballa a la Sixtina. A l'Estança de la Signatura, el programa contraposa la filosofia (aquesta paret) a la teologia (Disputa del Santíssim Sagrament), la poesia (Parnàs) i el dret (Les virtuts i el dret). Alguns filòsofs recorden contemporanis de Rafael: Plató s'ha relacionat amb Leonardo, Heràclit amb Miquel Àngel i l'artista s'autoretrata a la dreta.",
     analisi:
-      "L'espai és un temple clàssic monumental, amb voltes de canó cassetonades inspirades en el projecte de Bramante per a sant Pere: cada arc, cada cornisa segueix la perspectiva central cap al punt de fuga situat entre Plató i Aristòtil. Els dos filòsofs caminen al centre exacte: Plató assenyala el cel (el món de les idees) amb el Timeu a la mà; Aristòtil estén la mà cap a terra (el món de l'experiència) amb l'Ètica. A l'esquerra, Pitàgores escriu, i Epicur, Empèdocles i Averrois conversen; a la dreta, Euclides compàs a la mà dibuixa en una pissarra, Ptolemeu i Zoroastre sostenen globus. El paisatge del fons, obert per les finestres dels arcs, dissol l'horitzó amb perspectiva aèria. Més de cinquanta figures de grandària natural formen una cort intel·lectual sense jerarquia visual fora del centre.",
+      "L'espai és una arquitectura clàssica monumental, amb voltes de canó cassetonades inspirades en el projecte de Bramante per a sant Pere. Les ortogonals condueixen la mirada cap a l'eix entre Plató i Aristòtil, a l'altura dels caps. Plató alça el dit i duu el Timeu; Aristòtil estén la mà horitzontalment i duu l'Ètica: dos gestos que fan visible el debat filosòfic. A l'esquerra, Pitàgores escriu en un llibre; Diògenes jeu als graons centrals; Heràclit seu sol al davant. A la dreta, Euclides traça una figura amb el compàs, i Ptolemeu i Zoroastre sostenen globus terrestre i celeste. Els grups humans, les escales i les obertures arquitectòniques organitzen diversos plans de profunditat sense perdre el centre de la composició.",
     miraHiDeProp: [
-      "El punt de fuga entre Plató i Aristòtil: totes les voltes i els paviments hi conflueixen.",
+      "Segueix les ortogonals de l'arquitectura fins a l'eix central entre Plató i Aristòtil; les capes del visor n'assenyalen les guies aproximades.",
       "Heràclit (Miquel Àngel), assegut sol al davant, amb el bloc de marbre: afegit després de veure la Sixtina, amb una còpia directa de l'estil del rival.",
       "L'autoretrat de Rafael, al costat dret, amb barret negre, mirant l'espectador: el testimoni del seu temps.",
     ],
     curiositats: [
       "Juli II va veure els primers esborranys i va manar destruir frescos ja acabats d'altres pintors per deixar tota la sala a Rafael.",
-      "La figura de Plató té el rostre de Leonardo, mort el 1519: és el monument pictòric més bell que es va fer mai a un mestre.",
+      "El rostre de Plató s'ha relacionat sovint amb el de Leonardo da Vinci; la identificació és una interpretació tradicional, no un retrat documentat.",
     ],
     relacionades: ["desposoris-verge", "volta-sixtina", "ultim-sopar"],
     obraFita: true,

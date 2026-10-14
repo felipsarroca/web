@@ -30,6 +30,19 @@ export interface Comparacio {
 
 export const COMPARACIONS: Comparacio[] = [
   {
+    id: "primeres-perspectives",
+    titol: "Fra Angelico i Masaccio: construir l'espai",
+    concepte: "perspectiva-lineal",
+    intro: "Dues pintures gairebé contemporànies mostren camins diferents cap a la profunditat geomètrica. Observa els espais arquitectònics amb les capes de perspectiva activades.",
+    pregunta: "Quines línies i obertures et fan veure profunditat en cada obra? En quina de les dues l'espai et sembla més coherent i per què?",
+    obres: [
+      { slug: "anunciacio-fra-angelico", rol: "Un assaig primerenc", text: "Fra Angelico obre una habitació darrere de Maria i assaja diagonals al pòrtic, però els plans de la cambra encara resulten forçats." },
+      { slug: "trinitat-masaccio", rol: "Una construcció sistemàtica", text: "Masaccio fa convergir les ortogonals de la volta cap a un punt a l'altura dels ulls del visitant: la capella pintada sembla prolongar la real." },
+    ],
+    respostaModel: "A l'Anunciació, les columnes i els arcs formen un pòrtic amb fondària, i la porta deixa veure l'habitació de Maria; tanmateix, l'articulació dels plans d'aquesta cambra és forçada. A la Trinitat, les arestes dels cassetons disminueixen de mida i les ortogonals conflueixen en un mateix punt de fuga sobre el graó dels donants. Masaccio construeix una profunditat més unificada. Fra Angelico no prescindeix del punt de fuga: està experimentant amb el nou llenguatge.",
+    criteris: ["Assenyala almenys una línia o obertura concreta en cada obra", "Distingeix l'assaig de Fra Angelico de la coherència de Masaccio sense dir que el primer no té punt de fuga", "Explica l'efecte de profunditat amb les paraules ortogonal o punt de fuga"],
+  },
+  {
     id: "perspectiva-lineal",
     titol: "Perspectiva lineal en tres moments",
     concepte: "perspectiva-lineal",
