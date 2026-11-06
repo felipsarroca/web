@@ -25,6 +25,23 @@
     el.textContent = encerts === total
       ? 'Perfecte! ' + encerts + ' de ' + total + '.'
       : encerts + ' de ' + total + ' correctes. Llegeix les explicacions i torna-hi.';
+    registra(el, encerts, total);
+  }
+
+  /* Desa el resultat al registre de progrés (El meu progrés) */
+  function registra(el, encerts, total) {
+    const M = window.Modernisme;
+    if (!M || !M.registraProgres) return;
+    const totes = [...document.querySelectorAll('.accions-activitat')];
+    const acc = el.closest('.accions-activitat');
+    const n = totes.indexOf(acc) + 1;
+    const caixa = el.closest('.activitat');
+    const seccio = el.closest('section');
+    const titolAct = (caixa && caixa.querySelector('h3')) || (seccio && seccio.querySelector('h2'));
+    const pagina = (document.querySelector('h1') || {}).textContent || document.title;
+    const nom = pagina.trim() + ' · ' + (titolAct ? titolAct.textContent.replace(/^Posa-t'hi:\s*/i, '').trim() : 'activitat ' + n);
+    const pag = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    M.registraProgres(pag.replace('.html', '') + '-' + n, nom, encerts, total);
   }
 
   function accionsDe(act) {

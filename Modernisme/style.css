@@ -7,8 +7,8 @@
   --color-crema: #f4ede0;
   --color-beix: #e6dccb;
   --color-daurat: #c9a959;
-  --color-daurat-fosc: #8a6a22;
-  --color-verd: #5e7150;
+  --color-daurat-fosc: #7c5e1c;
+  --color-verd: #52654a;
   --color-verd-clar: #e6ebdd;
   --color-text: #2f2a25;
   --color-text-clar: #5f574e;
@@ -1385,3 +1385,205 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 .punts-imatge.vertical { width: fit-content; max-width: 100%; }
 .punts-imatge.vertical img { width: auto; max-width: 100%; height: clamp(360px, calc(100 * var(--vh) - var(--nav-h) - 215px), 760px); object-fit: contain; }
 @media (max-width: 860px) { .punts-imatge.vertical img { height: auto; width: 100%; max-width: 360px; } }
+
+/* ---------------------------------------------------------
+   Oficis i materials
+   --------------------------------------------------------- */
+.index-pagina { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; }
+.index-pagina a { padding: 0.35rem 0.9rem; border: 1px solid var(--color-beix); border-radius: 999px; color: var(--color-marro); text-decoration: none; font-size: 0.95rem; background: var(--color-blanc); }
+.index-pagina a:hover, .index-pagina a:focus-visible { background: var(--color-crema); border-color: var(--color-daurat); }
+.oficis { display: grid; gap: 1.3rem; }
+.ofici {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background: var(--color-blanc);
+  border-radius: 16px;
+  box-shadow: var(--ombra);
+  overflow: hidden;
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+.ofici .boto-imatge { height: 100%; min-height: 260px; border-radius: 0; }
+.ofici .cos { padding: 1.2rem 1.5rem 1.3rem; }
+.ofici h3 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.45rem; line-height: 1.2; }
+.ofici .meta { color: var(--color-daurat-fosc); font-weight: 500; font-size: 0.95rem; margin: 0.15rem 0 0.6rem; }
+.ofici .eines { margin: 0.7rem 0 0.4rem; font-size: 0.93rem; color: var(--color-text-clar); }
+.etiqueta-eines { display: inline-block; margin-right: 0.4rem; padding: 0.1rem 0.55rem; border-radius: 999px; background: var(--color-marro); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+.proces { list-style: none; counter-reset: pas; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.6rem 0; }
+.proces li { counter-increment: pas; position: relative; background: var(--color-crema); border-radius: 10px; padding: 1.55rem 0.65rem 0.6rem; font-size: 0.88rem; line-height: 1.4; }
+.proces li::before { content: counter(pas); position: absolute; top: 0.4rem; left: 0.6rem; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: var(--color-terracota); color: #fff; font-size: 0.75rem; font-weight: 700; display: grid; place-items: center; }
+.proces li:not(:last-child)::after { content: '›'; position: absolute; right: -0.45rem; top: 50%; transform: translateY(-50%); color: var(--color-daurat-fosc); font-weight: 700; z-index: 1; }
+.ofici .on-veure { font-size: 0.93rem; margin-top: 0.4rem; }
+.ofici .cos > p:last-child .boto { margin-top: 0.5rem; }
+@media (max-width: 1100px) { .proces { grid-template-columns: repeat(2, 1fr); } .proces li::after { display: none; } }
+@media (max-width: 760px) {
+  .ofici { grid-template-columns: 1fr; }
+  .ofici .boto-imatge { min-height: 220px; height: 240px; }
+}
+.materials { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.material { position: relative; background: var(--color-blanc); border-radius: 14px; box-shadow: var(--ombra); padding: 1rem 1.1rem 1.1rem 1.1rem; }
+.material .mostra { display: block; width: 44px; height: 44px; border-radius: 50% 50% 50% 12%; background: linear-gradient(135deg, var(--m1), var(--m2)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.5), 0 2px 6px rgba(0,0,0,.15); float: right; margin: 0 0 0.4rem 0.6rem; }
+.material h3 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.2rem; margin-bottom: 0.3rem; }
+.material p { font-size: 0.93rem; color: var(--color-text-clar); }
+.material .on { margin-top: 0.4rem; color: var(--color-text); }
+.material .boto { margin-top: 0.6rem; }
+
+/* Abans i ara */
+.parelles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 1.3rem; }
+.parella { background: var(--color-blanc); border-radius: 16px; box-shadow: var(--ombra); padding: 1rem 1.1rem 1.1rem; }
+.parella h3 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.25rem; margin-bottom: 0.6rem; }
+.parella .dues { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.parella figure { margin: 0; }
+.parella .boto-imatge { height: 230px; border-radius: 10px; }
+.parella .dues figure:first-child img { filter: sepia(0.15); }
+.parella figcaption { font-size: 0.85rem; color: var(--color-daurat-fosc); font-weight: 600; margin-top: 0.3rem; text-align: center; }
+.parella > p { font-size: 0.95rem; color: var(--color-text-clar); margin-top: 0.6rem; }
+@media (max-width: 480px) { .parella .boto-imatge { height: 170px; } }
+
+/* Icones modernistes de la portada */
+.hero-card svg.icona-mod { width: clamp(64px, 6.6vw, 86px); height: auto; aspect-ratio: 80 / 96; overflow: visible; }
+.icona-mod path, .icona-mod circle { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icona-mod .marc { stroke: #e2c77f; stroke-width: 2.2; fill: rgba(226, 199, 127, 0.08); }
+.icona-mod .marc.fi { stroke-width: 0.9; opacity: 0.6; fill: none; }
+.icona-mod .tra { stroke: #f6ead0; stroke-width: 2; }
+.icona-mod .petal { fill: rgba(232, 180, 184, 0.85); stroke: #f6ead0; stroke-width: 1.3; }
+.icona-mod .fulla { fill: rgba(156, 185, 138, 0.85); stroke: #f6ead0; stroke-width: 1.3; }
+.icona-mod .halo { stroke: #e2c77f; stroke-width: 1.4; stroke-dasharray: 2 3; fill: rgba(226, 199, 127, 0.12); }
+.icona-mod .vidre { fill: rgba(143, 179, 217, 0.45); stroke: none; }
+.icona-mod .cor { fill: #e2c77f; stroke: #f6ead0; stroke-width: 1; }
+.icona-mod .mao { fill: rgba(180, 88, 58, 0.75); stroke: none; }
+.hero-card:hover .icona-mod .marc { fill: rgba(226, 199, 127, 0.18); }
+@media (prefers-reduced-motion: no-preference) {
+  .icona-mod .tra { stroke-dasharray: 160; stroke-dashoffset: 160; animation: traca 2.2s ease-out 0.9s forwards; }
+  @keyframes traca { to { stroke-dashoffset: 0; } }
+}
+
+.no-talla { white-space: nowrap; }
+html:not(.lectura-facil) .boto-escolta { display: none; }
+.posa-thi header .copia-enllac { margin-left: auto; }
+
+/* ---------------------------------------------------------
+   Dossier imprimible
+   --------------------------------------------------------- */
+.portada-dossier { text-align: center; padding: 2.4rem 1rem 2rem; margin: 1.5rem 0; border: 2px solid var(--color-daurat); border-radius: 18px; background: var(--color-blanc); }
+.portada-dossier h2 { font-family: var(--font-titol); font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--color-marro); }
+.portada-dossier .subtitol { font-family: var(--font-subtitol); font-size: 1.5rem; color: var(--color-daurat-fosc); }
+.dades-alumne { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; max-width: 640px; margin: 1.8rem auto 0; text-align: left; }
+.dades-alumne dt { font-size: 0.85rem; color: var(--color-text-clar); }
+.dades-alumne dd { margin: 0; height: 1.8em; border-bottom: 1px solid #999; }
+.bloc-dossier { margin: 1.6rem 0; padding: 1.2rem 1.4rem; background: var(--color-blanc); border-radius: 14px; box-shadow: var(--ombra); }
+.pagina-origen { font-size: 0.85rem; color: var(--color-daurat-fosc); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.activitat-dossier header { margin-bottom: 0.4rem; }
+.activitat-dossier h2 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.45rem; }
+.activitat-dossier h3 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.15rem; margin: 1rem 0 0.3rem; }
+.activitat-dossier .consigna { color: var(--color-text-clar); margin-bottom: 0.6rem; }
+.opcions-dossier { font-size: 0.93rem; margin-bottom: 0.4rem; }
+.taula-dossier { width: 100%; border-collapse: collapse; }
+.taula-dossier td { border: 1px solid var(--color-beix); padding: 0.45rem 0.6rem; vertical-align: top; }
+.taula-dossier td.buit { width: 40%; }
+.graella-dossier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+.carta-dossier { border: 1px solid var(--color-beix); border-radius: 10px; padding: 0.4rem; font-size: 0.85rem; break-inside: avoid; }
+.carta-dossier img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; display: block; }
+.caixa-marcar { display: inline-block; width: 0.9em; height: 0.9em; border: 1.5px solid var(--color-marro); border-radius: 3px; margin: 0 0.25em 0 0.5em; vertical-align: -0.1em; }
+.ordena-dossier { list-style: none; display: grid; gap: 0.4rem; }
+.ordena-dossier li { display: flex; gap: 0.6rem; align-items: center; }
+.num-buit { width: 1.8rem; height: 1.8rem; border: 1.5px solid var(--color-marro); border-radius: 6px; flex-shrink: 0; }
+.linia-resposta { border-bottom: 1px solid #999; padding-bottom: 0.2rem; color: var(--color-text-clar); font-size: 0.9rem; }
+.linies-dossier span { display: block; height: 1.8em; border-bottom: 1px solid #aaa; }
+.terme-imprès { font-weight: 600; }
+.autoavaluacio-dossier { margin-top: 1.6rem; padding: 1.2rem 1.4rem; background: var(--color-blanc); border-radius: 14px; box-shadow: var(--ombra); }
+.taula-autoavaluacio td { width: 15%; }
+@media (max-width: 760px) { .graella-dossier { grid-template-columns: repeat(2, 1fr); } .dades-alumne { grid-template-columns: 1fr; } }
+@media print {
+  .pagina-dossier .header-seccio { display: none; }
+  .portada-dossier { break-after: page; border-width: 1px; }
+  .bloc-dossier, .autoavaluacio-dossier { box-shadow: none; border: 1px solid #ccc; break-inside: auto; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+  .activitat-dossier .activitat { break-inside: avoid; }
+  .bloc-dossier a { color: inherit; }
+}
+
+/* El meu progrés */
+.graella-progres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
+.xifra-progres { background: var(--color-blanc); border-radius: 14px; box-shadow: var(--ombra); padding: 1rem; text-align: center; }
+.xifra-progres span { display: block; font-family: var(--font-titol); font-size: 2.4rem; color: var(--color-marro); line-height: 1.1; }
+.xifra-progres small { color: var(--color-text-clar); font-size: 0.9rem; }
+.resum-progres { width: 100%; font-family: Consolas, 'Courier New', monospace; font-size: 0.9rem; padding: 0.8rem; border: 1px solid var(--color-beix); border-radius: 10px; background: var(--color-blanc); color: var(--color-text); resize: vertical; }
+.taula-autoavaluacio input { width: 1.2rem; height: 1.2rem; accent-color: var(--color-marro); }
+@media (max-width: 600px) { .graella-progres { grid-template-columns: 1fr; } }
+
+/* Fonts de cada pàgina */
+.fonts-pagina { margin: 2.4rem auto 0; padding: 1rem 1.3rem; border-top: 2px solid var(--color-beix); max-width: 1100px; font-size: 0.93rem; }
+.fonts-pagina h2 { font-family: var(--font-subtitol); font-size: 1.3rem; color: var(--color-marro); margin-bottom: 0.4rem; }
+.fonts-pagina ul { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; list-style: none; padding: 0; }
+.fonts-pagina small { color: var(--color-text-clar); }
+.fonts-pagina p { margin-top: 0.5rem; }
+
+/* ---------------------------------------------------------
+   Mode fosc (opcional, amb el botó de la lluna)
+   --------------------------------------------------------- */
+html[data-tema="fosc"] {
+  --color-fons: #1b1612;
+  --color-crema: #2a221c;
+  --color-beix: #4a3e33;
+  --color-daurat: #d9b866;
+  --color-daurat-fosc: #dcbf74;
+  --color-verd: #a9c193;
+  --color-verd-clar: #27301f;
+  --color-text: #efe6d6;
+  --color-text-clar: #c9bba6;
+  --color-blanc: #251e19;
+  --color-marro: #ecd7ad;
+  --color-marro-fosc: #120e0b;
+  --color-terracota: #ee9b7d;
+  --color-correcte: #8fd09a;
+  --color-error: #f39a8a;
+  --ombra: 0 4px 18px rgba(0, 0, 0, 0.45);
+  --ombra-forta: 0 12px 34px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+html[data-tema="fosc"] :is(.skip-link, .cta-button, .boto:not(.clar), .timeline-any, .marcador-questionari,
+  .taula-rubrica thead th, .etiqueta-eines, .carta-classifica .opcions button[aria-pressed="true"],
+  .xip[aria-pressed="true"], .punt-calent[aria-expanded="true"]) { color: #1b1612; }
+html[data-tema="fosc"] .boto:hover { color: #1b1612; }
+html[data-tema="fosc"] .nav-principal:not(.nav-fosca) { background: rgba(27, 22, 18, 0.95); }
+html[data-tema="fosc"] .felip-app-footer { background: rgba(27, 22, 18, 0.97); color: var(--color-text-clar); }
+html[data-tema="fosc"] .pregunta .opcio.correcta { background: #213325; }
+html[data-tema="fosc"] .pregunta .opcio.incorrecta { background: #3a2220; }
+html[data-tema="fosc"] .felip-license-image { filter: brightness(0.92); }
+html[data-tema="fosc"] .menu-toggle span { background: var(--color-marro); }
+.boto-tema { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--color-beix); background: var(--color-crema); color: var(--color-marro); cursor: pointer; }
+.boto-tema svg { width: 17px; height: 17px; }
+.nav-fosca .boto-tema { background: rgba(255, 255, 255, 0.12); color: var(--color-crema); border-color: rgba(255, 255, 255, 0.25); }
+@media print { .boto-tema { display: none; } }
+@media (max-width: 480px) { .proces { grid-template-columns: 1fr; } }
+
+/* Els grans arquitectes: recorregut per les obres */
+.arquitecte { scroll-margin-top: calc(var(--nav-h) + 12px); }
+.arquitecte-cap { display: grid; grid-template-columns: 170px 1fr; gap: 1.4rem; align-items: start; margin-bottom: 1.2rem; }
+.arquitecte-cap .retrat { height: 210px; border-radius: 14px; }
+.arquitecte-cap .retrat img { object-position: center 18%; }
+.arquitecte-cap .seccio-titol { margin-bottom: 0.1rem; }
+.arquitecte-cap p { margin-top: 0.4rem; max-width: 860px; }
+.etapa h3 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.25rem; margin: 1.4rem 0 0.2rem; }
+.etapa h3 small { font-family: var(--font-cos); font-size: 0.9rem; color: var(--color-daurat-fosc); font-weight: 600; margin-left: 0.4rem; }
+.etapa-text { color: var(--color-text-clar); max-width: 860px; margin-bottom: 0.4rem; }
+.cami { list-style: none; position: relative; padding: 0.4rem 0 0 0; display: grid; gap: 0.9rem; }
+.cami::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: linear-gradient(var(--color-daurat), var(--color-terracota)); }
+.fita { display: grid; grid-template-columns: 105px 1fr; gap: 1rem; align-items: center; position: relative; }
+.fita-any { position: relative; z-index: 1; justify-self: center; width: 84px; padding: 0.35rem 0; text-align: center; border-radius: 12px; background: var(--color-marro); color: var(--color-blanc); font-family: var(--font-titol); font-size: 1.15rem; line-height: 1.1; box-shadow: 0 0 0 4px var(--color-fons); }
+.fita-any small { display: block; font-family: var(--font-cos); font-size: 0.72rem; opacity: 0.85; }
+.fita-obra { display: grid; grid-template-columns: 210px 1fr; background: var(--color-blanc); border-radius: 14px; box-shadow: var(--ombra); overflow: hidden; }
+.fita-obra .boto-imatge { height: 100%; min-height: 140px; border-radius: 0; }
+.fita-obra > div { padding: 0.8rem 1.1rem; }
+.fita-obra h4 { font-family: var(--font-titol); color: var(--color-marro); font-size: 1.15rem; line-height: 1.2; }
+.fita-obra .meta { color: var(--color-daurat-fosc); font-size: 0.88rem; font-weight: 500; margin: 0.1rem 0 0.3rem; }
+.fita-obra p:last-child { font-size: 0.95rem; color: var(--color-text-clar); }
+html[data-tema="fosc"] .fita-any { color: #1b1612; }
+@media (max-width: 760px) {
+  .arquitecte-cap { grid-template-columns: 110px 1fr; gap: 0.9rem; }
+  .arquitecte-cap .retrat { height: 140px; }
+  .cami::before { left: 30px; }
+  .fita { grid-template-columns: 62px 1fr; gap: 0.6rem; align-items: start; }
+  .fita-any { width: 58px; font-size: 1rem; }
+  .fita-obra { grid-template-columns: 1fr; }
+  .fita-obra .boto-imatge { height: 170px; }
+}

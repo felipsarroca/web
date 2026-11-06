@@ -1187,5 +1187,665 @@ window.IMATGES = {
     4962
    ]
   }
+ },
+ "volta-maqueta": {
+  "autor": "Friviere",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Catalonia_Terrassa_mNATEC_MaquetaVoltaCatalana.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ]
+  }
+ },
+ "volta-mnactec": {
+  "autor": "Friviere",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Catalonia_Terrassa_mNATEC_VoltaCatalana_01.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ]
+  }
+ },
+ "guastavino-volta": {
+  "autor": "Rafael Guastavino, Architect",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:GuastavinoTimbrelFgs10%2611EssayThryHstCohesiveConst1893.jpg",
+  "mides": {
+   "mini": [
+    852,
+    606
+   ],
+   "mitjana": [
+    852,
+    606
+   ]
+  }
+ },
+ "rajola-hidraulica": {
+  "autor": "Amadalvarez",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:RajolaHidraulica_6173.jpg",
+  "mides": {
+   "mini": [
+    900,
+    598
+   ],
+   "mitjana": [
+    1200,
+    797
+   ]
+  }
+ },
+ "esgrafiat-llopis": {
+  "autor": "Amadalvarez",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Gallissa-llopis-1731.JPG",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    1200,
+    800
+   ]
+  }
+ },
+ "mosaic-palau-columnes": {
+  "autor": "Pili Redondo Rodríguez",
+  "llicencia": "CC BY-SA 3.0 es",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/es/deed.en",
+  "font": "https://commons.wikimedia.org/wiki/File:Columnes_de_la_fa%C3%A7ana_del_Palau_de_la_M%C3%BAsica.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1500,
+    2000
+   ],
+   "gran": [
+    2736,
+    3648
+   ]
+  }
+ },
+ "mosaic-projecte": {
+  "autor": "Lluís Domènech i Montaner",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Projecte_del_mosaic_dels_cantaires_que_hi_ha_a_la_fa%C3%A7ana_(Dom%C3%A8nech_i_Montaner)_-_CAT_CEDOC_1.09.06.jpg",
+  "mides": {
+   "mini": [
+    900,
+    523
+   ],
+   "mitjana": [
+    2000,
+    1162
+   ],
+   "gran": [
+    4701,
+    2731
+   ]
+  }
+ },
+ "ceramica-pere-mata": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:095_Institut_Pere_Mata,_Pavell%C3%B3_dels_Distingits,_cer%C3%A0mica.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ],
+   "gran": [
+    3456,
+    2592
+   ]
+  }
+ },
+ "joia-masriera-collar": {
+  "autor": "Balcli's",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Masriera_y_Carreras_-_Collar_en_forma_de_nimfa.jpg",
+  "mides": {
+   "mini": [
+    618,
+    900
+   ],
+   "mitjana": [
+    1374,
+    2000
+   ],
+   "gran": [
+    2141,
+    3117
+   ]
+  }
+ },
+ "joia-masriera-fermall": {
+  "autor": "Balcli's",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Llu%C3%ADs_Masriera_-_Fermall_penjant_amb_nimfa.jpg",
+  "mides": {
+   "mini": [
+    647,
+    900
+   ],
+   "mitjana": [
+    1438,
+    2000
+   ],
+   "gran": [
+    1912,
+    2660
+   ]
+  }
+ },
+ "homar-sofa": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:130_Sof%C3%A0_amb_vitrines_laterals_i_plaf%C3%B3_de_marqueteria,_de_Gaspar_Homar.jpg",
+  "mides": {
+   "mini": [
+    900,
+    662
+   ],
+   "mitjana": [
+    2000,
+    1471
+   ]
+  }
+ },
+ "homar-cadira": {
+  "autor": "amadalvarez",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:GasparHomar_mobles_4127.JPG",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1500,
+    2000
+   ],
+   "gran": [
+    2448,
+    3264
+   ]
+  }
+ },
+ "escultura-lleo-morera": {
+  "autor": "Amadalvarez",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:DiM_Lleo_Morera_9717.jpg",
+  "mides": {
+   "mini": [
+    600,
+    900
+   ],
+   "mitjana": [
+    765,
+    1148
+   ]
+  }
+ },
+ "ferro-pedrera-balco": {
+  "autor": "florin_glontaru",
+  "llicencia": "CC BY 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Barcelona_-_wrought_iron_balcony_details_Casa_Mila_-_panoramio.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ],
+   "gran": [
+    3968,
+    2976
+   ]
+  }
+ },
+ "ferro-pedrera-barana": {
+  "autor": "Didier Descouens",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:(Barcelona)_Hand_Rail_from_Casa_Mila,_%27La_Pedrera%27_by_Josep_Antonio_Gaudi_-_Museu_Nacional_d%27Art_de_Catalunya.jpg",
+  "mides": {
+   "mini": [
+    900,
+    367
+   ],
+   "mitjana": [
+    2000,
+    815
+   ],
+   "gran": [
+    5000,
+    2039
+   ]
+  }
+ },
+ "vitrall-gaudi-rosassa": {
+  "autor": "Antoni Gaudí i Cornet",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Antoni_Gaud%C3%AD,_vitrall_rosassa_Museu_Nacional_d%27Art_de_Catalunya.jpg",
+  "mides": {
+   "mini": [
+    900,
+    894
+   ],
+   "mitjana": [
+    2000,
+    1986
+   ],
+   "gran": [
+    3000,
+    2979
+   ]
+  }
+ },
+ "casa-mila-obres": {
+  "autor": "Unknown author Unknown author",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Mil%C3%A0_obras.jpg",
+  "mides": {
+   "mini": [
+    883,
+    900
+   ],
+   "mitjana": [
+    981,
+    1000
+   ]
+  }
+ },
+ "casa-batllo-1906": {
+  "autor": "Domènec Sugrañes i Gras (1878 - 1938)",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Batll%C3%B3_(1906).jpg",
+  "mides": {
+   "mini": [
+    700,
+    900
+   ],
+   "mitjana": [
+    785,
+    1010
+   ]
+  }
+ },
+ "sagrada-familia-1905": {
+  "autor": "Baldomer Gili i Roig",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Baldomer_Gili_Roig._La_Sagrada_Fam%C3%ADlia,_1905_Copia_moderna_del_negatiu_original_de_vidre.jpg",
+  "mides": {
+   "mini": [
+    900,
+    705
+   ],
+   "mitjana": [
+    1024,
+    802
+   ]
+  }
+ },
+ "vapor-aymerich-1911": {
+  "autor": "Obradors",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Vapor_Aymerich,_Amat_i_Jover_-1911.jpg",
+  "mides": {
+   "mini": [
+    900,
+    664
+   ],
+   "mitjana": [
+    937,
+    691
+   ]
+  }
+ },
+ "societat-electricitat": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Societat_General_d%27Electricitat.jpg",
+  "mides": {
+   "mini": [
+    900,
+    592
+   ],
+   "mitjana": [
+    2000,
+    1315
+   ]
+  }
+ },
+ "casa-baumann": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Coll_i_Bacard%C3%AD_(Casa_Baumann).jpg",
+  "mides": {
+   "mini": [
+    900,
+    619
+   ],
+   "mitjana": [
+    2000,
+    1376
+   ]
+  }
+ },
+ "bellesguard": {
+  "autor": "Canaan",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Torre_Bellesguard_(4).jpg",
+  "mides": {
+   "mini": [
+    600,
+    900
+   ],
+   "mitjana": [
+    1333,
+    2000
+   ],
+   "gran": [
+    3333,
+    5000
+   ]
+  }
+ },
+ "teresianes": {
+  "autor": "Javier Lopez Bravo",
+  "llicencia": "CC BY 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Arcs_del_Col%C2%B7legi_de_les_Teresianes_2.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    768,
+    1024
+   ]
+  }
+ },
+ "pavellons-guell": {
+  "autor": "Thomas Ledl",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Dragon_gate_at_Pavellons_G%C3%BCell,_Antoni_Gaudi.jpg",
+  "mides": {
+   "mini": [
+    900,
+    778
+   ],
+   "mitjana": [
+    2000,
+    1728
+   ],
+   "gran": [
+    4375,
+    3781
+   ]
+  }
+ },
+ "baro-quadras": {
+  "autor": "Kent Wang from Barcelona, Spain",
+  "llicencia": "CC BY-SA 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Palau_del_Bar%C3%B3_de_Quadras_(51518775973).jpg",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    2000,
+    1333
+   ],
+   "gran": [
+    5000,
+    3333
+   ]
+  }
+ },
+ "casa-navas": {
+  "autor": "I would appreciate being notified if you use my work outside Wikimedia. More of my work can be found in my personal gallery .",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Reus,_Casa_Nav%C3%A0s_02.jpg",
+  "mides": {
+   "mini": [
+    599,
+    900
+   ],
+   "mitjana": [
+    1331,
+    2000
+   ],
+   "gran": [
+    3142,
+    4722
+   ]
+  }
+ },
+ "casa-museu-canet": {
+  "autor": "Jorge Franganillo",
+  "llicencia": "CC BY 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Canet_de_Mar_-_Casa_Museu_Llu%C3%ADs_Dom%C3%A8nech_i_Montaner.jpg",
+  "mides": {
+   "mini": [
+    720,
+    900
+   ],
+   "mitjana": [
+    1600,
+    2000
+   ],
+   "gran": [
+    3929,
+    4911
+   ]
+  }
+ },
+ "capricho-comillas": {
+  "autor": "Coralma*",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Comillas_Capricho.jpg",
+  "mides": {
+   "mini": [
+    900,
+    830
+   ],
+   "mitjana": [
+    2000,
+    1844
+   ],
+   "gran": [
+    2805,
+    2586
+   ]
+  }
+ },
+ "fanal-placa-reial": {
+  "autor": "Josep Renalias",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_Reial_-_Fanal_de_Gaud%C3%AD.JPG",
+  "mides": {
+   "mini": [
+    598,
+    900
+   ],
+   "mitjana": [
+    1330,
+    2000
+   ],
+   "gran": [
+    2000,
+    3008
+   ]
+  }
+ },
+ "cadira-calvet": {
+  "autor": "José Luiz",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Gaudi%27s_chair_for_Casa_Calvet_-_Casa_Mil%C3%A0_-_Barcelona_2014.JPG",
+  "mides": {
+   "mini": [
+    600,
+    900
+   ],
+   "mitjana": [
+    1333,
+    2000
+   ],
+   "gran": [
+    2048,
+    3072
+   ]
+  }
+ },
+ "cadira-batllo": {
+  "autor": "Sam Sailor",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Batll%C3%B3_chair.JPG",
+  "mides": {
+   "mini": [
+    600,
+    900
+   ],
+   "mitjana": [
+    1333,
+    2000
+   ],
+   "gran": [
+    3333,
+    5000
+   ]
+  }
+ },
+ "panot-gaudi": {
+  "autor": "Canaan",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Panot_Gaud%C3%AD.JPG",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ],
+   "gran": [
+    3648,
+    2736
+   ]
+  }
+ },
+ "tiffany-lampada": {
+  "autor": "Cullen328",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Tiffany_lamp_1905_de_Young.jpg",
+  "mides": {
+   "mini": [
+    723,
+    900
+   ],
+   "mitjana": [
+    1382,
+    1720
+   ]
+  }
+ },
+ "lalique-libellula": {
+  "autor": "Yelkrokoyade",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Pectoral_%C3%A0_la_libellule_Ren%C3%A9_Lalique_in_Calouste_Gulbenkian_Museum.jpg",
+  "mides": {
+   "mini": [
+    596,
+    900
+   ],
+   "mitjana": [
+    1325,
+    2000
+   ],
+   "gran": [
+    2955,
+    4460
+   ]
+  }
+ },
+ "galle-gerro": {
+  "autor": "Dguendel",
+  "llicencia": "CC BY 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Mainz,_Landesmuseum,_%C3%89mile_Gall%C3%A9_und_Umfeld,_Vase-03.jpg",
+  "mides": {
+   "mini": [
+    417,
+    900
+   ],
+   "mitjana": [
+    926,
+    2000
+   ],
+   "gran": [
+    1706,
+    3683
+   ]
+  }
  }
 };

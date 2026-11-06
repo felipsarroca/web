@@ -44,22 +44,28 @@
       { text: 'Què és el Modernisme?', sub: 'Idees clau i característiques', href: 'que-es.html' },
       { text: 'Catalunya', sub: 'Per què aquí i per què llavors', href: 'catalunya.html' },
       { text: 'Al món', sub: 'Art Nouveau, Secessió, Jugendstil…', href: 'mon.html' },
-      { text: 'Línia del temps', sub: 'De 1859 a 1926', href: 'temps.html' }
+      { text: 'Línia del temps', sub: 'De 1859 a 1926', href: 'temps.html' },
+      { text: 'El llegat avui', sub: 'Abans i ara, patrimoni i debats', href: 'llegat.html' }
     ] },
     { text: 'Arts', fills: [
       { text: 'Arquitectura', sub: 'Formes, materials i tècniques', href: 'arquitectura.html' },
       { text: 'Pintura i arts decoratives', sub: 'L\'art total', href: 'arts.html' },
-      { text: 'Cartellisme', sub: 'L\'art surt al carrer', href: 'cartellisme.html' }
+      { text: 'Cartellisme', sub: 'L\'art surt al carrer', href: 'cartellisme.html' },
+      { text: 'Oficis i materials', sub: 'Les mans de l\'art total', href: 'oficis.html' },
+      { text: 'Objectes quotidians', sub: 'L\'art a casa i al carrer', href: 'objectes.html' }
     ] },
     { text: 'Protagonistes', fills: [
       { text: 'Autors i autores', sub: 'Arquitectes, artistes i escriptors', href: 'autors.html' },
+      { text: 'Els grans arquitectes', sub: 'Vida i obres, de la primera a l\'última', href: 'arquitectes.html' },
       { text: 'Obres', sub: 'Galeria amb fitxa de cada obra', href: 'obres.html' }
     ] },
     { text: 'Explora', fills: [
-      { text: 'Mapa', sub: 'Barcelona i Terrassa', href: 'mapa.html' },
+      { text: 'Mapa', sub: 'Barcelona, Terrassa i més enllà', href: 'mapa.html' },
       { text: 'Terrassa modernista', sub: 'Itinerari a peu', href: 'terrassa.html' },
       { text: 'Glossari', sub: 'Paraules clau', href: 'glossari.html' },
-      { text: 'Repte final', sub: 'Posa a prova el que saps', href: 'repte.html' }
+      { text: 'Repte final', sub: 'Posa a prova el que saps', href: 'repte.html' },
+      { text: 'Dossier imprimible', sub: 'Totes les activitats en paper', href: 'dossier.html' },
+      { text: 'El meu progrés', sub: 'Resultats, autoavaluació i resum', href: 'progres.html' }
     ] }
   ];
 
@@ -84,6 +90,7 @@
         '</ul></li>';
     });
     html += '</ul><div class="nav-eines">' +
+      '<button type="button" class="boto-tema" aria-pressed="false" aria-label="Mode fosc" title="Canvia entre el mode clar i el fosc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>' +
       '<button type="button" class="boto-lectura" aria-pressed="false" title="Mostra els textos principals en lectura fàcil">' + ICONES.llegir + '<span class="text-boto">Lectura fàcil</span></button>' +
       '<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Obre el menú"><span></span><span></span><span></span></button>' +
       '</div></div>';
@@ -133,6 +140,21 @@
       const obert = nav.querySelector('.nav-grup-boto[aria-expanded="true"]');
       if (obert) { tancaGrups(); obert.focus(); }
       if (menu.classList.contains('obert')) { menu.classList.remove('obert'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); }
+    });
+
+    // Mode fosc
+    const botoTema = nav.querySelector('.boto-tema');
+    const posaTema = fosc => {
+      if (fosc) document.documentElement.dataset.tema = 'fosc'; else delete document.documentElement.dataset.tema;
+      botoTema.setAttribute('aria-pressed', String(fosc));
+    };
+    let temaFosc = false;
+    try { temaFosc = localStorage.getItem('modernisme:tema') === 'fosc'; } catch (e) { /* sense emmagatzematge */ }
+    posaTema(temaFosc);
+    botoTema.addEventListener('click', () => {
+      temaFosc = !temaFosc;
+      posaTema(temaFosc);
+      try { localStorage.setItem('modernisme:tema', temaFosc ? 'fosc' : 'clar'); } catch (e) { /* res */ }
     });
 
     // Lectura fàcil
@@ -518,6 +540,129 @@
     actualitza();
   }
 
+  /* ---------- Registre de progrés (només en aquest dispositiu) ---------- */
+  const CLAU_PROGRES = 'modernisme:progres';
+  function llegeixProgres() {
+    try { return JSON.parse(localStorage.getItem(CLAU_PROGRES)) || {}; } catch (e) { return {}; }
+  }
+  function registraProgres(id, nom, encerts, total) {
+    const p = llegeixProgres();
+    const ant = p[id];
+    p[id] = {
+      nom, pagina: paginaActual, encerts, total,
+      millor: Math.max(encerts, ant ? ant.millor || 0 : 0),
+      intents: (ant ? ant.intents || 0 : 0) + 1,
+      data: new Date().toISOString()
+    };
+    try { localStorage.setItem(CLAU_PROGRES, JSON.stringify(p)); } catch (e) { /* sense emmagatzematge */ }
+  }
+  function esborraProgres() { try { localStorage.removeItem(CLAU_PROGRES); } catch (e) { /* res */ } }
+
+  function titolPagina(href) {
+    const net = String(href).split('#')[0];
+    for (const m of MENU) {
+      if (m.href === net) return m.text;
+      for (const f of (m.fills || [])) if (f.href === net) return f.text;
+    }
+    return '';
+  }
+
+  /* ---------- Fonts de cada pàgina ----------
+     Cadena simple = cerca a la Viquipèdia; [text, url] = enllaç directe. */
+  const MUSEUS = {
+    mnac: ['Museu Nacional d\'Art de Catalunya', 'https://www.museunacional.cat'],
+    mnactec: ['Museu de la Ciència i de la Tècnica de Catalunya', 'https://mnactec.cat'],
+    disseny: ['Museu del Disseny de Barcelona', 'https://www.museudeldisseny.cat']
+  };
+  const FONTS = {
+    'que-es.html': ['Modernisme català', 'Art Nouveau', 'Noucentisme'],
+    'catalunya.html': ['Renaixença', 'Exposició Universal de Barcelona (1888)', 'Pla Cerdà', 'Indústria tèxtil a Catalunya'],
+    'mon.html': ['Art Nouveau', 'Secessió de Viena', 'Jugendstil', 'Japonisme'],
+    'temps.html': ['Modernisme català', 'Setmana Tràgica', 'Mancomunitat de Catalunya'],
+    'llegat.html': ['Obres d\'Antoni Gaudí', 'Palau de la Música Catalana', 'Hospital de la Santa Creu i Sant Pau', MUSEUS.mnactec],
+    'arquitectura.html': ['Arquitectura modernista catalana', 'Volta catalana', 'Trencadís', 'Arc parabòlic'],
+    'arts.html': ['Ramon Casas', 'Santiago Rusiñol', 'Lluïsa Vidal', 'Els Quatre Gats', MUSEUS.mnac],
+    'cartellisme.html': ['Cartellisme', 'Litografia', 'Anís del Mono', 'Alexandre de Riquer'],
+    'oficis.html': ['Pujol i Bausis', 'Antoni Rigalt i Blanch', 'Lluís Bru i Salelles', 'Gaspar Homar', 'Lluís Masriera', 'Eusebi Arnau', 'Volta catalana', 'Esgrafiat', 'Rajola hidràulica', MUSEUS.mnac, MUSEUS.mnactec],
+    'objectes.html': ['Gaspar Homar', 'Lluís Masriera', 'Panot', 'René Lalique', MUSEUS.disseny, MUSEUS.mnac],
+    'arquitectes.html': ['Antoni Gaudí', 'Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Lluís Muncunill i Parellada', 'Obres d\'Antoni Gaudí'],
+    'autors.html': ['Antoni Gaudí', 'Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Lluís Muncunill', 'Caterina Albert'],
+    'obres.html': ['Modernisme català', MUSEUS.mnac],
+    'mapa.html': ['Ruta del Modernisme', 'Casa Navàs', 'Institut Pere Mata', 'Cau Ferrat', 'El Capricho'],
+    'terrassa.html': ['Modernisme a Terrassa', 'Masia Freixa', 'Vapor Aymerich, Amat i Jover', 'Mercat de la Independència', MUSEUS.mnactec],
+    'glossari.html': ['Modernisme català']
+  };
+  function fontsPagina() {
+    const llista = FONTS[paginaActual];
+    const main = document.querySelector('main');
+    if (!llista || !main) return;
+    const enllac = f => Array.isArray(f)
+      ? '<a href="' + f[1] + '" target="_blank" rel="noopener noreferrer">' + f[0] + '</a>'
+      : '<a href="https://ca.wikipedia.org/w/index.php?search=' + encodeURIComponent(f) + '" target="_blank" rel="noopener noreferrer">' + f + '</a> <small>(Viquipèdia)</small>';
+    main.insertAdjacentHTML('beforeend', '<aside class="fonts-pagina nomes-pantalla" aria-labelledby="titol-fonts"><h2 id="titol-fonts">Fonts per saber-ne més</h2><ul>' +
+      llista.map(f => '<li>' + enllac(f) + '</li>').join('') + '</ul><p><a href="credits.html">Crèdits de les imatges</a></p></aside>');
+  }
+
+  /* ---------- Enllaç directe a cada «Posa-t'hi» (per a Classroom) ---------- */
+  function enllacosActivitats() {
+    document.querySelectorAll('.posa-thi').forEach(sec => {
+      const cap = sec.querySelector('header');
+      const h = cap && cap.querySelector('h2[id]');
+      if (!h || cap.querySelector('.copia-enllac')) return;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'boto clar petit copia-enllac nomes-pantalla';
+      b.textContent = 'Copia l\'enllaç';
+      b.title = 'Copia l\'adreça d\'aquesta activitat per compartir-la (per exemple, a Classroom)';
+      b.addEventListener('click', () => {
+        const url = location.href.split('#')[0] + '#' + h.id;
+        const fet = () => { b.textContent = 'Enllaç copiat ✔'; setTimeout(() => { b.textContent = 'Copia l\'enllaç'; }, 2200); };
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(fet, () => prompt('Copia aquest enllaç:', url));
+        else prompt('Copia aquest enllaç:', url);
+      });
+      cap.appendChild(b);
+    });
+  }
+
+  /* ---------- Lectura en veu alta dels textos de lectura fàcil ---------- */
+  function lecturaEnVeu() {
+    const eines = document.querySelector('.nav-eines');
+    if (!eines || !('speechSynthesis' in window) || !document.querySelector('.text-facil')) return;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'boto-lectura boto-escolta';
+    b.setAttribute('aria-pressed', 'false');
+    b.title = 'Escolta els textos de lectura fàcil';
+    b.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="text-boto">Escolta</span>';
+    eines.insertBefore(b, eines.querySelector('.menu-toggle'));
+    const atura = () => { speechSynthesis.cancel(); b.setAttribute('aria-pressed', 'false'); };
+    b.addEventListener('click', () => {
+      if (b.getAttribute('aria-pressed') === 'true') { atura(); return; }
+      const textos = [...document.querySelectorAll('main .text-facil')]
+        .filter(el => el.offsetParent !== null).map(el => el.innerText.trim()).filter(Boolean);
+      if (!textos.length) return;
+      const veus = speechSynthesis.getVoices();
+      const veu = veus.find(v => /^ca/i.test(v.lang)) || veus.find(v => /^es/i.test(v.lang));
+      b.setAttribute('aria-pressed', 'true');
+      textos.forEach((t, i) => {
+        const u = new SpeechSynthesisUtterance(t);
+        u.lang = veu ? veu.lang : 'ca-ES';
+        if (veu) u.voice = veu;
+        u.rate = 0.92;
+        if (i === textos.length - 1) u.onend = atura;
+        speechSynthesis.speak(u);
+      });
+    });
+    window.addEventListener('pagehide', () => speechSynthesis.cancel());
+  }
+
+  /* ---------- Funcionament sense connexió ---------- */
+  function registraServiceWorker() {
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      navigator.serviceWorker.register('sw.js').catch(() => { /* sense mode fora de línia */ });
+    }
+  }
+
   /* ---------- Inici ---------- */
   ajustaEscala();
   window.addEventListener('resize', ajustaEscala);
@@ -529,7 +674,12 @@
   activaGlossari();
   activaReveal();
   navPortada();
+  enllacosActivitats();
+  fontsPagina();
+  lecturaEnVeu();
+  registraServiceWorker();
 
   /* API per a les altres pàgines */
-  window.Modernisme = { ICONES, rutaImatge, midaMaxima, preparaBotonsImatge, Visor, itemDe };
+  window.Modernisme = { ICONES, MENU, rutaImatge, midaMaxima, preparaBotonsImatge, Visor, itemDe,
+    registraProgres, llegeixProgres, esborraProgres, titolPagina };
 })();

@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Repte final del Modernisme: qüestionari de 12 preguntes amb imatges i correcció immediata.">
     <title>Repte final | El Modernisme</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ca_ES">
+    <meta property="og:site_name" content="El Modernisme">
+    <meta property="og:title" content="Repte final | El Modernisme">
+    <meta property="og:description" content="Repte final del Modernisme: qüestionari de 12 preguntes amb imatges i correcció immediata.">
+    <meta property="og:url" content="https://felipsarroca.github.io/web/Modernisme/repte.html">
+    <meta property="og:image" content="https://felipsarroca.github.io/web/Modernisme/img/mitjana/casa-batllo.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icona-192.png">
+    <meta name="theme-color" content="#5c4a3d">
 </head>
 <body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
@@ -18,11 +27,20 @@
     <header class="header-seccio">
         <p class="avantitol">Explora</p>
         <h1>Repte final</h1>
-        <p class="subtitol">Dotze preguntes per demostrar què saps del Modernisme</p>
+        <p class="subtitol">Dotze preguntes triades a l'atzar d'un banc de trenta-nou</p>
     </header>
 
     <main id="contingut" class="contingut-principal">
         <section class="seccio questionari" data-galeria>
+            <p class="seccio-intro text-normal">Tria un nivell. Cada vegada sortiran dotze preguntes diferents. Veuràs de seguida si la resposta és correcta i, si falles, un enllaç «Repassa-ho» per tornar a la pàgina on s'explica.</p>
+            <p class="seccio-intro text-facil">Tria un nivell. Llegeix la pregunta i tria una resposta. Si t'equivoques, fes clic a «Repassa-ho».</p>
+            <div class="filtres" role="group" aria-label="Tria el nivell" style="justify-content:center">
+                <span class="etiqueta-filtre">Nivell:</span>
+                <button type="button" class="xip" data-nivell="1" aria-pressed="true">Bàsic</button>
+                <button type="button" class="xip" data-nivell="2" aria-pressed="false">Mitjà</button>
+                <button type="button" class="xip" data-nivell="3" aria-pressed="false">Avançat</button>
+                <button type="button" class="xip" data-nivell="0" aria-pressed="false">Barrejat</button>
+            </div>
             <div class="marcador-questionari" aria-live="polite">
                 <span id="progres-text">0 / 12</span>
                 <span class="barra-progres" aria-hidden="true"><i id="progres-barra"></i></span>
@@ -32,8 +50,9 @@
             <div class="requadre resultat-final" id="resultat" hidden>
                 <p class="puntuacio" id="puntuacio"></p>
                 <p id="valoracio"></p>
+                <div id="repas"></div>
                 <p id="millor" class="peu-foto"></p>
-                <p style="margin-top:1rem"><button type="button" class="boto" id="torna">Torna a començar</button></p>
+                <p style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap"><button type="button" class="boto" id="torna">Noves preguntes</button><a class="boto clar" href="progres.html">El meu progrés</a></p>
             </div>
         </section>
     </main>
@@ -41,34 +60,29 @@
     <script src="dades/imatges.js"></script>
     <script src="dades/glossari.js"></script>
     <script src="dades/obres.js"></script>
+    <script src="dades/preguntes.js"></script>
     <script src="js/comu.js"></script>
     <script>
     (function () {
       const M = window.Modernisme;
-      const PREGUNTES = [
-        { p: 'Quina és la principal font d\'inspiració dels artistes modernistes?', o: ['La natura', 'Els temples grecs', 'Les màquines', 'Les formes geomètriques'], c: 0, e: 'Flors, plantes, animals i línies corbes inspirades en la natura són el segell del Modernisme.' },
-        { p: 'Aproximadament, quan es va desenvolupar el Modernisme a Catalunya?', o: ['1750–1800', '1888–1911', '1936–1960', '1970–2000'], c: 1, e: 'De l\'Exposició Universal de 1888 fins que el Noucentisme s\'imposa, cap al 1911.' },
-        { p: 'Qui va fer aquest edifici?', img: 'casa-batllo', o: ['Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Antoni Gaudí', 'Lluís Muncunill'], c: 2, e: 'És la Casa Batlló (1904–1906), d\'Antoni Gaudí.' },
-        { p: 'Com es diu la tècnica de revestir superfícies amb trossos de rajola trencada?', o: ['Esgrafiat', 'Trencadís', 'Vitrall', 'Fresc'], c: 1, e: 'El trencadís permet cobrir superfícies corbes, com el banc del Park Güell.' },
-        { p: 'Quin grup social va pagar la majoria d\'obres modernistes?', o: ['La noblesa', 'L\'Església', 'La burgesia industrial', 'Els obrers'], c: 2, e: 'Els industrials i comerciants enriquits volien mostrar el seu èxit amb obres belles.' },
-        { p: 'Quin edifici és el Museu de la Ciència i de la Tècnica de Catalunya?', img: 'vapor-aymerich', o: ['Masia Freixa', 'Vapor Aymerich, Amat i Jover', 'Mercat de la Independència', 'Casa Alegre de Sagrera'], c: 1, e: 'L\'antiga fàbrica de llana de Muncunill, a Terrassa (1907–1909).' },
-        { p: 'Com es diu el Modernisme a França i Bèlgica?', o: ['Jugendstil', 'Liberty', 'Secessió', 'Art Nouveau'], c: 3, e: 'Art Nouveau vol dir «art nou». Jugendstil és a Alemanya, Secessió a Àustria i Liberty a Itàlia.' },
-        { p: 'Qui va pintar aquest cartell?', img: 'cartell-anis-mono', o: ['Ramon Casas', 'Alfons Mucha', 'Santiago Rusiñol', 'Isidre Nonell'], c: 0, e: 'Anís del Mono (1898), de Ramon Casas, guanyador d\'un concurs de cartells.' },
-        { p: 'Quina idea defensa que arquitectes, escultors, vidriers i ebenistes treballin junts en una mateixa obra?', o: ['L\'art total', 'L\'art pel progrés', 'L\'art abstracte', 'L\'art efímer'], c: 0, e: 'El Palau de la Música Catalana és l\'exemple més clar d\'art total.' },
-        { p: 'Per què Caterina Albert va signar com a Víctor Català?', o: ['Per amagar-se dels seus pares', 'Perquè una dona escriptora no era ben acceptada', 'Per jugar amb els lectors', 'Perquè el seu nom era massa llarg'], c: 1, e: 'Després de l\'escàndol del premi de 1898, va adoptar un nom d\'home.' },
-        { p: 'Quin moviment substitueix el Modernisme a partir del 1906?', o: ['El Romanticisme', 'El Barroc', 'El Noucentisme', 'El Surrealisme'], c: 2, e: 'El Noucentisme prefereix l\'ordre i les formes clàssiques mediterrànies.' },
-        { p: 'Quin d\'aquests elements NO és típic del Modernisme?', o: ['La línia corba', 'Els motius vegetals', 'La línia recta i la simetria rígida', 'El ferro forjat'], c: 2, e: 'El Modernisme defuig la línia recta i les formes rígides.' }
-      ];
+      const BANC = window.PREGUNTES;
+      const NOMS = { 0: 'barrejat', 1: 'bàsic', 2: 'mitjà', 3: 'avançat' };
+      const TOTAL = 12;
       const lletres = 'ABCD';
       const cont = document.getElementById('preguntes');
-      let respostes = 0, encerts = 0;
-      const total = PREGUNTES.length;
+      let nivell = 1, joc = [], respostes = 0, encerts = 0, fallades = [];
 
       function barreja(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
+      function tria() {
+        if (nivell) return barreja(BANC.filter(q => q.n === nivell)).slice(0, TOTAL);
+        // Barrejat: quatre de cada nivell
+        return barreja([1, 2, 3].flatMap(n => barreja(BANC.filter(q => q.n === n)).slice(0, TOTAL / 3)));
+      }
+
       function pinta() {
-        respostes = 0; encerts = 0;
-        cont.innerHTML = PREGUNTES.map((q, i) => {
+        joc = tria(); respostes = 0; encerts = 0; fallades = [];
+        cont.innerHTML = joc.map((q, i) => {
           const ordre = barreja(q.o.map((t, k) => ({ t, k })));
           const img = q.img ? '<button type="button" class="boto-imatge imatge-pregunta" data-img="' + q.img + '" data-titol="Imatge de la pregunta ' + (i + 1) + '"><img src="' + M.rutaImatge(q.img) + '" alt="Imatge de la pregunta" loading="lazy"></button>' : '';
           return '<div class="pregunta" data-i="' + i + '"><h3><span class="num-pregunta">' + (i + 1) + '.</span>' + q.p + '</h3>' + img +
@@ -81,25 +95,30 @@
       }
 
       function actualitza() {
-        document.getElementById('progres-text').textContent = respostes + ' / ' + total;
+        document.getElementById('progres-text').textContent = respostes + ' / ' + TOTAL;
         document.getElementById('encerts-text').textContent = encerts + (encerts === 1 ? ' encert' : ' encerts');
-        document.getElementById('progres-barra').style.width = (respostes / total * 100) + '%';
+        document.getElementById('progres-barra').style.width = (respostes / TOTAL * 100) + '%';
       }
 
-      function llegeixMillor() { try { return Number(localStorage.getItem('modernisme-repte-millor')) || 0; } catch (e) { return 0; } }
-      function desaMillor(v) { try { localStorage.setItem('modernisme-repte-millor', String(v)); } catch (e) { /* sense emmagatzematge */ } }
+      const clau = () => 'modernisme-repte-millor-' + nivell;
+      function llegeixMillor() { try { return Number(localStorage.getItem(clau())) || 0; } catch (e) { return 0; } }
+      function desaMillor(v) { try { localStorage.setItem(clau(), String(v)); } catch (e) { /* sense emmagatzematge */ } }
 
       function final() {
         const r = document.getElementById('resultat');
-        document.getElementById('puntuacio').textContent = encerts + ' / ' + total;
+        document.getElementById('puntuacio').textContent = encerts + ' / ' + TOTAL;
         document.getElementById('valoracio').textContent =
-          encerts === total ? 'Excel·lent! Ets un expert o una experta en Modernisme.' :
+          encerts === TOTAL ? 'Excel·lent! Ets un expert o una experta en Modernisme.' :
           encerts >= 9 ? 'Molt bé! Domines la majoria de continguts.' :
           encerts >= 6 ? 'Bé! Repassa les preguntes que has fallat i torna-hi.' :
           'Encara pots millorar. Torna a llegir les pàgines i intenta-ho de nou.';
+        const pagines = [...new Map(fallades.filter(q => q.r).map(q => [q.r.split('#')[0], q.r])).values()];
+        document.getElementById('repas').innerHTML = pagines.length
+          ? '<p style="margin-top:.6rem"><strong>Repassa:</strong> ' + pagines.map(u => '<a href="' + u + '">' + (M.titolPagina(u) || u) + '</a>').join(' · ') + '</p>' : '';
         const millor = Math.max(llegeixMillor(), encerts);
         desaMillor(millor);
-        document.getElementById('millor').textContent = 'La teva millor puntuació en aquest dispositiu: ' + millor + ' / ' + total;
+        document.getElementById('millor').textContent = 'La teva millor puntuació en el nivell ' + NOMS[nivell] + ' en aquest dispositiu: ' + millor + ' / ' + TOTAL;
+        M.registraProgres && M.registraProgres('repte-' + nivell, 'Repte final (nivell ' + NOMS[nivell] + ')', encerts, TOTAL);
         r.hidden = false;
         r.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -108,19 +127,28 @@
         const b = e.target.closest('.opcio');
         if (!b) return;
         const div = b.closest('.pregunta');
-        const q = PREGUNTES[Number(div.dataset.i)];
+        const q = joc[Number(div.dataset.i)];
         const ok = Number(b.dataset.k) === q.c;
         div.querySelectorAll('.opcio').forEach(x => {
           x.disabled = true;
           if (Number(x.dataset.k) === q.c) x.classList.add('correcta');
         });
-        if (!ok) b.classList.add('incorrecta');
+        if (!ok) { b.classList.add('incorrecta'); fallades.push(q); }
         div.classList.add('resposta');
-        div.querySelector('.explicacio').textContent = (ok ? '✔ Correcte. ' : '✘ No és correcte. ') + q.e;
+        const exp = div.querySelector('.explicacio');
+        exp.textContent = (ok ? '✔ Correcte. ' : '✘ No és correcte. ') + q.e;
+        if (!ok && q.r) exp.insertAdjacentHTML('beforeend', ' <a href="' + q.r + '">Repassa-ho →</a>');
         respostes++; if (ok) encerts++;
         actualitza();
-        if (respostes === total) final();
+        if (respostes === TOTAL) final();
       });
+
+      const xips = document.querySelectorAll('[data-nivell]');
+      xips.forEach(x => x.addEventListener('click', () => {
+        xips.forEach(y => y.setAttribute('aria-pressed', String(y === x)));
+        nivell = Number(x.dataset.nivell);
+        pinta();
+      }));
       document.getElementById('torna').addEventListener('click', () => { pinta(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       pinta();
     })();

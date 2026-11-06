@@ -5,7 +5,8 @@
 (function () {
   'use strict';
   const M = window.Modernisme;
-  const COLORS = { barcelona: '#a8502f', terrassa: '#5e7150' };
+  const COLORS = { barcelona: '#a8502f', terrassa: '#5e7150', catalunya: '#3f5f8a', fora: '#8a6a22' };
+  const ORDRE = ['barcelona', 'terrassa', 'catalunya', 'fora'];
   const llista = document.getElementById('llista-llocs');
   const contenidor = document.getElementById('mapa');
 
@@ -17,7 +18,7 @@
   const llocs = window.OBRES.filter(o => typeof o.lat === 'number');
   // Numeració per ciutat: Terrassa segueix l'ordre de l'itinerari
   const num = {};
-  ['barcelona', 'terrassa'].forEach(c => {
+  ORDRE.forEach(c => {
     const g = llocs.filter(o => o.ciutat === c);
     if (c === 'terrassa') g.sort((a, b) => (a.ruta || 99) - (b.ruta || 99));
     g.forEach((o, i) => { num[o.id] = i + 1; });
@@ -59,7 +60,7 @@
 
   function mostra(ciutat) {
     const sel = llocs.filter(o => ciutat === 'totes' || o.ciutat === ciutat)
-      .sort((a, b) => (a.ciutat === b.ciutat ? num[a.id] - num[b.id] : a.ciutat.localeCompare(b.ciutat)));
+      .sort((a, b) => (a.ciutat === b.ciutat ? num[a.id] - num[b.id] : ORDRE.indexOf(a.ciutat) - ORDRE.indexOf(b.ciutat)));
     llocs.forEach(o => marcadors[o.id].remove());
     sel.forEach(o => marcadors[o.id].addTo(mapa));
     llista.innerHTML = sel.map(o =>
@@ -86,7 +87,7 @@
   }));
 
   // Permet obrir directament una ciutat: mapa.html#terrassa
-  const inicial = ['barcelona', 'terrassa', 'totes'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'barcelona';
+  const inicial = ORDRE.concat('totes').includes(location.hash.slice(1)) ? location.hash.slice(1) : 'barcelona';
   xips.forEach(y => y.setAttribute('aria-pressed', String(y.dataset.ciutat === inicial)));
   mostra(inicial);
   window.addEventListener('resize', () => mapa.invalidateSize());

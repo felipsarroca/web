@@ -44,17 +44,17 @@ window.OBRES = [
   },
   {
     id: 'bellesguard', titol: 'Torre Bellesguard', autor: 'Antoni Gaudí', anys: '1900 – 1909',
-    lloc: 'Barcelona', tipus: 'arquitectura', img: null, lat: 41.40956, lng: 2.12686, ciutat: 'barcelona',
+    lloc: 'Barcelona', tipus: 'arquitectura', img: 'bellesguard', lat: 41.40956, lng: 2.12686, ciutat: 'barcelona',
     desc: 'Casa construïda on hi havia hagut el palau del rei Martí l\'Humà; Gaudí s\'inspira en el gòtic català.'
   },
   {
     id: 'teresianes', titol: 'Col·legi de les Teresianes', autor: 'Antoni Gaudí', anys: '1888 – 1889',
-    lloc: 'Barcelona', tipus: 'arquitectura', img: null, lat: 41.39977, lng: 2.1332, ciutat: 'barcelona',
+    lloc: 'Barcelona', tipus: 'arquitectura', img: 'teresianes', lat: 41.39977, lng: 2.1332, ciutat: 'barcelona',
     desc: 'Escola amb llargs passadissos d\'arcs parabòlics de maó.'
   },
   {
     id: 'pavellons-guell', titol: 'Pavellons de la Finca Güell', autor: 'Antoni Gaudí', anys: '1884 – 1887',
-    lloc: 'Barcelona', tipus: 'arquitectura', img: null, lat: 41.38932, lng: 2.11927, ciutat: 'barcelona',
+    lloc: 'Barcelona', tipus: 'arquitectura', img: 'pavellons-guell', lat: 41.38932, lng: 2.11927, ciutat: 'barcelona',
     desc: 'Entrada i quadres d\'una finca dels Güell. La porta del drac és de ferro forjat.'
   },
   {
@@ -95,7 +95,7 @@ window.OBRES = [
   },
   {
     id: 'baro-quadras', titol: 'Palau del Baró de Quadras', autor: 'Josep Puig i Cadafalch', anys: '1904 – 1906',
-    lloc: 'Barcelona', tipus: 'arquitectura', img: null, lat: 41.39675, lng: 2.16138, ciutat: 'barcelona',
+    lloc: 'Barcelona', tipus: 'arquitectura', img: 'baro-quadras', lat: 41.39675, lng: 2.16138, ciutat: 'barcelona',
     desc: 'Palau amb una façana plena d\'escultura gòtica. Avui és la seu de l\'Institut Ramon Llull.'
   },
   {
@@ -132,7 +132,7 @@ window.OBRES = [
   },
   {
     id: 'societat-electricitat', titol: 'Societat General d\'Electricitat', autor: 'Lluís Muncunill', anys: '1906',
-    lloc: 'Terrassa (c. de la Unió)', tipus: 'arquitectura', img: null, lat: 41.5625, lng: 2.00966, ciutat: 'terrassa', ruta: 4,
+    lloc: 'Terrassa (c. de la Unió)', tipus: 'arquitectura', img: 'societat-electricitat', lat: 41.5625, lng: 2.00966, ciutat: 'terrassa', ruta: 4,
     desc: 'Edifici industrial de maó vist cobert amb voltes catalanes atirantades, que dibuixen una coberta ondulada.'
   },
   {
@@ -154,13 +154,44 @@ window.OBRES = [
   },
   {
     id: 'casa-baumann', titol: 'Casa Baumann', autor: 'Josep Maria Coll i Bacardí', anys: '1913',
-    lloc: 'Terrassa (av. de Jacquard)', tipus: 'arquitectura', img: null, lat: 41.5638, lng: 2.0189, ciutat: 'terrassa',
+    lloc: 'Terrassa (av. de Jacquard)', tipus: 'arquitectura', img: 'casa-baumann', lat: 41.5638, lng: 2.0189, ciutat: 'terrassa',
     desc: 'Habitatge modernista al barri de Vallparadís.'
   },
   {
     id: 'parc-desinfeccio', titol: 'Parc de Desinfecció', autor: 'Josep Maria Coll i Bacardí', anys: 'c. 1915',
     lloc: 'Terrassa (Roc Blanc)', tipus: 'arquitectura', img: 'parc-desinfeccio', lat: 41.55599, lng: 1.99697, ciutat: 'terrassa',
     desc: 'Edifici municipal per desinfectar roba i objectes durant les epidèmies: fins i tot un servei d\'higiene es feia bonic.'
+  },
+
+  /* ---------- Resta de Catalunya i fora ---------- */
+  {
+    id: 'casa-navas', titol: 'Casa Navàs', autor: 'Lluís Domènech i Montaner', anys: '1901 – 1908',
+    lloc: 'Reus (plaça del Mercadal)', tipus: 'arquitectura', img: 'casa-navas', lat: 41.15526, lng: 1.10854, ciutat: 'catalunya',
+    desc: 'Casa d\'un comerciant de teixits. És un dels interiors modernistes més ben conservats: vitralls, mosaics, escultura i mobles de Gaspar Homar encara són al seu lloc.',
+    fixat: ['Els arcs i les columnes esculpides de la planta baixa.', 'Els vitralls i els mobles originals (visita guiada).']
+  },
+  {
+    id: 'institut-pere-mata', titol: 'Institut Pere Mata', autor: 'Lluís Domènech i Montaner', anys: '1898 – 1912',
+    lloc: 'Reus', tipus: 'arquitectura', img: 'ceramica-pere-mata', lat: 41.16696, lng: 1.08481, ciutat: 'catalunya',
+    desc: 'Hospital psiquiàtric format per pavellons separats enmig de jardins, una idea que Domènech va repetir a l\'Hospital de Sant Pau. Hi destaca la ceràmica de Pujol i Bausis i els mosaics de Lluís Bru.',
+    fixat: ['Els pavellons separats, pensats per a la higiene i la calma.', 'La decoració de ceràmica del Pavelló dels Distingits.']
+  },
+  {
+    id: 'cau-ferrat-casa', titol: 'Cau Ferrat', autor: 'Santiago Rusiñol', anys: 'Casa-taller des del 1893',
+    lloc: 'Sitges', tipus: 'arquitectura', img: 'cau-ferrat', lat: 41.23507, lng: 1.81274, ciutat: 'catalunya',
+    desc: 'Casa-taller de Rusiñol, on va reunir la seva col·lecció de ferro forjat, ceràmica i pintura. Va acollir les Festes Modernistes (1892–1899) i des del 1933 és museu.',
+    fixat: ['La col·lecció de ferros forjats que dona nom a la casa.', 'Les pintures de Rusiñol i Casas.']
+  },
+  {
+    id: 'casa-museu-canet', titol: 'Casa Museu Domènech i Montaner', autor: 'Lluís Domènech i Montaner', anys: 'Museu des del 1998',
+    lloc: 'Canet de Mar', tipus: 'arquitectura', img: 'casa-museu-canet', lat: 41.58834, lng: 2.58135, ciutat: 'catalunya',
+    desc: 'Canet de Mar era el poble de la família de Domènech i Montaner. La casa museu explica la seva obra i el treball dels artesans que hi col·laboraven.'
+  },
+  {
+    id: 'capricho-comillas', titol: 'El Capricho', autor: 'Antoni Gaudí', anys: '1883 – 1885',
+    lloc: 'Comillas (Cantàbria) · fora de Catalunya', tipus: 'arquitectura', img: 'capricho-comillas', lat: 43.38368, lng: -4.29274, ciutat: 'fora',
+    desc: 'Una de les primeres obres de Gaudí, una casa d\'estiueig revestida de rajoles amb gira-sols. Mostra que el Modernisme català va arribar a altres llocs d\'Espanya.',
+    fixat: ['Les rajoles verdes i grogues amb gira-sols.', 'La torre-minaret coberta de ceràmica.']
   },
 
   /* ---------- Pintura, cartells i arts decoratives ---------- */
@@ -231,6 +262,27 @@ window.OBRES = [
     id: 'vitrall-palau', titol: 'Claraboia del Palau de la Música', autor: 'Lluís Domènech i Montaner · vitralls d\'Antoni Rigalt', anys: '1908',
     lloc: 'Barcelona', tipus: 'decoratives', img: 'vitrall-palau',
     desc: 'La gran claraboia de vidre de colors penja del sostre com un sol. Arquitectura, vidre, ceràmica i escultura formen una sola obra: l\'art total.'
+  },
+
+  {
+    id: 'homar-sofa', titol: 'Sofà amb vitrines i marqueteria', autor: 'Gaspar Homar', anys: 'c. 1905',
+    lloc: 'Museu Nacional d\'Art de Catalunya', tipus: 'decoratives', img: 'homar-sofa',
+    desc: 'Moble de luxe que uneix sofà, vitrines i un plafó de marqueteria fet amb fustes de colors naturals.'
+  },
+  {
+    id: 'masriera-fermall', titol: 'Fermall penjant amb nimfa', autor: 'Lluís Masriera', anys: 'Primer quart del segle XX',
+    lloc: 'Barcelona', tipus: 'decoratives', img: 'joia-masriera-fermall',
+    desc: 'Joia d\'or amb esmalt translúcid: una figura femenina amb ales, un tema típic de l\'Art Nouveau.'
+  },
+  {
+    id: 'rosassa-gaudi', titol: 'Rosassa de vitrall', autor: 'Antoni Gaudí', anys: 'Final del segle XIX',
+    lloc: 'Museu Nacional d\'Art de Catalunya', tipus: 'decoratives', img: 'vitrall-gaudi-rosassa',
+    desc: 'Vitrall rodó de vidres de colors units amb plom.'
+  },
+  {
+    id: 'barana-pedrera', titol: 'Barana de la Casa Milà', autor: 'Gaudí i Jujol · forja dels germans Badia', anys: '1906 – 1910',
+    lloc: 'Museu Nacional d\'Art de Catalunya', tipus: 'decoratives', img: 'ferro-pedrera-barana',
+    desc: 'Barana de ferro forjat de la Pedrera: planxes i barres retorçades que semblen algues.'
   },
 
   /* ---------- Europa ---------- */

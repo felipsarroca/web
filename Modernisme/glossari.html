@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Glossari del Modernisme: trencadís, vitrall, colp de fuet, burgesia, Renaixença i altres paraules clau, amb definicions de lectura fàcil.">
     <title>Glossari | El Modernisme</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ca_ES">
+    <meta property="og:site_name" content="El Modernisme">
+    <meta property="og:title" content="Glossari | El Modernisme">
+    <meta property="og:description" content="Glossari del Modernisme: trencadís, vitrall, colp de fuet, burgesia, Renaixença i altres paraules clau, amb definicions de lectura fàcil.">
+    <meta property="og:url" content="https://felipsarroca.github.io/web/Modernisme/glossari.html">
+    <meta property="og:image" content="https://felipsarroca.github.io/web/Modernisme/img/mitjana/casa-batllo.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icona-192.png">
+    <meta name="theme-color" content="#5c4a3d">
 </head>
 <body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
@@ -28,7 +37,8 @@
                 <input type="search" id="cerca" class="cercador" placeholder="Escriu una paraula…" autocomplete="off">
                 <span class="recompte" id="recompte" aria-live="polite"></span>
             </div>
-            <p class="seccio-intro">Cada terme té una definició i, a sota, una explicació <strong>en poques paraules</strong>. A les altres pàgines, les paraules subratllades amb punts obren aquesta definició.</p>
+            <p class="seccio-intro text-facil">Aquí tens les paraules difícils de la web. Escriu una paraula al cercador per trobar-la.</p>
+            <p class="seccio-intro text-normal">Cada terme té una definició i, a sota, una explicació <strong>en poques paraules</strong>. A les altres pàgines, les paraules subratllades amb punts obren aquesta definició.</p>
             <div class="llista-glossari" id="llista-glossari"></div>
         </section>
     </main>
@@ -43,7 +53,7 @@
       const recompte = document.getElementById('recompte');
       const claus = Object.keys(G).sort((a, b) => G[a].terme.localeCompare(G[b].terme, 'ca'));
       cont.innerHTML = claus.map(k =>
-        '<article class="entrada-glossari" id="' + k + '" tabindex="-1"><h3>' + G[k].terme + '</h3><p>' + G[k].def + '</p>' +
+        '<article class="entrada-glossari" id="' + k + '" tabindex="-1"><h3>' + G[k].terme + '</h3><p class="text-normal">' + G[k].def + '</p>' +
         '<p class="facil"><strong>En poques paraules:</strong> ' + G[k].facil + '</p></article>').join('');
       const normal = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
       function filtra() {

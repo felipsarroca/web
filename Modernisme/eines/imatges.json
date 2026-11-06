@@ -1,67 +1,400 @@
 {
-  "_nota": "Catàleg de les imatges de la web. 'commons' és el nom del fitxer a Wikimedia Commons (sense 'File:'); 'local' s'usa quan l'original no és a Commons. Executa: python eines/imatges.py",
-  "imatges": [
-    {"id": "arc-triomf", "commons": "Barcelona._Triumphal_Arch_of_the_Exposition.jpg"},
-    {"id": "cartell-4gats", "commons": "Ramon_Casas_-_4_Gats_-_Google_Art_Project.jpg"},
-    {"id": "cartell-anis-mono", "commons": "Anís_del_Mono,_Ramón_Casas.jpg"},
-    {"id": "cartell-cigarrillos-paris", "commons": "Ramon_Casas-_Cartell_cigarrillos.jpg"},
-    {"id": "cartell-codorniu", "local": "cartell-codorniu.jpg", "autor": "Ramon Casas", "llicencia": "Domini públic", "font": "Còpia digital de domini públic (original no localitzat a Wikimedia Commons)"},
-    {"id": "mucha-job", "commons": "Alphonse_Mucha_-_Job_-_Google_Art_Project.jpg"},
-    {"id": "mucha-salammbo", "commons": "Alfons_Mucha_-_1896_-_Salammbô.jpg"},
-    {"id": "casa-amatller", "commons": "Casa_Amatller_BCN.jpg"},
-    {"id": "casa-batllo", "commons": "Facade_of_Casa_Batlló_-_2013.07_-_panoramio.jpg"},
-    {"id": "casa-mila", "commons": "La_Pedrera_1906.jpg"},
-    {"id": "casa-punxes", "commons": "Casa_de_les_Punxes_.jpg"},
-    {"id": "casa-lleo-morera", "commons": "Casa_Lleó_Morera_01.jpg"},
-    {"id": "casa-vicens", "commons": "Gaudí_-_Casa_Vicens.JPG"},
-    {"id": "palau-guell", "commons": "Palau_Güell_-_Façana.JPG"},
-    {"id": "tres-dragons", "commons": "Castell_dels_Tres_Dragons_01.jpg"},
-    {"id": "quatre-gats", "commons": "WLM14ES_-_Casa_Martí,_o_Els_Quatre_Gats,_Barri_Gòtic,_Barcelona_-_MARIA_ROSA_FERRE.jpg"},
-    {"id": "casas-tandem", "commons": "Ramon_Casas_-_Ramon_Casas_and_Pere_Romeu_on_a_Tandem_-_Google_Art_Project.jpg"},
-    {"id": "guimard-metro", "commons": "Edicule_Métro_Bastille.jpg"},
-    {"id": "horta-tassel", "commons": "Tassel_House_stairway.JPG"},
-    {"id": "hospital-sant-pau", "commons": "Hospital_Sant_Pau,_main_facade.jpg"},
-    {"id": "jugend-revista", "commons": "Titelblatt_der_Zeitschrift_Jugend_1896,_Nr._12_von_Ludwig_von_Zumbusch.jpg"},
-    {"id": "klimt-peto", "commons": "The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"},
-    {"id": "wagner-majolica", "commons": "Majolikahaus,_Wien,_Otto_Wagner.jpg"},
-    {"id": "hokusai-onada", "commons": "「富嶽三十六景_神奈川沖浪裏」-Under_the_Wave_off_Kanagawa_(Kanagawa_oki_nami_ura),_or_The_Great_Wave,_from_the_series_Thirty-six_Views_of_Mount_Fuji_(Fugaku_sanjūrokkei)_MET_DP141042.jpg"},
-    {"id": "masia-freixa", "commons": "Masia_Freixa,_modernista_-_Terrassa_-.jpg"},
-    {"id": "vapor-aymerich", "commons": "100_Vapor_Aymerich,_Amat_i_Jover_(Terrassa).jpg"},
-    {"id": "vapor-aymerich-voltes", "commons": "Muncunill-VaporAymerich_VoltesTirants-TerrassaJaumeMeneses.jpg"},
-    {"id": "casa-alegre", "commons": "Casa_Alegre_de_Sagrera,_c._Font_Vella_29-31.jpg"},
-    {"id": "mercat-independencia", "commons": "Mercat_de_la_Independència_(Terrassa).jpg"},
-    {"id": "teatre-principal", "commons": "Teatre_Principal_de_Terrassa.jpg"},
-    {"id": "farmacia-albinyana", "commons": "Farmàcia_Albinyana_(1)_(Terrassa).jpg"},
-    {"id": "magatzem-corcoy", "commons": "Magatzem_Corcoy_(Terrassa).jpg"},
-    {"id": "parc-desinfeccio", "commons": "Parc_de_Desinfecció,_Terrassa.jpg"},
-    {"id": "palau-musica", "commons": "Palau_de_la_Música_Catalana,_the_Catalan_Concert_Hall.jpg"},
-    {"id": "vitrall-palau", "commons": "Skylight_and_ceiling_at_Palau_de_la_música_catalana.jpg"},
-    {"id": "park-guell", "commons": "Barcelona_-_Parc_Güell_-_Main_stairs_-_'El_Drac'_mosaic_fountain_01.jpg"},
-    {"id": "trencadis", "commons": "Trencadis-Gaudi-1195.jpg"},
-    {"id": "pla-cerda", "commons": "PlaCerda1859b.jpg"},
-    {"id": "sagrada-familia", "commons": "Exterior_of_the_Sagrada_Família_(5).jpg"},
-    {"id": "sagrada-familia-interior", "commons": "Sagrada_Família-I.jpg"},
-    {"id": "rusinol-aranjuez", "commons": "Aranjuez_Garden,_Arbor,_II,_by_Santiago_Rusiñol,_1907,_oil_on_canvas_-_Museo_Nacional_Centro_de_Arte_Reina_Sofía_-_Madrid,_Spain_-_DSC08499.JPG"},
-    {"id": "cau-ferrat", "commons": "Miquel_Utrillo,_“Interior_del_Cau_Ferrat”,_1895.jpg"},
-    {"id": "pel-ploma", "commons": "Casas_PelPloma-25_portada.JPG"},
-    {"id": "riquer-sant-lluc", "commons": "Cercle_Artístic_de_Sant_Lluc_cartell_any_1899_circol_de_Sant_lluc_Alexandre_de_riquer.jpg"},
-    {"id": "nonell-pelona", "commons": "(Barcelona)_La_Pelona_-_1904_-_Isidre_Nonell_-_Museu_Nacional_d'Art_de_Catalunya.jpg"},
-    {"id": "gaudi-retrat", "commons": "Antoni_Gaudi_1878.jpg"},
-    {"id": "domenech-retrat", "commons": "Ramon_Casas_-_MNAC-_Lluís_Domènech_i_Montaner-_027294-D_006450.jpg"},
-    {"id": "puig-cadafalch-retrat", "commons": "Josep_Puig_i_Cadafalch-_026929-D_006326.jpg"},
-    {"id": "muncunill-retrat", "commons": "131_Ajuntament_de_Terrassa,_galeria_de_terrassencs_il·lustres,_Lluís_Muncunill.jpg"},
-    {"id": "jujol-retrat", "commons": "Jujol-JosepMaria-9119.jpg"},
-    {"id": "maragall-retrat", "commons": "Ramon_Casas_-_MNAC-_Joan_Maragall-_027609-D_006599.jpg"},
-    {"id": "verdaguer-retrat", "commons": "Ramon_Casas_-_MNAC-_Jacint_Verdaguer-_027620-D_006609.jpg"},
-    {"id": "rusinol-retrat", "commons": "Ramon_Casas_-_MNAC-_Santiago_Rusiñol-_027334-D_021398.jpg"},
-    {"id": "casas-retrat", "commons": "Ramon_Casas_-_MNAC-_Ramon_Casas-_027268-D_E.jpg"},
-    {"id": "riquer-retrat", "commons": "Ramon_Casas_-_MNAC-_Alexandre_de_Riquer-_027304-D_006462.jpg"},
-    {"id": "nonell-retrat", "commons": "Ramon_Casas_-_MNAC-_Isidre_Nonell-_027322-D_006480.jpg"},
-    {"id": "vidal-autoretrat", "commons": "(Barcelona)_Lluïsa_Vidal_-_Autoretrat_-_Museu_Nacional_d'Art_de_Catalunya.jpg"},
-    {"id": "albert-retrat", "commons": "Caterina_albert_i_paradis_victor_catala_-_revista_feminal_novembre_1917_(cropped).jpg"},
-    {"id": "santa-maria-mar", "commons": "Santa_Maria_del_Mar_-_Nau_interior.JPG"},
-    {"id": "llotja-mar", "commons": "018_Llotja_de_Mar_(Barcelona),_façana_pl._Idrissa_Dialo.jpg"},
-    {"id": "deessa-clara", "commons": "2016_La_deessa_(Josep_Clarà)_in_Plaça_de_Catalunya.jpg"},
-    {"id": "torre-glories", "commons": "Torre_Agbar_-_Barcelona,_Spain_-_Jan_2007.jpg"}
-  ]
+    "_nota": "Catàleg de les imatges de la web. 'commons' és el nom del fitxer a Wikimedia Commons (sense 'File:'); 'local' s'usa quan l'original no és a Commons. Executa: python eines/imatges.py",
+    "imatges": [
+        {
+            "id": "arc-triomf",
+            "commons": "Barcelona._Triumphal_Arch_of_the_Exposition.jpg"
+        },
+        {
+            "id": "cartell-4gats",
+            "commons": "Ramon_Casas_-_4_Gats_-_Google_Art_Project.jpg"
+        },
+        {
+            "id": "cartell-anis-mono",
+            "commons": "Anís_del_Mono,_Ramón_Casas.jpg"
+        },
+        {
+            "id": "cartell-cigarrillos-paris",
+            "commons": "Ramon_Casas-_Cartell_cigarrillos.jpg"
+        },
+        {
+            "id": "cartell-codorniu",
+            "local": "cartell-codorniu.jpg",
+            "autor": "Ramon Casas",
+            "llicencia": "Domini públic",
+            "font": "Còpia digital de domini públic (original no localitzat a Wikimedia Commons)"
+        },
+        {
+            "id": "mucha-job",
+            "commons": "Alphonse_Mucha_-_Job_-_Google_Art_Project.jpg"
+        },
+        {
+            "id": "mucha-salammbo",
+            "commons": "Alfons_Mucha_-_1896_-_Salammbô.jpg"
+        },
+        {
+            "id": "casa-amatller",
+            "commons": "Casa_Amatller_BCN.jpg"
+        },
+        {
+            "id": "casa-batllo",
+            "commons": "Facade_of_Casa_Batlló_-_2013.07_-_panoramio.jpg"
+        },
+        {
+            "id": "casa-mila",
+            "commons": "La_Pedrera_1906.jpg"
+        },
+        {
+            "id": "casa-punxes",
+            "commons": "Casa_de_les_Punxes_.jpg"
+        },
+        {
+            "id": "casa-lleo-morera",
+            "commons": "Casa_Lleó_Morera_01.jpg"
+        },
+        {
+            "id": "casa-vicens",
+            "commons": "Gaudí_-_Casa_Vicens.JPG"
+        },
+        {
+            "id": "palau-guell",
+            "commons": "Palau_Güell_-_Façana.JPG"
+        },
+        {
+            "id": "tres-dragons",
+            "commons": "Castell_dels_Tres_Dragons_01.jpg"
+        },
+        {
+            "id": "quatre-gats",
+            "commons": "WLM14ES_-_Casa_Martí,_o_Els_Quatre_Gats,_Barri_Gòtic,_Barcelona_-_MARIA_ROSA_FERRE.jpg"
+        },
+        {
+            "id": "casas-tandem",
+            "commons": "Ramon_Casas_-_Ramon_Casas_and_Pere_Romeu_on_a_Tandem_-_Google_Art_Project.jpg"
+        },
+        {
+            "id": "guimard-metro",
+            "commons": "Edicule_Métro_Bastille.jpg"
+        },
+        {
+            "id": "horta-tassel",
+            "commons": "Tassel_House_stairway.JPG"
+        },
+        {
+            "id": "hospital-sant-pau",
+            "commons": "Hospital_Sant_Pau,_main_facade.jpg"
+        },
+        {
+            "id": "jugend-revista",
+            "commons": "Titelblatt_der_Zeitschrift_Jugend_1896,_Nr._12_von_Ludwig_von_Zumbusch.jpg"
+        },
+        {
+            "id": "klimt-peto",
+            "commons": "The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"
+        },
+        {
+            "id": "wagner-majolica",
+            "commons": "Majolikahaus,_Wien,_Otto_Wagner.jpg"
+        },
+        {
+            "id": "hokusai-onada",
+            "commons": "「富嶽三十六景_神奈川沖浪裏」-Under_the_Wave_off_Kanagawa_(Kanagawa_oki_nami_ura),_or_The_Great_Wave,_from_the_series_Thirty-six_Views_of_Mount_Fuji_(Fugaku_sanjūrokkei)_MET_DP141042.jpg"
+        },
+        {
+            "id": "masia-freixa",
+            "commons": "Masia_Freixa,_modernista_-_Terrassa_-.jpg"
+        },
+        {
+            "id": "vapor-aymerich",
+            "commons": "100_Vapor_Aymerich,_Amat_i_Jover_(Terrassa).jpg"
+        },
+        {
+            "id": "vapor-aymerich-voltes",
+            "commons": "Muncunill-VaporAymerich_VoltesTirants-TerrassaJaumeMeneses.jpg"
+        },
+        {
+            "id": "casa-alegre",
+            "commons": "Casa_Alegre_de_Sagrera,_c._Font_Vella_29-31.jpg"
+        },
+        {
+            "id": "mercat-independencia",
+            "commons": "Mercat_de_la_Independència_(Terrassa).jpg"
+        },
+        {
+            "id": "teatre-principal",
+            "commons": "Teatre_Principal_de_Terrassa.jpg"
+        },
+        {
+            "id": "farmacia-albinyana",
+            "commons": "Farmàcia_Albinyana_(1)_(Terrassa).jpg"
+        },
+        {
+            "id": "magatzem-corcoy",
+            "commons": "Magatzem_Corcoy_(Terrassa).jpg"
+        },
+        {
+            "id": "parc-desinfeccio",
+            "commons": "Parc_de_Desinfecció,_Terrassa.jpg"
+        },
+        {
+            "id": "palau-musica",
+            "commons": "Palau_de_la_Música_Catalana,_the_Catalan_Concert_Hall.jpg"
+        },
+        {
+            "id": "vitrall-palau",
+            "commons": "Skylight_and_ceiling_at_Palau_de_la_música_catalana.jpg"
+        },
+        {
+            "id": "park-guell",
+            "commons": "Barcelona_-_Parc_Güell_-_Main_stairs_-_'El_Drac'_mosaic_fountain_01.jpg"
+        },
+        {
+            "id": "trencadis",
+            "commons": "Trencadis-Gaudi-1195.jpg"
+        },
+        {
+            "id": "pla-cerda",
+            "commons": "PlaCerda1859b.jpg"
+        },
+        {
+            "id": "sagrada-familia",
+            "commons": "Exterior_of_the_Sagrada_Família_(5).jpg"
+        },
+        {
+            "id": "sagrada-familia-interior",
+            "commons": "Sagrada_Família-I.jpg"
+        },
+        {
+            "id": "rusinol-aranjuez",
+            "commons": "Aranjuez_Garden,_Arbor,_II,_by_Santiago_Rusiñol,_1907,_oil_on_canvas_-_Museo_Nacional_Centro_de_Arte_Reina_Sofía_-_Madrid,_Spain_-_DSC08499.JPG"
+        },
+        {
+            "id": "cau-ferrat",
+            "commons": "Miquel_Utrillo,_“Interior_del_Cau_Ferrat”,_1895.jpg"
+        },
+        {
+            "id": "pel-ploma",
+            "commons": "Casas_PelPloma-25_portada.JPG"
+        },
+        {
+            "id": "riquer-sant-lluc",
+            "commons": "Cercle_Artístic_de_Sant_Lluc_cartell_any_1899_circol_de_Sant_lluc_Alexandre_de_riquer.jpg"
+        },
+        {
+            "id": "nonell-pelona",
+            "commons": "(Barcelona)_La_Pelona_-_1904_-_Isidre_Nonell_-_Museu_Nacional_d'Art_de_Catalunya.jpg"
+        },
+        {
+            "id": "gaudi-retrat",
+            "commons": "Antoni_Gaudi_1878.jpg"
+        },
+        {
+            "id": "domenech-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Lluís_Domènech_i_Montaner-_027294-D_006450.jpg"
+        },
+        {
+            "id": "puig-cadafalch-retrat",
+            "commons": "Josep_Puig_i_Cadafalch-_026929-D_006326.jpg"
+        },
+        {
+            "id": "muncunill-retrat",
+            "commons": "131_Ajuntament_de_Terrassa,_galeria_de_terrassencs_il·lustres,_Lluís_Muncunill.jpg"
+        },
+        {
+            "id": "jujol-retrat",
+            "commons": "Jujol-JosepMaria-9119.jpg"
+        },
+        {
+            "id": "maragall-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Joan_Maragall-_027609-D_006599.jpg"
+        },
+        {
+            "id": "verdaguer-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Jacint_Verdaguer-_027620-D_006609.jpg"
+        },
+        {
+            "id": "rusinol-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Santiago_Rusiñol-_027334-D_021398.jpg"
+        },
+        {
+            "id": "casas-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Ramon_Casas-_027268-D_E.jpg"
+        },
+        {
+            "id": "riquer-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Alexandre_de_Riquer-_027304-D_006462.jpg"
+        },
+        {
+            "id": "nonell-retrat",
+            "commons": "Ramon_Casas_-_MNAC-_Isidre_Nonell-_027322-D_006480.jpg"
+        },
+        {
+            "id": "vidal-autoretrat",
+            "commons": "(Barcelona)_Lluïsa_Vidal_-_Autoretrat_-_Museu_Nacional_d'Art_de_Catalunya.jpg"
+        },
+        {
+            "id": "albert-retrat",
+            "commons": "Caterina_albert_i_paradis_victor_catala_-_revista_feminal_novembre_1917_(cropped).jpg"
+        },
+        {
+            "id": "santa-maria-mar",
+            "commons": "Santa_Maria_del_Mar_-_Nau_interior.JPG"
+        },
+        {
+            "id": "llotja-mar",
+            "commons": "018_Llotja_de_Mar_(Barcelona),_façana_pl._Idrissa_Dialo.jpg"
+        },
+        {
+            "id": "deessa-clara",
+            "commons": "2016_La_deessa_(Josep_Clarà)_in_Plaça_de_Catalunya.jpg"
+        },
+        {
+            "id": "torre-glories",
+            "commons": "Torre_Agbar_-_Barcelona,_Spain_-_Jan_2007.jpg"
+        },
+        {
+            "id": "volta-maqueta",
+            "commons": "Catalonia Terrassa mNATEC MaquetaVoltaCatalana.jpg"
+        },
+        {
+            "id": "volta-mnactec",
+            "commons": "Catalonia Terrassa mNATEC VoltaCatalana 01.jpg"
+        },
+        {
+            "id": "guastavino-volta",
+            "commons": "GuastavinoTimbrelFgs10&11EssayThryHstCohesiveConst1893.jpg"
+        },
+        {
+            "id": "rajola-hidraulica",
+            "commons": "RajolaHidraulica 6173.jpg"
+        },
+        {
+            "id": "esgrafiat-llopis",
+            "commons": "Gallissa-llopis-1731.JPG"
+        },
+        {
+            "id": "mosaic-palau-columnes",
+            "commons": "Columnes de la façana del Palau de la Música.jpg"
+        },
+        {
+            "id": "mosaic-projecte",
+            "commons": "Projecte del mosaic dels cantaires que hi ha a la façana (Domènech i Montaner) - CAT CEDOC 1.09.06.jpg"
+        },
+        {
+            "id": "ceramica-pere-mata",
+            "commons": "095 Institut Pere Mata, Pavelló dels Distingits, ceràmica.jpg"
+        },
+        {
+            "id": "joia-masriera-collar",
+            "commons": "Masriera y Carreras - Collar en forma de nimfa.jpg"
+        },
+        {
+            "id": "joia-masriera-fermall",
+            "commons": "Lluís Masriera - Fermall penjant amb nimfa.jpg"
+        },
+        {
+            "id": "homar-sofa",
+            "commons": "130 Sofà amb vitrines laterals i plafó de marqueteria, de Gaspar Homar.jpg"
+        },
+        {
+            "id": "homar-cadira",
+            "commons": "GasparHomar mobles 4127.JPG"
+        },
+        {
+            "id": "escultura-lleo-morera",
+            "commons": "DiM Lleo Morera 9717.jpg"
+        },
+        {
+            "id": "ferro-pedrera-balco",
+            "commons": "Barcelona - wrought iron balcony details Casa Mila - panoramio.jpg"
+        },
+        {
+            "id": "ferro-pedrera-barana",
+            "commons": "(Barcelona) Hand Rail from Casa Mila, 'La Pedrera' by Josep Antonio Gaudi - Museu Nacional d'Art de Catalunya.jpg"
+        },
+        {
+            "id": "vitrall-gaudi-rosassa",
+            "commons": "Antoni Gaudí, vitrall rosassa Museu Nacional d'Art de Catalunya.jpg"
+        },
+        {
+            "id": "casa-mila-obres",
+            "commons": "Casa Milà obras.jpg"
+        },
+        {
+            "id": "casa-batllo-1906",
+            "commons": "Casa Batlló (1906).jpg"
+        },
+        {
+            "id": "sagrada-familia-1905",
+            "commons": "Baldomer Gili Roig. La Sagrada Família, 1905 Copia moderna del negatiu original de vidre.jpg"
+        },
+        {
+            "id": "vapor-aymerich-1911",
+            "commons": "Vapor Aymerich, Amat i Jover -1911.jpg"
+        },
+        {
+            "id": "societat-electricitat",
+            "commons": "Societat General d'Electricitat.jpg"
+        },
+        {
+            "id": "casa-baumann",
+            "commons": "Casa Coll i Bacardí (Casa Baumann).jpg"
+        },
+        {
+            "id": "bellesguard",
+            "commons": "Torre Bellesguard (4).jpg"
+        },
+        {
+            "id": "teresianes",
+            "commons": "Arcs del Col·legi de les Teresianes 2.jpg"
+        },
+        {
+            "id": "pavellons-guell",
+            "commons": "Dragon gate at Pavellons Güell, Antoni Gaudi.jpg"
+        },
+        {
+            "id": "baro-quadras",
+            "commons": "Palau del Baró de Quadras (51518775973).jpg"
+        },
+        {
+            "id": "casa-navas",
+            "commons": "Reus, Casa Navàs 02.jpg"
+        },
+        {
+            "id": "casa-museu-canet",
+            "commons": "Canet de Mar - Casa Museu Lluís Domènech i Montaner.jpg"
+        },
+        {
+            "id": "capricho-comillas",
+            "commons": "Comillas Capricho.jpg"
+        },
+        {
+            "id": "fanal-placa-reial",
+            "commons": "Plaça Reial - Fanal de Gaudí.JPG"
+        },
+        {
+            "id": "cadira-calvet",
+            "commons": "Gaudi's chair for Casa Calvet - Casa Milà - Barcelona 2014.JPG"
+        },
+        {
+            "id": "cadira-batllo",
+            "commons": "Casa Batlló chair.JPG"
+        },
+        {
+            "id": "panot-gaudi",
+            "commons": "Panot Gaudí.JPG"
+        },
+        {
+            "id": "tiffany-lampada",
+            "commons": "Tiffany lamp 1905 de Young.jpg"
+        },
+        {
+            "id": "lalique-libellula",
+            "commons": "Pectoral à la libellule René Lalique in Calouste Gulbenkian Museum.jpg"
+        },
+        {
+            "id": "galle-gerro",
+            "commons": "Mainz, Landesmuseum, Émile Gallé und Umfeld, Vase-03.jpg"
+        }
+    ]
 }

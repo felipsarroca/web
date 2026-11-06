@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El meu progrés: activitats fetes, resultats, autoavaluació i resum per enviar al professorat per Google Classroom.">
+    <title>El meu progrés | El Modernisme</title>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ca_ES">
+    <meta property="og:site_name" content="El Modernisme">
+    <meta property="og:title" content="El meu progrés | El Modernisme">
+    <meta property="og:description" content="El meu progrés: activitats fetes, resultats, autoavaluació i resum per enviar al professorat per Google Classroom.">
+    <meta property="og:url" content="https://felipsarroca.github.io/web/Modernisme/progres.html">
+    <meta property="og:image" content="https://felipsarroca.github.io/web/Modernisme/img/mitjana/casa-batllo.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icona-192.png">
+    <meta name="theme-color" content="#5c4a3d">
+</head>
+<body>
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <nav class="nav-principal"></nav>
+
+    <header class="header-seccio">
+        <p class="avantitol">Explora</p>
+        <h1>El meu progrés</h1>
+        <p class="subtitol">Què he fet, com m'ha anat i què em queda</p>
+    </header>
+
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+            <p class="seccio-intro text-normal">Aquí es guarden els resultats de les activitats que has comprovat i del repte final. Les dades només es desen <strong>en aquest navegador</strong>: si canvies d'ordinador o esborres l'historial, es perden. Quan acabis, copia el resum i enganxa'l a la tasca de Google Classroom.</p>
+            <p class="seccio-intro text-facil">Aquí veus les activitats que has fet. Quan acabis, copia el resum i envia'l al professor o la professora per Classroom.</p>
+
+            <div class="graella-progres">
+                <div class="xifra-progres"><span id="xifra-fetes">0</span><small>activitats fetes</small></div>
+                <div class="xifra-progres"><span id="xifra-encerts">0 %</span><small>d'encerts (millor intent)</small></div>
+                <div class="xifra-progres"><span id="xifra-pagines">0</span><small>pàgines treballades</small></div>
+            </div>
+
+            <h2 class="seccio-titol" style="margin-top:2rem">Activitats</h2>
+            <div class="taula-desplacable">
+                <table class="taula-credits taula-progres">
+                    <thead><tr><th scope="col">Activitat</th><th scope="col">Últim resultat</th><th scope="col">Millor</th><th scope="col">Intents</th><th scope="col">Data</th></tr></thead>
+                    <tbody id="cos-progres"></tbody>
+                </table>
+            </div>
+            <p id="pendents" class="requadre" style="margin-top:1rem"></p>
+        </section>
+
+        <section class="seccio" aria-labelledby="autoavaluacio">
+            <h2 class="seccio-titol" id="autoavaluacio">Autoavaluació</h2>
+            <p class="seccio-intro">Marca com et veus en cada aprenentatge. També quedarà al resum.</p>
+            <div class="taula-desplacable">
+                <table class="taula-rubrica taula-autoavaluacio">
+                    <thead><tr><th scope="col">Aprenentatge</th><th scope="col">Ho sé fer sol o sola</th><th scope="col">Amb ajuda</th><th scope="col">Encara no</th></tr></thead>
+                    <tbody id="cos-auto"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccio" aria-labelledby="resum">
+            <h2 class="seccio-titol" id="resum">Resum per a Classroom</h2>
+            <div class="filtres">
+                <label class="etiqueta-filtre" for="nom-alumne">Nom:</label>
+                <input type="text" id="nom-alumne" class="cercador" autocomplete="name" placeholder="Escriu el teu nom">
+                <label class="etiqueta-filtre" for="grup-alumne">Grup:</label>
+                <input type="text" id="grup-alumne" class="cercador" style="max-width:8rem" placeholder="4t A">
+            </div>
+            <label for="text-resum" class="visualment-amagat">Resum</label>
+            <textarea id="text-resum" class="resum-progres" rows="12" readonly></textarea>
+            <p style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap">
+                <button type="button" class="boto" id="copia">Copia el resum</button>
+                <a class="boto clar" href="dossier.html">Dossier imprimible</a>
+                <button type="button" class="boto clar" id="esborra">Esborra el meu progrés</button>
+                <span class="resultat-activitat" id="avis" aria-live="polite"></span>
+            </p>
+        </section>
+    </main>
+
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script>
+    (function () {
+      const M = window.Modernisme;
+      const AUTO = [
+        'Sé explicar què és el Modernisme, quan i on es va desenvolupar.',
+        'Sé relacionar el Modernisme amb la industrialització, la burgesia i la Renaixença.',
+        'Reconec una obra modernista pels seus trets: natura, línia corba, color i materials.',
+        'Conec els principals arquitectes, artistes i escriptors, també les dones.',
+        'Sé explicar com treballaven almenys tres oficis artesans.',
+        'Identifico materials i tècniques: maó, ferro, vidre, ceràmica, trencadís, esgrafiat i volta catalana.',
+        'Conec el patrimoni modernista de Terrassa i el sé situar al mapa.',
+        'Argumento per què cal conservar el patrimoni i quins problemes té avui.'
+      ];
+      const NIVELLS = ['Ho sé fer sol o sola', 'Amb ajuda', 'Encara no'];
+      // Pàgines amb activitats autocorregibles
+      const AMB_ACTIVITATS = ['que-es.html', 'catalunya.html', 'mon.html', 'temps.html', 'arquitectura.html', 'arts.html', 'oficis.html', 'arquitectes.html', 'repte.html'];
+      const desa = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* res */ } };
+      const llegeix = k => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } };
+      const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const data = iso => new Date(iso).toLocaleDateString('ca-ES', { day: 'numeric', month: 'short' });
+
+      let auto = {};
+      try { auto = JSON.parse(llegeix('modernisme:autoavaluacio') || '{}'); } catch (e) { auto = {}; }
+
+      document.getElementById('cos-auto').innerHTML = AUTO.map((a, i) =>
+        '<tr><th scope="row">' + a + '</th>' + NIVELLS.map((n, k) =>
+          '<td style="text-align:center"><input type="radio" name="auto' + i + '" value="' + k + '" aria-label="' + esc(n) + '"' + (auto[i] === k ? ' checked' : '') + '></td>').join('') + '</tr>').join('');
+      document.getElementById('cos-auto').addEventListener('change', e => {
+        const r = e.target; if (r.type !== 'radio') return;
+        auto[Number(r.name.slice(4))] = Number(r.value);
+        desa('modernisme:autoavaluacio', JSON.stringify(auto));
+        resum();
+      });
+
+      const nom = document.getElementById('nom-alumne'), grup = document.getElementById('grup-alumne');
+      nom.value = llegeix('modernisme:nom'); grup.value = llegeix('modernisme:grup');
+      nom.addEventListener('input', () => { desa('modernisme:nom', nom.value); resum(); });
+      grup.addEventListener('input', () => { desa('modernisme:grup', grup.value); resum(); });
+
+      function pinta() {
+        const p = M.llegeixProgres();
+        const ids = Object.keys(p).sort((a, b) => p[a].nom.localeCompare(p[b].nom, 'ca'));
+        document.getElementById('cos-progres').innerHTML = ids.length ? ids.map(id => {
+          const r = p[id];
+          return '<tr><td><a href="' + esc(r.pagina) + '#posathi">' + esc(r.nom) + '</a></td><td>' + r.encerts + ' / ' + r.total + '</td><td>' + r.millor + ' / ' + r.total + '</td><td>' + r.intents + '</td><td>' + data(r.data) + '</td></tr>';
+        }).join('') : '<tr><td colspan="5">Encara no has comprovat cap activitat. Comença per <a href="que-es.html#posathi">Què és el Modernisme?</a></td></tr>';
+        const fetes = ids.length;
+        const enc = ids.reduce((s, id) => s + p[id].millor, 0), tot = ids.reduce((s, id) => s + p[id].total, 0);
+        const pagines = new Set(ids.map(id => p[id].pagina));
+        document.getElementById('xifra-fetes').textContent = fetes;
+        document.getElementById('xifra-encerts').textContent = tot ? Math.round(enc / tot * 100) + ' %' : '—';
+        document.getElementById('xifra-pagines').textContent = pagines.size;
+        const falten = AMB_ACTIVITATS.filter(u => !pagines.has(u));
+        document.getElementById('pendents').innerHTML = falten.length
+          ? '<strong>Et falten activitats a:</strong> ' + falten.map(u => '<a href="' + u + (u === 'repte.html' ? '' : '#posathi') + '">' + (M.titolPagina(u) || u) + '</a>').join(' · ')
+          : '<strong>Molt bé!</strong> Has fet activitats a totes les pàgines.';
+        resum();
+      }
+
+      function resum() {
+        const p = M.llegeixProgres();
+        const ids = Object.keys(p).sort((a, b) => p[a].nom.localeCompare(p[b].nom, 'ca'));
+        const linies = [
+          'EL MODERNISME · Resum de progrés',
+          'Alumne/a: ' + (nom.value || '—') + '   Grup: ' + (grup.value || '—'),
+          'Data: ' + new Date().toLocaleDateString('ca-ES'),
+          '',
+          'ACTIVITATS (millor resultat)'
+        ].concat(ids.length ? ids.map(id => '- ' + p[id].nom + ': ' + p[id].millor + '/' + p[id].total + ' (' + p[id].intents + (p[id].intents === 1 ? ' intent)' : ' intents)')) : ['- Cap activitat comprovada'])
+          .concat(['', 'AUTOAVALUACIÓ'])
+          .concat(AUTO.map((a, i) => '- ' + a + ' → ' + (auto[i] === undefined ? 'sense marcar' : NIVELLS[auto[i]])));
+        document.getElementById('text-resum').value = linies.join('\n');
+      }
+
+      document.getElementById('copia').addEventListener('click', () => {
+        const t = document.getElementById('text-resum');
+        const avis = document.getElementById('avis');
+        const fet = () => { avis.className = 'resultat-activitat be'; avis.textContent = 'Copiat! Enganxa\'l a Classroom.'; };
+        if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(fet, () => { t.select(); document.execCommand('copy'); fet(); });
+        else { t.select(); document.execCommand('copy'); fet(); }
+      });
+      document.getElementById('esborra').addEventListener('click', () => {
+        const b = document.getElementById('esborra');
+        if (b.dataset.confirma !== '1') { b.dataset.confirma = '1'; b.textContent = 'Segur? Torna a fer clic'; setTimeout(() => { b.dataset.confirma = ''; b.textContent = 'Esborra el meu progrés'; }, 4000); return; }
+        M.esborraProgres();
+        try { localStorage.removeItem('modernisme:autoavaluacio'); } catch (e) { /* res */ }
+        auto = {};
+        document.querySelectorAll('#cos-auto input').forEach(i => { i.checked = false; });
+        b.dataset.confirma = ''; b.textContent = 'Esborra el meu progrés';
+        pinta();
+      });
+      pinta();
+    })();
+    </script>
+</body>
+</html>

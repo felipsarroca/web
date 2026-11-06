@@ -104,7 +104,7 @@ def main():
     for x in cat:
         id_ = x['id']
         if 'commons' in x:
-            ii = infos.get(x['commons'])
+            ii = infos.get(x['commons'].replace(' ', '_'))
             if not ii:
                 continue
             ext = os.path.splitext(ii['url'].split('?')[0])[1].lower()

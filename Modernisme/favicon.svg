@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Flor modernista">
-  <rect width="64" height="64" rx="12" fill="#f5f0e6" />
-  <text x="32" y="44" font-size="36" text-anchor="middle"
-        font-family="Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, sans-serif">&#127800;</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Lliri modernista dins un arc">
+  <rect width="80" height="80" rx="16" fill="#5c4a3d"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 74V38C16 18 27 8 40 8s24 10 24 30v36z" stroke="#e2c77f" stroke-width="3" fill="#6b5747"/>
+    <path d="M40 70c0-9-9-12-9-21s12-8 10-17" stroke="#f6ead0" stroke-width="2.6"/>
+    <path d="M31 49c-7-3-8-11-3-14 3-2 6 2 3 3" stroke="#f6ead0" stroke-width="2.2"/>
+    <path d="M37 62c-9-2-14-8-15-15 8 2 13 7 15 15z" fill="#9cb98a" stroke="#f6ead0" stroke-width="1.6"/>
+    <path d="M41 33c-3-7-3-15 0-21 3 6 3 14 0 21z" fill="#e8b4b8" stroke="#f6ead0" stroke-width="1.6"/>
+    <path d="M41 33c-7-2-12-7-14-13 7 0 12 5 14 13z" fill="#e8b4b8" stroke="#f6ead0" stroke-width="1.6"/>
+    <path d="M41 33c7-2 12-7 14-13-7 0-12 5-14 13z" fill="#e8b4b8" stroke="#f6ead0" stroke-width="1.6"/>
+  </g>
 </svg>

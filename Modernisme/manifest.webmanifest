@@ -1,0 +1,16 @@
+{
+  "name": "El Modernisme",
+  "short_name": "Modernisme",
+  "description": "Recurs educatiu sobre el Modernisme: context, arts, oficis, autors, obres, mapa, Terrassa i activitats.",
+  "lang": "ca",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf7f0",
+  "theme_color": "#5c4a3d",
+  "icons": [
+    { "src": "assets/icona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
