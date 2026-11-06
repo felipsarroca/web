@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" role="img" aria-labelledby="t d" font-family="Plus Jakarta Sans, Segoe UI, Arial, sans-serif">
+  <title id="t">On és l'astràgal: pota posterior d'ovella i peu humà</title>
+  <desc id="d">Esquema comparatiu. A l'esquerra, la pota del darrere d'una ovella amb el fèmur, la ròtula, la tíbia, el calcani, l'astràgal destacat, el metatars i les falanges. A la dreta, la cama i el peu humans amb la tíbia, el peroné, l'astràgal destacat, el calcani, els metatarsians i les falanges. El garró de l'ovella correspon al turmell humà.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset="1" stop-color="#eef8f6"/>
+    </linearGradient>
+    <style>
+      .bone{fill:none;stroke:#b79f73;stroke-linecap:round;stroke-linejoin:round}
+      .bone-in{fill:none;stroke:#f6ead0;stroke-linecap:round;stroke-linejoin:round}
+      .blk{fill:#f6ead0;stroke:#b79f73;stroke-width:3}
+      .astr{fill:#f05d3f;stroke:#b8341c;stroke-width:3}
+      .lbl{font-size:17px;fill:#31405a;font-weight:600}
+      .lblk{font-size:19px;fill:#cf2f5a;font-weight:800}
+      .ttl{font-size:22px;fill:#182033;font-weight:800}
+      .sub{font-size:15px;fill:#556074}
+      .ld{stroke:#556074;stroke-width:1.4;fill:none}
+      .ldk{stroke:#cf2f5a;stroke-width:2;fill:none}
+      .skin{fill:#0f8b8d;opacity:.08}
+      .ground{stroke:#182033;stroke-width:2;opacity:.25;stroke-dasharray:6 6}
+    </style>
+  </defs>
+  <rect width="920" height="560" rx="26" fill="url(#bg)"/>
+  <line x1="460" y1="40" x2="460" y2="500" stroke="#182033" stroke-opacity=".1" stroke-width="2"/>
+
+  <!-- ===== OVELLA ===== -->
+  <text x="40" y="52" class="ttl">Pota del darrere d'ovella</text>
+  <text x="40" y="76" class="sub">L'ovella camina de puntetes: el garró queda enlaire</text>
+  <path class="skin" d="M228 92 C276 98 300 150 288 200 C276 250 236 300 214 350 C206 372 234 410 248 450 C256 470 280 482 290 492 L224 494 C214 470 196 432 182 398 C168 366 140 330 138 300 C136 270 176 238 200 200 C212 170 196 120 228 92 Z"/>
+  <line x1="60" y1="494" x2="420" y2="494" class="ground"/>
+  <!-- fèmur -->
+  <line x1="236" y1="104" x2="262" y2="200" class="bone" stroke-width="30"/>
+  <line x1="236" y1="104" x2="262" y2="200" class="bone-in" stroke-width="24"/>
+  <!-- ròtula -->
+  <ellipse cx="278" cy="196" rx="10" ry="14" class="blk"/>
+  <!-- tíbia -->
+  <line x1="256" y1="214" x2="198" y2="340" class="bone" stroke-width="24"/>
+  <line x1="256" y1="214" x2="198" y2="340" class="bone-in" stroke-width="18"/>
+  <!-- calcani (punta del garró) -->
+  <line x1="190" y1="370" x2="154" y2="318" class="bone" stroke-width="22"/>
+  <line x1="190" y1="370" x2="154" y2="318" class="bone-in" stroke-width="16"/>
+  <!-- astràgal -->
+  <path class="astr" d="M184 342 C196 334 216 336 222 346 C226 354 222 366 212 370 C200 374 186 370 182 362 C178 356 178 348 184 342 Z"/>
+  <!-- petits ossos del tars -->
+  <rect x="188" y="374" width="34" height="16" rx="6" class="blk"/>
+  <!-- metatars (canya) -->
+  <line x1="208" y1="396" x2="242" y2="462" class="bone" stroke-width="18"/>
+  <line x1="208" y1="396" x2="242" y2="462" class="bone-in" stroke-width="12"/>
+  <!-- falanges -->
+  <line x1="244" y1="468" x2="268" y2="484" class="bone" stroke-width="12"/>
+  <line x1="244" y1="468" x2="268" y2="484" class="bone-in" stroke-width="7"/>
+  <!-- peülla -->
+  <path d="M262 474 L292 482 L292 494 L258 494 Z" fill="#3a3f4b"/>
+
+  <!-- etiquetes ovella -->
+  <path class="ld" d="M300 140 L250 140"/><text x="306" y="146" class="lbl">Fèmur</text>
+  <path class="ld" d="M300 196 L290 196"/><text x="306" y="202" class="lbl">Ròtula</text>
+  <path class="ld" d="M300 262 L232 262"/><text x="306" y="268" class="lbl">Tíbia</text>
+  <path class="ld" d="M104 274 L150 312"/><text x="44" y="246" class="lbl">Calcani</text><text x="44" y="265" class="sub">(punta del garró)</text>
+  <path class="ldk" d="M300 352 L226 352"/><text x="306" y="350" class="lblk">ASTRÀGAL</text><text x="306" y="370" class="lblk">= la taba</text>
+  <path class="ld" d="M300 430 L232 430"/><text x="306" y="436" class="lbl">Metatars (canya)</text>
+  <path class="ld" d="M300 478 L276 478"/><text x="306" y="476" class="lbl">Falanges i peülla</text>
+  <path d="M126 332 C116 344 116 384 126 396" class="ldk"/><text x="40" y="370" class="lblk" font-size="17">Garró</text>
+
+  <!-- ===== HUMÀ ===== -->
+  <text x="490" y="52" class="ttl">Cama i peu humans</text>
+  <text x="490" y="76" class="sub">Nosaltres trepitgem amb tota la planta</text>
+  <path class="skin" d="M600 92 L690 92 L694 360 C700 392 720 412 760 428 C808 446 846 456 860 470 C866 482 860 494 848 494 L572 494 C556 490 552 470 560 440 C566 416 582 396 590 370 Z"/>
+  <line x1="520" y1="494" x2="890" y2="494" class="ground"/>
+  <!-- tíbia -->
+  <line x1="628" y1="104" x2="632" y2="372" class="bone" stroke-width="30"/>
+  <line x1="628" y1="104" x2="632" y2="372" class="bone-in" stroke-width="24"/>
+  <!-- peroné -->
+  <line x1="672" y1="118" x2="676" y2="380" class="bone" stroke-width="12"/>
+  <line x1="672" y1="118" x2="676" y2="380" class="bone-in" stroke-width="7"/>
+  <!-- astràgal -->
+  <path class="astr" d="M604 392 C616 380 656 378 676 388 C688 394 690 410 678 418 C660 428 622 428 606 418 C596 412 596 400 604 392 Z"/>
+  <!-- calcani -->
+  <path class="blk" d="M574 430 C574 414 600 410 630 422 C650 430 660 446 652 462 C646 476 620 484 594 482 C578 480 572 468 572 456 Z"/>
+  <!-- tars anterior -->
+  <path class="blk" d="M684 412 C700 410 718 418 724 430 C728 440 716 448 702 446 C688 444 678 432 680 422 Z"/>
+  <!-- metatarsians -->
+  <line x1="728" y1="440" x2="806" y2="468" class="bone" stroke-width="14"/>
+  <line x1="728" y1="440" x2="806" y2="468" class="bone-in" stroke-width="9"/>
+  <line x1="722" y1="452" x2="800" y2="478" class="bone" stroke-width="10" opacity=".7"/>
+  <!-- falanges -->
+  <line x1="814" y1="472" x2="846" y2="482" class="bone" stroke-width="12"/>
+  <line x1="814" y1="472" x2="846" y2="482" class="bone-in" stroke-width="7"/>
+
+  <!-- etiquetes humà -->
+  <path class="ld" d="M560 200 L612 200"/><text x="496" y="206" class="lbl">Tíbia</text>
+  <path class="ld" d="M730 230 L682 230"/><text x="736" y="236" class="lbl">Peroné</text>
+  <path class="ldk" d="M730 360 L676 392"/><text x="736" y="350" class="lblk">ASTRÀGAL</text><text x="736" y="370" class="sub">(entre la cama i el peu)</text>
+  <path class="ld" d="M540 460 L574 456"/><text x="490" y="436" class="lbl">Calcani</text><text x="490" y="455" class="sub">(taló)</text>
+  <path class="ld" d="M780 420 L768 452"/><text x="744" y="414" class="lbl">Metatarsians</text>
+  <path class="ld" d="M870 450 L840 474"/><text x="836" y="444" class="lbl">Falanges</text>
+
+  <!-- peu de figura -->
+  <rect x="40" y="512" width="840" height="36" rx="18" fill="#ffca57" fill-opacity=".28"/>
+  <text x="460" y="536" text-anchor="middle" class="lbl" font-size="16">El garró de l'ovella és el nostre turmell. Cada ovella o cabra té dues tabes: una a cada pota del darrere.</text>
+</svg>

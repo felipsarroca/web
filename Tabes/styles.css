@@ -1011,36 +1011,6 @@ li {
     width: min(calc(100% - 20px), var(--max));
   }
 
-  .nav-shell {
-    flex-wrap: wrap;
-    padding: 14px 0;
-    min-height: auto;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-nav {
-    display: none;
-    width: 100%;
-    margin-left: 0;
-    padding-bottom: 6px;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 24px;
-  }
-
-  .site-nav.is-open {
-    display: flex;
-  }
-
-  .site-nav a {
-    width: 100%;
-    padding: 12px 0;
-    border-radius: 0;
-  }
-
   .hero-home {
     padding-top: 28px;
   }
@@ -1089,3 +1059,1243 @@ li {
   }
 }
 
+
+/* =========================================================
+   Navegació adaptativa i compactació per a portàtils
+   ========================================================= */
+
+.site-nav a:focus-visible,
+.button:focus-visible,
+.face-tab:focus-visible,
+.flip-card:focus-visible,
+.lab-controls button:focus-visible,
+.gallery-item:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1360px) {
+  .site-nav {
+    gap: 4px;
+  }
+
+  .site-nav a {
+    padding: 9px 9px;
+    font-size: 0.82rem;
+  }
+
+  .brand-icon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .brand-copy strong {
+    font-size: 2.4rem;
+  }
+
+  .brand-copy small {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav-shell {
+    flex-wrap: wrap;
+    padding: 12px 0;
+    min-height: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+    padding: 8px;
+    border-radius: 24px;
+  }
+
+  .site-nav.is-open {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 4px;
+    margin-bottom: 4px;
+    background: rgba(255, 252, 246, 0.97);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 40px rgba(31, 28, 45, 0.16);
+  }
+
+  .site-nav a {
+    padding: 11px 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-nav.is-open {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Portàtils amb poca alçada útil (1366 × 768, escalat del 125 %…) */
+@media (min-width: 700px) and (max-height: 820px) {
+  .nav-shell {
+    min-height: 64px;
+    padding: 6px 0;
+  }
+
+  .brand-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .brand-copy {
+    gap: 4px;
+  }
+
+  .brand-copy strong {
+    font-size: 2.1rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.92rem;
+  }
+
+  .hero-home {
+    padding-top: 28px;
+  }
+
+  .page-hero {
+    padding-top: 24px;
+  }
+
+  .content-section {
+    padding: 32px 0;
+  }
+
+  .hero-actions {
+    margin: 22px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   Elements comuns nous
+   ========================================================= */
+
+.source-note {
+  margin: 12px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.source-note strong {
+  color: var(--ink);
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pill-list li {
+  padding: 6px 12px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.3;
+  background: rgba(255, 202, 87, 0.26);
+  border-radius: 999px;
+}
+
+.callout {
+  padding: 22px 24px;
+  background:
+    linear-gradient(135deg, rgba(15, 139, 141, 0.12), rgba(205, 239, 255, 0.68)),
+    var(--paper-strong);
+  border-left: 6px solid var(--coral);
+  box-shadow: var(--shadow);
+}
+
+.callout h2,
+.callout h3 {
+  margin-bottom: 10px;
+}
+
+.callout p:last-child,
+.callout ul:last-child {
+  margin-bottom: 0;
+}
+
+.callout-warning {
+  background:
+    linear-gradient(135deg, rgba(255, 202, 87, 0.3), rgba(240, 93, 63, 0.1)),
+    var(--paper-strong);
+  border-left-color: var(--raspberry);
+}
+
+.svg-figure {
+  margin: 0;
+}
+
+.svg-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.svg-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.ia-badge {
+  position: relative;
+}
+
+.ia-badge::after {
+  content: "Recreació feta amb IA";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: rgba(24, 32, 51, 0.72);
+  border-radius: 999px;
+}
+
+.fact-visual.ia-badge::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Taules */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.data-table caption {
+  padding: 16px 18px 0;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.5;
+}
+
+.data-table thead th {
+  color: var(--teal);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, rgba(255, 202, 87, 0.22), rgba(15, 139, 141, 0.08));
+}
+
+.data-table tbody th {
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.05rem;
+}
+
+.data-table td {
+  color: var(--muted);
+}
+
+.data-table tr:last-child th,
+.data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .data-table.stack thead {
+    display: none;
+  }
+
+  .data-table.stack tr {
+    display: block;
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .data-table.stack tbody th,
+  .data-table.stack td {
+    display: block;
+    padding: 4px 12px;
+    border: 0;
+  }
+
+  .data-table.stack td::before {
+    content: attr(data-label) ": ";
+    color: var(--ink);
+    font-weight: 800;
+  }
+}
+
+/* =========================================================
+   Inici
+   ========================================================= */
+
+.hook-strip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  width: min(100%, var(--max));
+  margin: 28px auto 0;
+  padding: 18px 24px;
+  background:
+    linear-gradient(135deg, rgba(15, 139, 141, 0.12), rgba(205, 239, 255, 0.68)),
+    var(--paper-strong);
+  border-left: 6px solid var(--coral);
+  box-shadow: var(--shadow);
+}
+
+.hook-mark {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold), #ffd978);
+  border-radius: 50%;
+}
+
+.hook-strip p {
+  margin: 0;
+}
+
+.hook-strip strong {
+  color: var(--ink);
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.route-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--raspberry), var(--gold), var(--teal)) 1;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-3px);
+}
+
+.route-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #f3efe6;
+}
+
+.route-card div {
+  padding: 16px 18px 18px;
+}
+
+.route-card .kicker {
+  margin-bottom: 8px;
+}
+
+.route-card h3 {
+  margin-bottom: 8px;
+}
+
+.route-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.thanks-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.thanks-bar img {
+  width: 82px;
+}
+
+.thanks-bar p {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.thanks-bar a {
+  color: var(--teal);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* =========================================================
+   Fitxa interactiva de la taba
+   ========================================================= */
+
+.taba-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.face-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.face-tab {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  padding: 14px 10px 12px;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.86);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  box-shadow: 0 12px 26px rgba(39, 33, 27, 0.07);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.face-tab:hover {
+  transform: translateY(-2px);
+}
+
+.face-tab img {
+  width: auto;
+  height: 118px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.face-tab small {
+  color: var(--muted);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.face-tab[aria-selected="true"] {
+  border-color: var(--coral);
+  background:
+    linear-gradient(135deg, rgba(255, 202, 87, 0.42), rgba(240, 93, 63, 0.12)),
+    #fff;
+}
+
+.face-panel {
+  padding: 24px 26px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(205, 239, 255, 0.28)),
+    #fff;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--coral), var(--gold), var(--teal)) 1;
+  box-shadow: var(--shadow);
+}
+
+.face-panel[hidden] {
+  display: none;
+}
+
+.face-panel h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  letter-spacing: -0.04em;
+}
+
+.face-shape {
+  margin: 8px 0 14px;
+  color: var(--raspberry);
+  font-weight: 800;
+}
+
+.face-facts {
+  display: grid;
+  margin: 0;
+}
+
+.face-facts div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.face-facts dt {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.face-facts dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.prob-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prob-meter i {
+  display: block;
+  height: 10px;
+  min-width: 6px;
+  background: linear-gradient(90deg, var(--raspberry), var(--coral), var(--gold));
+  border-radius: 999px;
+}
+
+details.more {
+  margin-top: 26px;
+}
+
+details.more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: var(--ink);
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+details.more[open] summary {
+  margin-bottom: 16px;
+}
+
+/* =========================================================
+   Mapes
+   ========================================================= */
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.map-box {
+  height: clamp(320px, 56vh, 480px);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  background: #eef3f1;
+  z-index: 0;
+}
+
+.map-box .leaflet-tooltip.map-label {
+  padding: 3px 8px;
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.92);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(24, 32, 51, 0.14);
+}
+
+.map-box .leaflet-tooltip.map-label::before {
+  display: none;
+}
+
+.map-box .leaflet-popup-content {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.map-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-list li {
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.75);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 14px 14px 0;
+}
+
+.map-list li.bovi {
+  border-left-color: var(--coral);
+}
+
+.map-list li.sense-os {
+  border-left-color: var(--gold);
+}
+
+.map-list strong {
+  color: var(--ink);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.legend i {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(24, 32, 51, 0.2);
+}
+
+.dot-teal { background: var(--teal); }
+.dot-coral { background: var(--coral); }
+.dot-gold { background: var(--gold); }
+
+/* =========================================================
+   Jocs: pictogrames, rols i probabilitat
+   ========================================================= */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  margin: 0;
+  padding: 16px 16px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--raspberry), var(--gold), var(--teal)) 1;
+  box-shadow: 0 14px 28px rgba(39, 33, 27, 0.07);
+}
+
+.skill-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg, rgba(205, 239, 255, 0.45), rgba(255, 250, 241, 0.6));
+  border-radius: 14px;
+}
+
+.skill-card h3 {
+  margin-bottom: 6px;
+}
+
+.skill-level {
+  margin: 0 0 4px;
+  color: var(--raspberry);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skill-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.mare-anim {
+  animation: mareUp 2.4s ease-in-out infinite;
+}
+
+@keyframes mareUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.role-card {
+  padding: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 28px rgba(39, 33, 27, 0.07);
+  border-radius: 20px;
+}
+
+.role-card img {
+  height: 104px;
+  width: auto;
+  margin: 0 auto 10px;
+  object-fit: contain;
+}
+
+.role-name {
+  margin: 0;
+  color: var(--raspberry);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.role-face {
+  margin: 2px 0 8px;
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.role-card p:last-child {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.bar-chart {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bar-chart li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 64px;
+  gap: 12px;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.bar-label {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.bar-track {
+  position: relative;
+  height: 18px;
+  background: rgba(24, 32, 51, 0.07);
+  border-radius: 999px;
+}
+
+.bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--raspberry), var(--coral), var(--gold));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.bar-ref {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+}
+
+.bar-value {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-chart.dau .bar-fill {
+  background: linear-gradient(90deg, var(--teal), #69c3b9);
+}
+
+/* =========================================================
+   Laboratori de probabilitat
+   ========================================================= */
+
+.lab {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  align-items: start;
+}
+
+.lab-panel {
+  padding: 22px 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(205, 239, 255, 0.26)),
+    #fff;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--coral), var(--gold), var(--teal)) 1;
+  box-shadow: var(--shadow);
+}
+
+.lab-panel h3 {
+  margin-bottom: 10px;
+}
+
+.lab-panel > p {
+  margin-top: 0;
+}
+
+.lab-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.lab-controls button {
+  min-height: 42px;
+  padding: 0 16px;
+  color: var(--ink);
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lab-controls button.primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--raspberry), var(--coral));
+  border: 0;
+  box-shadow: 0 10px 20px rgba(240, 93, 63, 0.2);
+}
+
+.lab-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+@media (max-width: 480px) {
+  .lab-stats {
+    gap: 6px;
+  }
+
+  .lab-stats div {
+    padding: 8px;
+  }
+
+  .lab-stats dd {
+    font-size: 1.1rem;
+  }
+}
+
+.lab-stats div {
+  padding: 10px 12px;
+  background: rgba(255, 202, 87, 0.2);
+  border-radius: 14px;
+}
+
+.lab-stats dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.lab-stats dd {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-last {
+  min-height: 1.6em;
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.counter {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.counter span {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.counter output {
+  min-width: 34px;
+  text-align: center;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter button {
+  width: 32px;
+  height: 32px;
+  font-weight: 800;
+  background: rgba(255, 202, 87, 0.4);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* =========================================================
+   Curiositats: veritat o mentida
+   ========================================================= */
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.flip-card {
+  display: grid;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  perspective: 1200px;
+}
+
+.flip-inner {
+  display: grid;
+  transition: transform 0.55s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 200px;
+  padding: 20px 20px 18px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow);
+}
+
+.flip-front {
+  background:
+    linear-gradient(135deg, rgba(255, 202, 87, 0.36), rgba(240, 93, 63, 0.12)),
+    #fff;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background:
+    linear-gradient(135deg, rgba(15, 139, 141, 0.14), rgba(205, 239, 255, 0.7)),
+    #fff;
+}
+
+.flip-face p {
+  margin: 0;
+}
+
+.flip-statement {
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.flip-hint {
+  align-self: end;
+  color: var(--teal);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.verdict {
+  justify-self: start;
+  padding: 5px 12px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.verdict.true {
+  background: var(--teal);
+}
+
+.verdict.false {
+  background: var(--raspberry);
+}
+
+.flip-back p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transform: none !important;
+  }
+
+  .flip-card .flip-back {
+    visibility: hidden;
+    transform: none;
+  }
+
+  .flip-card.is-flipped .flip-back {
+    visibility: visible;
+  }
+
+  .flip-card.is-flipped .flip-front {
+    visibility: hidden;
+  }
+}
+
+.fact-source {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.5;
+  border-top: 1px solid var(--line);
+}
+
+.fact-card p.fact-source:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   Galeria i Pel món
+   ========================================================= */
+
+.gallery-heading {
+  margin: 0 0 18px;
+}
+
+.gallery-item span small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.world-card {
+  margin: 0;
+  padding: 0 0 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+}
+
+.world-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f3efe6;
+}
+
+.world-card > div {
+  padding: 14px 18px 0;
+}
+
+.world-card h3 {
+  margin-bottom: 6px;
+}
+
+.world-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.world-card .source-note {
+  margin-top: 8px;
+}
+
+/* =========================================================
+   Responsiu dels components nous
+   ========================================================= */
+
+@media (max-width: 1040px) {
+  .taba-explorer,
+  .map-layout,
+  .lab {
+    grid-template-columns: 1fr;
+  }
+
+  .role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .face-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hook-strip {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .hook-strip .button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .face-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .face-tab img {
+    height: 92px;
+  }
+
+  .face-facts div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .face-panel,
+  .lab-panel {
+    padding: 18px;
+  }
+
+  .role-grid {
+    gap: 12px;
+  }
+
+  .role-card {
+    padding: 14px 10px;
+  }
+
+  .role-card img {
+    height: 80px;
+  }
+
+  .bar-chart li {
+    grid-template-columns: 76px minmax(0, 1fr) 54px;
+    gap: 8px;
+  }
+
+  .counter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hook-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+[id] {
+  scroll-margin-top: 96px;
+}

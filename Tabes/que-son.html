@@ -3,33 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Què són les tabes: anatomia, noms de les cares i valor cultural.">
+  <meta name="description" content="Què són les tabes: l'astràgal d'ovella i de cabra, les quatre cares, l'anatomia, els noms a cada territori i la història del joc.">
   <title>Què són | Les tabes</title>
   <link rel="icon" type="image/png" href="assets/favicon-principal.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="que-son">
   <header class="site-header">
     <div class="shell nav-shell">
-      <a class="brand" href="index.html">
-        <img class="brand-icon" src="assets/favicon-principal.png" alt="Icona de les tabes">
-        <span class="brand-copy">
-          <strong>Les tabes</strong>
-          <small>Joc, patrimoni i procés</small>
-        </span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Obrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="index.html"><img class="brand-icon" src="assets/favicon-principal.png" alt="Icona de les tabes"><span class="brand-copy"><strong>Les tabes</strong><small>Joc, patrimoni i procés</small></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Obrir menú"><span></span><span></span><span></span></button>
       <nav class="site-nav" id="site-nav" aria-label="Navegació principal">
         <a href="index.html" data-page-link="inici">Inici</a>
         <a href="que-son.html" data-page-link="que-son">Què són</a>
         <a href="obtencio.html" data-page-link="obtencio">Obtenció</a>
         <a href="preparacio.html" data-page-link="preparacio">Preparació</a>
         <a href="jocs.html" data-page-link="jocs">Jocs</a>
+        <a href="mon.html" data-page-link="mon">Pel món</a>
         <a href="educacio.html" data-page-link="educacio">Educació</a>
         <a href="curiositats.html" data-page-link="curiositats">Curiositats</a>
         <a href="galeria.html" data-page-link="galeria">Galeria</a>
@@ -43,149 +37,266 @@
       <div>
         <p class="kicker">Peça, anatomia i història</p>
         <h1>Què són</h1>
-        <p class="page-lead">La taba és l’<strong>astràgal</strong>, un osset del turmell que cau sobre quatre cares útils i que pot funcionar com a peça d’habilitat, <strong>dau irregular</strong> o objecte simbòlic.</p>
+        <p class="page-lead">La taba és l’<strong>astràgal</strong> de l’ovella o de la cabra (també del xai o del cabrit): un osset del garró que, quan cau, queda aturat sobre una de les seves <strong>quatre cares</strong>. Per això pot fer de peça d’habilitat, de <strong>dau irregular</strong> o d’objecte simbòlic.</p>
       </div>
     </section>
 
-    <section class="content-section shell two-column">
-      <div>
-        <div class="section-head">
-          <p class="kicker">L’objecte</p>
-          <h2>Una peça petita amb molta informació</h2>
+    <!-- ===== Fitxa interactiva ===== -->
+    <section class="content-section shell" id="cares">
+      <div class="section-head">
+        <p class="kicker">L’objecte</p>
+        <h2>Les quatre cares de la taba</h2>
+      </div>
+      <p class="page-lead" style="margin-top:0">Una taba té sis costats, però només en <strong>quatre</strong> s’hi pot aturar quan cau: dues cares amples (la panxa i el forat) i dues cares estretes (el rei i el botxí). Tria una cara per veure com és, com es diu i quin paper té en cada joc.</p>
+
+      <div class="taba-explorer" data-face-explorer style="margin-top:26px">
+        <div class="face-tabs" role="tablist" aria-label="Cares de la taba">
+          <button class="face-tab" type="button" role="tab" id="tab-panxa" aria-controls="panel-panxa" aria-selected="true">
+            <img src="assets/images/cara-panxa.webp" alt="" width="260" height="300">Panxa<small>cara ampla convexa</small>
+          </button>
+          <button class="face-tab" type="button" role="tab" id="tab-forat" aria-controls="panel-forat" aria-selected="false" tabindex="-1">
+            <img src="assets/images/cara-forat.webp" alt="" width="260" height="314">Forat<small>cara ampla còncava</small>
+          </button>
+          <button class="face-tab" type="button" role="tab" id="tab-rei" aria-controls="panel-rei" aria-selected="false" tabindex="-1">
+            <img src="assets/images/cara-rei.webp" alt="" width="264" height="323">Rei<small>cara estreta plana</small>
+          </button>
+          <button class="face-tab" type="button" role="tab" id="tab-botxi" aria-controls="panel-botxi" aria-selected="false" tabindex="-1">
+            <img src="assets/images/cara-botxi.webp" alt="" width="250" height="323">Botxí<small>cara estreta irregular</small>
+          </button>
         </div>
-        <p>La seva forma no és regular. Precisament per això és tan interessant: genera posicions de caiguda estables, fàcilment identificables i carregades de noms i usos tradicionals.</p>
-        <ul class="text-list large">
-          <li><strong>Panxa:</strong> la cara més convexa.</li>
-          <li><strong>Clotet:</strong> la cara enfonsada, també anomenada forat de l’aigüera.</li>
-          <li><strong>Rei:</strong> una de les cares planes i més estables.</li>
-          <li><strong>Botxí:</strong> la cara irregular, clau en moltes variants de joc.</li>
-          <li><strong>Altres noms:</strong> en alguns indrets també apareixen formes com <em>palomera</em>, <em>corretja</em> o <em>esquena</em>.</li>
-        </ul>
+
+        <div>
+          <article class="face-panel" role="tabpanel" id="panel-panxa" aria-labelledby="tab-panxa">
+            <h3>Panxa</h3>
+            <p class="face-shape">Cara ampla i convexa: la que sobresurt, com una panxa plena.</p>
+            <dl class="face-facts">
+              <div><dt>Altres noms</dt><dd>panxeta, carn, panxa plena, panxa de bisbe</dd></div>
+              <div><dt>Rei i botxí</dt><dd><strong>Lliure:</strong> qui la treu se salva de la prova.</dd></div>
+              <div><dt>Probabilitat aproximada</dt><dd class="prob-meter"><i style="width:40%"></i> 35-40 %</dd></div>
+              <div><dt>Punts a Roma</dt><dd>4</dd></div>
+              <div><dt>Al <em>shagai</em> mongol</dt><dd>Ovella (favorable)</dd></div>
+            </dl>
+          </article>
+          <article class="face-panel" role="tabpanel" id="panel-forat" aria-labelledby="tab-forat" hidden>
+            <h3>Forat de l’aigüera</h3>
+            <p class="face-shape">Cara ampla i còncava: la que fa un clot, oposada a la panxa.</p>
+            <dl class="face-facts">
+              <div><dt>Altres noms</dt><dd>clotet, panxa buida, olla, infern, ull, cul</dd></div>
+              <div><dt>Rei i botxí</dt><dd><strong>Culpable:</strong> qui la treu ha de complir la prova.</dd></div>
+              <div><dt>Probabilitat aproximada</dt><dd class="prob-meter"><i style="width:38%"></i> 35-40 %</dd></div>
+              <div><dt>Punts a Roma</dt><dd>3</dd></div>
+              <div><dt>Al <em>shagai</em> mongol</dt><dd>Camell (desfavorable)</dd></div>
+            </dl>
+          </article>
+          <article class="face-panel" role="tabpanel" id="panel-rei" aria-labelledby="tab-rei" hidden>
+            <h3>Rei</h3>
+            <p class="face-shape">Cara lateral estreta i plana. Surt poques vegades.</p>
+            <dl class="face-facts">
+              <div><dt>Altres noms</dt><dd>reiet</dd></div>
+              <div><dt>Rei i botxí</dt><dd><strong>Rei:</strong> decideix quina prova o penyora cal fer.</dd></div>
+              <div><dt>Probabilitat aproximada</dt><dd class="prob-meter"><i style="width:12%"></i> 10-15 %</dd></div>
+              <div><dt>Punts a Roma</dt><dd>1 (quatre uns eren el <em>Canis</em>, la pitjor tirada)</dd></div>
+              <div><dt>Al <em>shagai</em> mongol</dt><dd>Cavall (la més afortunada)</dd></div>
+            </dl>
+          </article>
+          <article class="face-panel" role="tabpanel" id="panel-botxi" aria-labelledby="tab-botxi" hidden>
+            <h3>Botxí</h3>
+            <p class="face-shape">Cara lateral estreta, sinuosa i irregular, amb forma de S o de bec.</p>
+            <dl class="face-facts">
+              <div><dt>Altres noms</dt><dd>palomera, corretja, esquena</dd></div>
+              <div><dt>Rei i botxí</dt><dd><strong>Botxí:</strong> fa complir la prova que mana el rei.</dd></div>
+              <div><dt>Probabilitat aproximada</dt><dd class="prob-meter"><i style="width:12%"></i> 10-15 %</dd></div>
+              <div><dt>Punts a Roma</dt><dd>6</dd></div>
+              <div><dt>Al <em>shagai</em> mongol</dt><dd>Cabra (desfavorable)</dd></div>
+            </dl>
+          </article>
+          <p class="source-note">Fotografies d’astràgals d’ovella o de cabra. Els noms i els rols canvien d’un poble a un altre; aquí hi ha els més documentats. Antigament, alguns diccionaris situaven el <em>rei</em> a la cara còncava, però la tradició oral el situa a la cara plana. Les probabilitats són orientatives: cada taba és diferent.</p>
+        </div>
       </div>
-      <figure class="bleed-image">
-        <img src="assets/images/cares-tabes-noms-valors.jpg" alt="Les quatre cares de la taba amb els seus noms i valors" loading="lazy">
-        <figcaption>Les quatre cares tradicionals expliquen bona part del joc, del vocabulari i fins i tot del valor que se’ls atribueix en algunes variants.</figcaption>
-      </figure>
+
+      <details class="more">
+        <summary>Veure totes les cares en una taula</summary>
+        <div class="table-wrap">
+          <table class="data-table stack">
+            <caption>Resum de les quatre cares d’una taba d’ovella o de cabra</caption>
+            <thead>
+              <tr><th scope="col">Cara</th><th scope="col">Forma</th><th scope="col">Altres noms</th><th scope="col">Rei i botxí</th><th scope="col">Probabilitat</th><th scope="col">Roma</th><th scope="col">Shagai</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Panxa</th><td data-label="Forma">ampla, convexa</td><td data-label="Altres noms">panxeta, carn, panxa de bisbe</td><td data-label="Rei i botxí">lliure</td><td data-label="Probabilitat">35-40 %</td><td data-label="Roma">4 punts</td><td data-label="Shagai">ovella</td></tr>
+              <tr><th scope="row">Forat</th><td data-label="Forma">ampla, còncava</td><td data-label="Altres noms">clotet, panxa buida, olla, cul</td><td data-label="Rei i botxí">culpable</td><td data-label="Probabilitat">35-40 %</td><td data-label="Roma">3 punts</td><td data-label="Shagai">camell</td></tr>
+              <tr><th scope="row">Rei</th><td data-label="Forma">estreta, plana</td><td data-label="Altres noms">reiet</td><td data-label="Rei i botxí">rei</td><td data-label="Probabilitat">10-15 %</td><td data-label="Roma">1 punt</td><td data-label="Shagai">cavall</td></tr>
+              <tr><th scope="row">Botxí</th><td data-label="Forma">estreta, irregular</td><td data-label="Altres noms">palomera, corretja, esquena</td><td data-label="Rei i botxí">botxí</td><td data-label="Probabilitat">10-15 %</td><td data-label="Roma">6 punts</td><td data-label="Shagai">cabra</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
     </section>
 
-    <section class="content-section shell two-column">
-      <figure class="bleed-image">
-        <img src="assets/images/astragal-anatomia-turmell-xai.jpg" alt="Conjunt ossi del turmell d'un animal amb la zona de l'astràgal" loading="lazy">
-        <figcaption>L’astràgal es troba al tars, és a dir, a la zona del turmell de la pota posterior.</figcaption>
-      </figure>
+    <!-- ===== Anatomia ===== -->
+    <section class="content-section shell two-column" id="anatomia">
       <div>
         <div class="section-head">
           <p class="kicker">Anatomia</p>
           <h2>On és l’astràgal i per a què serveix</h2>
         </div>
-        <p>L’astràgal del xai és un os del <strong>tars</strong>, situat a l’articulació del turmell de la pota posterior. En anatomia comparada també rep el nom de <strong>talus</strong>. És una peça curta, robusta i amb superfícies articulars molt marcades.</p>
-        <p>La seva funció principal és fer d’<strong>intermediari mecànic</strong> entre la cama i el peu: ajuda a transmetre el pes corporal cap a la part distal de l’extremitat i participa en l’estabilitat i la mobilitat de l’articulació.</p>
+        <p>L’astràgal (en anatomia, <strong>talus</strong>) és un os del <strong>tars</strong>. A l’ovella i a la cabra és al <strong>garró</strong> de la pota del darrere: l’articulació que fa angle cap enrere, entre la tíbia i la canya. Les potes del davant no en tenen. Per tant, <strong>cada animal té només dues tabes</strong>.</p>
+        <p>Fa de frontissa entre la cama i el peu. Transmet el pes del cos cap a la peülla i deixa que l’articulació es pugui doblegar. Per això té unes superfícies tan marcades i una forma tan irregular, que és justament el que el converteix en un <strong>dau natural</strong>.</p>
         <ul class="text-list large">
-          <li><strong>Ubicació:</strong> tars o turmell de la pota posterior.</li>
-          <li><strong>Funció:</strong> transferència de pes i estabilitat articular.</li>
-          <li><strong>Característica clau:</strong> té superfícies que afavoreixen posicions de caiguda estables.</li>
-          <li><strong>Interès cultural:</strong> la seva forma irregular és el que el converteix en un dau natural.</li>
+          <li><strong>Mida:</strong> uns 2-3 cm en l’ovella i la cabra; de 4 a 6 cm en el bou.</li>
+          <li><strong>Funció:</strong> transmetre el pes i donar estabilitat i moviment al garró.</li>
+          <li><strong>Per què cau en quatre posicions:</strong> té dues cares amples i estables i dues d’estretes, on costa més que s’aturi.</li>
+          <li><strong>I nosaltres?</strong> També tenim astràgal: és l’os que uneix la cama amb el peu, damunt del taló.</li>
         </ul>
       </div>
+      <figure class="svg-figure">
+        <img src="assets/images/esquema-astragal-ovella-huma.svg" alt="Esquema comparatiu de la pota del darrere d'una ovella i del peu humà, amb l'astràgal destacat en vermell en tots dos" width="920" height="560" loading="lazy">
+        <figcaption>El garró de l’ovella correspon al nostre turmell. L’ovella camina de puntetes, i per això aquesta articulació li queda enlaire.</figcaption>
+      </figure>
     </section>
 
-    <section class="content-section shell accent-band accent-band-padded">
-      <div class="accent-media-layout">
+    <!-- ===== Lèxic i mapa ===== -->
+    <section class="content-section shell accent-band accent-band-padded" id="noms">
+      <div class="section-head">
+        <p class="kicker">Lèxic</p>
+        <h2>Un univers de noms</h2>
+      </div>
+      <p style="max-width:70ch">El mateix os i el mateix joc reben noms diferents segons el territori. Aquesta varietat demostra com n’és d’antic i d’arrelat el joc. Fes clic als punts del mapa o llegeix la llista.</p>
+      <div class="map-layout" style="margin-top:20px">
         <div>
-          <div class="section-head">
-            <p class="kicker">Lèxic</p>
-            <h2>Un univers de noms</h2>
-          </div>
-          <div class="columns-text">
-            <p>A Catalunya hi conviuen noms com <strong>tabes</strong>, <strong>ossets</strong>, <strong>marraquinca</strong>, <strong>totos</strong> o <strong>carn i os</strong>. També hi ha formes més locals com <strong>pidos</strong>, <strong>marranxa</strong> o <strong>os del botxí</strong>. La riquesa terminològica és una prova clara de l’arrelament cultural del joc.</p>
-            <p>Aquesta diversitat no és decorativa: ajuda a explicar variacions geogràfiques, formes locals de jugar i maneres d’entendre la peça. També revela fins a quin punt l’astràgal es converteix en llenguatge: cada cara, cada regla i cada comarca hi projecten un petit món propi.</p>
-          </div>
+          <div class="map-box" id="mapa-dialectal" data-map="dialectal" role="region" aria-label="Mapa dels noms del joc als territoris de parla catalana"></div>
+          <p class="source-note">Mapa orientatiu, no exhaustiu, fet amb les fonts consultades. Base cartogràfica: © OpenStreetMap.</p>
         </div>
-        <figure class="bleed-image">
-          <img src="assets/images/tabes-reals-fons-negre.jpg" alt="Conjunt real de tabes sobre fons fosc" loading="lazy">
-          <figcaption>Un conjunt ben llegible ajuda a associar forma, nom i ús de cada cara dins del vocabulari tradicional.</figcaption>
-        </figure>
+        <ul class="map-list">
+          <li><strong>Tabes</strong> · Catalunya Central, Barcelonès i comarques gironines. És el nom més general.</li>
+          <li><strong>Ossets</strong> · Illes Balears, País Valencià i algunes zones de l’Ebre.</li>
+          <li><strong>Marraquinca</strong> · Illes Balears, sobretot Menorca, on és un joc d’aposta.</li>
+          <li><strong>Marranxa, marranxes</strong> · algunes zones del País Valencià i el Priorat.</li>
+          <li><strong>Totos, tòtols</strong> · Catalunya del Nord (Rosselló).</li>
+          <li><strong>Pidos</strong> · Ascó (Ribera d’Ebre), on es diu «agafar el pido».</li>
+          <li><strong>Todo</strong> · Priorat.</li>
+          <li><strong>Carn i os</strong> · Olot i Manresa.</li>
+          <li><strong>Joc del botxí, os del botxí</strong> · arreu, pel nom de la variant de rols.</li>
+        </ul>
+      </div>
+
+      <div class="callout" style="margin-top:28px">
+        <h3>El lèxic propi de Menorca</h3>
+        <p>A Ciutadella, la <em>marraquinca</em> té uns noms de cares molt seus: <strong>s’ull</strong>, <strong>es sa-mitat</strong>, <strong>es cul</strong> (la cara perdedora: qui la treu perd l’aposta) i <strong>es nèpel</strong> o <strong>es tot</strong> (la guanyadora: qui la treu s’ho emporta tot). També hi ha noms més rars i locals, com <em>cingueta</em>, <em>marro</em> o <em>tutauta</em>.</p>
       </div>
     </section>
 
+    <!-- ===== Història ===== -->
     <section class="content-section shell two-column">
       <div>
         <div class="section-head">
           <p class="kicker">Història</p>
           <h2>Dels <em>astragaloi</em> a les tabes</h2>
         </div>
-        <p>El joc és antiquíssim. S’han trobat astràgals en contextos del <strong>Neolític</strong> i en jaciments de l’antic Pròxim Orient, sovint en espais domèstics, funeraris o rituals. Això indica que no eren només peces de joc: també podien actuar com a amulets o com a objectes de pràctica endevinatòria.</p>
-        <p>A la <strong>Grècia clàssica</strong>, aquests ossos eren coneguts com a <strong><em>astragaloi</em></strong> (<strong>ἀστράγαλοι</strong>). El terme és important perquè en alguns llocs el joc encara es presenta amb aquest nom o amb formes derivades. Els <em>astragaloi</em> servien tant per al joc d’habilitat com per a l’atzar i fins i tot per a l’<strong>astragalomància</strong>, és a dir, la interpretació simbòlica de les tirades.</p>
-        <p>Els romans van continuar aquesta tradició sota el nom de <strong>tali</strong> i van desenvolupar també sistemes de puntuació i combinacions de tirada. A partir d’aquí, la història no es talla: canvien els contextos, els materials i els noms, però el joc continua viu durant segles.</p>
+        <p>És un dels jocs més antics de la humanitat. Al Neolític ja hi havia astràgals separats de les restes de menjar i guardats en cases, tombes i santuaris. Feien de peça de joc, d’amulet i d’eina per endevinar el futur.</p>
+        <p>A la <strong>Grècia clàssica</strong> es deien <strong><em>astragaloi</em></strong> (ἀστράγαλοι) i es duien en bossetes de cuir o de tela. Els grecs n’explicaven l’origen amb llegendes: Sòfocles l’atribuïa a l’heroi <strong>Palamedes</strong>, que l’hauria ensenyat als soldats durant el setge de Troia, i Heròdot, als lidis. L’escultor <strong>Policlet</strong> va fer una obra de bronze famosa, els <em>Astragalizontes</em> («els jugadors de tabes»).</p>
+        <p>Els romans en deien <strong><em>tali</em></strong> i n’hi feien còpies de bronze, de vidre, d’ivori o de pedra. Hi van crear un sistema de puntuació per combinacions, amb tirades famoses com el <strong>Cop de Venus</strong> i el <strong><em>Canis</em></strong>. La funció de joc, la d’atzar i la d’endevinació no es van anar substituint l’una a l’altra: van conviure durant segles.</p>
       </div>
       <figure class="bleed-image">
-        <img src="assets/images/astragals-romans-bronze.jpg" alt="Parell d'astrgals romans de bronze" loading="lazy">
-        <figcaption>Els astràgals antics no només es feien servir en os: també n’hi havia versions de bronze, vidre o pedra.</figcaption>
+        <img src="assets/images/jugadores-astragals-hercula.webp" alt="Pintura antiga sobre marbre amb dues dones jugant a astràgals en primer terme i tres dones més al darrere" width="1300" height="1380" loading="lazy">
+        <figcaption><em>Les jugadores d’astràgals</em>, pintura sobre marbre trobada a Herculà (s. I). Museu Arqueològic Nacional de Nàpols. Les dues noies de baix juguen amb tabes.</figcaption>
       </figure>
     </section>
 
-    <section class="content-section shell history-timeline-layout">
+    <section class="content-section shell history-timeline-layout" id="cronologia">
       <div>
         <div class="section-head">
-          <p class="kicker">Línia temporal</p>
-          <h2>Un joc que travessa èpoques i territoris</h2>
+          <p class="kicker">Línia del temps</p>
+          <h2>Més de sis mil anys de tabes</h2>
         </div>
         <div class="timeline-list">
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
-              <p class="timeline-era">Neolític i antiguitat primerenca</p>
-              <h3>Abans dels textos, ja hi havia astràgals</h3>
-              <p>Les troballes arqueològiques mostren que els astràgals circulaven molt abans del món clàssic. Apareixen en tombes, espais domèstics i contextos rituals, cosa que suggereix usos combinats: joc, amulet i pràctica simbòlica. En alguns conjunts antics fins i tot s’han trobat peces polides, perforades o enriquides.</p>
+              <p class="timeline-era">V mil·lenni aC</p>
+              <h3>Neolític: amulets i ofrenes</h3>
+              <p>A la necròpolis de Varna (Bulgària) apareixen astràgals polits i fins i tot daurats. També n’hi ha de raspats, perforats o farcits de plom en cases i temples de Mesopotàmia.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
-              <p class="timeline-era">Grècia i Roma</p>
-              <h3><em>Astragaloi</em>, daus irregulars i joc d’habilitat</h3>
-              <p>En el món grec el nom <strong><em>astragaloi</em></strong> (<strong>ἀστράγαλοι</strong>) designava tant l’os com diverses maneres de jugar-hi. A Roma la pràctica continua amb força sota el nom de <strong>tali</strong>: es llencen les peces, se n’interpreten les cares i es consolida una cultura lúdica molt estesa entre infants i adults.</p>
+              <p class="timeline-era">s. XIV aC</p>
+              <h3>Egipte: a l’aixovar d’un faraó</h3>
+              <p>A les tombes egípcies apareixen astràgals, i les fonts consultades els esmenten entre els objectes de la tomba de Tutankamon.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
-              <p class="timeline-era">Edat mitjana</p>
-              <h3>Continuïtat medieval entre carrer, aposta i destresa</h3>
-              <p>Després de Roma, el joc no desapareix. La documentació arqueològica medieval conserva falanges i peces modificades dels segles <strong>XIII al XV</strong>, i diverses representacions tardo-medievals i d’inici del segle XVI mostren jocs de llançament, alineació i abatiment amb ossos petits. Això indica continuïtat d’ús, encara que sovint amb tensions morals quan el joc es vinculava a l’aposta.</p>
+              <p class="timeline-era">s. VIII-IV aC</p>
+              <h3>Grècia: <em>astragaloi</em></h3>
+              <p>L’<em>Ilíada</em> ja en parla. Es juga a l’habilitat i a l’atzar, s’endevina el futur i se n’ofereixen milers als santuaris, com a la cova Corícia, al mont Parnàs.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
-              <p class="timeline-era">Con Sud</p>
-              <h3>Herència criolla i especialització rural</h3>
-              <p>Al <strong>Con Sud</strong>, la taba esdevé un joc propi del món crioll i rural, hereu de pràctiques arribades amb la colonització hispànica i reinterpretades localment. Aquí hi domina la <strong>taba gran</strong>, sovint bovina, reforçada amb metall i llançada sobre terra o fang, amb una dimensió competitiva i d’aposta molt marcada.</p>
+              <p class="timeline-era">s. I aC - s. I dC</p>
+              <h3>Roma: <em>tali</em> i apostes</h3>
+              <p>L’emperador August hi juga i hi aposta. Hi ha un sistema de punts (1, 3, 4 i 6) i tirades amb nom propi. A la llarga, els adults s’estimaran més els daus cúbics i les tabes quedaran sobretot per als infants.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
-              <p class="timeline-era">Actualitat</p>
-              <h3>Catalunya com a espai de memòria, aula i transmissió</h3>
-              <p>Avui Catalunya hi té un paper destacat. El joc es conserva en el vocabulari popular, en museus locals, en propostes escolars de recuperació del joc tradicional i en projectes com aquest, que combinen patrimoni, recerca i pràctica real. La col·laboració amb <strong>Tall a Tall</strong> reforça, a més, el vincle entre saber local i material autèntic.</p>
+              <p class="timeline-era">s. XIII-XV</p>
+              <h3>Edat mitjana: del temple al carrer</h3>
+              <p>El sentit religiós es perd i el joc continua a les tavernes i als carrers. L’arqueologia medieval hi ha trobat ossos petits modificats per jugar, i el joc es veu malament quan s’hi aposta.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline-era">1560 · c. 1734</p>
+              <h3>A les pintures d’Europa</h3>
+              <p>Pieter Bruegel el Vell pinta dues noies jugant a tabes a <em>Jocs d’infants</em>. Gairebé dos segles després, Jean-Baptiste-Siméon Chardin retrata una noia que llança una taba enlaire.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline-era">s. XIX</p>
+              <h3>La taba criolla</h3>
+              <p>Al Con Sud americà el joc es fa amb l’astràgal del bou i es converteix en una aposta d’adults. Juan Manuel Blanes en pinta una partida a <em>La taba</em>. Ho trobaràs a <a class="text-link" href="mon.html#con-sud">Pel món</a>.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline-era">Anys noranta</p>
+              <h3>Dels ossos als Gogos</h3>
+              <p>Els Gogos de plàstic, que es van fer molt populars a Catalunya, són una versió comercial d’una de les joguines més antigues del món.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline-era">2014 · avui</p>
+              <h3>Patrimoni viu</h3>
+              <p>La UNESCO declara patrimoni immaterial el tir d’astràgals de Mongòlia. A Catalunya, el joc es manté en el vocabulari popular, en museus locals i en escoles que recuperen els jocs tradicionals.</p>
             </div>
           </article>
         </div>
       </div>
       <div class="history-visuals">
         <figure class="stack-image">
-          <img src="assets/images/bruegel-jocs-d-infants-tabes.jpg" alt="Detall de l'obra Jocs d'infants de Pieter Bruegel amb infants jugant a tabes" loading="lazy">
-          <figcaption>El detall de Bruegel mostra la pervivència del joc a la fi de l’edat mitjana i a l’inici de l’època moderna europea.</figcaption>
+          <img src="assets/images/bruegel-jocs-d-infants-tabes.webp" alt="Detall de Jocs d'infants de Pieter Bruegel el Vell: dues noies ajupides juguen a tabes a terra" width="1044" height="868" loading="lazy">
+          <figcaption>Detall de <em>Jocs d’infants</em>, de Pieter Bruegel el Vell (1560). Kunsthistorisches Museum de Viena.</figcaption>
         </figure>
         <div class="history-mini-grid">
           <figure class="mini-history-card">
-            <img src="assets/images/astragal-prehistoric.jpg" alt="Astràgal prehistòric conservat" loading="lazy">
-            <figcaption>L’astràgal es documenta des de molt antic, molt abans del món clàssic.</figcaption>
+            <img src="assets/images/astragal-vidre-metropolitan.webp" alt="Astràgal antic de vidre de color verd blavós" width="1100" height="1029" loading="lazy">
+            <figcaption>Taba de vidre del món antic. Metropolitan Museum of Art.</figcaption>
           </figure>
           <figure class="mini-history-card">
-            <img src="assets/images/tabes-reals-sobre-pedra.jpg" alt="Conjunt real de tabes sobre el terra" loading="lazy">
-            <figcaption>El joc continua sent perfectament llegible avui quan es treballa amb peces reals i manipulables.</figcaption>
+            <img src="assets/images/astragals-romans-bronze.webp" alt="Dos astràgals antics de bronze" width="1000" height="657" loading="lazy">
+            <figcaption>Còpies de bronze d’astràgals, de l’antiguitat.</figcaption>
           </figure>
         </div>
       </div>
@@ -203,7 +314,7 @@
       </div>
     </div>
   </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-

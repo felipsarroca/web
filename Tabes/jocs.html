@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Variants del joc de les tabes: habilitat, rei i botxí, i atzar.">
+  <meta name="description" content="Com es juga a tabes: el joc d'habilitat nivell a nivell, el rei i botxí i el joc d'atzar amb les seves probabilitats.">
   <title>Jocs | Les tabes</title>
   <link rel="icon" type="image/png" href="assets/favicon-principal.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="jocs">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="taba" viewBox="0 0 24 16">
+        <path d="M2.5 4 Q2 0.6 6 1.2 Q12 3 18 1.2 Q22 0.6 21.5 4 Q20 8 21.5 12 Q22 15.4 18 14.8 Q12 13 6 14.8 Q2 15.4 2.5 12 Q4 8 2.5 4Z"/>
+      </symbol>
+      <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10z" fill="#0f8b8d"/>
+      </marker>
+      <marker id="arc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10z" fill="#f05d3f"/>
+      </marker>
+    </defs>
+  </svg>
+
   <header class="site-header">
     <div class="shell nav-shell">
       <a class="brand" href="index.html"><img class="brand-icon" src="assets/favicon-principal.png" alt="Icona de les tabes"><span class="brand-copy"><strong>Les tabes</strong><small>Joc, patrimoni i procés</small></span></a>
@@ -22,6 +36,7 @@
         <a href="obtencio.html" data-page-link="obtencio">Obtenció</a>
         <a href="preparacio.html" data-page-link="preparacio">Preparació</a>
         <a href="jocs.html" data-page-link="jocs">Jocs</a>
+        <a href="mon.html" data-page-link="mon">Pel món</a>
         <a href="educacio.html" data-page-link="educacio">Educació</a>
         <a href="curiositats.html" data-page-link="curiositats">Curiositats</a>
         <a href="galeria.html" data-page-link="galeria">Galeria</a>
@@ -35,129 +50,296 @@
       <div>
         <p class="kicker">Regles, variants i destresa</p>
         <h1>Jocs</h1>
-        <p class="page-lead">Les tabes no defineixen un únic joc. Són una base material comuna per a pràctiques d’habilitat, jerarquia simbòlica, atzar i variacions locals molt riques.</p>
+        <p class="page-lead">Les tabes no són un sol joc, sinó una família de jocs amb el mateix objecte. A Catalunya n’hi ha hagut tres de grans: el d’<strong>habilitat</strong>, el de <strong>rols</strong> (rei i botxí) i el d’<strong>atzar</strong>.</p>
       </div>
     </section>
 
     <section class="content-section shell modes-grid">
       <article class="mode-block">
         <p class="kicker">Destresa</p>
-        <h2>Cinc tabes</h2>
-        <p>És la variant més coneguda d’habilitat. Es juga amb quatre tabes a terra i una mare que es llança enlaire mentre es fan accions successives.</p>
-        <ul class="text-list">
-          <li><strong>Primeres:</strong> recollir d’una en una</li>
-          <li><strong>Segones:</strong> recollir de dues en dues</li>
-          <li><strong>Terceres:</strong> una i després dues, o una figura equivalent</li>
-          <li><strong>Quarta:</strong> recollir-les totes de cop</li>
-        </ul>
-      </article>
-      <article class="mode-block">
-        <p class="kicker">Figures</p>
-        <h2>Pont, volta, cistella i dors</h2>
-        <p>Quan la seqüència bàsica ja es domina, entren les figures especials. Són les que donen més ritme i espectacularitat al joc.</p>
-        <ul class="text-list">
-          <li><strong>El pont:</strong> fer passar les tabes per sota dels dits</li>
-          <li><strong>La volta:</strong> girar-les o canviar-ne la posició</li>
-          <li><strong>La cistella:</strong> agrupar-les dins la mà amb precisió</li>
-          <li><strong>El dors:</strong> capturar-les i sostenir-les al revers de la mà</li>
-          <li><strong>Parar taula:</strong> ordenar-les o col·locar-les amb una disposició concreta mentre la mare és a l’aire</li>
-        </ul>
+        <h2>Les cinc tabes</h2>
+        <p>Quatre tabes a terra i una mare que es llança enlaire. Cal recollir les de terra i atrapar la mare abans que caigui, nivell rere nivell. <a class="text-link" href="#habilitat">Veure els nivells</a></p>
       </article>
       <article class="mode-block">
         <p class="kicker">Rols</p>
         <h2>Rei i botxí</h2>
-        <p>Amb una sola taba, cada cara defineix un paper dins la ronda. És un joc curt i molt lligat al llenguatge simbòlic de la peça.</p>
-        <ul class="text-list">
-          <li><strong>Rei:</strong> ordena el càstig o la prova</li>
-          <li><strong>Botxí:</strong> executa allò que s’ha decidit</li>
-          <li><strong>Culpable:</strong> rep la penalització</li>
-          <li><strong>Lliure:</strong> queda exempt</li>
-        </ul>
+        <p>Amb una sola taba. La cara que queda a dalt diu qui mana, qui executa, qui paga i qui se salva. <a class="text-link" href="#botxi">Veure els rols</a></p>
+      </article>
+      <article class="mode-block">
+        <p class="kicker">Atzar</p>
+        <h2>La taba com a dau</h2>
+        <p>Cada cara té un valor, però no totes surten igual de sovint. És la porta d’entrada a la probabilitat. <a class="text-link" href="#atzar">Veure les probabilitats</a></p>
       </article>
     </section>
 
-    <section class="content-section shell game-detail-grid">
-      <div>
-        <div class="section-head">
-          <p class="kicker">Com es juga</p>
-          <h2>Entendre bé cada variant</h2>
+    <!-- ===== Habilitat ===== -->
+    <section class="content-section shell" id="habilitat">
+      <div class="two-column">
+        <div>
+          <div class="section-head">
+            <p class="kicker">Com es juga</p>
+            <h2>El joc d’habilitat, nivell a nivell</h2>
+          </div>
+          <p>Es juga amb <strong>cinc tabes</strong> i amb <strong>una sola mà</strong>. Quatre tabes són naturals; la cinquena, la <strong>mare</strong> (també anomenada <em>el pare</em> o <em>el comodí</em>), va pintada. Més endavant, la mare es va substituir sovint per una pilota petita o per una pedreta.</p>
+          <ol class="steps-list">
+            <li>Es llancen les quatre tabes perquè quedin escampades per terra.</li>
+            <li>Es llança la mare enlaire.</li>
+            <li>Mentre és a l’aire, es fa l’acció del nivell i, amb la mateixa mà, s’atrapa la mare abans que toqui a terra.</li>
+            <li>Si la mare cau o es toca una taba que no tocava, es perd el torn. Quan torna a ser el teu torn, continues pel nivell on t’havies quedat.</li>
+          </ol>
+          <p class="source-note">En aquesta variant, tradicionalment, hi jugaven sobretot les noies, i per això en alguns llocs se’n diu <em>les noies</em>. Avui hi juga tothom.</p>
         </div>
-        <div class="game-steps">
-          <article>
-            <h3>1. Joc d’habilitat</h3>
-            <p>La mare puja, una mà treballa i la concentració ha de ser total. Si la mare cau abans d’hora o una taba es desplaça malament, el torn s’acaba.</p>
-          </article>
-          <article>
-            <h3>2. Joc del botxí</h3>
-            <p>La força no és l’essencial; el que compta és el paper que assigna la tirada. Tradicionalment sovint s’hi afegia una corretja o un cinturó petit, però avui és més pertinent reinterpretar-lo com a joc de rols i penalitzacions simbòliques.</p>
-          </article>
-          <article>
-            <h3>3. Joc d’atzar i puntuació</h3>
-            <p>La taba es pot fer servir com un dau natural. Les cares més improbables solen tenir més valor perquè surten menys.</p>
-          </article>
-          <article>
-            <h3>4. Marraquinca</h3>
-            <p>A Menorca i altres indrets apareixen variants pròpies, amb noms locals de les cares i una lògica més propera al guanyar-per-posició.</p>
-          </article>
-        </div>
-      </div>
-      <div class="game-image-stack">
         <figure class="bleed-image">
-          <img src="assets/images/il-lustracio-partida-tabes.jpg" alt="Il·lustració d'una partida de tabes en grup" loading="lazy">
-          <figcaption>La imatge de grup ajuda a entendre el joc com a pràctica compartida, observada i seqüenciada entre diversos participants.</figcaption>
+          <img src="assets/images/pintura-jugadora-tabes-chardin.webp" alt="Pintura de Chardin: una noia mira enlaire una taba que acaba de llançar mentre en té d'altres a la taula" width="1100" height="1326" loading="lazy">
+          <figcaption>La mare a l’aire i les tabes a la taula: Jean-Baptiste-Siméon Chardin, <em>Les osselets</em> (c. 1734). Baltimore Museum of Art.</figcaption>
         </figure>
-        <figure class="bleed-image">
-          <img src="assets/images/tabes-dors-ma.jpg" alt="Tabes sobre el dors d'una mà" loading="lazy">
-          <figcaption>Figura de dors: una de les proves més característiques del joc d’habilitat.</figcaption>
+      </div>
+
+      <div class="skill-grid" style="margin-top:30px">
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Quatre tabes a terra, se n'agafa una mentre la mare és a l'aire">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="120" y1="40" x2="120" y2="66" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <use href="#taba" x="22" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="78" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <use href="#taba" x="140" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <use href="#taba" x="194" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <path d="M36 96 Q40 70 70 64" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="120" y="92" text-anchor="middle" font-size="13" font-weight="800" fill="#182033">1 + 1 + 1 + 1</text>
+          </svg>
+          <p class="skill-level">Nivell 1</p>
+          <h3>Primeres</h3>
+          <p>Es recullen les tabes <strong>d’una en una</strong>. Calen quatre llançaments de la mare.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Dues parelles de tabes a terra, se n'agafa una parella">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="120" y1="40" x2="120" y2="66" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <use href="#taba" x="20" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="50" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="164" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <use href="#taba" x="194" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <path d="M49 96 Q52 70 82 64" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="120" y="92" text-anchor="middle" font-size="13" font-weight="800" fill="#182033">2 + 2</text>
+          </svg>
+          <p class="skill-level">Nivell 2</p>
+          <h3>Segones</h3>
+          <p>Es recullen <strong>de dues en dues</strong>. Si les tabes han quedat separades, abans cal ajuntar-les sense que caigui la mare.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Un grup de tres tabes i una de sola">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="120" y1="40" x2="120" y2="66" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <use href="#taba" x="14" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="42" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="70" y="100" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="194" y="100" width="28" height="19" fill="#f6ead0" stroke="#b79f73"/>
+            <path d="M56 96 Q60 70 88 64" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="150" y="92" text-anchor="middle" font-size="13" font-weight="800" fill="#182033">3 + 1</text>
+          </svg>
+          <p class="skill-level">Nivell 3</p>
+          <h3>Terceres</h3>
+          <p>Primer s’agafa un grup de <strong>tres</strong> tabes i després la que queda.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Quatre tabes juntes que s'agafen de cop">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="120" y1="40" x2="120" y2="66" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <use href="#taba" x="150" y="96" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="178" y="96" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="160" y="80" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <use href="#taba" x="188" y="80" width="28" height="19" fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5"/>
+            <path d="M176 76 Q170 56 144 52" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="60" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="#182033">4 de cop</text>
+          </svg>
+          <p class="skill-level">Nivell 4</p>
+          <h3>Quartes</h3>
+          <p>Es recullen <strong>totes quatre d’un sol cop</strong>.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Quatre tabes, cadascuna amb una fletxa circular per girar-la">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="120" y1="40" x2="120" y2="62" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <g fill="#f6ead0" stroke="#b79f73">
+              <use href="#taba" x="22" y="100" width="28" height="19"/>
+              <use href="#taba" x="78" y="100" width="28" height="19"/>
+              <use href="#taba" x="140" y="100" width="28" height="19"/>
+              <use href="#taba" x="194" y="100" width="28" height="19"/>
+            </g>
+            <g fill="none" stroke="#0f8b8d" stroke-width="2">
+              <path d="M28 92 A10 8 0 1 1 46 92" marker-end="url(#ar)"/>
+              <path d="M84 92 A10 8 0 1 1 102 92" marker-end="url(#ar)"/>
+              <path d="M146 92 A10 8 0 1 1 164 92" marker-end="url(#ar)"/>
+              <path d="M200 92 A10 8 0 1 1 218 92" marker-end="url(#ar)"/>
+            </g>
+          </svg>
+          <p class="skill-level">Figura</p>
+          <h3>La volta</h3>
+          <p>Abans d’atrapar la mare, cal <strong>girar</strong> les tabes perquè totes mostrin la <strong>mateixa cara</strong>, per exemple, la panxa.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Un pont fet amb el polze i l'índex a terra i una taba que hi passa per sota">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="106" y="10" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <path d="M138 121 C138 70 202 70 202 121" fill="none" stroke="#e7b48f" stroke-width="14" stroke-linecap="round"/>
+            <path d="M138 121 C138 70 202 70 202 121" fill="none" stroke="#f2cba9" stroke-width="9" stroke-linecap="round"/>
+            <text x="170" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#556074">polze i índex</text>
+            <g fill="#f6ead0" stroke="#b79f73">
+              <use href="#taba" x="16" y="100" width="28" height="19"/>
+              <use href="#taba" x="50" y="100" width="28" height="19"/>
+              <use href="#taba" x="84" y="100" width="28" height="19" stroke="#0f8b8d" stroke-width="2.5"/>
+            </g>
+            <path d="M114 112 L186 112" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+          </svg>
+          <p class="skill-level">Figura</p>
+          <h3>El pont</h3>
+          <p>Amb la mà lliure es fa un <strong>arc</strong>, recolzant el polze i l’índex a terra. Mentre la mare vola, cal fer passar cada taba per sota del pont d’un copet.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Quatre tabes col·locades als vèrtexs d'un quadrat">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g class="mare-anim"><use href="#taba" x="22" y="14" width="28" height="19" fill="#f05d3f" stroke="#b8341c"/></g>
+            <line x1="36" y1="40" x2="36" y2="66" stroke="#f05d3f" stroke-width="2" stroke-dasharray="4 4" marker-start="url(#arc)" marker-end="url(#arc)"/>
+            <rect x="110" y="44" width="86" height="62" fill="none" stroke="#0f8b8d" stroke-width="2" stroke-dasharray="5 5"/>
+            <g fill="#f6ead0" stroke="#b79f73">
+              <use href="#taba" x="96" y="34" width="28" height="19"/>
+              <use href="#taba" x="182" y="34" width="28" height="19"/>
+              <use href="#taba" x="96" y="96" width="28" height="19"/>
+              <use href="#taba" x="182" y="96" width="28" height="19"/>
+            </g>
+          </svg>
+          <p class="skill-level">Figura</p>
+          <h3>Parar taula</h3>
+          <p>Mentre la mare és a l’aire, cal col·locar les quatre tabes formant un <strong>quadrat</strong> a terra.</p>
+        </figure>
+
+        <figure class="skill-card">
+          <svg viewBox="0 0 240 140" role="img" aria-label="Tabes en equilibri sobre el dors d'una mà, que les torna a llançar per agafar-les amb el palmell">
+            <line x1="10" y1="122" x2="230" y2="122" stroke="#182033" stroke-opacity=".2" stroke-width="2"/>
+            <g fill="#f2cba9" stroke="#d9a07a" stroke-width="2">
+              <rect x="44" y="92" width="84" height="26" rx="13"/>
+              <rect x="118" y="93" width="58" height="9" rx="4.5"/>
+              <rect x="120" y="103" width="62" height="9" rx="4.5"/>
+              <rect x="116" y="110" width="52" height="9" rx="4.5"/>
+              <rect x="20" y="104" width="34" height="12" rx="6"/>
+            </g>
+            <g fill="#f6ead0" stroke="#0f8b8d" stroke-width="2.5">
+              <use href="#taba" x="62" y="74" width="26" height="18"/>
+              <use href="#taba" x="92" y="74" width="26" height="18"/>
+              <use href="#taba" x="122" y="76" width="26" height="18"/>
+              <use href="#taba" x="150" y="78" width="26" height="18"/>
+            </g>
+            <path d="M110 66 Q130 24 186 36" fill="none" stroke="#0f8b8d" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="196" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#556074">i al palmell</text>
+          </svg>
+          <p class="skill-level">Figura</p>
+          <h3>El dors</h3>
+          <p>Es llancen les tabes enlaire i s’atrapen amb el <strong>dors de la mà</strong>. Després es tornen a llançar des del dors i s’han de recollir amb el <strong>palmell</strong>.</p>
         </figure>
       </div>
     </section>
 
-    <section class="content-section shell two-column">
+    <!-- ===== Rei i botxí ===== -->
+    <section class="content-section shell accent-band accent-band-padded" id="botxi">
+      <div class="section-head">
+        <p class="kicker">Rols</p>
+        <h2>Rei i botxí: a cada cara, un paper</h2>
+      </div>
+      <p style="max-width:72ch">Els jugadors seuen en rotllana i, per torns, llancen <strong>una sola taba</strong>. La cara que queda a dalt assigna un paper per a aquella ronda. Com que els papers canvien a cada tirada, qui avui és rei demà pot ser culpable: per això cal ser just.</p>
+      <div class="role-grid" style="margin-top:22px">
+        <div class="role-card">
+          <img src="assets/images/cara-rei.webp" alt="Cara del rei d'una taba" width="264" height="323" loading="lazy">
+          <p class="role-name">Rei</p>
+          <p class="role-face">cara plana</p>
+          <p>Mana: decideix la prova o la penyora.</p>
+        </div>
+        <div class="role-card">
+          <img src="assets/images/cara-botxi.webp" alt="Cara del botxí d'una taba" width="250" height="323" loading="lazy">
+          <p class="role-name">Botxí</p>
+          <p class="role-face">cara irregular</p>
+          <p>Executa: fa complir el que ha manat el rei.</p>
+        </div>
+        <div class="role-card">
+          <img src="assets/images/cara-forat.webp" alt="Cara del forat d'una taba" width="260" height="314" loading="lazy">
+          <p class="role-name">Culpable</p>
+          <p class="role-face">forat</p>
+          <p>Paga: ha de complir la prova.</p>
+        </div>
+        <div class="role-card">
+          <img src="assets/images/cara-panxa.webp" alt="Cara de la panxa d'una taba" width="260" height="300" loading="lazy">
+          <p class="role-name">Lliure</p>
+          <p class="role-face">panxa</p>
+          <p>Se salva: aquesta ronda no fa res.</p>
+        </div>
+      </div>
+      <div class="columns-text" style="margin-top:26px">
+        <p>Tradicionalment, el càstig eren cops de corretja al palmell de la mà, i abans de picar es feia un petit diàleg ritual. En moltes variants, el joc no començava fins que algú treia rei, botxí i culpable.</p>
+        <p><strong>A l’aula, penyores sense violència:</strong> fer cinc salts, dir un embarbussament, explicar una endevinalla, anomenar tres noms de les cares de la taba, imitar un animal del <em>shagai</em> o fer una ronda de tabes amb la mà dolenta.</p>
+      </div>
+    </section>
+
+    <!-- ===== Atzar ===== -->
+    <section class="content-section shell two-column" id="atzar">
       <div>
         <div class="section-head">
           <p class="kicker">Atzar i probabilitat</p>
           <h2>Una peça desigual, un joc desigual</h2>
         </div>
-        <p>No totes les cares tenen la mateixa probabilitat de sortir. Per això el joc d’atzar amb tabes té interès propi: barreja observació, intuïció i experiència acumulada.</p>
-        <ul class="text-list">
-          <li>Les cares amples solen sortir més sovint</li>
-          <li>Les cares estretes poden tenir més valor simbòlic o més puntuació</li>
-          <li>És una entrada excel·lent al concepte de probabilitat no equiprobable</li>
-          <li>Amb quatre tabes es poden entendre tirades clàssiques com el <strong>Cop de Venus</strong> o el <strong>Canis</strong></li>
+        <p>La taba és un <strong>dau esbiaixat</strong>: les cares amples són més estables i surten molt més sovint que les estretes. En un dau cúbic, cada cara té 1 possibilitat entre 6 (un 16,7 %).</p>
+        <ul class="bar-chart" aria-label="Probabilitat aproximada de cada cara comparada amb un dau cúbic">
+          <li><span class="bar-label">Panxa</span><span class="bar-track"><span class="bar-fill" style="width:80%"></span><span class="bar-ref" style="left:33.4%"></span></span><span class="bar-value">≈ 40 %</span></li>
+          <li><span class="bar-label">Forat</span><span class="bar-track"><span class="bar-fill" style="width:76%"></span><span class="bar-ref" style="left:33.4%"></span></span><span class="bar-value">≈ 38 %</span></li>
+          <li><span class="bar-label">Rei</span><span class="bar-track"><span class="bar-fill" style="width:22%"></span><span class="bar-ref" style="left:33.4%"></span></span><span class="bar-value">≈ 11 %</span></li>
+          <li><span class="bar-label">Botxí</span><span class="bar-track"><span class="bar-fill" style="width:22%"></span><span class="bar-ref" style="left:33.4%"></span></span><span class="bar-value">≈ 11 %</span></li>
         </ul>
+        <ul class="legend">
+          <li><i class="dot-coral"></i>Taba (valors orientatius)</li>
+          <li><i class="dot-teal"></i>Cara d’un dau cúbic (16,7 %)</li>
+        </ul>
+        <p>A Roma, les cares valien <strong>1, 3, 4 i 6 punts</strong>: les estretes, els valors extrems (rei 1, botxí 6), i les amples, els del mig. Es jugava amb quatre tabes alhora. Treure quatre cares diferents era el <strong>Cop de Venus</strong>, la millor tirada; treure quatre uns era el <strong><em>Canis</em></strong> (el gos), la pitjor.</p>
+        <p><a class="button button-primary" href="educacio.html#laboratori">Prova-ho al laboratori de probabilitat</a></p>
       </div>
       <figure class="bleed-image">
-        <img src="assets/images/cares-tradicionals-tabes.jpg" alt="Cares de la taba per entendre les posicions de joc" loading="lazy">
-        <figcaption>Conèixer bé les cares és imprescindible per entendre el joc d’atzar i el joc de rols.</figcaption>
+        <img src="assets/images/cares-tabes-noms-valors.webp" alt="Quatre tabes, cadascuna mostrant una cara: panxa buida, 3 punts; panxa plena, 4 punts; rei, 1 punt; botxí, 6 punts" width="872" height="817" loading="lazy">
+        <figcaption>Les quatre cares amb els punts romans. «Panxa buida» és un altre nom del forat, i «panxa plena», de la panxa.</figcaption>
       </figure>
     </section>
 
-    <section class="content-section shell two-column">
-      <div>
-        <div class="section-head">
-          <p class="kicker">Mirada comparada</p>
-          <h2>La taba gran del Con Sud</h2>
-        </div>
-        <p>A l’Argentina, l’Uruguai, la Patagònia xilena i altres zones rurals del Con Sud, la taba pren una altra escala. No es juga amb ossets petits de xai, sinó amb una peça més gran, sovint de vacum, preparada per ser llançada sobre terra compactada o fang humit.</p>
-        <p>En aquesta variant, la peça pot anar afinada o reforçada amb plaques metàl·liques perquè caigui millor i perquè el joc sigui més net en superfícies de tir. És una pràctica més vinculada a l’aposta, al gest del llançament i a l’espai campestre. En alguns contextos, la superfície de tir rep el nom de <strong>queso</strong>.</p>
-        <ul class="text-list">
-          <li>Peça més gran i més pesada</li>
-          <li>Superfície de tir preparada, sovint humida o fangosa</li>
-          <li>Importància del costat que queda cap amunt</li>
-          <li>Arrelament fort en làmbit rural sud-americà</li>
-        </ul>
+    <!-- ===== Variants locals ===== -->
+    <section class="content-section shell">
+      <div class="section-head">
+        <p class="kicker">Variants locals</p>
+        <h2>Altres maneres de jugar a casa nostra</h2>
       </div>
-      <div class="game-image-stack">
-        <figure class="bleed-image">
-          <img src="assets/images/taba-argentina-metal-decorada.jfif" alt="Taba argentina reforçada amb metall" loading="lazy">
-          <figcaption>La taba criolla del Con Sud sovint es reforça amb plaques metàl·liques per resistir millor el joc i marcar la caiguda.</figcaption>
-        </figure>
-        <figure class="bleed-image">
-          <img src="assets/images/taba-argentina-metal-inscripcio.webp" alt="Taba argentina metàl·lica amb inscripcions" loading="lazy">
-          <figcaption>Les decoracions i inscripcions reforcen el caràcter material, local i competitiu d’aquesta variant sud-americana.</figcaption>
-        </figure>
+      <div class="modes-grid">
+        <article class="mode-block">
+          <p class="kicker">Menorca</p>
+          <h3>La marraquinca</h3>
+          <p>És un joc d’aposta amb una taba. Si cau amb <strong>es cul</strong> a dalt, es perd tot el que s’ha apostat; si surt <strong>es nèpel</strong> (o <strong>es tot</strong>), t’emportes tot el que hi ha en joc.</p>
+        </article>
+        <article class="mode-block">
+          <p class="kicker">Apostes infantils</p>
+          <h3>Panxa o clotet</h3>
+          <p>En algunes variants senzilles s’hi aposten bales, cromos o monedes: si la taba cau amb la panxa a dalt, es guanya; si mostra el clotet, es perd.</p>
+        </article>
+        <article class="mode-block">
+          <p class="kicker">Ribera d’Ebre</p>
+          <h3>Els pidos d’Ascó</h3>
+          <p>A Ascó el joc es diu <em>pidos</em>, i recollir l’osset és «agafar el pido». Els Gogos dels anys noranta van portar la mateixa mecànica a unes peces de plàstic.</p>
+        </article>
       </div>
+      <p class="source-note">I fora de casa nostra? La taba gran de bou del Con Sud, el <em>shagai</em> mongol i molts altres jocs germans són a <a class="text-link" href="mon.html">Pel món</a>.</p>
     </section>
   </main>
 
@@ -175,4 +357,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Les tabes pel món: osselets, shagai, taba criolla, knucklebones, gonggi i altres jocs germans, en un mapa i una taula comparativa.">
+  <title>Pel món | Les tabes</title>
+  <link rel="icon" type="image/png" href="assets/favicon-principal.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="mon">
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html"><img class="brand-icon" src="assets/favicon-principal.png" alt="Icona de les tabes"><span class="brand-copy"><strong>Les tabes</strong><small>Joc, patrimoni i procés</small></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Obrir menú"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegació principal">
+        <a href="index.html" data-page-link="inici">Inici</a>
+        <a href="que-son.html" data-page-link="que-son">Què són</a>
+        <a href="obtencio.html" data-page-link="obtencio">Obtenció</a>
+        <a href="preparacio.html" data-page-link="preparacio">Preparació</a>
+        <a href="jocs.html" data-page-link="jocs">Jocs</a>
+        <a href="mon.html" data-page-link="mon">Pel món</a>
+        <a href="educacio.html" data-page-link="educacio">Educació</a>
+        <a href="curiositats.html" data-page-link="curiositats">Curiositats</a>
+        <a href="galeria.html" data-page-link="galeria">Galeria</a>
+        <a href="fonts.html" data-page-link="fonts">Fonts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero shell">
+      <div>
+        <p class="kicker">Mirada comparada</p>
+        <h1>Pel món</h1>
+        <p class="page-lead">El joc de les tabes és universal. Comparar-lo amb el d’altres cultures ajuda a veure què és comú (un os irregular que cau en quatre posicions) i què canvia (els noms, les regles, els valors i fins i tot el material).</p>
+      </div>
+    </section>
+
+    <section class="content-section shell">
+      <div class="map-layout">
+        <div>
+          <div class="map-box" id="mapa-mon" data-map="mon" role="region" aria-label="Mapa mundial dels jocs de tabes i dels jocs germans"></div>
+          <ul class="legend">
+            <li><i class="dot-teal"></i>Astràgal d’ovella o de cabra</li>
+            <li><i class="dot-coral"></i>Astràgal de bou (taba gran)</li>
+            <li><i class="dot-gold"></i>Mateixa mecànica sense os</li>
+          </ul>
+          <p class="source-note">Base cartogràfica: © OpenStreetMap. Fes clic als punts per llegir-ne la descripció.</p>
+        </div>
+        <ul class="map-list">
+          <li><strong>Catalunya i Balears</strong> · tabes, ossets, marraquinca</li>
+          <li><strong>França</strong> · <em>osselets</em></li>
+          <li><strong>Mongòlia</strong> · <em>shagai</em></li>
+          <li><strong>Rússia</strong> · <em>babki</em></li>
+          <li><strong>Món anglosaxó</strong> · <em>knucklebones</em>, <em>jacks</em></li>
+          <li class="bovi"><strong>Argentina, Uruguai, sud del Brasil i Patagònia</strong> · <em>taba</em>, <em>jogo do osso</em></li>
+          <li class="sense-os"><strong>Corea, Japó, Singapur, Turquia, Índia</strong> · <em>gonggi</em>, <em>otedama</em>, <em>batu seremban</em>, <em>beş taş</em>, <em>anju kal</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Mongòlia ===== -->
+    <section class="content-section shell two-column">
+      <div>
+        <div class="section-head">
+          <p class="kicker">Mongòlia</p>
+          <h2>El <em>shagai</em>: quatre animals i molts jocs</h2>
+        </div>
+        <p>A Mongòlia el joc amb astràgals d’ovella o de cabra és una <strong>tradició viva</strong>, molt lligada a la identitat dels pastors nòmades. Les cares no tenen noms de càrrecs ni de forats, sinó d’animals del ramat:</p>
+        <ul class="text-list large">
+          <li><strong>Cavall</strong> (la cara plana, el nostre rei): la més afortunada.</li>
+          <li><strong>Ovella</strong> (la convexa, la nostra panxa): favorable.</li>
+          <li><strong>Camell</strong> (la còncava, el nostre forat): desfavorable.</li>
+          <li><strong>Cabra</strong> (la sinuosa, el nostre botxí): desfavorable.</li>
+        </ul>
+        <p>N’hi ha prop d’un centenar de jocs: la «cursa de cavalls», en què es fan avançar els astràgals per un circuit, la «tortuga multicolor», amb 108 peces… El <strong>tir a l’astràgal</strong> (<em>shagai kharvaa</em>), que es practica durant el festival del Naadam, és patrimoni cultural immaterial de la UNESCO des del 2014. Treure les quatre cares diferents es considera un presagi de bona sort.</p>
+      </div>
+      <div class="game-image-stack">
+        <figure class="bleed-image">
+          <img src="assets/images/shagai-posicions-cares.webp" alt="Quatre astràgals que mostren les quatre posicions del shagai" width="1000" height="672" loading="lazy">
+          <figcaption>Les quatre posicions del <em>shagai</em>: cada cara representa un animal del ramat.</figcaption>
+        </figure>
+        <figure class="bleed-image">
+          <img src="assets/images/shagai-naadam-festival-mongolia.webp" alt="Jugadors mongols amb vestit tradicional al voltant d'una taula durant una competició d'astràgals" width="1600" height="965" loading="lazy">
+          <figcaption>Competició durant el festival del Naadam a Ulan Bator (2023).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Con Sud ===== -->
+    <section class="content-section shell accent-band accent-band-padded" id="con-sud">
+      <div class="accent-media-layout">
+        <div>
+          <div class="section-head">
+            <p class="kicker">Con Sud americà</p>
+            <h2>La taba criolla: l’astràgal de bou</h2>
+          </div>
+          <div class="columns-text">
+            <p>A l’Argentina, l’Uruguai, el sud del Brasil (<em>jogo do osso</em>) i la Patagònia xilena, el joc va arribar amb la colonització hispànica i es va transformar. No es juga amb ossets d’ovella, sinó amb l’<strong>astràgal d’un bou o d’una vaca</strong>, de 4 a 6 cm, i és un joc d’<strong>aposta d’adults</strong> vinculat a la cultura dels gautxos.</p>
+            <p>La taba es llança des d’uns quants metres sobre una franja de terra tova i humida, el <strong><em>queso</em></strong>. Per protegir-la i perquè soni, sovint es reforça amb <strong>plaques de bronze o de ferro</strong>. Si cau amb la cara convexa a dalt, és <strong><em>suerte</em></strong> i es guanya; si cau amb la còncava, és <strong><em>culo</em></strong> i es perd. Si queda clavada dreta, és <strong><em>pinino</em></strong> i el premi es multiplica.</p>
+          </div>
+        </div>
+        <figure class="bleed-image">
+          <img src="assets/images/pintura-la-taba-blanes.webp" alt="Pintura de Juan Manuel Blanes: gautxos jugant a la taba davant d'un ranxo" width="600" height="450" loading="lazy">
+          <figcaption>Juan Manuel Blanes, <em>La taba</em> (s. XIX). Gautxos jugant davant d’un ranxo.</figcaption>
+        </figure>
+      </div>
+      <div class="history-mini-grid" style="margin-top:24px;max-width:720px">
+        <figure class="mini-history-card">
+          <img src="assets/images/taba-argentina-metal-decorada.webp" alt="Taba de bou reforçada amb plaques metàl·liques a les dues cares" width="655" height="491" loading="lazy">
+          <figcaption>Taba criolla reforçada amb metall a les cares de joc.</figcaption>
+        </figure>
+        <figure class="mini-history-card">
+          <img src="assets/images/taba-argentina-metal-roseta.webp" alt="Taba de bou amb una placa de bronze decorada amb una roseta" width="1000" height="1000" loading="lazy">
+          <figcaption>Placa de bronze decorada: cada jugador personalitzava la seva taba.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Altres tradicions ===== -->
+    <section class="content-section shell">
+      <div class="section-head">
+        <p class="kicker">Jocs germans</p>
+        <h2>Altres tradicions</h2>
+      </div>
+      <div class="world-grid">
+        <article class="world-card">
+          <img src="assets/images/pintura-jugadora-tabes-chardin.webp" alt="Pintura de Chardin d'una noia jugant a osselets" loading="lazy">
+          <div>
+            <p class="kicker">França</p>
+            <h3><em>Osselets</em></h3>
+            <p>Joc d’habilitat amb cinc peces: el <em>père</em> (o <em>reine</em>), que es llança, i quatre <em>fils</em>. Té figures molt difícils, com la <em>balayette</em>, l’<em>omelette</em> o la <em>tête de mort</em>, i s’hi han documentat partides de milers de punts.</p>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/images/makovski-joc-babki-1870.webp" alt="Pintura de Makovski: nens d'un poble rus jugant a babki davant d'una isba" loading="lazy">
+          <div>
+            <p class="kicker">Rússia</p>
+            <h3><em>Babki</em></h3>
+            <p>A la Rússia rural, els nens jugaven amb astràgals a les <em>babki</em>, com mostra aquesta pintura de Vladímir Makovski (1870).</p>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/images/cares-tradicionals-tabes.webp" alt="Quatre cares d'una taba amb noms castellans: jete, panza, rey i verdugo" loading="lazy">
+          <div>
+            <p class="kicker">Península Ibèrica</p>
+            <h3><em>Tabas</em>, <em>txoko</em>…</h3>
+            <p>A Castella i Lleó les cares es diuen <em>hoyo</em>, <em>panza</em>, <em>rey</em> i <em>verdugo</em>, molt semblants a les catalanes. A l’Aragó, la <em>tripa</em> passa el torn i el <em>verdugo</em> castiga. Al País Basc, es diu <em>txoko</em>, <em>tortoloxak</em> o <em>azurrak</em>.</p>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/images/tabes-a-la-ma.webp" alt="Una mà plena de tabes d'os tenyides de colors càlids" loading="lazy">
+          <div>
+            <p class="kicker">Món anglosaxó</p>
+            <h3><em>Knucklebones</em> i <em>jacks</em></h3>
+            <p>Es diu <em>knucklebones</em>, <em>fivestones</em> o <em>jacks</em>. A Austràlia, els infants bullien i tenyien ossos d’ovella. Les versions industrials de metall o de plàstic es juguen fent botar una pilota, amb nivells com <em>onesies</em>, <em>twosies</em> o <em>clicks</em>.</p>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/images/gonggi-pintura-yun-deok-hui.webp" alt="Pintura coreana antiga de nens jugant a gonggi sota un arbre" loading="lazy">
+          <div>
+            <p class="kicker">Corea</p>
+            <h3><em>Gonggi</em> (공기)</h3>
+            <p>Abans es jugava amb cinc pedres i ara, amb peces petites de plàstic. Té cinc nivells de dificultat i és molt popular als patis de les escoles. Pintura de Yun Deok-hui (s. XVIII).</p>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/images/otedama-bossetes.webp" alt="Caixa plena de bossetes de tela de colors per jugar a otedama" loading="lazy">
+          <div>
+            <p class="kicker">Japó i Singapur</p>
+            <h3><em>Otedama</em> i <em>batu seremban</em></h3>
+            <p>En lloc d’ossos, s’hi fan servir <strong>bossetes de tela</strong> farcides de grans, d’arròs o de sorra, que es llancen i s’atrapen. A Turquia es juga al <em>beş taş</em> («cinc pedres») i a l’Índia, a l’<em>anju kal</em>.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section shell">
+      <div class="section-head">
+        <p class="kicker">Comparació</p>
+        <h2>Què canvia i què es manté</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table stack">
+          <thead>
+            <tr><th scope="col">Lloc</th><th scope="col">Nom</th><th scope="col">Material</th><th scope="col">Tipus de joc</th><th scope="col">Qui hi jugava</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Catalunya</th><td data-label="Nom">tabes, ossets, marraquinca</td><td data-label="Material">astràgal d’ovella o de cabra</td><td data-label="Tipus de joc">habilitat, rols i atzar</td><td data-label="Qui hi jugava">infants</td></tr>
+            <tr><th scope="row">França</th><td data-label="Nom">osselets</td><td data-label="Material">os de xai, metall, plàstic</td><td data-label="Tipus de joc">habilitat i punts</td><td data-label="Qui hi jugava">infants</td></tr>
+            <tr><th scope="row">Mongòlia</th><td data-label="Nom">shagai</td><td data-label="Material">astràgal d’ovella o de cabra</td><td data-label="Tipus de joc">atzar, endevinació, tir</td><td data-label="Qui hi jugava">infants i adults</td></tr>
+            <tr><th scope="row">Con Sud</th><td data-label="Nom">taba, jogo do osso</td><td data-label="Material">astràgal de bou amb metall</td><td data-label="Tipus de joc">llançament i aposta</td><td data-label="Qui hi jugava">homes adults</td></tr>
+            <tr><th scope="row">Corea, Japó…</th><td data-label="Nom">gonggi, otedama</td><td data-label="Material">pedres, plàstic, bossetes</td><td data-label="Tipus de joc">habilitat</td><td data-label="Qui hi jugava">infants</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">L’arrel comuna és el món grec i romà. A Grècia, el joc d’habilitat amb cinc peces es deia <em>pentalitha</em> («cinc pedres»), com els jocs asiàtics actuals.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell license-only">
+      <div class="license-panel">
+        <img class="license-badge" src="assets/llicencia-cc-by-nc-sa.svg" alt="Llicència Creative Commons BY-NC-SA">
+        <div class="license-copy">
+          <p>Pàgina web creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noreferrer">Felip Sarroca</a> amb assistència de la IA</p>
+          <p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noreferrer">CC BY-NC-SA 4.0</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
