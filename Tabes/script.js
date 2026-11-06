@@ -379,3 +379,394 @@ if (lab) {
   renderFour();
   renderReal();
 }
+
+/* =========================================================
+   Glossari emergent
+   ========================================================= */
+
+const GLOSSARI = [
+  { t: "Astràgal", m: ["astràgals", "astràgal"], d: "Os petit del turmell que uneix la cama amb el peu. El de l’ovella i el de la cabra són les tabes." },
+  { t: "Astragalomància", m: ["astragalomància"], d: "Manera d’endevinar el futur: es llançaven astràgals i, segons les cares que sortien, s’interpretava la resposta dels déus." },
+  { t: "Astragalizontes", m: ["Astragalizontes"], d: "En grec, «els que juguen a tabes». És el títol d’una escultura de bronze de Policlet, avui perduda." },
+  { t: "Turmell", m: ["turmell"], d: "Articulació que uneix la cama amb el peu." },
+  { t: "Garró", m: ["garró"], d: "Articulació de la pota del darrere dels animals de quatre potes. Equival al nostre turmell i és on hi ha l’astràgal." },
+  { t: "Tars", m: ["tars"], d: "Grup d’ossos petits del turmell i de la part del darrere del peu. L’astràgal n’és un." },
+  { t: "Mare", m: ["mare"], d: "La cinquena taba, sovint pintada, que es llança enlaire en el joc d’habilitat. També se’n diu el pare o el comodí.", pages: ["jocs", "preparacio"] },
+  { t: "Penyora", m: ["penyores", "penyora"], d: "Petita prova o càstig divertit que ha de complir qui perd en un joc." },
+  { t: "Cop de Venus", m: ["Cop de Venus"], d: "La millor tirada del joc romà amb quatre tabes: cada taba mostra una cara diferent." },
+  { t: "Canis", m: ["Canis"], d: "«Gos» en llatí. La pitjor tirada romana: les quatre tabes mostren la cara que val 1 punt." },
+  { t: "Pentalitha", m: ["pentalitha"], d: "«Cinc pedres» en grec. Nom antic del joc d’habilitat amb cinc tabes o cinc pedretes." },
+  { t: "Shagai", m: ["shagai"], d: "Nom mongol de les tabes. Les quatre cares porten nom d’animal: cavall, ovella, camell i cabra." },
+  { t: "Naadam", m: ["Naadam"], d: "Gran festa tradicional de Mongòlia, amb lluita, curses de cavalls, tir amb arc i competicions de tir de shagai." },
+  { t: "Osselets", m: ["osselets"], d: "Nom francès de les tabes. Vol dir «ossets»." },
+  { t: "Babki", m: ["babki"], d: "Joc tradicional rus amb astràgals. Es jugava sobretot al carrer i als pobles." },
+  { t: "Gonggi", m: ["gonggi"], d: "Joc coreà semblant a les tabes. Avui es juga amb cinc peces petites de plàstic o amb pedretes." },
+  { t: "Otedama", m: ["otedama"], d: "Joc japonès semblant a les tabes que es juga amb bossetes de roba plenes de grans." },
+  { t: "Taba criolla", m: ["taba criolla"], d: "Joc d’atzar de l’Argentina, l’Uruguai i Xile. Es juga amb un sol astràgal de bou, sovint reforçat amb metall." },
+  { t: "Probabilitat", m: ["probabilitats", "probabilitat"], d: "Mesura de com de possible és un resultat. Va del 0 % (impossible) al 100 % (segur)." },
+  { t: "Freqüència", m: ["freqüència"], d: "Nombre de vegades que surt un resultat. La freqüència relativa és aquest nombre dividit pel total de tirades." },
+  { t: "Llei dels grans nombres", m: ["llei dels grans nombres"], d: "Com més vegades es repeteix un experiment d’atzar, més s’acosten els resultats a les probabilitats teòriques." },
+  { t: "Patrimoni immaterial", m: ["patrimoni cultural immaterial", "patrimoni immaterial"], d: "Tradicions vives que una comunitat es transmet: jocs, festes, músiques, oficis o sabers. La UNESCO en protegeix alguns." },
+  { t: "Patrimoni lúdic", m: ["patrimoni lúdic"], d: "Conjunt de jocs i joguines tradicionals que formen part de la cultura d’un poble." },
+  { t: "UNESCO", m: ["UNESCO"], d: "Organització de les Nacions Unides per a l’Educació, la Ciència i la Cultura. Elabora les llistes del patrimoni de la humanitat." },
+  { t: "Neolític", m: ["Neolític"], d: "Darrer període de la prehistòria, quan els humans van començar a conrear i a criar animals com ovelles i cabres." },
+  { t: "Mil·lenni", m: ["mil·lenni"], d: "Període de mil anys. El V mil·lenni aC va de l’any 5000 al 4001 aC." },
+  { t: "Jaciment", m: ["jaciments", "jaciment"], d: "Lloc on es troben restes del passat i on treballen els arqueòlegs." },
+  { t: "Santuari", m: ["santuaris", "santuari"], d: "Lloc sagrat on la gent anava a pregar o a fer ofrenes a un déu." },
+  { t: "Terracota", m: ["terracota"], d: "Argila cuita al forn. Se’n feien figuretes, gerres i teules." },
+  { t: "Hel·lenístic", m: ["hel·lenística", "hel·lenístic"], d: "Període de la història grega que va de la mort d’Alexandre el Gran (323 aC) a la conquesta romana d’Egipte (30 aC)." },
+  { t: "Dialectal", m: ["dialectal", "dialectes"], d: "Relacionat amb els dialectes, les varietats d’una llengua que es parlen a cada territori." },
+  { t: "Desgreixar", m: ["desgreixar"], d: "Treure el greix." },
+  { t: "Aigua oxigenada", m: ["aigua oxigenada"], d: "Nom comú del peròxid d’hidrogen. Blanqueja i desinfecta. Cal fer-la servir amb guants i amb un adult al costat." },
+  { t: "Lleixiu", m: ["lleixiu"], d: "Producte de neteja amb clor. Blanqueja, però fa malbé l’os i el torna trencadís." }
+];
+
+function initGlossari() {
+  const main = document.querySelector("main");
+  if (!main || page === "fonts" || page === "galeria") return;
+
+  const SKIP = "a, button, summary, label, h1, h2, h3, h4, .kicker, .skill-level, dt, svg, script, style, .lightbox, .leaflet-container, [data-no-gloss]";
+  const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pending = GLOSSARI.filter((g) => !g.pages || g.pages.includes(page));
+  const used = new Set();
+
+  const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return node.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  pending.forEach((entry, index) => {
+    const re = new RegExp(`(?<![\\p{L}·’'-])(${entry.m.map(escape).join("|")})(?![\\p{L}·-])`, "iu");
+    for (let i = 0; i < nodes.length; i += 1) {
+      const node = nodes[i];
+      if (!node.parentNode || node.parentElement.closest(".gloss")) continue;
+      const match = re.exec(node.nodeValue);
+      if (!match) continue;
+      const after = node.splitText(match.index);
+      const rest = after.splitText(match[0].length);
+      const term = document.createElement("button");
+      term.type = "button";
+      term.className = "gloss";
+      term.dataset.gloss = String(index);
+      term.textContent = after.nodeValue;
+      after.replaceWith(term);
+      nodes.splice(i, 1, node, rest);
+      used.add(index);
+      break;
+    }
+  });
+
+  if (!used.size) return;
+
+  const pop = document.createElement("div");
+  pop.className = "gloss-pop";
+  pop.id = "gloss-pop";
+  pop.setAttribute("role", "tooltip");
+  pop.hidden = true;
+  pop.innerHTML = '<strong class="gloss-term"></strong><span class="gloss-def"></span>';
+  document.body.appendChild(pop);
+
+  let current = null;
+  let hideTimer = 0;
+  let showTimer = 0;
+
+  function place() {
+    if (!current) return;
+    const r = current.getBoundingClientRect();
+    const vw = document.documentElement.clientWidth;
+    const vh = window.innerHeight;
+    pop.style.left = "0px";
+    pop.style.top = "0px";
+    const w = pop.offsetWidth;
+    const h = pop.offsetHeight;
+    const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), vw - w - 8);
+    const below = r.bottom + 10;
+    const top = below + h > vh - 8 && r.top - h - 10 > 8 ? r.top - h - 10 : below;
+    pop.style.left = `${left}px`;
+    pop.style.top = `${top}px`;
+    pop.style.setProperty("--arrow", `${r.left + r.width / 2 - left}px`);
+    pop.dataset.side = top < r.top ? "top" : "bottom";
+  }
+
+  function show(term) {
+    clearTimeout(hideTimer);
+    if (current && current !== term) {
+      current.removeAttribute("aria-describedby");
+      current.setAttribute("aria-expanded", "false");
+    }
+    const entry = pending[Number(term.dataset.gloss)];
+    pop.querySelector(".gloss-term").textContent = entry.t;
+    pop.querySelector(".gloss-def").textContent = entry.d;
+    current = term;
+    term.setAttribute("aria-describedby", "gloss-pop");
+    term.setAttribute("aria-expanded", "true");
+    pop.hidden = false;
+    place();
+  }
+
+  function hide() {
+    clearTimeout(showTimer);
+    if (current) {
+      current.removeAttribute("aria-describedby");
+      current.setAttribute("aria-expanded", "false");
+    }
+    current = null;
+    pop.hidden = true;
+  }
+
+  document.querySelectorAll(".gloss").forEach((term) => {
+    term.setAttribute("aria-expanded", "false");
+    term.addEventListener("pointerenter", (event) => {
+      if (event.pointerType !== "mouse") return;
+      clearTimeout(hideTimer);
+      showTimer = setTimeout(() => show(term), 120);
+    });
+    term.addEventListener("pointerleave", (event) => {
+      if (event.pointerType !== "mouse") return;
+      clearTimeout(showTimer);
+      hideTimer = setTimeout(hide, 220);
+    });
+    term.addEventListener("click", () => {
+      if (current === term && !pop.hidden && term.dataset.justShown !== "1") hide();
+      else show(term);
+    });
+    term.addEventListener("focus", () => {
+      show(term);
+      term.dataset.justShown = "1";
+      setTimeout(() => { delete term.dataset.justShown; }, 300);
+    });
+    term.addEventListener("blur", () => { hideTimer = setTimeout(hide, 150); });
+  });
+
+  pop.addEventListener("pointerenter", () => clearTimeout(hideTimer));
+  pop.addEventListener("pointerleave", () => { hideTimer = setTimeout(hide, 220); });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && current) hide();
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (current && !event.target.closest(".gloss, .gloss-pop")) hide();
+  });
+  window.addEventListener("scroll", place, { passive: true });
+  window.addEventListener("resize", place);
+}
+
+initGlossari();
+
+/* =========================================================
+   Animació del joc d'habilitat
+   ========================================================= */
+
+function initPlay(root) {
+  const svg = root.querySelector("[data-play-svg]");
+  const NS = "http://www.w3.org/2000/svg";
+  const hand = svg.querySelector("[data-hand]");
+  const mare = svg.querySelector("[data-mare]");
+  const shadow = svg.querySelector("[data-shadow]");
+  const done = svg.querySelector("[data-done]");
+  const tabesLayer = svg.querySelector("[data-tabes]");
+  const caption = root.querySelector("[data-play-caption]");
+  const round = root.querySelector("[data-play-round]");
+  const runButton = root.querySelector("[data-play-run]");
+  const levelButtons = root.querySelectorAll("[data-level]");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const GROUND = 240;
+  const HOME = { x: 320, y: 196 };
+  const TOP = 46;
+  const LEVELS = [
+    { name: "Primeres", xs: [110, 220, 440, 540], groups: [[0], [1], [2], [3]], verb: ["Agafa una taba", "Agafa una altra taba", "Agafa la tercera", "Agafa l’última"] },
+    { name: "Segones", xs: [150, 186, 464, 500], groups: [[0, 1], [2, 3]], verb: ["Agafa dues tabes alhora", "Agafa les dues que queden"] },
+    { name: "Terceres", xs: [130, 166, 202, 500], groups: [[0, 1, 2], [3]], verb: ["Agafa tres tabes alhora", "Agafa la que queda"] },
+    { name: "Quartes", xs: [164, 200, 236, 272], groups: [[0, 1, 2, 3]], verb: ["Agafa les quatre de cop"] }
+  ];
+
+  const tabes = [0, 1, 2, 3].map(() => {
+    const g = document.createElementNS(NS, "g");
+    const use = document.createElementNS(NS, "use");
+    use.setAttribute("href", "#taba");
+    use.setAttribute("x", "-18");
+    use.setAttribute("y", "-12");
+    use.setAttribute("width", "36");
+    use.setAttribute("height", "24");
+    use.setAttribute("fill", "#f6ead0");
+    use.setAttribute("stroke", "#b79f73");
+    use.setAttribute("stroke-width", "1.4");
+    g.appendChild(use);
+    tabesLayer.appendChild(g);
+    return { g, use, x: 0, y: 0, r: 0 };
+  });
+
+  const state = { hand: { x: HOME.x, y: HOME.y }, mare: { x: HOME.x, y: HOME.y - 14 } };
+  let level = 0;
+  let token = 0;
+  let held = [];
+
+  const set = (el, p, r = 0) => el.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${r.toFixed(1)})`);
+  const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+  const easeOut = (t) => 1 - (1 - t) ** 2;
+  const easeIn = (t) => t * t;
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function heldPos(i) {
+    return { x: state.hand.x - 22 + i * 13, y: state.hand.y - 12 - (i % 2) * 5 };
+  }
+
+  function draw() {
+    set(hand, state.hand);
+    set(mare, state.mare);
+    held.forEach((tb, i) => { const p = heldPos(i); tb.x = p.x; tb.y = p.y; tb.r = -8 + i * 6; });
+    tabes.forEach((tb) => set(tb.g, tb, tb.r));
+    const h = Math.max(0, Math.min(1, (GROUND - state.mare.y) / (GROUND - TOP)));
+    shadow.setAttribute("cx", state.mare.x.toFixed(1));
+    shadow.setAttribute("rx", (20 - h * 10).toFixed(1));
+    shadow.setAttribute("fill-opacity", (0.18 - h * 0.1).toFixed(2));
+  }
+
+  function tween(ms, fn, my) {
+    return new Promise((resolve, reject) => {
+      const start = performance.now();
+      function frame(now) {
+        if (my !== token) { reject(new Error("stop")); return; }
+        const t = Math.min(1, (now - start) / ms);
+        fn(t);
+        draw();
+        if (t < 1) requestAnimationFrame(frame);
+        else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  const wait = (ms, my) => tween(ms, () => {}, my);
+
+  function say(text, step) {
+    caption.textContent = text;
+    round.textContent = step || "";
+  }
+
+  function highlight(ids, on) {
+    ids.forEach((i) => {
+      tabes[i].use.setAttribute("stroke", on ? "#0f8b8d" : "#b79f73");
+      tabes[i].use.setAttribute("stroke-width", on ? "2.6" : "1.4");
+    });
+  }
+
+  function reset() {
+    const L = LEVELS[level];
+    held = [];
+    state.hand = { ...HOME };
+    state.mare = { x: HOME.x, y: HOME.y - 14 };
+    tabes.forEach((tb, i) => { tb.x = L.xs[i]; tb.y = GROUND; tb.r = [-6, 10, -12, 4][i]; });
+    highlight([0, 1, 2, 3], false);
+    done.setAttribute("opacity", "0");
+    draw();
+  }
+
+  async function play() {
+    token += 1;
+    const my = token;
+    const L = LEVELS[level];
+    reset();
+    try {
+      held = [0, 1, 2, 3].map((i) => tabes[i]);
+      draw();
+      say(`Nivell ${level + 1} · ${L.name}. Es llancen les quatre tabes a terra.`);
+      await wait(700, my);
+      const from = held.map((tb) => ({ x: tb.x, y: tb.y }));
+      const flying = held;
+      held = [];
+      await tween(900, (t) => {
+        const k = easeOut(t);
+        flying.forEach((tb, i) => {
+          tb.x = lerp(from[i].x, L.xs[i], k);
+          tb.y = lerp(from[i].y, GROUND, k) - Math.sin(Math.PI * t) * 60;
+          tb.r = lerp(0, [-6, 10, -12, 4][i], k) + Math.sin(t * 9 + i) * 20 * (1 - t);
+        });
+      }, my);
+      await wait(600, my);
+
+      for (let g = 0; g < L.groups.length; g += 1) {
+        const ids = L.groups[g];
+        const step = L.groups.length > 1 ? `Tirada ${g + 1} de ${L.groups.length}` : "Una sola tirada";
+        highlight(ids, true);
+        say("Llança la mare enlaire…", step);
+        const targetX = ids.reduce((s, i) => s + L.xs[i], 0) / ids.length;
+        const start = { ...state.hand };
+
+        // Pujada de la mare (la mà la impulsa)
+        await tween(1100, (t) => {
+          state.mare.y = lerp(HOME.y - 14, TOP, easeOut(t));
+          state.hand.y = start.y - Math.sin(Math.PI * Math.min(1, t * 3)) * 14;
+        }, my);
+
+        // Baixada: mentrestant, la mà recull i torna
+        say(`${L.verb[g]}…`, step);
+        const picked = ids.map((i) => tabes[i]);
+        await tween(1500, (t) => {
+          state.mare.y = lerp(TOP, HOME.y - 14, easeIn(t));
+          if (t < 0.42) {
+            const k = ease(t / 0.42);
+            state.hand.x = lerp(HOME.x, targetX + 10, k);
+            state.hand.y = lerp(HOME.y, GROUND + 6, k);
+          } else if (t < 0.5) {
+            if (!held.includes(picked[0])) held = held.concat(picked);
+          } else {
+            const k = ease(Math.min(1, (t - 0.5) / 0.4));
+            state.hand.x = lerp(targetX + 10, HOME.x, k);
+            state.hand.y = lerp(GROUND + 6, HOME.y, k);
+          }
+        }, my);
+        highlight(ids, false);
+        say("…i atrapa la mare abans que toqui a terra!", step);
+        await tween(260, (t) => { state.hand.y = HOME.y + Math.sin(Math.PI * t) * 8; state.mare.y = state.hand.y - 14; }, my);
+        await wait(900, my);
+      }
+
+      say(`Nivell ${level + 1} superat! Ara es pot passar al nivell següent.`, "");
+      await tween(400, (t) => done.setAttribute("opacity", t.toFixed(2)), my);
+    } catch (error) {
+      /* animació aturada */
+    }
+  }
+
+  function choose(index) {
+    level = index;
+    levelButtons.forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.level) === index)));
+    play();
+  }
+
+  levelButtons.forEach((b) => b.addEventListener("click", () => choose(Number(b.dataset.level))));
+  runButton.addEventListener("click", play);
+
+  reset();
+  if (reduce.matches || !("IntersectionObserver" in window)) {
+    say("Tria un nivell o prem «Torna-ho a veure» per reproduir l’animació.");
+    runButton.textContent = "Reprodueix";
+    return;
+  }
+  say("Nivell 1 · Primeres.");
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      io.disconnect();
+      play();
+    }
+  }, { threshold: 0.6 });
+  io.observe(svg);
+}
+
+document.querySelectorAll("[data-play]").forEach(initPlay);
+
+/* Impressió: obre els desplegables i després els torna a l'estat inicial */
+let printOpened = [];
+window.addEventListener("beforeprint", () => {
+  printOpened = [...document.querySelectorAll("details:not([open])")];
+  printOpened.forEach((d) => { d.open = true; });
+});
+window.addEventListener("afterprint", () => {
+  printOpened.forEach((d) => { d.open = false; });
+  printOpened = [];
+});

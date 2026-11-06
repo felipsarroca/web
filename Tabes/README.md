@@ -23,6 +23,10 @@ Web didàctica en HTML, CSS i JavaScript sobre les tabes, els astràgals d'ovell
 - Mapes interactius amb Leaflet i OpenStreetMap.
 - Simulador de probabilitat amb valors orientatius: panxa 40 %, forat 38 %, rei 11 % i botxí 11 %.
 - Les imatges generades amb IA porten l'etiqueta «Recreació feta amb IA».
+- Glossari emergent: els termes difícils es poden consultar passant-hi el ratolí o tocant-los.
+- Animació a càmera lenta dels quatre nivells del joc d'habilitat (pàgina Jocs).
+- Full d'estil d'impressió: sense menú ni fons, amb totes les cares, targetes i taules visibles.
+- Vista prèvia en compartir l'enllaç (Open Graph), amb la imatge `assets/compartir.jpg`.
 
 ## Captures de pantalla
 

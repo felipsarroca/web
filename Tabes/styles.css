@@ -2299,3 +2299,468 @@ details.more[open] summary {
 [id] {
   scroll-margin-top: 96px;
 }
+
+/* =========================================================
+   Glossari emergent
+   ========================================================= */
+
+.gloss {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  background: none;
+  border: 0;
+  border-bottom: 2px dotted var(--teal);
+  border-radius: 0;
+  cursor: help;
+}
+
+.gloss:hover,
+.gloss[aria-expanded="true"] {
+  color: var(--teal);
+  background: rgba(15, 139, 141, 0.08);
+}
+
+.gloss:focus-visible {
+  outline: 3px solid rgba(15, 139, 141, 0.45);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.gloss-pop {
+  position: fixed;
+  z-index: 1200;
+  display: grid;
+  gap: 6px;
+  width: min(320px, calc(100vw - 16px));
+  padding: 14px 16px 15px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.5;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--raspberry), var(--coral), var(--gold), var(--teal)) 1;
+  border-image-slice: 1 0 0 0;
+  box-shadow: 0 18px 40px rgba(31, 28, 45, 0.18);
+}
+
+.gloss-pop[hidden] {
+  display: none;
+}
+
+.gloss-term {
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   Animació del joc d'habilitat
+   ========================================================= */
+
+.play-anim {
+  margin: 34px 0 0;
+  padding: 24px clamp(16px, 3vw, 30px) 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 202, 87, 0.16), rgba(15, 139, 141, 0.08)),
+    var(--paper-strong);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--raspberry), var(--coral), var(--gold), var(--teal)) 1;
+  border-image-slice: 1 0 0 0;
+  box-shadow: var(--shadow);
+}
+
+.play-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px 24px;
+}
+
+.play-head .kicker {
+  margin: 0 0 4px;
+}
+
+.play-head h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+
+.play-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.play-levels button {
+  padding: 9px 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.play-levels button[aria-pressed="true"] {
+  color: #fff;
+  background: linear-gradient(135deg, var(--raspberry), var(--coral));
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(207, 47, 90, 0.25);
+}
+
+.play-stage {
+  position: relative;
+  margin: 18px 0 0;
+}
+
+.play-stage svg {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+}
+
+.play-round {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  margin: 0;
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.play-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-top: 8px;
+}
+
+.play-caption {
+  flex: 1 1 280px;
+  min-height: 1.6em;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .play-levels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .play-foot .button {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Impressió
+   ========================================================= */
+
+@page {
+  size: A4;
+  margin: 15mm 14mm 16mm;
+}
+
+@media print {
+  html {
+    font-size: 10.5pt;
+  }
+
+  body {
+    color: #000;
+    background: #fff !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  body::before,
+  body::after,
+  .site-header,
+  .menu-toggle,
+  .site-nav,
+  .hero-actions,
+  .button,
+  .gloss-pop,
+  .lightbox,
+  .lab-controls,
+  .counter button,
+  [data-reset],
+  .play-anim,
+  .face-tabs,
+  .flip-hint,
+  .map-box,
+  .map-label,
+  .leaflet-container,
+  .route-card img,
+  iframe,
+  video {
+    display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  main,
+  .shell {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .content-section,
+  .page-hero,
+  .hero-home {
+    padding: 10pt 0 !important;
+    background: none !important;
+  }
+
+  .page-hero > div::before,
+  .hero-copy::before {
+    opacity: 0.5;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+  }
+
+  h2 {
+    font-size: 16pt !important;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 12.5pt !important;
+    break-after: avoid;
+  }
+
+  p,
+  li,
+  td,
+  th,
+  dd {
+    color: #222 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  body[data-page="fonts"] main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8.5pt;
+    word-break: break-all;
+    color: #555;
+  }
+
+  .gloss {
+    border: 0 !important;
+    background: none !important;
+    color: inherit !important;
+  }
+
+  img {
+    max-height: 9cm !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  figure,
+  .card,
+  .route-card,
+  .skill-card,
+  .role-card,
+  .world-card,
+  .process-step,
+  .fact-card,
+  .flip-card,
+  .face-panel,
+  .callout,
+  .lab-panel,
+  .timeline-item,
+  .mini-history-card,
+  tr,
+  .map-list li {
+    break-inside: avoid;
+  }
+
+  .two-column,
+  .hero-grid,
+  .map-layout {
+    display: block !important;
+  }
+
+  .two-column > * + *,
+  .hero-grid > * + *,
+  .map-layout > * + * {
+    margin-top: 10pt !important;
+  }
+
+  .hook-strip,
+  .thanks-bar,
+  .callout {
+    border: 1px solid #bbb !important;
+    background: none !important;
+  }
+
+  .route-grid,
+  .skill-grid,
+  .role-grid,
+  .world-grid,
+  .flip-grid,
+  .gallery-grid {
+    gap: 8pt !important;
+  }
+
+  .route-card {
+    min-height: 0 !important;
+    border: 1px solid #ccc;
+  }
+
+  /* Totes les cares visibles alhora */
+  .face-panel,
+  .face-panel[hidden] {
+    display: block !important;
+    margin-bottom: 8pt;
+    border: 1px solid #ccc;
+  }
+
+  /* Targetes de veritat o mentida: anvers i revers */
+  .flip-inner {
+    transform: none !important;
+    display: block !important;
+  }
+
+  .flip-face {
+    position: static !important;
+    min-height: 0 !important;
+    padding: 8pt 10pt !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    visibility: visible !important;
+    border: 1px solid #ccc;
+    background: none !important;
+  }
+
+  .flip-back {
+    border-top: 0;
+  }
+
+  /* Taules sempre en format de taula */
+  .table-wrap {
+    overflow: visible !important;
+  }
+
+  .data-table {
+    width: 100% !important;
+    font-size: 9.5pt;
+  }
+
+  .data-table.stack thead {
+    display: table-header-group !important;
+  }
+
+  .data-table.stack tr {
+    display: table-row !important;
+    padding: 0 !important;
+  }
+
+  .data-table.stack tbody th,
+  .data-table.stack td {
+    display: table-cell !important;
+    padding: 4pt 6pt !important;
+    border-bottom: 1px solid #ddd !important;
+  }
+
+  .data-table.stack td::before {
+    content: none !important;
+  }
+
+  /* Colors útils que cal conservar */
+  .bar-fill,
+  .bar-ref,
+  .prob-meter i,
+  .legend span,
+  .verdict,
+  .dot-teal,
+  .dot-coral,
+  .dot-gold,
+  .kicker,
+  .skill-card svg,
+  .svg-figure img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  details > summary {
+    display: none !important;
+  }
+
+  .section-head,
+  .kicker {
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  .facts-grid,
+  .route-grid,
+  .world-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10pt !important;
+  }
+
+  .fact-card img,
+  .world-card img,
+  .role-card img {
+    max-height: 4.5cm !important;
+  }
+
+  .fact-card {
+    padding: 8pt 10pt !important;
+    border: 1px solid #ddd;
+  }
+
+  .site-footer {
+    margin-top: 14pt;
+    padding: 8pt 0 0 !important;
+    border-top: 1px solid #ccc;
+    background: none !important;
+  }
+
+  .license-badge {
+    height: 22pt !important;
+    width: auto !important;
+  }
+}
