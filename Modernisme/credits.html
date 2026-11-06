@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crèdits i llicències de les imatges i fonts de la web sobre el Modernisme.">
+    <title>Crèdits | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <nav class="nav-principal"></nav>
+
+    <header class="header-seccio">
+        <p class="avantitol">Informació</p>
+        <h1>Crèdits i fonts</h1>
+        <p class="subtitol">Qui ha fet cada imatge i on es pot consultar</p>
+    </header>
+
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+            <h2 class="seccio-titol">Fonts dels continguts</h2>
+            <ul class="passos" style="list-style:disc">
+                <li>Viquipèdia en català: articles de cada edifici, artista i esdeveniment (consulta: novembre de 2026).</li>
+                <li>Wikidata: coordenades, dates i autories dels edificis.</li>
+                <li>Museu Nacional d'Art de Catalunya (MNAC): retrats al carbó de Ramon Casas.</li>
+                <li>Museu de la Ciència i de la Tècnica de Catalunya i Ajuntament de Terrassa: Modernisme terrassenc.</li>
+                <li>Currículum de ciències socials de l'ESO (Decret 175/2022): sabers sobre transformacions socials, art i patrimoni.</li>
+            </ul>
+        </section>
+
+        <section class="seccio">
+            <h2 class="seccio-titol">Imatges</h2>
+            <p class="seccio-intro">Totes les imatges provenen de Wikimedia Commons, excepte on s'indica. Es reprodueixen d'acord amb la seva llicència. Fes clic a la font per veure'n la fitxa original.</p>
+            <div class="taula-desplacable">
+                <table class="taula-credits">
+                    <thead><tr><th scope="col">Imatge</th><th scope="col">Fitxer</th><th scope="col">Autoria</th><th scope="col">Llicència</th><th scope="col">Resolució màxima</th></tr></thead>
+                    <tbody id="cos-credits"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script>
+    (function () {
+      const I = window.IMATGES || {};
+      const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      document.getElementById('cos-credits').innerHTML = Object.keys(I).map(id => {
+        const d = I[id], m = d.mides || {};
+        const gran = m.gran || m.mitjana || m.mini || [];
+        const font = d.font ? '<a href="' + esc(d.font) + '" target="_blank" rel="noopener noreferrer">' + esc(id) + '</a>' : esc(id);
+        const llic = d.llicenciaUrl ? '<a href="' + esc(d.llicenciaUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(d.llicencia) + '</a>' : esc(d.llicencia);
+        return '<tr><td><img src="img/mini/' + id + '.webp" alt="" loading="lazy"></td><td>' + font + '</td><td>' + esc(d.autor) + '</td><td>' + llic + '</td><td>' + (gran.length ? gran[0] + ' × ' + gran[1] + ' px' : '—') + '</td></tr>';
+      }).join('');
+    })();
+    </script>
+</body>
+</html>

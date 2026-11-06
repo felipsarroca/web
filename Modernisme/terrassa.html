@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Itinerari a peu pel Modernisme de Terrassa: Vapor Aymerich, Mercat de la Independència, Farmàcia Albinyana, Casa Alegre, Teatre Principal i Masia Freixa, amb fitxa de camp imprimible.">
+    <title>Itinerari per Terrassa | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <nav class="nav-principal"></nav>
+
+    <header class="header-seccio">
+        <p class="avantitol">Explora</p>
+        <h1>Itinerari modernista per Terrassa</h1>
+        <p class="subtitol">La ciutat de la llana i de Lluís Muncunill, a peu</p>
+    </header>
+
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio reveal nomes-pantalla">
+            <div class="dues-columnes" style="align-items:start">
+                <div>
+                    <div class="lead text-normal">
+                        <p>A començament del segle XX, Terrassa era una de les grans capitals de la llana d'Europa. Els industrials tèxtils van encarregar fàbriques, botigues, cases i equipaments modernistes, sobretot a l'arquitecte municipal <a href="autors.html#muncunill">Lluís Muncunill</a>. Aquest itinerari en recorre set.</p>
+                    </div>
+                    <div class="lead text-facil">
+                        <p>Terrassa tenia moltes fàbriques de llana. Els amos de les fàbriques van fer edificis modernistes. Visitarem set edificis caminant.</p>
+                    </div>
+                    <ul class="dades-ruta">
+                        <li><strong>Recorregut:</strong> uns 3 km a peu</li>
+                        <li><strong>Durada:</strong> 2 h 30 min amb les parades</li>
+                        <li><strong>Inici:</strong> mNACTEC (Rambla d'Ègara, 270)</li>
+                        <li><strong>Final:</strong> Masia Freixa (Parc de Sant Jordi)</li>
+                    </ul>
+                    <p style="margin-top:1rem"><button type="button" class="boto" onclick="window.print()">Imprimeix la fitxa de camp</button></p>
+                </div>
+                <div id="mapa-ruta" class="mapa-ruta" role="region" aria-label="Mapa de l'itinerari"></div>
+            </div>
+        </section>
+
+        <section class="seccio nomes-pantalla" aria-labelledby="parades" data-galeria>
+            <h2 class="seccio-titol" id="parades">Les parades</h2>
+            <ol class="itinerari" id="itinerari"></ol>
+        </section>
+
+        <section class="seccio reveal posa-thi nomes-pantalla" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: reporters del Modernisme</h2>
+            </header>
+            <p class="consigna">Durant la sortida, en grups de tres:</p>
+            <ol class="passos">
+                <li>Feu una foto de <strong>un detall</strong> de cada edifici (una rajola, una reixa, una volta, una lletra).</li>
+                <li>Al costat de cada foto, escriviu quin <strong>material</strong> és i quina <strong>forma de la natura</strong> imita, si n'imita alguna.</li>
+                <li>Tots junts, feu un mural (o una presentació a Canva) titulat <em>El Modernisme amagat de Terrassa</em>.</li>
+                <li><strong>Repte final:</strong> busqueu pel vostre barri algun edifici amb detalls modernistes que no surti en aquest itinerari.</li>
+            </ol>
+        </section>
+
+        <!-- Fitxa de camp: només visible en imprimir -->
+        <section class="fitxa-camp" aria-hidden="true">
+            <h2>Fitxa de camp · Modernisme a Terrassa</h2>
+            <p>Nom: ______________________________ &nbsp; Grup: ________ &nbsp; Data: ____________</p>
+            <div id="fitxa-parades"></div>
+            <div class="fitxa-final">
+                <h3>Per acabar</h3>
+                <p>Quin edifici t'ha agradat més? Per què?</p>
+                <div class="linies"><span></span><span></span><span></span></div>
+                <p>Per què creus que hi ha tants edificis modernistes relacionats amb la indústria tèxtil a Terrassa?</p>
+                <div class="linies"><span></span><span></span><span></span></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+    (function () {
+      const M = window.Modernisme;
+      const PREGUNTES = {
+        'vapor-aymerich': 'Compta quantes ones fa la coberta en una fila. Per què creus que hi ha finestres al sostre?',
+        'mercat-independencia': 'De quin material són les columnes? Quina forma tenen les naus vistes des de dalt?',
+        'farmacia-albinyana': 'Dibuixa un element de ceràmica de la façana.',
+        'societat-electricitat': 'Quina relació té aquest edifici amb el Vapor Aymerich? Fixa\'t en la coberta.',
+        'casa-alegre': 'Com vivia una família burgesa? Escriu tres coses que la diferencien d\'una casa obrera.',
+        'teatre-principal': 'Busca l\'escut de la ciutat a la façana i descriu-lo.',
+        'masia-freixa': 'Dibuixa la silueta de la façana. A què et recorden les formes dels arcs?'
+      };
+      const parades = window.OBRES.filter(o => o.ruta).sort((a, b) => a.ruta - b.ruta);
+
+      document.getElementById('itinerari').innerHTML = parades.map(o => {
+        const img = o.img
+          ? '<button type="button" class="boto-imatge" data-obra="' + o.id + '" data-img="' + o.img + '"><img src="' + M.rutaImatge(o.img) + '" alt="' + o.titol + '" loading="lazy"></button>'
+          : '<div class="sense-imatge" aria-hidden="true">Sense imatge disponible</div>';
+        const fixat = (o.fixat && o.fixat.length) ? '<div class="requadre-fixat"><h4>Fixa-t\'hi</h4><ul>' + o.fixat.map(f => '<li>' + f + '</li>').join('') + '</ul></div>' : '';
+        return '<li class="parada reveal">' + img + '<div class="cos"><h3>' + o.titol + '</h3><p class="meta">' + o.autor + ' · ' + o.anys + ' · ' + o.lloc.replace('Terrassa (', '').replace(')', '') + '</p><p>' + o.desc + '</p>' + fixat + '</div></li>';
+      }).join('');
+      M.preparaBotonsImatge(document.getElementById('itinerari'));
+
+      document.getElementById('fitxa-parades').innerHTML = parades.map((o, i) =>
+        '<div class="fitxa-parada"><h3>' + (i + 1) + '. ' + o.titol + '</h3><p class="petit">' + o.autor + ' · ' + o.anys + '</p>' +
+        '<p>' + (PREGUNTES[o.id] || 'Què t\'ha cridat més l\'atenció?') + '</p><div class="linies"><span></span><span></span></div>' +
+        '<p>Un detall modernista que hi has vist:</p><div class="linies"><span></span></div></div>').join('');
+
+      if (typeof L === 'undefined') return;
+      const mapa = L.map('mapa-ruta', { scrollWheelZoom: false });
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(mapa);
+      const punts = parades.map(o => [o.lat, o.lng]);
+      L.polyline(punts, { color: '#a8502f', weight: 4, opacity: 0.7, dashArray: '8 8' }).addTo(mapa);
+      parades.forEach((o, i) => {
+        L.marker([o.lat, o.lng], {
+          title: o.titol,
+          icon: L.divIcon({ className: '', html: '<div class="marcador-mapa" style="background:#5e7150"><span>' + (i + 1) + '</span></div>', iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28] })
+        }).bindPopup('<strong>' + (i + 1) + '. ' + o.titol + '</strong><br>' + o.autor).addTo(mapa);
+      });
+      mapa.fitBounds(punts, { padding: [25, 25] });
+      window.addEventListener('resize', () => mapa.invalidateSize());
+    })();
+    </script>
+</body>
+</html>

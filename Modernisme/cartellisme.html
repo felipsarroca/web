@@ -1,207 +1,128 @@
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="El Cartellisme modernista: l'art al carrer. Ramon Casas, Alexandre de Riquer i la publicitat com a art.">
-    <title>Cartellisme | &#127800; El Modernisme</title>
+    <meta name="description" content="El cartellisme modernista: Ramon Casas, Alexandre de Riquer i Alfons Mucha. Característiques del cartell, anàlisi de l'Anís del Mono i repte de disseny.">
+    <title>Cartellisme | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <span class="loader-flor">🌸</span>
-    </div>
+    <nav class="nav-principal"></nav>
 
-    <!-- Navegació -->
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="arts.html">Arts</a></li>
-                <li><a href="cartellisme.html" class="active" aria-current="page">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Header Secció -->
     <header class="header-seccio">
-        <h1>El Cartellisme</h1>
-        <p>L'art surt al carrer: la revolució de la publicitat</p>
+        <p class="avantitol">Arts</p>
+        <h1>El cartellisme</h1>
+        <p class="subtitol">Quan la publicitat es va convertir en art</p>
     </header>
 
-    <!-- Contingut Principal -->
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <!-- Intro & Characteristics Section -->
-            <div class="intro-cartellisme"
-                style="background: white; padding: 2rem; border-radius: 10px; box-shadow: var(--ombra);">
-
-                <!-- Intro Left Aligned -->
-                <div class="text-intro-esquerra"
-                    style="max-width: 800px; margin: 0 auto; text-align: left; margin-bottom: 3rem;">
-                    <h2
-                        style="font-family: var(--font-titol); color: var(--color-marro); margin-bottom: 1.5rem; font-size: 2.5rem; text-align: left;">
-                        L'art surt al carrer
-                    </h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text); margin-bottom: 1rem;">
-                        El Modernisme va trencar els murs dels museus. Gràcies a la publicitat, les tanques i parets de
-                        la ciutat es van convertir en una immensa galeria d'art a l'aire lliure.
-                    </p>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text);">
-                        Pintors de la talla de <strong>Ramon Casas</strong> o <strong>Alexandre de Riquer</strong> van
-                        posar el seu talent al servei de marques com <em>Anís del Mono</em> o <em>Codorniu</em>, creant
-                        obres mestres efímeres.
-                    </p>
-                </div>
-
-                <!-- New Visual Characteristics Grid -->
-                <h3
-                    style="font-family: var(--font-subtitol); color: var(--color-daurat-fosc); text-align: center; margin-bottom: 2rem; font-style: italic; font-size: 1.8rem;">
-                    Característiques del Cartell al detall
-                </h3>
-
-                <div class="graella-caracteristiques-imatges">
-
-                    <!-- Targeta 1: Dona -->
-                    <div class="targeta-caracteristica-foto">
-                        <div class="overlay-targeta">
-                            <h3>La dona com a protagonista</h3>
-                            <p>La figura femenina es converteix en el centre narrant de l’anunci, sovint idealitzada.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Targeta 2: Línies -->
-                    <div class="targeta-caracteristica-foto">
-                        <div class="overlay-targeta">
-                            <h3>Línies sinuoses</h3>
-                            <p>Ús del "colp de fuet" i formes orgàniques que envolten la figura i el text.</p>
-                        </div>
-                    </div>
-
-                    <!-- Targeta 3: Japó -->
-                    <div class="targeta-caracteristica-foto">
-                        <div class="overlay-targeta">
-                            <h3>Inspiració japonesa</h3>
-                            <p>Influència de l'ukiyo-e: tintes planes, contorns marcats i asimetria.</p>
-                        </div>
-                    </div>
-
-                    <!-- Targeta 4: Tipografia -->
-                    <div class="targeta-caracteristica-foto">
-                        <div class="overlay-targeta">
-                            <h3>Tipografia integrada</h3>
-                            <p>Les lletres formen part del dibuix, creant un tot orgànic inseparable.</p>
-                        </div>
-                    </div>
-
-                </div>
+        <section class="seccio reveal">
+            <div class="lead text-normal">
+                <p>A finals del segle XIX, la <button type="button" class="terme" data-terme="litografia">litografia</button> en color va permetre imprimir cartells grans i barats. Les empreses els feien servir per anunciar productes i esdeveniments, i els artistes hi van veure una manera de portar l'art al carrer. A París triomfava Alfons Mucha; a Barcelona, Ramon Casas i Alexandre de Riquer.</p>
             </div>
+            <div class="lead text-facil">
+                <p>Un <strong>cartell</strong> és un full gran amb un dibuix i poques paraules. Serveix per anunciar alguna cosa. Al Modernisme, els cartells eren molt bonics: eren art al carrer.</p>
+            </div>
+        </section>
 
-            <div class="galeria reveal">
-                <!-- Anís del Mono -->
-                <div class="galeria-item zoomable" onclick="obrirModal(this)"
-                    data-desc="Un dels cartells més icònics, guanyador del concurs de 1898." data-titol="Anís del Mono">
-                    <img src="img/cartell-anis-mono.jpg" alt="Cartell Anís del Mono">
-                    <div class="galeria-overlay">
-                        <h4>Anís del Mono</h4>
-                        <p>Ramon Casas · 1898</p>
-                    </div>
+        <section class="seccio reveal" aria-labelledby="trets">
+            <h2 class="seccio-titol" id="trets">Com és un cartell modernista?</h2>
+            <div class="caracteristiques-grid">
+                <article class="caracteristica"><h3>Colors plans</h3><p>Grans superfícies d'un sol color, sense ombres, apreses dels gravats japonesos (<button type="button" class="terme" data-terme="ukiyo-e">ukiyo-e</button>).</p></article>
+                <article class="caracteristica"><h3>Contorns marcats</h3><p>Una línia fosca envolta les figures perquè es vegin de lluny.</p></article>
+                <article class="caracteristica"><h3>Una figura central</h3><p>Sovint una dona elegant, que atrau la mirada i s'associa al producte.</p></article>
+                <article class="caracteristica"><h3>Lletres dibuixades</h3><p>El text forma part del disseny: les lletres es dibuixen a mà i s'integren amb la imatge.</p></article>
+                <article class="caracteristica"><h3>Missatge breu</h3><p>Només el nom del producte o de l'acte. S'ha d'entendre en pocs segons, caminant.</p></article>
+                <article class="caracteristica"><h3>Natura i ornament</h3><p>Flors, cabells ondulats i línies de <button type="button" class="terme" data-terme="colp-de-fuet">colp de fuet</button> decoren el fons i les vores.</p></article>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="galeria" data-galeria>
+            <h2 class="seccio-titol" id="galeria">Galeria de cartells</h2>
+            <p class="seccio-intro">Fes clic a cada cartell per ampliar-lo: es poden veure fins als traços del llapis litogràfic.</p>
+            <div class="galeria">
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="cartell-anis-mono"><img src="img/mini/cartell-anis-mono.webp" alt="Cartell d'Anís del Mono: una dona amb mantó groc i un mico amb una ampolla" loading="lazy" style="object-position:center 25%"></button>
+                    <figcaption><h3>Anís del Mono</h3><p class="meta">Ramon Casas · 1898</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="cartell-4gats"><img src="img/mini/cartell-4gats.webp" alt="Cartell d'Els Quatre Gats amb Pere Romeu fumant en pipa" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Els Quatre Gats</h3><p class="meta">Ramon Casas · c. 1897</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="cartell-codorniu"><img src="img/mini/cartell-codorniu.webp" alt="Cartell de Champagne Codorniu amb una dona elegant" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Champagne Codorniu</h3><p class="meta">Ramon Casas · c. 1898</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="cartell-cigarrillos-paris"><img src="img/mini/cartell-cigarrillos-paris.webp" alt="Cartell de Cigarrillos París amb una dona fumant" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Cigarrillos París</h3><p class="meta">Ramon Casas · 1901</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="riquer-sant-lluc"><img src="img/mini/riquer-sant-lluc.webp" alt="Cartell d'Alexandre de Riquer amb una figura femenina i ornaments vegetals" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Cercle Artístic de Sant Lluc</h3><p class="meta">Alexandre de Riquer · 1899</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="pel-ploma"><img src="img/mini/pel-ploma.webp" alt="Portada de la revista Pèl &amp; Ploma" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>«Pèl &amp; Ploma»</h3><p class="meta">Ramon Casas · 1899–1903</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="mucha-job"><img src="img/mini/mucha-job.webp" alt="Cartell de Mucha per al paper de fumar JOB" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>JOB</h3><p class="meta">Alfons Mucha · París · 1896</p></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge alt-300" data-obra="mucha-salammbo"><img src="img/mini/mucha-salammbo.webp" alt="Litografia de Mucha Salammbô, amb una dona i un músic" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Salammbô</h3><p class="meta">Alfons Mucha · 1896</p></figcaption></figure>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="analisi">
+            <h2 class="seccio-titol" id="analisi">Analitza un cartell: Anís del Mono</h2>
+            <p class="seccio-intro">El 1898 la marca d'anís Vicente Bosch, de Badalona, va convocar un concurs de cartells. Va guanyar Ramon Casas. Toca cada punt per descobrir-ne els secrets.</p>
+            <div class="dues-columnes" style="align-items:start">
+                <div class="punts-imatge" data-sortida="explicacio-anis" style="max-width:340px">
+                    <img src="img/mini/cartell-anis-mono.webp" alt="Cartell d'Anís del Mono de Ramon Casas" width="900" height="1798">
+                    <button type="button" class="punt-calent" style="left:50%;top:6%" data-titol="Les lletres" data-text="El nom de la marca, gran i groc sobre blau, ocupa tota l'amplada. Es llegeix des de lluny. El contrast entre colors complementaris (groc i blau) fa que destaqui encara més.">1</button>
+                    <button type="button" class="punt-calent" style="left:36%;top:27%" data-titol="La copeta" data-text="La dona aixeca una copa d'anís: el producte apareix sense necessitat d'explicar res. És la manera de fer publicitat amb la imatge.">2</button>
+                    <button type="button" class="punt-calent" style="left:58%;top:43%" data-titol="El mantó de Manila" data-text="El mantó groc i el vestit negre amb flors són colors plans, amb pocs detalls, com als gravats japonesos. La dona vesteix a la moda de l'època.">3</button>
+                    <button type="button" class="punt-calent" style="left:66%;top:70%" data-titol="El mico i l'ampolla" data-text="El mico és el símbol de la marca. Porta l'ampolla d'anís, amb el seu vidre de puntes de diamant, que encara avui és la mateixa.">4</button>
+                    <button type="button" class="punt-calent" style="left:16%;top:77%" data-titol="La signatura" data-text="«R. Casas». Els cartellistes signaven les seves obres: el cartell ja no era un simple anunci, sinó una obra d'art amb autor.">5</button>
+                    <button type="button" class="punt-calent" style="left:50%;top:94%" data-titol="Qui ho ven i on" data-text="A baix, el fabricant (Vicente Bosch) i la ciutat (Badalona). El text és curt i va al final, perquè primer mirem la imatge.">6</button>
                 </div>
-
-                <!-- Cigarrillos París -->
-                <div class="galeria-item zoomable" onclick="obrirModal(this)">
-                    <img src="img/cartell-cigarrillos-paris.jpg" alt="Cigarrillos París">
-                    <div class="galeria-overlay">
-                        <h4>Cigarrillos París</h4>
-                        <p>Ramon Casas · 1901</p>
+                <div>
+                    <div class="requadre explicacio-punt" id="explicacio-anis" aria-live="polite">
+                        <p>Tria un número per començar.</p>
                     </div>
-                </div>
-
-                <!-- Codorniu -->
-                <div class="galeria-item zoomable" onclick="obrirModal(this)">
-                    <img src="img/cartell-codorniu.jpg" alt="Cava Codorniu">
-                    <div class="galeria-overlay">
-                        <h4>Cava Codorniu</h4>
-                        <p>Ramon Casas · 1898</p>
-                    </div>
-                </div>
-
-                <!-- 4 Gats -->
-                <div class="galeria-item zoomable" onclick="obrirModal(this)">
-                    <img src="img/cartell-4gats.jpg" alt="Els 4 Gats">
-                    <div class="galeria-overlay">
-                        <h4>Els 4 Gats</h4>
-                        <p>P. Romeu i R. Casas en tàndem</p>
-                    </div>
-                </div>
-
-                <!-- Mucha (Context europeu) -->
-                <div class="galeria-item zoomable" onclick="obrirModal(this)">
-                    <img src="img/mucha-poster.jpg" alt="Alphonse Mucha">
-                    <div class="galeria-overlay">
-                        <h4>Alphonse Mucha</h4>
-                        <p>Art Nouveau (París)</p>
+                    <div class="activitat" style="margin-top:1.2rem">
+                        <h3>Per pensar</h3>
+                        <p>Quins anuncis d'avui fan servir els mateixos recursos (colors plans, una figura atractiva, poc text)? Per què creus que encara funcionen?</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: dissenya el teu cartell modernista</h2>
+            </header>
+            <p class="consigna">Crea un cartell (en paper o amb Canva) per anunciar un producte o un esdeveniment del teu barri o de l'escola, amb l'estil dels cartellistes modernistes.</p>
+            <ol class="passos">
+                <li><strong>Tria què anuncies:</strong> la festa major, un concert, una botiga del barri, la jornada de portes obertes...</li>
+                <li><strong>Escull la figura central:</strong> una persona, un animal o un objecte que es relacioni amb el que anuncies.</li>
+                <li><strong>Limita els colors:</strong> 3 o 4 colors plans. Pensa en contrastos forts (groc i blau, vermell i verd).</li>
+                <li><strong>Dibuixa les lletres:</strong> el títol ha de ser gran i formar part del dibuix.</li>
+                <li><strong>Afegeix ornaments:</strong> flors, cabells o línies corbes que emmarquin la imatge.</li>
+            </ol>
+            <h3 style="margin:1.4rem 0 0.6rem">Rúbrica d'avaluació</h3>
+            <div class="taula-desplacable">
+                <table class="taula-rubrica">
+                    <thead><tr><th scope="col">Criteri</th><th scope="col">Excel·lent (4)</th><th scope="col">Notable (3)</th><th scope="col">Suficient (2)</th><th scope="col">Cal millorar (1)</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Trets modernistes</th><td>Hi ha colors plans, contorns marcats, ornament natural i lletres integrades.</td><td>Hi ha tres d'aquests trets.</td><td>Hi ha dos trets.</td><td>No es reconeix l'estil modernista.</td></tr>
+                        <tr><th scope="row">Missatge</th><td>S'entén en menys de 5 segons què s'anuncia.</td><td>S'entén, però el text és una mica llarg.</td><td>Costa entendre què s'anuncia.</td><td>No se sap què s'anuncia.</td></tr>
+                        <tr><th scope="row">Composició</th><td>Figura central clara i equilibri entre imatge i text.</td><td>Bon equilibri amb algun element sobrer.</td><td>La imatge o el text queden desequilibrats.</td><td>Elements desordenats.</td></tr>
+                        <tr><th scope="row">Explicació oral</th><td>Explica amb vocabulari precís quins recursos ha fet servir i per què.</td><td>Explica els recursos principals.</td><td>Explica alguns recursos amb ajuda.</td><td>No sap explicar les decisions.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
-
-
-    <!-- Modal per imatges -->
-    <div class="modal" id="modal">
-        <div class="modal-contingut">
-            <span class="modal-tancar" onclick="tancarModal()">×</span>
-            <img src="" alt="" class="modal-imatge" id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-                <p id="modalDesc"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
 </body>
-
 </html>

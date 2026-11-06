@@ -1,79 +1,49 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mapa interactiu per explorar edificis modernistes a Barcelona i Catalunya.">
-
-    <title>Mapa Interactiu | &#127800; El Modernisme</title>
+    <meta name="description" content="Mapa interactiu del Modernisme a Barcelona i Terrassa, amb fitxes i imatges de cada edifici.">
+    <title>Mapa | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        #mapa {
-            width: 100%;
-            height: 600px;
-            border-radius: 15px;
-            box-shadow: var(--ombra);
-            z-index: 1;
-        }
-    </style>
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span></div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html" class="active" aria-current="page">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header class="header-seccio">
+    <nav class="nav-principal"></nav>
+
+    <header class="header-seccio header-compacte">
+        <p class="avantitol">Explora</p>
         <h1>Mapa del Modernisme</h1>
-        <p>Explora Barcelona edifici per edifici</p>
+        <p class="subtitol">Barcelona i Terrassa, edifici a edifici</p>
     </header>
+
     <main id="contingut" class="contingut-principal">
         <section class="seccio">
-            <div id="mapa"></div>
+            <div class="filtres" role="group" aria-label="Tria la ciutat">
+                <span class="etiqueta-filtre">Ciutat:</span>
+                <button type="button" class="xip" data-ciutat="totes" aria-pressed="false">Totes dues</button>
+                <button type="button" class="xip" data-ciutat="barcelona" aria-pressed="true">Barcelona</button>
+                <button type="button" class="xip" data-ciutat="terrassa" aria-pressed="false">Terrassa</button>
+                <span class="recompte"><a href="terrassa.html">Fes l'itinerari per Terrassa →</a></span>
+            </div>
+            <div class="mapa-disposicio">
+                <nav class="llista-llocs" aria-label="Llista d'edificis"><ol id="llista-llocs"></ol></nav>
+                <div id="mapa" role="region" aria-label="Mapa interactiu"></div>
+            </div>
+            <p class="peu-foto">Dades del mapa: © col·laboradors d'OpenStreetMap. Coordenades: Wikidata.</p>
         </section>
     </main>
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
 
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script> <!-- Carregar script principal per menú i loader -->
-
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/mapa.js"></script>
 </body>
-
 </html>

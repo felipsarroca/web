@@ -1,105 +1,102 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cronologia del Modernisme (1880-1915) amb fites clau i canvis culturals.">
-
-    <title>Cronologia | &#127800; El Modernisme</title>
+    <meta name="description" content="Línia del temps del Modernisme català (1854–1926), amb les obres principals i el context històric.">
+    <title>Línia del temps | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span></div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html" class="active" aria-current="page">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="nav-principal"></nav>
+
     <header class="header-seccio">
-        <h1>Cronologia (1880-1915)</h1>
-        <p>L'evolució d'una època daurada</p>
+        <p class="avantitol">Context</p>
+        <h1>Línia del temps</h1>
+        <p class="subtitol">De l'enderroc de les muralles a la mort de Gaudí (1854–1926)</p>
     </header>
+
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <span class="timeline-any">1888</span>
-                    <div class="timeline-contingut">
-                        <h4>Exposició Universal</h4>
-                        <img src="img/arc-triomf.jpg" alt="Arc de Triomf"
-                            style="width:100px; float:right; margin-left:10px; border-radius:5px;" class="zoomable">
-                        <p>Barcelona s'obre al món. Comenúa la febre constructora.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-any">1898</span>
-                    <div class="timeline-contingut">
-                        <h4>Els 4 Gats</h4>
-                        <img src="img/els-4-gats-interior.jpg" alt="Interior 4 Gats"
-                            style="width:100px; float:right; margin-left:10px; border-radius:5px;" class="zoomable">
-                        <p>Obertura del centre cultural bohemi on Picasso, Casas i Rusiñol es reunien.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-any">1900-1914</span>
-                    <div class="timeline-contingut">
-                        <h4>Esplendor</h4>
-                        <p>Es construeixen la Pedrera, Casa Batlló, Parc Güell, Palau de la Música...</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-any">1907</span>
-                    <div class="timeline-contingut">
-                        <h4>Modernisme Industrial</h4>
-                        <p>Muncunill construeix la Masia Freixa i el Vapor Aymerich a Terrassa.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-any">1915</span>
-                    <div class="timeline-contingut">
-                        <h4>Noucentisme</h4>
-                        <p>La raó i l'ordre substitueixen la fantasia modernista.</p>
-                    </div>
-                </div>
+        <section class="seccio" data-galeria>
+            <div class="llegenda" aria-hidden="true">
+                <span><i style="background:var(--color-marro)"></i> Art i cultura modernista</span>
+                <span><i style="background:var(--color-verd)"></i> Context històric</span>
+            </div>
+            <div class="filtres" role="group" aria-label="Què vols veure" style="justify-content:center">
+                <button type="button" class="xip" data-veure="tot" aria-pressed="true">Tot</button>
+                <button type="button" class="xip" data-veure="art" aria-pressed="false">Només art</button>
+                <button type="button" class="xip" data-veure="context" aria-pressed="false">Només context</button>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item context reveal"><span class="timeline-any">1854</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Comença l'enderroc de les muralles de Barcelona</h3><p>La ciutat, ofegada dins les muralles, pot créixer per fi.</p></div></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1859</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Pla Cerdà i Jocs Florals</h3><p>S'aprova el projecte d'<button type="button" class="terme" data-terme="eixample">Eixample</button> d'Ildefons Cerdà i es restauren els Jocs Florals, símbol de la <button type="button" class="terme" data-terme="renaixenca">Renaixença</button>.</p></div><button type="button" class="boto-imatge" data-img="pla-cerda" data-titol="Pla Cerdà" data-sub="Ildefons Cerdà · 1859"><img src="img/mini/pla-cerda.webp" alt="Plànol de l'Eixample de Cerdà" loading="lazy"></button></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1878</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>«A la recerca d'una arquitectura nacional»</h3><p>Domènech i Montaner publica l'article que demana un estil català i modern. Aquell mateix any, Gaudí acaba els estudis d'arquitectura.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1883</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Gaudí: Casa Vicens i Sagrada Família</h3><p>Comença la Casa Vicens, la seva primera gran casa, i assumeix la direcció de les obres de la Sagrada Família.</p></div><button type="button" class="boto-imatge" data-obra="casa-vicens" data-img="casa-vicens"><img src="img/mini/casa-vicens.webp" alt="Casa Vicens" loading="lazy"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1888</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context i art</span><h3>Exposició Universal de Barcelona</h3><p>Al Parc de la Ciutadella. Domènech i Montaner hi construeix el Cafè-restaurant (Castell dels Tres Dragons), un dels primers edificis modernistes.</p></div><button type="button" class="boto-imatge" data-obra="tres-dragons" data-img="tres-dragons"><img src="img/mini/tres-dragons.webp" alt="Castell dels Tres Dragons" loading="lazy"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1891</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Neix l'Orfeó Català</h3><p>Lluís Millet i Amadeu Vives funden el cor que anys després encarregarà el Palau de la Música.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1892</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Primera Festa Modernista a Sitges</h3><p>Santiago Rusiñol organitza la primera de les Festes Modernistes (fins al 1899). El mateix any, les Bases de Manresa demanen autogovern per a Catalunya.</p></div><button type="button" class="boto-imatge" data-obra="cau-ferrat" data-img="cau-ferrat"><img src="img/mini/cau-ferrat.webp" alt="Interior del Cau Ferrat" loading="lazy"></button></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1897</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Obre Els Quatre Gats</h3><p>El 12 de juny, Pere Romeu obre la cerveseria a la Casa Martí de Puig i Cadafalch. Casas, Rusiñol i Utrillo en són els impulsors.</p></div><button type="button" class="boto-imatge" data-obra="casas-tandem" data-img="casas-tandem"><img src="img/mini/casas-tandem.webp" alt="Casas i Romeu en un tàndem" loading="lazy"></button></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1898</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Concurs de cartells d'Anís del Mono</h3><p>Guanya Ramon Casas. Aquell any comença la Casa Amatller i Caterina Albert guanya un premi als Jocs Florals d'Olot amb <em>La infanticida</em>.</p></div><button type="button" class="boto-imatge" data-obra="cartell-anis-mono" data-img="cartell-anis-mono"><img src="img/mini/cartell-anis-mono.webp" alt="Cartell d'Anís del Mono" loading="lazy" style="object-position:center 30%"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1898</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Pèrdua de Cuba i les Filipines</h3><p>La derrota contra els Estats Units fa perdre les últimes colònies. Molts industrials catalans, que hi venien productes, aposten pel catalanisme polític.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1900</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Comença el Park Güell</h3><p>Gaudí projecta una urbanització per a famílies riques que acabarà sent un parc públic. A Els Quatre Gats, Picasso fa la seva primera exposició.</p></div><button type="button" class="boto-imatge" data-obra="park-guell" data-img="park-guell"><img src="img/mini/park-guell.webp" alt="Park Güell" loading="lazy"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1901</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Neix la Lliga Regionalista</h3><p>Partit catalanista conservador, amb Prat de la Riba i Cambó. Puig i Cadafalch i Domènech i Montaner hi participen.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1904</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Casa Batlló</h3><p>Gaudí reforma la casa del passeig de Gràcia (1904–1906). A Terrassa comença el Mercat de la Independència.</p></div><button type="button" class="boto-imatge" data-obra="casa-batllo" data-img="casa-batllo"><img src="img/mini/casa-batllo.webp" alt="Casa Batlló" loading="lazy"></button></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1905</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Palau de la Música Catalana i «Solitud»</h3><p>Comencen les obres del Palau (1905–1908). Víctor Català publica la novel·la <em>Solitud</em>.</p></div><button type="button" class="boto-imatge" data-obra="palau-musica" data-img="palau-musica"><img src="img/mini/palau-musica.webp" alt="Palau de la Música Catalana" loading="lazy"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1906</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Neix el Noucentisme</h3><p>Eugeni d'Ors comença el seu <em>Glosari</em> i defensa un art més ordenat, clàssic i mediterrani. És l'inici del final del Modernisme. Gaudí comença la Casa Milà.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1907</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Vapor Aymerich, Amat i Jover</h3><p>Muncunill construeix a Terrassa la gran fàbrica de llana amb voltes ondulades (1907–1909).</p></div><button type="button" class="boto-imatge" data-obra="vapor-aymerich" data-img="vapor-aymerich"><img src="img/mini/vapor-aymerich.webp" alt="Vapor Aymerich" loading="lazy"></button></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1909</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Setmana Tràgica</h3><p>Una protesta contra l'enviament de reservistes a la guerra del Marroc acaba amb una revolta, esglésies cremades i una forta repressió.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1911</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Moren Maragall i Nonell</h3><p>Desapareixen dues figures clau. El Noucentisme ja domina la cultura oficial.</p></div></div></div>
+                <div class="timeline-item context reveal"><span class="timeline-any">1914</span><div class="timeline-contingut"><div><span class="timeline-tipus">Context</span><h3>Mancomunitat de Catalunya</h3><p>Primer govern conjunt de les quatre diputacions catalanes. Puig i Cadafalch la presidirà del 1917 al 1923.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1918</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Mor Lluïsa Vidal</h3><p>La pintora mor durant l'epidèmia de grip, amb 42 anys.</p></div></div></div>
+                <div class="timeline-item reveal"><span class="timeline-any">1926</span><div class="timeline-contingut"><div><span class="timeline-tipus">Art</span><h3>Mor Antoni Gaudí</h3><p>El 10 de juny, després de ser atropellat per un tramvia. La Sagrada Família continua en construcció.</p></div><button type="button" class="boto-imatge" data-obra="sagrada-familia" data-img="sagrada-familia"><img src="img/mini/sagrada-familia.webp" alt="Sagrada Família" loading="lazy"></button></div></div>
+            </div>
+        </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: ordena la història</h2>
+            </header>
+            <p class="consigna">Ordena els fets del més antic al més recent amb les fletxes. Quan comprovis, apareixerà l'any de cada fet.</p>
+            <ol class="ordena activitat-ordena">
+                <li data-ordre="1" data-any="1859">Ildefons Cerdà dissenya l'Eixample de Barcelona.</li>
+                <li data-ordre="2" data-any="1888">Barcelona celebra l'Exposició Universal.</li>
+                <li data-ordre="3" data-any="1897">Obre la cerveseria Els Quatre Gats.</li>
+                <li data-ordre="4" data-any="1905">Comencen les obres del Palau de la Música.</li>
+                <li data-ordre="5" data-any="1909">Esclata la Setmana Tràgica.</li>
+                <li data-ordre="6" data-any="1926">Mor Antoni Gaudí.</li>
+            </ol>
+            <div class="accions-activitat">
+                <button type="button" class="boto" data-accio="comprova">Comprova</button>
+                <button type="button" class="boto clar" data-accio="reinicia">Barreja</button>
+                <span class="resultat-activitat" aria-live="polite"></span>
             </div>
         </section>
     </main>
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
 
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
+    <script>
+    (function () {
+      const xips = document.querySelectorAll('[data-veure]');
+      xips.forEach(x => x.addEventListener('click', () => {
+        xips.forEach(y => y.setAttribute('aria-pressed', String(y === x)));
+        const v = x.dataset.veure;
+        document.querySelectorAll('.timeline-item').forEach(it => {
+          const ctx = it.classList.contains('context');
+          it.hidden = (v === 'art' && ctx) || (v === 'context' && !ctx);
+        });
+      }));
+    })();
+    </script>
 </body>
-
 </html>

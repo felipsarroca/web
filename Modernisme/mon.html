@@ -1,115 +1,119 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="El Modernisme al món: variants europees i connexions amb l'Art Nouveau, Jugendstil i Liberty.">
-
-    <title>Al Món | &#127800; El Modernisme</title>
+    <meta name="description" content="El Modernisme al món: Art Nouveau, Secessió vienesa, Jugendstil, Liberty, Modern Style i la influència de l'art japonès.">
+    <title>Al món | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html" class="active" aria-current="page">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="arts.html">Arts</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="nav-principal"></nav>
+
     <header class="header-seccio">
-        <h1>El Modernisme Internacional</h1>
-        <p>Un mateix esperit amb noms diferents</p>
+        <p class="avantitol">Context</p>
+        <h1>El Modernisme internacional</h1>
+        <p class="subtitol">Un mateix esperit amb noms diferents</p>
     </header>
+
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <div class="galeria grid-2-cols reveal">
-                <!-- Art Nouveau (França/Bèlgica) -->
-                <div class="galeria-item galeria-item-gran zoomable" onclick="obrirModal(this)"
-                    data-desc="L'entrada del metro de París, icona de l'Art Nouveau." data-titol="Hector Guimard">
-                    <img src="img/guimard-metro.jpg" alt="Art Nouveau París">
-                    <div class="galeria-overlay">
-                        <h4>Hector Guimard</h4>
-                        <p>Art Nouveau (París)</p>
-                    </div>
-                </div>
+        <section class="seccio reveal">
+            <div class="lead text-normal">
+                <p>Cap al 1890, artistes de tot Europa es van cansar de copiar els estils del passat. Inspirats en la natura, en l'art japonès i en el moviment anglès <em>Arts and Crafts</em> de William Morris —que defensava el treball artesà davant la producció industrial en sèrie—, van crear un art nou. A cada país va rebre un nom diferent; a Catalunya, <strong>Modernisme</strong>.</p>
+            </div>
+            <div class="lead text-facil">
+                <p>El Modernisme no va passar només a Catalunya. A molts països d'Europa hi havia un estil semblant, amb noms diferents:</p>
+                <ul>
+                    <li>França i Bèlgica: <strong>Art Nouveau</strong>.</li>
+                    <li>Àustria: <strong>Secessió</strong>.</li>
+                    <li>Alemanya: <strong>Jugendstil</strong>.</li>
+                    <li>Itàlia: <strong>Liberty</strong>.</li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="galeria-item galeria-item-gran zoomable" onclick="obrirModal(this)"
-                    data-desc="Interior de la Casa Tassel, la primera obra Art Nouveau." data-titol="Victor Horta">
-                    <img src="img/horta-tassel.jpg" alt="Casa Tassel (Horta)">
-                    <div class="galeria-overlay">
-                        <h4>Victor Horta</h4>
-                        <p>Art Nouveau (Brussel·les)</p>
-                    </div>
-                </div>
+        <section class="seccio reveal" aria-labelledby="noms">
+            <h2 class="seccio-titol" id="noms">Un moviment, molts noms</h2>
+            <div class="taula-desplacable">
+                <table class="taula-rubrica">
+                    <thead><tr><th scope="col">Nom</th><th scope="col">On</th><th scope="col">Figures destacades</th><th scope="col">Tret característic</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Art Nouveau</th><td>França i Bèlgica</td><td>Victor Horta, Hector Guimard, Alfons Mucha, Émile Gallé</td><td>Línia de <button type="button" class="terme" data-terme="colp-de-fuet">colp de fuet</button>, ferro amb formes vegetals</td></tr>
+                        <tr><th scope="row">Secessió</th><td>Àustria (Viena)</td><td>Gustav Klimt, Otto Wagner, Josef Hoffmann</td><td>Decoració més geomètrica; ús de l'or</td></tr>
+                        <tr><th scope="row">Jugendstil</th><td>Alemanya</td><td>Revista <em>Jugend</em>, Richard Riemerschmid</td><td>Il·lustració i disseny d'objectes</td></tr>
+                        <tr><th scope="row">Liberty</th><td>Itàlia</td><td>Raimondo D'Aronco, Giuseppe Sommaruga</td><td>Nom pres dels magatzems Liberty de Londres</td></tr>
+                        <tr><th scope="row">Modern Style</th><td>Regne Unit (Glasgow)</td><td>Charles Rennie Mackintosh</td><td>Línies verticals i allargades</td></tr>
+                        <tr><th scope="row">Modernisme</th><td>Catalunya</td><td>Gaudí, Domènech i Montaner, Puig i Cadafalch, Casas</td><td>Art total i símbols de la identitat catalana</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                <!-- Secession (Viena) -->
-                <div class="galeria-item galeria-item-gran zoomable" onclick="obrirModal(this)"
-                    data-desc="El Petó de Klimt, màxima expressió de la Secessió vienesa." data-titol="Gustav Klimt">
-                    <img src="img/klimt-bes.jpg" alt="El Petó (Klimt)">
-                    <div class="galeria-overlay">
-                        <h4>Gustav Klimt</h4>
-                        <p>Secession (Viena)</p>
-                    </div>
-                </div>
+        <section class="seccio reveal" aria-labelledby="galeria" data-galeria>
+            <h2 class="seccio-titol" id="galeria">Obres de referència</h2>
+            <p class="seccio-intro">Fes clic a cada obra per ampliar-la i llegir-ne la fitxa.</p>
+            <div class="galeria galeria-2">
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="horta-tassel"><img src="img/mini/horta-tassel.webp" alt="Escala de la Casa Tassel, amb columnes de ferro i línies corbes" loading="lazy"></button>
+                    <figcaption><h3>Casa Tassel</h3><p class="meta">Victor Horta · Brussel·les · 1893</p><span class="etiqueta">Art Nouveau</span></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="guimard-metro"><img src="img/mini/guimard-metro.webp" alt="Entrada de metro de París de ferro verd amb formes de planta" loading="lazy"></button>
+                    <figcaption><h3>Entrada del metro de París</h3><p class="meta">Hector Guimard · c. 1900</p><span class="etiqueta">Art Nouveau</span></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="mucha-job"><img src="img/mini/mucha-job.webp" alt="Cartell de Mucha amb una dona de cabells llargs" loading="lazy" style="object-position:center 20%"></button>
+                    <figcaption><h3>Cartell de JOB</h3><p class="meta">Alfons Mucha · París · 1896</p><span class="etiqueta">Art Nouveau</span></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="klimt-peto"><img src="img/mini/klimt-peto.webp" alt="El petó de Klimt: una parella abraçada dins un mantell daurat" loading="lazy"></button>
+                    <figcaption><h3>El petó</h3><p class="meta">Gustav Klimt · Viena · 1907–1908</p><span class="etiqueta">Secessió</span></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="wagner-majolica"><img src="img/mini/wagner-majolica.webp" alt="Façana d'un edifici de pisos coberta de rajoles amb flors" loading="lazy"></button>
+                    <figcaption><h3>Majolikahaus</h3><p class="meta">Otto Wagner · Viena · 1898–1899</p><span class="etiqueta">Secessió</span></figcaption></figure>
+                <figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="jugend-revista"><img src="img/mini/jugend-revista.webp" alt="Portada de la revista Jugend de 1896" loading="lazy" style="object-position:center 25%"></button>
+                    <figcaption><h3>Revista «Jugend»</h3><p class="meta">Munic · 1896</p><span class="etiqueta">Jugendstil</span></figcaption></figure>
+            </div>
+        </section>
 
-                <!-- Jugendstil (Alemanya) -->
-                <div class="galeria-item galeria-item-gran zoomable" onclick="obrirModal(this)"
-                    data-desc="La revista Jugend, que va donar nom al moviment a Alemanya." data-titol="Jugendstil">
-                    <img src="img/jugendstil.jpg" alt="Jugendstil (Alemanya)">
-                    <div class="galeria-overlay">
-                        <h4>Jugendstil (Alemanya)</h4>
-                        <p>Revista Jugend</p>
-                    </div>
+        <section class="seccio reveal" aria-labelledby="japo" data-galeria>
+            <div class="dues-columnes">
+                <div>
+                    <h2 class="seccio-titol" id="japo">La influència del Japó</h2>
+                    <p class="text-normal">El 1854 el Japó es va obrir al comerç amb Occident i els seus gravats (<button type="button" class="terme" data-terme="ukiyo-e">ukiyo-e</button>) van arribar a Europa. Els artistes en van admirar els colors plans, els contorns marcats, les composicions asimètriques i l'atenció a la natura. Aquesta influència, el <button type="button" class="terme" data-terme="japonisme">japonisme</button>, es veu clarament en els cartells modernistes.</p>
+                    <p class="text-facil">Els artistes europeus van conèixer els dibuixos japonesos. Els van agradar els colors plans i les línies clares. Per això molts cartells modernistes s'hi assemblen.</p>
                 </div>
+                <button type="button" class="boto-imatge alt-300" data-obra="hokusai-onada"><img src="img/mini/hokusai-onada.webp" alt="La gran onada de Kanagawa, de Hokusai" loading="lazy"></button>
+            </div>
+        </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: cada nom al seu lloc</h2>
+            </header>
+            <p class="consigna">Relaciona cada nom del moviment amb el país o la ciutat on es va fer servir.</p>
+            <div class="relaciona activitat-relaciona" data-opcions="França i Bèlgica|Viena|Alemanya|Itàlia|Glasgow (Escòcia)|Catalunya">
+                <div class="fila-relaciona" data-correcta="França i Bèlgica"><span class="text-fila"><strong>Art Nouveau</strong></span></div>
+                <div class="fila-relaciona" data-correcta="Viena"><span class="text-fila"><strong>Secessió</strong></span></div>
+                <div class="fila-relaciona" data-correcta="Alemanya"><span class="text-fila"><strong>Jugendstil</strong></span></div>
+                <div class="fila-relaciona" data-correcta="Itàlia"><span class="text-fila"><strong>Liberty</strong></span></div>
+                <div class="fila-relaciona" data-correcta="Glasgow (Escòcia)"><span class="text-fila"><strong>Modern Style</strong> de Mackintosh</span></div>
+                <div class="fila-relaciona" data-correcta="Catalunya"><span class="text-fila"><strong>Modernisme</strong></span></div>
+            </div>
+            <div class="accions-activitat">
+                <button type="button" class="boto" data-accio="comprova">Comprova</button>
+                <button type="button" class="boto clar" data-accio="reinicia">Torna-hi</button>
+                <span class="resultat-activitat" aria-live="polite"></span>
+            </div>
+            <div class="activitat" style="margin-top:1.6rem">
+                <h3>Compara</h3>
+                <p>Obre <em>El petó</em> de Klimt i el cartell <em>Anís del Mono</em> de Ramon Casas (a la pàgina <a href="cartellisme.html">Cartellisme</a>). Escriu <strong>dues semblances</strong> i <strong>dues diferències</strong>.</p>
             </div>
         </section>
     </main>
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
 
-    <div class="modal" id="modal">
-        <div class="modal-contingut"><span class="modal-tancar" onclick="tancarModal()">×</span><img src=""
-                id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
 </body>
-
 </html>

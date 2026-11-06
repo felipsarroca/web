@@ -1,101 +1,162 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Què és el Modernisme? Moviment artístic, cultural i social que volia transformar la societat a través de la bellesa.">
-    <title>Què és | &#127800; El Modernisme</title>
+    <meta name="description" content="Què és el Modernisme? Quan i on va passar, per què va néixer i com el podem reconèixer.">
+    <title>Què és el Modernisme? | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html" class="active" aria-current="page">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="arts.html">Arts</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header class="header-seccio">
-        <h1>Què és el Modernisme?</h1>
-        <p>L'art nou que va voler transformar la societat a través de la bellesa</p>
-    </header>
-    <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <div class="caracteristiques-grid reveal">
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">📅</span>
-                    <div class="caracteristica-text"><strong>Quan?</strong> Finals s.XIX - Principis s.XX (1888-1915
-                        aprox). De l'Exposició de 1888 al trencament del Noucentisme.</div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🌍</span>
-                    <div class="caracteristica-text"><strong>On?</strong> A tota Europa: Art Nouveau, Jugendstil,
-                        Liberty... i modernisme català com a versió pròpia.</div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🎨</span>
-                    <div class="caracteristica-text"><strong>Objectiu</strong> Art Total: integrar arquitectura,
-                        escultura, pintura i arts decoratives per transformar la vida quotidiana.</div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🌿</span>
-                    <div class="caracteristica-text"><strong>Inspiració</strong> La Natura: formes corbes, flors,
-                        animals, moviment i llum filtrada com un bosc de vitralls.</div>
-                </div>
-            </div>
+    <nav class="nav-principal"></nav>
 
-            <div style="margin-top:3rem; text-align:center;">
-                <img src="img/vitrall-palau.jpg" alt="Vitralls Palais" class="img-destacada zoomable">
-                <p class="peu-foto">El Modernisme busca la llum i el color en tots els detalls.</p>
+    <header class="header-seccio">
+        <p class="avantitol">Context</p>
+        <h1>Què és el Modernisme?</h1>
+        <p class="subtitol">L'art nou que va voler transformar la vida a través de la bellesa</p>
+    </header>
+
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio reveal">
+            <div class="lead text-normal">
+                <p>El <button type="button" class="terme" data-terme="modernisme">Modernisme</button> és el moviment artístic i cultural que va transformar Catalunya entre el 1888 i el 1911, aproximadament. No va ser només un estil d'edificis: va canviar la pintura, l'escultura, la literatura, la música, els mobles, les joies i la publicitat. Els seus artistes volien una cultura <strong>moderna</strong>, connectada amb Europa, i alhora <strong>catalana</strong>.</p>
+            </div>
+            <div class="lead text-facil">
+                <p>El Modernisme és un estil d'art. Va passar a Catalunya entre el 1888 i el 1911.</p>
+                <p>No són només edificis: també hi ha pintures, cartells, mobles, joies i llibres.</p>
+                <p>Els artistes volien un art <strong>nou</strong>, <strong>modern</strong> i <strong>català</strong>.</p>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="claus">
+            <h2 class="seccio-titol" id="claus">Quatre preguntes clau</h2>
+            <div class="caracteristiques-grid">
+                <article class="caracteristica">
+                    <h3>Quan?</h3>
+                    <p>D'una manera convencional, del 1888 (Exposició Universal de Barcelona) al 1911 (l'<em>Almanac dels Noucentistes</em>). Els límits no són exactes: hi ha obres modernistes abans i després.</p>
+                </article>
+                <article class="caracteristica">
+                    <h3>On?</h3>
+                    <p>A tot Catalunya, sobretot a Barcelona, però també a Terrassa, Reus, Sabadell, Sitges… Formava part d'un moviment europeu: l'<button type="button" class="terme" data-terme="art-nouveau">Art Nouveau</button>.</p>
+                </article>
+                <article class="caracteristica">
+                    <h3>Qui ho pagava?</h3>
+                    <p>La <button type="button" class="terme" data-terme="burgesia">burgesia</button> industrial, enriquida amb les fàbriques tèxtils, que volia cases, botigues i fàbriques que mostressin el seu èxit.</p>
+                </article>
+                <article class="caracteristica">
+                    <h3>Per què?</h3>
+                    <p>Per modernitzar el país, per afirmar la identitat catalana després de la <button type="button" class="terme" data-terme="renaixenca">Renaixença</button> i per fer que la bellesa formés part de la vida de cada dia.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="reconeixer" data-galeria>
+            <h2 class="seccio-titol" id="reconeixer">Com el reconeixem?</h2>
+            <p class="seccio-intro">Sis trets que es repeteixen en les obres modernistes. Fes clic a les imatges per veure'n els detalls.</p>
+            <div class="caracteristiques-grid">
+                <article class="caracteristica">
+                    <h3>La natura com a model</h3>
+                    <p>Flors, fulles, insectes, ossos, onades i animals inspiren les formes i la decoració.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="park-guell" data-titol="Drac del Parc Güell" data-sub="Antoni Gaudí · 1900–1914" data-desc="Un animal fantàstic cobert de trencadís dona la benvinguda al parc."><img src="img/mini/park-guell.webp" alt="Drac de trencadís de l'escalinata del Parc Güell" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>La línia corba</h3>
+                    <p>Predominen les corbes i les formes ondulades, com el <button type="button" class="terme" data-terme="colp-de-fuet">colp de fuet</button>. No vol dir que no hi hagi línies rectes, però la corba mana.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="casa-mila" data-titol="Casa Milà, «la Pedrera»" data-sub="Antoni Gaudí · 1906–1912" data-desc="Tota la façana ondula: no hi ha cap pla recte."><img src="img/mini/casa-mila.webp" alt="Façana ondulada de la Casa Milà" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Color i llum</h3>
+                    <p><button type="button" class="terme" data-terme="vitrall">Vitralls</button>, <button type="button" class="terme" data-terme="ceramica">ceràmica vidriada</button> i <button type="button" class="terme" data-terme="trencadis">trencadís</button> omplen els edificis de color i deixen passar la llum.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="vitrall-palau" data-titol="Claraboia del Palau de la Música" data-sub="Lluís Domènech i Montaner · 1908"><img src="img/mini/vitrall-palau.webp" alt="Claraboia de vidre de colors del Palau de la Música" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>L'art total</h3>
+                    <p>Arquitectes, escultors, vidriers, ferrers i ebenistes treballen junts: un edifici és una obra d'<button type="button" class="terme" data-terme="art-total">art total</button>, fins al pom de la porta.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="palau-musica" data-titol="Palau de la Música Catalana" data-sub="Lluís Domènech i Montaner · 1905–1908"><img src="img/mini/palau-musica.webp" alt="Interior del Palau de la Música Catalana" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Materials nous i oficis antics</h3>
+                    <p>El ferro i el vidre industrials conviuen amb el <button type="button" class="terme" data-terme="mao-vist">maó vist</button>, la pedra i el <button type="button" class="terme" data-terme="ferro-forjat">ferro forjat</button> a mà.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="vapor-aymerich-voltes" data-titol="Voltes del Vapor Aymerich" data-sub="Lluís Muncunill · Terrassa · 1907–1909" data-desc="Voltes de maó de pla lligades amb tirants de ferro i aguantades per columnes de ferro colat."><img src="img/mini/vapor-aymerich-voltes.webp" alt="Interior del Vapor Aymerich amb voltes de maó i tirants de ferro" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Símbols catalans</h3>
+                    <p>Sant Jordi, l'escut de les quatre barres i referències al passat medieval apareixen a façanes, vitralls i mosaics.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="casa-punxes" data-titol="Casa Terrades, «de les Punxes»" data-sub="Josep Puig i Cadafalch · 1903–1905" data-desc="Té un plafó de ceràmica de Sant Jordi amb el lema «Sant Patró de Catalunya, torneu-nos la llibertat»."><img src="img/mini/casa-punxes.webp" alt="Casa de les Punxes" loading="lazy"></button>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="fets">
+            <div class="requadre-fixat">
+                <h4 id="fets">Fets i interpretacions</h4>
+                <ul>
+                    <li><strong>Fet:</strong> l'Exposició Universal de 1888 i l'<em>Almanac dels Noucentistes</em> de 1911 són fites documentades.</li>
+                    <li><strong>Interpretació:</strong> fer-les servir com a «inici» i «final» del Modernisme és una convenció dels historiadors. El <button type="button" class="terme" data-terme="noucentisme">Noucentisme</button> va començar cap al 1906 i els dos moviments van conviure uns quants anys.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi" data-galeria>
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: modernista o no?</h2>
+            </header>
+            <p class="consigna">Observa cada obra i decideix si és modernista. Després prem <strong>Comprova</strong> per llegir l'explicació. Fixa't en les formes, els materials i la decoració.</p>
+            <div class="graella-classifica activitat-classifica">
+                <div class="carta-classifica" data-correcta="si" data-explica="Sí. Façana ondulada, trencadís de colors i formes inspirades en la natura (Gaudí, 1904–1906).">
+                    <button type="button" class="boto-imatge" data-img="casa-batllo" data-titol="Obra A"><img src="img/mini/casa-batllo.webp" alt="Obra A: façana amb balcons ondulats i ceràmica de colors" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra A</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="no" data-explica="No. És Santa Maria del Mar (segle XIV), una església gòtica: arcs apuntats i pedra nua.">
+                    <button type="button" class="boto-imatge" data-img="santa-maria-mar" data-titol="Obra B"><img src="img/mini/santa-maria-mar.webp" alt="Obra B: interior d'una església amb columnes primes de pedra" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra B</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="si" data-explica="Sí. Cartell publicitari de Ramon Casas (1898): figura femenina, colors plans i lletres integrades.">
+                    <button type="button" class="boto-imatge" data-img="cartell-anis-mono" data-titol="Obra C"><img src="img/mini/cartell-anis-mono.webp" alt="Obra C: cartell amb una dona amb mantó i un mico" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra C</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="no" data-explica="No. És la Llotja de Mar (final del segle XVIII), neoclàssica: columnes, frontons i simetria inspirats en Grècia i Roma.">
+                    <button type="button" class="boto-imatge" data-img="llotja-mar" data-titol="Obra D"><img src="img/mini/llotja-mar.webp" alt="Obra D: façana amb columnes i frontó clàssic" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra D</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="si" data-explica="Sí. La claraboia del Palau de la Música (Domènech i Montaner, 1908): vidre, color i llum.">
+                    <button type="button" class="boto-imatge" data-img="vitrall-palau" data-titol="Obra E"><img src="img/mini/vitrall-palau.webp" alt="Obra E: sostre de vidre de colors" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra E</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="no" data-explica="No. És La Deessa de Josep Clarà (1928), una escultura noucentista: formes clàssiques, serenes i ordenades.">
+                    <button type="button" class="boto-imatge" data-img="deessa-clara" data-titol="Obra F"><img src="img/mini/deessa-clara.webp" alt="Obra F: escultura de marbre d'una dona nua asseguda" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra F</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="si" data-explica="Sí. La Masia Freixa de Terrassa (Muncunill, 1907–1914): arcs i voltes que ondulen.">
+                    <button type="button" class="boto-imatge" data-img="masia-freixa" data-titol="Obra G"><img src="img/mini/masia-freixa.webp" alt="Obra G: edifici blanc amb arcs ondulats" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra G</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+                <div class="carta-classifica" data-correcta="no" data-explica="No. És la Torre Glòries (2005), arquitectura contemporània de vidre i formigó. Compte: les corbes soles no fan una obra modernista.">
+                    <button type="button" class="boto-imatge" data-img="torre-glories" data-titol="Obra H"><img src="img/mini/torre-glories.webp" alt="Obra H: torre moderna de vidre en forma de projectil" loading="lazy"></button>
+                    <div class="cos"><span class="nom">Obra H</span><div class="opcions"></div><p class="retroaccio" aria-live="polite"></p></div>
+                </div>
+            </div>
+            <div class="accions-activitat">
+                <button type="button" class="boto" data-accio="comprova">Comprova</button>
+                <button type="button" class="boto clar" data-accio="reinicia">Torna-hi</button>
+                <span class="resultat-activitat" aria-live="polite"></span>
+            </div>
+            <div class="activitat" style="margin-top:1.6rem">
+                <h3>Per pensar i escriure</h3>
+                <p>Tria una de les obres modernistes i explica, en tres o quatre frases, <strong>quins dos trets</strong> t'han ajudat a reconèixer-la. Fes servir almenys una paraula del <a href="glossari.html">glossari</a>.</p>
             </div>
         </section>
     </main>
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
 
-    <div class="modal" id="modal">
-        <div class="modal-contingut"><span class="modal-tancar" onclick="tancarModal()">×</span><img src=""
-                id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
 </body>
-
 </html>

@@ -1,134 +1,132 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arquitectura modernista: formes orgàniques, materials i obres emblemàtiques.">
-
-    <title>Arquitectura | &#127800; El Modernisme</title>
+    <meta name="description" content="Arquitectura modernista: formes de la natura, ferro, vidre, ceràmica, trencadís, voltes catalanes i arcs parabòlics.">
+    <title>Arquitectura | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html" class="active" aria-current="page">Arquitectura</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="nav-principal"></nav>
 
     <header class="header-seccio">
-        <h1>Arquitectura Modernista</h1>
-        <p>Edificis que semblen vius, plens de color i fantasia</p>
+        <p class="avantitol">Arts</p>
+        <h1>Arquitectura modernista</h1>
+        <p class="subtitol">Edificis que semblen vius, plens de color i de llum</p>
     </header>
 
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <div class="caracteristiques-grid reveal">
+        <section class="seccio reveal">
+            <div class="lead text-normal">
+                <p>L'arquitectura és l'art més conegut del Modernisme. Els arquitectes combinen <strong>materials nous</strong> de la indústria (ferro, vidre) amb <strong>oficis tradicionals</strong> (ceràmica, forja, fusteria) i es deixen inspirar per la natura. Cada edifici és una obra d'<button type="button" class="terme" data-terme="art-total">art total</button>.</p>
+            </div>
+            <div class="lead text-facil">
+                <p>Els edificis modernistes tenen:</p>
+                <ul>
+                    <li>formes corbes, com la natura;</li>
+                    <li>materials nous, com el ferro i el vidre;</li>
+                    <li>molta decoració: ceràmica, vidres de colors, ferro treballat a mà.</li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🌊</span>
-                    <div class="caracteristica-text">
-                        <strong>Formes orgàniques</strong>
-                        Línies <strong>corbes, ondulants</strong>. Cap angle recte. Tot flueix, com la natura mateixa.
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🔨</span>
-                    <div class="caracteristica-text">
-                        <strong>Ferro i vidre</strong>
-                        Materials industrials usats de manera <strong>artística i decorativa</strong> (reixes,
-                        vitralls).
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🎨</span>
-                    <div class="caracteristica-text">
-                        <strong>Ceràmica i trencadís</strong>
-                        <strong>Mosaics de colors</strong> que cobreixen façanes i interiors, donant llum i color.
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">☀️</span>
-                    <div class="caracteristica-text">
-                        <strong>Llum natural</strong>
-                        Grans <strong>vitralls, claraboies</strong> i patis de llum per iluminar els interiors.
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🏗️</span>
-                    <div class="caracteristica-text">
-                        <strong>Arc Catenari</strong>
-                        Ús d'arcs parabòlics (com Gaudí o Muncunill) que suporten molt pes sense necessitat de
-                        contraforts.
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🧱</span>
-                    <div class="caracteristica-text">
-                        <strong>Maó vist</strong>
-                        Recuperació del maó com a element noble i decoratiu (especialment en fàbriques i cellers).
+        <section class="seccio reveal" aria-labelledby="trets" data-galeria>
+            <h2 class="seccio-titol" id="trets">Sis claus per llegir un edifici</h2>
+            <div class="caracteristiques-grid">
+                <article class="caracteristica">
+                    <h3>Formes orgàniques</h3>
+                    <p>Predomina la <strong>línia corba</strong>: façanes que ondulen, columnes que semblen troncs, balcons com algues. Domènech i Puig i Cadafalch també fan servir la línia recta, però sempre molt decorada.</p>
+                    <button type="button" class="boto-imatge alt-180" data-obra="casa-mila"><img src="img/mini/casa-mila.webp" alt="Façana ondulada de la Pedrera" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Ferro i vidre</h3>
+                    <p>El <button type="button" class="terme" data-terme="ferro-colat">ferro colat</button> permet columnes primes i grans espais oberts; el <button type="button" class="terme" data-terme="ferro-forjat">ferro forjat</button> es converteix en reixes i balcons amb formes vegetals.</p>
+                    <button type="button" class="boto-imatge alt-180" data-obra="mercat-independencia"><img src="img/mini/mercat-independencia.webp" alt="Mercat de la Independència de Terrassa" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Ceràmica i trencadís</h3>
+                    <p>Rajoles, <button type="button" class="terme" data-terme="mosaic">mosaics</button> i <button type="button" class="terme" data-terme="trencadis">trencadís</button> cobreixen façanes, terrats i interiors. Donen color i protegeixen de l'aigua.</p>
+                    <button type="button" class="boto-imatge alt-180" data-obra="trencadis"><img src="img/mini/trencadis.webp" alt="Detall de trencadís de colors del Parc Güell" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Llum natural</h3>
+                    <p>Grans <button type="button" class="terme" data-terme="vitrall">vitralls</button>, <button type="button" class="terme" data-terme="claraboia">claraboies</button> i patis de llum. El Palau de la Música és una «capsa de vidre».</p>
+                    <button type="button" class="boto-imatge alt-180" data-obra="vitrall-palau"><img src="img/mini/vitrall-palau.webp" alt="Claraboia del Palau de la Música" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Arcs i voltes</h3>
+                    <p>Gaudí estudia l'<button type="button" class="terme" data-terme="arc-parabolic">arc parabòlic i catenari</button>, que aguanta el pes sense contraforts. Muncunill cobreix grans fàbriques amb <button type="button" class="terme" data-terme="volta-catalana">voltes catalanes</button> de maó lligades amb tirants de ferro.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="vapor-aymerich-voltes" data-titol="Voltes del Vapor Aymerich" data-sub="Lluís Muncunill · Terrassa · 1907–1909" data-desc="Voltes de maó de pla, lligades amb tirants de ferro i sostingudes per columnes de ferro colat. Les obertures deixen entrar la llum del nord, constant i sense ombres, ideal per treballar." data-fixat="Els tirants de ferro que eviten que les voltes s'obrin.|Les columnes primes de ferro colat.|Les obertures de llum a cada volta."><img src="img/mini/vapor-aymerich-voltes.webp" alt="Voltes de maó i tirants de ferro del Vapor Aymerich" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>Maó vist</h3>
+                    <p>El <button type="button" class="terme" data-terme="mao-vist">maó</button>, un material humil, es deixa a la vista i es fa servir com a decoració, sobretot en fàbriques, cellers i edificis públics.</p>
+                    <button type="button" class="boto-imatge alt-180" data-obra="tres-dragons"><img src="img/mini/tres-dragons.webp" alt="Castell dels Tres Dragons, de maó vist" loading="lazy"></button>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccio reveal" aria-labelledby="tres">
+            <h2 class="seccio-titol" id="tres">Tres arquitectes, tres camins</h2>
+            <div class="taula-desplacable">
+                <table class="taula-rubrica">
+                    <thead><tr><th scope="col"></th><th scope="col">Antoni Gaudí</th><th scope="col">Lluís Domènech i Montaner</th><th scope="col">Josep Puig i Cadafalch</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Inspiració</th><td>La natura i la geometria de les formes vives</td><td>L'art total i la història (gòtic, àrab)</td><td>El gòtic català i del nord d'Europa</td></tr>
+                        <tr><th scope="row">Estructura</th><td>Arcs parabòlics, columnes inclinades</td><td>Estructures de ferro que alliberen les parets</td><td>Murs de càrrega amb decoració medievalitzant</td></tr>
+                        <tr><th scope="row">Obra clau</th><td>Sagrada Família, Casa Milà</td><td>Palau de la Música, Hospital de Sant Pau</td><td>Casa Amatller, Casa de les Punxes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccio reveal" data-galeria>
+            <div class="dues-columnes">
+                <button type="button" class="boto-imatge alt-300" style="height:420px" data-img="sagrada-familia-interior" data-titol="Interior de la Sagrada Família" data-sub="Projecte d'Antoni Gaudí · nau acabada el 2010" data-desc="Gaudí va projectar les columnes com troncs que es ramifiquen per sostenir les voltes, com un bosc de pedra. Les naus es van acabar el 2010 seguint els seus models." data-fixat="Les columnes que es divideixen com branques.|Les obertures de llum entre les «fulles» de la volta."><img src="img/mini/sagrada-familia-interior.webp" alt="Columnes ramificades de l'interior de la Sagrada Família" loading="lazy"></button>
+                <div>
+                    <h2 class="seccio-titol">Un bosc de pedra</h2>
+                    <p class="text-normal">Gaudí va dissenyar l'interior de la Sagrada Família com un bosc: les columnes s'inclinen i es ramifiquen com arbres per repartir el pes de les voltes. Gaudí no ho va veure acabat. Les naus es van completar el 2010 a partir de les maquetes i els estudis que va deixar.</p>
+                    <p class="text-facil">A dins de la Sagrada Família, les columnes semblen arbres. Gaudí ho va dissenyar, però l'interior es va acabar l'any 2010, molts anys després de la seva mort.</p>
+                    <div class="requadre-fixat" style="margin-top:1rem">
+                        <h4>Fet o interpretació?</h4>
+                        <p>Que les columnes «imiten un bosc» és la interpretació més habitual, i el mateix Gaudí hi feia referència. Que l'interior actual segueix fidelment el projecte és motiu de debat entre especialistes.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="intro-visual reveal" style="margin-top: 3rem;">
-                <img src="img/sagrada-familia-2.jpg" alt="Interior Sagrada Família" class="img-destacada zoomable">
-                <p class="peu-foto">Sagrada Família (interior), Antoni Gaudí, fase 1914-1926. Un bosc de pedra que
-                    filtra la llum com un vitrall gegant.</p>
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi" data-galeria>
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: detectiu de materials</h2>
+            </header>
+            <p class="consigna">Observa cada imatge (pots ampliar-la) i tria quina tècnica o material hi destaca.</p>
+            <div class="relaciona activitat-relaciona" data-opcions="Trencadís|Vitrall|Volta catalana amb tirants|Maó vist|Arc parabòlic|Ferro forjat">
+                <div class="fila-relaciona" data-correcta="Trencadís"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="park-guell" data-titol="Imatge 1"><img src="img/mini/park-guell.webp" alt="Imatge 1" loading="lazy"></button><span class="text-fila">Imatge 1: Parc Güell</span></span></div>
+                <div class="fila-relaciona" data-correcta="Vitrall"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="vitrall-palau" data-titol="Imatge 2"><img src="img/mini/vitrall-palau.webp" alt="Imatge 2" loading="lazy"></button><span class="text-fila">Imatge 2: Palau de la Música</span></span></div>
+                <div class="fila-relaciona" data-correcta="Volta catalana amb tirants"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="vapor-aymerich-voltes" data-titol="Imatge 3"><img src="img/mini/vapor-aymerich-voltes.webp" alt="Imatge 3" loading="lazy"></button><span class="text-fila">Imatge 3: Vapor Aymerich</span></span></div>
+                <div class="fila-relaciona" data-correcta="Maó vist"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="tres-dragons" data-titol="Imatge 4"><img src="img/mini/tres-dragons.webp" alt="Imatge 4" loading="lazy"></button><span class="text-fila">Imatge 4: Castell dels Tres Dragons</span></span></div>
+                <div class="fila-relaciona" data-correcta="Arc parabòlic"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="palau-guell" data-titol="Imatge 5"><img src="img/mini/palau-guell.webp" alt="Imatge 5" loading="lazy"></button><span class="text-fila">Imatge 5: portes del Palau Güell</span></span></div>
+                <div class="fila-relaciona" data-correcta="Ferro forjat"><span class="imatge-fila"><button type="button" class="boto-imatge" data-img="casa-mila" data-titol="Imatge 6"><img src="img/mini/casa-mila.webp" alt="Imatge 6" loading="lazy"></button><span class="text-fila">Imatge 6: balcons de la Pedrera</span></span></div>
+            </div>
+            <div class="accions-activitat">
+                <button type="button" class="boto" data-accio="comprova">Comprova</button>
+                <button type="button" class="boto clar" data-accio="reinicia">Torna-hi</button>
+                <span class="resultat-activitat" aria-live="polite"></span>
             </div>
         </section>
     </main>
 
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
-
-
-    <div class="modal" id="modal">
-        <div class="modal-contingut">
-            <span class="modal-tancar" onclick="tancarModal()">×</span>
-            <img src="" alt="" class="modal-imatge" id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-                <p id="modalDesc"></p>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="dades/obres.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
 </body>
-
 </html>

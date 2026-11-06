@@ -1,113 +1,105 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="El Modernisme a Catalunya: context històric, urbanisme i societat al tombant de segle.">
-
-    <title>Catalunya | &#127800; El Modernisme</title>
+    <meta name="description" content="Per què el Modernisme va triomfar a Catalunya? Indústria, burgesia, Eixample, Renaixença, Exposició de 1888 i catalanisme.">
+    <title>Catalunya | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <div class="loader" id="loader"><span class="loader-flor">🌸</span></div>
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span><span></span><span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html" class="active" aria-current="page">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="arts.html">Arts</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="nav-principal"></nav>
+
     <header class="header-seccio">
+        <p class="avantitol">Context</p>
         <h1>El context català</h1>
-        <p>Per què Barcelona va explotar de creativitat?</p>
+        <p class="subtitol">Per què Catalunya va esclatar de creativitat al tombant del segle XX?</p>
     </header>
+
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-            <div class="caracteristiques-grid grid-2-cols reveal">
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🏭</span>
-                    <div class="caracteristica-text">
-                        <strong>Revolució Industrial</strong>
-                        Riquesa tèxtil i burgesia amb diners per gastar en art.
-                        <br><img src="img/vapor-aymerich.jpg" alt="Vapor Aymerich" class="img-mini zoomable"
-                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🧱</span>
-                    <div class="caracteristica-text">
-                        <strong>L'Eixample</strong>
-                        El Pla Cerdà (1859) oferia espai il·limitat.
-                        <br><img src="img/pla-cerda.jpg" alt="Pla Cerdà 1859" class="img-mini zoomable"
-                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🦅</span>
-                    <div class="caracteristica-text">
-                        <strong>Renaixença</strong>
-                        Recuperació de la identitat nacional.
-                        <br><img src="img/jocs-florals.jpg" alt="Jocs Florals" class="img-mini zoomable"
-                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
-                    </div>
-                </div>
-                <div class="caracteristica">
-                    <span class="caracteristica-icona">🌍</span>
-                    <div class="caracteristica-text">
-                        <strong>Exposició 1888</strong>
-                        Barcelona al món.
-                        <br><img src="img/arc-triomf.jpg" alt="Arc de Triomf 1888" class="img-mini zoomable"
-                            style="width:100%; border-radius:5px; margin-top:0.5rem;">
-                    </div>
-                </div>
+        <section class="seccio reveal">
+            <div class="lead text-normal">
+                <p>El Modernisme no va aparèixer del no-res. Va ser possible perquè es van ajuntar <strong>diners</strong> (la indústria), <strong>espai</strong> (ciutats que creixien), <strong>idees</strong> (la Renaixença i el catalanisme) i <strong>ganes de mostrar-se al món</strong> (l'Exposició Universal de 1888). Però aquesta prosperitat no arribava a tothom.</p>
+            </div>
+            <div class="lead text-facil">
+                <p>Per què el Modernisme va passar a Catalunya?</p>
+                <ul>
+                    <li>Hi havia <strong>fàbriques</strong> i famílies riques que pagaven les obres.</li>
+                    <li>Les ciutats <strong>creixien</strong> i calien edificis nous.</li>
+                    <li>La gent volia recuperar la <strong>cultura catalana</strong>.</li>
+                    <li>Però els obrers vivien amb <strong>pocs diners</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="seccio reveal" data-galeria>
+            <div class="caracteristiques-grid">
+                <article class="caracteristica">
+                    <h3>1. La indústria i la burgesia</h3>
+                    <p>Catalunya era la principal zona industrial de l'Estat. Les fàbriques tèxtils —els <button type="button" class="terme" data-terme="vapor">vapors</button>— de Barcelona, Terrassa o Sabadell van enriquir una <button type="button" class="terme" data-terme="burgesia">burgesia</button> que volia mostrar el seu èxit amb cases, botigues i fàbriques belles.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="vapor-aymerich" data-titol="Vapor Aymerich, Amat i Jover" data-sub="Lluís Muncunill · Terrassa · 1907–1909" data-desc="Fins i tot una fàbrica de llana podia ser una obra d'art. Avui és el Museu de la Ciència i de la Tècnica de Catalunya."><img src="img/mini/vapor-aymerich.webp" alt="Façana i xemeneia del Vapor Aymerich de Terrassa" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>2. Ciutats que creixen</h3>
+                    <p>El 1854 Barcelona va començar a enderrocar les muralles. El pla d'Ildefons Cerdà (1859) va dissenyar l'<button type="button" class="terme" data-terme="eixample">Eixample</button>: una quadrícula nova on la burgesia va construir les seves cases. Moltes ciutats industrials també es van eixamplar.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="pla-cerda" data-titol="Pla Cerdà" data-sub="Ildefons Cerdà · 1859" data-desc="Projecte d'eixample de Barcelona: illes de cases iguals amb xamfrans, carrers amples i grans avingudes." data-fixat="La ciutat vella, petita i densa, al costat del port.|La quadrícula regular de l'Eixample.|Les grans avingudes en diagonal."><img src="img/mini/pla-cerda.webp" alt="Plànol del projecte d'eixample de Barcelona d'Ildefons Cerdà" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>3. La Renaixença</h3>
+                    <p>Des de mitjan segle XIX, la <button type="button" class="terme" data-terme="renaixenca">Renaixença</button> va recuperar el català com a llengua literària. Els Jocs Florals (restaurats el 1859) i poetes com Jacint Verdaguer en són símbols. Els modernistes volen una cultura catalana, però moderna i europea.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="verdaguer-retrat" data-titol="Jacint Verdaguer" data-sub="Retrat al carbó de Ramon Casas" data-desc="Verdaguer (1845–1902), autor de L'Atlàntida i Canigó, és el gran poeta de la Renaixença."><img src="img/mini/verdaguer-retrat.webp" alt="Retrat al carbó de Jacint Verdaguer, de Ramon Casas" loading="lazy" style="object-position:center 20%"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>4. L'Exposició Universal de 1888</h3>
+                    <p>Barcelona va organitzar una <button type="button" class="terme" data-terme="exposicio-universal">Exposició Universal</button> al Parc de la Ciutadella per mostrar-se moderna. Per a l'ocasió es van construir l'Arc de Triomf i el Cafè-restaurant de Domènech i Montaner, un dels primers edificis modernistes.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="arc-triomf" data-titol="Arc de Triomf" data-sub="Josep Vilaseca · 1888" data-desc="Porta d'entrada a l'Exposició Universal, de maó vist amb decoració escultòrica."><img src="img/mini/arc-triomf.webp" alt="Arc de Triomf de Barcelona" loading="lazy"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>5. El catalanisme polític</h3>
+                    <p>Les Bases de Manresa (1892) i la Lliga Regionalista (1901) volien autogovern per a Catalunya. Arquitectes com Domènech i Montaner o Puig i Cadafalch també van fer política; Puig va presidir la <button type="button" class="terme" data-terme="mancomunitat">Mancomunitat</button> (1917–1923).</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="puig-cadafalch-retrat" data-titol="Josep Puig i Cadafalch" data-sub="Arquitecte, historiador i polític" ><img src="img/mini/puig-cadafalch-retrat.webp" alt="Retrat de Josep Puig i Cadafalch" loading="lazy" style="object-position:center 15%"></button>
+                </article>
+                <article class="caracteristica">
+                    <h3>6. L'altra cara: la qüestió social</h3>
+                    <p>Mentre la burgesia construïa palaus, els obrers treballaven jornades llarguíssimes i vivien en habitatges petits. Les vagues i els atemptats van ser freqüents, i el juliol de 1909 va esclatar la Setmana Tràgica. Pintors com Isidre Nonell van retratar els marginats.</p>
+                    <button type="button" class="boto-imatge alt-180" data-img="nonell-pelona" data-titol="La Pelona" data-sub="Isidre Nonell · 1904"><img src="img/mini/nonell-pelona.webp" alt="Pintura d'una dona replegada, d'Isidre Nonell" loading="lazy" style="object-position:center 30%"></button>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: causes i conseqüències</h2>
+            </header>
+            <p class="consigna">Relaciona cada causa amb la conseqüència que va tenir per al Modernisme.</p>
+            <div class="relaciona activitat-relaciona" data-opcions="Calien edificis nous en barris nous|Hi havia clients amb diners per encarregar obres d'art|Els artistes fan servir símbols com Sant Jordi o les quatre barres|Es construeixen els primers edificis modernistes a la Ciutadella|Alguns artistes pinten la pobresa i la marginació">
+                <div class="fila-relaciona" data-correcta="Hi havia clients amb diners per encarregar obres d'art"><span class="text-fila">La indústria tèxtil enriqueix la burgesia.</span></div>
+                <div class="fila-relaciona" data-correcta="Calien edificis nous en barris nous"><span class="text-fila">S'enderroquen les muralles i es fa l'Eixample.</span></div>
+                <div class="fila-relaciona" data-correcta="Els artistes fan servir símbols com Sant Jordi o les quatre barres"><span class="text-fila">La Renaixença i el catalanisme reivindiquen la identitat catalana.</span></div>
+                <div class="fila-relaciona" data-correcta="Es construeixen els primers edificis modernistes a la Ciutadella"><span class="text-fila">Barcelona organitza l'Exposició Universal de 1888.</span></div>
+                <div class="fila-relaciona" data-correcta="Alguns artistes pinten la pobresa i la marginació"><span class="text-fila">Els obrers viuen en males condicions.</span></div>
+            </div>
+            <div class="accions-activitat">
+                <button type="button" class="boto" data-accio="comprova">Comprova</button>
+                <button type="button" class="boto clar" data-accio="reinicia">Torna-hi</button>
+                <span class="resultat-activitat" aria-live="polite"></span>
+            </div>
+            <div class="activitat" style="margin-top:1.6rem">
+                <h3>Debat a classe</h3>
+                <p>El Modernisme el van pagar els fabricants, però el van fer possible també els obrers de les seves fàbriques i els artesans que el van construir. <strong>Qui creus que n'hauria de rebre el mèrit?</strong> Prepara dos arguments a favor de la teva opinió.</p>
             </div>
         </section>
     </main>
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
 
-    <div class="modal" id="modal">
-        <div class="modal-contingut"><span class="modal-tancar" onclick="tancarModal()">×</span><img src=""
-                id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script src="js/activitats.js"></script>
 </body>
-
 </html>

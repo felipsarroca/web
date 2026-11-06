@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glossari del Modernisme: trencadís, vitrall, colp de fuet, burgesia, Renaixença i altres paraules clau, amb definicions de lectura fàcil.">
+    <title>Glossari | El Modernisme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <a class="skip-link" href="#contingut">Salta al contingut principal</a>
+    <nav class="nav-principal"></nav>
+
+    <header class="header-seccio">
+        <p class="avantitol">Explora</p>
+        <h1>Glossari</h1>
+        <p class="subtitol">Les paraules clau per entendre el Modernisme</p>
+    </header>
+
+    <main id="contingut" class="contingut-principal">
+        <section class="seccio">
+            <div class="filtres">
+                <label for="cerca" class="etiqueta-filtre">Cerca:</label>
+                <input type="search" id="cerca" class="cercador" placeholder="Escriu una paraula…" autocomplete="off">
+                <span class="recompte" id="recompte" aria-live="polite"></span>
+            </div>
+            <p class="seccio-intro">Cada terme té una definició i, a sota, una explicació <strong>en poques paraules</strong>. A les altres pàgines, les paraules subratllades amb punts obren aquesta definició.</p>
+            <div class="llista-glossari" id="llista-glossari"></div>
+        </section>
+    </main>
+
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script>
+    (function () {
+      const G = window.GLOSSARI;
+      const cont = document.getElementById('llista-glossari');
+      const recompte = document.getElementById('recompte');
+      const claus = Object.keys(G).sort((a, b) => G[a].terme.localeCompare(G[b].terme, 'ca'));
+      cont.innerHTML = claus.map(k =>
+        '<article class="entrada-glossari" id="' + k + '" tabindex="-1"><h3>' + G[k].terme + '</h3><p>' + G[k].def + '</p>' +
+        '<p class="facil"><strong>En poques paraules:</strong> ' + G[k].facil + '</p></article>').join('');
+      const normal = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      function filtra() {
+        const q = normal(document.getElementById('cerca').value.trim());
+        let n = 0;
+        cont.querySelectorAll('.entrada-glossari').forEach(e => {
+          const ok = !q || normal(e.textContent).includes(q);
+          e.hidden = !ok; if (ok) n++;
+        });
+        recompte.textContent = n + (n === 1 ? ' terme' : ' termes');
+      }
+      document.getElementById('cerca').addEventListener('input', filtra);
+      filtra();
+      if (location.hash) {
+        const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (el) { el.scrollIntoView({ block: 'center' }); el.focus({ preventScroll: true }); }
+      }
+    })();
+    </script>
+</body>
+</html>

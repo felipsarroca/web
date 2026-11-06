@@ -1,238 +1,227 @@
 ﻿<!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Coneix els grans genis del Modernisme català: Gaudí, Domènech i Montaner, Puig i Cadafalch i Muncunill.">
-    <title>Autors i Autores | &#127800; El Modernisme</title>
+    <meta name="description" content="Els protagonistes del Modernisme català: arquitectes, pintors, cartellistes i escriptors, amb Lluïsa Vidal i Caterina Albert.">
+    <title>Autors i autores | El Modernisme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-
-<body class="pagina-interna">
+<body>
     <a class="skip-link" href="#contingut">Salta al contingut principal</a>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <span class="loader-flor">🌸</span>
-    </div>
+    <nav class="nav-principal"></nav>
 
-    <!-- Navegació -->
-    <nav class="nav-principal">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">El Modernisme</a>
-            <div class="menu-toggle" id="menuToggle" aria-label="Obrir o tancar el menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="que-es.html">Què és?</a></li>
-                <li><a href="mon.html">Al món</a></li>
-                <li><a href="catalunya.html">Catalunya</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                <li><a href="arts.html">Arts</a></li>
-                <li><a href="cartellisme.html">Cartellisme</a></li>
-                <li><a href="autors.html" class="active" aria-current="page">Autors</a></li>
-                <li><a href="obres.html">Obres</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="temps.html">Línia del temps</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Header Secció -->
     <header class="header-seccio">
-        <h1>Autors i Autores</h1>
-        <p>Els genis que van somiar i construir el Modernisme</p>
+        <p class="avantitol">Protagonistes</p>
+        <h1>Autors i autores</h1>
+        <p class="subtitol">Les persones que van imaginar i construir el Modernisme</p>
     </header>
 
-    <!-- Contingut Principal -->
     <main id="contingut" class="contingut-principal">
-        <section class="seccio">
-
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/gaudi-retrat.jpg" alt="Antoni Gaudí" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Antoni Gaudí i Cornet</h3>
-                    <p class="autor-professio">🏛️ Arquitecte | Reus 1852 - Barcelona 1926</p>
-                    <p class="autor-bio">
-                        <strong>El geni més original</strong> del Modernisme. Figura universal. Va portar les formes de
-                        la <strong>natura a l'arquitectura</strong>:
-                        arbres, ossos, escames. Creia que la línia recta era de l'home i la corba de Déu. <strong>7
-                            obres Patrimoni de la Humanitat</strong>.
-                    </p>
-                    <p class="autor-cita">"L'originalitat consisteix a tornar a l'origen."</p>
-                </div>
+        <section class="seccio reveal">
+            <div class="filtres" role="group" aria-label="Filtra per disciplina">
+                <span class="etiqueta-filtre">Mostra:</span>
+                <button type="button" class="xip" data-filtre="tots" aria-pressed="true">Tothom</button>
+                <button type="button" class="xip" data-filtre="arquitectura" aria-pressed="false">Arquitectura</button>
+                <button type="button" class="xip" data-filtre="pintura" aria-pressed="false">Pintura i cartell</button>
+                <button type="button" class="xip" data-filtre="lletres" aria-pressed="false">Literatura</button>
             </div>
-
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/domenech-retrat.jpg" alt="Lluís Domènech i Montaner" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Lluís Domènech i Montaner</h3>
-                    <p class="autor-professio">🏛️ Arquitecte i polític | Barcelona 1850-1923</p>
-                    <p class="autor-bio">
-                        Arquitecte, historiador i polític clau del catalanisme. Creador del <strong>Palau de la
-                            Música</strong> i l'<strong>Hospital de Sant Pau</strong>.
-                        Combinava el <strong>racionalisme estructural</strong> (ferro, maó) amb una decoració exuberant
-                        inspirada en l'art floral i heràldic.
-                    </p>
-                    <p class="autor-cita">"L'arquitectura ha de ser útil i bella alhora."</p>
-                </div>
-            </div>
-
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/puig-cadafalch-retrat.jpg" alt="Josep Puig i Cadafalch" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Josep Puig i Cadafalch</h3>
-                    <p class="autor-professio">🏛️ Arquitecte, historiador i polític | Mataró 1867 - Barcelona 1956</p>
-                    <p class="autor-bio">
-                        President de la Mancomunitat de Catalunya. Les seves obres tenen influències del <strong>gòtic
-                            català</strong> i del nord d'Europa (flamenques).
-                        Obres: <strong>Casa Amatller</strong>, <strong>Casa de les Punxes</strong>, Fàbrica Casaramona.
-                    </p>
-                    <p class="autor-cita">"L'arquitectura és la memòria construïda d'un poble."</p>
-                </div>
-            </div>
-
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/muncunill-retrat.jpg" alt="Lluís Muncunill i Parellada" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Lluís Muncunill i Parellada</h3>
-                    <p class="autor-professio">🏭 Arquitecte Municipal | Sant Vicenç de Fals 1868 - Terrassa 1931</p>
-                    <p class="autor-bio">
-                        El gran arquitecte del <strong>Modernisme industrial a Terrassa</strong>. Va definir el perfil
-                        de la ciutat amb xemeneies i vapors.
-                        Mestre de l'<strong>arc catenari</strong> (com Gaudí) aplicat a teulades i estructures
-                        industrials. Obres: <strong>Masia Freixa</strong>, Vapor Aymerich.
-                    </p>
-                    <p class="autor-cita">"La bellesa industrial neix de la funció i l'estructura."</p>
-                </div>
-            </div>
-
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/maragall-retrat.jpg" alt="Joan Maragall" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Joan Maragall i Gorina</h3>
-                    <p class="autor-professio">📖 Poeta i periodista | Barcelona 1860-1911</p>
-                    <p class="autor-bio">
-                        L'ànima literària del Modernisme. Defensor de la "Paraula Viva" (espontaneïtat).
-                        Va escriure obres cabdals com el <strong>"Cant espiritual"</strong> o <strong>"La vaca
-                            cega"</strong>. Va connectar el Modernisme amb la societat a través dels seus articles.
-                    </p>
-                    <p class="autor-cita">"Tot és bonic i m'és bé, i vull totes les coses que ja tinc o que algun dia
-                        podré tenir."</p>
-                </div>
-            </div>
-
         </section>
 
-        <!-- Secció: Altres Genis -->
-        <section class="seccio seccio-alternativa">
-            <h2 class="seccio-titol" style="text-align: center; margin-bottom: 3rem;">Altres Genis del Modernisme</h2>
+        <section class="seccio" aria-labelledby="arquitectes" data-galeria>
+            <h2 class="seccio-titol" id="arquitectes" data-grup="arquitectura">Arquitectes</h2>
 
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/jujol-retrat.jpg" alt="Josep Maria Jujol" class="autor-imatge zoomable">
+            <article class="autor-fitxa reveal" data-grup="arquitectura" id="gaudi">
+                <button type="button" class="boto-imatge" data-img="gaudi-retrat" data-titol="Antoni Gaudí" data-sub="Fotografia de 1878, l'any que va acabar els estudis"><img src="img/mini/gaudi-retrat.webp" alt="Fotografia d'Antoni Gaudí jove" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Antoni Gaudí i Cornet</h3>
+                    <p class="autor-professio">Arquitecte · Reus, 1852 – Barcelona, 1926</p>
+                    <p class="autor-bio text-normal">El més original dels arquitectes modernistes. Va estudiar les formes de la natura —arbres, ossos, closques— i les va traslladar a l'estructura dels edificis amb arcs parabòlics, columnes inclinades i maquetes de cordes amb pesos. Els seus grans mecenes van ser la família Güell. Set obres seves són Patrimoni Mundial de la UNESCO.</p>
+                    <p class="autor-bio text-facil">Va fer edificis que semblen plantes i animals. És l'arquitecte modernista més famós del món.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> Casa Vicens, Palau Güell, Park Güell, Casa Batlló, Casa Milà, Sagrada Família.</p>
+                    <blockquote class="autor-cita">«L'originalitat consisteix a tornar a l'origen.»<cite>Frase atribuïda a Gaudí; no consta en cap escrit seu.</cite></blockquote>
                 </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="arquitectura" id="domenech">
+                <button type="button" class="boto-imatge" data-img="domenech-retrat" data-titol="Lluís Domènech i Montaner" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/domenech-retrat.webp" alt="Retrat al carbó de Lluís Domènech i Montaner" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Lluís Domènech i Montaner</h3>
+                    <p class="autor-professio">Arquitecte i polític · Barcelona, 1849 – 1923</p>
+                    <p class="autor-bio text-normal">Professor i director de l'Escola d'Arquitectura de Barcelona. El 1878 va publicar «A la recerca d'una arquitectura nacional», on defensava un estil propi i modern. És el mestre de l'<button type="button" class="terme" data-terme="art-total">art total</button>: als seus edificis hi treballaven escultors, vidriers, ceramistes i mosaïcistes. També va ser diputat catalanista.</p>
+                    <p class="autor-bio text-facil">Va fer edificis plens de vidres de colors, escultures i mosaics. Hi treballaven molts artistes junts.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> Castell dels Tres Dragons, Palau de la Música Catalana, Hospital de Sant Pau, Casa Lleó Morera.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="arquitectura" id="puig">
+                <button type="button" class="boto-imatge" data-img="puig-cadafalch-retrat" data-titol="Josep Puig i Cadafalch" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/puig-cadafalch-retrat.webp" alt="Retrat al carbó de Josep Puig i Cadafalch" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Josep Puig i Cadafalch</h3>
+                    <p class="autor-professio">Arquitecte, historiador de l'art i polític · Mataró, 1867 – Barcelona, 1956</p>
+                    <p class="autor-bio text-normal">Va combinar el gòtic català amb elements del nord d'Europa: torres, punxes i esgrafiats. Com a historiador, va estudiar l'art romànic. Com a polític, va presidir la <button type="button" class="terme" data-terme="mancomunitat">Mancomunitat de Catalunya</button> (1917–1923), que va crear escoles, biblioteques i carreteres.</p>
+                    <p class="autor-bio text-facil">Va fer cases que semblen castells. També va ser president de la Mancomunitat, un govern de Catalunya.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> Casa Martí (Els Quatre Gats), Casa Amatller, Casa de les Punxes, fàbrica Casarramona.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="arquitectura" id="muncunill">
+                <button type="button" class="boto-imatge" data-img="muncunill-retrat" data-titol="Lluís Muncunill i Parellada" data-sub="Galeria de Terrassencs Il·lustres · Ajuntament de Terrassa"><img src="img/mini/muncunill-retrat.webp" alt="Retrat pintat de Lluís Muncunill" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Lluís Muncunill i Parellada</h3>
+                    <p class="autor-professio">Arquitecte · Sant Vicenç de Fals, 1868 – Terrassa, 1931</p>
+                    <p class="autor-bio text-normal">Arquitecte municipal de Terrassa, va transformar la ciutat. Va fer servir la <button type="button" class="terme" data-terme="volta-catalana">volta catalana</button> de maó posat de pla, lligada amb tirants de ferro, per cobrir grans naus industrials amb ondulacions plenes de llum. El Vapor Aymerich, Amat i Jover és avui el Museu de la Ciència i de la Tècnica de Catalunya.</p>
+                    <p class="autor-bio text-facil">És l'arquitecte del Modernisme de Terrassa. Va fer fàbriques boniques amb sostres ondulats de maó.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> Vapor Aymerich, Amat i Jover, reforma de la Masia Freixa, Ajuntament de Terrassa. <a href="terrassa.html">Fes l'itinerari per Terrassa</a>.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="arquitectura" id="jujol">
+                <button type="button" class="boto-imatge" data-img="jujol-retrat" data-titol="Josep Maria Jujol" data-sub="Bust de Jujol"><img src="img/mini/jujol-retrat.webp" alt="Bust de Josep Maria Jujol" loading="lazy"></button>
                 <div class="autor-info">
                     <h3>Josep Maria Jujol i Gibert</h3>
-                    <p class="autor-professio">🎨 Arquitecte i Dibuixant | Tarragona 1879 - Barcelona 1949</p>
-                    <p class="autor-bio">
-                        El col·laborador més estret de Gaudí (va fer els bancs del Park Güell i la façana de la Casa
-                        Batlló).
-                        La seva obra personal és una <strong>explosió de color i llibertat</strong>, utilitzant
-                        materials humils i reciclatge.
-                        Obres destacades: <strong>Torre de la Creu</strong>, Casa Canals, Casa Negre.
-                    </p>
-                    <p class="autor-cita">"L'art és la vida, i la vida és color i moviment."</p>
+                    <p class="autor-professio">Arquitecte i artista · Tarragona, 1879 – Barcelona, 1949</p>
+                    <p class="autor-bio text-normal">Col·laborador de Gaudí i un dels artistes més imaginatius del moviment. Va dissenyar el banc de trencadís del Park Güell, els balcons de ferro de la Casa Milà i el color de la façana de la Casa Batlló. Reaprofitava materials de rebuig: ampolles, plats trencats, eines velles.</p>
+                    <p class="autor-bio text-facil">Va ajudar Gaudí. Va fer el banc de trencadís del Park Güell amb trossos de plats.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> Teatre del Patronat Obrer (Tarragona), Torre de la Creu (Sant Joan Despí), església de Vistabella.</p>
                 </div>
-            </div>
+            </article>
+        </section>
 
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/rusinol-retrat.jpg" alt="Santiago Rusiñol" class="autor-imatge zoomable">
-                </div>
-                <div class="autor-info">
-                    <h3>Santiago Rusiñol i Prats</h3>
-                    <p class="autor-professio">🖌️ Pintor i Escriptor | Barcelona 1861 - Aranjuez 1931</p>
-                    <p class="autor-bio">
-                        Artista total i líder del Modernisme bohemi. Va convertir Sitges (Cau Ferrat) en la meca del
-                        moviment.
-                        Pintava <strong>jardins melancòlics</strong> i escrivia teatre costumista (<em>L'auca del senyor
-                            Esteve</em>).
-                    </p>
-                    <p class="autor-cita">"Viure no és res més que anar-se'n anant."</p>
-                </div>
-            </div>
+        <section class="seccio" aria-labelledby="pintors" data-galeria>
+            <h2 class="seccio-titol" id="pintors" data-grup="pintura">Pintura i cartell</h2>
 
-            <div class="autor-fitxa reveal">
-                <div class="zoomable-container">
-                    <img src="img/casas-retrat.jpg" alt="Ramon Casas" class="autor-imatge zoomable">
-                </div>
+            <article class="autor-fitxa reveal" data-grup="pintura" id="casas">
+                <button type="button" class="boto-imatge" data-img="casas-retrat" data-titol="Ramon Casas" data-sub="Autoretrat al carbó · MNAC"><img src="img/mini/casas-retrat.webp" alt="Autoretrat al carbó de Ramon Casas" loading="lazy"></button>
                 <div class="autor-info">
                     <h3>Ramon Casas i Carbó</h3>
-                    <p class="autor-professio">✒️ Pintor i Cartellista | Barcelona 1866 - 1932</p>
-                    <p class="autor-bio">
-                        El cronista de la burgesia catalana i el gran mestre del <strong>cartellisme
-                            publicitari</strong>.
-                        Fundador de la revista <em>Pèl & Ploma</em> i un dels impulsors de la cerveseria <strong>Els
-                            Quatre Gats</strong>.
-                        El seu estil era elegant, cosmopolita i influït per París.
-                    </p>
-                    <p class="autor-cita">"En l'art l'important és la personalitat."</p>
+                    <p class="autor-professio">Pintor i cartellista · Barcelona, 1866 – 1932</p>
+                    <p class="autor-bio text-normal">Pintor de la vida moderna: bicicletes, cotxes, dones a la moda, però també la repressió d'una vaga (<em>La càrrega</em>). Va cofundar Els Quatre Gats i la revista <em>Pèl &amp; Ploma</em>, i va fer una gran col·lecció de retrats al carbó dels personatges de l'època, molts dels quals veus en aquesta pàgina.</p>
+                    <p class="autor-bio text-facil">Va pintar la vida moderna i va fer cartells molt famosos. També va dibuixar els seus amics artistes.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>Ramon Casas i Pere Romeu en un tàndem</em>, <em>La càrrega</em>, cartell d'<em>Anís del Mono</em>.</p>
                 </div>
-            </div>
+            </article>
 
+            <article class="autor-fitxa reveal" data-grup="pintura" id="rusinol">
+                <button type="button" class="boto-imatge" data-img="rusinol-retrat" data-titol="Santiago Rusiñol" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/rusinol-retrat.webp" alt="Retrat al carbó de Santiago Rusiñol" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Santiago Rusiñol i Prats</h3>
+                    <p class="autor-professio">Pintor, escriptor i col·leccionista · Barcelona, 1861 – Aranjuez, 1931</p>
+                    <p class="autor-bio text-normal">Fill d'una família d'industrials tèxtils, va renunciar a la fàbrica per l'art. Al Cau Ferrat de Sitges va organitzar les Festes Modernistes (1892–1899). Va pintar sobretot jardins solitaris i va escriure obres de teatre com <em>L'auca del senyor Esteve</em> (1907), una sàtira de la mentalitat botiguera.</p>
+                    <p class="autor-bio text-facil">Pintava jardins i escrivia teatre. A Sitges va fer festes per donar a conèixer el Modernisme.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>Jardí d'Aranjuez</em>, <em>L'auca del senyor Esteve</em>, el Cau Ferrat.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="pintura" id="vidal">
+                <button type="button" class="boto-imatge" data-img="vidal-autoretrat" data-titol="Lluïsa Vidal" data-sub="Autoretrat · MNAC"><img src="img/mini/vidal-autoretrat.webp" alt="Autoretrat de Lluïsa Vidal" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Lluïsa Vidal i Puig</h3>
+                    <p class="autor-professio">Pintora · Barcelona, 1876 – 1918</p>
+                    <p class="autor-bio text-normal">Es va formar a París, una cosa poc habitual per a una dona, i va ser l'única pintora professional reconeguda del Modernisme català. Va destacar com a retratista i va col·laborar amb revistes i associacions feministes que defensaven l'educació de les dones. Va morir jove, durant l'epidèmia de grip de 1918.</p>
+                    <p class="autor-bio text-facil">Va ser una de les primeres dones pintores professionals de Catalunya. Pintava retrats.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> retrats i autoretrats, il·lustracions per a la revista <em>Feminal</em>.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="pintura" id="nonell">
+                <button type="button" class="boto-imatge" data-img="nonell-retrat" data-titol="Isidre Nonell" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/nonell-retrat.webp" alt="Retrat al carbó d'Isidre Nonell" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Isidre Nonell i Monturiol</h3>
+                    <p class="autor-professio">Pintor · Barcelona, 1872 – 1911</p>
+                    <p class="autor-bio text-normal">Va mirar la cara fosca de la ciutat moderna: persones pobres, malaltes i marginades, sobretot dones gitanes. Les pintava amb pinzellades gruixudes i colors foscos. En el seu temps no es venia gaire, però va influir en el jove Picasso.</p>
+                    <p class="autor-bio text-facil">Pintava persones pobres amb colors foscos. Va influir en Picasso.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>La Pelona</em>, sèrie de gitanes, dibuixos de cretins de Boí.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="pintura" id="riquer">
+                <button type="button" class="boto-imatge" data-img="riquer-retrat" data-titol="Alexandre de Riquer" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/riquer-retrat.webp" alt="Retrat al carbó d'Alexandre de Riquer" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Alexandre de Riquer i Inglada</h3>
+                    <p class="autor-professio">Artista gràfic i poeta · Calaf, 1856 – Palma, 1920</p>
+                    <p class="autor-bio text-normal">Molt influït pel moviment anglès <em>Arts and Crafts</em> i pels prerafaelites, va dissenyar cartells, ex-libris, enquadernacions i mobles plens de figures femenines i ornament vegetal. Va ser un dels artistes més complets del moviment.</p>
+                    <p class="autor-bio text-facil">Dibuixava cartells i llibres amb moltes flors i figures de dona.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> cartell del Cercle Artístic de Sant Lluc, ex-libris, <em>Crisantemes</em> (poemes).</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="seccio" aria-labelledby="escriptors" data-galeria>
+            <h2 class="seccio-titol" id="escriptors" data-grup="lletres">Literatura</h2>
+
+            <article class="autor-fitxa reveal" data-grup="lletres" id="maragall">
+                <button type="button" class="boto-imatge" data-img="maragall-retrat" data-titol="Joan Maragall" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/maragall-retrat.webp" alt="Retrat al carbó de Joan Maragall" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Joan Maragall i Gorina</h3>
+                    <p class="autor-professio">Poeta · Barcelona, 1860 – 1911</p>
+                    <p class="autor-bio text-normal">El gran poeta del Modernisme. Defensava la «paraula viva»: escriure seguint la inspiració, amb llenguatge natural. També va escriure articles valents, com «L'església cremada», després de la Setmana Tràgica de 1909.</p>
+                    <p class="autor-bio text-facil">Era poeta. Volia escriure amb paraules senzilles i sinceres.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>Visions &amp; Cants</em>, <em>La vaca cega</em>, <em>Cant espiritual</em>.</p>
+                    <blockquote class="autor-cita">«Si el món ja és tan formós, Senyor, si es mira<br>amb la pau vostra a dins de l'ull,<br>què més ens podeu dar en una altra vida?»<cite>Joan Maragall, <em>Cant espiritual</em> (1911)</cite></blockquote>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="lletres" id="albert">
+                <button type="button" class="boto-imatge" data-img="albert-retrat" data-titol="Caterina Albert (Víctor Català)" data-sub="Revista Feminal, novembre de 1917"><img src="img/mini/albert-retrat.webp" alt="Fotografia de Caterina Albert" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Caterina Albert i Paradís</h3>
+                    <p class="autor-professio">Escriptora (Víctor Català) · L'Escala, 1869 – 1966</p>
+                    <p class="autor-bio text-normal">El 1898 va guanyar un premi als Jocs Florals d'Olot amb el monòleg <em>La infanticida</em>. Quan el jurat va descobrir que l'autora era una dona, es va produir un escàndol. A partir d'aleshores va signar amb un pseudònim masculí, Víctor Català. La seva novel·la <em>Solitud</em> (1905) és una obra cabdal de la literatura catalana.</p>
+                    <p class="autor-bio text-facil">Era una escriptora. Va signar amb un nom d'home, Víctor Català, perquè llavors no acceptaven bé les dones escriptores.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>La infanticida</em>, <em>Drames rurals</em>, <em>Solitud</em>.</p>
+                </div>
+            </article>
+
+            <article class="autor-fitxa reveal" data-grup="lletres" id="verdaguer">
+                <button type="button" class="boto-imatge" data-img="verdaguer-retrat" data-titol="Jacint Verdaguer" data-sub="Retrat al carbó de Ramon Casas · MNAC"><img src="img/mini/verdaguer-retrat.webp" alt="Retrat al carbó de Jacint Verdaguer" loading="lazy"></button>
+                <div class="autor-info">
+                    <h3>Jacint Verdaguer i Santaló</h3>
+                    <p class="autor-professio">Poeta de la Renaixença · Folgueroles, 1845 – Vallvidrera, 1902</p>
+                    <p class="autor-bio text-normal">No era modernista: és el gran poeta de la <button type="button" class="terme" data-terme="renaixenca">Renaixença</button>, el moviment anterior. Però sense ell no s'entén el Modernisme: va demostrar que el català podia ser una gran llengua literària moderna. Els modernistes el van admirar i Casas el va retratar.</p>
+                    <p class="autor-bio text-facil">És un poeta de la Renaixença, abans del Modernisme. Va fer que el català tornés a ser una llengua de literatura.</p>
+                    <p class="autor-obres"><strong>Obres:</strong> <em>L'Atlàntida</em> (1877), <em>Canigó</em> (1886).</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="seccio reveal posa-thi" aria-labelledby="posathi">
+            <header>
+                <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
+                <h2 id="posathi">Posa-t'hi: qui sóc?</h2>
+            </header>
+            <p class="consigna">Llegeix cada endevinalla, pensa la resposta i després obre-la per comprovar-ho.</p>
+            <div class="endevinalles">
+                <div class="endevinalla"><p>«Vaig néixer a Reus. Copiava la natura i vaig morir sense veure acabada la meva gran obra.»</p><details><summary>Resposta</summary>Antoni Gaudí</details></div>
+                <div class="endevinalla"><p>«Vaig presidir la Mancomunitat i vaig dissenyar una casa amb sis torres punxegudes.»</p><details><summary>Resposta</summary>Josep Puig i Cadafalch</details></div>
+                <div class="endevinalla"><p>«Vaig convertir les fàbriques de llana de Terrassa en obres d'art.»</p><details><summary>Resposta</summary>Lluís Muncunill</details></div>
+                <div class="endevinalla"><p>«Vaig signar amb nom d'home després d'un escàndol als Jocs Florals.»</p><details><summary>Resposta</summary>Caterina Albert (Víctor Català)</details></div>
+                <div class="endevinalla"><p>«Em vaig dibuixar en un tàndem i vaig retratar al carbó tots els meus amics.»</p><details><summary>Resposta</summary>Ramon Casas</details></div>
+                <div class="endevinalla"><p>«Vaig estudiar a París i em vaig guanyar la vida pintant retrats quan gairebé cap dona ho podia fer.»</p><details><summary>Resposta</summary>Lluïsa Vidal</details></div>
+            </div>
+            <div class="activitat" style="margin-top:1.6rem">
+                <h3>Investiga</h3>
+                <p>Al Modernisme hi van treballar moltes dones: Lluïsa Vidal, Caterina Albert, la pintora Pepita Teixidor, artesanes, brodadores i decoradores que sovint no signaven. Tria'n una i prepara una fitxa com les d'aquesta pàgina. Per què creus que se'n parla menys?</p>
+            </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    
-    <footer class="footer">
-        <h3 class="footer-titol">El Modernisme</h3>
-        <p class="footer-text">
-            Recurs educatiu de l'escola Ramon Pont per descobrir el moviment artístic més original de Catalunya i Europa.
-        </p>
-        <div class="footer-links">
-            <a href="index.html">Tornar a l'inici</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6;">
-            Web creada per <a href="https://ja.cat/felipsarroca">Felip Sarroca</a> amb l'assistència de la IA.<br>
-            Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>
-        </p>
-    </footer>
-
-
-    <!-- Modal per imatges -->
-    <div class="modal" id="modal">
-        <div class="modal-contingut">
-            <span class="modal-tancar" onclick="tancarModal()">×</span>
-            <img src="" alt="" class="modal-imatge" id="modalImatge">
-            <div class="modal-info">
-                <h3 id="modalTitol"></h3>
-                <p id="modalDesc"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="dades/imatges.js"></script>
+    <script src="dades/glossari.js"></script>
+    <script src="js/comu.js"></script>
+    <script>
+    (function () {
+      const xips = document.querySelectorAll('[data-filtre]');
+      xips.forEach(x => x.addEventListener('click', () => {
+        const f = x.dataset.filtre;
+        xips.forEach(y => y.setAttribute('aria-pressed', String(y === x)));
+        document.querySelectorAll('[data-grup]').forEach(el => { el.hidden = f !== 'tots' && el.dataset.grup !== f; });
+      }));
+    })();
+    </script>
 </body>
-
 </html>
