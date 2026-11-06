@@ -409,8 +409,8 @@ html.lectura-facil .text-normal { display: none; }
   cursor: zoom-in;
   position: relative;
 }
-.boto-imatge img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.boto-imatge:hover img { transform: scale(1.04); }
+.boto-imatge img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--retall, 1)); transform-origin: var(--focus, 50% 50%); transition: transform 0.4s ease; }
+.boto-imatge:hover img { transform: scale(calc(var(--retall, 1) * 1.04)); }
 .boto-imatge .lupa {
   position: absolute;
   right: 10px; bottom: 10px;
@@ -1380,3 +1380,8 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 #mapa { height: calc(clamp(320px, calc(100 * var(--vh) - var(--nav-h) - 315px), 680px) * var(--ui-zoom)); }
 .mapa-disposicio .llista-llocs { height: clamp(320px, calc(100 * var(--vh) - var(--nav-h) - 315px), 680px); }
 @media (max-width: 860px) { .mapa-disposicio .llista-llocs { height: auto; max-height: 300px; } }
+
+/* Punts calents sobre una imatge vertical: cap sencera a la pantalla */
+.punts-imatge.vertical { width: fit-content; max-width: 100%; }
+.punts-imatge.vertical img { width: auto; max-width: 100%; height: clamp(360px, calc(100 * var(--vh) - var(--nav-h) - 215px), 760px); object-fit: contain; }
+@media (max-width: 860px) { .punts-imatge.vertical img { height: auto; width: 100%; max-width: 360px; } }

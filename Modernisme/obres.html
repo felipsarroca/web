@@ -54,10 +54,12 @@
       const recompte = document.getElementById('recompte');
       const ESTILS = { arquitectura: 'Arquitectura', pintura: 'Pintura', cartell: 'Cartell', decoratives: 'Arts decoratives', europa: 'Europa' };
       const obres = window.OBRES.filter(o => o.img);
+      // Les imatges verticals (cartells, retrats) s'enquadren per dalt
+      const vertical = id => { const m = ((window.IMATGES || {})[id] || {}).mides; return m && m.mini && m.mini[1] > m.mini[0] * 1.15; };
       cont.innerHTML = obres.map(o =>
         '<figure class="targeta-imatge" data-tipus="' + o.tipus + '" data-ciutat="' + (o.ciutat || '') + '">' +
           '<button type="button" class="boto-imatge" data-obra="' + o.id + '" data-img="' + o.img + '">' +
-            '<img src="' + M.rutaImatge(o.img) + '" alt="' + o.titol.replace(/"/g, '&quot;') + '" loading="lazy"></button>' +
+            '<img src="' + M.rutaImatge(o.img) + '" alt="' + o.titol.replace(/"/g, '&quot;') + '" loading="lazy"' + (vertical(o.img) ? ' style="object-position:center 12%"' : '') + '></button>' +
           '<figcaption><h3>' + o.titol + '</h3><p class="meta">' + [o.autor, o.anys].filter(Boolean).join(' · ') + '</p>' +
           '<span class="etiqueta">' + (o.moviment || ESTILS[o.tipus]) + '</span></figcaption></figure>').join('');
       M.preparaBotonsImatge(cont);

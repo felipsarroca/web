@@ -64,7 +64,8 @@ def info_commons(titols):
 def neteja(txt):
     txt = re.sub(r'<[^>]+>', ' ', txt or '')
     txt = html.unescape(re.sub(r'\s+', ' ', txt)).strip()
-    return txt
+    txt = re.sub(r'\s*\(\s*talk\s*\)', '', txt)
+    return {'Public domain': 'Domini públic'}.get(txt, txt)
 
 
 def converteix(args):
@@ -128,7 +129,7 @@ def main():
         else:
             origen = os.path.join(ORIG, x['local'])
             if not os.path.exists(origen):
-                shutil.copy2(os.path.join(ARREL, 'img', x['local']), origen)
+                shutil.copy2(os.path.join(ARREL, 'eines', 'locals', x['local']), origen)
             meta[id_] = {'autor': x.get('autor', ''), 'llicencia': x.get('llicencia', ''),
                          'llicenciaUrl': '', 'font': x.get('font', '')}
         feines.append((id_, origen, forca))

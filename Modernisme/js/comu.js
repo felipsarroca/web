@@ -440,6 +440,10 @@
     (arrel || document).querySelectorAll('.boto-imatge[data-img], .boto-imatge[data-obra]').forEach(b => {
       if (b.dataset.preparat) return;
       b.dataset.preparat = '1';
+      // Les imatges verticals s'enquadren per la part de dalt (cares, títols de cartells)
+      const im = b.querySelector('img'), id = b.dataset.img || (itemDe(b) || {}).img;
+      const m = ((IMATGES[id] || {}).mides || {}).mini;
+      if (im && !im.style.objectPosition && m && m[1] > m[0] * 1.15) im.style.objectPosition = 'center 15%';
       if (!b.querySelector('.lupa')) b.insertAdjacentHTML('beforeend', '<span class="lupa" aria-hidden="true">' + ICONES.lupa + '</span>');
       if (!b.getAttribute('aria-label')) {
         const it = itemDe(b);
