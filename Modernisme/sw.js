@@ -7,13 +7,13 @@
      (img/mini), de manera que la web es pot fer servir a l'aula o
      a la sortida per Terrassa sense internet.
    ========================================================= */
-const VERSIO = 'modernisme-v3';
+const VERSIO = 'modernisme-v4';
 const NUCLI = [
   './', 'index.html', 'que-es.html', 'catalunya.html', 'ciutats.html', 'mon.html', 'temps.html', 'llegat.html',
   'arquitectura.html', 'arts.html', 'cartellisme.html', 'oficis.html', 'objectes.html',
   'autors.html', 'arquitectes.html', 'obres.html', 'mapa.html', 'terrassa.html', 'glossari.html', 'repte.html',
   'dossier.html', 'progres.html', 'credits.html',
-  'style.css', 'fonts/fonts.css', 'js/comu.js', 'js/activitats.js', 'js/mapa.js', 'js/catenaria.js',
+  'style.css?v=4', 'fonts/fonts.css', 'js/comu.js', 'js/activitats.js', 'js/mapa.js', 'js/catenaria.js',
   'dades/imatges.js', 'dades/obres.js', 'dades/glossari.js', 'dades/preguntes.js', 'dades/arquitectes.js',
   'favicon.svg', 'manifest.webmanifest', 'assets/CC_BY-NC-SA.png', 'assets/icona-192.png', 'assets/icona-512.png'
 ];

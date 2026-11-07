@@ -124,7 +124,9 @@ a:hover { color: var(--color-marro); }
   text-decoration: none;
   white-space: nowrap;
 }
-.nav-logo svg { width: 30px; height: 30px; flex-shrink: 0; }
+.nav-logo svg { width: 36px; height: 36px; flex-shrink: 0; border-radius: 9px; box-shadow: 0 2px 6px rgba(60, 40, 25, 0.25); transition: transform 0.2s ease; }
+.nav-logo:hover svg { transform: rotate(-4deg) scale(1.06); }
+@media (prefers-reduced-motion: reduce) { .nav-logo:hover svg { transform: none; } }
 .nav-fosca .nav-logo { color: var(--color-crema); }
 
 .nav-menu {
@@ -1729,3 +1731,4 @@ html[data-tema="fosc"] .punt-calent.encertat, html[data-tema="fosc"] .punt-calen
   .costat, .parell-imatges figure { break-inside: avoid; }
 }
 html[data-tema="fosc"] .requadre-fixat { background: #2b2418; }
+html[data-tema="fosc"] .nav-logo svg { box-shadow: 0 0 0 1.5px rgba(217, 184, 102, 0.55); }
