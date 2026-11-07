@@ -1847,5 +1847,509 @@ window.IMATGES = {
     3683
    ]
   }
+ },
+ "maqueta-polifunicular": {
+  "autor": "Unknown author Unknown author",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Maqueta_polifunicular.jpg",
+  "mides": {
+   "mini": [
+    676,
+    900
+   ],
+   "mitjana": [
+    1127,
+    1500
+   ]
+  }
+ },
+ "cripta-colonia-guell-interior": {
+  "autor": "Till F. Teenck",
+  "llicencia": "CC BY-SA 2.5",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "font": "https://commons.wikimedia.org/wiki/File:Cripta_de_la_Col%C3%B2nia_G%C3%BCell_1.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1240,
+    1654
+   ]
+  }
+ },
+ "pedrera-golfes": {
+  "autor": "Tony Hisgett from Birmingham, UK",
+  "llicencia": "CC BY 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:La_Pedrera_Attic_Ceiling_(5837838400).jpg",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    2000,
+    1333
+   ],
+   "gran": [
+    4752,
+    3168
+   ]
+  }
+ },
+ "teresianes-arcs": {
+  "autor": "Javier Lopez Bravo",
+  "llicencia": "CC BY 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Arcs_del_Col%C2%B7legi_de_les_Teresianes_2.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    768,
+    1024
+   ]
+  }
+ },
+ "torre-creu": {
+  "autor": "Gab01",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Torre_de_la_Creu.JPG",
+  "mides": {
+   "mini": [
+    602,
+    900
+   ],
+   "mitjana": [
+    1339,
+    2000
+   ],
+   "gran": [
+    2592,
+    3872
+   ]
+  }
+ },
+ "celler-guell": {
+  "autor": "Maria planas aulet",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Celler_G%C3%BCell_-_Garraf_-.jpg",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    2000,
+    1333
+   ],
+   "gran": [
+    5000,
+    3333
+   ]
+  }
+ },
+ "casa-golferichs": {
+  "autor": "Canaan",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Golferichs_BCN.JPG",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ],
+   "gran": [
+    3648,
+    2736
+   ]
+  }
+ },
+ "casa-garriga-nogues": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Garriga_Nogu%C3%A9s,_fa%C3%A7ana.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ]
+  }
+ },
+ "casa-comalat": {
+  "autor": "Joe Mabel",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Barcelona_-_Casa_Comalat_(Carrer_de_C%C3%B2rsega_facade)_01.jpg",
+  "mides": {
+   "mini": [
+    600,
+    900
+   ],
+   "mitjana": [
+    1333,
+    2000
+   ],
+   "gran": [
+    3333,
+    5000
+   ]
+  }
+ },
+ "farinera-teixidor": {
+  "autor": "Saint-Aniol",
+  "llicencia": "CC BY 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Farinera_Teixidor_-_Gerona.jpg",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    2000,
+    1334
+   ],
+   "gran": [
+    2500,
+    1667
+   ]
+  }
+ },
+ "celler-pinell": {
+  "autor": "( Tomàs )",
+  "llicencia": "CC BY-SA 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Celler_Cooperatiu_(El_Pinell_de_Brai)_-_6.jpg",
+  "mides": {
+   "mini": [
+    900,
+    608
+   ],
+   "mitjana": [
+    2000,
+    1351
+   ],
+   "gran": [
+    2742,
+    1852
+   ]
+  }
+ },
+ "casa-rull": {
+  "autor": "Jaume Meneses",
+  "llicencia": "CC BY-SA 2.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "font": "https://commons.wikimedia.org/wiki/File:DiM-Reus-CasaRull.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1500,
+    2000
+   ],
+   "gran": [
+    2304,
+    3072
+   ]
+  }
+ },
+ "gran-hotel-palma": {
+  "autor": "Pérez",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:GranHotelPalma.JPG",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1500,
+    2000
+   ],
+   "gran": [
+    2136,
+    2848
+   ]
+  }
+ },
+ "casa-botines": {
+  "autor": "Joselodos",
+  "llicencia": "CC0",
+  "llicenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Botines,_Le%C3%B3n,_Spain.jpg",
+  "mides": {
+   "mini": [
+    900,
+    600
+   ],
+   "mitjana": [
+    2000,
+    1333
+   ],
+   "gran": [
+    5000,
+    3333
+   ]
+  }
+ },
+ "palau-astorga": {
+  "autor": "Fernando",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Palacio_Episcopal_Astorga_2021_-_exterior.jpg",
+  "mides": {
+   "mini": [
+    720,
+    900
+   ],
+   "mitjana": [
+    1600,
+    2000
+   ],
+   "gran": [
+    3873,
+    4841
+   ]
+  }
+ },
+ "llimona-desconsol": {
+  "autor": "Didier Descouens",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:(Barcelona)_Desolation_by_Josep_Llimona_-_Museu_Nacional_d%27Art_de_Catalunya.jpg",
+  "mides": {
+   "mini": [
+    900,
+    727
+   ],
+   "mitjana": [
+    2000,
+    1616
+   ],
+   "gran": [
+    5000,
+    4039
+   ]
+  }
+ },
+ "blay-primers-freds": {
+  "autor": "Miquel Blay i Fàbregas",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Els_primers_freds_-_1911.jpg",
+  "mides": {
+   "mini": [
+    563,
+    764
+   ],
+   "mitjana": [
+    563,
+    764
+   ]
+  }
+ },
+ "blay-canco-popular": {
+  "autor": "YEEW",
+  "llicencia": "CC0",
+  "llicenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "font": "https://commons.wikimedia.org/wiki/File:Escultura_de_Miquel_Blay_a_la_fa%C3%A7ana_del_Palau_de_la_M%C3%BAsica_Catalana.jpg",
+  "mides": {
+   "mini": [
+    675,
+    900
+   ],
+   "mitjana": [
+    1500,
+    2000
+   ],
+   "gran": [
+    3024,
+    4032
+   ]
+  }
+ },
+ "palau-escenari": {
+  "autor": "Josep Renalias",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Palau_de_la_M%C3%BAsica_-_Escenari.JPG",
+  "mides": {
+   "mini": [
+    900,
+    598
+   ],
+   "mitjana": [
+    2000,
+    1330
+   ],
+   "gran": [
+    2967,
+    1973
+   ]
+  }
+ },
+ "granados-casals": {
+  "autor": "Antoni Esplugas i Puig",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Enric_Granados_i_Campi%C3%B1a_i_Pau_Casals_i_Defill%C3%B3_ANC1-402-N-8691.jpg",
+  "mides": {
+   "mini": [
+    578,
+    822
+   ],
+   "mitjana": [
+    578,
+    822
+   ]
+  }
+ },
+ "millet-casas": {
+  "autor": "Ramon Casas",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Ramon_Casas_-_MNAC-_Llu%C3%ADs_Millet-_027618-D_006607.jpg",
+  "mides": {
+   "mini": [
+    421,
+    900
+   ],
+   "mitjana": [
+    935,
+    2000
+   ],
+   "gran": [
+    1403,
+    3000
+   ]
+  }
+ },
+ "casa-alegre-salo": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Casa_Alegre_de_Sagrera,_sal%C3%B3_principal.jpg",
+  "mides": {
+   "mini": [
+    900,
+    675
+   ],
+   "mitjana": [
+    2000,
+    1500
+   ],
+   "gran": [
+    3456,
+    2592
+   ]
+  }
+ },
+ "colonia-guell-carrer": {
+  "autor": "Pere López Brosa",
+  "llicencia": "CC BY-SA 4.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "font": "https://commons.wikimedia.org/wiki/File:Carrer_de_Cl%C3%A0udi_G%C3%BCell_-_Col%C3%B2nia_G%C3%BCell_-_20250419_191742.jpg",
+  "mides": {
+   "mini": [
+    900,
+    506
+   ],
+   "mitjana": [
+    2000,
+    1125
+   ],
+   "gran": [
+    4080,
+    2296
+   ]
+  }
+ },
+ "nena-obrera": {
+  "autor": "Joan Planella i Rodríguez",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:La_petita_obrera.jpg",
+  "mides": {
+   "mini": [
+    732,
+    900
+   ],
+   "mitjana": [
+    1626,
+    2000
+   ],
+   "gran": [
+    2692,
+    3311
+   ]
+  }
+ },
+ "casas-carrega": {
+  "autor": "Ramon Casas",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Ramon_Casas_Charge.jpg",
+  "mides": {
+   "mini": [
+    900,
+    571
+   ],
+   "mitjana": [
+    1280,
+    812
+   ]
+  }
+ },
+ "teler-mnactec": {
+  "autor": "Enfo",
+  "llicencia": "CC BY-SA 3.0",
+  "llicenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "font": "https://commons.wikimedia.org/wiki/File:144_mNACTEC,_la_F%C3%A0brica_T%C3%A8xtil,_nena_en_un_teler_de_garrot.jpg",
+  "mides": {
+   "mini": [
+    900,
+    683
+   ],
+   "mitjana": [
+    2000,
+    1517
+   ]
+  }
+ },
+ "setmana-tragica": {
+  "autor": "Adolf Mas i Ginestà",
+  "llicencia": "Domini públic",
+  "llicenciaUrl": "",
+  "font": "https://commons.wikimedia.org/wiki/File:Setmana_Tr%C3%A0gica_-_Religioses_Concepcionistes_-_Carrer_Val%C3%A8ncia.jpg",
+  "mides": {
+   "mini": [
+    771,
+    460
+   ],
+   "mitjana": [
+    771,
+    460
+   ]
+  }
  }
 };

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Repte final del Modernisme: qüestionari de 12 preguntes amb imatges i correcció immediata.">
+    <meta name="description" content="Repte final del Modernisme: qüestionari de 12 preguntes triades d'un banc de més de vuitanta, amb imatges, correcció immediata i repàs dels errors.">
     <title>Repte final | El Modernisme</title>
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ca_ES">
     <meta property="og:site_name" content="El Modernisme">
     <meta property="og:title" content="Repte final | El Modernisme">
-    <meta property="og:description" content="Repte final del Modernisme: qüestionari de 12 preguntes amb imatges i correcció immediata.">
+    <meta property="og:description" content="Repte final del Modernisme: qüestionari de 12 preguntes triades d'un banc de més de vuitanta, amb imatges, correcció immediata i repàs dels errors.">
     <meta property="og:url" content="https://felipsarroca.github.io/web/Modernisme/repte.html">
     <meta property="og:image" content="https://felipsarroca.github.io/web/Modernisme/img/mitjana/casa-batllo.webp">
     <meta name="twitter:card" content="summary_large_image">
@@ -27,12 +27,12 @@
     <header class="header-seccio">
         <p class="avantitol">Explora</p>
         <h1>Repte final</h1>
-        <p class="subtitol">Dotze preguntes triades a l'atzar d'un banc de trenta-nou</p>
+        <p class="subtitol" id="subtitol-repte">Dotze preguntes triades a l'atzar d'un banc de més de vuitanta</p>
     </header>
 
     <main id="contingut" class="contingut-principal">
         <section class="seccio questionari" data-galeria>
-            <p class="seccio-intro text-normal">Tria un nivell. Cada vegada sortiran dotze preguntes diferents. Veuràs de seguida si la resposta és correcta i, si falles, un enllaç «Repassa-ho» per tornar a la pàgina on s'explica.</p>
+            <p class="seccio-intro text-normal">Tria un nivell. Cada vegada sortiran dotze preguntes diferents. Veuràs de seguida si la resposta és correcta i, si falles, un enllaç «Repassa-ho» per tornar a la pàgina on s'explica. Les preguntes que falles es desen: amb el botó «Els meus errors» les pots tornar a fer fins que les encertis.</p>
             <p class="seccio-intro text-facil">Tria un nivell. Llegeix la pregunta i tria una resposta. Si t'equivoques, fes clic a «Repassa-ho».</p>
             <div class="filtres" role="group" aria-label="Tria el nivell" style="justify-content:center">
                 <span class="etiqueta-filtre">Nivell:</span>
@@ -40,6 +40,7 @@
                 <button type="button" class="xip" data-nivell="2" aria-pressed="false">Mitjà</button>
                 <button type="button" class="xip" data-nivell="3" aria-pressed="false">Avançat</button>
                 <button type="button" class="xip" data-nivell="0" aria-pressed="false">Barrejat</button>
+                <button type="button" class="xip xip-errors" data-nivell="-1" aria-pressed="false" hidden>Els meus errors <span id="n-errors"></span></button>
             </div>
             <div class="marcador-questionari" aria-live="polite">
                 <span id="progres-text">0 / 12</span>
@@ -66,22 +67,50 @@
     (function () {
       const M = window.Modernisme;
       const BANC = window.PREGUNTES;
-      const NOMS = { 0: 'barrejat', 1: 'bàsic', 2: 'mitjà', 3: 'avançat' };
-      const TOTAL = 12;
+      const NOMS = { '-1': 'errors', 0: 'barrejat', 1: 'bàsic', 2: 'mitjà', 3: 'avançat' };
+      const MAXIM = 12;
+      let TOTAL = MAXIM;
+      const CLAU_ERRORS = 'modernisme:errors-repte';
       const lletres = 'ABCD';
       const cont = document.getElementById('preguntes');
       let nivell = 1, joc = [], respostes = 0, encerts = 0, fallades = [];
 
       function barreja(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
+      /* Preguntes fallades, desades en aquest dispositiu (pel text de la pregunta) */
+      function llegeixErrors() {
+        try { const v = JSON.parse(localStorage.getItem(CLAU_ERRORS) || '[]'); return Array.isArray(v) ? v.filter(t => BANC.some(q => q.p === t)) : []; }
+        catch (e) { return []; }
+      }
+      function desaErrors(v) { try { localStorage.setItem(CLAU_ERRORS, JSON.stringify(v)); } catch (e) { /* sense emmagatzematge */ } }
+      function anotaError(q, ok) {
+        const v = llegeixErrors().filter(t => t !== q.p);
+        if (!ok) v.push(q.p);
+        desaErrors(v);
+      }
+      function botoErrors() {
+        const n = llegeixErrors().length;
+        const b = document.querySelector('.xip-errors');
+        b.hidden = n === 0 && nivell !== -1;
+        document.getElementById('n-errors').textContent = '(' + n + ')';
+      }
+
       function tria() {
-        if (nivell) return barreja(BANC.filter(q => q.n === nivell)).slice(0, TOTAL);
+        if (nivell === -1) {
+          const errors = llegeixErrors();
+          return barreja(BANC.filter(q => errors.includes(q.p))).slice(0, MAXIM);
+        }
+        if (nivell) return barreja(BANC.filter(q => q.n === nivell)).slice(0, MAXIM);
         // Barrejat: quatre de cada nivell
-        return barreja([1, 2, 3].flatMap(n => barreja(BANC.filter(q => q.n === n)).slice(0, TOTAL / 3)));
+        return barreja([1, 2, 3].flatMap(n => barreja(BANC.filter(q => q.n === n)).slice(0, MAXIM / 3)));
       }
 
       function pinta() {
-        joc = tria(); respostes = 0; encerts = 0; fallades = [];
+        joc = tria(); TOTAL = joc.length; respostes = 0; encerts = 0; fallades = [];
+        if (!TOTAL) {
+          cont.innerHTML = '<p class="requadre">No tens cap error pendent. Molt bé! Tria un nivell per continuar practicant.</p>';
+          actualitza(); document.getElementById('resultat').hidden = true; return;
+        }
         cont.innerHTML = joc.map((q, i) => {
           const ordre = barreja(q.o.map((t, k) => ({ t, k })));
           const img = q.img ? '<button type="button" class="boto-imatge imatge-pregunta" data-img="' + q.img + '" data-titol="Imatge de la pregunta ' + (i + 1) + '"><img src="' + M.rutaImatge(q.img) + '" alt="Imatge de la pregunta" loading="lazy"></button>' : '';
@@ -97,7 +126,7 @@
       function actualitza() {
         document.getElementById('progres-text').textContent = respostes + ' / ' + TOTAL;
         document.getElementById('encerts-text').textContent = encerts + (encerts === 1 ? ' encert' : ' encerts');
-        document.getElementById('progres-barra').style.width = (respostes / TOTAL * 100) + '%';
+        document.getElementById('progres-barra').style.width = (TOTAL ? respostes / TOTAL * 100 : 0) + '%';
       }
 
       const clau = () => 'modernisme-repte-millor-' + nivell;
@@ -109,16 +138,23 @@
         document.getElementById('puntuacio').textContent = encerts + ' / ' + TOTAL;
         document.getElementById('valoracio').textContent =
           encerts === TOTAL ? 'Excel·lent! Ets un expert o una experta en Modernisme.' :
-          encerts >= 9 ? 'Molt bé! Domines la majoria de continguts.' :
-          encerts >= 6 ? 'Bé! Repassa les preguntes que has fallat i torna-hi.' :
+          encerts >= TOTAL * 0.75 ? 'Molt bé! Domines la majoria de continguts.' :
+          encerts >= TOTAL * 0.5 ? 'Bé! Repassa les preguntes que has fallat i torna-hi.' :
           'Encara pots millorar. Torna a llegir les pàgines i intenta-ho de nou.';
         const pagines = [...new Map(fallades.filter(q => q.r).map(q => [q.r.split('#')[0], q.r])).values()];
         document.getElementById('repas').innerHTML = pagines.length
           ? '<p style="margin-top:.6rem"><strong>Repassa:</strong> ' + pagines.map(u => '<a href="' + u + '">' + (M.titolPagina(u) || u) + '</a>').join(' · ') + '</p>' : '';
-        const millor = Math.max(llegeixMillor(), encerts);
-        desaMillor(millor);
-        document.getElementById('millor').textContent = 'La teva millor puntuació en el nivell ' + NOMS[nivell] + ' en aquest dispositiu: ' + millor + ' / ' + TOTAL;
-        M.registraProgres && M.registraProgres('repte-' + nivell, 'Repte final (nivell ' + NOMS[nivell] + ')', encerts, TOTAL);
+        const pendents = llegeixErrors().length;
+        if (nivell === -1) {
+          document.getElementById('millor').textContent = pendents ? 'Encara tens ' + pendents + (pendents === 1 ? ' pregunta' : ' preguntes') + ' per repassar.' : 'Has repassat tots els errors!';
+        } else {
+          const millor = Math.max(llegeixMillor(), encerts);
+          desaMillor(millor);
+          document.getElementById('millor').textContent = 'La teva millor puntuació en el nivell ' + NOMS[nivell] + ' en aquest dispositiu: ' + millor + ' / ' + TOTAL +
+            (pendents ? '. Tens ' + pendents + (pendents === 1 ? ' pregunta' : ' preguntes') + ' a «Els meus errors».' : '.');
+          M.registraProgres && M.registraProgres('repte-' + nivell, 'Repte final (nivell ' + NOMS[nivell] + ')', encerts, TOTAL);
+        }
+        botoErrors();
         r.hidden = false;
         r.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -134,6 +170,7 @@
           if (Number(x.dataset.k) === q.c) x.classList.add('correcta');
         });
         if (!ok) { b.classList.add('incorrecta'); fallades.push(q); }
+        anotaError(q, ok); botoErrors();
         div.classList.add('resposta');
         const exp = div.querySelector('.explicacio');
         exp.textContent = (ok ? '✔ Correcte. ' : '✘ No és correcte. ') + q.e;
@@ -150,6 +187,8 @@
         pinta();
       }));
       document.getElementById('torna').addEventListener('click', () => { pinta(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      document.getElementById('subtitol-repte').textContent = 'Dotze preguntes triades a l\'atzar d\'un banc de ' + BANC.length;
+      botoErrors();
       pinta();
     })();
     </script>

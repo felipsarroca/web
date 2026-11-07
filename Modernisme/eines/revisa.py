@@ -42,6 +42,7 @@ for p in sorted(glob.glob('*.html')):
 ids['glossari.html'] |= set(GLOSSARI)
 # Seccions generades amb JavaScript
 ids['arquitectes.html'] |= {'gaudi', 'domenech', 'puig', 'muncunill'}
+ids['mapa.html'] |= {'barcelona', 'terrassa', 'catalunya', 'fora', 'totes', 'vida-gaudi', 'vida-domenech', 'vida-puig', 'vida-muncunill'}
 
 def comprova_enllac(origen, href):
     if not href or href.startswith(('http', 'mailto:', 'javascript:', '#!')):

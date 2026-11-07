@@ -105,6 +105,31 @@ window.OBRES = [
     fixat: ['Les finestres d\'arcs gòtics de l\'edifici de Puig i Cadafalch.', 'El rètol de ferro forjat.']
   },
 
+  {
+    id: 'casa-golferichs', titol: 'Casa Golferichs, «el Xalet»', autor: 'Joan Rubió i Bellver', anys: '1900 – 1901',
+    lloc: 'Barcelona (Gran Via)', tipus: 'arquitectura', img: 'casa-golferichs', lat: 41.38074, lng: 2.15620, ciutat: 'barcelona',
+    desc: 'Casa unifamiliar amb jardí, de maó, pedra i un gran ràfec de fusta. El 1972 la van voler enderrocar per fer-hi pisos; una campanya veïnal la va salvar i des del 1989 és un centre cívic.',
+    fixat: ['El ràfec de fusta de la teulada, com el d\'un xalet de muntanya.', 'La barreja de maó vermell i pedra.']
+  },
+  {
+    id: 'casa-llopis-bofill', titol: 'Casa Llopis i Bofill', autor: 'Antoni Maria Gallissà', anys: '1902 – 1903',
+    lloc: 'Barcelona (Eixample)', tipus: 'arquitectura', img: 'esgrafiat-llopis', lat: 41.39755, lng: 2.16945, ciutat: 'barcelona',
+    desc: 'Edifici d\'habitatges al xamfrà dels carrers de València i Bailèn. Gallissà hi recupera l\'esgrafiat i la ceràmica per decorar tota la façana.',
+    fixat: ['Els esgrafiats de motius vegetals de la façana.', 'Els balcons de ferro forjat.']
+  },
+  {
+    id: 'casa-garriga-nogues', titol: 'Casa Garriga-Nogués', autor: 'Enric Sagnier', anys: '1904',
+    lloc: 'Barcelona (c. de la Diputació)', tipus: 'arquitectura', img: 'casa-garriga-nogues', lat: 41.38888, lng: 2.16525, ciutat: 'barcelona',
+    desc: 'Casa encarregada per un banquer, que en va ocupar el pis principal. Sagnier hi combina un gust clàssic amb frisos i decoració floral modernistes.',
+    fixat: ['El pis principal, el més decorat, on vivia la família propietària.', 'Els frisos d\'estuc amb flors.']
+  },
+  {
+    id: 'casa-comalat', titol: 'Casa Comalat', autor: 'Salvador Valeri', anys: '1909 – 1911',
+    lloc: 'Barcelona (Diagonal / Còrsega)', tipus: 'arquitectura', img: 'casa-comalat', lat: 41.39710, lng: 2.16070, ciutat: 'barcelona',
+    desc: 'Encàrrec d\'un industrial tèxtil. Té dues façanes molt diferents: la de la Diagonal, de pedra, i la del carrer de Còrsega, plena de galeries de fusta i de ceràmica de Lluís Bru.',
+    fixat: ['Les galeries de fusta i ceràmica de la façana de Còrsega.', 'Les formes toves, com de cartílag, inspirades en Gaudí.']
+  },
+
   /* ---------- Terrassa · arquitectura ---------- */
   {
     id: 'masia-freixa', titol: 'Masia Freixa', autor: 'Lluís Muncunill', anys: '1907 – 1914 (reforma)',
@@ -192,6 +217,61 @@ window.OBRES = [
     lloc: 'Comillas (Cantàbria) · fora de Catalunya', tipus: 'arquitectura', img: 'capricho-comillas', lat: 43.38368, lng: -4.29274, ciutat: 'fora',
     desc: 'Una de les primeres obres de Gaudí, una casa d\'estiueig revestida de rajoles amb gira-sols. Mostra que el Modernisme català va arribar a altres llocs d\'Espanya.',
     fixat: ['Les rajoles verdes i grogues amb gira-sols.', 'La torre-minaret coberta de ceràmica.']
+  },
+
+  {
+    id: 'cripta-colonia-guell', titol: 'Cripta de la Colònia Güell', autor: 'Antoni Gaudí', anys: '1908 – 1915',
+    lloc: 'Santa Coloma de Cervelló (Baix Llobregat)', tipus: 'arquitectura', img: 'cripta-colonia-guell-interior', lat: 41.36380, lng: 2.02785, ciutat: 'catalunya',
+    desc: 'Eusebi Güell volia una església per als treballadors de la seva colònia tèxtil. Gaudí la va calcular amb una maqueta de cordes i pesos, però només se\'n va construir la cripta. És Patrimoni de la Humanitat des del 2005.',
+    fixat: ['Les columnes inclinades, com troncs, sense contraforts.', 'Els vitralls en forma de pètals i el maó vist.']
+  },
+  {
+    id: 'torre-creu', titol: 'Torre de la Creu, «Torre dels Ous»', autor: 'Josep Maria Jujol', anys: '1913 – 1916',
+    lloc: 'Sant Joan Despí (Baix Llobregat)', tipus: 'arquitectura', img: 'torre-creu', lat: 41.36810, lng: 2.06039, ciutat: 'catalunya',
+    desc: 'Casa d\'estiueig formada per cinc cilindres units i coronats per cúpules de trencadís, que li han donat el nom popular de «Torre dels Ous».',
+    fixat: ['Les cúpules com closques d\'ou, revestides de trencadís.', 'La creu de ferro que dona nom a la casa.']
+  },
+  {
+    id: 'celler-guell', titol: 'Celler Güell', autor: 'Francesc Berenguer (atribuït)', anys: 'finals del segle XIX',
+    lloc: 'Garraf (Sitges)', tipus: 'arquitectura', img: 'celler-guell', lat: 41.25586, lng: 1.90543, ciutat: 'catalunya',
+    desc: 'Celler, habitatge i capella per a Eusebi Güell al costat del mar. L\'autoria es discuteix: molts historiadors l\'atribueixen a Berenguer i alguns hi veuen també la mà de Gaudí.',
+    fixat: ['La coberta de pedra molt inclinada, com una tenda.', 'Els arcs parabòlics de l\'entrada.']
+  },
+  {
+    id: 'casa-rull', titol: 'Casa Rull', autor: 'Lluís Domènech i Montaner', anys: '1900',
+    lloc: 'Reus (c. de Sant Joan)', tipus: 'arquitectura', img: 'casa-rull', lat: 41.15620, lng: 1.10400, ciutat: 'catalunya',
+    desc: 'Casa d\'un notari de Reus, amic de Domènech i soci fundador de l\'Institut Pere Mata. És d\'estil modernista d\'inspiració medieval. Des del 1925 és de l\'Ajuntament i acull serveis culturals.',
+    fixat: ['Els merlets de gust medieval.', 'El jardí que envolta la casa.']
+  },
+  {
+    id: 'farinera-teixidor', titol: 'Farinera Teixidor', autor: 'Rafael Masó', anys: '1910',
+    lloc: 'Girona', tipus: 'arquitectura', img: 'farinera-teixidor', lat: 41.98139, lng: 2.81628, ciutat: 'catalunya',
+    desc: 'Fàbrica de farina, oficines i habitatge de l\'industrial Alfons Teixidor. Masó en va dissenyar fins i tot el ferro forjat i la ceràmica vidriada de la Bisbal.',
+    fixat: ['Els pinacles coronats amb peces de ceràmica blanca.', 'El ferro forjat, fet per un serraller de Girona.']
+  },
+  {
+    id: 'celler-pinell', titol: 'Celler Cooperatiu del Pinell de Brai', autor: 'Cèsar Martinell', anys: '1918 – 1922',
+    lloc: 'El Pinell de Brai (Terra Alta)', tipus: 'arquitectura', img: 'celler-pinell', lat: 41.01560, lng: 0.51190, ciutat: 'catalunya',
+    desc: 'Celler encarregat pel sindicat agrícola dels pagesos del poble. Per la seva grandesa l\'anomenen «la catedral del vi». És un Modernisme tardà, a cavall del Noucentisme.',
+    fixat: ['Els arcs de maó que sostenen la coberta.', 'El fris de ceràmica de la façana, de Xavier Nogués.']
+  },
+  {
+    id: 'gran-hotel-palma', titol: 'Gran Hotel', autor: 'Lluís Domènech i Montaner', anys: '1903',
+    lloc: 'Palma (Mallorca) · fora de Catalunya', tipus: 'arquitectura', img: 'gran-hotel-palma', lat: 39.57175, lng: 2.65006, ciutat: 'fora',
+    desc: 'Un dels primers grans hotels de Palma, projectat el 1903. Combina maó, estuc, pedra, ceràmica vidrada i ferro forjat. Des del 1993 és un centre cultural.',
+    fixat: ['La decoració escultòrica de la façana.', 'La barreja de materials: maó, pedra i ceràmica.']
+  },
+  {
+    id: 'casa-botines', titol: 'Casa Botines', autor: 'Antoni Gaudí', anys: '1891 – 1894',
+    lloc: 'Lleó · fora de Catalunya', tipus: 'arquitectura', img: 'casa-botines', lat: 42.59844, lng: -5.57072, ciutat: 'fora',
+    desc: 'Magatzem de teixits i habitatges al centre de Lleó. Té aire de castell neogòtic, amb torres cilíndriques als angles.',
+    fixat: ['Les torres cilíndriques dels angles.', 'L\'escultura de Sant Jordi sobre la porta.']
+  },
+  {
+    id: 'palau-astorga', titol: 'Palau Episcopal d\'Astorga', autor: 'Antoni Gaudí', anys: '1889 – 1913',
+    lloc: 'Astorga (Lleó) · fora de Catalunya', tipus: 'arquitectura', img: 'palau-astorga', lat: 42.45780, lng: -6.05600, ciutat: 'fora',
+    desc: 'Palau neogòtic encarregat per un bisbe nascut a Reus, amic de Gaudí. Gaudí va deixar l\'obra el 1893, quan va morir el bisbe, i la van acabar altres arquitectes. Avui és el Museu dels Camins.',
+    fixat: ['El granit blanc de la façana.', 'Les torres i els arcs d\'inspiració gòtica.']
   },
 
   /* ---------- Pintura, cartells i arts decoratives ---------- */

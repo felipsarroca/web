@@ -185,6 +185,7 @@
 
   /* ---------- Punts calents ---------- */
   function punts(caixa) {
+    if (caixa.dataset.mode === 'endevina') return endevina(caixa);
     const sortida = document.getElementById(caixa.dataset.sortida);
     const botons = [...caixa.querySelectorAll('.punt-calent')];
     botons.forEach(b => {
@@ -197,6 +198,96 @@
     });
   }
 
+  /* ---------- Punts calents per endevinar ----------
+     Cada punt porta data-opcions (la correcta és data-correcta).
+     L'alumne tria què és; després es mostra l'explicació. */
+  function endevina(caixa) {
+    const sortida = document.getElementById(caixa.dataset.sortida);
+    const botons = [...caixa.querySelectorAll('.punt-calent')];
+    const acc = accionsDe(caixa.closest('.punts-endevina') || caixa);
+    const res = acc ? acc.querySelector('.resultat-activitat') : null;
+    const respostes = {};
+    const inici = sortida.innerHTML;
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+    function explica(b) {
+      const ok = respostes[b.textContent] === true;
+      sortida.innerHTML = '<p class="resultat-punt ' + (ok ? 'be' : 'millorable') + '">' + (ok ? '✔ Correcte!' : '✘ No era això. La resposta és: ' + b.dataset.correcta.charAt(0).toLowerCase() + b.dataset.correcta.slice(1) + '.') + '</p>' +
+        '<h4>' + b.textContent + '. ' + b.dataset.titol + '</h4><p>' + b.dataset.text + '</p>';
+    }
+    function pregunta(b) {
+      const opcions = barreja(b.dataset.opcions.split('|'));
+      sortida.innerHTML = '<h4>Punt ' + b.textContent + ': què hi veus?</h4><div class="opcions-punt" role="group" aria-label="Respostes del punt ' + b.textContent + '">' +
+        opcions.map(o => '<button type="button" class="boto clar" data-opcio="' + esc(o) + '">' + o + '</button>').join('') + '</div>';
+      sortida.querySelectorAll('[data-opcio]').forEach(x => x.addEventListener('click', () => {
+        const ok = x.dataset.opcio === b.dataset.correcta;
+        respostes[b.textContent] = ok;
+        b.classList.add(ok ? 'encertat' : 'fallat');
+        explica(b);
+        const fets = Object.keys(respostes).length;
+        if (res) {
+          const encerts = Object.values(respostes).filter(Boolean).length;
+          if (fets === botons.length) missatge(res, encerts, botons.length);
+          else { res.className = 'resultat-activitat'; res.textContent = fets + ' de ' + botons.length + ' punts resolts.'; }
+        }
+        const seguent = botons.find(y => !(y.textContent in respostes));
+        if (seguent) sortida.insertAdjacentHTML('beforeend', '<p><button type="button" class="boto petit" data-seguent="' + seguent.textContent + '">Punt següent →</button></p>');
+        const bs = sortida.querySelector('[data-seguent]');
+        if (bs) bs.addEventListener('click', () => { seguent.focus(); seguent.click(); });
+      }));
+    }
+    botons.forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.setAttribute('aria-controls', caixa.dataset.sortida);
+      b.setAttribute('aria-label', 'Punt ' + b.textContent);
+      b.addEventListener('click', () => {
+        botons.forEach(x => x.setAttribute('aria-expanded', String(x === b)));
+        if (b.textContent in respostes) explica(b); else pregunta(b);
+      });
+    });
+    if (acc) acc.querySelector('[data-accio="reinicia"]').addEventListener('click', () => {
+      Object.keys(respostes).forEach(k => delete respostes[k]);
+      botons.forEach(b => { b.classList.remove('encertat', 'fallat'); b.setAttribute('aria-expanded', 'false'); });
+      sortida.innerHTML = inici;
+      if (res) { res.className = 'resultat-activitat'; res.textContent = ''; }
+    });
+  }
+
+  /* ---------- Lliscador abans / ara ----------
+     Converteix un bloc .dues (dues figures) en una sola imatge
+     amb una línia que es pot arrossegar. Les figures originals
+     queden amagades (es mostren en imprimir) i es poden ampliar. */
+  function lliscador(dues) {
+    const figs = dues.querySelectorAll('figure');
+    if (figs.length !== 2) return;
+    const [fa, fb] = figs;
+    const ia = fa.querySelector('img'), ib = fb.querySelector('img');
+    const ca = (fa.querySelector('figcaption') || {}).textContent || 'Abans';
+    const cb = (fb.querySelector('figcaption') || {}).textContent || 'Ara';
+    const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    const w = document.createElement('div');
+    w.className = 'lliscador';
+    w.style.setProperty('--pos', '50%');
+    if (dues.dataset.proporcio) w.style.aspectRatio = dues.dataset.proporcio;
+    w.innerHTML = '<img class="ll-ara" src="' + ib.getAttribute('src') + '" alt="' + esc(ib.alt) + '" loading="lazy">' +
+      '<div class="ll-abans"><img src="' + ia.getAttribute('src') + '" alt="' + esc(ia.alt) + '" loading="lazy"></div>' +
+      '<span class="ll-etiqueta ll-esq">' + esc(ca) + '</span><span class="ll-etiqueta ll-dre">' + esc(cb) + '</span>' +
+      '<span class="ll-linia" aria-hidden="true"><span class="ll-agafador">' + (IC.esquerra || '‹') + (IC.dreta || '›') + '</span></span>' +
+      '<input type="range" min="0" max="100" value="50" aria-label="Llisca per comparar: a l\'esquerra, ' + esc(ca) + '; a la dreta, ' + esc(cb) + '">';
+    const rang = w.querySelector('input');
+    rang.addEventListener('input', () => w.style.setProperty('--pos', rang.value + '%'));
+    const amplia = document.createElement('p');
+    amplia.className = 'll-amplia';
+    amplia.innerHTML = 'Amplia: <button type="button" class="boto petit clar">' + esc(ca) + '</button> <button type="button" class="boto petit clar">' + esc(cb) + '</button>';
+    const [ba, bb] = amplia.querySelectorAll('button');
+    ba.addEventListener('click', () => fa.querySelector('.boto-imatge').click());
+    bb.addEventListener('click', () => fb.querySelector('.boto-imatge').click());
+    dues.classList.add('dues-amagades');
+    dues.before(w);
+    w.after(amplia);
+  }
+
+  document.querySelectorAll('.parella .dues').forEach(lliscador);
   document.querySelectorAll('.activitat-classifica').forEach(classifica);
   document.querySelectorAll('.activitat-relaciona').forEach(relaciona);
   document.querySelectorAll('.activitat-ordena').forEach(ordena);

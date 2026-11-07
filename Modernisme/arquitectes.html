@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Els grans arquitectes modernistes catalans: recorregut per la vida i les obres d'Antoni Gaudí, Lluís Domènech i Montaner, Josep Puig i Cadafalch i Lluís Muncunill.">
+    <meta name="description" content="Els grans arquitectes modernistes catalans: recorregut per la vida i les obres d'Antoni Gaudí, Lluís Domènech i Montaner, Josep Puig i Cadafalch i Lluís Muncunill, com calculava Gaudí les estructures i altres arquitectes del Modernisme.">
     <title>Els grans arquitectes | El Modernisme</title>
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ca_ES">
     <meta property="og:site_name" content="El Modernisme">
     <meta property="og:title" content="Els grans arquitectes | El Modernisme">
-    <meta property="og:description" content="Els grans arquitectes modernistes catalans: recorregut per la vida i les obres d'Antoni Gaudí, Lluís Domènech i Montaner, Josep Puig i Cadafalch i Lluís Muncunill.">
+    <meta property="og:description" content="Els grans arquitectes modernistes catalans: recorregut per la vida i les obres d'Antoni Gaudí, Lluís Domènech i Montaner, Josep Puig i Cadafalch i Lluís Muncunill, com calculava Gaudí les estructures i altres arquitectes del Modernisme.">
     <meta property="og:url" content="https://felipsarroca.github.io/web/Modernisme/arquitectes.html">
     <meta property="og:image" content="https://felipsarroca.github.io/web/Modernisme/img/mitjana/casa-batllo.webp">
     <meta name="twitter:card" content="summary_large_image">
@@ -33,26 +33,103 @@
     <main id="contingut" class="contingut-principal">
         <section class="seccio reveal">
             <div class="lead text-normal">
-                <p>Cap arquitecte va néixer modernista. Tots van començar copiant els estils del passat i, obra a obra, van trobar una veu pròpia. Si seguim les seves obres per ordre, veiem com evolucionen les idees, les tècniques i els materials. Aquí tens el recorregut de quatre arquitectes clau, amb l'edat que tenien quan van començar cada obra.</p>
+                <p>Cap arquitecte va néixer modernista. Tots van començar copiant els estils del passat i, obra a obra, van trobar una veu pròpia. Si seguim les seves obres per ordre, veiem com evolucionen les idees, les tècniques i els materials. Aquí tens el recorregut de quatre arquitectes clau, amb l'edat que tenien quan van començar cada obra, i com calculava Gaudí les seves estructures.</p>
             </div>
             <div class="lead text-facil">
                 <p>Aquí veuràs les obres de quatre arquitectes, de la primera a l'última. Així veuràs com canvia la seva manera de construir.</p>
             </div>
-            <nav class="index-pagina" aria-label="Arquitectes">
+            <nav class="index-pagina" aria-label="Apartats de la pàgina">
                 <a href="#gaudi">Antoni Gaudí</a>
+                <a href="#enginyer">Gaudí, enginyer</a>
                 <a href="#domenech">Lluís Domènech i Montaner</a>
                 <a href="#puig">Josep Puig i Cadafalch</a>
                 <a href="#muncunill">Lluís Muncunill</a>
+                <a href="#altres">Altres arquitectes</a>
                 <a href="#posathi">Posa-t'hi</a>
             </nav>
+            <p class="nomes-pantalla" style="margin-top:.8rem"><a href="mapa.html#vida-gaudi">Segueix la vida de cada arquitecte sobre el mapa →</a></p>
         </section>
 
         <div id="arquitectes"></div>
 
+        <!-- Es col·loca just després de la secció de Gaudí -->
+        <section class="seccio reveal" id="enginyer" aria-labelledby="t-enginyer" data-galeria>
+            <h2 class="seccio-titol" id="t-enginyer">Gaudí, enginyer de la natura</h2>
+            <div class="text-normal">
+                <p class="seccio-intro">Gaudí no calculava les estructures només amb números: les provava amb cadenes, cordes i pesos. La natura, deia, és el millor llibre d'arquitectura: un arbre aguanta les branques sense contraforts. Per això va buscar formes en què totes les peces treballessin <strong>comprimides</strong>, que és com millor aguanten la pedra i el maó.</p>
+            </div>
+            <div class="text-facil">
+                <p class="seccio-intro">Gaudí provava els seus edificis amb cadenes i pesos. Una cadena penjada fa una corba. Si la gires, tens un arc molt fort.</p>
+            </div>
+
+            <div class="catenaria" id="catenaria">
+                <div class="catenaria-tela">
+                    <canvas id="catenaria-canvas" role="img" aria-label="Simulació d'una cadena penjada de dos punts"></canvas>
+                    <p class="catenaria-estat" id="catenaria-estat" aria-live="polite"></p>
+                </div>
+                <div class="catenaria-controls">
+                    <h3>Prova-ho: de la cadena a l'arc</h3>
+                    <ol class="catenaria-passos">
+                        <li>Canvia la llargada de la cadena i la distància entre els suports.</li>
+                        <li>Penja-hi sacs, com feia Gaudí amb saquets de perdigons. També pots fer clic sobre la cadena.</li>
+                        <li>Gira-la i mira l'arc que en surt.</li>
+                    </ol>
+                    <label for="cat-llarg">Llargada de la cadena <output id="cat-llarg-v"></output></label>
+                    <input type="range" id="cat-llarg" min="40" max="180" value="110">
+                    <label for="cat-sep">Distància entre els suports <output id="cat-sep-v"></output></label>
+                    <input type="range" id="cat-sep" min="30" max="90" value="70">
+                    <div class="catenaria-botons">
+                        <button type="button" class="boto" id="cat-sac">Penja un sac</button>
+                        <button type="button" class="boto clar" id="cat-treu">Treu els sacs</button>
+                        <button type="button" class="boto" id="cat-gira" aria-pressed="false">Gira-ho: fes l'arc</button>
+                        <label class="catenaria-check"><input type="checkbox" id="cat-mig"> Compara amb un arc de mig punt</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="caracteristiques-grid" style="margin-top:1.6rem">
+                <article class="caracteristica">
+                    <h3>L'arc catenari</h3>
+                    <p>Una <button type="button" class="terme" data-terme="catenaria">cadena penjada</button> de dos punts només treballa estirada (a tracció). Si girem la seva forma de cap per avall, obtenim un arc en què totes les peces s'empenyen entre elles (a compressió): no s'obre ni necessita contraforts. Gaudí el va fer servir als passadissos de les Teresianes i als uns 270 arcs de maó de les golfes de la Pedrera.</p>
+                    <div class="mini-galeria">
+                        <button type="button" class="boto-imatge" data-img="teresianes-arcs" data-titol="Passadís del Col·legi de les Teresianes" data-sub="Antoni Gaudí · 1888–1890" data-desc="Una escola amb poc pressupost: Gaudí hi fa servir el maó i una successió d'arcs molt esvelts."><img src="img/mini/teresianes-arcs.webp" alt="Passadís blanc amb arcs alts i esvelts" loading="lazy"></button>
+                        <button type="button" class="boto-imatge" data-img="pedrera-golfes" data-titol="Golfes de la Casa Milà" data-sub="Antoni Gaudí · 1906–1912" data-desc="Els arcs catenaris de maó sostenen el terrat. Les golfes eren l'espai dels safareigs i els estenedors."><img src="img/mini/pedrera-golfes.webp" alt="Golfes de la Pedrera amb arcs de maó en filera" loading="lazy"></button>
+                    </div>
+                </article>
+                <article class="caracteristica">
+                    <h3>La maqueta de cordes i pesos</h3>
+                    <p>Per projectar l'església de la Colònia Güell, Gaudí i els seus col·laboradors van penjar del sostre una maqueta de cordes amb saquets de perdigons. Cada saquet representava el pes d'una part de l'edifici. Després en feien fotografies i les giraven: la imatge invertida era l'església. Hi van treballar uns deu anys. De l'església només es va construir la cripta.</p>
+                    <div class="mini-galeria">
+                        <button type="button" class="boto-imatge" data-img="maqueta-polifunicular" data-titol="Maqueta polifunicular de l'església de la Colònia Güell" data-sub="Fotografia antiga, girada de cap per avall" data-desc="Les cordes i els saquets de pes, fotografiats i girats, mostren la forma de l'església que Gaudí volia construir."><img src="img/mini/maqueta-polifunicular.webp" alt="Fotografia antiga d'una maqueta de cordes que, girada, sembla una església" loading="lazy"></button>
+                        <button type="button" class="boto-imatge" data-obra="cripta-colonia-guell"><img src="img/mini/cripta-colonia-guell-interior.webp" alt="Porxo de la cripta de la Colònia Güell, amb columnes inclinades de maó i pedra" loading="lazy" style="object-position:center 72%"></button>
+                    </div>
+                </article>
+                <article class="caracteristica">
+                    <h3>Columnes inclinades i geometria</h3>
+                    <p>A la cripta de la Colònia Güell les columnes s'inclinen en la direcció de les forces i substitueixen els contraforts del gòtic. A la Sagrada Família, les columnes es ramifiquen com arbres, i les voltes i finestres fan servir formes geomètriques com l'hiperboloide i el paraboloide hiperbòlic, superfícies corbes que es poden construir amb línies rectes.</p>
+                    <div class="mini-galeria">
+                        <button type="button" class="boto-imatge" data-img="sagrada-familia-interior" data-titol="Columnes de la Sagrada Família" data-sub="Projecte d'Antoni Gaudí · nau acabada el 2010" data-desc="Les columnes es divideixen en branques per repartir el pes de les voltes, com els arbres d'un bosc."><img src="img/mini/sagrada-familia-interior.webp" alt="Columnes de la Sagrada Família que es ramifiquen com arbres" loading="lazy"></button>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="requadre mates" aria-labelledby="t-mates">
+                <h3 id="t-mates">Matemàtiques: la catenària no és una paràbola</h3>
+                <p>Galileu creia que una cadena penjada formava una paràbola. No és així: el 1691 Leibniz, Huygens i Johann Bernoulli en van trobar l'equació, <span class="formula">y = a · cosh(x / a)</span>, que es fa amb exponencials. El 1675 l'anglès Robert Hooke ja havia escrit que «com penja el fil flexible, així, girat, s'aixeca l'arc rígid». Amb el simulador pots veure que, si s'hi pengen pesos, la corba canvia: cada càrrega té el seu arc ideal.</p>
+            </aside>
+        </section>
+
+        <section class="seccio reveal" id="altres" aria-labelledby="t-altres" data-galeria>
+            <h2 class="seccio-titol" id="t-altres">Altres arquitectes del Modernisme</h2>
+            <p class="seccio-intro text-normal">Al voltant dels grans noms hi va haver molts altres arquitectes. Alguns eren col·laboradors i deixebles de Gaudí o de Domènech; d'altres van portar el Modernisme a Girona, a Reus o als pobles de la Terra Alta.</p>
+            <p class="seccio-intro text-facil">Hi va haver molts altres arquitectes modernistes. Aquí en tens vuit, amb una obra de cadascun.</p>
+            <div class="galeria" id="altres-arquitectes"></div>
+        </section>
+
         <section class="seccio reveal posa-thi" aria-labelledby="posathi" data-galeria>
             <header>
                 <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32l6-2 16-16-4-4L10 26z"/><path d="M24 12l4 4"/><circle cx="31" cy="9" r="3"/></svg>
-                <h2 id="posathi">Posa-t'hi: el camí de Gaudí</h2>
+                <h2 id="posathi">Posa-t'hi: el camí dels arquitectes</h2>
             </header>
 
             <div class="activitat">
@@ -62,9 +139,9 @@
                     <li data-ordre="1" data-any="1878">Els fanals de la plaça Reial</li>
                     <li data-ordre="2" data-any="1883">La Casa Vicens</li>
                     <li data-ordre="3" data-any="1886">El Palau Güell</li>
-                    <li data-ordre="4" data-any="1900">El Park Güell</li>
+                    <li data-ordre="4" data-any="1891">La Casa Botines de Lleó</li>
                     <li data-ordre="5" data-any="1904">La Casa Batlló</li>
-                    <li data-ordre="6" data-any="1906">La Casa Milà</li>
+                    <li data-ordre="6" data-any="1908">La cripta de la Colònia Güell</li>
                 </ol>
                 <div class="accions-activitat">
                     <button type="button" class="boto" data-accio="comprova">Comprova</button>
@@ -76,14 +153,14 @@
             <div class="activitat">
                 <h3>2. De quin arquitecte és?</h3>
                 <p class="consigna">Relaciona cada obra amb el seu arquitecte.</p>
-                <div class="relaciona activitat-relaciona" data-opcions="Antoni Gaudí|Lluís Domènech i Montaner|Josep Puig i Cadafalch|Lluís Muncunill">
+                <div class="relaciona activitat-relaciona" data-opcions="Antoni Gaudí|Lluís Domènech i Montaner|Josep Puig i Cadafalch|Lluís Muncunill|Josep Maria Jujol|Rafael Masó">
                     <div class="fila-relaciona" data-correcta="Lluís Domènech i Montaner"><span class="text-fila">Hospital de Sant Pau</span></div>
                     <div class="fila-relaciona" data-correcta="Josep Puig i Cadafalch"><span class="text-fila">Casa de les Punxes</span></div>
                     <div class="fila-relaciona" data-correcta="Antoni Gaudí"><span class="text-fila">El Capricho de Comillas</span></div>
                     <div class="fila-relaciona" data-correcta="Lluís Muncunill"><span class="text-fila">Masia Freixa</span></div>
-                    <div class="fila-relaciona" data-correcta="Lluís Domènech i Montaner"><span class="text-fila">Casa Navàs de Reus</span></div>
-                    <div class="fila-relaciona" data-correcta="Josep Puig i Cadafalch"><span class="text-fila">Casa Amatller</span></div>
-                    <div class="fila-relaciona" data-correcta="Antoni Gaudí"><span class="text-fila">Col·legi de les Teresianes</span></div>
+                    <div class="fila-relaciona" data-correcta="Lluís Domènech i Montaner"><span class="text-fila">Gran Hotel de Palma</span></div>
+                    <div class="fila-relaciona" data-correcta="Josep Maria Jujol"><span class="text-fila">Torre de la Creu, a Sant Joan Despí</span></div>
+                    <div class="fila-relaciona" data-correcta="Rafael Masó"><span class="text-fila">Farinera Teixidor, a Girona</span></div>
                     <div class="fila-relaciona" data-correcta="Lluís Muncunill"><span class="text-fila">Vapor Aymerich, Amat i Jover</span></div>
                 </div>
                 <div class="accions-activitat">
@@ -98,8 +175,17 @@
                 <p>Obre la Casa Vicens (1883) i la Casa Milà (1906). Escriu tres diferències entre totes dues: formes, materials i relació amb la natura. Què creus que va aprendre Gaudí en aquests vint-i-tres anys?</p>
             </div>
             <div class="activitat">
-                <h3>4. Fitxa d'un arquitecte</h3>
-                <p>Tria un dels quatre arquitectes i fes una línia del temps de la seva vida amb cinc obres, una imatge de cadascuna i una frase que expliqui què té de nou respecte a l'anterior. Pots fer-la en paper o amb Canva.</p>
+                <h3>4. Fes el teu arc catenari</h3>
+                <p>Necessites una cadeneta o un collaret, un full gran i cinta adhesiva. Enganxa els dos extrems de la cadena a la part de dalt del full, deixa-la penjar i ressegueix-ne la forma amb llapis. Gira el full: ja tens un arc catenari. Al costat, dibuixa amb un compàs un arc de mig punt de la mateixa amplada.</p>
+                <ul class="passos">
+                    <li>Quin dels dos arcs és més alt? Quin és més punxegut?</li>
+                    <li>Penja una goma d'esborrar a la cadena amb un clip. Com canvia la forma?</li>
+                    <li>Explica amb les teves paraules per què un arc catenari no necessita contraforts.</li>
+                </ul>
+            </div>
+            <div class="activitat">
+                <h3>5. Fitxa d'un arquitecte</h3>
+                <p>Tria un dels arquitectes d'aquesta pàgina i fes una línia del temps de la seva vida amb cinc obres, una imatge de cadascuna i una frase que expliqui què té de nou respecte a l'anterior. Pots fer-la en paper o amb Canva.</p>
             </div>
         </section>
     </main>
@@ -107,79 +193,14 @@
     <script src="dades/imatges.js"></script>
     <script src="dades/glossari.js"></script>
     <script src="dades/obres.js"></script>
+    <script src="dades/arquitectes.js"></script>
     <script src="js/comu.js"></script>
     <script>
     (function () {
       const M = window.Modernisme;
       const OBRES = Object.fromEntries(window.OBRES.map(o => [o.id, o]));
-      /* any: inici de l'obra; o: id a dades/obres.js; img: imatge si no hi ha obra */
-      const ARQUITECTES = [
-        {
-          id: 'gaudi', nom: 'Antoni Gaudí i Cornet', neix: 1852, vida: 'Reus, 1852 – Barcelona, 1926', retrat: 'gaudi-retrat',
-          intro: 'Fill d\'una família de caldarers de Reus, va créixer veient com el seu pare donava forma a les planxes de coure. Va estudiar arquitectura a Barcelona i es va titular el 1878. La seva obra passa per diverses etapes: dels estils orientals i gòtics a un llenguatge propi inspirat en la natura i en l\'estructura dels éssers vius. Els últims dotze anys de la seva vida els va dedicar només a la Sagrada Família.',
-          facil: 'Gaudí va néixer a Reus. Al principi copiava estils antics. Després va inventar una manera nova de construir, inspirada en les plantes i els animals.',
-          etapes: [
-            { titol: 'Formació i primers encàrrecs', anys: '1852–1882', obres: [
-              { any: 1878, titol: 'Fanals de la plaça Reial', img: 'fanal-placa-reial', lloc: 'Barcelona', text: 'Acabat de titular, rep el seu primer encàrrec públic de l\'Ajuntament de Barcelona: uns fanals de ferro colat i bronze.' }
-            ] },
-            { titol: 'L\'etapa oriental', anys: '1883–1888', text: 'Maó, rajoles de colors, torres i cúpules que recorden l\'art islàmic i l\'Orient.', obres: [
-              { any: 1883, titol: 'Casa Vicens', o: 'casa-vicens', text: 'La seva primera gran casa: maó i rajoles amb clavells de moro, la flor que creixia al solar.' },
-              { any: 1883, titol: 'El Capricho', o: 'capricho-comillas', text: 'Casa d\'estiueig a Comillas (Cantàbria), coberta de rajoles amb gira-sols i una torre esvelta.' },
-              { any: 1884, titol: 'Pavellons de la Finca Güell', o: 'pavellons-guell', text: 'Primer encàrrec d\'Eusebi Güell, el seu gran mecenes. La porta del drac és de ferro forjat.' }
-            ] },
-            { titol: 'Mirant el gòtic', anys: '1886–1900', text: 'Gaudí estudia el gòtic i el transforma: arcs parabòlics, ferro i espais plens de llum.', obres: [
-              { any: 1886, titol: 'Palau Güell', o: 'palau-guell', text: 'Residència de la família Güell al Raval. Els arcs parabòlics de l\'entrada i les xemeneies de trencadís anuncien el Gaudí madur.' },
-              { any: 1888, titol: 'Col·legi de les Teresianes', o: 'teresianes', text: 'Una escola amb poc pressupost: maó i llargs passadissos d\'arcs parabòlics.' },
-              { any: 1898, titol: 'Casa Calvet', img: 'cadira-calvet', text: 'Edifici d\'habitatges de l\'Eixample. Gaudí en dissenya fins i tot els mobles, com aquesta cadira.' },
-              { any: 1900, titol: 'Torre Bellesguard', o: 'bellesguard', text: 'On hi havia hagut el palau del rei Martí l\'Humà: un homenatge al gòtic català.' }
-            ] },
-            { titol: 'La plenitud: la natura com a model', anys: '1900–1914', text: 'Columnes inclinades com arbres, façanes que ondulen, colors i trencadís. Gaudí calcula les estructures amb maquetes de cordes i pesos.', obres: [
-              { any: 1900, titol: 'Park Güell', o: 'park-guell', text: 'Una ciutat jardí que va acabar sent parc públic. El banc ondulat de trencadís és obra de Jujol.' },
-              { any: 1904, titol: 'Casa Batlló', o: 'casa-batllo', text: 'Reforma total d\'una casa del passeig de Gràcia: una façana que sembla aigua i una teulada amb esquena de drac.' },
-              { any: 1906, titol: 'Casa Milà, «la Pedrera»', o: 'casa-mila', text: 'Façana de pedra ondulada que no aguanta l\'edifici: els pisos reposen sobre pilars i es poden distribuir lliurement.' }
-            ] },
-            { titol: 'Només la Sagrada Família', anys: '1914–1926', text: 'Gaudí deixa els altres encàrrecs i viu pràcticament a l\'obra. Mor el 10 de juny de 1926, tres dies després de ser atropellat per un tramvia.', obres: [
-              { any: 1914, titol: 'Sagrada Família', o: 'sagrada-familia', text: 'Gaudí en dirigia les obres des del 1883. En total hi va treballar 43 anys. Només va veure acabada una torre, la de sant Bernabé (1925). Avui encara s\'hi construeix.' }
-            ] }
-          ]
-        },
-        {
-          id: 'domenech', nom: 'Lluís Domènech i Montaner', neix: 1849, vida: 'Barcelona, 1849 – 1923', retrat: 'domenech-retrat', retall: '--retall:1.7;--focus:50% 22%',
-          intro: 'Arquitecte, professor, historiador i polític. Va dirigir l\'Escola d\'Arquitectura de Barcelona i el 1878 va publicar «A la recerca d\'una arquitectura nacional». És el gran mestre de l\'art total: als seus edificis hi treballaven ceramistes, vidriers, mosaïcistes i escultors.',
-          facil: 'Domènech feia edificis plens de colors, vidres i escultures. Hi treballaven molts artesans junts.',
-          etapes: [ { titol: 'Obres principals', obres: [
-            { any: 1888, titol: 'Castell dels Tres Dragons', o: 'tres-dragons', text: 'Cafè-restaurant de l\'Exposició Universal: maó vist i ferro deixats a la vista. Un dels primers edificis modernistes.' },
-            { any: 1898, titol: 'Institut Pere Mata', o: 'institut-pere-mata', text: 'Hospital psiquiàtric de Reus en pavellons separats enmig de jardins.' },
-            { any: 1901, titol: 'Casa Navàs', o: 'casa-navas', text: 'A Reus, amb un interior que conserva vitralls, mosaics i mobles d\'Homar.' },
-            { any: 1902, titol: 'Casa Lleó Morera', o: 'casa-lleo-morera', text: 'Al passeig de Gràcia. Hi treballen Arnau, Bru, Rigalt i Homar: un catàleg dels oficis.' },
-            { any: 1902, titol: 'Hospital de Sant Pau', o: 'hospital-sant-pau', text: 'Una ciutat-hospital de pavellons connectats per túnels. El va acabar el seu fill Pere el 1930.' },
-            { any: 1905, titol: 'Palau de la Música Catalana', o: 'palau-musica', text: 'La seva obra mestra (1905–1908): una caixa de vidre plena de llum, música i color.' }
-          ] } ]
-        },
-        {
-          id: 'puig', nom: 'Josep Puig i Cadafalch', neix: 1867, vida: 'Mataró, 1867 – Barcelona, 1956', retrat: 'puig-cadafalch-retrat', retall: 'object-position:center 0%;--retall:1.6;--focus:52% 4%',
-          intro: 'Arquitecte, historiador de l\'art romànic i polític: va presidir la Mancomunitat de Catalunya entre 1917 i 1923. Va barrejar el gòtic català amb elements de l\'arquitectura del nord d\'Europa: torres, punxes, frontons esglaonats i esgrafiats.',
-          facil: 'Puig i Cadafalch feia cases que semblen castells, amb torres i punxes.',
-          etapes: [ { titol: 'Obres principals', obres: [
-            { any: 1896, titol: 'Casa Martí (Els Quatre Gats)', o: 'quatre-gats', text: 'Edifici neogòtic on va obrir la famosa cerveseria dels artistes el 1897.' },
-            { any: 1898, titol: 'Casa Amatller', o: 'casa-amatller', text: 'Façana amb frontó esglaonat i un Sant Jordi d\'Eusebi Arnau. Al costat de la Casa Batlló.' },
-            { any: 1903, titol: 'Casa de les Punxes', o: 'casa-punxes', text: 'Un sol edifici per a tres germanes Terrades que sembla un castell, amb sis torres punxegudes.' },
-            { any: 1904, titol: 'Palau del Baró de Quadras', o: 'baro-quadras', text: 'Façana plena d\'escultura d\'inspiració gòtica. Avui és la seu de l\'Institut Ramon Llull.' }
-          ] } ]
-        },
-        {
-          id: 'muncunill', nom: 'Lluís Muncunill i Parellada', neix: 1868, vida: 'Sant Vicenç de Fals, 1868 – Terrassa, 1931', retrat: 'muncunill-retrat', retall: '--retall:1.5',
-          intro: 'Arquitecte municipal de Terrassa (1892–1903), va transformar una ciutat industrial. Va fer servir la volta catalana i el maó vist per cobrir grans naus de fàbrica amb ones de llum.',
-          facil: 'Muncunill va fer fàbriques i cases a Terrassa. Els sostres fan ones.',
-          etapes: [ { titol: 'Obres principals', obres: [
-            { any: 1906, titol: 'Societat General d\'Electricitat', o: 'societat-electricitat', text: 'Coberta ondulada de voltes catalanes atirantades.' },
-            { any: 1907, titol: 'Vapor Aymerich, Amat i Jover', o: 'vapor-aymerich', text: 'Fàbrica de llana amb una sola nau immensa coberta de voltes amb lluernes. Avui és el mNACTEC.' },
-            { any: 1907, titol: 'Masia Freixa', o: 'masia-freixa', text: 'Una antiga fàbrica convertida en residència, amb arcs parabòlics i voltes que ondulen.' }
-          ] } ]
-        }
-      ];
-
       const esc = s => String(s).replace(/"/g, '&quot;');
+
       function targeta(a, ob) {
         const o = ob.o ? OBRES[ob.o] : null;
         const img = o ? o.img : ob.img;
@@ -187,26 +208,41 @@
         const lloc = o ? o.lloc : (ob.lloc || '');
         const boto = o
           ? '<button type="button" class="boto-imatge" data-obra="' + o.id + '">'
-          : '<button type="button" class="boto-imatge" data-img="' + img + '" data-titol="' + esc(ob.titol) + '" data-sub="' + esc(a.nom.split(' i ')[0] + ' · ' + anys) + '" data-desc="' + esc(ob.text) + '">';
+          : '<button type="button" class="boto-imatge" data-img="' + img + '" data-titol="' + esc(ob.titol) + '" data-sub="' + esc(a.curt + ' · ' + anys) + '" data-desc="' + esc(ob.text) + '">';
         return '<li class="fita"><span class="fita-any">' + ob.any + '<small>' + (ob.any - a.neix) + ' anys</small></span>' +
           '<article class="fita-obra">' + boto + '<img src="' + M.rutaImatge(img) + '" alt="' + esc(ob.titol) + '" loading="lazy"></button>' +
           '<div><h4>' + ob.titol + '</h4><p class="meta">' + [anys, lloc].filter(Boolean).join(' · ') + '</p><p>' + ob.text + '</p></div></article></li>';
       }
-      document.getElementById('arquitectes').innerHTML = ARQUITECTES.map(a =>
+
+      const cont = document.getElementById('arquitectes');
+      cont.innerHTML = window.ARQUITECTES.map(a =>
         '<section class="seccio arquitecte" id="' + a.id + '" aria-labelledby="t-' + a.id + '" data-galeria>' +
           '<header class="arquitecte-cap">' +
             '<button type="button" class="boto-imatge retrat" data-img="' + a.retrat + '" data-titol="' + esc(a.nom) + '"><img src="' + M.rutaImatge(a.retrat) + '" alt="Retrat de ' + esc(a.nom) + '" loading="lazy" style="' + (a.retall || '') + '"></button>' +
             '<div><h2 class="seccio-titol" id="t-' + a.id + '">' + a.nom + '</h2><p class="autor-professio">' + a.vida + '</p>' +
             '<p class="text-normal">' + a.intro + '</p><p class="text-facil">' + a.facil + '</p>' +
-            '<p class="nomes-pantalla"><a href="autors.html#' + a.id + '">Fitxa a «Autors i autores»</a> · <a href="mapa.html">Situa les obres al mapa</a></p></div>' +
+            '<p class="nomes-pantalla"><a href="autors.html#' + a.id + '">Fitxa a «Autors i autores»</a> · <a href="mapa.html#vida-' + a.id + '">La seva vida sobre el mapa</a></p></div>' +
           '</header>' +
           a.etapes.map(e =>
             '<div class="etapa">' + (a.etapes.length > 1 ? '<h3>' + e.titol + ' <small>' + e.anys + '</small></h3>' + (e.text ? '<p class="etapa-text">' + e.text + '</p>' : '') : '') +
             '<ol class="cami">' + e.obres.map(ob => targeta(a, ob)).join('') + '</ol></div>').join('') +
         '</section>').join('');
-      M.preparaBotonsImatge(document.getElementById('arquitectes'));
+      M.preparaBotonsImatge(cont);
+
+      // L'apartat «Gaudí, enginyer» va just després de la vida de Gaudí
+      const gaudi = document.getElementById('gaudi');
+      if (gaudi) gaudi.after(document.getElementById('enginyer'));
+
+      const altres = document.getElementById('altres-arquitectes');
+      altres.innerHTML = window.ALTRES_ARQUITECTES.map(x => {
+        const o = OBRES[x.o];
+        return '<figure class="targeta-imatge"><button type="button" class="boto-imatge" data-obra="' + o.id + '"><img src="' + M.rutaImatge(o.img) + '" alt="' + esc(o.titol) + '" loading="lazy"></button>' +
+          '<figcaption><h3>' + x.nom + '</h3><p class="meta">' + x.vida + '</p><p class="desc"><strong>' + o.titol + '</strong> · ' + o.anys + ' · ' + o.lloc.replace(/ · .*$/, '') + '. ' + x.text + '</p></figcaption></figure>';
+      }).join('');
+      M.preparaBotonsImatge(altres);
     })();
     </script>
+    <script src="js/catenaria.js"></script>
     <script src="js/activitats.js"></script>
 </body>
 </html>

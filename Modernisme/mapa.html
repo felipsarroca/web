@@ -28,7 +28,7 @@
     <header class="header-seccio header-compacte">
         <p class="avantitol">Explora</p>
         <h1>Mapa del Modernisme</h1>
-        <p class="subtitol">De Barcelona i Terrassa a Reus, Sitges i més enllà</p>
+        <p class="subtitol">De Barcelona i Terrassa a Girona, Reus i més enllà</p>
     </header>
 
     <main id="contingut" class="contingut-principal">
@@ -42,6 +42,15 @@
                 <button type="button" class="xip" data-ciutat="fora" aria-pressed="false">Fora de Catalunya</button>
                 <span class="recompte"><a href="terrassa.html">Fes l'itinerari per Terrassa →</a></span>
             </div>
+            <div class="filtres" role="group" aria-label="Tria la vida d'un arquitecte">
+                <span class="etiqueta-filtre">Vida d'un arquitecte:</span>
+                <button type="button" class="xip" data-vida="gaudi" aria-pressed="false">Gaudí</button>
+                <button type="button" class="xip" data-vida="domenech" aria-pressed="false">Domènech i Montaner</button>
+                <button type="button" class="xip" data-vida="puig" aria-pressed="false">Puig i Cadafalch</button>
+                <button type="button" class="xip" data-vida="muncunill" aria-pressed="false">Muncunill</button>
+                <span class="recompte"><a href="arquitectes.html">Els grans arquitectes →</a></span>
+            </div>
+            <p class="avis-vida" id="avis-vida" hidden></p>
             <div class="mapa-disposicio">
                 <nav class="llista-llocs" aria-label="Llista d'edificis"><ol id="llista-llocs"></ol></nav>
                 <div id="mapa" role="region" aria-label="Mapa interactiu"></div>
@@ -53,6 +62,7 @@
     <script src="dades/imatges.js"></script>
     <script src="dades/glossari.js"></script>
     <script src="dades/obres.js"></script>
+    <script src="dades/arquitectes.js"></script>
     <script src="js/comu.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/mapa.js"></script>

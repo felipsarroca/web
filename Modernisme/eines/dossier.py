@@ -9,7 +9,7 @@ import os, random, re
 from bs4 import BeautifulSoup
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGINES = ['que-es', 'catalunya', 'mon', 'temps', 'arquitectura', 'arts', 'oficis', 'objectes',
+PAGINES = ['que-es', 'catalunya', 'ciutats', 'mon', 'temps', 'arquitectura', 'arts', 'oficis', 'objectes',
            'cartellisme', 'autors', 'arquitectes', 'terrassa', 'llegat']
 AUTOAVALUACIO = [
     'Sé explicar què és el Modernisme, quan i on es va desenvolupar.',

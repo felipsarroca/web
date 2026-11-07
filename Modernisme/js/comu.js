@@ -43,13 +43,14 @@
     { text: 'Context', fills: [
       { text: 'Què és el Modernisme?', sub: 'Idees clau i característiques', href: 'que-es.html' },
       { text: 'Catalunya', sub: 'Per què aquí i per què llavors', href: 'catalunya.html' },
+      { text: 'Dues ciutats', sub: 'Burgesos i obrers, cases i fàbriques', href: 'ciutats.html' },
       { text: 'Al món', sub: 'Art Nouveau, Secessió, Jugendstil…', href: 'mon.html' },
       { text: 'Línia del temps', sub: 'De 1859 a 1926', href: 'temps.html' },
       { text: 'El llegat avui', sub: 'Abans i ara, patrimoni i debats', href: 'llegat.html' }
     ] },
     { text: 'Arts', fills: [
       { text: 'Arquitectura', sub: 'Formes, materials i tècniques', href: 'arquitectura.html' },
-      { text: 'Pintura i arts decoratives', sub: 'L\'art total', href: 'arts.html' },
+      { text: 'Pintura, escultura i música', sub: 'L\'art total', href: 'arts.html' },
       { text: 'Cartellisme', sub: 'L\'art surt al carrer', href: 'cartellisme.html' },
       { text: 'Oficis i materials', sub: 'Les mans de l\'art total', href: 'oficis.html' },
       { text: 'Objectes quotidians', sub: 'L\'art a casa i al carrer', href: 'objectes.html' }
@@ -580,15 +581,16 @@
     'mon.html': ['Art Nouveau', 'Secessió de Viena', 'Jugendstil', 'Japonisme'],
     'temps.html': ['Modernisme català', 'Setmana Tràgica', 'Mancomunitat de Catalunya'],
     'llegat.html': ['Obres d\'Antoni Gaudí', 'Palau de la Música Catalana', 'Hospital de la Santa Creu i Sant Pau', MUSEUS.mnactec],
-    'arquitectura.html': ['Arquitectura modernista catalana', 'Volta catalana', 'Trencadís', 'Arc parabòlic'],
-    'arts.html': ['Ramon Casas', 'Santiago Rusiñol', 'Lluïsa Vidal', 'Els Quatre Gats', MUSEUS.mnac],
+    'arquitectura.html': ['Arquitectura modernista catalana', 'Casa Batlló', 'Volta catalana', 'Trencadís', 'Arc parabòlic'],
+    'arts.html': ['Ramon Casas', 'Santiago Rusiñol', 'Lluïsa Vidal', 'Josep Llimona i Bruguera', 'Miquel Blay i Fàbregas', 'Enric Granados', 'Isaac Albéniz', 'Orfeó Català', MUSEUS.mnac],
+    'ciutats.html': ['Colònia Güell', 'Colònia industrial', 'Vaga de La Canadenca', 'Setmana Tràgica', 'La nena obrera', 'Casa Alegre de Sagrera', MUSEUS.mnactec],
     'cartellisme.html': ['Cartellisme', 'Litografia', 'Anís del Mono', 'Alexandre de Riquer'],
     'oficis.html': ['Pujol i Bausis', 'Antoni Rigalt i Blanch', 'Lluís Bru i Salelles', 'Gaspar Homar', 'Lluís Masriera', 'Eusebi Arnau', 'Volta catalana', 'Esgrafiat', 'Rajola hidràulica', MUSEUS.mnac, MUSEUS.mnactec],
     'objectes.html': ['Gaspar Homar', 'Lluís Masriera', 'Panot', 'René Lalique', MUSEUS.disseny, MUSEUS.mnac],
-    'arquitectes.html': ['Antoni Gaudí', 'Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Lluís Muncunill i Parellada', 'Obres d\'Antoni Gaudí'],
+    'arquitectes.html': ['Antoni Gaudí', 'Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Lluís Muncunill i Parellada', 'Obres d\'Antoni Gaudí', 'Cripta de la Colònia Güell', 'Catenària', 'Josep Maria Jujol i Gibert', 'Francesc Berenguer i Mestres', 'Rafael Masó i Valentí', 'Cèsar Martinell i Brunet'],
     'autors.html': ['Antoni Gaudí', 'Lluís Domènech i Montaner', 'Josep Puig i Cadafalch', 'Lluís Muncunill', 'Caterina Albert'],
     'obres.html': ['Modernisme català', MUSEUS.mnac],
-    'mapa.html': ['Ruta del Modernisme', 'Casa Navàs', 'Institut Pere Mata', 'Cau Ferrat', 'El Capricho'],
+    'mapa.html': ['Ruta del Modernisme', 'Casa Navàs', 'Casa Rull', 'Farinera Teixidor', 'Celler Cooperatiu del Pinell de Brai', 'Casa de los Botines', 'Palau Episcopal d\'Astorga'],
     'terrassa.html': ['Modernisme a Terrassa', 'Masia Freixa', 'Vapor Aymerich, Amat i Jover', 'Mercat de la Independència', MUSEUS.mnactec],
     'glossari.html': ['Modernisme català']
   };
