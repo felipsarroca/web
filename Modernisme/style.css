@@ -42,6 +42,9 @@ html {
   scroll-padding-top: calc(var(--nav-h) + 12px);
 }
 
+/* L'atribut hidden ha d'amagar sempre, encara que la classe defineixi un display */
+[hidden] { display: none !important; }
+
 body {
   font-family: var(--font-cos);
   font-size: 1.06rem;

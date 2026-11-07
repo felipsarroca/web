@@ -7,7 +7,7 @@
      (img/mini), de manera que la web es pot fer servir a l'aula o
      a la sortida per Terrassa sense internet.
    ========================================================= */
-const VERSIO = 'modernisme-v2';
+const VERSIO = 'modernisme-v3';
 const NUCLI = [
   './', 'index.html', 'que-es.html', 'catalunya.html', 'ciutats.html', 'mon.html', 'temps.html', 'llegat.html',
   'arquitectura.html', 'arts.html', 'cartellisme.html', 'oficis.html', 'objectes.html',
