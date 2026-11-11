@@ -30,8 +30,11 @@ A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc 
 
 ![Mapa de l’Índic](captures/03-mapa-index.png)
 
+![Cada capítol, per etapes](captures/10-comenca.png)
+
 ## Pensada per a l’aula
 
+- **Per etapes, sense desplaçaments eterns**: cada capítol es divideix en pestanyes (Comença · activitats · Posa-t’hi) amb una barra fixa, i les preguntes es responen d’una en una com a targetes.
 - **En 30 segons**: cada capítol comença amb un resum i té una versió de **lectura fàcil** per a alumnat nouvingut o amb NESE.
 - **Glossari emergent**: les paraules subratllades mostren la definició en tocar-les.
 - **Fonts primàries** traduïdes: Marco Polo, Pigafetta, el diari de Colom i el del viatge de Gama.

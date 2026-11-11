@@ -199,10 +199,26 @@
       marc.textContent = `Encerts: ${encerts} de ${preguntes.length}` + (fetes === preguntes.length ? (encerts === preguntes.length ? ' · Perfecte! 🌟' : encerts >= preguntes.length * .6 ? ' · Molt bé!' : ' · Torna-hi quan vulguis: rellegeix el capítol i prova-ho de nou.') : '');
       if (fetes === preguntes.length) { Prog.desaQuiz(id, encerts, preguntes.length); Prog.marcaVist(capActual); }
     };
+    const boxes = [], punts = el('div', { class: 'q-punts', role: 'group', 'aria-label': 'Preguntes' });
+    let cur = 0;
+    const mostra = (k) => {
+      cur = k;
+      boxes.forEach((bx, j) => { bx.hidden = j !== k; });
+      punts.querySelectorAll('button').forEach((p, j) => p.setAttribute('aria-current', j === k ? 'step' : 'false'));
+    };
     const resol = (q, box, ok) => {
       fetes++; if (ok) encerts++;
+      const k = boxes.indexOf(box);
       const r = box.querySelector('.retro'); r.classList.add('mostra', ok ? 'be' : 'mal');
       r.innerHTML = (ok ? '<b>Ben fet.</b> ' : '<b>No ben bé.</b> ') + (q.r || '');
+      punts.querySelectorAll('button')[k].classList.add(ok ? 'be' : 'mal');
+      const pendent = boxes.findIndex((bx, j) => j > k && !bx.dataset.fet) >= 0 ? boxes.findIndex((bx, j) => j > k && !bx.dataset.fet) : boxes.findIndex(bx => !bx.dataset.fet && bx !== box);
+      box.dataset.fet = '1';
+      if (pendent >= 0) {
+        const nx = el('button', { type: 'button', class: 'bt q-seg' }, 'Següent pregunta →');
+        nx.onclick = () => { mostra(pendent); const f = boxes[pendent].querySelector('button, input, select'); if (f) f.focus({ preventScroll: true }); };
+        r.appendChild(nx);
+      }
       actualitza();
     };
     preguntes.forEach((q, i) => {
@@ -273,14 +289,89 @@
         inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') ok.click(); });
       }
       box.appendChild(el('div', { class: 'retro', 'aria-live': 'polite' }));
-      cont.appendChild(box);
+      boxes.push(box);
     });
+    preguntes.forEach((q, i) => { const p = el('button', { type: 'button', 'aria-label': 'Pregunta ' + (i + 1) }, String(i + 1)); p.onclick = () => mostra(i); punts.appendChild(p); });
+    cont.appendChild(punts); boxes.forEach(bx => cont.appendChild(bx)); mostra(0);
     cont.appendChild(marc); actualitza();
     const ant = (Prog.tot().quiz || {})[id];
     if (ant) cont.insertAdjacentHTML('afterbegin', `<p class="instr">La millor puntuació que hi has fet: ${ant.enc} de ${ant.tot}.</p>`);
   }
 
+  /* ---------- pestanyes: cada capítol es llegeix per etapes, sense un desplaçament infinit ---------- */
+  function pestanyes() {
+    const main = document.querySelector('main');
+    const secs = [...main.querySelectorAll(':scope > [data-tab]')];
+    if (secs.length < 2) return;
+    const noms = [], grups = {}, icones = {};
+    secs.forEach(s => { const n = s.dataset.tab; if (!grups[n]) { grups[n] = []; noms.push(n); icones[n] = s.dataset.ic || ''; } grups[n].push(s); });
+    const bar = el('div', { class: 'tabs' });
+    const llista = el('div', { class: 'tabs-in wrap', role: 'tablist', 'aria-label': 'Parts d’aquesta pàgina' });
+    bar.appendChild(llista);
+    const zona = el('div', { class: 'tabs-zona' });
+    secs[0].before(bar); bar.after(zona);
+    const bts = [], pans = [];
+    noms.forEach((n, i) => {
+      const id = 'p' + (i + 1);
+      const b = el('button', { type: 'button', role: 'tab', id: 'tab-' + id, 'aria-controls': id, 'aria-selected': 'false', tabindex: '-1' },
+        `<span class="tab-ic" aria-hidden="true">${icones[n]}</span><span class="tab-n">${n}</span>`);
+      llista.appendChild(b); bts.push(b);
+      const pan = el('div', { class: 'tab-panel wrap' + (grups[n].some(s => s.hasAttribute('data-duo')) ? ' duo' : ''), role: 'tabpanel', id, 'aria-labelledby': 'tab-' + id, hidden: '' });
+      grups[n].forEach(s => { s.classList.remove('wrap'); pan.appendChild(s); });
+      const peu = el('div', { class: 'tab-peu' });
+      if (i > 0) { const a = el('button', { type: 'button', class: 'bt sec2' }, `← ${noms[i - 1]}`); a.onclick = () => activa(i - 1, true); peu.appendChild(a); } else peu.appendChild(el('span'));
+      peu.appendChild(el('span', { class: 'tab-compte' }, `${i + 1} de ${noms.length}`));
+      if (i < noms.length - 1) { const s = el('button', { type: 'button', class: 'bt' }, `${noms[i + 1]} →`); s.onclick = () => activa(i + 1, true); peu.appendChild(s); } else peu.appendChild(el('span'));
+      pan.appendChild(peu);
+      zona.appendChild(pan); pans.push(pan);
+    });
+    const clau = 'especies:tabs:' + location.pathname.split('/').pop();
+    let vistes = {}; try { vistes = JSON.parse(sessionStorage.getItem(clau) || '{}'); } catch (e) { }
+    let actual = -1;
+    function activa(i, desplaça) {
+      if (i === actual) return;
+      actual = i;
+      bts.forEach((b, k) => { const on = k === i; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; b.classList.toggle('vista', !!vistes[k] && !on); });
+      pans.forEach((p, k) => { p.hidden = k !== i; });
+      vistes[i] = 1; try { sessionStorage.setItem(clau, JSON.stringify(vistes)); } catch (e) { }
+      pans[i].querySelectorAll('.reveal').forEach(r => r.classList.add('vist'));
+      pans[i].querySelectorAll('[data-w]').forEach(b => { b.style.width = '0'; requestAnimationFrame(() => requestAnimationFrame(() => { b.style.width = b.dataset.w; })); });
+      history.replaceState(null, '', '#' + pans[i].id);
+      bts[i].scrollIntoView({ block: 'nearest', inline: 'center' });
+      if (desplaça) {
+        const z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ui-zoom')) || 1;
+        const top = bar.getBoundingClientRect().top / z;
+        const nav = document.querySelector('.nav'); const h = nav ? nav.offsetHeight : 0;
+        if (top < h + 2 || top > window.innerHeight / z * .6) window.scrollTo({ top: Math.max(0, window.scrollY / z + top - h) * z, behavior: 'smooth' });
+      }
+      if (i === pans.length - 1 && capActual) Prog.marcaVist(capActual);
+    }
+    bts.forEach((b, i) => {
+      b.addEventListener('click', () => activa(i, true));
+      b.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (e.key === 'Home' || e.key === 'End' || d) { e.preventDefault(); const k = e.key === 'Home' ? 0 : e.key === 'End' ? bts.length - 1 : (i + d + bts.length) % bts.length; activa(k, false); bts[k].focus(); }
+      });
+    });
+    // enllaços interns (#glossari, #descarregues…) i adreces amb #p3
+    const desDe = (hash) => {
+      if (!hash || hash.length < 2) return -1;
+      let t = null; try { t = document.querySelector(hash); } catch (e) { }
+      if (!t) return -1;
+      return pans.findIndex(p => p === t || p.contains(t));
+    };
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]'); if (!a) return;
+      const k = desDe(a.getAttribute('href')); if (k < 0) return;
+      e.preventDefault(); activa(k, true);
+    });
+    const ini = desDe(location.hash);
+    activa(ini >= 0 ? ini : 0, false);
+    document.body.classList.add('amb-tabs');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
+    pestanyes();
     construeixNav(); construeixFil(); construeixSeguent(); construeixPeu();
     lightbox(); glossari(); revela(); vigilaLectura();
     document.querySelectorAll('[data-quiz]').forEach(quiz);
