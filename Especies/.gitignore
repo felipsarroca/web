@@ -1,0 +1,6 @@
+# Generacions intermèdies de les infografies (no es publiquen)
+infografies/gen/
+infografies/comp/
+infografies/obres/_*
+eines/_*
+__pycache__/

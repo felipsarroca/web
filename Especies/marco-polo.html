@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Marco Polo i el que Europa sabia · El comerç de les espècies</title>
+<meta name="description" content="Què en sabien els europeus de l'origen de les espècies? El viatge de tornada de Marco Polo i les llegendes medievals.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+<script src="js/mapes-dades.js" defer></script>
+<script src="js/mapa.js" defer></script>
+</head>
+<body data-cap="3">
+<main id="contingut">
+<nav id="fil"></nav>
+
+<header class="cap-hero wrap">
+  <div class="grid">
+    <div>
+      <p class="cap-num">Capítol 3</p>
+      <h1>Marco Polo i el que Europa sabia</h1>
+      <p class="pregunta">Què en sabien, els europeus, de l’origen de les espècies?</p>
+      <div class="meta"><span class="xip">⏱ 12 minuts</span><span class="xip">🧭 Viatge de tornada pas a pas</span><span class="xip">🐉 Veritat o llegenda?</span></div>
+    </div>
+    <img class="il" src="img/vinyetes/marco-polo.webp" alt="Marco Polo pintat a l'aquarel·la">
+  </div>
+</header>
+
+<section class="sec wrap reveal">
+  <div class="resum">
+    <h2>⚡ En 30 segons</h2>
+    <ul class="normal">
+      <li>Durant segles, els europeus compraven espècies <strong>sense saber d’on venien</strong>. Només en veien l’últim tram, als ports d’Alexandria o de Beirut.</li>
+      <li>Per omplir aquest buit circulaven <strong>llegendes</strong>: boscos de pebre guardats per serps o espècies que baixaven pel Nil des del paradís.</li>
+      <li>El mercader venecià <strong>Marco Polo</strong> (1254-1324) va viure disset anys a la Xina i va tornar per mar (1292-1295) passant pels ports de les espècies.</li>
+      <li>El seu llibre va mostrar que el pebre era una <strong>planta conreada</strong>, que l’Índic estava ple de vaixells i que Àsia en consumia molt més que Europa.</li>
+    </ul>
+    <div class="facil">
+      <p>Els europeus <strong>no sabien</strong> d’on venien les espècies. Es creien històries inventades.</p>
+      <p><strong>Marco Polo</strong> era un mercader de Venècia. Va viatjar fins a la Xina i va tornar per mar.</p>
+      <p>Va escriure un llibre. Explicava <strong>on creixien</strong> les espècies i com es comerciava.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <figure class="infografia">
+    <button type="button" data-gran="img/infografies/marco-polo.webp" data-png="infografies/El comerç de les espècies - (3).png" aria-label="Amplia la infografia">
+      <img src="img/infografies/marco-polo.webp" alt="Infografia: Marco Polo i el que Europa sabia de les espècies." loading="lazy" width="1920" height="1080">
+      <span class="lupa">🔍 Amplia</span>
+    </button>
+    <figcaption><span>Infografia del capítol 3. Toca-la per veure-la gran.</span></figcaption>
+  </figure>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">1</span><h2>Qui era Marco Polo?</h2></div>
+  <div class="temps mt1">
+    <ol>
+      <li><span class="any">1271</span> — Amb disset anys, surt de Venècia amb el seu pare i el seu oncle, també mercaders, cap a la cort del gran khan mongol Kublai.</li>
+      <li><span class="any">1275-1291</span> — Viu a la Xina i viatja per encàrrec del khan. Coneix ciutats, ports i mercats que cap europeu havia descrit.</li>
+      <li><span class="any">1292-1295</span> — Torna <strong>per mar</strong>: Xina, Sumatra, Sri Lanka, l’Índia i Ormuz. És el camí de les espècies.</li>
+      <li><span class="any">1298</span> — Presoner a Gènova, dicta els seus records a Rustichello de Pisa. Neix <i>El llibre de les meravelles</i> (o <i>Il Milione</i>).</li>
+      <li><span class="any">Segle XV</span> — El llibre es copia i s’imprimeix. Cristòfor Colom en tenia un exemplar ple d’anotacions de la seva mà.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">2</span><h2>El viatge de tornada pel mar de les espècies</h2></div>
+  <p class="intro">Avança parada a parada i llegeix què hi va veure Marco Polo.</p>
+  <div class="passos mt1">
+    <div class="mapa" id="mapa-polo"></div>
+    <div>
+      <div class="pas-card" id="pas-polo" aria-live="polite"></div>
+      <div class="pas-nav">
+        <button class="bt sec2" type="button" id="polo-ant">← Anterior</button>
+        <button class="bt" type="button" id="polo-seg">Següent →</button>
+        <span class="compte" id="polo-n"></span>
+      </div>
+    </div>
+  </div>
+  <p class="mapa-peu">Recorregut aproximat. Contorns: Natural Earth.</p>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">3</span><h2>La font parla</h2></div>
+  <p class="intro">Fragments del llibre de Marco Polo, traduïts al català a partir de l’edició anglesa de Yule i Cordier.</p>
+  <div class="graella g2 mt1">
+    <blockquote class="cita"><p>El pebre creix en gran abundància per tot aquest país. Els pebrers no són salvatges, sinó conreats: es planten i es reguen regularment, i el pebre es cull els mesos de maig, juny i juliol.</p><footer>Marco Polo, sobre el regne de Coilum (Malabar), llibre III</footer></blockquote>
+    <blockquote class="cita"><p>Els seus vaixells són molt dolents i perillosos, perquè no s’uneixen amb claus de ferro sinó que es cusen amb cordes fetes de la fibra de la closca del coco.</p><footer>Marco Polo, sobre les naus d’Ormuz, llibre I</footer></blockquote>
+  </div>
+  <div class="avis mt2"><span class="ic">🤔</span><div><p class="etiq">Pensa-hi</p><p>Per què és important que Polo digui que els pebrers <strong>es conreen</strong>? Pensa en les llegendes de la secció següent: què desmunta aquesta frase?</p></div></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="panell" id="llegendes">
+    <div class="panell-cap">
+      <h3>🐉 Veritat o llegenda?</h3>
+      <p class="instr">Classifica cada afirmació. Algunes les van escriure savis medievals; d’altres, Marco Polo.</p>
+    </div>
+    <div id="ll-llista"></div>
+    <p class="marcador mt1" id="ll-marc" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="avis sabies"><span class="ic">🛳️</span><div><p class="etiq">La gran sorpresa</p><p>Polo va explicar que al port xinès de Zayton (avui Quanzhou) hi arribava <strong>cent vegades més pebre</strong> que el que anava a Alexandria cap a Europa. Europa no era el centre del comerç de les espècies: n’era només un client petit i llunyà.</p></div></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="posat">
+    <h2>✍️ Posa-t’hi</h2>
+    <div data-quiz="c3"></div>
+  </div>
+</section>
+
+<section class="sec wrap"><div id="seguent"></div></section>
+<p class="peu-cap wrap">Fonts del capítol: Marco Polo, <i>Viatges</i>, edició Yule-Cordier (vol. 1 i 2); World History Encyclopedia. <a href="fonts.html">Totes les fonts</a></p>
+</main>
+
+<script>
+window.QUIZ = { c3: [
+  { t: 'tria', e: 'Per què els europeus medievals sabien tan poc de l’origen de les espècies?', o: ['Perquè només veien l’últim tram del camí, als ports del Mediterrani', 'Perquè les espècies eren prohibides', 'Perquè no sabien llegir'], c: 0, r: 'Compraven a Alexandria o Beirut a mercaders que ja les havien comprat a uns altres.' },
+  { t: 'ordena', e: 'Ordena el viatge de tornada de Marco Polo.', o: ['Zayton (Xina)', 'Sumatra', 'Sri Lanka', 'Costa de Malabar', 'Ormuz'], r: 'Va tornar per mar, de la Xina fins al golf Pèrsic.' },
+  { t: 'vf', e: 'Marco Polo va explicar que el pebre era una planta salvatge guardada per serps.', c: false, r: 'Al contrari: va dir que els pebrers es planten i es reguen. Les serps eren una llegenda.' },
+  { t: 'tria', e: 'Com eren els vaixells que Polo va veure a Ormuz?', o: ['De ferro', 'De fusta cosida amb fibra de coco', 'De canyes lligades'], c: 1, r: 'Eren els dhows de l’Índic, cosits sense claus. Els veuràs al capítol 4.' },
+  { t: 'tria', e: 'Què va descobrir Polo sobre el port xinès de Zayton?', o: ['Que hi arribava molt més pebre que a Alexandria', 'Que no hi arribaven espècies', 'Que només hi venien sal'], c: 0, r: 'Hi arribava cent vegades més pebre: Àsia era el gran mercat, no Europa.' }
+] };
+
+const LLEG = [
+  { t: 'El pebre creix en boscos guardats per serps. És negre perquè la gent cala foc al bosc per fer-les fugir.', v: false, r: 'Llegenda que recollien enciclopèdies medievals com la d’Isidor de Sevilla.' },
+  { t: 'Els pebrers es planten i es reguen, i el pebre es cull a l’estiu.', v: true, r: 'Ho explica Marco Polo quan descriu Malabar.' },
+  { t: 'La canyella la porten ocells gegants que en fan els nius dalt dels penya-segats.', v: false, r: 'Llegenda antiga que ja explicava l’historiador grec Heròdot.' },
+  { t: 'Els vaixells de l’Índic es cusen amb corda de coco en lloc de claus.', v: true, r: 'Ho va veure Marco Polo a Ormuz.' },
+  { t: 'El gingebre i la canyella baixen pel riu Nil des del paradís terrenal, i els pescadors els recullen amb xarxes.', v: false, r: 'Llegenda que va escriure el cronista francès Joinville al segle XIII.' },
+  { t: 'Al port xinès de Zayton hi arriba moltíssim més pebre que a Alexandria.', v: true, r: 'Marco Polo: per cada nau que va a Alexandria, n’arriben cent a Zayton.' }
+];
+
+const POLO = [
+  { lon: 118.6, lat: 24.9, nom: 'Zayton', any: '1292', t: 'El gran port de la Xina, avui Quanzhou. Polo hi va veure naus enormes de quatre pals i munts de pebre. Segons ell, n’hi arribava cent vegades més que a Alexandria.' },
+  { lon: 108.3, lat: 13.8, nom: 'Champa', any: '1292', t: 'Regne de l’actual Vietnam, ric en fusta d’àloe i ivori. Era una parada habitual de les naus que anaven cap al sud.' },
+  { lon: 95.3, lat: 5.5, nom: 'Sumatra', any: '1292-1293', t: 'Polo hi va esperar cinc mesos que canviés el <button class="gl" data-gl="monsó">monsó</button>. Va descriure l’illa veïna de Java, molt rica en pebre, nou moscada i clau, que coneixia per altres mercaders.' },
+  { lon: 80.6, lat: 7.6, nom: 'Sri Lanka', any: '1293', t: 'L’illa de Seilan, famosa pels rubins i les pedres precioses. És també la terra de la canyella.' },
+  { lon: 76.6, lat: 8.9, nom: 'Coilum (Malabar)', any: '1293', t: 'A la costa de Malabar el pebre «creix en gran abundància». Polo explica que es conrea, i també hi descriu gingebre i indi.' },
+  { lon: 56.3, lat: 27.1, nom: 'Ormuz', any: '1293-1294', t: 'Port del golf Pèrsic on arribaven espècies, perles i teixits de l’Índia. Polo hi va veure les naus cosides amb fibra de coco. D’aquí, per terra cap al Mediterrani.' }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  // veritat o llegenda
+  const ll = document.getElementById('ll-llista'); let fet = 0, be = 0;
+  barreja(LLEG).forEach(x => {
+    const p = el('div', { class: 'preg' }, `<p class="enunciat">${x.t}</p>`);
+    const o = el('div', { class: 'vf' });
+    [['Ho va escriure Polo', true], ['És una llegenda', false]].forEach(([t, v]) => {
+      const b = el('button', { type: 'button' }, t);
+      b.onclick = () => { o.querySelectorAll('button').forEach(z => z.disabled = true); const ok = v === x.v; b.classList.add(ok ? 'be' : 'mal'); fet++; if (ok) be++; r.classList.add('mostra', ok ? 'be' : 'mal'); r.textContent = x.r; document.getElementById('ll-marc').textContent = `Encerts: ${be} de ${fet}` + (fet === LLEG.length ? ' · Molt bé!' : ''); };
+      o.appendChild(b);
+    });
+    const r = el('div', { class: 'retro' }); p.append(o, r); ll.appendChild(p);
+  });
+
+  // mapa del viatge
+  const m = Mapa(document.getElementById('mapa-polo'), 'indic', { titol: 'Viatge de tornada de Marco Polo, 1292-1295' });
+  m.text(68, -2, 'Oceà Índic'); m.text(88, 15, 'Golf de Bengala').style.fontSize = '12px';
+  const pts = [[118.6, 24.9], [116, 20], [108.3, 13.8], [104.5, 2.5], [95.3, 5.5], [88, 6], [80.6, 6.9], [77.5, 7.6], [76.6, 8.9], [72, 16], [62, 23.5], [56.3, 27.1]];
+  m.ruta(pts, { stroke: 'rgba(143,84,40,.25)', 'stroke-dasharray': '6 6' });
+  const r = m.ruta(pts, { stroke: '#b4502c' });
+  const fr = [0, 2, 4, 6, 8, 11].map(k => m.fr(pts, k));
+  let i = 0; const ports = POLO.map((p, k) => m.port(p.lon, p.lat, p.nom, { dx: k === 4 ? -12 : 10, anchor: k === 4 ? 'end' : 'start', dy: k === 3 ? 14 : 4, onSel: () => { i = k; pinta(); } }));
+  function pinta() {
+    const p = POLO[i];
+    m.traça(r, fr[i]); r.style.transition = 'stroke-dashoffset .9s';
+    ports.forEach((g, k) => g.classList.toggle('actiu', k === i));
+    document.getElementById('pas-polo').innerHTML = `<p class="quan">${p.any}</p><h3>${p.nom}</h3><p class="mb0">${p.t}</p>`;
+    document.getElementById('polo-n').textContent = `${i + 1} / ${POLO.length}`;
+    document.getElementById('polo-ant').disabled = i === 0; document.getElementById('polo-seg').disabled = i === POLO.length - 1;
+  }
+  document.getElementById('polo-ant').onclick = () => { if (i > 0) { i--; pinta(); } };
+  document.getElementById('polo-seg').onclick = () => { if (i < POLO.length - 1) { i++; pinta(); } };
+  pinta();
+});
+</script>
+</body>
+</html>

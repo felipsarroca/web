@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossari i fonts · El comerç de les espècies</title>
+<meta name="description" content="Glossari, fonts consultades, descàrregues de les infografies i orientacions per al professorat.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+<style>
+  .glossari { display: grid; gap: 10px 28px; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); margin: 0; }
+  .glossari div { background: var(--card); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 14px -10px rgba(0,0,0,.4); }
+  .glossari dt { font: 800 1.1rem var(--serif); color: var(--terra); }
+  .glossari dd { margin: 2px 0 0; }
+  .fonts-llista { columns: 2 380px; column-gap: 32px; padding-left: 1.2em; }
+  .fonts-llista li { margin: 0 0 8px; break-inside: avoid; }
+  .desc { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
+  .desc a { display: block; text-decoration: none; color: var(--ink); background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); font-weight: 700; font-size: .92rem; }
+  .desc a span { display: block; padding: 8px 12px; }
+  #cerca { width: min(420px, 100%); }
+</style>
+</head>
+<body data-pag="fonts">
+<main id="contingut">
+
+<header class="cap-hero wrap">
+  <p class="cap-num">Recursos</p>
+  <h1>Glossari i fonts</h1>
+  <p class="pregunta">Les paraules clau, d’on surt tot el que llegeixes i els materials per descarregar.</p>
+  <div class="meta"><a class="xip" href="#glossari">📖 Glossari</a><a class="xip" href="#fonts">📚 Fonts</a><a class="xip" href="#descarregues">⬇️ Descàrregues</a><a class="xip" href="#docents">🍎 Per al professorat</a></div>
+</header>
+
+<section class="sec wrap" id="glossari">
+  <div class="panell-cap"><h2 class="mb0">📖 Glossari</h2><input type="text" id="cerca" placeholder="Cerca una paraula…" aria-label="Cerca al glossari"></div>
+  <dl class="glossari mt1" id="gl-llista"></dl>
+</section>
+
+<section class="sec wrap reveal" id="fonts">
+  <h2>📚 Fonts consultades</h2>
+  <p class="intro">Tot el contingut s’ha elaborat a partir d’aquestes fonts, reunides i contrastades en un quadern de NotebookLM. Quan dues fonts no coincidien, s’ha indicat o s’ha triat la més fiable.</p>
+  <h3 class="mt2">Fonts primàries (escrites per testimonis)</h3>
+  <ul class="fonts-llista">
+    <li>Marco Polo, <i>Viatges</i>, edició anglesa de H. Yule i H. Cordier (vol. 1 i 2).</li>
+    <li>Ibn Battuta, relats de viatge (selecció de l’ORIAS, Universitat de Califòrnia, Berkeley): 1328-1330 i 1346-1349.</li>
+    <li>Cristòfor Colom, diari de bord del primer viatge (1492-1493).</li>
+    <li>Cartes de Paolo Toscanelli a Colom (1474), extracte (Cambridge).</li>
+    <li>Diari anònim del primer viatge de Vasco da Gama (1497-1499).</li>
+    <li>Antonio Pigafetta, <i>La primera volta al món</i> (1519-1522).</li>
+    <li>Sous, mercaderies i clau de l’Armada de l’Especieria (Portal d’Arxius Espanyols, PARES).</li>
+  </ul>
+  <h3 class="mt2">Estudis d’historiadors</h3>
+  <ul class="fonts-llista">
+    <li>J. Munro, preus de les espècies en dies de sou (Universitat de Toronto).</li>
+    <li>F. C. Lane, «Pepper prices before Da Gama» (1968).</li>
+    <li>K. O’Rourke i J. Williamson, «Did Vasco da Gama matter for European markets?» (NBER).</li>
+    <li>D. Coulon, <i>Barcelona i el gran comerç amb Orient a l’edat mitjana</i> (c. 1330-1430), Institut d’Estudis Catalans.</li>
+    <li>J. A. García Marsilla, alimentació i salut a la València medieval (CSIC).</li>
+    <li>C. Malfatto, cosmografia i viatges transatlàntics: Colom i Toscanelli.</li>
+    <li><i>La primera vuelta al mundo: coste, venta del clavo y consecuencias</i>, Cuaderno 86 (Instituto de Historia y Cultura Naval).</li>
+  </ul>
+  <h3 class="mt2">Divulgació i obres de referència</h3>
+  <ul class="fonts-llista">
+    <li>World History Encyclopedia: comerç a l’Índic, comerç global al segle XIII, el pebre a l’Orient Mitjà, el clau i la nou moscada, l’era dels descobriments, dotze espècies que van canviar el món.</li>
+    <li>Library of Congress: monsons i cartografia de l’Índic; l’Àfrica al món de l’oceà Índic.</li>
+    <li>UNESCO, la cuina àrab medieval.</li>
+    <li>Viquipèdia: espècia, pebre negre, clau, nou moscada, canyella, gingebre, cardamom, safrà, ruta de les espècies, expedició de Magalhães-Elcano, tractat de Saragossa. Wikipedia (anglès): <i>Black pepper</i>.</li>
+    <li>El safrà a Catalunya (revista Milfulles); el safrà de la Conca de Barberà (Diari de Tarragona).</li>
+    <li>Preus actuals d’espècies en un supermercat (Carrefour, 11/11/2026).</li>
+    <li>Audiovisuals: Crash Course (comerç de l’Índic; era de les exploracions); RTVE, <i>La odisea de las especias</i> i Òrbita Laika.</li>
+  </ul>
+  <div class="avis mt2"><span class="ic">🔎</span><div><p class="etiq">Correccions</p><p>En contrastar les fonts s’han detectat alguns errors: una font diu que el tractat de Saragossa es va pagar amb 50.000 ducats (van ser 350.000) i una altra situa Gama a l’Índia el 1493 (va ser el 1498). En aquesta web s’han fet servir les dades correctes.</p></div></div>
+</section>
+
+<section class="sec wrap reveal" id="descarregues">
+  <h2>⬇️ Descàrregues</h2>
+  <p class="intro">Les nou infografies a mida completa (1920 × 1080) i la presentació per projectar-les a l’aula.</p>
+  <div class="bts mt1"><a class="bt" href="infografies/El comerç de les espècies.pptx" download>📊 Presentació PowerPoint (9 diapositives)</a></div>
+  <div class="desc mt2" id="desc"></div>
+</section>
+
+<section class="sec wrap reveal" id="docents">
+  <h2>🍎 Per al professorat</h2>
+  <div class="graella g2 mt1">
+    <div class="targeta">
+      <h3>Encaix curricular</h3>
+      <p>Ciències Socials: Geografia i Història (Decret 175/2022, d’ordenació dels ensenyaments de l’educació bàsica a Catalunya). Pensada per a <strong>2n i 3r d’ESO</strong>: el món medieval, les grans rutes comercials i l’expansió europea dels segles XV i XVI.</p>
+      <p class="mb0">Treballa la cerca i l’anàlisi de fonts primàries, la causalitat i les conseqüències, l’ús de mapes i dades quantitatives, i la mirada crítica sobre la desigualtat i la violència colonial. Connecta amb Matemàtiques (proporcions, percentatges) i Ciències (clima i plantes).</p>
+    </div>
+    <div class="targeta">
+      <h3>Proposta de seqüència (6-8 sessions)</h3>
+      <ol class="mb0">
+        <li>Capítol 1: la paradoxa i la gran pregunta. Calculadora en parelles.</li>
+        <li>Capítols 2 i 3: les plantes i què en sabia Europa.</li>
+        <li>Capítol 4: el mapa de l’Índic projectat a classe.</li>
+        <li>Capítols 5 i 6: preus, joc de la galera i Barcelona.</li>
+        <li>Capítol 7: Colom i Gama. Debat sobre els regals.</li>
+        <li>Capítol 8: la volta al món. Debat: va valer la pena?</li>
+        <li>Capítol 9 i repte final: text argumentat amb rúbrica.</li>
+      </ol>
+    </div>
+    <div class="targeta">
+      <h3>Atenció a la diversitat</h3>
+      <p class="mb0">El botó <b>Lectura fàcil</b> canvia els resums per una versió amb frases curtes i vocabulari bàsic, útil per a alumnat nouvingut o amb NESE. Les infografies i els mapes permeten treballar amb poc text, i el glossari explica cada paraula difícil.</p>
+    </div>
+    <div class="targeta">
+      <h3>Avaluació</h3>
+      <p class="mb0">Les preguntes «Posa-t’hi» són d’autocorrecció (avaluació formativa). El progrés només es desa al navegador de l’alumne. El producte final és el text argumentat del <a href="repte.html">repte</a>, amb una rúbrica de cinc criteris que es pot copiar a Google Classroom.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <h2>Crèdits</h2>
+  <p class="text">Infografies i il·lustracions a l’aquarel·la generades amb IA a partir d’encàrrecs verificats, i revisades una a una. Mapes amb contorns de <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a> (domini públic). Tipografies Alegreya i Alegreya Sans (Google Fonts, SIL Open Font License).</p>
+</section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const ll = document.getElementById('gl-llista');
+  Object.keys(GLOSSARI).sort((a, b) => a.localeCompare(b, 'ca')).forEach(k => ll.insertAdjacentHTML('beforeend', `<div data-k="${k.toLowerCase()}"><dt>${k[0].toUpperCase() + k.slice(1)}</dt><dd>${GLOSSARI[k]}</dd></div>`));
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  document.getElementById('cerca').addEventListener('input', (e) => { const q = norm(e.target.value); ll.querySelectorAll('div').forEach(d => d.hidden = q && !norm(d.textContent).includes(q)); });
+  const d = document.getElementById('desc');
+  CAPS.forEach(c => d.insertAdjacentHTML('beforeend', `<a href="infografies/El comerç de les espècies - (${c.n}).png" download><img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360"><span>${c.n}. ${c.tit}</span></a>`));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8. La primera volta al món · El comerç de les espècies</title>
+<meta name="description" content="L'expedició de Magalhães i Elcano (1519-1522): cinc naus a la recerca del clau de les Moluques, i una sola de tornada.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+<script src="js/mapes-dades.js" defer></script>
+<script src="js/mapa.js" defer></script>
+</head>
+<body data-cap="8">
+<main id="contingut">
+<nav id="fil"></nav>
+
+<header class="cap-hero wrap">
+  <div class="grid">
+    <div>
+      <p class="cap-num">Capítol 8</p>
+      <h1>La primera volta al món</h1>
+      <p class="pregunta">Va valer la pena el viatge de la Victoria?</p>
+      <div class="meta"><span class="xip">⏱ 18 minuts</span><span class="xip">🧭 El viatge en 14 etapes</span><span class="xip">⚖️ Fes de mercader a Tidore</span></div>
+    </div>
+    <img class="il" src="img/vinyetes/nau-victoria.webp" alt="La nau Victoria pintada a l'aquarel·la">
+  </div>
+</header>
+
+<section class="sec wrap reveal">
+  <div class="resum">
+    <h2>⚡ En 30 segons</h2>
+    <ul class="normal">
+      <li>El 1519, el rei Carles I va enviar cinc naus, amb el portuguès <strong>Fernão de Magalhães</strong> al capdavant, per arribar a les <button class="gl" data-gl="Moluques">Moluques</button> navegant cap a l’oest.</li>
+      <li>L’objectiu era el <strong>clau</strong> i demostrar que les illes eren a la meitat castellana del món, segons el tractat de Tordesillas.</li>
+      <li>Van trobar el pas per l’estret que avui porta el nom de Magalhães, van creuar el Pacífic gairebé morint de gana i Magalhães va morir a les Filipines.</li>
+      <li>Només la nau <strong>Victoria</strong>, capitanejada per <strong>Joan Sebastià Elcano</strong>, va tornar el 1522 amb 18 homes i 24 tones de clau. Era la primera volta al món.</li>
+    </ul>
+    <div class="facil">
+      <p>El 1519 van sortir <strong>5 vaixells</strong> per anar a buscar clau a les Moluques, cap a l’oest.</p>
+      <p>El viatge va ser <strong>molt dur</strong>: gana, malalties i batalles. El capità Magalhães va morir.</p>
+      <p>El 1522 només va tornar <strong>1 vaixell</strong>, la Victoria, amb <strong>18 homes</strong>. Havien fet la volta al món!</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <figure class="infografia">
+    <button type="button" data-gran="img/infografies/volta-mon.webp" data-png="infografies/El comerç de les espècies - (8).png" aria-label="Amplia la infografia">
+      <img src="img/infografies/volta-mon.webp" alt="Infografia: la ruta de la primera volta al món, de cinc naus a una, i el tractat de Saragossa." loading="lazy" width="1920" height="1080">
+      <span class="lupa">🔍 Amplia</span>
+    </button>
+    <figcaption><span>Infografia del capítol 8. Toca-la per veure-la gran.</span></figcaption>
+  </figure>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="panell">
+    <div class="panell-cap">
+      <h3>🧭 El viatge, etapa a etapa</h3>
+      <div class="pas-nav" style="margin:0">
+        <button class="bt sec2" type="button" id="v-ant">← Anterior</button>
+        <button class="bt" type="button" id="v-seg">Següent →</button>
+        <span class="compte" id="v-n"></span>
+      </div>
+    </div>
+    <div class="mapa" id="mapa-volta"></div>
+    <div class="passos mt2">
+      <div class="pas-card" id="v-pas" aria-live="polite" style="min-height:180px"></div>
+      <div class="comptadors" style="align-content:start">
+        <div class="comptador"><b id="v-naus">5</b><span>naus</span></div>
+        <div class="comptador"><b id="v-dies">0</b><span>dies des de Sanlúcar</span></div>
+      </div>
+    </div>
+    <p class="mapa-peu">Ruta aproximada. El mapa es talla a la línia de canvi de data: el Pacífic continua per l’altre costat. Contorns: Natural Earth.</p>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">1</span><h2>La font parla: Antonio Pigafetta</h2></div>
+  <p class="intro">Pigafetta, un jove de Vicenza, va fer tot el viatge i en va escriure la crònica. És un dels 18 que van tornar.</p>
+  <div class="graella g2 mt1">
+    <blockquote class="cita"><p>La galeta que menjàvem ja no era pa, sinó pols plena de cucs, i feia pudor dels orins de les rates. L’aigua era groga i podrida. Vam menjar el cuir que cobria el pal major, serradures de fusta i rates, que es pagaven a mig ducat cadascuna.</p><footer>Pigafetta, travessia del Pacífic (1520-1521)</footer></blockquote>
+    <blockquote class="cita"><p>Per quatre colzades de cinta ens donaven un bahar de clau. Al final, com que ja no quedaven mercaderies, un donava la capa, un altre la casaca i un altre la camisa per aconseguir la seva part de la càrrega.</p><footer>Pigafetta, a Tidore (desembre de 1521)</footer></blockquote>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="panell" id="tidore">
+    <div class="panell-cap">
+      <h3>⚖️ Fes de mercader a Tidore</h3>
+      <p class="instr">Al mercat de Tidore, segons Pigafetta, <strong>10 colzades de drap vermell</strong> o <strong>15 destrals</strong> valien <strong>1 <button class="gl" data-gl="bahar">bahar</button> de clau</strong> (uns 185 kg).</p>
+    </div>
+    <div class="dues">
+      <div>
+        <label class="camp">Destrals que portes: <span id="t-d">30</span><input type="range" id="t-dr" min="0" max="90" step="15" value="30"></label>
+        <label class="camp mt2">Colzades de drap vermell: <span id="t-c">20</span><input type="range" id="t-cr" min="0" max="60" step="10" value="20"></label>
+      </div>
+      <div class="centre">
+        <img src="img/vinyetes/sac-clau.webp" alt="" style="max-height:120px;margin:0 auto">
+        <p class="mt1" style="font-size:1.2rem">Aconsegueixes <strong id="t-b">4</strong> bahars de clau<br>≈ <strong id="t-kg">740</strong> kg</p>
+        <p class="mb0">A Sevilla, el clau de la Victoria es va vendre a uns <strong>371 maravedisos el quilo</strong>: el teu valdria uns <strong id="t-mrs">274.540</strong> maravedisos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">2</span><h2>Els comptes: va valer la pena?</h2></div>
+  <div class="dues mt1">
+    <div class="panell">
+      <h3>💰 En diners</h3>
+      <div class="barres mt1">
+        <div class="barra"><span class="n">Cost de l’expedició</span><div><div class="b" data-w="95%" style="background:var(--ink-2)"></div></div><span class="v">8,33 M</span></div>
+        <div class="barra"><span class="n">Venda del clau</span><div><div class="b" data-w="100%" style="background:var(--saffron)"></div></div><span class="v">8,75 M</span></div>
+      </div>
+      <p class="mt1">La Victoria portava <strong>524 <button class="gl" data-gl="quintar">quintars</button></strong> de clau (unes 23,6 tones). La venda va donar uns 8.750.000 <button class="gl" data-gl="maravedí">maravedisos</button>, i l’expedició n’havia costat 8.334.335. El guany: uns <strong>415.665 maravedisos, un 5 %</strong>. Altres càlculs el redueixen a uns 345.000.</p>
+    </div>
+    <div class="panell">
+      <h3>⚓ En vides</h3>
+      <div class="cercles mt1">
+        <div class="centre"><div class="cercle" style="width:190px;height:190px;background:var(--ocean)">239<br>homes</div><p class="mt1">Van sortir</p></div>
+        <div class="centre"><div class="cercle" style="width:52px;height:52px;background:var(--terra)">18</div><p class="mt1">Van tornar amb la Victoria</p></div>
+      </div>
+      <p class="instr mt1">Uns altres van sobreviure: els 55 del San Antonio, que havien desertat, els 13 detinguts a Cap Verd i alguns pocs de la Trinidad, que van tornar anys més tard.</p>
+    </div>
+  </div>
+  <div class="avis mt2"><span class="ic">🤔</span><div><p class="etiq">Debat</p><p>El viatge va ser un èxit econòmic petit, una tragèdia humana enorme i un descobriment geogràfic immens: la Terra era molt més gran del que es creia i tots els oceans estaven connectats. Tu, com hi respondries: va valer la pena?</p></div></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">3</span><h2>Saragossa, 1529: el clau es ven</h2></div>
+  <div class="dues mt1">
+    <div class="text">
+      <p>Castella i Portugal es disputaven les Moluques. Ningú no sabia mesurar bé la longitud, i per tant ningú no sabia on queia l’<button class="gl" data-gl="antimeridià">antimeridià</button> de Tordesillas. Una junta d’experts a Badajoz i Elvas (1524) no va arribar a cap acord.</p>
+      <p>Finalment, el <strong>22 d’abril de 1529</strong>, pel <strong>tractat de Saragossa</strong>, Carles I va renunciar a les Moluques a canvi de <strong>350.000 ducats</strong>. Es va traçar una línia a 297,5 llegües a l’est de les illes.</p>
+      <p>Carles I necessitava diners per a les seves guerres a Europa: va preferir cobrar ara que continuar lluitant per unes illes tan llunyanes.</p>
+    </div>
+    <img src="img/vinyetes/tractat.webp" alt="Tractat amb segells" style="max-width:340px;justify-self:center">
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="posat">
+    <h2>✍️ Posa-t’hi</h2>
+    <div data-quiz="c8"></div>
+  </div>
+</section>
+
+<section class="sec wrap"><div id="seguent"></div></section>
+<p class="peu-cap wrap">Fonts del capítol: Pigafetta, <i>La primera volta al món</i>; Cuaderno 86 (IHCN), cost i venda del clau; PARES, Armada de l’Especieria; Viquipèdia, expedició de Magalhães-Elcano i tractat de Saragossa. <a href="fonts.html">Totes les fonts</a></p>
+</main>
+
+<script>
+window.QUIZ = { c8: [
+  { t: 'tria', e: 'Quin era l’objectiu principal de l’expedició de Magalhães?', o: ['Arribar a les Moluques per l’oest i portar clau', 'Demostrar que la Terra era rodona', 'Conquerir Amèrica del Sud'], c: 0, r: 'El clau i els drets sobre les Moluques. La volta al món va ser una conseqüència.' },
+  { t: 'ordena', e: 'Ordena aquests fets del viatge.', o: ['Motí a San Julián', 'Pas de l’estret', 'Travessia del Pacífic', 'Mort de Magalhães a Mactan', 'Compra de clau a Tidore', 'Arribada a Sanlúcar'], r: 'De 1520 a 1522.' },
+  { t: 'xifra', e: 'Van sortir unes 239 persones i en van tornar 18 amb la Victoria. Quantes no van tornar amb ella?', c: 221, tol: 0, u: 'persones', r: '239 − 18 = 221. Algunes van sobreviure per altres camins, però la majoria van morir.' },
+  { t: 'tria', e: 'Quin va ser el guany econòmic de l’expedició?', o: ['Petit: al voltant d’un 5 %', 'Enorme: es va multiplicar per 100', 'Cap: tot va ser pèrdua'], c: 0, r: 'La venda del clau a penes va superar el cost.' },
+  { t: 'tria', e: 'Què va passar el 1529 amb el tractat de Saragossa?', o: ['Carles I va vendre a Portugal els drets sobre les Moluques per 350.000 ducats', 'Castella va conquerir les Moluques', 'Es va prohibir el comerç de clau'], c: 0, r: 'Carles I necessitava diners i va renunciar a les illes del clau.' }
+] };
+
+// Etapes. k = índex del punt de la ruta on acaba l'etapa
+const ETAPES = [
+  { d: '1519-09-20', q: '20 de setembre de 1519', t: 'El rei havia signat les capitulacions amb Magalhães el 22 de març de 1519. Després de sortir de Sevilla el 10 d’agost, surten de Sanlúcar de Barrameda cinc naus: <b>Trinidad, San Antonio, Concepción, Victoria i Santiago</b>, amb uns 239 homes de moltes procedències.', naus: 5, k: 0 },
+  { d: '1520-04-01', q: '1 d’abril de 1520', t: '<b>Motí a San Julián</b> (Patagònia). Uns capitans castellans es revolten contra Magalhães, que els venç i castiga durament.', naus: 5, k: 3 },
+  { d: '1520-05-03', q: '3 de maig de 1520', t: 'La <b>Santiago</b> naufraga mentre explorava la costa. La tripulació se salva gairebé tota.', naus: 4, k: 3 },
+  { d: '1520-10-21', q: '21 d’octubre de 1520', t: 'Troben l’<b>estret</b> que uneix l’Atlàntic i el Pacífic. Mentre el creuen, la <b>San Antonio</b> deserta i torna a Sevilla, on arriba el 6 de maig de 1521 amb 55 homes.', naus: 3, k: 4 },
+  { d: '1520-11-28', q: '28 de novembre de 1520', t: 'Surten al gran oceà, que anomenen <b>Pacífic</b> perquè hi troben bon temps. No saben que és el més gran del planeta.', naus: 3, k: 5 },
+  { d: '1521-03-06', q: '6 de març de 1521', t: 'Després de més de tres mesos sense trobar menjar fresc, arriben a <b>Guam</b>. L’<button class="gl" data-gl="escorbut">escorbut</button> i la gana han matat 19 homes.', naus: 3, k: 11 },
+  { d: '1521-03-16', q: '16 de març de 1521', t: 'Arriben a les <b>Filipines</b>. Magalhães s’alia amb el rei de Cebu i intenta que els caps locals s’hi sotmetin i es facin cristians.', naus: 3, k: 12 },
+  { d: '1521-04-27', q: '27 d’abril de 1521', t: 'A l’illa de <b>Mactan</b>, el cap Lapu-Lapu i els seus guerrers derroten els europeus. <b>Magalhães hi mor.</b>', naus: 3, k: 13 },
+  { d: '1521-05-01', q: '1 de maig de 1521', t: 'Emboscada a <b>Cebu</b>: moren molts homes. Ja no n’hi ha prou per a tres naus i <b>cremen la Concepción</b>.', naus: 2, k: 13 },
+  { d: '1521-11-08', q: '8 de novembre de 1521', t: 'Per fi, <b>Tidore</b>, a les Moluques. El sultà Almansur els rep bé. Canvien teles, ganivets i eines de ferro per clau.', naus: 2, k: 15 },
+  { d: '1521-12-21', q: '21 de desembre de 1521', t: 'La <b>Victoria</b> surt carregada de clau amb 60 homes i <b>Elcano</b> com a capità. La Trinidad, que fa aigua, es queda per reparar-la (més tard la capturaran els portuguesos).', naus: 1, k: 15 },
+  { d: '1522-05-19', q: 'Maig de 1522', t: 'Per evitar els portuguesos, creuen l’Índic sense parar i passen el <b>cap de Bona Esperança</b> molt al sud, amb fred i gana.', naus: 1, k: 18 },
+  { d: '1522-07-09', q: '9 de juliol de 1522', t: 'A <b>Cap Verd</b> (portuguès) els portuguesos detenen 13 homes. Els mariners descobreixen que el seu diari va <b>un dia endarrerit</b>: en fer la volta al món cap a l’oest, havien «perdut» un dia.', naus: 1, k: 20 },
+  { d: '1522-09-06', q: '6 de setembre de 1522', t: 'La Victoria arriba a Sanlúcar i, el 8 de setembre, a Sevilla. Hi tornen <b>18 homes</b>. És la <b>primera volta al món</b>.', naus: 1, k: 21 }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const m = Mapa(document.getElementById('mapa-volta'), 'mon', { titol: 'Ruta de la primera volta al món, 1519-1522' });
+  m.text(-35, 15, 'Atlàntic'); m.text(-130, -20, 'Oceà Pacífic'); m.text(160, -25, 'Pacífic'); m.text(78, -25, 'Índic');
+  // punts amb longitud «desplegada» (de -180 cap a -215 = Pacífic oest)
+  const P = [[-6.35, 36.8], [-17, 28], [-43, -23], [-67.7, -49.3], [-70.5, -52.6], [-75, -50], [-80, -35], [-95, -25], [-120, -12], [-150, 2], [-175, 11], [-215.2, 13.4], [-235, 11], [-236.1, 10.3], [-245, 4.9], [-232.6, 0.7], [-236, -9.5], [-270, -25], [-341.5, -36], [-350, -10], [-383.5, 15], [-366.35, 36.8]];
+  const norm = (lon) => { let l = lon; while (l < -180) l += 360; return l; };
+  // dividim la ruta allà on salta la línia de canvi de data
+  const trams = []; let cur = [];
+  P.forEach((p, i) => {
+    if (i > 0) {
+      const a = P[i - 1], b = p, na = norm(a[0]), nb = norm(b[0]);
+      if (Math.abs(na - nb) > 180) {
+        // punt de tall a ±180
+        const lonTall = Math.floor((a[0] + 180) / 360) * 360 - 180; // vora travessada en coord. desplegades
+        const t = (lonTall - a[0]) / (b[0] - a[0]), lat = a[1] + t * (b[1] - a[1]);
+        cur.push([norm(lonTall) === -180 && na < 0 ? -180 : 180, lat]); trams.push(cur);
+        cur = [[na < 0 ? 180 : -180, lat]];
+      }
+    }
+    cur.push([norm(p[0]), p[1]]);
+  });
+  trams.push(cur);
+  const fons = trams.map(t => m.ruta(t, { stroke: 'rgba(143,84,40,.22)', 'stroke-dasharray': '5 6', 'stroke-width': 2.4 }));
+  const vius = trams.map(t => m.ruta(t, { stroke: '#b4502c', 'stroke-width': 3.4 }));
+  // longitud acumulada per tram, per animar en funció del punt
+  const llarg = vius.map(p => p.getTotalLength()); const total = llarg.reduce((a, b) => a + b, 0);
+  // fracció per longitud desplegada (evita el salt del mapa)
+  const fracK = (k) => { let tot = 0, fins = 0; for (let i = 1; i < P.length; i++) { const d = Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); tot += d; if (i <= k) fins += d; } return fins / tot; };
+  const dibuixa = (f) => { let rest = f * total; vius.forEach((p, i) => { const L = llarg[i]; p.style.strokeDasharray = `${L} ${L}`; const v = Math.max(0, Math.min(L, rest)); p.style.strokeDashoffset = String(L - v); rest -= L; }); };
+  vius.forEach(p => p.style.transition = 'stroke-dashoffset .8s ease');
+  const ports = [[-6.35, 36.8, 'Sanlúcar', { dx: 8, dy: -8 }], [-67.7, -49.3, 'San Julián', { dx: 8 }], [-70.5, -52.6, 'Estret', { dx: 10, dy: 10 }], [144.8, 13.4, 'Guam', { dx: 8 }], [123.9, 10.3, 'Cebu', { dx: -8, anchor: 'end' }], [127.4, 0.7, 'Tidore', { dx: 8 }], [18.5, -35, 'Bona Esperança', { dx: 8, dy: 14 }], [-23.5, 15, 'Cap Verd', { dx: -8, anchor: 'end' }]];
+  ports.forEach(([lo, la, n, o]) => m.port(lo, la, n, Object.assign({ focus: false, r: 5 }, o)));
+  let i = 0; const t0 = new Date(ETAPES[0].d);
+  const pinta = () => {
+    const e = ETAPES[i];
+    document.getElementById('v-pas').innerHTML = `<p class="quan">${e.q}</p><p class="mb0">${e.t}</p>`;
+    document.getElementById('v-naus').textContent = e.naus;
+    document.getElementById('v-dies').textContent = Math.round((new Date(e.d) - t0) / 864e5);
+    document.getElementById('v-n').textContent = `${i + 1} / ${ETAPES.length}`;
+    document.getElementById('v-ant').disabled = i === 0; document.getElementById('v-seg').disabled = i === ETAPES.length - 1;
+    dibuixa(fracK(e.k));
+  };
+  document.getElementById('v-ant').onclick = () => { if (i > 0) { i--; pinta(); } };
+  document.getElementById('v-seg').onclick = () => { if (i < ETAPES.length - 1) { i++; pinta(); } };
+  pinta();
+
+  // Tidore
+  const dr = document.getElementById('t-dr'), cr = document.getElementById('t-cr');
+  const calc = () => {
+    const d = +dr.value, c = +cr.value, b = d / 15 + c / 10, kg = b * 185;
+    document.getElementById('t-d').textContent = d; document.getElementById('t-c').textContent = c;
+    document.getElementById('t-b').textContent = b.toLocaleString('ca', { maximumFractionDigits: 1 });
+    document.getElementById('t-kg').textContent = Math.round(kg).toLocaleString('ca');
+    document.getElementById('t-mrs').textContent = Math.round(kg * 371).toLocaleString('ca');
+  };
+  dr.addEventListener('input', calc); cr.addEventListener('input', calc); calc();
+});
+</script>
+</body>
+</html>

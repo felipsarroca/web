@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4. La xarxa de l'Índic i els monsons · El comerç de les espècies</title>
+<meta name="description" content="Els ports, els vaixells i els vents que movien les espècies per l'oceà Índic abans que hi arribessin els europeus.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+<script src="js/mapes-dades.js" defer></script>
+<script src="js/mapa.js" defer></script>
+</head>
+<body data-cap="4">
+<main id="contingut">
+<nav id="fil"></nav>
+
+<header class="cap-hero wrap">
+  <div class="grid">
+    <div>
+      <p class="cap-num">Capítol 4</p>
+      <h1>La xarxa de l’Índic i els monsons</h1>
+      <p class="pregunta">Com viatjaven les espècies abans d’arribar a Europa?</p>
+      <div class="meta"><span class="xip">⏱ 15 minuts</span><span class="xip">🌬️ Mapa dels vents</span><span class="xip">⚓ 12 ports per explorar</span></div>
+    </div>
+    <img class="il" src="img/vinyetes/dhow.webp" alt="Dhow, vaixell de l'Índic, pintat a l'aquarel·la">
+  </div>
+</header>
+
+<section class="sec wrap reveal">
+  <div class="resum">
+    <h2>⚡ En 30 segons</h2>
+    <ul class="normal">
+      <li>Molt abans que hi arribessin els europeus, l’oceà Índic era una <strong>xarxa de ports</strong> que unia l’Àfrica oriental, Aràbia, l’Índia, el sud-est asiàtic i la Xina.</li>
+      <li>El motor de tot eren els <button class="gl" data-gl="monsó">monsons</button>: de novembre a gener el vent bufa del nord-est (de l’Índia cap a Aràbia i l’Àfrica); d’abril a agost bufa al revés.</li>
+      <li>Ningú no feia tot el camí: cada mercader feia <strong>un tram</strong> i venia la càrrega al port següent. Mercaders gujarats, àrabs, perses, swahilis, malais i xinesos.</li>
+      <li>Les espècies es pagaven amb <strong>teixits de cotó</strong> de l’Índia, or i ivori africans, seda i porcellana xineses, cavalls i plata.</li>
+    </ul>
+    <div class="facil">
+      <p>A l’oceà Índic hi havia <strong>molts ports</strong> i molts comerciants.</p>
+      <p>Els vaixells anaven amb el <strong>vent</strong>. A l’hivern el vent va cap a un costat i a l’estiu cap a l’altre.</p>
+      <p>Cada comerciant feia <strong>un tros</strong> del camí i venia les espècies al següent.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <figure class="infografia">
+    <button type="button" data-gran="img/infografies/indic.webp" data-png="infografies/El comerç de les espècies - (4).png" aria-label="Amplia la infografia">
+      <img src="img/infografies/indic.webp" alt="Infografia: la xarxa de ports de l'Índic i els monsons d'hivern i d'estiu." loading="lazy" width="1920" height="1080">
+      <span class="lupa">🔍 Amplia</span>
+    </button>
+    <figcaption><span>Infografia del capítol 4. Toca-la per veure-la gran.</span></figcaption>
+  </figure>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="panell">
+    <div class="panell-cap">
+      <h3>🌬️ Els vents que movien el comerç</h3>
+      <div class="seg" role="group" aria-label="Estació">
+        <button type="button" data-v="hivern" aria-pressed="true">Hivern (nov.-gen.)</button>
+        <button type="button" data-v="estiu" aria-pressed="false">Estiu (abr.-ag.)</button>
+      </div>
+    </div>
+    <div class="passos">
+      <div class="mapa hivern" id="mapa-indic"></div>
+      <div class="pas-card mapa-info" id="info-port" aria-live="polite">
+        <p class="quan">Toca un port</p>
+        <p id="txt-vent"></p>
+      </div>
+    </div>
+    <p class="mapa-peu">Fletxes: direcció general del monsó. Contorns: Natural Earth.</p>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">1</span><h2>El dhow: un vaixell cosit</h2></div>
+  <div class="dues mt1">
+    <div class="text">
+      <p>El vaixell típic de l’Índic era el <button class="gl" data-gl="dhow">dhow</button>. Les taules de fusta no es clavaven: <strong>es cosien</strong> amb corda de fibra de coco. Era flexible i fàcil de reparar, però fràgil davant les tempestes.</p>
+      <p>Portava una gran vela triangular i una tripulació d’unes <strong>30 persones</strong>. Els perills eren molts: els esculls de corall del mar Roig, els pirates i les tempestes fora de temporada.</p>
+      <p>Per això el calendari era sagrat: si un mercader arribava tard, havia d’<strong>esperar mesos</strong> que el vent tornés a girar.</p>
+    </div>
+    <div class="graella" style="align-content:start"><div class="targeta"><span class="dada">≈ 30</span><p>persones de tripulació en un dhow mitjà.</p></div><div class="targeta"><span class="dada">0</span><p>claus de ferro: les fustes anaven cosides amb fibra de coco.</p></div></div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">2</span><h2>Ibn Battuta, un viatger de l’Índic</h2></div>
+  <p class="intro">Ibn Battuta va néixer a Tànger (Marroc) el 1304 i va recórrer tot el món islàmic. Els seus relats ens diuen quant duraven els viatges:</p>
+  <div class="graella mt1">
+    <div class="targeta"><span class="dada">28 <small>dies</small></span><p>De l’Índia fins a Zafar (Aràbia), amb el monsó d’hivern a favor.</p></div>
+    <div class="targeta"><span class="dada">15 <small>dies</small></span><p>De Zeila fins a Mogadiscio, seguint la costa africana.</p></div>
+    <div class="targeta"><span class="dada">2 <small>setmanes</small></span><p>Esperant a Kilwa abans de poder tornar, i un mes més de viatge de tornada.</p></div>
+  </div>
+  <p class="instr mt1">Viatges de 1328-1330 (mar Roig, Àfrica oriental i Aràbia) i de 1346-1349 (retorn cap al Marroc).</p>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">3</span><h2>Què s’intercanviava?</h2></div>
+  <div class="taula-wrap mt1">
+    <table class="taula">
+      <thead><tr><th>Lloc</th><th>Hi portaven…</th><th>…i se n’enduien</th></tr></thead>
+      <tbody>
+        <tr><td>Malaca</td><td>Teixits de cotó del Gujarat</td><td>Clau, nou moscada, macis</td></tr>
+        <tr><td>Calicut</td><td>Or, plata, coure, coral</td><td>Pebre, gingebre, teixits de cotó (el «calicó»)</td></tr>
+        <tr><td>Sri Lanka</td><td>Cavalls, monedes xineses, seda, ceràmica</td><td>Canyella, pedres precioses</td></tr>
+        <tr><td>Costa swahili (Kilwa)</td><td>Cotó, seda, porcellana</td><td>Or i ivori</td></tr>
+        <tr><td>Alexandria</td><td>Fusta, plantes medicinals, seda, mobles, persones esclavitzades</td><td>Espècies cap a Europa</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="avis mite mt2"><span class="ic">⚖️</span><div><p class="etiq">Mirada crítica</p><p>En aquest comerç també es venien persones esclavitzades. La riquesa de les espècies convivia amb grans injustícies, i això es farà encara més evident amb l’arribada dels europeus.</p></div></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="avis sabies"><span class="ic">⏳</span><div><p class="etiq">Què passarà després?</p><p>El 1498 arriba a Calicut Vasco da Gama. Poc després, els portuguesos s’instal·len a Cochin (1503) i conquereixen Goa (1510) i Malaca (1511). Intenten controlar per la força una xarxa que funcionava des de feia segles. Ho veuràs al capítol 7.</p></div></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="posat">
+    <h2>✍️ Posa-t’hi</h2>
+    <div data-quiz="c4"></div>
+  </div>
+</section>
+
+<section class="sec wrap"><div id="seguent"></div></section>
+<p class="peu-cap wrap">Fonts del capítol: Library of Congress (monsons i Àfrica a l’Índic); ORIAS, viatges d’Ibn Battuta; World History Encyclopedia. <a href="fonts.html">Totes les fonts</a></p>
+</main>
+
+<script>
+window.QUIZ = { c4: [
+  { t: 'tria', e: 'Ets un mercader a Calicut i vols anar a Aden, a Aràbia. Quan surts?', o: ['De novembre a gener', 'D’abril a agost', 'Quan vulguis: el vent no importa'], c: 0, r: 'El monsó d’hivern bufa del nord-est i et porta cap a Aràbia i l’Àfrica.' },
+  { t: 'vf', e: 'Un mateix mercader portava les espècies des de les Moluques fins a Venècia.', c: false, r: 'Cada mercader feia un tram i venia la càrrega al port següent.' },
+  { t: 'aparella', e: 'Relaciona cada lloc amb el que s’hi obtenia.', p: [['Kilwa', 'Or i ivori'], ['Calicut', 'Pebre'], ['Sri Lanka', 'Canyella'], ['Malaca', 'Clau i nou moscada']], r: 'Cada port tenia la seva especialitat.' },
+  { t: 'tria', e: 'Com es pagaven moltes espècies a Malaca?', o: ['Amb teixits de cotó del Gujarat', 'Amb blat d’Europa', 'Amb bitllets de paper'], c: 0, r: 'Els teixits indis eren la «moneda» del comerç de l’Índic.' },
+  { t: 'tria', e: 'Què tenien d’especial els dhows?', o: ['Les fustes anaven cosides amb corda de coco', 'Eren de ferro', 'Anaven a rem'], c: 0, r: 'Sense claus de ferro: flexibles, però fràgils.' }
+] };
+
+const PORTS = [
+  { n: 'Alexandria', lon: 29.9, lat: 31.2, t: 'Gran port d’Egipte on els mercaders venecians, genovesos i catalans compraven les espècies. Hi pagaven amb fusta, plantes medicinals, seda, mobles i persones esclavitzades.', o: { dx: -10, anchor: 'end' } },
+  { n: 'Aden', lon: 45.0, lat: 12.8, t: 'La porta del mar Roig. Hi cobraven <button class="gl" data-gl="aranzel">aranzels</button> a totes les mercaderies que passaven. En aquests mercats també circulaven els <button class="gl" data-gl="cauri">cauris</button>, petxines que feien de moneda.', o: { dy: 16 } },
+  { n: 'Zeila', lon: 43.5, lat: 11.35, t: 'Port africà davant d’Aden. D’aquí fins a Mogadiscio, Ibn Battuta hi va trigar 15 dies.', o: { dx: -10, anchor: 'end' } },
+  { n: 'Mogadiscio', lon: 45.3, lat: 2.0, t: 'Ciutat rica de la costa somali, amb mercaders que feien de mediadors per als estrangers.', o: {} },
+  { n: 'Kilwa', lon: 39.5, lat: -8.9, t: 'La ciutat swahili més rica: exportava l’or de l’interior d’Àfrica i ivori. Tenia cases de pedra de fins a tres pisos.', o: {} },
+  { n: 'Zafar', lon: 54.1, lat: 17.0, t: 'Port d’Aràbia (avui Oman). De l’Índia fins aquí, Ibn Battuta hi va trigar 28 dies amb el monsó a favor.', o: { dy: -6 } },
+  { n: 'Ormuz', lon: 56.3, lat: 27.1, t: 'A l’entrada del golf Pèrsic. Famós per les perles i pels cavalls que s’embarcaven cap a l’Índia.', o: { dy: -6 } },
+  { n: 'Cambaia (Gujarat)', lon: 72.6, lat: 22.3, t: 'Terra dels mercaders gujarats i dels teixits de cotó que es feien servir per pagar les espècies a tot l’Índic.', o: {} },
+  { n: 'Calicut', lon: 75.8, lat: 11.25, t: 'El gran mercat del pebre de la costa de Malabar. D’aquí ve la paraula «calicó», un teixit de cotó. Hi arribarà Vasco da Gama el 1498.', o: { dx: -10, anchor: 'end' } },
+  { n: 'Sri Lanka', lon: 80.7, lat: 7.3, t: 'L’illa de la canyella i les pedres precioses. Importava cavalls, monedes xineses, seda i ceràmica.', o: { dy: 16 } },
+  { n: 'Malaca', lon: 102.25, lat: 2.2, t: 'L’estret que unia l’Índic i el mar de la Xina. Hi vivien un miler de mercaders gujarats i entre 4.000 i 5.000 mariners. Aquí es canviava cotó per clau i nou moscada.', o: { dy: -8 } },
+  { n: 'Moluques', lon: 127.4, lat: 0.7, t: 'Les illes del clau: Ternate, Tidore i tres més. L’única terra del món on creixia.', o: { dx: -10, anchor: 'end' } },
+  { n: 'Banda', lon: 129.9, lat: -4.5, t: 'Illetes de la nou moscada, governades per assemblees de notables (els <i>orang kaya</i>). Els seus habitants navegaven en canoes amb balancí.', o: { dy: 16 } },
+  { n: 'Quanzhou (Zayton)', lon: 118.6, lat: 24.9, t: 'El gran port xinès. Hi arribava molt més pebre que a tot Europa junta.', o: {} }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cont = document.getElementById('mapa-indic');
+  const m = Mapa(cont, 'indic', { titol: 'Ports i monsons de l’oceà Índic' });
+  m.text(70, -6, 'Oceà Índic'); m.text(62, 15, 'Mar d’Aràbia').style.fontSize = '12px'; m.text(88, 15, 'Golf de Bengala').style.fontSize = '12px'; m.text(113, 12, 'Mar de la Xina').style.fontSize = '12px';
+  // rutes principals
+  const rC = { stroke: 'rgba(180,80,44,.55)', 'stroke-width': 2.4 };
+  m.ruta([[39.5, -8.9], [45.3, 2.0], [49, 11.5], [45.0, 12.8]], rC);
+  m.ruta([[45.0, 12.8], [42, 15], [38.5, 21], [34, 27], [32.5, 29.9]], rC);
+  m.ruta([[45.0, 12.8], [54.1, 15.5], [62, 15], [72, 13], [75.8, 11.25]], rC);
+  m.ruta([[56.3, 27.1], [62, 23], [69, 21], [72.6, 22.3]], rC);
+  m.ruta([[75.8, 11.25], [77, 7], [80, 5.8], [88, 5], [95, 6], [100, 4], [102.25, 2.2]], rC);
+  m.ruta([[102.25, 2.2], [106, -3], [114, -6], [122, -5.5], [127.4, 0.7]], rC);
+  m.ruta([[122, -5.5], [129.9, -4.5]], rC);
+  m.ruta([[102.25, 2.2], [106, 6], [110, 13], [114, 20], [118.6, 24.9]], rC);
+  m.ruta([[32.5, 29.9], [30.5, 30.4], [29.9, 31.2]], Object.assign({ class: 'ruta terra-r' }, rC));
+  // vents
+  const fH = m.fletxa('fh', '#3d6f91'), fE = m.fletxa('fe', '#b4502c');
+  const vents = [
+    [[[88, 18], [80, 14], [70, 10]], 'h'], [[[72, 18], [64, 14], [56, 10]], 'h'], [[[100, 12], [92, 8], [84, 4]], 'h'], [[[66, 4], [58, 1], [50, -3]], 'h'],
+    [[[50, 2], [58, 7], [66, 11]], 'e'], [[[56, 14], [64, 17], [70, 20]], 'e'], [[[78, 2], [86, 6], [92, 12]], 'e'], [[[44, -6], [52, -1], [60, 3]], 'e']
+  ];
+  vents.forEach(([p, k]) => m.ruta(p, { class: `vent vent-p ${k}`, stroke: k === 'h' ? '#3d6f91' : '#b4502c', 'marker-end': k === 'h' ? fH : fE }, m.capa('vents')));
+  const info = document.getElementById('info-port');
+  const TXT = {
+    hivern: '<b>Monsó d’hivern (novembre-gener).</b> El vent bufa del nord-est: les naus surten de l’Índia cap a Aràbia i l’Àfrica.',
+    estiu: '<b>Monsó d’estiu (abril-agost).</b> El vent bufa del sud-oest, amb pluges fortes: les naus tornen cap a l’Índia.'
+  };
+  let estacio = 'hivern';
+  const posaTxt = () => { document.getElementById('txt-vent') && (document.getElementById('txt-vent').innerHTML = TXT[estacio]); };
+  posaTxt();
+  document.querySelectorAll('.seg [data-v]').forEach(b => b.addEventListener('click', () => {
+    estacio = b.dataset.v;
+    document.querySelectorAll('.seg [data-v]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cont.classList.toggle('hivern', estacio === 'hivern'); cont.classList.toggle('estiu', estacio === 'estiu');
+    info.innerHTML = `<p class="quan">Els vents</p><p id="txt-vent"></p>`; posaTxt();
+  }));
+  PORTS.forEach(p => m.port(p.lon, p.lat, p.n, Object.assign({}, p.o, { onSel: (g) => {
+    m.svg.querySelectorAll('.port').forEach(x => x.classList.toggle('actiu', x === g));
+    info.innerHTML = `<p class="quan">${p.n}</p><p class="mb0">${p.t}</p><p class="instr mt1">${TXT[estacio]}</p>`;
+  } })));
+});
+</script>
+</body>
+</html>

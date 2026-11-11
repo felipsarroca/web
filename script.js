@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             icon: 'Modernisme/favicon.svg'
         },
         {
+            name: 'El comerç de les espècies',
+            path: 'https://ja.cat/especies',
+            category: 'Webs educatives',
+            description: 'Web per a l’ESO sobre la ruta de les espècies, de Marco Polo a la primera volta al món: infografies, mapes interactius, jocs i un repte final argumentat.',
+            icon: 'Especies/favicon.svg'
+        },
+        {
             name: 'Les tabes',
             path: 'https://ja.cat/tabes',
             category: 'Webs educatives',

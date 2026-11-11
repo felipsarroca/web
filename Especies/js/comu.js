@@ -1,0 +1,288 @@
+/* El comerç de les espècies · codi comú de totes les pàgines */
+(function () {
+  'use strict';
+  document.documentElement.classList.remove('no-js');
+
+  const CAPS = [
+    { n: 1, id: 'paradoxa', tit: 'La paradoxa del pebre', preg: 'Per què el pebre valia una fortuna i avui és a totes les cuines?', il: 'pot-pebre' },
+    { n: 2, id: 'especies', tit: 'Què són les espècies i on creixen', preg: 'D’on surten el clau, la canyella o el pebre?', il: 'cistell' },
+    { n: 3, id: 'marco-polo', tit: 'Marco Polo i el que Europa sabia', preg: 'Què en sabien, els europeus, de l’origen de les espècies?', il: 'marco-polo' },
+    { n: 4, id: 'indic', tit: 'La xarxa de l’Índic i els monsons', preg: 'Com viatjaven les espècies abans d’arribar a Europa?', il: 'dhow' },
+    { n: 5, id: 'preus', tit: 'Ports, intermediaris i preus', preg: 'Per què el pebre multiplicava el preu pel camí?', il: 'balanca' },
+    { n: 6, id: 'compradors', tit: 'Qui les comprava a Europa', preg: 'Per a què les volien i quin paper hi tenia Barcelona?', il: 'olla' },
+    { n: 7, id: 'colom-gama', tit: 'Colom i Gama: dues apostes', preg: 'Per què buscar un camí nou per mar fins a les espècies?', il: 'caravella' },
+    { n: 8, id: 'volta-mon', tit: 'La primera volta al món', preg: 'Va valer la pena el viatge de la Victoria?', il: 'nau-victoria' },
+    { n: 9, id: 'avui', tit: 'Per què avui són barates', preg: 'Què va canviar i les podríem plantar aquí?', il: 'plantacio' }
+  ];
+  window.CAPS = CAPS;
+
+  const GLOSSARI = {
+    'espècia': 'Part seca d’una planta (llavor, fruit, escorça, flor, arrel) que s’usa en petites quantitats per donar gust, aroma o color, o com a medicament.',
+    'monsó': 'Vent de l’oceà Índic que canvia de direcció segons l’estació: a l’hivern bufa del nord-est i a l’estiu, del sud-oest.',
+    'intermediari': 'Comerciant que compra a un altre per tornar a vendre. Cada intermediari afegeix el seu benefici al preu.',
+    'dhow': 'Vaixell de vela de l’oceà Índic, amb les fustes cosides amb corda de fibra de coco en lloc de claus de ferro.',
+    'galera': 'Vaixell llarg mogut per rems i veles. Venècia les feia servir per portar mercaderies cares amb seguretat.',
+    'Moluques': 'Arxipèlag de l’actual Indonèsia, les «illes de les espècies». L’únic lloc on creixia el clau.',
+    'ducat': 'Moneda d’or de Venècia, molt acceptada a tot el Mediterrani. Servia com a referència de valor.',
+    'maravedí': 'Moneda de compte de Castella. Els comptes de l’expedició de Magalhães-Elcano es van fer en maravedisos.',
+    'quintar': 'Mesura de pes antiga. A Castella, un quintar eren 4 arroves, uns 46 kg.',
+    'bahar': 'Mesura de pes de l’Índic i de les Moluques, d’uns 185 kg de clau.',
+    'escorbut': 'Malaltia per falta de vitamina C. Inflava les genives, feia caure les dents i matava molts mariners.',
+    'monopoli': 'Situació en què només un venedor controla un producte i, per tant, pot fixar el preu.',
+    'commenda': 'Contracte medieval: un inversor posava els diners i un mercader viatjava. Els guanys es repartien.',
+    'consolat': 'Representació dels mercaders d’una ciutat en un port estranger. Barcelona en tenia a Alexandria i Damasc.',
+    'caravel·la': 'Vaixell lleuger de vela, ràpid i maniobrable, amb què portuguesos i castellans van explorar l’Atlàntic.',
+    'factoria': 'Establiment comercial fortificat en un port llunyà, per comprar i guardar mercaderies.',
+    'Galè': 'Metge grec (segle II). La medicina basada en les seves idees classificava els aliments en calents, freds, secs i humits.',
+    'càssia': 'Escorça d’un arbre de la Xina semblant a la canyella. És la «canyella» més barata que avui es ven a molts súpers.',
+    'cauri': 'Petxina de cargol de mar que a l’Índic i a l’Àfrica s’usava com a moneda.',
+    'aranzel': 'Impost que es paga per entrar o treure una mercaderia d’un port o d’un país.',
+    'Tordesillas': 'Tractat de 1494 entre Castella i Portugal que repartia el món per explorar amb una línia de nord a sud a l’Atlàntic.',
+    'antimeridià': 'L’altra meitat de la línia de Tordesillas, a l’altra banda del planeta. No se sabia on queia: per això es discutien les Moluques.',
+    'trasplantament': 'Portar una planta viva a un altre lloc del món perquè hi creixi. Va acabar amb els monopolis de les espècies.',
+    'tona': 'Mil quilos.'
+  };
+  window.GLOSSARI = GLOSSARI;
+
+  /* ---------- emmagatzematge segur ---------- */
+  const KEY = 'especies:v1';
+  const llegeix = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const desa = (o) => { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { } };
+  const Prog = {
+    tot: llegeix,
+    marcaVist(n) { const p = llegeix(); p.vist = p.vist || {}; if (!p.vist[n]) { p.vist[n] = Date.now(); desa(p); } },
+    desaQuiz(id, enc, tot) { const p = llegeix(); p.quiz = p.quiz || {}; const ant = p.quiz[id]; if (!ant || enc >= ant.enc) p.quiz[id] = { enc, tot }; desa(p); },
+    set(k, v) { const p = llegeix(); p[k] = v; desa(p); },
+    get(k) { return llegeix()[k]; },
+    esborra() { try { localStorage.removeItem(KEY); } catch (e) { } }
+  };
+  window.Prog = Prog;
+
+  /* ---------- escala en pantalles d'ordinador petites (com edu-apps/Equacions) ---------- */
+  const BASE_W = 1440, BASE_H = 800, MIN_ZOOM = 0.8, MIN_DESKTOP_W = 1200;
+  function fitScale() {
+    const w = window.innerWidth, h = window.innerHeight;
+    let z = Math.min(1, w / BASE_W, h / BASE_H);
+    z = Math.max(MIN_ZOOM, Math.floor(z * 20) / 20);
+    if (w < MIN_DESKTOP_W) z = 1;
+    document.documentElement.style.setProperty('--ui-zoom', String(z));
+  }
+  fitScale();
+  window.addEventListener('resize', fitScale);
+
+  const el = (tag, attrs, html) => { const e = document.createElement(tag); if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; };
+  window.el = el;
+  const pag = document.body.dataset.pag || '';
+  const capActual = parseInt(document.body.dataset.cap || '0', 10);
+
+  /* ---------- navegació ---------- */
+  function construeixNav() {
+    const p = Prog.tot(); const vist = p.vist || {};
+    const nav = el('header', { class: 'nav' });
+    const caps = CAPS.map(c => `<a class="cap${c.n === capActual ? ' actual' : ''}${vist[c.n] ? ' vist' : ''}" href="${c.id}.html" title="${c.n}. ${c.tit}"${c.n === capActual ? ' aria-current="page"' : ''}>${c.n}</a>`).join('');
+    nav.innerHTML = `<div class="wrap nav-in">
+      <a class="marca" href="index.html"><img src="favicon.svg" alt="">El comerç de les espècies</a>
+      <button class="bt-menu" aria-expanded="false" aria-controls="menu-caps" aria-label="Obre el menú">☰</button>
+      <nav class="nav-caps" id="menu-caps" aria-label="Capítols">${caps}
+        <a class="extra${pag === 'repte' ? ' actual' : ''}" href="repte.html">Repte final</a>
+        <a class="extra${pag === 'fonts' ? ' actual' : ''}" href="fonts.html">Glossari i fonts</a>
+        <button class="bt-facil" type="button" aria-pressed="false" title="Mostra els resums en un llenguatge més senzill">Lectura fàcil</button>
+      </nav></div>`;
+    document.body.prepend(nav);
+    document.body.prepend(el('a', { class: 'skip-link', href: '#contingut' }, 'Salta al contingut'));
+    const bm = nav.querySelector('.bt-menu');
+    bm.addEventListener('click', () => { const o = nav.classList.toggle('obert'); bm.setAttribute('aria-expanded', o); });
+    const bf = nav.querySelector('.bt-facil');
+    const aplica = (on) => { document.body.classList.toggle('mode-facil', on); bf.setAttribute('aria-pressed', on); };
+    aplica(!!Prog.get('facil'));
+    bf.addEventListener('click', () => { const on = !document.body.classList.contains('mode-facil'); aplica(on); Prog.set('facil', on); });
+  }
+
+  function construeixFil() {
+    const lloc = document.getElementById('fil'); if (!lloc) return;
+    const vist = (Prog.tot().vist) || {};
+    lloc.className = 'fil wrap';
+    lloc.setAttribute('aria-label', 'Recorregut dels capítols');
+    lloc.innerHTML = '<ol>' + CAPS.map(c => `<li><a href="${c.id}.html" class="${c.n === capActual ? 'actual' : ''}${vist[c.n] ? ' vist' : ''}" title="${c.n}. ${c.tit}">${c.n}</a></li>`).join('') + '</ol>';
+  }
+
+  function construeixSeguent() {
+    const lloc = document.getElementById('seguent'); if (!lloc) return;
+    const s = CAPS[capActual]; // capActual és 1-based → el següent és l'índex capActual
+    if (s) {
+      lloc.innerHTML = `<a class="seguent" href="${s.id}.html"><img src="img/vinyetes/${s.il}.webp" alt=""><div><span class="et">Capítol ${s.n}</span><h3>${s.tit}</h3><p>${s.preg}</p></div><span class="fl" aria-hidden="true">→</span></a>`;
+    } else {
+      lloc.innerHTML = `<a class="seguent" href="repte.html"><img src="img/vinyetes/sac-clau.webp" alt=""><div><span class="et">Per acabar</span><h3>El repte final</h3><p>Ara respon tu: per què unes llavors tan petites van moure vaixells, diners i imperis?</p></div><span class="fl" aria-hidden="true">→</span></a>`;
+    }
+  }
+
+  function construeixPeu() {
+    const f = el('footer', { class: 'felip-app-footer' });
+    f.innerHTML = `<a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="img/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a>
+      <div class="felip-footer-text"><p>Web creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p></div>`;
+    document.body.appendChild(f);
+  }
+
+  /* ---------- visor d'infografies ---------- */
+  function lightbox() {
+    const lb = el('div', { class: 'lightbox', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Infografia ampliada' });
+    lb.innerHTML = '<button type="button" aria-label="Tanca">✕</button><img alt=""><a target="_blank" rel="noopener">Obre la imatge a mida completa</a>';
+    document.body.appendChild(lb);
+    const img = lb.querySelector('img'), a = lb.querySelector('a'), bt = lb.querySelector('button');
+    let origen = null;
+    const tanca = () => { lb.classList.remove('obert'); if (origen) origen.focus(); };
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-gran]'); if (!b) return;
+      origen = b; img.src = b.dataset.gran; img.alt = b.querySelector('img') ? b.querySelector('img').alt : ''; a.href = b.dataset.png || b.dataset.gran;
+      lb.classList.add('obert'); bt.focus();
+    });
+    lb.addEventListener('click', (e) => { if (e.target === lb || e.target === bt) tanca(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('obert')) tanca(); });
+  }
+
+  /* ---------- glossari emergent ---------- */
+  function glossari() {
+    let pop = null;
+    const tanca = () => { if (pop) { pop.remove(); pop = null; } };
+    document.addEventListener('click', (e) => {
+      const g = e.target.closest('.gl');
+      if (!g) { tanca(); return; }
+      e.preventDefault();
+      const k = g.dataset.gl || g.textContent.trim();
+      const def = GLOSSARI[k]; if (!def) return;
+      tanca();
+      pop = el('div', { class: 'gl-pop', role: 'tooltip' }, `<b>${k}</b>: ${def}`);
+      document.body.appendChild(pop);
+      const z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ui-zoom')) || 1;
+      const r = g.getBoundingClientRect();
+      const left = Math.min(Math.max(8, r.left / z + window.scrollX / z), document.documentElement.clientWidth / z - 316);
+      pop.style.left = Math.max(8, left) + 'px';
+      pop.style.top = (r.bottom / z + window.scrollY / z + 8) + 'px';
+      // si no hi cap per sota (peu fix inclòs), es mostra per sobre de la paraula
+      if (pop.getBoundingClientRect().bottom > window.innerHeight - 70) pop.style.top = (r.top / z + window.scrollY / z - pop.offsetHeight - 8) + 'px';
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') tanca(); });
+    window.addEventListener('scroll', tanca, { passive: true });
+    document.querySelectorAll('.gl').forEach(g => { if (g.tagName !== 'BUTTON') { g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button'); g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.click(); } }); } });
+  }
+
+  /* ---------- aparició suau ---------- */
+  function revela() {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('vist')); return; }
+    const io = new IntersectionObserver((ents) => ents.forEach(en => { if (en.isIntersecting) { en.target.classList.add('vist'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(e => io.observe(e));
+    window.addEventListener('beforeprint', () => document.querySelectorAll('.reveal').forEach(e => e.classList.add('vist')));
+    // barres animades
+    const bs = document.querySelectorAll('[data-w]');
+    const io2 = new IntersectionObserver((ents) => ents.forEach(en => { if (en.isIntersecting) { en.target.style.width = en.target.dataset.w; io2.unobserve(en.target); } }), { threshold: .3 });
+    bs.forEach(b => io2.observe(b));
+  }
+
+  /* ---------- marcar capítol com a vist ---------- */
+  function vigilaLectura() {
+    if (!capActual) return;
+    const fi = document.getElementById('seguent') || document.querySelector('.posat');
+    if (!fi || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((ents) => { if (ents.some(e => e.isIntersecting)) { Prog.marcaVist(capActual); io.disconnect(); } });
+    io.observe(fi);
+  }
+
+  /* ---------- motor de preguntes «Posa-t’hi» ---------- */
+  const barreja = (a) => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+  window.barreja = barreja;
+  function quiz(cont) {
+    const id = cont.dataset.quiz; const preguntes = (window.QUIZ || {})[id]; if (!preguntes) return;
+    const marc = el('p', { class: 'marcador', 'aria-live': 'polite' });
+    let fetes = 0, encerts = 0;
+    const actualitza = () => {
+      marc.textContent = `Encerts: ${encerts} de ${preguntes.length}` + (fetes === preguntes.length ? (encerts === preguntes.length ? ' · Perfecte! 🌟' : encerts >= preguntes.length * .6 ? ' · Molt bé!' : ' · Torna-hi quan vulguis: rellegeix el capítol i prova-ho de nou.') : '');
+      if (fetes === preguntes.length) { Prog.desaQuiz(id, encerts, preguntes.length); Prog.marcaVist(capActual); }
+    };
+    const resol = (q, box, ok) => {
+      fetes++; if (ok) encerts++;
+      const r = box.querySelector('.retro'); r.classList.add('mostra', ok ? 'be' : 'mal');
+      r.innerHTML = (ok ? '<b>Ben fet.</b> ' : '<b>No ben bé.</b> ') + (q.r || '');
+      actualitza();
+    };
+    preguntes.forEach((q, i) => {
+      const box = el('div', { class: 'preg' });
+      box.appendChild(el('p', { class: 'enunciat' }, `${i + 1}. ${q.e}`));
+      if (q.t === 'tria') {
+        const ops = el('div', { class: 'opcions' });
+        const ordre = q.fix ? q.o.map((t, k) => k) : barreja(q.o.map((t, k) => k));
+        ordre.forEach(k => {
+          const b = el('button', { type: 'button' }, q.o[k]);
+          b.addEventListener('click', () => {
+            ops.querySelectorAll('button').forEach(x => x.disabled = true);
+            b.classList.add(k === q.c ? 'be' : 'mal');
+            if (k !== q.c) ops.querySelectorAll('button')[ordre.indexOf(q.c)].classList.add('be');
+            resol(q, box, k === q.c);
+          });
+          ops.appendChild(b);
+        });
+        box.appendChild(ops);
+      } else if (q.t === 'vf') {
+        const ops = el('div', { class: 'vf' });
+        [['Cert', true], ['Fals', false]].forEach(([t, v]) => {
+          const b = el('button', { type: 'button' }, t);
+          b.addEventListener('click', () => { ops.querySelectorAll('button').forEach(x => x.disabled = true); b.classList.add(v === q.c ? 'be' : 'mal'); resol(q, box, v === q.c); });
+          ops.appendChild(b);
+        });
+        box.appendChild(ops);
+      } else if (q.t === 'ordena') {
+        const ul = el('ol', { class: 'ordre' });
+        let ordre = barreja(q.o.map((t, k) => k)); if (ordre.every((v, k) => v === k)) ordre.reverse();
+        const pinta = () => {
+          ul.innerHTML = '';
+          ordre.forEach((k, pos) => {
+            const li = el('li', null, `<span>${q.o[k]}</span>`);
+            const up = el('button', { type: 'button', 'aria-label': 'Puja' }, '↑'), dn = el('button', { type: 'button', 'aria-label': 'Baixa' }, '↓');
+            up.disabled = pos === 0; dn.disabled = pos === ordre.length - 1;
+            up.onclick = () => { [ordre[pos - 1], ordre[pos]] = [ordre[pos], ordre[pos - 1]]; pinta(); ul.querySelectorAll('li')[pos - 1].querySelector('button').focus(); };
+            dn.onclick = () => { [ordre[pos + 1], ordre[pos]] = [ordre[pos], ordre[pos + 1]]; pinta(); ul.querySelectorAll('li')[pos + 1].querySelectorAll('button')[1].focus(); };
+            li.append(up, dn); ul.appendChild(li);
+          });
+        };
+        pinta(); box.appendChild(ul);
+        const ok = el('button', { type: 'button', class: 'bt sec2 mt1' }, 'Comprova l’ordre');
+        ok.onclick = () => { const be = ordre.every((v, k) => v === k); ok.disabled = true; ul.querySelectorAll('button').forEach(x => x.disabled = true); if (!be) ul.insertAdjacentHTML('afterend', '<p class="instr mt1">Ordre correcte: ' + q.o.join(' → ') + '</p>'); resol(q, box, be); };
+        box.appendChild(ok);
+      } else if (q.t === 'aparella') {
+        const wrap = el('div', { class: 'aparella' });
+        const dretes = barreja(q.p.map(x => x[1]));
+        const sels = q.p.map(([a, b]) => {
+          const lab = el('label', null, `<span>${a}</span>`);
+          const s = el('select', null, '<option value="">Tria…</option>' + dretes.map(d => `<option>${d}</option>`).join(''));
+          lab.appendChild(s); wrap.appendChild(lab); return [s, b];
+        });
+        box.appendChild(wrap);
+        const ok = el('button', { type: 'button', class: 'bt sec2 mt1' }, 'Comprova');
+        ok.onclick = () => {
+          if (sels.some(([s]) => !s.value)) { ok.textContent = 'Completa totes les parelles'; return; }
+          let tots = true; sels.forEach(([s, b]) => { const be = s.value === b; s.classList.add(be ? 'be' : 'mal'); if (!be) { tots = false; s.insertAdjacentHTML('afterend', `<small>→ ${b}</small>`); } s.disabled = true; });
+          ok.disabled = true; ok.textContent = 'Comprovat'; resol(q, box, tots);
+        };
+        box.appendChild(ok);
+      } else if (q.t === 'xifra') {
+        const w = el('div', { class: 'num' });
+        const inp = el('input', { type: 'number', step: 'any', 'aria-label': 'Resposta' });
+        const ok = el('button', { type: 'button', class: 'bt sec2' }, 'Comprova');
+        w.append(inp, el('span', null, q.u || ''), ok); box.appendChild(w);
+        ok.onclick = () => { const v = parseFloat(String(inp.value).replace(',', '.')); if (isNaN(v)) { inp.focus(); return; } const be = Math.abs(v - q.c) <= (q.tol || 0); inp.disabled = ok.disabled = true; resol(q, box, be); };
+        inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') ok.click(); });
+      }
+      box.appendChild(el('div', { class: 'retro', 'aria-live': 'polite' }));
+      cont.appendChild(box);
+    });
+    cont.appendChild(marc); actualitza();
+    const ant = (Prog.tot().quiz || {})[id];
+    if (ant) cont.insertAdjacentHTML('afterbegin', `<p class="instr">La millor puntuació que hi has fet: ${ant.enc} de ${ant.tot}.</p>`);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    construeixNav(); construeixFil(); construeixSeguent(); construeixPeu();
+    lightbox(); glossari(); revela(); vigilaLectura();
+    document.querySelectorAll('[data-quiz]').forEach(quiz);
+  });
+})();

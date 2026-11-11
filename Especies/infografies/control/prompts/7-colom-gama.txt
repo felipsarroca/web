@@ -1,0 +1,13 @@
+Crea UNA ÚNICA infografia horitzontal 16:9 (1920x1080), una sola diapositiva completa per projectar a classe de 2n-3r d'ESO. No facis un mosaic, una graella de diapositives, una làmina de miniatures ni diverses pàgines dins la imatge. ESTIL: el mateix de les imatges de referència adjuntes al començament d'aquesta conversa (només l'estil, no el contingut): il·lustració d'aquarel·la i tinta molt acolorida, colors vius i càlids (groc safrà, ocre de canyella, vermell, terracota, verd tropical, blau oceà, tocs daurats), molts detalls, personatges expressius, llum càlida, fons de pergamí. Títol en serif blau marí sobre pergamí, de mida moderada; rètols sobre franges de pinzell de colors (verd, blau, terracota, ocre, porpra) i cartel·les de pergamí. PROHIBIT: estil 3D, plastilina, fang, clay, vinil, icones planes, dibuix infantil, contorns negres gruixuts, fons blanc buit. SENSE PARÀGRAFS: només rètols curts i frases molt breus, però cada bloc ha d'explicar alguna cosa amb una dada (no només una paraula). Ambientació dels segles XIII-XVI, sense anacronismes ni objectes moderns (excepte on s'indica explícitament «avui»). No dibuixis mapes ni contorns de continents si no s'indica. Escriu tots els textos exactament com s'indiquen, en català i amb els accents correctes; no afegeixis cap altre text, ni signatures ni números de pàgina. A baix a l'esquerra, en lletra petita però llegible, escriu exactament: «Infografia creada per Felip Sarroca · CC BY-NC-SA 4.0». DIAPOSITIVA: Colom i Vasco da Gama.
+Títol: «Colom i Vasco da Gama». Franja-subtítol blava: «Dues rutes per arribar a les espècies sense intermediaris».
+COMPOSICIÓ: al centre-esquerra, ocupant aproximadament el 55% de l'amplada i el 68% de l'alçada, un marc daurat l'interior del qual és un rectangle MAGENTA PUR (#FF00FF) totalment pla i buit, sense cap dibuix, textura ni text a dins; proporció de l'interior: 16 d'ample per 11 d'alt.
+A la dreta, dues columnes de targetes il·lustrades, amb una caravel·la amb creu de l'Orde de Crist a la vela per a Portugal i una nau castellana per a Castella:
+Columna «Portugal: cap a l'est»:
+- «1488: Bartolomeu Dias passa el cap de Bona Esperança».
+- «1498: Vasco da Gama arriba a Calicut, a l'Índia».
+- «Èxit: torna carregat de pebre i canyella».
+Columna «Castella: cap a l'oest»:
+- Mapamundi antic de pergamí amb un globus: «Colom creu el món més petit del que és».
+- «1492: vol arribar a Cipango i troba Amèrica».
+- Planta d'ají amb fruits vermells allargats (pebrot): «L'ají "val més que pebre": era el pebrot americà».
+Al peu, franja ocre: «Objectiu comú: comprar les espècies directament».

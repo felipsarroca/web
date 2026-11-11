@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El comerç de les espècies</title>
+<meta name="description" content="Web educativa sobre el comerç de les espècies, de Marco Polo a la primera volta al món i fins avui. Nou capítols amb mapes, jocs i preguntes.">
+<meta property="og:title" content="El comerç de les espècies">
+<meta property="og:description" content="Per què unes llavors tan petites van moure vaixells, diners i imperis?">
+<meta property="og:image" content="img/infografies/paradoxa.webp">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+</head>
+<body data-pag="inici">
+<main id="contingut">
+
+<header class="portada wrap">
+  <div class="grid">
+    <div>
+      <p class="avant">De Marco Polo a la primera volta al món</p>
+      <h1>El comerç de les espècies</h1>
+      <p class="sub">Per què unes llavors tan petites van moure vaixells, diners i imperis?</p>
+      <div class="paradoxa-mini">
+        <div class="t"><span class="dada">2 dies</span>de feina per comprar una lliura de pebre a Londres, el 1438</div>
+        <span class="vs">i avui?</span>
+        <div class="t"><span class="dada" style="color:var(--sage)">uns minuts</span>de feina per comprar un pot al súper</div>
+      </div>
+      <div class="bts mt2">
+        <a class="bt terra" href="paradoxa.html" id="bt-comenca">Comença el viatge →</a>
+        <a class="bt sec2" href="repte.html">Vés al repte final</a>
+      </div>
+    </div>
+    <img class="il" src="img/vinyetes/cistell.webp" alt="Cistell ple d'espècies pintat a l'aquarel·la" width="700" height="430">
+  </div>
+</header>
+
+<section class="sec wrap reveal">
+  <div class="panell">
+    <div class="panell-cap"><h3>🧭 El teu viatge</h3><p class="instr" id="prog-txt">Encara no has començat cap capítol.</p></div>
+    <div class="progres-g" role="progressbar" aria-label="Capítols completats" aria-valuemin="0" aria-valuemax="9" id="prog-barra"><span></span></div>
+    <p class="instr mt1 mb0">El progrés es guarda només en aquest navegador. <button type="button" class="lnk" id="prog-reset">Esborra el progrés</button></p>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-tit"><h2>Nou capítols, una gran pregunta</h2></div>
+  <p class="intro">Cada capítol respon una pregunta petita amb una infografia, mapes i activitats. Al final, al <a href="repte.html">repte</a>, respondràs la gran pregunta amb els teus arguments.</p>
+  <div class="caps mt2" id="caps"></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><h2>Com funciona aquesta web</h2></div>
+  <div class="graella mt1">
+    <div class="targeta"><h3>⚡ En 30 segons</h3><p>Cada capítol comença amb un resum. Activa <b>Lectura fàcil</b> (a dalt) si vols una versió més senzilla.</p></div>
+    <div class="targeta"><h3>🔍 Infografies</h3><p>Toca-les per veure-les grans. Les trobaràs totes juntes a <a href="fonts.html#descarregues">Glossari i fonts</a>.</p></div>
+    <div class="targeta"><h3>🎲 Experimenta</h3><p>Calculadores, mapes amb vents, un joc de mercaders i fitxes que giren: toca-ho tot!</p></div>
+    <div class="targeta"><h3>✍️ Posa-t’hi</h3><p>Preguntes amb correcció immediata. Les paraules <button class="gl" data-gl="espècia">subratllades així</button> tenen definició.</p></div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><h2>Cronologia ràpida</h2></div>
+  <div class="temps-h mt1" aria-label="Cronologia">
+    <a href="marco-polo.html"><b>1271-1295</b><span>Viatges de Marco Polo</span></a>
+    <a href="indic.html"><b>1328-1349</b><span>Ibn Battuta navega per l’Índic</span></a>
+    <a href="compradors.html"><b>1330-1430</b><span>Barcelona, port de les espècies</span></a>
+    <a href="paradoxa.html"><b>1438</b><span>Pebre a Londres: 2 dies de sou</span></a>
+    <a href="colom-gama.html"><b>1488</b><span>Dias passa el cap de Bona Esperança</span></a>
+    <a href="colom-gama.html"><b>1492</b><span>Colom arriba a Amèrica</span></a>
+    <a href="colom-gama.html"><b>1498</b><span>Gama arriba a Calicut</span></a>
+    <a href="volta-mon.html"><b>1519-1522</b><span>Primera volta al món</span></a>
+    <a href="volta-mon.html"><b>1529</b><span>Tractat de Saragossa</span></a>
+    <a href="avui.html"><b>1621</b><span>Els holandesos conquereixen Banda</span></a>
+    <a href="avui.html"><b>1770</b><span>Poivre trasplanta clau i nou moscada</span></a>
+    <a href="avui.html"><b>Avui</b><span>El Vietnam, primer productor de pebre</span></a>
+  </div>
+</section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const p = Prog.tot(), vist = p.vist || {}, qz = p.quiz || {};
+  const cont = document.getElementById('caps');
+  CAPS.forEach(c => {
+    const q = qz['c' + c.n];
+    const estat = vist[c.n] ? `<span class="estat fet">✓ Fet${q ? ` · ${q.enc}/${q.tot}` : ''}</span>` : '';
+    cont.insertAdjacentHTML('beforeend', `<a class="cap-card reveal" href="${c.id}.html">${estat}<img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360"><div class="cos"><span class="num">Capítol ${c.n}</span><h3>${c.tit}</h3><p>${c.preg}</p></div></a>`);
+  });
+  const n = Object.keys(vist).length;
+  document.querySelector('#prog-barra span').style.width = (n / 9 * 100) + '%';
+  document.getElementById('prog-barra').setAttribute('aria-valuenow', n);
+  if (n) {
+    document.getElementById('prog-txt').textContent = n === 9 ? 'Has recorregut els nou capítols! Ja pots fer el repte final.' : `Has recorregut ${n} de 9 capítols.`;
+    const seg = CAPS.find(c => !vist[c.n]);
+    const b = document.getElementById('bt-comenca');
+    if (seg) { b.href = seg.id + '.html'; b.textContent = `Continua pel capítol ${seg.n} →`; } else { b.href = 'repte.html'; b.textContent = 'Fes el repte final →'; }
+  }
+  document.getElementById('prog-reset').addEventListener('click', () => { Prog.esborra(); location.reload(); });
+});
+</script>
+</body>
+</html>

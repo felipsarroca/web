@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ca" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2. Què són les espècies i on creixen · El comerç de les espècies</title>
+<meta name="description" content="Pebre, clau, nou moscada, canyella, gingebre, safrà i cardamom: quina part de la planta són i d'on venien.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estil.css">
+<script src="js/comu.js" defer></script>
+<script src="js/mapes-dades.js" defer></script>
+<script src="js/mapa.js" defer></script>
+</head>
+<body data-cap="2">
+<main id="contingut">
+<nav id="fil"></nav>
+
+<header class="cap-hero wrap">
+  <div class="grid">
+    <div>
+      <p class="cap-num">Capítol 2</p>
+      <h1>Què són les espècies i on creixen</h1>
+      <p class="pregunta">D’on surten el clau, la canyella o el pebre?</p>
+      <div class="meta"><span class="xip">⏱ 12 minuts</span><span class="xip">🃏 7 fitxes per girar</span><span class="xip">🗺️ Mapa d’orígens</span></div>
+    </div>
+    <img class="il" src="img/vinyetes/cistell.webp" alt="Cistell ple d'espècies pintat a l'aquarel·la">
+  </div>
+</header>
+
+<section class="sec wrap reveal">
+  <div class="resum">
+    <h2>⚡ En 30 segons</h2>
+    <ul class="normal">
+      <li>Una <button class="gl" data-gl="espècia">espècia</button> és una part seca d’una planta que, en petites quantitats, dona gust, aroma o color.</li>
+      <li>Cada espècia surt d’una <strong>part diferent</strong>: el pebre és un fruit, la canyella una escorça, el clau un poncell de flor, el safrà els estigmes d’una flor i el gingebre un tall d’arrel (rizoma).</li>
+      <li>Les més buscades creixien en <strong>llocs molt concrets del tròpic</strong>: el pebre a la costa de Malabar (Índia), la canyella a Sri Lanka, el clau a les <button class="gl" data-gl="Moluques">Moluques</button> i la nou moscada només a les petites illes Banda.</li>
+      <li>Com més petit el lloc d’origen i més llarg el viatge, <strong>més cara</strong> era l’espècia a Europa.</li>
+    </ul>
+    <div class="facil">
+      <p>Les espècies són <strong>trossos secs de plantes</strong>: llavors, fruits, escorces, flors o arrels.</p>
+      <p>Moltes creixien <strong>molt lluny</strong>, en illes calentes i plujoses d’Àsia.</p>
+      <p>Algunes creixien en <strong>un sol lloc</strong> del món. Per això eren tan cares.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <figure class="infografia">
+    <button type="button" data-gran="img/infografies/especies.webp" data-png="infografies/El comerç de les espècies - (2).png" aria-label="Amplia la infografia">
+      <img src="img/infografies/especies.webp" alt="Infografia: les espècies principals, la part de la planta i el lloc d'origen." loading="lazy" width="1920" height="1080">
+      <span class="lupa">🔍 Amplia</span>
+    </button>
+    <figcaption><span>Infografia del capítol 2. Toca-la per veure-la gran.</span></figcaption>
+  </figure>
+</section>
+
+<section class="sec wrap reveal" id="fitxes-sec">
+  <div class="panell-cap">
+    <div class="sec-tit"><span class="n">1</span><h2>Set espècies, set parts de la planta</h2></div>
+    <div class="seg" role="group" aria-label="Filtra per part de la planta">
+      <button type="button" data-f="tot" aria-pressed="true">Totes</button>
+      <button type="button" data-f="fruit" aria-pressed="false">Fruit i llavor</button>
+      <button type="button" data-f="flor" aria-pressed="false">Flor</button>
+      <button type="button" data-f="escorca" aria-pressed="false">Escorça</button>
+      <button type="button" data-f="arrel" aria-pressed="false">Arrel</button>
+    </div>
+  </div>
+  <p class="instr">Toca cada fitxa per girar-la i descobrir-ne els secrets.</p>
+  <div class="fitxes mt1" id="fitxes"></div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="sec-tit"><span class="n">2</span><h2>On creixia cada espècia?</h2></div>
+  <p class="intro">Toca els punts del mapa. Fixa’t que totes, menys el safrà, creixen prop de l’equador, on fa calor i plou molt tot l’any.</p>
+  <div class="passos mt1">
+    <div class="mapa" id="mapa-orig"></div>
+    <div class="pas-card mapa-info" id="info-orig" aria-live="polite">
+      <p class="quan">Tria un punt del mapa</p>
+      <p>Cada punt és la terra d’origen d’una espècia. Les distàncies són enormes: de Malabar a Venècia hi ha més de 7.000 km en línia recta, i el camí real era molt més llarg.</p>
+    </div>
+  </div>
+  <p class="mapa-peu">Contorns: Natural Earth. El safrà no hi surt: creix a la Mediterrània i a l’Orient Mitjà, també a Catalunya.</p>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="graella g2">
+    <div class="avis sabies"><span class="ic">🔍</span><div><p class="etiq">Canyella o càssia?</p><p>La canyella «de veritat» (<i>Cinnamomum verum</i>) és de Sri Lanka. Gran part de la que es ven avui és <button class="gl" data-gl="càssia">càssia</button>, una escorça més gruixuda i barata d’un arbre de la Xina.</p></div></div>
+    <div class="avis sabies"><span class="ic">🌰</span><div><p class="etiq">Dues espècies en un fruit</p><p>El fruit de la moscadera dona dues espècies: la <strong>nou moscada</strong> (la llavor) i el <strong>macis</strong> (la xarxa vermella que l’embolica).</p></div></div>
+  </div>
+</section>
+
+<section class="sec wrap reveal">
+  <div class="posat">
+    <h2>✍️ Posa-t’hi</h2>
+    <div data-quiz="c2"></div>
+  </div>
+</section>
+
+<section class="sec wrap"><div id="seguent"></div></section>
+<p class="peu-cap wrap">Fonts del capítol: articles de la Viquipèdia sobre cada espècia; World History Encyclopedia; síntesi docent del quadern. <a href="fonts.html">Totes les fonts</a></p>
+</main>
+
+<script>
+const ESPECIES = [
+  { id: 'pebre', nom: 'Pebre negre', cient: 'Piper nigrum', f: 'fruit', il: 'pebre', part: 'Fruit (baia) assecat al sol, que es torna negre i arrugat.', on: 'Costa de Malabar, al sud-oest de l’Índia.', clima: 'Liana tropical: necessita molta pluja i calor tot l’any.', us: 'L’espècia més venuda a l’edat mitjana. Cuina i medicina.', lon: 76.2, lat: 10.5 },
+  { id: 'clau', nom: 'Clau', cient: 'Syzygium aromaticum', f: 'flor', il: 'clau', part: 'Poncell de flor (la flor encara tancada) assecat.', on: 'Cinc illetes de les Moluques (Ternate, Tidore…), a l’actual Indonèsia.', clima: 'Arbre tropical d’illa volcànica, humida i calorosa.', us: 'Cuina, medicina i perfum. Per arribar-hi es va fer la primera volta al món.', lon: 127.4, lat: 0.7 },
+  { id: 'nou-moscada', nom: 'Nou moscada i macis', cient: 'Myristica fragrans', f: 'fruit', il: 'nou-moscada', part: 'Llavor del fruit (nou moscada) i la seva coberta vermella (macis).', on: 'Només les illes Banda, unes illetes minúscules de les Moluques.', clima: 'Arbre tropical: calor i humitat constants.', us: 'Cuina, medicina i prestigi. Va ser una de les espècies més cares.', lon: 129.9, lat: -4.5 },
+  { id: 'canyella', nom: 'Canyella', cient: 'Cinnamomum verum', f: 'escorca', il: 'canyella', part: 'Escorça interior de les branques, que en assecar-se s’enrotlla.', on: 'Sri Lanka (Ceilan). La càssia, semblant, ve de la Xina.', clima: 'Arbre tropical d’illa, amb molta pluja.', us: 'Postres, salses, vi especiat i medicina.', lon: 80.7, lat: 7.3 },
+  { id: 'gingebre', nom: 'Gingebre', cient: 'Zingiber officinale', f: 'arrel', il: 'gingebre', part: 'Rizoma: una tija sota terra que sembla una arrel.', on: 'Sud i sud-est d’Àsia; Marco Polo el va veure a Malabar.', clima: 'Planta tropical de terra calenta i humida.', us: 'Una de les espècies més comprades a Barcelona i València, sovint confitada.', lon: 75.6, lat: 12.6 },
+  { id: 'cardamom', nom: 'Cardamom', cient: 'Elettaria cardamomum', f: 'fruit', il: 'cardamom', part: 'Càpsules (fruits) plenes de llavors aromàtiques.', on: 'Muntanyes del sud de l’Índia (Ghats occidentals).', clima: 'Sotabosc tropical humit i ombrívol.', us: 'Cuina àrab i índia, cafè i medicina.', lon: 77.1, lat: 9.6 },
+  { id: 'safra', nom: 'Safrà', cient: 'Crocus sativus', f: 'flor', il: 'safra', part: 'Els tres estigmes vermells de la flor, collits a mà.', on: 'Mediterrània i Orient Mitjà. També a Catalunya i Aragó!', clima: 'Clima mediterrani: estius secs i hiverns frescos.', us: 'Color i gust a la cuina. Barcelona n’exportava a l’edat mitjana.', lon: null }
+];
+
+window.QUIZ = { c2: [
+  { t: 'aparella', e: 'Relaciona cada espècia amb la part de la planta.', p: [['Pebre', 'Fruit'], ['Canyella', 'Escorça'], ['Clau', 'Poncell de flor'], ['Gingebre', 'Rizoma (tija sota terra)'], ['Safrà', 'Estigmes de la flor']], r: 'Cada espècia és una part diferent: per això tenen formes tan diverses.' },
+  { t: 'aparella', e: 'On creixia cada espècia?', p: [['Pebre', 'Costa de Malabar (Índia)'], ['Canyella', 'Sri Lanka'], ['Clau', 'Moluques'], ['Nou moscada', 'Illes Banda']], r: 'Llocs tropicals concrets, a milers de quilòmetres d’Europa.' },
+  { t: 'vf', e: 'La nou moscada i el macis surten del mateix fruit.', c: true, r: 'La nou és la llavor i el macis, la xarxa vermella que l’embolica.' },
+  { t: 'tria', e: 'Quina d’aquestes espècies es podia conrear a Catalunya a l’edat mitjana?', o: ['Clau', 'Pebre', 'Safrà', 'Canyella'], c: 2, r: 'El safrà vol clima mediterrani. Barcelona fins i tot l’exportava.' },
+  { t: 'tria', e: 'Per què la nou moscada era tan cara?', o: ['Perquè només creixia en unes illetes minúscules molt llunyanes', 'Perquè era verinosa', 'Perquè es collia un cop cada deu anys'], c: 0, r: 'Un sol origen, molt lluny: l’oferta era petitíssima.' }
+] };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cont = document.getElementById('fitxes');
+  ESPECIES.forEach(e => {
+    const d = el('div', { class: 'fitxa', 'data-f': e.f });
+    d.innerHTML = `<button class="gira" type="button" aria-label="Gira la fitxa de ${e.nom}"><div class="cares">
+      <div class="cara"><img src="img/vinyetes/${e.il}.webp" alt=""><h3>${e.nom}</h3><p class="cient">${e.cient}</p><p class="pista">↻ Toca per girar</p></div>
+      <div class="cara dors"><h3>${e.nom}</h3><dl class="mt1"><dt>Quina part és</dt><dd>${e.part}</dd><dt>On creix</dt><dd>${e.on}</dd><dt>Què necessita</dt><dd>${e.clima}</dd><dt>Per a què</dt><dd>${e.us}</dd></dl></div>
+    </div></button>`;
+    d.querySelector('button').addEventListener('click', () => d.classList.toggle('girada'));
+    cont.appendChild(d);
+  });
+  document.querySelectorAll('#fitxes-sec .seg button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#fitxes-sec .seg button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cont.querySelectorAll('.fitxa').forEach(f => f.classList.toggle('amagada', b.dataset.f !== 'tot' && f.dataset.f !== b.dataset.f));
+  }));
+
+  const m = Mapa(document.getElementById('mapa-orig'), 'indic', { titol: 'Mapa dels orígens de les espècies' });
+  m.text(68, -2, 'Oceà Índic'); m.text(112, 12, 'Mar de la Xina');
+  // franja tropical
+  const [x0, yN] = m.P(5, 23.4), [x1, yS] = m.P(135, -15);
+  m.nou('rect', { x: x0, y: yN, width: x1 - x0, height: yS - yN, fill: 'rgba(217,154,30,.10)' }, m.capa('fons'));
+  m.svg.insertBefore(m.capa('fons'), m.svg.querySelector('.terra').nextSibling);
+  m.text(20, 21.6, 'Tròpic de Càncer', 'mar-t').style.fontSize = '12px';
+  const info = document.getElementById('info-orig');
+  const extra = { 'cassia': true };
+  ESPECIES.filter(e => e.lon != null).forEach(e => {
+    const pos = { pebre: { dx: -12, anchor: 'end' }, gingebre: { dx: -12, anchor: 'end', dy: -6 }, cardamom: { dx: -12, anchor: 'end', dy: 14 }, canyella: { dx: 12 }, clau: { dx: 12, dy: -6 }, 'nou-moscada': { dx: 12, dy: 10 } }[e.id];
+    m.port(e.lon, e.lat, e.nom, Object.assign({ onSel: (g) => {
+      m.svg.querySelectorAll('.port').forEach(p => p.classList.toggle('actiu', p === g));
+      info.innerHTML = `<p class="quan">${e.nom}</p><img src="img/vinyetes/${e.il}.webp" alt="" style="max-height:110px;margin:6px 0"><p><b>Origen:</b> ${e.on}</p><p class="mb0"><b>Part:</b> ${e.part}</p>`;
+    } }, pos));
+  });
+  m.port(113, 23, 'Càssia (Xina)', { dx: 12, color: '#8f5428', onSel: (g) => {
+    m.svg.querySelectorAll('.port').forEach(p => p.classList.toggle('actiu', p === g));
+    info.innerHTML = '<p class="quan">Càssia</p><p>Escorça d’un arbre del sud de la Xina, parenta de la canyella. Més gruixuda, més forta i més barata.</p>';
+  } });
+  m.port(12.3, 45.4, 'Venècia', { dx: 10, color: '#1c2a4e', onSel: (g) => {
+    m.svg.querySelectorAll('.port').forEach(p => p.classList.toggle('actiu', p === g));
+    info.innerHTML = '<p class="quan">Venècia</p><p>Aquí no hi creixia cap espècia tropical, però era el gran mercat europeu de les espècies. Al capítol 5 veuràs com hi arribaven.</p>';
+  } });
+});
+</script>
+</body>
+</html>
