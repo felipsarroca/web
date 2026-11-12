@@ -298,6 +298,16 @@
     if (ant) cont.insertAdjacentHTML('afterbegin', `<p class="instr">La millor puntuació que hi has fet: ${ant.enc} de ${ant.tot}.</p>`);
   }
 
+  /* ---------- icones de línia (més elegants que els emojis) ---------- */
+  const ICONES = {
+    glossari: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5Z"/><path d="M12 6.5v13"/><path d="M6 9h3.5M6 12h3.5M14.5 9H18M14.5 12H18"/>',
+    fonts: '<path d="M4 5.5h4v14H4zM8 5.5h4v14H8z"/><path d="m13.2 6.6 3.8-1 3.6 13.6-3.8 1z"/><path d="M4 9h4M8 9h4M4 16h4M8 16h4"/>',
+    descarregues: '<path d="M12 4v10.5"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v2.5a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-2.5"/>',
+    professorat: '<path d="M12 5 2.5 9.5 12 14l9.5-4.5Z"/><path d="M6.5 11.5v4c1.5 1.6 3.4 2.3 5.5 2.3s4-.7 5.5-2.3v-4"/><path d="M21.5 9.5v5"/>'
+  };
+  const icona = (k) => ICONES[k] ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES[k]}</svg>` : (k || '');
+  document.querySelectorAll('[data-icona]').forEach(e => { e.innerHTML = icona(e.dataset.icona); e.setAttribute('aria-hidden', 'true'); });
+
   /* ---------- pestanyes: cada capítol es llegeix per etapes, sense un desplaçament infinit ---------- */
   function pestanyes() {
     const main = document.querySelector('main');
@@ -314,7 +324,7 @@
     noms.forEach((n, i) => {
       const id = 'p' + (i + 1);
       const b = el('button', { type: 'button', role: 'tab', id: 'tab-' + id, 'aria-controls': id, 'aria-selected': 'false', tabindex: '-1' },
-        `<span class="tab-ic" aria-hidden="true">${icones[n]}</span><span class="tab-n">${n}</span>`);
+        `<span class="tab-ic${ICONES[icones[n]] ? ' svg' : ''}" aria-hidden="true">${icona(icones[n])}</span><span class="tab-n">${n}</span>`);
       llista.appendChild(b); bts.push(b);
       const pan = el('div', { class: 'tab-panel wrap' + (grups[n].some(s => s.hasAttribute('data-duo')) ? ' duo' : ''), role: 'tabpanel', id, 'aria-labelledby': 'tab-' + id, hidden: '' });
       grups[n].forEach(s => { s.classList.remove('wrap'); pan.appendChild(s); });

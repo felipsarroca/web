@@ -518,3 +518,11 @@ h3 { font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); }
 #ll-llista .preg { margin: 0; }
 /* En pantalles amples, la navegació ja mostra els capítols: s'amaga el fil per guanyar espai */
 @media (min-width: 981px) { .fil { display: none; } }
+
+/* Icones de línia (pàgina de recursos) */
+.tabs .tab-ic.svg { display: inline-grid; place-items: center; width: 22px; height: 22px; }
+.tabs .tab-ic.svg svg { width: 19px; height: 19px; color: var(--cinnamon); }
+.tabs [role=tab][aria-selected=true] .tab-ic.svg svg { color: var(--saffron); }
+h2.amb-ic { display: flex; align-items: center; gap: 12px; }
+.h-ic { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--paper-2), var(--paper-3)); border: 1.5px solid rgba(180, 80, 44, .35); box-shadow: 0 6px 14px -9px rgba(80, 50, 20, .55), inset 0 0 0 3px rgba(255, 255, 255, .45); color: var(--terra); }
+.h-ic svg { width: 24px; height: 24px; }

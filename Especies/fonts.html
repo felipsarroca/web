@@ -8,8 +8,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css">
-<script src="js/comu.js" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261112">
+<script src="js/comu.js?v=20261112" defer></script>
 <style>
   .glossari { display: grid; gap: 10px 28px; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); margin: 0; }
   .glossari div { background: var(--card); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 14px -10px rgba(0,0,0,.4); }
@@ -32,13 +32,13 @@
   <p class="pregunta">Les paraules clau, d’on surt tot el que llegeixes i els materials per descarregar.</p>
 </header>
 
-<section class="sec wrap" id="glossari" data-tab="Glossari" data-ic="📖">
-  <div class="panell-cap"><h2 class="mb0">📖 Glossari</h2><input type="text" id="cerca" placeholder="Cerca una paraula…" aria-label="Cerca al glossari"></div>
+<section class="sec wrap" id="glossari" data-tab="Glossari" data-ic="glossari">
+  <div class="panell-cap"><h2 class="mb0 amb-ic"><span class="h-ic" data-icona="glossari"></span>Glossari</h2><input type="text" id="cerca" placeholder="Cerca una paraula…" aria-label="Cerca al glossari"></div>
   <dl class="glossari mt1" id="gl-llista"></dl>
 </section>
 
-<section class="sec wrap reveal" id="fonts" data-tab="Fonts" data-ic="📚">
-  <h2>📚 Fonts consultades</h2>
+<section class="sec wrap reveal" id="fonts" data-tab="Fonts" data-ic="fonts">
+  <h2 class="amb-ic"><span class="h-ic" data-icona="fonts"></span>Fonts consultades</h2>
   <p class="intro">Tot el contingut s’ha elaborat a partir d’aquestes fonts, reunides i contrastades en un quadern de NotebookLM. Quan dues fonts no coincidien, s’ha indicat o s’ha triat la més fiable.</p>
   <h3 class="mt2">Fonts primàries (escrites per testimonis)</h3>
   <ul class="fonts-llista">
@@ -70,18 +70,17 @@
     <li>Preus actuals d’espècies en un supermercat (Carrefour, 11/11/2026).</li>
     <li>Audiovisuals: Crash Course (comerç de l’Índic; era de les exploracions); RTVE, <i>La odisea de las especias</i> i Òrbita Laika.</li>
   </ul>
-  <div class="avis mt2"><span class="ic">🔎</span><div><p class="etiq">Correccions</p><p>En contrastar les fonts s’han detectat alguns errors: una font diu que el tractat de Saragossa es va pagar amb 50.000 ducats (van ser 350.000) i una altra situa Gama a l’Índia el 1493 (va ser el 1498). En aquesta web s’han fet servir les dades correctes.</p></div></div>
 </section>
 
-<section class="sec wrap reveal" id="descarregues" data-tab="Descàrregues" data-ic="⬇️">
-  <h2>⬇️ Descàrregues</h2>
+<section class="sec wrap reveal" id="descarregues" data-tab="Descàrregues" data-ic="descarregues">
+  <h2 class="amb-ic"><span class="h-ic" data-icona="descarregues"></span>Descàrregues</h2>
   <p class="intro">Les nou infografies a mida completa (1920 × 1080) i la presentació per projectar-les a l’aula.</p>
   <div class="bts mt1"><a class="bt" href="infografies/El comerç de les espècies.pptx" download>📊 Presentació PowerPoint (9 diapositives)</a></div>
   <div class="desc mt2" id="desc"></div>
 </section>
 
-<section class="sec wrap reveal" id="docents" data-tab="Professorat" data-ic="🍎">
-  <h2>🍎 Per al professorat</h2>
+<section class="sec wrap reveal" id="docents" data-tab="Professorat" data-ic="professorat">
+  <h2 class="amb-ic"><span class="h-ic" data-icona="professorat"></span>Per al professorat</h2>
   <div class="graella g2 mt1">
     <div class="targeta">
       <h3>Encaix curricular</h3>
@@ -111,7 +110,7 @@
   </div>
 </section>
 
-<section class="sec wrap reveal" data-tab="Fonts" data-ic="📚">
+<section class="sec wrap reveal" data-tab="Fonts" data-ic="fonts">
   <h2>Crèdits</h2>
   <p class="text">Infografies i il·lustracions a l’aquarel·la generades amb IA a partir d’encàrrecs verificats, i revisades una a una. Mapes amb contorns de <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a> (domini públic). Tipografies Alegreya i Alegreya Sans (Google Fonts, SIL Open Font License).</p>
 </section>
