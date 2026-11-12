@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: CC-BY-NC-SA-4.0 */
 /* Mapes SVG a partir dels contorns de Natural Earth (js/mapes-dades.js) */
 (function () {
   'use strict';
