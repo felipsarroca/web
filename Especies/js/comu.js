@@ -196,7 +196,7 @@
     const marc = el('p', { class: 'marcador', 'aria-live': 'polite' });
     let fetes = 0, encerts = 0;
     const actualitza = () => {
-      marc.textContent = `Encerts: ${encerts} de ${preguntes.length}` + (fetes === preguntes.length ? (encerts === preguntes.length ? ' · Perfecte! 🌟' : encerts >= preguntes.length * .6 ? ' · Molt bé!' : ' · Torna-hi quan vulguis: rellegeix el capítol i prova-ho de nou.') : '');
+      marc.textContent = `Encerts: ${encerts} de ${preguntes.length}` + (fetes === preguntes.length ? (encerts === preguntes.length ? ' · Perfecte!' : encerts >= preguntes.length * .6 ? ' · Molt bé!' : ' · Torna-hi quan vulguis: rellegeix el capítol i prova-ho de nou.') : '');
       if (fetes === preguntes.length) { Prog.desaQuiz(id, encerts, preguntes.length); Prog.marcaVist(capActual); }
     };
     const boxes = [], punts = el('div', { class: 'q-punts', role: 'group', 'aria-label': 'Preguntes' });
@@ -300,6 +300,23 @@
 
   /* ---------- icones de línia (més elegants que els emojis) ---------- */
   const ICONES = {
+    creu: '<circle cx="12" cy="12" r="8.5"/><path d="m9 9 6 6M15 9l-6 6"/>',
+    interrogant: '<circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.7" r=".7" fill="currentColor"/>',
+    test: '<path d="M6 13h12l-1.5 7.5h-9Z"/><path d="M12 13V8.5"/><path d="M12 9c0-2.5 1.6-4.5 4.5-4.5 0 2.8-1.6 4.5-4.5 4.5Z"/><path d="M12 10.5c0-2-1.3-3.5-3.8-3.5 0 2.3 1.4 3.5 3.8 3.5Z"/>',
+    ok: '<circle cx="12" cy="12" r="8.5"/><path d="m8 12.2 2.7 2.7 5.5-5.6"/>',
+    regal: '<rect x="4" y="9" width="16" height="11.5" rx="1.5"/><path d="M3 9h18M12 9v11.5"/><path d="M12 9c-3 0-4.5-1.2-4.5-2.7S9.6 4 12 9Zm0 0c3 0 4.5-1.2 4.5-2.7S14.4 4 12 9Z"/>',
+    morter: '<path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M8.5 20h7"/><path d="m13.5 11 5-7"/>',
+    encens: '<path d="M12 3.5c3 3.2 5 5.8 5 9a5 5 0 0 1-10 0c0-1.9.8-3.4 2-4.6.2 1.6 1 2.6 2 3.1 0-2.6.4-5 1-7.5Z"/>',
+    corona: '<path d="M4.5 17 3 7.5l5 4 4-6 4 6 5-4-1.5 9.5Z"/><path d="M4.5 20.5h15"/>',
+    llavor: '<path d="M12 3.5c4 0 7 3.8 7 8.3s-3 8.7-7 8.7-7-4.2-7-8.7 3-8.3 7-8.3Z"/><path d="M12 3.5c-1.6 3-1.6 14 0 17"/>',
+    calculadora: '<rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8 7h8v3.5H8Z"/><path d="M8.5 14h.01M12 14h.01M15.5 14h.01M8.5 17.5h.01M12 17.5h.01M15.5 17.5h.01" stroke-width="2.4"/>',
+    baixa: '<path d="M4 4v16h16"/><path d="m7.5 8 4 4.5 3-2.5 5 6"/>',
+    bandera: '<path d="M5.5 21V3.5"/><path d="M5.5 4.5h13l-2.5 4 2.5 4h-13"/>',
+    onada: '<path d="M3 8c1.5 0 1.5-1.5 3-1.5S7.5 8 9 8s1.5-1.5 3-1.5S13.5 8 15 8s1.5-1.5 3-1.5S19.5 8 21 8"/><path d="M3 13c1.5 0 1.5-1.5 3-1.5S7.5 13 9 13s1.5-1.5 3-1.5 1.5 1.5 3 1.5 1.5-1.5 3-1.5 1.5 1.5 3 1.5"/><path d="M3 18c1.5 0 1.5-1.5 3-1.5S7.5 18 9 18s1.5-1.5 3-1.5 1.5 1.5 3 1.5 1.5-1.5 3-1.5 1.5 1.5 3 1.5"/>',
+    sol: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
+    duana: '<path d="M3.5 9 12 4l8.5 5Z"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/><path d="M4.5 17h15M3.5 20h17"/>',
+    caixa: '<rect x="3.5" y="8" width="17" height="11.5" rx="1.5"/><path d="M9 8V5.5h6V8"/><path d="M3.5 13h17M10.5 13v2h3v-2"/>',
+    copia: '<rect x="8" y="8" width="12" height="12.5" rx="2"/><path d="M16 8V5.5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h2"/>',
     glossari: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5Z"/><path d="M12 6.5v13"/><path d="M6 9h3.5M6 12h3.5M14.5 9H18M14.5 12H18"/>',
     fonts: '<path d="M4 5.5h4v14H4zM8 5.5h4v14H8z"/><path d="m13.2 6.6 3.8-1 3.6 13.6-3.8 1z"/><path d="M4 9h4M8 9h4M4 16h4M8 16h4"/>',
     descarregues: '<path d="M12 4v10.5"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v2.5a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-2.5"/>',
@@ -331,7 +348,10 @@
     regle: '<rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M6.5 8v3M10.5 8v4.5M14.5 8v3M18.5 8v4.5"/>'
   };
   const icona = (k) => ICONES[k] ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES[k]}</svg>` : (k || '');
-  document.querySelectorAll('[data-icona]').forEach(e => { e.innerHTML = icona(e.dataset.icona); e.setAttribute('aria-hidden', 'true'); });
+  const omple = (arrel) => (arrel.querySelectorAll ? arrel : document).querySelectorAll('[data-icona]:empty').forEach(e => { e.innerHTML = icona(e.dataset.icona); e.setAttribute('aria-hidden', 'true'); });
+  omple(document);
+  new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => { if (n.nodeType !== 1) return; if (n.matches('[data-icona]:empty')) n.innerHTML = icona(n.dataset.icona); omple(n); }))).observe(document.documentElement, { childList: true, subtree: true });
+  window.icona = icona;
 
   /* ---------- pestanyes: cada capítol es llegeix per etapes, sense un desplaçament infinit ---------- */
   function pestanyes() {

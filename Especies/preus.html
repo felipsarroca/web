@@ -8,8 +8,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112b">
-<script src="js/comu.js?v=20261112b" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261112c">
+<script src="js/comu.js?v=20261112c" defer></script>
 </head>
 <body data-cap="5">
 <main id="contingut">
@@ -28,7 +28,7 @@
 
 <section class="sec wrap reveal" data-tab="Comença" data-ic="comenca" data-duo>
   <div class="resum">
-    <h2>⚡ En 30 segons</h2>
+    <h2 class="amb-ic"><span class="h-ic" data-icona="comenca"></span>En 30 segons</h2>
     <ul class="normal">
       <li>Un quilo de pebre que a Malabar costava 1 o 2 grams de plata, a Europa en podia costar <strong>de 20 a 30</strong>.</li>
       <li>El preu no pujava per un sol motiu. Cada tram afegia <strong>transport, riscos, impostos i el benefici</strong> de cada <button class="gl" data-gl="intermediari">intermediari</button>.</li>
@@ -47,7 +47,7 @@
   <figure class="infografia">
     <button type="button" data-gran="img/infografies/preus.webp" data-png="infografies/El comerç de les espècies - (5).png" aria-label="Amplia la infografia">
       <img src="img/infografies/preus.webp" alt="Infografia: la cadena d'intermediaris i com pujava el preu del pebre de Malabar a Europa." loading="lazy" width="1920" height="1080">
-      <span class="lupa">🔍 Amplia</span>
+      <span class="lupa"><i class="ic-l" data-icona="lupa"></i> Amplia</span>
     </button>
     <figcaption><span>Infografia del capítol 5. Toca-la per veure-la gran.</span></figcaption>
   </figure>
@@ -81,7 +81,7 @@
 <section class="sec wrap reveal" data-tab="El joc" data-ic="dau">
   <div class="panell" id="joc">
     <div class="panell-cap">
-      <h3>🎲 Joc: ets un mercader venecià</h3>
+      <h3 class="amb-ic"><span class="h-ic" data-icona="dau"></span>Joc: ets un mercader venecià</h3>
       <p class="instr">Compres 1.000 kg de pebre a Alexandria a 10 g de plata el quilo. Has de portar-los a Venècia i vendre’ls.</p>
     </div>
     <div class="dues">
@@ -92,14 +92,14 @@
           <button type="button" data-n="coca" aria-pressed="false">Nau barata</button>
         </div>
         <p class="instr mt1" id="j-desc"></p>
-        <div class="bts mt2"><button class="bt terra" type="button" id="j-go">⛵ Salpa</button><button class="bt sec2" type="button" id="j-reset" hidden>Torna a jugar</button></div>
+        <div class="bts mt2"><button class="bt terra" type="button" id="j-go"><i class="ic-l" data-icona="vaixell"></i> Salpa</button><button class="bt sec2" type="button" id="j-reset" hidden>Torna a jugar</button></div>
         <div class="comptadors mt2">
           <div class="comptador"><b id="j-kg">1.000</b><span>kg de pebre</span></div>
           <div class="comptador"><b id="j-cost">10.000</b><span>g de plata gastats</span></div>
         </div>
       </div>
       <div>
-        <p><b>2. El viatge</b> <span class="dau" id="j-dau" aria-hidden="true">🎲</span></p>
+        <p><b>2. El viatge</b> <span class="dau" id="j-dau" aria-hidden="true"><i class="ic-l" data-icona="dau"></i></span></p>
         <ul class="registre" id="j-log" aria-live="polite"><li>Encara a port, a Alexandria.</li></ul>
       </div>
     </div>
@@ -126,14 +126,14 @@
 
 <section class="sec wrap reveal" data-tab="Intermediaris" data-ic="cadena">
   <div class="graella g2">
-    <div class="avis sabies"><span class="ic">📉</span><div><p class="etiq">Abans de Gama</p><p>L’historiador Frederic Lane va mostrar que el preu del pebre a Venècia ja <strong>baixava</strong> entre 1430 i 1470, abans de la ruta portuguesa. Els preus depenien de molts factors: guerres, pestes i acords amb el sultà.</p></div></div>
-    <div class="avis mite"><span class="ic">❌</span><div><p class="etiq">Mite</p><p>«Els turcs van tancar la ruta de les espècies el 1453 i per això els europeus van buscar camins nous.» No és cert: les espècies continuaven arribant per Egipte i Síria, controlades pels mamelucs, no pels otomans.</p></div></div>
+    <div class="avis sabies"><span class="ic h-ic" data-icona="baixa"></span><div><p class="etiq">Abans de Gama</p><p>L’historiador Frederic Lane va mostrar que el preu del pebre a Venècia ja <strong>baixava</strong> entre 1430 i 1470, abans de la ruta portuguesa. Els preus depenien de molts factors: guerres, pestes i acords amb el sultà.</p></div></div>
+    <div class="avis mite"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Mite</p><p>«Els turcs van tancar la ruta de les espècies el 1453 i per això els europeus van buscar camins nous.» No és cert: les espècies continuaven arribant per Egipte i Síria, controlades pels mamelucs, no pels otomans.</p></div></div>
   </div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Posa-t’hi" data-ic="escriu">
   <div class="posat">
-    <h2>✍️ Posa-t’hi</h2>
+    <h2 class="amb-ic"><span class="h-ic" data-icona="escriu"></span>Posa-t’hi</h2>
     <div data-quiz="c5"></div>
   </div>
 </section>
@@ -170,15 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const t of trams) {
       $('j-dau').classList.add('roda'); await espera(900); $('j-dau').classList.remove('roda');
       const r = Math.random();
-      if (r < N[nau].pirates) { const p = Math.round(kg * 0.3); kg -= p; pas(`🏴‍☠️ <b>${t}:</b> pirates! Et roben ${fmt(p)} kg.`); }
-      else if (r < N[nau].pirates + N[nau].temp) { const p = Math.round(kg * 0.15); kg -= p; pas(`🌊 <b>${t}:</b> tempesta. Llances ${fmt(p)} kg per la borda per no enfonsar-te.`); }
-      else pas(`☀️ <b>${t}:</b> bon vent, sense incidents.`);
+      if (r < N[nau].pirates) { const p = Math.round(kg * 0.3); kg -= p; pas(`<i class="ic-l" data-icona="bandera"></i> <b>${t}:</b> pirates! Et roben ${fmt(p)} kg.`); }
+      else if (r < N[nau].pirates + N[nau].temp) { const p = Math.round(kg * 0.15); kg -= p; pas(`<i class="ic-l" data-icona="onada"></i> <b>${t}:</b> tempesta. Llances ${fmt(p)} kg per la borda per no enfonsar-te.`); }
+      else pas(`<i class="ic-l" data-icona="sol"></i> <b>${t}:</b> bon vent, sense incidents.`);
     }
-    const imp = Math.round(kg * 0.5); cost += imp; pas(`🏛️ Arribes a Venècia i pagues impostos: ${fmt(imp)} g.`);
+    const imp = Math.round(kg * 0.5); cost += imp; pas(`<i class="ic-l" data-icona="duana"></i> Arribes a Venècia i pagues impostos: ${fmt(imp)} g.`);
     await espera(500);
     const preu = 14 + Math.round(Math.random() * 4);
     const venda = kg * preu, guany = venda - cost;
-    pas(`⚖️ Vens ${fmt(kg)} kg a ${preu} g el quilo: ${fmt(venda)} g de plata.`);
+    pas(`<i class="ic-l" data-icona="balanca"></i> Vens ${fmt(kg)} kg a ${preu} g el quilo: ${fmt(venda)} g de plata.`);
     $('j-fi').innerHTML = guany >= 0 ? `Has guanyat <strong>${fmt(guany)} g de plata</strong> (${Math.round(guany / cost * 100)} %). Ara entens per què el venecià revenia més car: arriscava molt.` : `Has perdut <strong>${fmt(-guany)} g de plata</strong>. El comerç d’espècies era un gran negoci… però també una aposta.`;
     $('j-reset').hidden = false;
   };
