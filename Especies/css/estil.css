@@ -411,14 +411,14 @@ h3 { font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); }
 /* Capçalera de capítol: una franja baixa amb la il·lustració petita */
 .cap-hero { padding: clamp(10px, 1.6vw, 20px) 0 4px; }
 .cap-hero .grid { grid-template-columns: 1fr auto; gap: clamp(14px, 3vw, 40px); }
-.cap-hero .il { max-width: 170px; max-height: 150px; object-fit: contain; }
+.cap-hero .il { max-width: 340px; max-height: 300px; object-fit: contain; }
 .cap-num { font-size: .82rem; margin-bottom: 2px; }
 .pregunta { font-size: clamp(1.05rem, .95rem + .5vw, 1.3rem); margin: 0; }
 .meta { margin-top: 10px; gap: 6px; }
 .xip { font-size: .82rem; padding: 3px 10px; }
 @media (max-width: 760px) {
   .cap-hero .grid { grid-template-columns: 1fr auto; }
-  .cap-hero .il { max-width: 92px; max-height: 92px; order: 0; }
+  .cap-hero .il { max-width: 150px; max-height: 150px; order: 0; }
   .cap-hero .meta { display: none; }
 }
 
