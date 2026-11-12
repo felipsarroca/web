@@ -303,7 +303,32 @@
     glossari: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5Z"/><path d="M12 6.5v13"/><path d="M6 9h3.5M6 12h3.5M14.5 9H18M14.5 12H18"/>',
     fonts: '<path d="M4 5.5h4v14H4zM8 5.5h4v14H8z"/><path d="m13.2 6.6 3.8-1 3.6 13.6-3.8 1z"/><path d="M4 9h4M8 9h4M4 16h4M8 16h4"/>',
     descarregues: '<path d="M12 4v10.5"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v2.5a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-2.5"/>',
-    professorat: '<path d="M12 5 2.5 9.5 12 14l9.5-4.5Z"/><path d="M6.5 11.5v4c1.5 1.6 3.4 2.3 5.5 2.3s4-.7 5.5-2.3v-4"/><path d="M21.5 9.5v5"/>'
+    professorat: '<path d="M12 5 2.5 9.5 12 14l9.5-4.5Z"/><path d="M6.5 11.5v4c1.5 1.6 3.4 2.3 5.5 2.3s4-.7 5.5-2.3v-4"/><path d="M21.5 9.5v5"/>',
+    comenca: '<path d="M13 3 5 13.5h6L10 21l8-10.5h-6Z"/>',
+    escriu: '<path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/>',
+    monedes: '<ellipse cx="10" cy="6.5" rx="6" ry="2.5"/><path d="M4 6.5v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/><path d="M8 15.3v2.2c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4c0-1.2-1.8-2.1-4.3-2.4"/>',
+    ancora: '<circle cx="12" cy="5" r="2"/><path d="M12 7v13M8 10.5h8"/><path d="M4.5 13.5a7.5 7.5 0 0 0 15 0"/>',
+    pergami: '<path d="M8 4h10a2 2 0 0 1 2 2v1.5h-4"/><path d="M16 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1.5h10V18"/><path d="M8 4a2 2 0 0 0-2 2v10.5"/><path d="M9.5 9.5h3.5M9.5 13h3.5"/>',
+    globus: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.3 3.8 5.2 3.8 8.5s-1.3 6.2-3.8 8.5c-2.5-2.3-3.8-5.2-3.8-8.5S9.5 5.8 12 3.5Z"/>',
+    idea: '<path d="M9.5 17.5h5M10.5 20.5h3"/><path d="M12 3.5a5.5 5.5 0 0 0-3.2 10c.7.5 1.2 1.3 1.2 2.1v1.9h4v-1.9c0-.8.5-1.6 1.2-2.1A5.5 5.5 0 0 0 12 3.5Z"/>',
+    temps: '<path d="M6.5 3.5h11M6.5 20.5h11"/><path d="M8 3.5c0 4.5 4 5 4 8.5s-4 4-4 8.5M16 3.5c0 4.5-4 5-4 8.5s4 4 4 8.5"/>',
+    balanca: '<path d="M12 4v16M8.5 20h7M5 7h14"/><path d="m5 7-2.5 6a2.5 2.5 0 0 0 5 0Z"/><path d="m19 7-2.5 6a2.5 2.5 0 0 0 5 0Z"/>',
+    dau: '<rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="8.8" cy="8.8" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="15.2" cy="15.2" r="1" fill="currentColor"/>',
+    mapa: '<path d="M9 4.5 3.5 6.5v13L9 17.5l6 2 5.5-2v-13L15 6.5Z"/><path d="M9 4.5v13M15 6.5v13"/>',
+    vaixell: '<path d="M12 3v13"/><path d="M12 4.5 18 14h-6"/><path d="M10.5 7 6.5 14h4"/><path d="M3.5 17h17l-2.2 3.5H5.7Z"/>',
+    bruixola: '<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/>',
+    grafic: '<path d="M4 4v16h16"/><path d="m7.5 15 4-4.5 3 2.5 5-6"/>',
+    vent: '<path d="M3.5 9h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3.5 13h15a2.5 2.5 0 1 1-2.5 2.5"/><path d="M3.5 17h6"/>',
+    fardell: '<path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4Z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/>',
+    planta: '<path d="M12 20.5V12"/><path d="M12 12c0-4 2.5-6.5 7-6.5 0 4.5-2.5 6.5-7 6.5Z"/><path d="M12 14.5c0-3-2-5-6-5 0 3.5 2 5 6 5Z"/><path d="M8 20.5h8"/>',
+    cadena: '<path d="M10 14a3.5 3.5 0 0 0 5 0l3-3a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14 10a3.5 3.5 0 0 0-5 0l-3 3a3.5 3.5 0 0 0 5 5l1-1"/>',
+    lupa: '<circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/>',
+    fitxes: '<rect x="4" y="7" width="11" height="13.5" rx="2"/><path d="M8 7V5.5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2V16a2 2 0 0 1-2 2h-3"/>',
+    barres: '<path d="M3.5 20.5h17"/><path d="M6.5 20.5v-6M10.5 20.5V8.5M14.5 20.5v-9M18.5 20.5V5"/>',
+    olla: '<path d="M3.5 11h17"/><path d="M5 11v2.5a7 7 0 0 0 14 0V11"/><path d="M9.5 8c0-1.2 1-1.6 1-2.8M13.5 8c0-1.2 1-1.6 1-2.8"/>',
+    etiqueta: '<path d="M3.5 12V4.5a1 1 0 0 1 1-1H12l8.5 8.5-8.5 8.5Z"/><circle cx="8" cy="8" r="1.4"/>',
+    repas: '<path d="M10 6h10M10 12h10M10 18h10"/><path d="m3.5 6 1.3 1.3L7.5 4.5M3.5 12l1.3 1.3 2.7-2.8M3.5 18l1.3 1.3 2.7-2.8"/>',
+    regle: '<rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M6.5 8v3M10.5 8v4.5M14.5 8v3M18.5 8v4.5"/>'
   };
   const icona = (k) => ICONES[k] ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES[k]}</svg>` : (k || '');
   document.querySelectorAll('[data-icona]').forEach(e => { e.innerHTML = icona(e.dataset.icona); e.setAttribute('aria-hidden', 'true'); });
