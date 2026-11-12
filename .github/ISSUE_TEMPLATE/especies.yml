@@ -1,0 +1,43 @@
+name: El comerç de les espècies
+description: Comunica un error o proposa una millora per a la web «El comerç de les espècies».
+title: "[Espècies] "
+labels: ["Especies"]
+body:
+  - type: dropdown
+    id: tipus
+    attributes:
+      label: Tipus
+      options:
+        - Error
+        - Suggeriment
+        - Dubte
+    validations:
+      required: true
+  - type: textarea
+    id: descripcio
+    attributes:
+      label: Descripció
+      description: Explica què passa o què t'agradaria millorar.
+      placeholder: Escriu-hi el detall...
+    validations:
+      required: true
+  - type: input
+    id: pagina
+    attributes:
+      label: Pàgina o capítol
+      description: Indica on passa, si ho saps.
+      placeholder: Portada, capítol 4, repte final...
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos per reproduir-ho
+      description: Omple-ho només si es tracta d'un error.
+      placeholder: |
+        1. Obro...
+        2. Clico...
+        3. Veig...
+  - type: input
+    id: dispositiu
+    attributes:
+      label: Dispositiu i navegador
+      placeholder: Ordinador amb Chrome, mòbil amb Safari...

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Prepara les imatges de la web a partir de les infografies v2 (des de la carpeta Especies)."""
 from PIL import Image, ImageDraw, ImageFilter
 import os

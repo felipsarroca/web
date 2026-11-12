@@ -4,6 +4,7 @@
 
 [![Web](https://img.shields.io/badge/Obre_la_web-ja.cat%2Fespecies-b4502c?style=for-the-badge)](https://ja.cat/especies)
 [![HTML](https://img.shields.io/badge/HTML_·_CSS_·_JS-sense_dependències-1c2a4e?style=flat-square)](#com-està-fet)
+[![Codi](https://img.shields.io/badge/codi-AGPLv3-1c2a4e?style=flat-square)](LICENSE)
 [![Llicència](https://img.shields.io/badge/continguts-CC_BY--NC--SA_4.0-d99a1e?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca)
 
 Web educativa en català per a l’ESO sobre el comerç de les espècies, de Marco Polo a la primera volta al món i fins avui. Nou capítols curts, cadascun amb una infografia a l’aquarel·la, mapes interactius, fonts primàries, mites desmuntats i preguntes amb correcció immediata. Al final, l’alumnat respon la gran pregunta amb un text argumentat i una rúbrica.
@@ -76,4 +77,5 @@ Especies/
 
 Web creada per [Felip Sarroca](https://ja.cat/felipsarroca) amb assistència de la IA. Infografies generades amb IA a partir d’encàrrecs verificats i revisades una a una. Mapes: [Natural Earth](https://www.naturalearthdata.com/) (domini públic).
 
-Obra sota llicència [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca).
+- Codi: [AGPLv3 o posterior](LICENSE). Continguts: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca).
+- Suggeriments i errors: [formulari d'incidències](https://github.com/felipsarroca/web/issues/new?template=especies.yml).

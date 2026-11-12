@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: CC-BY-NC-SA-4.0 */
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
 /* El comerç de les espècies · codi comú de totes les pàgines */
 (function () {
   'use strict';

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Genera js/mapes-dades.js: contorns de terra (Natural Earth, domini públic) projectats per als mapes SVG de la web."""
 import json, math
 from shapely.geometry import shape, box
