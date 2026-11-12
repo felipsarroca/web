@@ -269,7 +269,7 @@ textarea { width: 100%; min-height: 120px; resize: vertical; }
 /* Activitats «Posa-t'hi» */
 .posat { background: linear-gradient(180deg, rgba(111, 143, 93, .14), rgba(111, 143, 93, .05)); border-radius: 26px; padding: clamp(18px, 3vw, 34px); border: 1.5px solid rgba(111, 143, 93, .3); }
 .posat > h2 { display: flex; align-items: center; gap: 12px; }
-.posat .marcador { font-weight: 800; color: var(--ok); }
+.posat .marcador { font-weight: 800; color: var(--ok); margin-top: 16px; }
 .preg { background: var(--card); border-radius: 16px; padding: 16px 18px; margin-top: 14px; box-shadow: 0 4px 14px -10px rgba(0, 0, 0, .4); }
 .preg .enunciat { font-weight: 700; margin-bottom: 10px; }
 .preg .opcions { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
