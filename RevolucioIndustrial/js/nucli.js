@@ -236,7 +236,7 @@
       ${fases.length ? `<h3 class="p-t">Pas a pas</h3><ol class="fases" id="fases">${fases.map((f, k) => `<li data-k="${k}"><button type="button"><span class="k">${k + 1}</span><span class="f-nom">${esc(f.nom)}</span></button><p>${f.text}</p></li>`).join('')}</ol>` : ''}
       <div class="peca" id="peca"></div>
       ${e.clau ? `<div class="clau"><span>La idea clau</span><p>${e.clau}</p></div>` : ''}
-      ${e.batx ? `<div class="batx-bloc"><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div>` : ''}
+      ${e.batx ? `<div class="batx-wrap" id="batx-wrap"><button type="button" class="batx-toggle" aria-expanded="false"><span>Per aprofundir · 1r de Batxillerat</span><em style="font-style:normal">Mostra ▾</em></button><div class="batx-bloc"><button type="button" class="fitxa-tanca" aria-label="Tanca">×</button><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div></div>` : ''}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
     svgEl = $('#tela svg'); expSvg = $('#lamina-exp .exp-svg'); els = {};
@@ -302,7 +302,17 @@
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     if (expSvg) expSvg.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     $('.p-nav').addEventListener('click', (ev) => { const b = ev.target.closest('[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); });
-    $('#peca').addEventListener('click', (ev) => { const b = ev.target.closest('[data-tria]'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria); });
+    $('#peca').addEventListener('click', (ev) => {
+      if (ev.target.closest('.fitxa-tanca')) { tria(null); return; }
+      const b = ev.target.closest('[data-tria]'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria);
+    });
+    const bw = $('#batx-wrap');
+    if (bw) {
+      const bt = $('.batx-toggle', bw), bClose = $('.fitxa-tanca', bw);
+      const setB = (on) => { bw.classList.toggle('obert', on); if (bt) { bt.setAttribute('aria-expanded', on); $('em', bt).textContent = on ? 'Amaga ▴' : 'Mostra ▾'; } };
+      if (bt) bt.addEventListener('click', () => setB(!bw.classList.contains('obert')));
+      if (bClose) bClose.addEventListener('click', () => setB(false));
+    }
     botoPlay(); st.brut = true;
   }
 
@@ -487,7 +497,7 @@
     const parts = e.parts || {}, claus = Object.keys(parts);
     if (!claus.length) { box.innerHTML = ''; return; }
     const p = st.sel ? parts[st.sel] : null;
-    box.innerHTML = `<h3 class="p-t">Les peces <small>toca’n una al dibuix</small></h3><div class="xips">${claus.map((k) => `<button type="button" data-tria="${k}" aria-pressed="${k === st.sel}">${esc(parts[k].nom)}</button>`).join('')}</div>${p ? `<div class="fitxa"><strong>${esc(p.nom)}</strong><p>${p.text}</p></div>` : ''}`;
+    box.innerHTML = `<h3 class="p-t">Les peces <small>toca’n una al dibuix</small></h3><div class="xips">${claus.map((k) => `<button type="button" data-tria="${k}" aria-pressed="${k === st.sel}">${esc(parts[k].nom)}</button>`).join('')}</div>${p ? `<div class="fitxa"><button type="button" class="fitxa-tanca" aria-label="Tanca la fitxa">×</button><strong>${esc(p.nom)}</strong><p>${p.text}</p></div>` : ''}`;
     const tela = $('#tela');
     if (tela) {
       if (svgEl) svgEl.classList.toggle('te-sel', !!st.sel);

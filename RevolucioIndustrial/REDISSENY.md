@@ -100,3 +100,7 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
    - **Desactivació de la barra de reproducció en làmines estàtiques** (`.comandament.inactiva` quan és activa `Vista explotada`, `Màquina real` o un repte): atura el bucle de reproducció, bloqueja tecles/botons i indica tornar al diagrama per animar.
    - **Zoom ×1,8 interactiu** (`[data-zoom]` + seguiment del ratolí a `.lamina-zoom`) tant a `Vista explotada` com a `Màquina real`, i navegació reactiva per `hashchange`.
    - **Ajust del panell dret sense scroll vertical innecessari** en escriptori (`1440×900` i `1366×768`) i reforços visuals pedagògics a `vapor.js` (fletxes de pressió/buit a Newcomen i força del vapor a Watt) i `metalls.js` (equació d’oxidació `C + O₂ → CO₂ ↑` i reducció del carboni `4 % → 0,5 %` al Bessemer).
+7. **Redisseny lleuger i sense scroll del panell dret (13/11/2026)**:
+   - Columna `.panell` equilibrada (`clamp(370px, 27.5vw, 410px)`), tipografia més continguda i separacions visuals més clares entre pregunta, fases, peces i idea clau.
+   - Fitxa de peça tancable (`.fitxa-tanca`) i bloc `+ Batxillerat` convertit en desplegable flotant (`.batx-wrap` / `.batx-bloc`) perquè totes les escenes i els botons inferiors (`.p-nav`) càpiguen sempre sense scroll vertical a `1440×900` i `1366×768`.
+   - Pendent de generar per quota/saldo extern: substitució de `js/reals.js` per 13 il·lustracions realistes en format imatge (`img/real-*.webp`) i refinament d’algunes `img/exp-*.webp` (com `exp-newcomen` i `exp-arada`).
