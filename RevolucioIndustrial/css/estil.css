@@ -469,6 +469,7 @@ svg.explota [data-guia]{opacity:.58}
 #app{padding-bottom:var(--peu-h,45px)}
 .mobil .escenari.real-activa .tela,.mobil .escenari.exp-activa .tela{aspect-ratio:1/1}
 body[data-capitol="textil"] .escenes button small{display:none}
+body[data-capitol="textil"] .escenes button{padding-left:9px;padding-right:9px;gap:5px}
 .mobil .ara{flex-wrap:wrap;gap:5px;align-items:center;font-size:.95rem}
 .mobil .ara .seg-hint{flex-basis:100%;margin-left:30px;white-space:normal;font-size:.7rem;line-height:1.25}
 

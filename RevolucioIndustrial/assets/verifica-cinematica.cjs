@@ -32,14 +32,14 @@ for(let i=0;i<=1000;i++){
 }
 assert.equal(states.roda(1).output,1);assert.equal(states.jenny(1).output,8);
 assert.equal(states.mula(1).output,6);assert.equal(states.llancadora(1).rows,2);
-for(const file of ['textil-models.js','textil-detalls.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../js/'+file),'utf8'),context);
+for(const file of ['textil-models.js','textil-detalls.js','textil-cartwright.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../js/'+file),'utf8'),context);
 const {Scene,camera,project,depth}=context.RI.TEXTIL_GEOMETRIA;
 const dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 assert(Math.abs(dot(camera,[.94,.48,0]))<1e-10,'depth must be perpendicular to projected horizontal');
 assert(Math.abs(dot(camera,[.12,-.29,-.96]))<1e-10,'depth must be perpendicular to projected vertical');
 const box=new Scene();box.box(0,0,0,10,10,10);assert.equal(box.faces.length,3,'the three facing box surfaces must exist');
 let geometrySamples=0;
-for(const id of ['roda','llancadora','jenny','water','mula'])for(let i=0;i<=20;i++){
+for(const id of ['roda','llancadora','jenny','water','mula','cartwright'])for(let i=0;i<=20;i++){
   const g=context.RI.TEXTIL_DETALLS.buildScene(id,i/20);
   assert(g.faces.length>0);
   for(const f of g.faces){
@@ -53,6 +53,25 @@ for(const id of ['roda','llancadora','jenny','water','mula'])for(let i=0;i<=20;i
   }
   geometrySamples++;
 }
+for(let i=0;i<=1000;i++){
+  const s=states.cartwright(i/1000);
+  assert(Math.abs(Math.hypot(...s.crank.map((v,j)=>v-s.rodEnd[j]))-180)<1e-8,'beater connecting rod changes length');
+  assert(s.y>=-152-1e-8&&s.y<=-82+1e-8);
+  assert(Math.abs(s.camAngle+(s.angle-Math.PI)/2)<1e-8,'cam gear ratio must be 2:1');
+  for(const sign of [-1,1]){
+    const r=context.RI.CARTWRIGHT_GEOMETRIA.camRadius(Math.PI/2-s.camAngle,sign);
+    assert(Math.abs(r-(40+11*sign*s.shed))<1e-8,'cam profile must meet its follower');
+  }
+  if(s.weaving){
+    for(const dy of [-4,4]){
+      const centre=310-40*(40-s.boatY-dy)/195,gap=45*Math.abs(s.shed)*(1-(40-s.boatY-dy)/195);
+      assert(s.boatZ+7<centre+gap&&s.boatZ-1>centre-gap,'moving shuttle bobbin collides with warp');
+    }
+  }else if(Math.abs(s.shed)<.5)assert(Math.abs(s.x)-28>273,'shuttle must park clear of closing shed');
+}
+assert.equal(states.cartwright(1).rows,2);
+const powered=context.RI.TEXTIL_DETALLS.buildScene('cartwright',.2);
+assert(!powered.faces.some(f=>f.part==='cordill'),'power loom must not retain the manual hand cord');
 for(const p of [.2,.25,.3,.35,.69,.72,.78,.82]){
   const g=context.RI.TEXTIL_DETALLS.buildScene('llancadora',p),x=states.llancadora(p).x;
   const row=g.faces.filter(f=>f.color==='#b6593f'&&f.points[0][1]===-82);
@@ -61,4 +80,4 @@ for(const p of [.2,.25,.3,.35,.69,.72,.78,.82]){
     else assert(point[0]>=x-1e-6,'returning weft must grow from the right');
   }
 }
-console.log(JSON.stringify({samples,geometrySamples,checks:'shed, timing, nip direction, stopped rollers, rolling contact, winding, angles, projection, visible box faces, finite geometry'}));
+console.log(JSON.stringify({samples,poweredLoomSamples:1001,geometrySamples,checks:'shed, timing, nip direction, stopped rollers, winding, guides, projection, visible faces, crank rod, cam contact, gearing'}));

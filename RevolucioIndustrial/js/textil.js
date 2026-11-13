@@ -614,8 +614,11 @@
       }
     ]
   };
+  cap.escenes.splice(cap.escenes.findIndex(e=>e.id==='cursa'),0,RI.CARTWRIGHT_ESCENA);
+  cap.repte.push({q:'Què aporta el teler mecànic respecte de la llançadora volant de Kay?',o:['Coordina mecànicament la calada, el pas de la trama i la batuda','Només afegeix una altra llançadora','Transforma la fibra en fil'],c:0,e:'La novetat és mecanitzar i coordinar les tres accions principals del teixit.'});
+  cap.repte.push({tipus:'toca',esc:'cartwright',part:'eix',p:.1,q:'Toca l’eix i les lleves que coordinen el teler mecànic.',e:'El gir es transmet als òrgans de treball perquè actuïn en el moment adequat.'});
   for(const e of cap.escenes){
-    if(e.id!=='cursa')e.model='Detall ampliat · mateixa perspectiva que el conjunt';
+    if(!['cursa','cartwright'].includes(e.id))e.model='Detall ampliat · mateixa perspectiva que el conjunt';
     e.svg=e.id==='cursa'?cursa:()=>RI.TEXTIL_DETALLS.svg(e.id);
     e.anima=e.id==='cursa'?animaCursa:RI.TEXTIL_DETALLS.anima(e.id);
   }

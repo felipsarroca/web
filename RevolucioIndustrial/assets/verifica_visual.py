@@ -55,8 +55,9 @@ with sync_playwright() as p:
      page.wait_for_timeout(45)
      bad=page.locator('#tela > svg').evaluate('(n)=>/NaN|Infinity/.test(n.innerHTML)')
      if bad: errors.append([cap,i,width,'invalid geometry'])
-     if cap=='textil' and i<5:
-      expected=page.evaluate('([id,p])=>RI.TEXTIL_ESTATS[id](p).action',[['roda','llancadora','jenny','water','mula'][i],moment/1000])
+     if cap=='textil' and i<6:
+      expected=page.evaluate('([id,p])=>RI.TEXTIL_ESTATS[id](p).action',[['roda','llancadora','jenny','water','mula','cartwright'][i],moment/1000])
+      page.wait_for_function('(expected)=>document.querySelector("#tx-action")?.textContent===expected',arg=expected,timeout=2500)
       assert page.locator('#tx-action').inner_text()==expected
       assert page.locator('.tx-compara').is_visible()
       assert page.locator('#tx-product').inner_text()
@@ -64,6 +65,11 @@ with sync_playwright() as p:
       if i==3:
        cut=page.locator('#tx-detail polygon[data-part="corrons"][style*="0.35"]').first
        assert abs(float(cut.evaluate('(n)=>getComputedStyle(n).opacity'))-.35)<.01
+   if cap=='textil':
+    assert total==7
+    if bounds['desktop']:
+     assert page.locator('[data-esc="repte"]').evaluate('(n)=>n.getBoundingClientRect().right<=innerWidth+1')
+    assert page.locator('#escenes [aria-selected="true"]').evaluate('(n)=>{const a=n.getBoundingClientRect(),b=n.parentElement.getBoundingClientRect();return a.left>=b.left-1&&a.right<=b.right+1;}')
    page.locator('[data-esc="repte"]').click()
    assert page.locator('.q').count()>0
   footer=page.locator('.felip-app-footer')

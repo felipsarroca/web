@@ -119,8 +119,8 @@
       g.cyl([s.handX-19,s.hand-12,324],[s.handX+7,s.hand+3,329],6,'#e1b99b','fibra',16);
       for(let i=0;i<8;i++)g.line([[s.handX-58,s.hand-3+i*2,335+i],[s.handX-17,s.hand,335]],'#b6c2ab',3,'fibra');
     },
-    llancadora(g,p){
-      const s=S('llancadora',p),by=s.y;
+    llancadora(g,p,provided){
+      const s=provided||S('llancadora',p),by=s.y;
       g.cyl([-290,140,310],[290,140,310],21,'cotton','ordit',28);
       g.cyl([-290,-190,165],[290,-190,165],26,'cotton','tela',28);
       // Deu fils fan visible l'entrecreuament, sense una malla atapeïda.
@@ -142,7 +142,8 @@
       for(const side of [-1,1]){
         const engaged=(side<0?p<.23:p>=.65&&p<.72);
         g.box(side<0?-355:300,by-19,282,55,42,15,'oak','caixes');
-        g.box(side*(335-(engaged&&s.pull?22:0))-7,by-11,290,14,24,17,'brass','caixes');
+        const shift=provided?(side<0?s.pickerLeft:s.pickerRight):(engaged&&s.pull?22:0);
+        g.box(side*((provided?360:335)-shift)-7,by-11,290,14,24,17,'brass','caixes');
       }
       const row=(y,amount,reverse=false)=>{
         amount=Math.max(0,Math.min(1,amount));
@@ -153,15 +154,20 @@
           if(hi>lo)g.line([[lo,y,z+(i%2?2:-2)],[hi,y,z+(i%2?-2:2)]],'#b6593f',4,'llancadora');
         }
       };
-      if(p>=.18)row(p<.4?-82:lerp(-82,-155,s.beat1),p<.38?(s.x+270)/540:1);
-      if(p>=.67)row(p<.86?-82:lerp(-82,-152,s.beat2),p<.85?(270-s.x)/540:1,true);
-      const x=s.x,z=s.boatZ;
-      g.poly([[x-28,-82,z],[x,-94,z],[x+28,-82,z],[x,-70,z]],'brass','llancadora',[0,0,1]);
-      g.poly([[x-28,-82,z],[x,-70,z],[x+28,-82,z],[x+22,-82,z-5],[x,-73,z-6],[x-22,-82,z-5]],'oak','llancadora',[0,-1,0]);
-      g.cyl([x-12,-82,z+3],[x+12,-82,z+3],4,'cotton','llancadora',16);
-      const grip=s.pull?228:248;
-      g.line([[-340,by,298],[-150,-230,250],[0,-245,grip],[150,-230,250],[340,by,298]],'#9b7f52',2.8,'cordill');
-      g.cyl([0,-245,grip-13],[0,-245,grip+13],6,'brass','cordill',16);
+      if(provided)s.wefts.forEach(w=>row(w.y,w.amount,w.reverse));
+      else{
+        if(p>=.18)row(p<.4?-82:lerp(-82,-155,s.beat1),p<.38?(s.x+270)/540:1);
+        if(p>=.67)row(p<.86?-82:lerp(-82,-152,s.beat2),p<.85?(270-s.x)/540:1,true);
+      }
+      const x=s.x,z=s.boatZ,y=s.boatY;
+      g.poly([[x-28,y,z],[x,y-12,z],[x+28,y,z],[x,y+12,z]],'brass','llancadora',[0,0,1]);
+      g.poly([[x-28,y,z],[x,y+12,z],[x+28,y,z],[x+22,y,z-5],[x,y+9,z-6],[x-22,y,z-5]],'oak','llancadora',[0,-1,0]);
+      g.cyl([x-12,y,z+3],[x+12,y,z+3],4,'cotton','llancadora',16);
+      if(!provided){
+        const grip=s.pull?228:248;
+        g.line([[-340,by,298],[-150,-230,250],[0,-245,grip],[150,-230,250],[340,by,298]],'#9b7f52',2.8,'cordill');
+        g.cyl([0,-245,grip-13],[0,-245,grip+13],6,'brass','cordill',16);
+      }
     }
   };
   const fits=new Map();
@@ -200,8 +206,8 @@
         if(part==='fus'){point=[0,s.travel,s.guideZ];title=p<.55?'Fil que es torça':p<.67?'Guia de recollida':'Fil que s’enrotlla';}
       }
       if(id==='roda'&&part==='fibra'){point[0]=s.handX;point[1]=s.hand;}
-      if(id==='llancadora'){
-        if(part==='llancadora')point[0]=s.x;
+      if(id==='llancadora'||id==='cartwright'){
+        if(part==='llancadora')point=[s.x,s.boatY,s.boatZ];
         if(part==='pinta')point[1]=s.y;
       }
       const at=project(point),ax=f.x+at[0]*f.s,ay=f.y+at[1]*f.s,w=title.length*size*.52+20;
@@ -223,10 +229,11 @@
     return `<g transform="translate(${dx} ${dy}) scale(${s})" opacity=".72">${paint(g,selected,focus,true)}</g>`;
   }
   function contextHTML(id){
-    const {s,dx,dy}=contextFit(id),centre={water:[-75,90,300],jenny:[-39,70,290],mula:[-50,-100,230],roda:[-248,-40,325],llancadora:[0,-82,285]}[id],at=project(centre);
+    const {s,dx,dy}=contextFit(id),centre={water:[-75,90,300],jenny:[-39,70,290],mula:[-50,-100,230],roda:[-248,-40,325],llancadora:[0,-82,285],cartwright:[0,-100,250]}[id],at=project(centre);
     return `<g class="tx-context" pointer-events="none"><text x="1040" y="140" text-anchor="middle" fill="#7d8980" style="font-size:17px">Situació del detall</text><g id="tx-whole">${whole(id,0,null,[])}</g><ellipse cx="${dx+at[0]*s}" cy="${dy+at[1]*s}" rx="${id==='llancadora'?87:22}" ry="${id==='water'?58:32}" fill="#d4a759" fill-opacity=".12" stroke="#ba965c" stroke-width="1.2"/><g id="tx-multiple"></g></g>`;
   }
   function multiple(id,s){
+    if(id==='cartwright')return `<text x="1040" y="390" text-anchor="middle" fill="#886c49" style="font-size:20px">Un eix coordina el teler</text>${['Calada','Llançadora','Batuda'].map((name,i)=>`<circle cx="955" cy="${422+i*30}" r="5" fill="${s.step===i?'#b98b42':'#ded9cb'}"/><text x="970" y="${428+i*30}" fill="${s.step===i?'#78603e':'#939a8d'}" style="font-size:18px">${name}</text>`).join('')}`;
     const n={roda:1,jenny:8,water:4,mula:6}[id];
     if(!n)return `<text x="1040" y="390" text-anchor="middle" fill="#886c49" style="font-size:20px">Una mà impulsa la trama</text>`;
     const fill=id==='water'?s.fill:s.wind;
@@ -234,9 +241,10 @@
     const pitch=Math.min(28,188/n),start=1040-(n-1)*pitch/2;
     return `<text x="1040" y="390" text-anchor="middle" fill="#886c49" style="font-size:21px">${title}</text>${Array.from({length:n},(_,i)=>`<rect x="${start+i*pitch-7}" y="414" width="14" height="48" rx="5" fill="#ede8d9"/><rect x="${start+i*pitch-7}" y="${462-48*fill}" width="14" height="${48*fill}" rx="4" fill="#c09a55"/>`).join('')}<text x="1040" y="488" text-anchor="middle" fill="#8a9388" style="font-size:15px">${id==='water'?'Recollida contínua':'Recollida en aquest cicle'}</text>`;
   }
-  function buildScene(id,p){const g=new Scene();details[id](g,p);return g;}
+  function buildScene(id,p,provided){const g=new Scene();details[id](g,p,provided);return g;}
   RI.TEXTIL_DETALLS={
     buildScene,
+    register(id,spec){details[id]=spec.build;labels[id]=spec.labels;models[id]=spec.context||spec.build;},
     svg(id){
       const small=mobile(),f=fit(id,small),g=buildScene(id,0);
       let svg=RI.svg(`<rect x="-60" width="1320" height="720" fill="#fcf8ef"/><g id="tx-detail"><g transform="translate(${f.x} ${f.y}) scale(${f.s})">${paint(g)}</g></g>${contextHTML(id)}`,`0 0 ${small?900:1200} 720`);
@@ -252,7 +260,7 @@
       svg.querySelector('#tx-multiple').innerHTML=multiple(id,s);
       const action=document.querySelector('#tx-action'),product=document.querySelector('#tx-product');
       if(action&&action.textContent!==s.action)action.textContent=s.action;
-      const out=id==='llancadora'?s.rows+' passades incorporades a la tela':id==='roda'?'Fibres soltes → fil torçut → fil recollit':id==='jenny'?'Detall d’un fus · 8 treballen alhora':id==='water'?'Detall d’un cap · producció contínua':'Detall d’un fus · 6 coordinats en aquest esquema';
+      const out=id==='llancadora'||id==='cartwright'?s.rows+' passades incorporades a la tela':id==='roda'?'Fibres soltes → fil torçut → fil recollit':id==='jenny'?'Detall d’un fus · 8 treballen alhora':id==='water'?'Detall d’un cap · producció contínua':'Detall d’un fus · 6 coordinats en aquest esquema';
       if(product&&product.textContent!==out)product.textContent=out;
       svg.dataset.phase=e.fases[k].nom;
     };}

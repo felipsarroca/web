@@ -246,7 +246,17 @@
   }
   RI.encaixaConnecta = encaixaConnecta;
 
-  function marcaTab(v) { $$('#escenes button').forEach((b) => b.setAttribute('aria-selected', b.dataset.esc === String(v))); }
+  function encaixaTab(){
+    const row=$('#escenes');if(!row)return;
+    const active=$('[aria-selected="true"]',row);if(!active)return;
+    const r=row.getBoundingClientRect(),b=active.getBoundingClientRect(),scale=r.width/(row.offsetWidth||r.width)||1;
+    if(b.left<r.left)row.scrollLeft-=(r.left-b.left)/scale+6;
+    else if(b.right>r.right)row.scrollLeft+=(b.right-r.right)/scale+6;
+  }
+  function marcaTab(v) {
+    $$('#escenes button').forEach((b) => b.setAttribute('aria-selected', b.dataset.esc === String(v)));
+    requestAnimationFrame(encaixaTab);
+  }
 
   function obreEscena(i) {
     const cap = st.cap, e = cap.escenes[i];
@@ -290,7 +300,7 @@
       <div class="peca" id="peca"></div>
       ${e.clau ? `<div class="clau"><span>La idea clau</span><p>${e.clau}</p></div>` : ''}
       ${e.batx ? `<div class="batx-wrap" id="batx-wrap"><button type="button" class="batx-toggle" aria-expanded="false"><span>Per aprofundir · 1r de Batxillerat</span><em style="font-style:normal">Mostra ▾</em></button><div class="batx-bloc"><button type="button" class="fitxa-tanca" aria-label="Tanca">×</button><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div></div>` : ''}
-      ${e.real ? `<details class="fonts-lamina"><summary>Font i fotografia històrica</summary><p>${esc(e.real.titol)} · ${esc(e.real.museu)}</p><a href="${esc(e.real.img)}" target="_blank" rel="noopener noreferrer">Obre la fotografia</a><small>${esc(e.real.lic)}</small></details>` : ''}
+      ${e.real ? `<details class="fonts-lamina"><summary>Font i imatge històrica</summary><p>${esc(e.real.titol)} · ${esc(e.real.museu)}</p><a href="${esc(e.real.img)}" target="_blank" rel="noopener noreferrer">Obre la imatge</a><small>${esc(e.real.lic)}</small></details>` : ''}
       ${connecta(cap, i)}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
@@ -804,7 +814,7 @@
 
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); st.brut=true; });
+    ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); requestAnimationFrame(encaixaTab); st.brut=true; });
     const mesuraPeu=()=>{const f=document.querySelector('.felip-app-footer');if(!f)return;const z=+getComputedStyle(document.documentElement).getPropertyValue('--z')||1;document.documentElement.style.setProperty('--peu-h',Math.ceil(f.getBoundingClientRect().height/z)+'px');};
     requestAnimationFrame(()=>{mesuraPeu();const f=document.querySelector('.felip-app-footer');if(f)new ResizeObserver(mesuraPeu).observe(f);});
     window.addEventListener('resize',mesuraPeu);
