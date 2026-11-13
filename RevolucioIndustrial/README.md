@@ -4,6 +4,8 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
 
+**Estat actual:** redisseny en curs. La portada i els vuit capítols ja tenen una primera implementació, però encara falta revisar-ne les il·lustracions, els textos i la visualització en diverses mides. Consulta [REDISSENY.md](REDISSENY.md) per veure què s'ha fet i què queda pendent. Les captures d'aquest README corresponen a la versió anterior.
+
 ## Obrir el web
 
 Obre [`index.html`](index.html) al navegador. També el pots servir localment des d'aquesta carpeta:
