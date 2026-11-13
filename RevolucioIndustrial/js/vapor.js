@@ -54,14 +54,14 @@
     s += `<g data-part="cilindre"><rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0"/>' : ''}
       <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="url(#g-ferroc)"/>${w ? '<path class="t" fill="url(#g-ferro)" d="M268 212h124v12H268z"/><rect class="t" fill="url(#g-llautoc)" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
     if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 7"/></g>`;
-    s += `<text id="buit" x="330" y="350" class="tx mig" fill="#2f7fb5" opacity="0">BUIT</text>`;
+    s += `<text id="buit" x="330" y="350" class="tx mig" fill="#2f7fb5" opacity="0">BUIT (≈0 atm)</text>`;
     s += `<g data-part="piston" id="piston"><rect class="t" fill="url(#g-ferroh)" x="325" y="-112" width="10" height="112"/><rect class="t" fill="url(#g-ferroc)" x="282" y="-11" width="96" height="22" rx="3"/><rect x="284" y="-3" width="92" height="6" fill="url(#g-llauto)"/></g>`;
     s += `<line id="cad1" x1="330" y1="110" x2="330" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
     // vàlvules
     s += w ? valv('v-adm', 228, 196) + valv('v-eq', 420, 300) + valv('v-esc', 380, 414) : valv('v-adm', 330, 416) + valv('v-inj', 145, 290);
     // pressió atmosfèrica (Newcomen) o vapor (Watt)
-    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M296 128V214', '#2f7fb5', 7)}${fletxa('M364 128V214', '#2f7fb5', 7)}${retol(452, 150, 'pressió de l’aire', { fons: '#2f7fb5' })}</g>`;
-    else s += `<g data-fase="0.03-0.45">${retol(495, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
+    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M296 128V214', '#2f7fb5', 7)}${fletxa('M364 128V214', '#2f7fb5', 7)}${retol(456, 150, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 205 })}</g>`;
+    else s += `<g data-fase="0.03-0.45">${fletxa('M304 232V272', '#d9482b', 6)}${fletxa('M356 232V272', '#d9482b', 6)}${retol(495, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
     // bomba de la mina
     s += `<g data-part="bombamina"><rect class="t" x="832" y="535" width="36" height="172" fill="#58a9d6"/><path class="t ferro2" d="M868 541h96v12h-96z"/>
       <path d="M962 551q22 0 24 12" class="nf s-blau" stroke-width="9" stroke-linecap="round" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><ellipse class="aigua" cx="1010" cy="566" rx="70" ry="9"/>

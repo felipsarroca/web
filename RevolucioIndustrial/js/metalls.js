@@ -130,7 +130,7 @@
       <rect class="t pedra" x="926" y="608" width="150" height="32"/><rect class="t" fill="url(#g-ferroc)" x="944" y="534" width="114" height="74" rx="6"/><circle class="t blanc" cx="980" cy="566" r="14"/><path d="M980 566l8-8" class="t2"/>${roda(1042, 570, 32, { raigs: 6, color: '#56636c', gruix: 7 })}<text x="980" y="598" class="tx-p mig" style="font-size:12px;fill:#fffdf7">bufadora</text></g>`;
     // cullera i lingotera
     s += `<g data-part="cullera" data-exp="-56 32"><path class="t" fill="url(#g-ferroc)" d="M236 550h144l-14 78H250z"/><path d="M236 550v-32M380 550v-32" class="t" stroke-width="5"/><path id="acer-c" d="M244 590h128l-8 36H252z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
-    s += `<g data-en="2">${retol(940, 150, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 190, 'sense gastar combustible', { fons: '#2a2420', vora: '#2a2420', w: 240 })}<text id="minuts" x="940" y="268" class="tx-gg mig">0 min</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
+    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}<text id="minuts" x="940" y="256" class="tx-gg mig">0 min</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
     return svg(s);
   }
   function animaBes({ p, t, el, svg: g }) {

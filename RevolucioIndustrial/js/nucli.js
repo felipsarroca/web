@@ -127,7 +127,7 @@
   };
 
   /* ---------- estat ---------- */
-  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, real: false, brut: true, repte: false };
+  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, pasAPas: true, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, real: false, zoom: false, brut: true, repte: false };
   let svgEl = null, expSvg = null, auto = null, els = {}, darrer = 0;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -185,9 +185,17 @@
     $('#escenes').addEventListener('click', (ev) => { const b = ev.target.closest('[data-esc]'); if (!b) return; if (b.dataset.esc === 'repte') obreRepte(); else obreEscena(+b.dataset.esc); });
     document.addEventListener('keydown', tecles);
     RI._nav = { ant, seg };
-    const h = location.hash.slice(1);
-    if (h === 'repte') obreRepte();
-    else { const i = cap.escenes.findIndex((e) => e.id === h); obreEscena(i >= 0 ? i : 0); }
+    const obreHash = () => {
+      const h = location.hash.slice(1);
+      if (h === 'repte') { if (!st.repte) obreRepte(); }
+      else {
+        const i = cap.escenes.findIndex((e) => e.id === h);
+        const t = i >= 0 ? i : 0;
+        if (st.repte || st.iEsc !== t || !st.esc) obreEscena(t);
+      }
+    };
+    window.addEventListener('hashchange', obreHash);
+    obreHash();
     requestAnimationFrame(bucle);
   }
 
@@ -195,26 +203,29 @@
 
   function obreEscena(i) {
     const cap = st.cap, e = cap.escenes[i];
-    st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.fiPas = null; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 1;
+    const fases = e.fases || [];
+    st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 1; st.zoom = false;
     (e.capes || []).forEach((c) => { st.capes[c.id] = !!c.on; });
     st.play = !e.estatica && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    st.fiPas = st.play && st.pasAPas && fases.length ? fases[0].fins : null;
     marcaTab(i);
     history.replaceState(null, '', '#' + e.id);
-    const fases = e.fases || [];
+    const hasRealSvg = !!(e.real && RI.REALS && RI.REALS[e.id]);
     $('#cos').className = 'cos';
     $('#cos').innerHTML = `
     <section class="escenari">
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
-        ${e.explotada ? `<div class="lamina-exp" id="lamina-exp"><img src="${esc(e.explotada.img)}" alt="" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div>` : ''}
-        ${e.real ? `<div class="lamina-real" id="lamina-real"><img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy"><div class="real-peu"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${esc(e.real.lic)}</small></div></div>` : ''}
+        ${e.explotada ? `<div class="lamina-exp" id="lamina-exp"><div class="lamina-zoom"><img src="${esc(e.explotada.img)}" alt="" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div></div>` : ''}
+        ${e.real ? `<div class="lamina-real" id="lamina-real"><div class="lamina-zoom">${hasRealSvg ? `<div class="real-svg">${RI.REALS[e.id]()}</div>` : `<img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy">`}</div><div class="real-peu"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${hasRealSvg ? 'Il·lustració tècnica d’estudi · proporcions històriques' : esc(e.real.lic)}</small></div></div>` : ''}
         ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : ''}
-        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Com era en realitat: peça original o document de museu">Màquina real</button>' : ''}${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
+        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Com era en realitat: dibuix d’estudi amb escala real">Màquina real</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
       </div>
       <div class="comandament${e.estatica ? ' sense' : ''}">
         <div class="botons"><button type="button" id="b-ant" title="Fase anterior (←)" aria-label="Fase anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button><button type="button" id="b-play" class="principal" title="Reprodueix o atura (espai)" aria-label="Reprodueix o atura"></button><button type="button" id="b-seg" title="Fase següent (→)" aria-label="Fase següent"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button></div>
         <div class="linia"><div class="trams" id="trams">${fases.map((f, k) => { const a = k ? fases[k - 1].fins : 0; return `<span style="flex:${(f.fins - a).toFixed(3)}" data-k="${k}"><i>${k + 1}</i></span>`; }).join('')}</div><input type="range" id="lliscador" min="0" max="1000" value="0" aria-label="Moment del cicle"></div>
         <button type="button" id="b-vel" class="vel" title="Velocitat de l’animació">×1</button>
+        <button type="button" id="b-pas" class="vel pas-btn" aria-pressed="${st.pasAPas}" title="Atura l’animació al final de cada pas">${st.pasAPas ? 'Pas a pas' : 'Continu'}</button>
       </div>
       <div class="ara" id="ara" aria-live="polite"></div>
     </section>
@@ -234,13 +245,27 @@
     const bExp = $('#capes [data-capa="_exp"]'), bReal = $('#capes [data-capa="_real"]');
     if (bExp) bExp.hidden = !e.explotada && !$$('[data-exp]', svgEl).length;
     mostraVistes(); posaEtiquetes(e); if (e.explotada && expSvg) muntaLamina(e); prepara(); pintaPeca();
-    $('#b-play').addEventListener('click', () => { st.fiPas = null; st.play = !st.play; botoPlay(); });
+    $('#b-play').addEventListener('click', togglePlay);
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
     $('#b-ant').addEventListener('click', () => vesFase(st.iFase - 1));
     $('#b-vel').addEventListener('click', () => { st.vel = st.vel === 1 ? 0.4 : st.vel === 0.4 ? 2 : 1; $('#b-vel').textContent = st.vel === 0.4 ? 'lent' : '×' + st.vel; });
-    $('#lliscador').addEventListener('input', (ev) => { st.play = false; st.fiPas = null; st.p = Math.min(0.9999, ev.target.value / 1000); st.brut = true; botoPlay(); });
+    $('#b-pas').addEventListener('click', () => {
+      st.pasAPas = !st.pasAPas;
+      const bp = $('#b-pas');
+      bp.setAttribute('aria-pressed', st.pasAPas);
+      bp.textContent = st.pasAPas ? 'Pas a pas' : 'Continu';
+      const fs = e.fases || [];
+      if (!st.pasAPas) {
+        st.fiPas = null;
+        if (!st.play && !e.estatica && !st.explota && !st.real) { st.play = true; botoPlay(); }
+      } else if (fs.length && st.play) {
+        st.fiPas = fs[faseDe(st.p)].fins;
+      }
+      actualitzaAra();
+    });
+    $('#lliscador').addEventListener('input', (ev) => { st.play = false; st.fiPas = null; st.p = Math.min(0.9999, ev.target.value / 1000); st.brut = true; botoPlay(); actualitzaAra(); });
     $('#trams').addEventListener('click', (ev) => { const s = ev.target.closest('[data-k]'); if (s) vesFase(+s.dataset.k); });
-    const lf = $('#fases'); if (lf) lf.addEventListener('click', (ev) => { const li = ev.target.closest('li'); if (li) vesFase(+li.dataset.k); });
+    const lf = $('#fases'); if (lf) lf.addEventListener('click', (ev) => { const li = ev.target.closest('li'); if (li) vesFase(+li.dataset.k, true); });
     const vBox = $('#vistes');
     if (vBox) vBox.addEventListener('click', (ev) => {
       const b = ev.target.closest('[data-vista-btn]');
@@ -252,6 +277,8 @@
       mostraVistes(); posaEtiquetes(e); svgEl._seg = null; pintaPeca(); aplicaExplota(); st.brut = true;
     });
     $('#capes').addEventListener('click', (ev) => {
+      const bz = ev.target.closest('[data-zoom]');
+      if (bz) { setZoom(!st.zoom); return; }
       const b = ev.target.closest('[data-capa]'); if (!b) return;
       const on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on);
@@ -260,6 +287,14 @@
       else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
       else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); }
       st.brut = true;
+    });
+    const telaEl = $('#tela');
+    telaEl.addEventListener('mousemove', (ev) => {
+      if (!st.zoom) return;
+      const r = telaEl.getBoundingClientRect();
+      const ox = RI.clamp(((ev.clientX - r.left) / r.width) * 100, 8, 92).toFixed(1) + '%';
+      const oy = RI.clamp(((ev.clientY - r.top) / r.height) * 100, 8, 92).toFixed(1) + '%';
+      $$('.lamina-zoom', telaEl).forEach((z) => { z.style.transformOrigin = `${ox} ${oy}`; });
     });
     (e.capes || []).forEach((c) => svgEl.classList.toggle('capa-' + c.id, !!c.on));
     mostraCapes(); aplicaExplota();
@@ -284,10 +319,43 @@
     for (let p = n; p && p !== svgEl; p = p.parentNode) if (p.style && p.style.display === 'none') return true;
     return false;
   }
+  function setZoom(on) {
+    st.zoom = !!on;
+    const bz = $('#capes [data-zoom]');
+    if (bz) bz.setAttribute('aria-pressed', st.zoom);
+    $$('#tela .lamina-zoom').forEach((z) => {
+      z.classList.toggle('zoom', st.zoom);
+      if (!st.zoom) z.style.transformOrigin = '50% 50%';
+    });
+  }
+  function actualitzaAra() {
+    const araEl = $('#ara'), e = st.esc;
+    if (!araEl || !e) return;
+    if (st.explota || st.real) {
+      araEl.innerHTML = `<span class="k muted">⏸</span><strong>${st.real ? 'Màquina real' : 'Vista explotada'}</strong><small class="seg-hint">Làmina estàtica · torna al diagrama per animar</small>`;
+      return;
+    }
+    const f = (e.fases || [])[st.iFase];
+    if (!f) { araEl.innerHTML = ''; return; }
+    const seg = !st.play && st.pasAPas && !e.estatica ? ` <small class="seg-hint">Prem ▶ per continuar</small>` : '';
+    araEl.innerHTML = `<span class="k">${st.iFase + 1}</span><strong>${esc(f.nom)}</strong>${seg}`;
+  }
   function aplicaExplota() {
     if (!svgEl) return;
     const e = st.esc, lam = $('#lamina-exp'), lamR = $('#lamina-real');
+    const estatica = !!(st.explota || st.real);
+    if (estatica && st.play) { st.play = false; st.fiPas = null; }
+    const cmd = $('.comandament');
+    if (cmd) {
+      cmd.classList.toggle('inactiva', estatica);
+      ['#b-ant', '#b-play', '#b-seg', '#lliscador', '#b-vel', '#b-pas'].forEach((s) => { const n = $(s); if (n) n.disabled = estatica; });
+    }
+    const bz = $('#capes [data-zoom]');
+    if (bz) { bz.hidden = !estatica; if (!estatica && st.zoom) setZoom(false); }
+    botoPlay();
+    actualitzaAra();
     svgEl.classList.toggle('explota', st.explota && !lam);
+    const tela = $('#tela'); if (tela) tela.classList.toggle('real-activa', st.real);
     if (lam) lam.classList.toggle('activa', st.explota);
     if (lamR) lamR.classList.toggle('activa', st.real);
     const mEl = $('#tela .model');
@@ -369,15 +437,46 @@
   }
 
   function faseDe(p) { const f = st.esc.fases || []; for (let k = 0; k < f.length; k++) if (p < f[k].fins) return k; return f.length - 1; }
-  function vesFase(k) {
-    const f = st.esc.fases || []; if (!f.length) return;
+  function vesFase(k, surtLamina) {
+    const e = st.esc, f = (e && e.fases) || []; if (!f.length) return;
+    if (st.explota || st.real) {
+      if (!surtLamina) return;
+      st.explota = false; st.real = false;
+      const bExp = $('#capes [data-capa="_exp"]'), bReal = $('#capes [data-capa="_real"]');
+      if (bExp) bExp.setAttribute('aria-pressed', 'false');
+      if (bReal) bReal.setAttribute('aria-pressed', 'false');
+      aplicaExplota();
+    }
     k = ((k % f.length) + f.length) % f.length;
-    st.p = k ? f[k - 1].fins : 0; st.fiPas = f[k].fins; st.play = true; st.brut = true; botoPlay();
+    st.p = k ? f[k - 1].fins : 0; st.fiPas = f[k].fins; st.play = !e.estatica; st.brut = true; botoPlay(); actualitzaAra();
+  }
+  function togglePlay() {
+    const e = st.esc;
+    if (!e || e.estatica || st.explota || st.real) return;
+    if (st.play) { st.play = false; st.fiPas = null; }
+    else {
+      const f = e.fases || [];
+      if (st.pasAPas && f.length) {
+        const cur = faseDe(st.p);
+        if (st.p >= f[cur].fins - 0.002) {
+          if (cur + 1 < f.length) st.p = f[cur].fins;
+          else { st.p = 0; st.voltes++; }
+        }
+        st.fiPas = f[faseDe(st.p)].fins;
+        st.brut = true;
+      } else {
+        st.fiPas = null;
+      }
+      st.play = true;
+    }
+    botoPlay(); actualitzaAra();
   }
   function botoPlay() {
     const b = $('#b-play'); if (!b) return;
     b.innerHTML = st.play ? '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 5v14M17 5v14" stroke="currentColor" stroke-width="4.500" stroke-linecap="round"/></svg>' : '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 4l13 8-13 8z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
     b.setAttribute('aria-pressed', st.play);
+    const espera = !st.play && st.pasAPas && st.esc && !st.esc.estatica && !st.explota && !st.real;
+    b.classList.toggle('espera', !!espera);
   }
   function tria(part) {
     if (part && !(st.esc.parts && st.esc.parts[part])) part = null;
@@ -406,10 +505,10 @@
   }
 
   function tecles(ev) {
-    if (st.repte || !st.esc || ev.target.closest('input,textarea')) return;
+    if (st.repte || !st.esc || st.explota || st.real || ev.target.closest('input,textarea')) return;
     if (ev.key === 'ArrowRight') { vesFase(st.iFase + 1); ev.preventDefault(); }
     else if (ev.key === 'ArrowLeft') { vesFase(st.iFase - 1); ev.preventDefault(); }
-    else if (ev.key === ' ' && !ev.target.closest('button,a,[role=button]')) { st.fiPas = null; st.play = !st.play; botoPlay(); ev.preventDefault(); }
+    else if (ev.key === ' ' && !ev.target.closest('button,a,[role=button]')) { togglePlay(); ev.preventDefault(); }
   }
 
   /* ---------- bucle d'animació ---------- */
@@ -417,9 +516,9 @@
     const dt = Math.min(0.05, (ara - darrer) / 1000 || 0); darrer = ara;
     const e = st.esc;
     if (e && !st.repte && svgEl) {
-      if (st.play && !e.estatica) {
+      if (st.play && !e.estatica && !st.explota && !st.real) {
         let np = st.p + (dt * st.vel) / (e.durada || 8);
-        if (st.fiPas != null && np >= st.fiPas - 0.0005) { np = st.fiPas - 0.0005; st.play = false; st.fiPas = null; botoPlay(); }
+        if (st.fiPas != null && np >= st.fiPas - 0.0005) { np = st.fiPas - 0.0005; st.play = false; st.fiPas = null; botoPlay(); actualitzaAra(); }
         if (np >= 1) { np -= 1; st.voltes++; }
         st.p = np; st.brut = true;
       }
@@ -434,8 +533,7 @@
       st.iFase = k;
       $$('#fases li').forEach((li) => li.classList.toggle('activa', +li.dataset.k === k));
       $$('#trams span').forEach((s) => s.classList.toggle('activa', +s.dataset.k === k));
-      const f = (e.fases || [])[k];
-      $('#ara').innerHTML = f ? `<span class="k">${k + 1}</span><strong>${esc(f.nom)}</strong>` : '';
+      actualitzaAra();
       focus();
       const li = $('#fases li.activa'); if (li && li.scrollIntoView && !document.documentElement.classList.contains('mobil')) li.scrollIntoView({ block: 'nearest' });
     }
@@ -485,7 +583,7 @@
   /* ---------- repte final ---------- */
   function obreRepte() {
     const cap = st.cap, idx = RI.CAPITOLS.findIndex((c) => c.id === cap.id), seg = RI.CAPITOLS[idx + 1];
-    st.repte = true; marcaTab('repte'); history.replaceState(null, '', '#repte');
+    st.play = false; st.fiPas = null; st.repte = true; marcaTab('repte'); history.replaceState(null, '', '#repte');
     const qs = cap.repte || [];
     $('#cos').className = 'cos repte';
     $('#cos').innerHTML = `<div class="repte-cap"><h2>Ho has entès?</h2><p>Respon sense mirar els dibuixos. Si falles, torna a l’escena i observa-la de nou.</p><div class="marcador" id="marcador">0 / ${qs.length}</div></div><div class="preguntes">${qs.map((q, i) => `<article class="q" data-i="${i}"><h3><span>${i + 1}</span>${esc(q.q)}</h3><div class="ops">${q.o.map((o, j) => `<button type="button" data-j="${j}">${esc(o)}</button>`).join('')}</div><p class="exp" hidden></p></article>`).join('')}</div><div class="repte-peu"><button type="button" id="r-torna">← Torna a les escenes</button>${seg ? `<a class="boto" href="${seg.id}.html">Capítol següent: ${esc(seg.nom)} →</a>` : '<a class="boto" href="index.html">Torna a la portada →</a>'}</div>`;
@@ -504,7 +602,7 @@
   }
 
   /* accés directe a una escena i un moment (proves i enllaços) */
-  RI.ves = (i, p) => { obreEscena(i); if (p != null) { st.play = false; st.p = p; st.brut = true; botoPlay(); } };
+  RI.ves = (i, p) => { obreEscena(i); if (p != null) { st.play = false; st.fiPas = null; st.p = p; st.brut = true; botoPlay(); actualitzaAra(); } };
 
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {

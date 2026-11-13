@@ -63,10 +63,11 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 | `js/camp.js` | Fet i revisat visualment | Rotació Norfolk detallada, sembradora de Tull amb transmissió i ocells, arada de Rotherham amb gleves i tàndem + repte. |
 | `js/capital.js` | Fet i revisat visualment | Societat anònima amb viaducte i estació, banc/borsa i cotització annotada, càrtel/trust/holding + repte. |
 | `js/portada.js` + estil | Fet i revisat visualment | Paisatge complet amb 8 fites històriques detallades i tots els pins visibles a escriptori i mòbil. |
+| `js/reals.js` | Fet i revisat visualment | 13 làmines tècniques vectorials d’estudi (`RI.REALS`) d’alta resolució per a «Màquina real» amb escala humana i zoom interactiu. |
 | Esborrar `app.js` i `styles.css` | Pendent | |
-| Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844. |
+| Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844 (panell dret sense scroll a escriptori). |
 | `README.md`, captures noves, `VISIO-I-GUIO.md` | Pendent | |
-| Commit, push i comprovació del web publicat | En curs | Felip ha demanat publicar les novetats per veure el progrés. |
+| Commit, push i comprovació del web publicat | Fet / actualitzat | Pujat a `main` amb totes les làmines vectorials, mode pas a pas i autoauditoria visual. |
 
 ## 5. Guió de les escenes que falten
 
@@ -91,5 +92,11 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
    - Enllaç de `AGPL-3.0-or-later` al peu de pàgina cap a `LICENSE` a GitHub.
 5. **Làmines tècniques 3D explotades, comparació amb «Màquina real» i segona passada SVG (13/11/2026)**:
    - 12 làmines tècniques en vista explotada 3D estil enciclopèdic (`img/exp-*.webp`), integrades amb fusió sobre pergamí (`#lamina-exp`), zones interactives (`.exp-zona`) i etiquetes en català que es poden amagar com a autoavaluació.
-   - Botó «Màquina real» (`#lamina-real`, `data-capa="_real"`) en 13 escenes clau amb fotografies de museu i gravats d'arxiu originals (`img/real-*.webp`) de Wikimedia Commons i cartela amb títol, museu i llicència.
+   - Botó «Màquina real» (`#lamina-real`, `data-capa="_real"`) en 13 escenes clau amb cartela de museu i il·lustració d'alta resolució.
    - Segona passada de realisme metàl·lic i estructural (`RI.roda`, `RI.engranatge`, reblons de caldera, cilindres i palanques en `vapor.js`, `tren.js`, `vaixell.js`, `metalls.js`, `fabrica.js` i `camp.js`), més correcció d'ID duplicat `#capes` a `metalls.js` (`#fcapes`).
+6. **Làmines reals vectorials d’estudi, mode «Pas a pas», zoom ×1,8 i auditoria UI (13/11/2026)**:
+   - Substitució de les fotografies de baixa resolució per **13 làmines tècniques vectorials d’estudi** (`js/reals.js`, `RI.REALS`) amb il·luminació, materials i escala humana (100 % crisp a qualsevol resolució), carregades als 7 capítols.
+   - **Control de reproducció «Pas a pas» / «Continu»** (`#b-pas` a `nucli.js`): per defecte, l’animació s’atura al final de cada pas (`#b-play.espera`) fins que l’alumnat prem `▶` per continuar o activa el mode `Continu`.
+   - **Desactivació de la barra de reproducció en làmines estàtiques** (`.comandament.inactiva` quan és activa `Vista explotada`, `Màquina real` o un repte): atura el bucle de reproducció, bloqueja tecles/botons i indica tornar al diagrama per animar.
+   - **Zoom ×1,8 interactiu** (`[data-zoom]` + seguiment del ratolí a `.lamina-zoom`) tant a `Vista explotada` com a `Màquina real`, i navegació reactiva per `hashchange`.
+   - **Ajust del panell dret sense scroll vertical innecessari** en escriptori (`1440×900` i `1366×768`) i reforços visuals pedagògics a `vapor.js` (fletxes de pressió/buit a Newcomen i força del vapor a Watt) i `metalls.js` (equació d’oxidació `C + O₂ → CO₂ ↑` i reducció del carboni `4 % → 0,5 %` al Bessemer).
