@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/* La Revolució Industrial per dins — nucli compartit.
+/* La Revolució Industrial — nucli compartit.
    Construeix la interfície de cada capítol, fa córrer les animacions
    i ofereix peces de dibuix reutilitzables (rodes, engranatges, foc...). */
 (function () {
@@ -169,7 +169,7 @@
 
   /* ---------- peu i capçalera ---------- */
   const peu = () => `<footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Codi: <a href="https://github.com/felipsarroca/web/blob/main/RevolucioIndustrial/LICENSE" target="_blank" rel="noopener noreferrer">AGPLv3</a> · Continguts: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · © 2026 · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>`;
-  const marca = () => `<a class="marca" href="index.html" aria-label="Torna a la portada"><span class="marca-roda" aria-hidden="true">${RI.svgMarca()}</span><span class="marca-text"><strong>La Revolució Industrial</strong><em>per dins</em></span></a>`;
+  const marca = () => `<a class="marca" href="index.html" aria-label="Torna a la portada"><span class="marca-roda" aria-hidden="true">${RI.svgMarca()}</span><span class="marca-text"><strong>La Revolució Industrial</strong></span></a>`;
   RI.svgMarca = () => `<svg viewBox="0 0 40 40" width="38" height="38"><g class="gira-lent" style="transform-origin:20px 20px">${RI.engranatge(20, 20, 14, 10, { color: '#d9482b', boto: '#f6da7c' })}</g></svg>`;
   function eines() {
     return `<div class="eines"><div class="nivell" role="group" aria-label="Nivell de lectura"><button type="button" data-nivell="eso">4t ESO</button><button type="button" data-nivell="batx">+ Batxillerat</button></div><button type="button" class="boto-ico" id="b-pantalla" title="Pantalla completa (per projectar)" aria-label="Pantalla completa"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>`;

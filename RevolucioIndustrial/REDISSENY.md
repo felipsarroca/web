@@ -10,9 +10,11 @@ Aquest fitxer és la guia per reprendre la feina des de qualsevol ordinador. **A
 
 ## 1. Decisions preses
 
+- **Nom definitiu (13-11-2026): «La Revolució Industrial».** Sense el subtítol «per dins» a la portada, la marca, les pestanyes del navegador ni la targeta del menú de webs.
+
 - **Diverses pàgines, sense scroll a l'ordinador.** `index.html` (portada amb un paisatge clicable) i una pàgina per capítol: `camp.html`, `vapor.html`, `textil.html`, `fabrica.html`, `metalls.html`, `tren.html`, `vaixell.html`, `capital.html`. Cada capítol té pestanyes d'**escenes** i una pestanya final **Repte** (preguntes).
 - **Imatges (criteri revisat per Felip el 13-11-2026):** il·lustracions raster amb ChatGPT per veure la màquina completa; fotografies històriques a «Màquina real»; SVG reservat als esquemes animats i interactius. Prioritat a la claredat, les proporcions, una perspectiva coherent i poca informació simultània.
-- **Estètica:** atles il·lustrat sobre paper clar, traç de tinta gruixut, colors plans, ombra dura. Tipografies Fraunces (títols) i Figtree (text). Codi de colors: taronja = calor/vapor, blau = aigua/fred, vermell = focus.
+- **Estètica suavitzada (13-11-2026):** atles il·lustrat sobre paper clar, amb vores fines en tons de paper, ombres difuminades, tipografia menys gruixuda i ressaltats discrets. Es conserven la paleta, Fraunces (títols), Figtree (text), les il·lustracions i la distribució. Evitar recuperar marcs negres gruixuts, ombres dures desplaçades i caixes redundants dins de les targetes. Codi de colors: taronja = calor/vapor, blau = aigua/fred, vermell = focus.
 - **Cada escena:** pregunta inicial, dibuix gran animat, control de reproducció (play, fase anterior/següent, lliscador per «aturar el temps», velocitat), «Pas a pas», peces clicables amb fitxa, botó «Etiquetes» (amagar-les per autoavaluar-se), «La idea clau» i bloc de Batxillerat (només visible amb el nivell «+ Batxillerat»).
 - **Escala:** com `edu-apps/Equacions`: disseny base 1440 × 800 i `zoom` a `<html>` (funció `ajusta()` de `js/nucli.js`). Per sota de 980 px d'amplada passa a disposició mòbil amb scroll vertical.
 - Es mantenen: peu corporatiu, llicències (AGPL + CC BY-NC-SA), formulari d'errors, enllaç `ja.cat/revindustrial`.

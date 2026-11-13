@@ -1,4 +1,4 @@
-# La Revolució Industrial per dins — visió i guió del projecte
+# La Revolució Industrial — visió i guió del projecte
 
 **Estat:** primera versió funcional publicada el 13-11-2026, amb vuit capítols. Les idees futures continuen sent propostes.<br>
 **Data de la conversa:** 12 de novembre de 2026.<br>
@@ -15,7 +15,7 @@ Felip ha demanat que les idees, propostes, peticions, consultes i decisions es c
 
 ## 2. Concepte rector
 
-**Títol de treball:** «La Revolució Industrial per dins».<br>
+**Títol de treball:** «La Revolució Industrial».<br>
 **Promesa al visitant:** «Entra en una màquina. Atura el temps. Segueix l'energia. Entén què va canviar.»
 
 El web s'organitza com un **atles animat de mecanismes i processos**, no com un llibre de text traslladat a pantalles. La navegació principal segueix quatre fils que es creuen:

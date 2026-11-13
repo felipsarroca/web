@@ -3,7 +3,7 @@
 (function () {
   const { roda, foc, nuvol, ovella, arbre } = RI;
   const C = RI.CAPITOLS;
-  const pin = (i, x, y) => `<g class="pin" transform="translate(${x} ${y})"><path d="M0 0v32" stroke="#2a2420" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/><rect x="-14" y="-17" width="${C[i].nom.length * 9.2 + 54}" height="34" rx="17" fill="#fffdf7" stroke="#2a2420" stroke-width="3"/><circle cx="3" cy="0" r="13" fill="${C[i].color}"/><text x="3" y="5.5" text-anchor="middle" class="pin-n">${i + 1}</text><text x="24" y="5.5" class="pin-t">${C[i].nom}</text></g>`;
+  const pin = (i, x, y) => `<g class="pin" transform="translate(${x} ${y})"><path d="M0 0v32" stroke="#b8a98e" stroke-width="1.5" stroke-dasharray="2 5" stroke-linecap="round"/><rect x="-14" y="-17" width="${C[i].nom.length * 9.2 + 54}" height="34" rx="17" fill="#fffdf7" stroke="#b8a98e" stroke-width="1.5"/><circle cx="3" cy="0" r="13" fill="${C[i].color}"/><text x="3" y="5.5" text-anchor="middle" class="pin-n">${i + 1}</text><text x="24" y="5.5" class="pin-t">${C[i].nom}</text></g>`;
   const fum = (x, y, n, cls) => Array.from({ length: n || 3 }, (_, i) => `<circle class="fumet ${cls || ''}" cx="${x}" cy="${y}" r="13" style="animation-delay:${-i * 1.3}s"/>`).join('');
   const finestres = (x, y, cols, files, dx, dy) => { let s = ''; for (let r = 0; r < files; r++) for (let c = 0; c < cols; c++) s += `<rect x="${x + c * dx}" y="${y + r * dy}" width="12" height="16" rx="1" fill="#ffe9a8" stroke="#2a2420" stroke-width="1.6"/>`; return s; };
   const lloc = (i, inner) => `<a class="lloc" href="${C[i].id}.html" aria-label="${i + 1}. ${C[i].nom}: ${C[i].pregunta}">${inner}</a>`;
@@ -63,7 +63,7 @@
     document.querySelector('#app').innerHTML = `
     <header class="cap">${RI.marca()}<p class="lema">Entra dins les màquines. Atura el temps. Mira com funcionen.</p>${RI.eines()}</header>
     <main class="portada">
-      <section class="vista"><div class="vista-text"><h1>La Revolució Industrial <em>per dins</em></h1><p>Vuit capítols i vint-i-set màquines i processos animats. Tria un lloc del paisatge o un capítol.</p></div>${paisatge()}</section>
+      <section class="vista"><div class="vista-text"><h1>La Revolució Industrial</h1><p>Vuit capítols i vint-i-set màquines i processos animats. Tria un lloc del paisatge o un capítol.</p></div>${paisatge()}</section>
       <nav class="targetes" aria-label="Capítols">${C.map((c, i) => `<a href="${c.id}.html" class="targeta-cap" style="--c:${c.color}"><span class="n">${i + 1}</span><span class="ic">${RI.icona(c, 26)}</span><strong>${c.nom}</strong><span class="q">${c.pregunta}</span><small>${c.epoca}</small></a>`).join('')}</nav>
     </main>${RI.peu()}`;
     RI.activaEines();

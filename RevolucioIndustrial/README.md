@@ -1,4 +1,4 @@
-# La Revolució Industrial per dins
+# La Revolució Industrial
 
 Atles interactiu en català per entendre **com funcionen** les innovacions de la industrialització. Creat per projectar a classe i per explorar-lo individualment a 4t d'ESO i a 1r de Batxillerat.
 
