@@ -206,6 +206,7 @@
         explotada: {
           img: 'img/exp-newcomen.webp',
           model: 'Làmina tècnica en vista explotada · Màquina atmosfèrica de Newcomen (1712)',
+          guies: '<path class="sil" d="M510 580V245Q510 185 615 185Q720 185 720 245V580"/><path d="M600 220V585M375 445L575 540M795 235L955 270M855 150H890"/><circle cx="615" cy="195" r="4.5"/><circle cx="600" cy="355" r="4.5"/><circle cx="575" cy="540" r="4.5"/><circle cx="890" cy="150" r="4.5"/>',
           zones: [['caldera', 320, 490, 145, 195], ['balanci', 575, 165, 290, 85], ['piston', 600, 310, 75, 48], ['cilindre', 615, 480, 85, 110], ['desguas', 675, 530, 55, 42], ['diposit', 980, 265, 110, 95], ['bombamina', 885, 555, 65, 160]],
           etiquetes: [['balanci', 575, 82, 575, 155], ['caldera', 145, 355, 285, 425], ['piston', 465, 295, 585, 295], ['cilindre', 465, 485, 595, 480], ['desguas', 725, 625, 670, 495], ['diposit', 1035, 145, 985, 255, 'Aigua freda'], ['bombamina', 1020, 560, 885, 555]]
         },
@@ -245,6 +246,7 @@
         explotada: {
           img: 'img/exp-watt.webp',
           model: 'Làmina tècnica en vista explotada · Màquina de Watt amb condensador separat (1769)',
+          guies: '<path class="sil" d="M770 205L800 135L830 205"/><path d="M525 435H580M695 435H645M600 135V280M260 220L535 265M968 382V450M1075 340V405M965 595V680"/><circle cx="600" cy="280" r="4.5"/><circle cx="580" cy="435" r="4.5"/><circle cx="645" cy="435" r="4.5"/><circle cx="965" cy="680" r="4.5"/>',
           zones: [['caldera', 225, 465, 155, 235], ['camisa', 468, 435, 65, 105], ['cilindre', 605, 425, 75, 175], ['equilibri', 755, 455, 85, 95], ['condensador', 965, 505, 75, 105], ['bomba', 1075, 480, 55, 115], ['balanci', 790, 170, 290, 85]],
           etiquetes: [['caldera', 130, 170, 225, 345], ['balanci', 540, 72, 675, 108], ['cilindre', 455, 200, 585, 340, 'Cilindre tancat'], ['camisa', 360, 440, 482, 440], ['equilibri', 725, 345, 725, 420], ['condensador', 805, 675, 945, 515], ['bomba', 1065, 305, 1065, 445]]
         },
@@ -283,6 +285,7 @@
         explotada: {
           img: 'img/exp-rotativa.webp',
           model: 'Làmina tècnica en vista explotada · Màquina rotativa de Boulton & Watt (1788)',
+          guies: '<path d="M555 415L845 555M910 345L855 540M445 555V610M295 520L385 485"/><circle cx="625" cy="448" r="4.5"/><circle cx="845" cy="555" r="4.5"/><circle cx="445" cy="610" r="4.5"/>',
           zones: [['distribucio', 245, 545, 125, 115], ['cilindre', 445, 475, 95, 125], ['balanci', 595, 145, 195, 75], ['biela', 765, 325, 45, 140], ['sol', 615, 455, 75, 75], ['planeta', 685, 515, 75, 75], ['volant', 885, 545, 145, 195], ['regulador', 910, 240, 85, 105]],
           etiquetes: [['distribucio', 145, 415, 240, 535], ['cilindre', 295, 325, 470, 455, 'Cilindre de doble efecte'], ['balanci', 395, 105, 550, 125], ['biela', 725, 210, 765, 295], ['sol', 540, 345, 610, 445, 'Sol'], ['planeta', 545, 650, 690, 455, 'Planeta'], ['regulador', 1040, 165, 915, 235], ['volant', 1055, 690, 955, 565, 'Volant d’inèrcia']]
         },

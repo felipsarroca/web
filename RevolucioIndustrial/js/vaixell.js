@@ -154,6 +154,7 @@
         explotada: {
           img: 'img/exp-western.webp',
           model: 'Làmina tècnica en vista explotada · SS Great Western (Brunel, 1838)',
+          guies: '<path d="M375 485V575M695 415V515M820 365V470M925 355V455M545 455L555 555M755 575L875 650"/><circle cx="375" cy="575" r="4.5"/><circle cx="695" cy="515" r="4.5"/><circle cx="555" cy="555" r="4.5"/><circle cx="755" cy="575" r="4.5"/>',
           zones: [['veles', 790, 235, 245, 165], ['xemeneia', 550, 245, 55, 115], ['calderes', 535, 285, 95, 75], ['maquina', 545, 395, 115, 65], ['roda', 825, 635, 155, 145], ['carbonera', 495, 665, 85, 65], ['carrega', 355, 655, 115, 85], ['cabines', 925, 455, 135, 75]],
           etiquetes: [['xemeneia', 625, 95, 550, 195], ['veles', 980, 115, 835, 195, 'Pals i veles'], ['calderes', 345, 235, 515, 275], ['maquina', 325, 395, 545, 395, 'Màquina'], ['carrega', 195, 675, 355, 645, 'Bodega'], ['carbonera', 385, 745, 495, 665, 'Carboneres'], ['cabines', 1060, 415, 935, 455], ['roda', 1005, 695, 825, 650, 'Roda de pales']]
         },

@@ -271,6 +271,7 @@
         explotada: {
           img: 'img/exp-bessemer.webp',
           model: 'Làmina tècnica en vista explotada · Convertidor Bessemer (1856)',
+          guies: '<path d="M165 535L475 365M725 245L995 115M605 520V665"/><circle cx="475" cy="365" r="4.5"/><circle cx="725" cy="245" r="4.5"/><circle cx="605" cy="520" r="4.5"/>',
           zones: [['convertidor', 605, 325, 145, 210], ['eix', 255, 515, 175, 145], ['eix', 925, 285, 215, 155], ['toveres', 605, 605, 125, 125], ['cullera', 805, 665, 95, 105]],
           etiquetes: [['convertidor', 385, 145, 565, 245], ['eix', 965, 115, 875, 265, 'Eix i conducte d’aire'], ['toveres', 415, 715, 585, 615, 'Toveres'], ['cullera', 975, 735, 815, 655, 'Cullera']]
         },

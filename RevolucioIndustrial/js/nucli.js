@@ -422,6 +422,12 @@
     if (!expSvg || !e.explotada) return;
     const NS = 'http://www.w3.org/2000/svg';
     expSvg.innerHTML = '';
+    if (e.explotada.guies) {
+      const gg = document.createElementNS(NS, 'g');
+      gg.setAttribute('class', 'exp-guies');
+      gg.innerHTML = e.explotada.guies;
+      expSvg.appendChild(gg);
+    }
     const zg = document.createElementNS(NS, 'g');
     zg.setAttribute('class', 'exp-zones');
     (e.explotada.zones || []).forEach((z) => {

@@ -97,6 +97,9 @@ h1,h2,h3,h4,p{margin:0}
 .real-peu small{display:block;color:var(--gris);font-size:.68rem;margin-top:2px}
 .lamina-exp img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 96% 94% at 50% 50%,#000 84%,transparent 100%);mask-image:radial-gradient(ellipse 96% 94% at 50% 50%,#000 84%,transparent 100%)}
 .lamina-exp .exp-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.exp-guies{stroke:#7a4e26;stroke-width:1.9;stroke-dasharray:6 5;stroke-linecap:round;fill:none;opacity:.78;pointer-events:none}
+.exp-guies .sil{stroke:#6e5538;stroke-width:1.7;stroke-dasharray:5 4;fill:rgba(122,91,58,.06);opacity:.78}
+.exp-guies circle{fill:#fdf8ea;stroke:#7a4e26;stroke-width:1.8;stroke-dasharray:none}
 .exp-zona{fill:rgba(217,72,43,0);stroke:rgba(217,72,43,0);stroke-width:3;cursor:pointer;transition:fill .18s,stroke .18s}
 .exp-zona:hover{fill:rgba(217,72,43,.1);stroke:rgba(217,72,43,.45);stroke-dasharray:6 4}
 .exp-zona.sel{fill:rgba(242,194,48,.22);stroke:var(--tinta);stroke-width:3.5}

@@ -130,6 +130,7 @@
         explotada: {
           img: 'img/exp-rocket.webp',
           model: 'Làmina tècnica en vista explotada · Locomotora Rocket (Stephenson, 1829)',
+          guies: '<path class="sil" d="M240 375L760 545L830 515"/><path d="M435 385L422 448M615 240V310M305 295L540 385M455 495L540 385M445 575L540 480M710 420L840 505M940 580V410"/><circle cx="422" cy="448" r="4.5"/><circle cx="615" cy="310" r="4.5"/><circle cx="540" cy="385" r="4.5"/><circle cx="710" cy="420" r="4.5"/>',
           zones: [['fogar', 265, 225, 135, 135], ['xemeneia', 435, 235, 55, 155], ['vapor', 615, 175, 65, 75], ['caldera', 615, 365, 145, 115], ['tubs', 685, 425, 145, 85], ['cilindre', 625, 610, 125, 85], ['cilindre', 840, 505, 115, 85], ['roda', 340, 615, 145, 135], ['tender', 950, 265, 145, 145]],
           etiquetes: [['fogar', 135, 115, 255, 205], ['xemeneia', 340, 78, 435, 185], ['vapor', 625, 82, 615, 165, 'Presa de vapor'], ['tender', 1035, 120, 975, 195], ['tubs', 845, 345, 705, 415, 'Tubs de fum'], ['caldera', 345, 445, 520, 325], ['roda', 155, 665, 300, 605, 'Roda motriu'], ['cilindre', 745, 705, 655, 625]]
         },
