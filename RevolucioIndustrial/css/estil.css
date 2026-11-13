@@ -66,12 +66,29 @@ h1,h2,h3,h4,p{margin:0}
 .escenari{display:flex;flex-direction:column;min-height:0;background:var(--blanc);border:3px solid var(--tinta);border-radius:0 14px 14px 14px;box-shadow:var(--ombra);overflow:hidden}
 .tela{flex:1;min-height:0;position:relative;background:#f7f1e1}
 .tela>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.capes{position:absolute;top:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:70%}
-.capes button{border:2px solid var(--tinta);background:var(--blanc);border-radius:999px;padding:4px 11px 4px 26px;font-size:.78rem;font-weight:700;position:relative}
+.vistes{position:absolute;top:10px;left:10px;z-index:3;display:flex;gap:5px;flex-wrap:wrap;max-width:46%}
+.vistes button{border:2px solid var(--tinta);background:rgba(255,253,247,.94);border-radius:8px;padding:4px 10px;font-size:.76rem;font-weight:700;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.vistes button:hover{border-color:var(--cap,var(--tinta))}
+.vistes button[aria-pressed=true]{background:var(--cap,var(--tinta));border-color:var(--cap,var(--tinta));color:#fff}
+.capes{position:absolute;top:10px;right:10px;z-index:3;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:52%}
+.capes button{border:2px solid var(--tinta);background:var(--blanc);border-radius:999px;padding:4px 11px 4px 26px;font-size:.78rem;font-weight:700;position:relative;cursor:pointer}
 .capes button::before{content:'';position:absolute;left:8px;top:50%;width:11px;height:11px;margin-top:-6.5px;border-radius:50%;border:2px solid var(--tinta);background:#fff}
 .capes button[aria-pressed=true]{background:var(--tinta);color:#fff}
 .capes button[aria-pressed=true]::before{background:var(--groc);border-color:#fff}
-.model{position:absolute;left:10px;bottom:8px;font-size:.72rem;font-weight:600;color:var(--gris);background:rgba(255,253,247,.86);padding:2px 9px;border-radius:999px;border:1px solid var(--linia);max-width:80%}
+.capes button[data-capa="_exp"][aria-pressed=true]{background:#7a2e16;border-color:#7a2e16}
+.capes button[data-capa="_exp"][aria-pressed=true]::before{background:#f3b547}
+[data-exp],.etq-e{transition:transform .52s cubic-bezier(.22,1,.36,1)}
+[data-guia]{opacity:0;pointer-events:none;transition:opacity .42s ease;stroke:#7a5b3a;stroke-width:1.4;stroke-dasharray:4 4;fill:none}
+svg.explota [data-guia]{opacity:.58}
+@media(max-width:760px){
+  .vistes{top:8px;left:8px;max-width:95%}
+  .capes{top:8px;right:8px;max-width:95%}
+  .vistes ~ .capes{top:42px}
+  .vistes button,.capes button{font-size:.7rem;padding:3px 8px}
+  .capes button{padding-left:22px}
+  .capes button::before{width:9px;height:9px;left:7px;margin-top:-5.5px}
+}
+.model{position:absolute;left:10px;bottom:8px;z-index:3;font-size:.72rem;font-weight:600;color:var(--gris);background:rgba(255,253,247,.86);padding:2px 9px;border-radius:999px;border:1px solid var(--linia);max-width:80%}
 .comandament{display:flex;align-items:center;gap:12px;padding:8px 12px;border-top:3px solid var(--tinta);background:var(--paper2);flex:none}
 .comandament.sense{display:none}
 .botons{display:flex;gap:6px;align-items:center}
@@ -158,7 +175,7 @@ h1,h2,h3,h4,p{margin:0}
 .felip-app-footer{display:flex;align-items:center;gap:10px;padding:5px 18px;border-top:2px solid var(--tinta);background:var(--blanc);font-size:.68rem;color:var(--gris);flex:none}
 .felip-license-image{height:22px;display:block}
 .felip-footer-text{display:flex;gap:4px 14px;flex-wrap:wrap}
-.felip-footer-text a{font-weight:700;color:var(--tinta)}
+.felip-footer-text a{font-weight:700;color:var(--tinta);white-space:nowrap}
 
 /* ---------- SVG: llenguatge de dibuix ---------- */
 .esc{font-family:var(--f-u);user-select:none;-webkit-user-select:none}

@@ -80,14 +80,15 @@
     s += `<rect x="-60" y="540" width="510" height="22" fill="#705236"/><rect x="450" y="546" width="125" height="16" fill="#5e432a"/><rect class="herba" x="574" y="534" width="690" height="10"/>`;
     s += `<g id="llavors">${Array.from({ length: 11 }, () => `<g class="ll"><path class="brot" d="M0 0v-30m0 12q-12-2-14-14m14 6q12-2 14-14" stroke="#4f8a3a" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse class="t1" cx="0" cy="4" rx="6" ry="4.5" fill="#e6b93c"/></g>`).join('')}</g>`;
     s += `${cavall(880, 540, 2.35, { arnes: true })}<path d="M708 424L834 406M708 438L848 420" class="t nf" stroke-width="4.5"/>${persona(250, 540, 170, { color: '#7a5a3a', barret: true, brac: 'M-8-68l36 16M8-68l32 10' })}`;
-    s += `<g data-part="esteves"><path d="M326 398L416 436M326 386L416 424" class="t" stroke="#8f6038" stroke-width="9"/></g>`;
-    s += `<g data-part="bastidor"><path class="t fusta" d="M410 422H712V444H410Z"/><path class="t fusta2" d="M480 340L446 422M580 340L616 422" stroke-width="8"/></g>`;
-    s += `<g data-part="rasclet"><path d="M426 444V550M446 444V550M464 444V548" class="t ferro2" stroke-width="5.5"/></g>`;
-    s += `<g data-part="tremuja"><path class="t fusta" d="M450 248H610L580 340H480Z"/><path class="t2" d="M462 260H598L574 330H486Z" fill="#e6b93c"/><path d="M472 270h10m14 6h10m20-8h10m-50 22h10m24 0h10m16-12h10m-70 26h10m30 4h10" stroke="#9e6e14" stroke-width="4.5" stroke-linecap="round"/></g>`;
-    s += `<g data-part="dosador"><rect class="t ferro" x="496" y="340" width="68" height="46" rx="6"/><g id="dos"><circle class="t fusta3" cx="530" cy="363" r="17"/><path d="M530 346v8M530 372v8M513 363h8M539 363h8M518 351l6 6M536 369l6 6M542 351l-6 6M524 369l-6 6" class="t2"/></g></g>`;
-    s += `<g data-part="tub"><path class="t" fill="#d9b383" d="M518 386h24l22 156h-12z"/></g><ellipse id="cau" class="t1" cx="540" cy="400" rx="6" ry="4.5" fill="#e6b93c"/>`;
-    s += `<g data-part="rella"><path class="t ferro" d="M554 516h34l-18 46z"/></g>`;
-    s += `<g data-part="roda"><g id="sroda">${roda(640, 468, 72, { raigs: 10, color: '#a67547', gruix: 10 })}<circle class="t2 ferro" cx="640" cy="468" r="14"/></g><path d="M634 455L524 348M646 481L536 378" class="t1 nf" stroke-dasharray="5 4"/></g>`;
+    s += `<g data-guia="1"><path d="M530 248v-58M530 340h-46M530 386v40M445 450l-52 30M564 520l44 30M640 468l60-16M370 415l-56-24"/></g>`;
+    s += `<g data-part="esteves" data-exp="-64 -26"><path d="M326 398L416 436M326 386L416 424" class="t" stroke="#8f6038" stroke-width="9"/></g>`;
+    s += `<g data-part="bastidor"><path class="t" fill="url(#g-fustac)" d="M410 422H712V444H410Z"/><path class="t fusta2" d="M480 340L446 422M580 340L616 422" stroke-width="8"/></g>`;
+    s += `<g data-part="rasclet" data-exp="-54 34"><path d="M426 444V550M446 444V550M464 444V548" class="t ferro2" stroke-width="5.5"/></g>`;
+    s += `<g data-part="tremuja" data-exp="0 -56"><path class="t" fill="url(#g-fustac)" d="M450 248H610L580 340H480Z"/><path class="t2" d="M462 260H598L574 330H486Z" fill="#e6b93c"/><path d="M472 270h10m14 6h10m20-8h10m-50 22h10m24 0h10m16-12h10m-70 26h10m30 4h10" stroke="#9e6e14" stroke-width="4.5" stroke-linecap="round"/></g>`;
+    s += `<g data-part="dosador" data-exp="-46 -18"><rect class="t" fill="url(#g-ferroc)" x="496" y="340" width="68" height="46" rx="6"/><g id="dos"><circle class="t fusta3" cx="530" cy="363" r="17"/><path d="M530 346v8M530 372v8M513 363h8M539 363h8M518 351l6 6M536 369l6 6M542 351l-6 6M524 369l-6 6" class="t2"/></g></g>`;
+    s += `<g data-part="tub" data-exp="0 28"><path class="t" fill="#d9b383" d="M518 386h24l22 156h-12z"/></g><ellipse id="cau" class="t1" cx="540" cy="400" rx="6" ry="4.5" fill="#e6b93c"/>`;
+    s += `<g data-part="rella" data-exp="48 34"><path class="t" fill="url(#g-ferroc)" d="M554 516h34l-18 46z"/></g>`;
+    s += `<g data-part="roda" data-exp="64 -16"><g id="sroda">${roda(640, 468, 72, { raigs: 10, color: '#a67547', gruix: 10 })}<circle class="t2 ferro" cx="640" cy="468" r="14"/></g><path d="M634 455L524 348M646 481L536 378" class="t1 nf" stroke-dasharray="5 4"/></g>`;
     // comparació: ocells menjant les llavors tirades a mà vs sembra en fileres tapades
     s += `<g><rect class="t" x="770" y="46" width="200" height="190" rx="14" fill="#9e825e"/><rect class="t" x="990" y="46" width="200" height="190" rx="14" fill="#8b6d46"/>
       ${[1040, 1090, 1140].map((x) => `<rect x="${x - 8}" y="82" width="16" height="146" fill="#6f5232" rx="4"/>` + Array.from({ length: 6 }, (_, i) => `<ellipse cx="${x}" cy="${98 + i * 22}" rx="4.5" ry="3.2" fill="#e6b93c" stroke="#2a2420"/>`).join('')).join('')}
@@ -117,11 +118,12 @@
     }).join('')}</g><rect x="-60" y="500" width="700" height="6" fill="#6b4e33"/>`;
     // 2 cavalls tirant en tàndem + cadena fins a la cama
     s += `${cavall(1030, 500, 2.3, { color: '#5a4636', arnes: true })}${cavall(915, 500, 2.3, { arnes: true })}<path d="M798 380L874 374M798 386L988 378" class="t nf" stroke-width="4" stroke-dasharray="6 3"/>${persona(210, 500, 170, { color: '#3d5a80', barret: true, brac: 'M-8-68l40 2M8-68l36 6' })}`;
-    s += `<g data-part="esteves"><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
-    s += `<g data-part="cama"><path class="t fusta" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
-    s += `<g data-part="orello"><path class="t ferroh" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/></g>`;
-    s += `<g data-part="rella"><path class="t ferro" d="M660 528L540 532L560 490Z"/></g>`;
-    s += `<g data-part="ganivet"><path class="t ferro2" d="M690 378h14l-22 150-10-6z"/></g>`;
+    s += `<g data-guia="1"><path d="M350 340l-52-24M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
+    s += `<g data-part="esteves" data-exp="-60 -30"><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
+    s += `<g data-part="cama" data-exp="0 -14"><path class="t" fill="url(#g-fustac)" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
+    s += `<g data-part="orello" data-exp="-34 42"><path class="t ferroh" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/></g>`;
+    s += `<g data-part="rella" data-exp="56 32"><path class="t" fill="url(#g-ferroc)" d="M660 528L540 532L560 490Z"/></g>`;
+    s += `<g data-part="ganivet" data-exp="0 -56"><path class="t" fill="url(#g-ferroc)" d="M690 378h14l-22 150-10-6z"/></g>`;
     s += `<g data-en="0">${retol(820, 560, 'talla la terra en vertical', { fons: '#2a2420', w: 240 })}</g><g data-en="1">${retol(760, 600, 'talla per sota i l’aixeca', { fons: '#2a2420', w: 230 })}</g><g data-en="2">${retol(300, 566, 'la gira i colga les males herbes', { fons: '#2a2420', w: 290 })}</g>`;
     s += `<g><rect class="t" x="48" y="38" width="356" height="156" rx="14" fill="#fffdf7"/><text x="226" y="68" class="tx mig">Arada pesant antiga</text>${cavall(96, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(144, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(192, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(240, 150, 0.85, { color: '#9a8468', arnes: true })}${persona(316, 150, 56, { color: '#7a5a3a' })}${persona(352, 150, 56, { color: '#7a5a3a' })}<text x="226" y="178" class="tx-p mig">4 o més animals i 2 persones</text>
       <rect class="t" x="424" y="38" width="330" height="156" rx="14" fill="#fff6d6"/><text x="589" y="68" class="tx mig">Arada de Rotherham</text>${cavall(510, 150, 0.85, { arnes: true })}${cavall(562, 150, 0.85, { arnes: true })}${persona(646, 150, 56, { color: '#3d5a80' })}<text x="589" y="178" class="tx-p mig">2 cavalls i 1 persona</text></g>`;

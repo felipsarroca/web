@@ -10,8 +10,9 @@
   function western() {
     let s = `<rect class="cel" x="-60" width="1320" height="470"/>${nuvol(900, 78, 1.5)}${nuvol(60, 128, 1.1)}<rect x="-60" y="470" width="1320" height="250" fill="url(#g-mar)"/>`;
     s += ones(470, '#e6f5fc') + ones(525, '#8cc3e6') + ones(605, '#76b5dc') + ones(672, '#5a9ec8');
+    s += `<g data-guia="1"><path d="M468 366v-64M842 366v-64M372 420v-58M670 420l54-26M560 545l36 36M372 520l-42 26"/></g>`;
     // pals, eixàrcia i veles auxiliars amb botavares i estais
-    s += `<g data-part="veles">${[[168, 118], [468, 86], [842, 86], [990, 126]].map(([x, y]) => `
+    s += `<g data-part="veles" data-exp="0 -64">${[[168, 118], [468, 86], [842, 86], [990, 126]].map(([x, y]) => `
       <rect class="t fusta2" x="${x - 5}" y="${y}" width="10" height="${380 - y}"/>
       <path d="M${x} ${y + 12}L${x - 66} 366M${x} ${y + 12}L${x + 120} 366" stroke="#2a2420" stroke-width="1.4" opacity=".45"/>
       <path class="t blanc" d="M${x + 8} ${y + 28}L${x + 114} ${y + 56}Q${x + 126} ${y + 125} ${x + 120} ${y + 188}L${x + 8} ${y + 198}Z"/>
@@ -23,21 +24,21 @@
     s += `<path class="t" fill="#32393f" d="M84 372H1130L1096 470H104Z"/>`;
     s += `<path fill="#efe3c6" class="t2" d="M112 392H1092Q1072 474 1024 558H186Q130 520 112 392Z"/>`;
     s += `<path class="t fusta2" d="M84 480l-22 6 4 72 34-6z"/>`;
-    s += `<rect class="t fusta" x="80" y="366" width="1054" height="14" rx="5"/>`;
+    s += `<rect class="t" fill="url(#g-fustac)" x="80" y="366" width="1054" height="14" rx="5"/>`;
     // línia de flotació subtil fora del buc
     s += `<path d="M-40 470H92M1104 470H1240" stroke="#fffdf7" stroke-width="3" stroke-dasharray="10 7" opacity=".85"/>`;
     // interior: cabines, bodega, carboneres, calderes, xemeneia
-    s += `<g data-part="cabines"><rect class="t2" x="122" y="396" width="92" height="78" fill="#f7d9c4"/><rect class="t vidre" x="134" y="408" width="22" height="18"/><rect class="t vidre" x="170" y="408" width="22" height="18"/>${persona(150, 474, 44, { color: '#7a4f9a' })}${persona(190, 474, 44, { color: '#3d5a80', barret: true })}
+    s += `<g data-part="cabines" data-exp="0 -34"><rect class="t2" x="122" y="396" width="92" height="78" fill="#f7d9c4"/><rect class="t vidre" x="134" y="408" width="22" height="18"/><rect class="t vidre" x="170" y="408" width="22" height="18"/>${persona(150, 474, 44, { color: '#7a4f9a' })}${persona(190, 474, 44, { color: '#3d5a80', barret: true })}
       <rect class="t2" x="810" y="396" width="150" height="78" fill="#f7d9c4"/><rect class="t vidre" x="824" y="408" width="22" height="18"/><rect class="t vidre" x="864" y="408" width="22" height="18"/><rect class="t vidre" x="904" y="408" width="22" height="18"/>${persona(850, 474, 44, { color: '#b9722a' })}${persona(920, 474, 44, { color: '#5b8c35', barret: true })}</g>`;
-    s += `<g data-part="carrega"><rect class="t fusta3" x="820" y="500" width="40" height="40"/><rect class="t fusta3" x="864" y="500" width="40" height="40"/><rect class="t fusta3" x="842" y="480" width="40" height="22"/><ellipse class="t fusta2" cx="940" cy="520" rx="22" ry="20"/><ellipse class="t fusta2" cx="985" cy="524" rx="18" ry="16"/><path d="M820 520h84M842 490h40" class="t1"/></g>`;
-    s += `<g data-part="carbonera"><path class="t carbo" d="M222 556V430q36-22 72 0V556z"/><path class="t carbo" d="M196 556V490h26v66zM790 556V440q-18-10-36 0v116z"/></g>`;
-    s += `<g data-part="calderes"><rect class="t ferro" x="302" y="420" width="140" height="136" rx="10"/><rect x="310" y="428" width="124" height="60" rx="5" class="aigua2"/><rect class="t fosc" x="312" y="498" width="54" height="50" rx="4"/><rect class="t fosc" x="378" y="498" width="54" height="50" rx="4"/>${focs(326, 546, 2, 26, 22, 34)}${focs(392, 546, 2, 26, 22, 34)}<g data-puf="350 440 0 -14 3 5 1.3" class="vap"></g><g data-puf="400 440 0 -14 3 5 1.6" class="vap"></g></g>`;
-    s += `<g data-part="xemeneia"><path class="t negre" d="M352 420V170h40V420z"/><rect class="t vermell" x="350" y="170" width="44" height="26"/></g><g data-puf="372 160 -200 -80 7 18 2" class="fum"></g>`;
+    s += `<g data-part="carrega" data-exp="52 36"><rect class="t fusta3" x="820" y="500" width="40" height="40"/><rect class="t fusta3" x="864" y="500" width="40" height="40"/><rect class="t fusta3" x="842" y="480" width="40" height="22"/><ellipse class="t fusta2" cx="940" cy="520" rx="22" ry="20"/><ellipse class="t fusta2" cx="985" cy="524" rx="18" ry="16"/><path d="M820 520h84M842 490h40" class="t1"/></g>`;
+    s += `<g data-part="carbonera" data-exp="-44 26"><path class="t carbo" d="M222 556V430q36-22 72 0V556z"/><path class="t carbo" d="M196 556V490h26v66zM790 556V440q-18-10-36 0v116z"/></g>`;
+    s += `<g data-part="calderes" data-exp="-38 28"><rect class="t" fill="url(#g-ferroc)" x="302" y="420" width="140" height="136" rx="10"/><rect x="310" y="428" width="124" height="60" rx="5" class="aigua2"/><rect class="t fosc" x="312" y="498" width="54" height="50" rx="4"/><rect class="t fosc" x="378" y="498" width="54" height="50" rx="4"/>${focs(326, 546, 2, 26, 22, 34)}${focs(392, 546, 2, 26, 22, 34)}<g data-puf="350 440 0 -14 3 5 1.3" class="vap"></g><g data-puf="400 440 0 -14 3 5 1.6" class="vap"></g></g>`;
+    s += `<g data-part="xemeneia" data-exp="-26 -62"><path class="t negre" d="M352 420V170h40V420z"/><rect class="t vermell" x="350" y="170" width="44" height="26"/></g><g data-puf="372 160 -200 -80 7 18 2" class="fum"></g>`;
     s += `<path d="M442 440H476" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M442 440H476" class="nf" stroke="#f0ab68" stroke-width="8"/>`;
     // roda de pales + tambor protector
-    s += `<g data-part="roda"><g id="vroda">${roda(S.x, S.y, 112, { raigs: 12, color: '#a8452f', gruix: 8, raig: 4, extra: pales(S.x, S.y, 104, 12) })}</g><path d="M548 380A122 122 0 0 1 792 380" class="t nf" stroke-width="7"/><path d="M548 380A122 122 0 0 1 792 380" class="nf" stroke="#c7935c" stroke-width="3"/></g>`;
+    s += `<g data-part="roda" data-exp="62 -30"><g id="vroda">${roda(S.x, S.y, 112, { raigs: 12, color: '#a8452f', gruix: 8, raig: 4, extra: pales(S.x, S.y, 104, 12) })}</g><path d="M548 380A122 122 0 0 1 792 380" class="t nf" stroke-width="7"/><path d="M548 380A122 122 0 0 1 792 380" class="nf" stroke="#c7935c" stroke-width="3"/></g>`;
     // màquina de palanques laterals
-    s += `<g data-part="maquina"><rect class="t pedra" x="456" y="548" width="250" height="12"/><rect id="vcam" x="476" y="436" width="40" height="40" fill="#f9a35e"/><path d="M468 428H524V524H468ZM476 436V516H516V436Z" class="t" fill="#f08a4b" fill-rule="evenodd"/>
+    s += `<g data-part="maquina" data-exp="36 40"><rect class="t pedra" x="456" y="548" width="250" height="12"/><rect id="vcam" x="476" y="436" width="40" height="40" fill="#f9a35e"/><path d="M468 428H524V524H468ZM476 436V516H516V436Z" class="t" fill="#f08a4b" fill-rule="evenodd"/>
       <g id="vpist"><rect class="t ferro" x="476" y="-5" width="40" height="10"/><rect class="t ferro" x="492" y="-72" width="8" height="72"/><rect class="t ferro" x="452" y="-78" width="50" height="9" rx="3"/></g><line id="vtija" x1="458" y1="400" x2="458" y2="545" class="t" stroke-width="6"/>
       <g id="vpal"><path class="t ferro" d="M${PIV.x - MIG - 8} ${PIV.y}L${PIV.x} ${PIV.y - 16}L${PIV.x + MIG + 8} ${PIV.y}L${PIV.x} ${PIV.y + 16}Z"/></g><circle class="t llauto" cx="${PIV.x}" cy="${PIV.y}" r="9"/>
       <line id="vbiela" x1="670" y1="545" x2="670" y2="420" stroke="#2a2420" stroke-width="13" stroke-linecap="round"/><line id="vbiela2" x1="670" y1="545" x2="670" y2="420" stroke="#b4bec4" stroke-width="7" stroke-linecap="round"/><line id="vman" x1="670" y1="420" x2="700" y2="420" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><circle class="t llauto" cx="670" cy="420" r="13"/></g>`;

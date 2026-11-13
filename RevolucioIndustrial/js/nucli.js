@@ -30,6 +30,12 @@
 
   /* ---------- definicions SVG compartides ---------- */
   RI.DEFS = `<defs>
+  <linearGradient id="g-fustac" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c48a4a"/><stop offset=".45" stop-color="#a1652c"/><stop offset="1" stop-color="#6b3e17"/></linearGradient>
+  <linearGradient id="g-ferroc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa6af"/><stop offset=".35" stop-color="#5c6870"/><stop offset=".85" stop-color="#353f46"/><stop offset="1" stop-color="#22292e"/></linearGradient>
+  <linearGradient id="g-llautoc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7dc84"/><stop offset=".45" stop-color="#c9952a"/><stop offset="1" stop-color="#7c5412"/></linearGradient>
+  <linearGradient id="g-cotoblanc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ded8cb"/><stop offset=".4" stop-color="#fffdf8"/><stop offset="1" stop-color="#cfc7b6"/></linearGradient>
+  <linearGradient id="g-cotocrem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d8ccb4"/><stop offset=".45" stop-color="#f5ecd8"/><stop offset="1" stop-color="#c0b296"/></linearGradient>
+  <pattern id="p-fusta" width="24" height="12" patternUnits="userSpaceOnUse"><rect width="24" height="12" fill="#9a612d" fill-opacity=".16"/><path d="M0 3q12-2 24 0M0 9q12 2 24 0" stroke="#533012" stroke-opacity=".22" stroke-width=".9" fill="none"/></pattern>
   <linearGradient id="g-ferro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4bfc6"/><stop offset=".5" stop-color="#87949d"/><stop offset="1" stop-color="#536069"/></linearGradient>
   <linearGradient id="g-ferroh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#525e67"/><stop offset=".35" stop-color="#c3cdd3"/><stop offset=".65" stop-color="#909ca4"/><stop offset="1" stop-color="#4e5a63"/></linearGradient>
   <linearGradient id="g-acer" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dde5ea"/><stop offset=".45" stop-color="#97a4ad"/><stop offset="1" stop-color="#596670"/></linearGradient>
@@ -120,7 +126,7 @@
   };
 
   /* ---------- estat ---------- */
-  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, brut: true, repte: false };
+  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, brut: true, repte: false };
   let svgEl = null, auto = null, els = {}, darrer = 0;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -143,7 +149,7 @@
   }
 
   /* ---------- peu i capçalera ---------- */
-  const peu = () => `<footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · Codi AGPL-3.0-or-later · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>`;
+  const peu = () => `<footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · Codi <a href="https://github.com/felipsarroca/web/blob/main/RevolucioIndustrial/LICENSE" target="_blank" rel="noopener noreferrer">AGPL-3.0-or-later</a> · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>`;
   const marca = () => `<a class="marca" href="index.html" aria-label="Torna a la portada"><span class="marca-roda" aria-hidden="true">${RI.svgMarca()}</span><span class="marca-text"><strong>La Revolució Industrial</strong><em>per dins</em></span></a>`;
   RI.svgMarca = () => `<svg viewBox="0 0 40 40" width="38" height="38"><g class="gira-lent" style="transform-origin:20px 20px">${RI.engranatge(20, 20, 14, 10, { color: '#d9482b', boto: '#f6da7c' })}</g></svg>`;
   function eines() {
@@ -198,8 +204,9 @@
     $('#cos').innerHTML = `
     <section class="escenari">
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
-        <div class="capes" id="capes">${e.etiquetes ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
-        ${e.model ? `<div class="model">${esc(e.model)}</div>` : ''}
+        ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : ''}
+        <div class="capes" id="capes">${e.etiquetes || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
+        ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
       </div>
       <div class="comandament${e.estatica ? ' sense' : ''}">
         <div class="botons"><button type="button" id="b-ant" title="Fase anterior (←)" aria-label="Fase anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button><button type="button" id="b-play" class="principal" title="Reprodueix o atura (espai)" aria-label="Reprodueix o atura"></button><button type="button" id="b-seg" title="Fase següent (→)" aria-label="Fase següent"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button></div>
@@ -219,7 +226,11 @@
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
     svgEl = $('#tela svg'); els = {};
-    posaEtiquetes(e); prepara(); pintaPeca();
+    st.vista = e.vistes && e.vistes.length ? e.vistes[0].id : null;
+    st.explota = false;
+    const bExp = $('#capes [data-capa="_exp"]');
+    if (bExp) bExp.hidden = !$$('[data-exp]', svgEl).length;
+    mostraVistes(); posaEtiquetes(e); prepara(); pintaPeca();
     $('#b-play').addEventListener('click', () => { st.fiPas = null; st.play = !st.play; botoPlay(); });
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
     $('#b-ant').addEventListener('click', () => vesFase(st.iFase - 1));
@@ -227,9 +238,19 @@
     $('#lliscador').addEventListener('input', (ev) => { st.play = false; st.fiPas = null; st.p = Math.min(0.9999, ev.target.value / 1000); st.brut = true; botoPlay(); });
     $('#trams').addEventListener('click', (ev) => { const s = ev.target.closest('[data-k]'); if (s) vesFase(+s.dataset.k); });
     const lf = $('#fases'); if (lf) lf.addEventListener('click', (ev) => { const li = ev.target.closest('li'); if (li) vesFase(+li.dataset.k); });
-    $('#capes').addEventListener('click', (ev) => { const b = ev.target.closest('[data-capa]'); if (!b) return; const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); } else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); } st.brut = true; });
+    const vBox = $('#vistes');
+    if (vBox) vBox.addEventListener('click', (ev) => {
+      const b = ev.target.closest('[data-vista-btn]');
+      if (!b || b.dataset.vistaBtn === st.vista) return;
+      st.vista = b.dataset.vistaBtn;
+      $$('[data-vista-btn]', vBox).forEach((x) => x.setAttribute('aria-pressed', x.dataset.vistaBtn === st.vista));
+      const v = (e.vistes || []).find((x) => x.id === st.vista);
+      const mEl = $('#tela .model'); if (mEl && (v && v.model || e.model)) mEl.textContent = (v && v.model) || e.model;
+      mostraVistes(); posaEtiquetes(e); svgEl._seg = null; pintaPeca(); aplicaExplota(); st.brut = true;
+    });
+    $('#capes').addEventListener('click', (ev) => { const b = ev.target.closest('[data-capa]'); if (!b) return; const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); } else if (b.dataset.capa === '_exp') { st.explota = on; aplicaExplota(); } else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); } st.brut = true; });
     (e.capes || []).forEach((c) => svgEl.classList.toggle('capa-' + c.id, !!c.on));
-    mostraCapes();
+    mostraCapes(); aplicaExplota();
     st.etq = true;
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     $('.p-nav').addEventListener('click', (ev) => { const b = ev.target.closest('[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); });
@@ -239,14 +260,46 @@
 
   /* els elements amb data-capa="id" només es veuen si la capa és activa */
   function mostraCapes() { $$('[data-capa]', svgEl).forEach((n) => { n.style.display = st.capes[n.dataset.capa] ? '' : 'none'; }); }
+  function mostraVistes() {
+    if (!svgEl) return;
+    $$('[data-vista]', svgEl).forEach((n) => {
+      const ll = n.dataset.vista.split(',');
+      n.style.display = !st.vista || ll.indexOf(st.vista) >= 0 ? '' : 'none';
+    });
+  }
+  function amagat(n) {
+    for (let p = n; p && p !== svgEl; p = p.parentNode) if (p.style && p.style.display === 'none') return true;
+    return false;
+  }
+  function aplicaExplota() {
+    if (!svgEl) return;
+    svgEl.classList.toggle('explota', st.explota);
+    const offMap = {};
+    $$('[data-exp]', svgEl).forEach((n) => {
+      const raw = (n.dataset.exp || '0 0').trim().split(/[\s,]+/);
+      const dx = +raw[0] || 0, dy = +raw[1] || 0;
+      n.style.transform = st.explota ? `translate(${dx}px,${dy}px)` : '';
+      if (!amagat(n)) {
+        if (n.dataset.part && !offMap[n.dataset.part]) offMap[n.dataset.part] = [dx, dy];
+        $$('[data-part]', n).forEach((c) => { if (!offMap[c.dataset.part]) offMap[c.dataset.part] = [dx, dy]; });
+      }
+    });
+    $$('.etq-e', svgEl).forEach((w) => {
+      const o = offMap[w.dataset.etqP];
+      w.style.transform = st.explota && o ? `translate(${o[0]}px,${o[1]}px)` : '';
+    });
+  }
 
   function posaEtiquetes(e) {
-    if (!e.etiquetes) return;
+    const ant = $('.etqs', svgEl); if (ant) ant.remove();
+    const vAct = e.vistes ? e.vistes.find((v) => v.id === st.vista) : null;
+    const llista = (vAct && vAct.etiquetes) || e.etiquetes;
+    if (!llista) return;
     const NS = 'http://www.w3.org/2000/svg', g = document.createElementNS(NS, 'g');
     g.setAttribute('class', 'etqs');
-    g.innerHTML = e.etiquetes.map(([part, x, y, ax, ay, text, segueix]) => {
+    g.innerHTML = llista.map(([part, x, y, ax, ay, text, segueix]) => {
       const nom = text || (e.parts[part] ? e.parts[part].nom : part);
-      return `<g class="etq" data-etq="${part}"${segueix ? ` data-seg="${segueix}"` : ''} data-ax="${ax}" data-ay="${ay}" tabindex="0" role="button" aria-label="${esc(nom)}"><line x1="${x}" y1="${y}" x2="${ax}" y2="${ay}"/><circle cx="${ax}" cy="${ay}" r="5"/><rect x="${x}" y="${y - 15}" width="10" height="30" rx="15"/><text x="${x}" y="${y + 5.5}" text-anchor="middle">${esc(nom)}</text></g>`;
+      return `<g class="etq-e" data-etq-p="${part}"><g class="etq" data-etq="${part}"${segueix ? ` data-seg="${segueix}"` : ''} data-ax="${ax}" data-ay="${ay}" tabindex="0" role="button" aria-label="${esc(nom)}"><line x1="${x}" y1="${y}" x2="${ax}" y2="${ay}"/><circle cx="${ax}" cy="${ay}" r="5"/><rect x="${x}" y="${y - 15}" width="10" height="30" rx="15"/><text x="${x}" y="${y + 5.5}" text-anchor="middle">${esc(nom)}</text></g></g>`;
     }).join('');
     svgEl.appendChild(g);
     $$('.etq', g).forEach((n) => {
@@ -357,7 +410,7 @@
         c.setAttribute('opacity', (Math.min(1, f * 6) * (1 - f) * 0.9).toFixed(2));
       }
     });
-    if (e.anima) e.anima({ p, t, k, el, capes: st.capes, svg: svgEl, sel: st.sel });
+    if (e.anima) e.anima({ p, t, k, el, capes: st.capes, svg: svgEl, sel: st.sel, vista: st.vista, explota: st.explota });
     /* etiquetes que acompanyen una peça mòbil (translació o punt local amb id@lx,ly) */
     if (!svgEl._seg) svgEl._seg = $$('.etq[data-seg]', svgEl);
     svgEl._seg.forEach((n) => {

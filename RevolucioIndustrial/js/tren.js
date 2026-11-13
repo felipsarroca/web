@@ -13,9 +13,10 @@
     s += `<rect class="herba" x="-60" y="592" width="1320" height="30"/><rect class="pedra" x="-60" y="612" width="1320" height="108"/>`;
     let tr = ''; for (let x = -120; x < 1340; x += 60) tr += `<rect class="t2 fusta2" x="${x}" y="607" width="34" height="13"/>`;
     s += `<g id="trav">${tr}</g><rect class="t ferro" x="-60" y="599" width="1320" height="9"/>`;
+    s += `<g data-guia="1"><path d="M180 460h-48M395 320l-42-28M620 260v-44M824 250l34-44M760 480l36 32M474 220v-48"/></g>`;
     // tènder
-    s += `<g data-part="tender"><g id="rt1">${roda(115, 550, 50, { raigs: 8, color: '#a67547' })}</g><g id="rt2">${roda(245, 550, 50, { raigs: 8, color: '#a67547' })}</g>
-      <rect class="t fusta" x="56" y="470" width="250" height="18"/><rect class="t fusta" x="66" y="368" width="176" height="102" rx="44"/><path d="M110 370v98M154 368v102M198 370v98" class="t nf"/><rect x="74" y="410" width="160" height="52" rx="24" class="aigua" opacity=".55"/>
+    s += `<g data-part="tender" data-exp="-58 10"><g id="rt1">${roda(115, 550, 50, { raigs: 8, color: '#a67547' })}</g><g id="rt2">${roda(245, 550, 50, { raigs: 8, color: '#a67547' })}</g>
+      <rect class="t" fill="url(#g-fustac)" x="56" y="470" width="250" height="18"/><rect class="t" fill="url(#g-fustac)" x="66" y="368" width="176" height="102" rx="44"/><path d="M110 370v98M154 368v102M198 370v98" class="t nf"/><rect x="74" y="410" width="160" height="52" rx="24" class="aigua" opacity=".55"/>
       <path class="t fusta2" d="M248 470v-52h54v52z"/><path class="t carbo" d="M250 420q26-34 50 0z"/>
       ${tub('M236 452C280 486 320 476 356 436', '#58a9d6', 6)}<path class="t4" d="M306 479h36"/></g>`;
     // roda posterior, bastidor
@@ -23,23 +24,23 @@
     s += `<rect class="t fosc" x="336" y="440" width="528" height="13"/><rect class="t fusta" x="852" y="424" width="16" height="44"/><rect class="t fusta2" x="296" y="440" width="52" height="11"/>`;
     s += persona(320, 440, 118, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     // fogar
-    s += `<g data-part="fogar"><rect class="t coure" x="350" y="235" width="92" height="215" rx="8"/><rect x="358" y="243" width="76" height="180" rx="4" fill="#8fc3e0"/><rect class="t" x="368" y="255" width="64" height="188" rx="4" fill="#4a2a1c"/><rect x="368" y="255" width="64" height="150" fill="#f08a4b" opacity=".45"/>
+    s += `<g data-part="fogar" data-exp="-42 -36"><rect class="t coure" x="350" y="235" width="92" height="215" rx="8"/><rect x="358" y="243" width="76" height="180" rx="4" fill="#8fc3e0"/><rect class="t" x="368" y="255" width="64" height="188" rx="4" fill="#4a2a1c"/><rect x="368" y="255" width="64" height="150" fill="#f08a4b" opacity=".45"/>
       ${focs(384, 434, 2, 32, 30, 60)}<path d="M366 436h68" class="t4"/><path class="t carbo" d="M370 434q30-16 60 0z"/><rect class="t ferro" x="342" y="330" width="10" height="46" rx="3"/></g>`;
     // caldera en tall
-    s += `<g data-part="caldera"><rect class="t" x="440" y="250" width="362" height="130" rx="10" fill="#f2c230"/><rect x="448" y="258" width="346" height="114" rx="5" fill="#fbe9c4"/><rect x="448" y="278" width="346" height="94" fill="#7fbde0"/>
+    s += `<g data-part="caldera" data-exp="0 -34"><rect class="t" x="440" y="250" width="362" height="130" rx="10" fill="#f2c230"/><rect x="448" y="258" width="346" height="114" rx="5" fill="#fbe9c4"/><rect x="448" y="278" width="346" height="94" fill="#7fbde0"/>
       <path d="M448 278q14-7 28 0t28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 10 0" class="nf s-blanc" stroke-width="2.5"/>
       <g data-puf="560 276 0 -16 3 5 1.3" class="vap"></g><g data-puf="700 276 0 -16 3 5 1.7" class="vap"></g></g>`;
     let tubs = ''; [298, 317, 336, 355].forEach((y, i) => { tubs += `<path d="M432 ${y}H802" stroke="#2a2420" stroke-width="13"/><path d="M432 ${y}H802" stroke="#e08a45" stroke-width="8"/><path d="M436 ${y}H800" class="flux s-groc" stroke-width="4" data-flux="${2.2 + i * 0.2}"/>`; });
-    s += `<g data-part="tubs">${tubs}</g>`;
+    s += `<g data-part="tubs" data-exp="-12 -64">${tubs}</g>`;
     // caixa de fums i xemeneia
-    s += `<g data-part="xemeneia"><rect class="t fosc" x="800" y="246" width="48" height="138" rx="6"/><path class="t blanc" d="M806 250V96l-8-26h52l-8 26v154z"/><path d="M824 262V120" class="flux s-gris" data-flux="3"/></g><g data-puf="824 66 -170 -70 7 15 1.5" class="vap"></g><g data-puf="824 66 -150 -50 4 12 2.1" class="fum" opacity=".5"></g>`;
+    s += `<g data-part="xemeneia" data-exp="42 -54"><rect class="t fosc" x="800" y="246" width="48" height="138" rx="6"/><path class="t blanc" d="M806 250V96l-8-26h52l-8 26v154z"/><path d="M824 262V120" class="flux s-gris" data-flux="3"/></g><g data-puf="824 66 -170 -70 7 15 1.5" class="vap"></g><g data-puf="824 66 -150 -50 4 12 2.1" class="fum" opacity=".5"></g>`;
     // tubs de vapor i d'escapament
-    s += `<g data-part="vapor"><path class="t llauto" d="M598 252q0-26 22-26t22 26z"/>${tub('M620 232V222H506V246', '#f08a4b', 7)}<path d="M620 232V222H506V244" class="flux s-blanc" stroke-width="4" data-flux="2.5"/></g>`;
-    s += `<g data-part="escapament">${tub('M474 236V204H824V268', '#c9d6dc', 7)}<path d="M474 232V204H824V262" class="flux s-blanc" stroke-width="4" data-flux="3"/></g>`;
+    s += `<g data-part="vapor" data-exp="0 -66"><path class="t llauto" d="M598 252q0-26 22-26t22 26z"/>${tub('M620 232V222H506V246', '#f08a4b', 7)}<path d="M620 232V222H506V244" class="flux s-blanc" stroke-width="4" data-flux="2.5"/></g>`;
+    s += `<g data-part="escapament" data-exp="14 -68">${tub('M474 236V204H824V268', '#c9d6dc', 7)}<path d="M474 232V204H824V262" class="flux s-blanc" stroke-width="4" data-flux="3"/></g>`;
     // roda motriu
-    s += `<g data-part="roda"><g id="rmot">${roda(W.x, W.y, 120, { raigs: 12, color: '#f2c230', gruix: 13, extra: `<path d="M${W.x} ${W.y}h${RM}" stroke="#2a2420" stroke-width="16" stroke-linecap="round"/><path d="M${W.x} ${W.y}h${RM}" stroke="#8d9aa3" stroke-width="9" stroke-linecap="round"/>` })}</g></g>`;
+    s += `<g data-part="roda" data-exp="40 42"><g id="rmot">${roda(W.x, W.y, 120, { raigs: 12, color: '#f2c230', gruix: 13, extra: `<path d="M${W.x} ${W.y}h${RM}" stroke="#2a2420" stroke-width="16" stroke-linecap="round"/><path d="M${W.x} ${W.y}h${RM}" stroke="#8d9aa3" stroke-width="9" stroke-linecap="round"/>` })}</g></g>`;
     // cilindre inclinat (coordenades locals: x al llarg de l'eix, des del centre de la roda)
-    s += `<g transform="translate(${W.x} ${W.y}) rotate(-145)"><g data-part="cilindre"><path d="M176 -15H300M176 15H300" class="t"/><rect x="310" y="-22" width="100" height="44" fill="#eef4f6"/><rect id="cam-a" x="310" y="-22" width="40" height="44" fill="#f9a35e"/><rect id="cam-b" x="360" y="-22" width="50" height="44" fill="#eef4f6"/>
+    s += `<g transform="translate(${W.x} ${W.y}) rotate(-145)"><g data-part="cilindre" data-exp="0 -34"><path d="M176 -15H300M176 15H300" class="t"/><rect x="310" y="-22" width="100" height="44" fill="#eef4f6"/><rect id="cam-a" x="310" y="-22" width="40" height="44" fill="#f9a35e"/><rect id="cam-b" x="360" y="-22" width="50" height="44" fill="#eef4f6"/>
       <path d="M302 -30H418V30H302ZM310 -22V22H410V-22Z" class="t" fill="#f2c230" fill-rule="evenodd"/><rect class="t llauto" x="330" y="-52" width="60" height="22" rx="4"/></g>
       <g data-part="piston" id="creu"><rect class="t ferro" x="0" y="-4" width="130" height="8"/><rect class="t ferro" x="125" y="-22" width="10" height="44"/><rect class="t ferro" x="-12" y="-17" width="24" height="34" rx="4"/></g></g>`;
     s += `<g data-part="biela"><line id="biela" x1="600" y1="370" x2="760" y2="480" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><line id="biela2" x1="600" y1="370" x2="760" y2="480" stroke="#b4bec4" stroke-width="8" stroke-linecap="round"/><circle id="bulo" class="t llauto" cx="760" cy="480" r="9"/></g>`;

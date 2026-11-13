@@ -84,3 +84,8 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 1. Revisió lingüística de tots els textos i revisió de dates.
 2. `git rm app.js styles.css`; refer captures a `captures/`; actualitzar `README.md` i afegir un apartat 12 a `VISIO-I-GUIO.md`.
 3. Ensenyar-ho a Felip en local. Amb el seu vistiplau: commit, push a `main`, esperar GitHub Pages i comprovar `https://ja.cat/revindustrial` tal com ho veu l'usuari.
+4. **Actualització tèxtils, múltiples punts de vista i vista explotada (13/11/2026)**:
+   - Suport natiu a `nucli.js` i `estil.css` per a **vistes explotades** (`[data-exp]`, guies discontínues `[data-guia]` i desplaçament coordinat d'etiquetes `.etq-e`) i **múltiples punts de vista** (`.vistes`, `data-vista`, sincronitzats amb `p`).
+   - Nous gradients i textures de roure, ferro fos, llautó i cotó a `RI.DEFS`.
+   - Reconstrucció 3D i multi-vista completa de les 4 màquines de `js/textil.js` (`Llançadora volant`, `Spinning Jenny`, `Water Frame`, `La mula`), més vistes explotades a `sembradora`, `arada`, `watt`, `rotativa`, `rocket`, `bessemer` i `western`.
+   - Enllaç de `AGPL-3.0-or-later` al peu de pàgina cap a `LICENSE` a GitHub.

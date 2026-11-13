@@ -27,25 +27,27 @@
 
     if (!w) {
       // Newcomen: caldera sota el cilindre
-      s += `<g data-part="caldera"><rect class="t mao" x="215" y="470" width="240" height="90"/><rect class="t fosc" x="245" y="512" width="170" height="44" rx="4"/>${focs(275, 554, 4, 37, 30, 36)}
+      s += `<g data-guia="1"><path d="M150 180l-42-22M330 420v44M220 420l-48 34M590 110V64"/></g>`;
+      s += `<g data-part="caldera" data-exp="0 44"><rect class="t mao" x="215" y="470" width="240" height="90"/><rect class="t fosc" x="245" y="512" width="170" height="44" rx="4"/>${focs(275, 554, 4, 37, 30, 36)}
         <path class="t coure" d="M225 506C225 426 435 426 435 506Z"/><path d="M232 484H428L434 505H226Z" class="aigua" opacity=".9"/><path d="M225 506C225 426 435 426 435 506Z" class="t nf"/>
         <rect class="t coure" x="318" y="384" width="24" height="64"/></g>`;
       s += `<g data-puf="330 478 0 -26 4 7 1.6" class="vap"></g>`;
-      s += `<g data-part="diposit"><rect class="t fusta" x="105" y="140" width="80" height="55"/><rect class="aigua" x="108" y="152" width="74" height="40"/><path class="t nf" d="M90 200h100"/><path d="M145 195V358H272" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M145 195V358H272" class="nf" stroke="#58a9d6" stroke-width="8"/></g>`;
-      s += `<g data-part="desguas"><path d="M296 384V404H175V522" class="nf" stroke="#2a2420" stroke-width="11"/><path d="M296 384V404H175V522" class="nf" stroke="#9fb4c0" stroke-width="6"/><path class="t fusta" d="M150 520h50l-5 38h-40z"/><path d="M175 404V520" class="flux2 s-blau" data-flux="1.5" data-fase="0.84-1"/></g>`;
+      s += `<g data-part="diposit" data-exp="-54 -28"><rect class="t" fill="url(#g-fustac)" x="105" y="140" width="80" height="55"/><rect class="aigua" x="108" y="152" width="74" height="40"/><path class="t nf" d="M90 200h100"/><path d="M145 195V358H272" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M145 195V358H272" class="nf" stroke="#58a9d6" stroke-width="8"/></g>`;
+      s += `<g data-part="desguas" data-exp="-52 38"><path d="M296 384V404H175V522" class="nf" stroke="#2a2420" stroke-width="11"/><path d="M296 384V404H175V522" class="nf" stroke="#9fb4c0" stroke-width="6"/><path class="t fusta" d="M150 520h50l-5 38h-40z"/><path d="M175 404V520" class="flux2 s-blau" data-flux="1.5" data-fase="0.84-1"/></g>`;
     } else {
       // Watt: caldera a part, camisa de vapor, condensador separat
-      s += `<g data-part="caldera"><rect class="t mao" x="95" y="452" width="170" height="108"/><rect class="t fosc" x="115" y="512" width="130" height="44" rx="4"/>${focs(142, 554, 3, 38, 30, 36)}
+      s += `<g data-guia="1"><path d="M180 420l-42 32M220 220l-42-24M330 300l42-16M405 300h48M480 460l46 38M590 110V64"/></g>`;
+      s += `<g data-part="caldera" data-exp="-48 38"><rect class="t mao" x="95" y="452" width="170" height="108"/><rect class="t fosc" x="115" y="512" width="130" height="44" rx="4"/>${focs(142, 554, 3, 38, 30, 36)}
         <rect class="t coure" x="105" y="400" width="150" height="108" rx="40"/><path d="M108 462h144v10q0 33-36 33h-72q-36 0-36-33z" class="aigua" opacity=".9"/><rect class="t nf" x="105" y="400" width="150" height="108" rx="40"/></g>`;
       s += `<g data-puf="180 448 0 -24 4 7 1.6" class="vap"></g>`;
-      s += `<g data-part="tub"><path d="M180 400V196H272V232" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M180 400V196H272V232" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M180 396V196H270" class="flux s-blanc" data-flux="2" data-fase="0-0.45"/></g>`;
+      s += `<g data-part="tub" data-exp="-46 -32"><path d="M180 400V196H272V232" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M180 400V196H272V232" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M180 396V196H270" class="flux s-blanc" data-flux="2" data-fase="0-0.45"/></g>`;
       s += `<rect class="t pedra" x="262" y="384" width="136" height="176"/>`;
-      s += `<g data-part="camisa"><rect class="t" x="258" y="216" width="144" height="172" rx="8" fill="#f08a4b"/></g>`;
-      s += `<g data-part="equilibri"><path d="M388 240H420V364H388" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M388 240H420V364H388" class="nf" stroke="#f0ab68" stroke-width="8"/><path d="M392 240H420V364H392" class="flux s-blanc" data-flux="2" data-fase="0.55-0.97"/></g>`;
-      s += `<g data-part="condensador"><rect class="t fusta" x="430" y="436" width="122" height="124"/><rect class="aigua" x="434" y="448" width="114" height="108"/>
+      s += `<g data-part="camisa" data-exp="42 -16"><rect class="t" x="258" y="216" width="144" height="172" rx="8" fill="#f08a4b"/></g>`;
+      s += `<g data-part="equilibri" data-exp="54 0"><path d="M388 240H420V364H388" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M388 240H420V364H388" class="nf" stroke="#f0ab68" stroke-width="8"/><path d="M392 240H420V364H392" class="flux s-blanc" data-flux="2" data-fase="0.55-0.97"/></g>`;
+      s += `<g data-part="condensador" data-exp="54 44"><rect class="t" fill="url(#g-fustac)" x="430" y="436" width="122" height="124"/><rect class="aigua" x="434" y="448" width="114" height="108"/>
         <path d="M300 384V414H457V470" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M300 384V414H457V470" class="nf" stroke="#c9d6dc" stroke-width="8"/><path d="M300 388V414H457V466" class="flux s-taronja" data-flux="2.5" data-fase="0-0.34"/>
         <rect class="t" x="440" y="466" width="36" height="78" rx="6" fill="#eaf4f8"/><g id="gotes"><circle cx="450" cy="500" r="3.5" class="blau"/><circle cx="462" cy="514" r="3.5" class="blau"/><circle cx="454" cy="528" r="3.5" class="blau"/><circle cx="466" cy="492" r="3.5" class="blau"/></g></g>`;
-      s += `<g data-part="bomba"><rect class="t" x="492" y="466" width="36" height="78" rx="4" fill="#eaf4f8"/><path d="M476 536h16" class="t4"/><g id="bomba-m"><path d="M510 122V500" class="t" stroke-width="5"/><rect class="t ferro2" x="494" y="494" width="32" height="10"/></g></g>`;
+      s += `<g data-part="bomba" data-exp="54 44"><rect class="t" x="492" y="466" width="36" height="78" rx="4" fill="#eaf4f8"/><path d="M476 536h16" class="t4"/><g id="bomba-m"><path d="M510 122V500" class="t" stroke-width="5"/><rect class="t ferro2" x="494" y="494" width="32" height="10"/></g></g>`;
     }
 
     // cilindre
@@ -66,10 +68,10 @@
       <g id="vareta"><rect class="t fusta" x="843" y="-400" width="14" height="400"/><rect class="t ferro" x="836" y="-6" width="28" height="14" rx="3"/><rect class="t ferro" x="838" y="-436" width="24" height="40"/></g></g>`;
     s += `<line id="cad2" x1="850" y1="110" x2="850" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
     // balancí
-    s += `<g data-part="balanci" id="biga"><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#2a2420" stroke-width="19"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#2a2420" stroke-width="19"/>
+    s += `<g data-exp="0 -48"><g data-part="balanci" id="biga"><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#2a2420" stroke-width="19"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#2a2420" stroke-width="19"/>
       <path d="M345 44L420 104M345 176L420 116M835 44L760 104M835 176L760 116" class="t"/>
-      <rect class="t fusta" x="342" y="97" width="496" height="26" rx="4"/><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#c7935c" stroke-width="13"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#c7935c" stroke-width="13"/>
-      <circle class="t llauto" cx="590" cy="110" r="11"/></g>`;
+      <rect class="t" fill="url(#g-fustac)" x="342" y="97" width="496" height="26" rx="4"/><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#c7935c" stroke-width="13"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#c7935c" stroke-width="13"/>
+      <circle class="t llauto" cx="590" cy="110" r="11"/></g></g>`;
     // indicadors de temperatura
     if (!w) {
       s += `<g data-fase="0.1-0.34">${retol(476, 250, 'cilindre calent', { fons: '#d9482b' })}</g><g data-fase="0.36-1,0-0.04">${retol(470, 250, 'cilindre fred', { fons: '#2f7fb5' })}</g>`;
@@ -121,28 +123,29 @@
   function rotativa() {
     let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="600" width="1320" height="120"/><rect x="640" y="596" width="300" height="124" fill="#e7dcc3" class="t"/>`;
     s += `<rect x="-60" y="0" width="1320" height="40" class="mao t"/>`;
+    s += `<g data-guia="1"><path d="M250 420l-42 18M160 420l-52-14M520 170V116M790 470l48 30M1040 420l54-22M1070 117l40-36"/></g>`;
     // eix de transmissió i corretja
-    s += `<g data-part="corretja"><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#2a2420" stroke-width="9"/><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#8f6038" stroke-width="5"/><path d="M790 430L1058 96" class="flux2 s-groc" data-flux="3" stroke-width="3"/>
+    s += `<g data-part="corretja" data-exp="18 -38"><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#2a2420" stroke-width="9"/><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#8f6038" stroke-width="5"/><path d="M790 430L1058 96" class="flux2 s-groc" data-flux="3" stroke-width="3"/>
       <rect class="t ferro" x="1040" y="110" width="160" height="14"/><g data-girat="1070 117 300">${roda(1070, 117, 34, { raigs: 4, color: '#a67547' })}</g>${fletxa('M1108 184H1198', '#d9482b', 5)}<text x="1152" y="166" class="tx mig">cap a les màquines</text></g>`;
     // volant
-    s += `<g data-part="volant"><g id="volant">${roda(S.x, S.y, 168, { raigs: 6, color: '#56636c', gruix: 22, raig: 9 })}</g></g>`;
+    s += `<g data-part="volant" data-exp="52 34"><g id="volant">${roda(S.x, S.y, 168, { raigs: 6, color: '#56636c', gruix: 22, raig: 9 })}</g></g>`;
     // columna
-    s += `<path class="t fusta" d="M490 600L508 190h24l18 410z"/><path class="t fusta2" d="M440 600h160v-14H440z"/>`;
+    s += `<path class="t" fill="url(#g-fustac)" d="M490 600L508 190h24l18 410z"/><path class="t fusta2" d="M440 600h160v-14H440z"/>`;
     // cilindre de doble efecte
-    s += `<g data-part="cilindre"><rect class="t pedra" x="190" y="540" width="120" height="60"/><rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6"/>
+    s += `<g data-part="cilindre" data-exp="-44 20"><rect class="t pedra" x="190" y="540" width="120" height="60"/><rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6"/>
       <path d="M195 312V540H305V312H293V530H207V312Z" class="t" fill="#f08a4b"/><rect class="t ferro" x="190" y="300" width="120" height="14"/><rect class="t llauto" x="240" y="290" width="20" height="12"/></g>`;
-    s += `<g data-part="distribucio"><rect class="t ferro" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/>
+    s += `<g data-part="distribucio" data-exp="-66 -18"><rect class="t" fill="url(#g-ferroc)" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/>
       <text x="62" y="282" class="tx-p">vapor de la caldera</text><path d="M160 520V566H100" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M160 520V566H100" class="nf" stroke="#c9d6dc" stroke-width="8"/><rect class="t" x="52" y="540" width="56" height="56" rx="6" fill="#a9d6ee"/><text x="80" y="528" class="tx-p mig">condensador</text>
       <g id="fl-d">${fletxa('M186 350H232', '#d9482b', 6)}</g><g id="fl-b">${fletxa('M186 500H232', '#d9482b', 6)}</g></g>`;
     s += `<g data-part="piston" id="rpiston"><rect class="t ferro" x="245" y="-250" width="10" height="250"/><rect class="t ferro" x="207" y="-8" width="86" height="16" rx="3"/></g>`;
     // balancí
-    s += `<g data-part="balanci" id="rbiga"><path class="t fusta" d="M250 158L520 146 790 158V182L520 194 250 182Z"/><circle class="t llauto" cx="250" cy="170" r="9"/><circle class="t llauto" cx="790" cy="170" r="9"/><circle class="t llauto" cx="520" cy="170" r="12"/></g>`;
+    s += `<g data-exp="0 -54"><g data-part="balanci" id="rbiga"><path class="t" fill="url(#g-fustac)" d="M250 158L520 146 790 158V182L520 194 250 182Z"/><circle class="t llauto" cx="250" cy="170" r="9"/><circle class="t llauto" cx="790" cy="170" r="9"/><circle class="t llauto" cx="520" cy="170" r="12"/></g></g>`;
     // biela + planeta + sol
-    s += `<g data-part="sol"><g id="sol">${engranatge(S.x, S.y, 45, 14, { color: '#c79a2c', boto: '#fffdf7' })}</g></g>`;
+    s += `<g data-part="sol" data-exp="-38 42"><g id="sol">${engranatge(S.x, S.y, 45, 14, { color: '#c79a2c', boto: '#fffdf7' })}</g></g>`;
     s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="#2a2420" stroke-width="17" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#8d9aa3" stroke-width="10" stroke-linecap="round"/></g>`;
-    s += `<g data-part="planeta"><g id="planeta">${engranatge(0, 0, 45, 14, { color: '#d9482b', boto: '#fffdf7' })}</g></g>`;
+    s += `<g data-part="planeta" data-exp="38 -38"><g id="planeta">${engranatge(0, 0, 45, 14, { color: '#d9482b', boto: '#fffdf7' })}</g></g>`;
     // regulador
-    s += `<g data-part="regulador"><rect class="t ferro" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t llauto" cx="990" cy="390" r="19"/><circle id="reg-2" class="t llauto" cx="1090" cy="390" r="19"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
+    s += `<g data-part="regulador" data-exp="60 -22"><rect class="t ferro" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t llauto" cx="990" cy="390" r="19"/><circle id="reg-2" class="t llauto" cx="1090" cy="390" r="19"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
     s += persona(380, 600, 150, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     return svg(s);
   }
