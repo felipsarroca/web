@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const webs = [
         {
+            name: 'La Revolució Industrial per dins',
+            path: 'https://ja.cat/revindustrial',
+            category: 'Webs educatives',
+            description: 'Atles visual i interactiu de les innovacions agràries, del vapor, del tèxtil, de la fàbrica, dels metalls i dels transports, amb dos nivells de lectura.',
+            icon: 'RevolucioIndustrial/favicon.svg'
+        },
+        {
             name: 'El Renaixement',
             path: 'https://ja.cat/renaixement',
             category: 'Webs educatives',

@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later AND CC-BY-NC-SA-4.0 -->
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b24">
+  <meta name="description" content="Explora per dins les màquines, els processos i les connexions de la Revolució Industrial. Un atles interactiu per a 4t d'ESO i 1r de Batxillerat.">
+  <title>La Revolució Industrial per dins</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contingut</a>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#inici" aria-label="Torna a l'inici">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>LA REVOLUCIÓ<br>INDUSTRIAL</strong><small>PER DINS</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Navegació principal">
+        <a href="#explora">Explora l'atles</a>
+        <a href="#mapa">Mapa del canvi</a>
+        <a href="#fonts">Fonts i criteri</a>
+      </nav>
+      <button class="top-level" id="level-toggle" type="button" aria-pressed="false" title="Activa o desactiva la capa d'anàlisi">
+        <span class="level-dot" aria-hidden="true"></span><span id="level-label">4t d'ESO</span><span class="toggle-icon" aria-hidden="true">↔</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="inici" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> UN ATLES PER ENTENDRE EL CANVI</div>
+          <h1 id="hero-title">La història <em>es mou.</em><br>Entra-hi.</h1>
+          <p>Obre les màquines. Atura el temps. Segueix l'energia des del camp i la mina fins a la fàbrica, el tren i el vaixell.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#explora">Comença a explorar <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="#mapa">Veure el mapa del canvi <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta"><span>1750 — 1900</span><span class="meta-separator"></span><span>4t d'ESO + 1r de Batxillerat</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 700 580" role="img">
+            <defs>
+              <linearGradient id="heroMetal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b8c3c7"/><stop offset=".5" stop-color="#647780"/><stop offset="1" stop-color="#253843"/></linearGradient>
+              <linearGradient id="heroCopper" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f9c990"/><stop offset=".5" stop-color="#ba6c3d"/><stop offset="1" stop-color="#6a3e2c"/></linearGradient>
+              <filter id="softGlow"><feGaussianBlur stdDeviation="16"/></filter>
+            </defs>
+            <circle cx="382" cy="282" r="218" fill="#b87945" opacity=".07"/>
+            <circle cx="382" cy="282" r="171" fill="none" stroke="#b5c5c0" stroke-opacity=".13" stroke-dasharray="3 9"/>
+            <path d="M78 492h560M118 467h500M169 516h380" stroke="#cbbd9f" stroke-opacity=".28"/>
+            <ellipse cx="383" cy="459" rx="235" ry="24" fill="#000" opacity=".2" filter="url(#softGlow)"/>
+            <g class="hero-wheel"><circle cx="478" cy="348" r="112" fill="#182731" stroke="#b77d4d" stroke-width="13"/><circle cx="478" cy="348" r="91" fill="none" stroke="#546b70" stroke-width="3"/><path d="M478 239v218M369 348h218M401 271l154 154M555 271 401 425" stroke="#8da19e" stroke-width="9"/><circle cx="478" cy="348" r="22" fill="url(#heroCopper)" stroke="#efc28c" stroke-width="3"/></g>
+            <path d="M237 383h151l38-27" fill="none" stroke="url(#heroCopper)" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="230" cy="383" r="20" fill="url(#heroCopper)"/><circle cx="424" cy="356" r="14" fill="#f6c18a"/>
+            <path d="M188 146h113l31 43v229H161V189z" fill="url(#heroMetal)" stroke="#e6cfae" stroke-opacity=".6" stroke-width="3"/>
+            <path d="M188 146h113l31 43H161z" fill="#a26b45"/><path d="M181 211h131v174H181z" fill="#1b3038" stroke="#a1b2af" stroke-width="3"/>
+            <path d="M201 249h91v94h-91z" fill="#d18a50" opacity=".6"/><path d="M205 275h83" stroke="#ffd09a" stroke-width="4"/>
+            <path d="M254 383v54M161 417h171" stroke="#d0a277" stroke-width="10"/>
+            <path d="M246 140V68h35v77" fill="url(#heroCopper)" stroke="#edc18d" stroke-width="3"/>
+            <path d="M241 65h46" stroke="#f2c894" stroke-width="8" stroke-linecap="round"/>
+            <path d="M262 49c-20-17 19-25 6-43M280 48c-18-12 12-28 8-44M244 48c-14-14 8-24 4-36" fill="none" stroke="#f2d4b2" stroke-opacity=".5" stroke-width="6" stroke-linecap="round" class="hero-smoke"/>
+            <g fill="#e3b481" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700"><text x="354" y="160">01 / CALOR</text><text x="562" y="282">02 / MOVIMENT</text><text x="46" y="312">03 / INDÚSTRIA</text></g>
+            <path d="M359 166 305 197M566 288l-22 17M141 307l36 16" stroke="#d5a97a" stroke-width="1.5" stroke-dasharray="4 5"/>
+          </svg>
+          <div class="art-caption"><span class="caption-index">FIG. 01</span><span>La calor es converteix en moviment</span><span class="caption-plus">＋</span></div>
+        </div>
+        <a class="scroll-cue" href="#explora"><span class="scroll-line"></span> DESCOBREIX COM FUNCIONA</a>
+      </section>
+
+      <section class="intro-strip" aria-label="Les quatre preguntes de l'atles">
+        <div><span class="intro-number">01</span><span>Quin problema resol?</span></div>
+        <div><span class="intro-number">02</span><span>Com funciona?</span></div>
+        <div><span class="intro-number">03</span><span>Què fa possible?</span></div>
+        <div><span class="intro-number">04</span><span>Com ho sabem?</span></div>
+      </section>
+
+      <section class="atlas-section" id="explora" aria-labelledby="atlas-title">
+        <div class="section-heading">
+          <div><p class="kicker">01 — L'ATLES INTERACTIU</p><h2 id="atlas-title">Explora el mecanisme.<br><em>Comprèn la revolució.</em></h2></div>
+          <p>Selecciona un capítol, avança les fases i observa com una innovació transforma tot el sistema.</p>
+        </div>
+        <div class="atlas-layout">
+          <nav class="chapter-nav" id="chapter-nav" aria-label="Capítols de l'atles"></nav>
+          <div class="explorer" id="explorer">
+            <div class="explorer-head"><div><span class="explorer-index" id="explorer-index"></span><span class="explorer-category" id="explorer-category"></span></div><div class="explorer-tools"><span class="explorer-period" id="explorer-period"></span><button id="explorer-level-toggle" class="explorer-tool" type="button" aria-pressed="false">+ Batxillerat</button><button id="next-chapter" class="explorer-tool" type="button">Capítol següent →</button><button id="projector-toggle" class="explorer-tool" type="button" aria-pressed="false">Mode projecció ⛶</button></div></div>
+            <div class="explorer-title-row"><div><h3 id="explorer-title"></h3><p id="explorer-subtitle"></p></div><span class="explorer-symbol" id="explorer-symbol" aria-hidden="true"></span></div>
+            <div class="diagram" id="diagram" role="img" aria-label="Diagrama interactiu"></div>
+            <div class="diagram-bottom"><span id="diagram-label"></span><button id="parts-toggle" class="parts-toggle" type="button" aria-pressed="false" hidden>◫ VEURE LES PECES</button><span class="diagram-hint">ARROSSEGA LA LÍNIA DEL TEMPS <span aria-hidden="true">↘</span></span></div>
+            <div class="stepper"><button class="step-arrow" id="prev-step" type="button" aria-label="Fase anterior">←</button><div class="step-track"><label for="step-range"><span id="step-counter"></span><strong id="step-title"></strong></label><input id="step-range" type="range" min="0" max="3" value="0" aria-label="Fase del mecanisme"><p id="step-description" aria-live="polite"></p></div><button class="step-arrow" id="next-step" type="button" aria-label="Fase següent">→</button><button class="play-toggle" id="play-toggle" type="button" aria-label="Reprodueix les fases" aria-pressed="false">▶</button></div>
+            <div class="insight-grid"><div><span>EL PROBLEMA</span><p id="insight-problem"></p></div><div><span>EL CANVI</span><p id="insight-change"></p></div></div>
+            <div class="advanced" id="advanced"><span class="advanced-tag">EN PROFUNDITAT · 1r DE BATXILLERAT</span><h4 id="advanced-title"></h4><p id="advanced-copy"></p><a id="advanced-link" target="_blank" rel="noopener noreferrer">Consulta la font <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section" id="mapa" aria-labelledby="map-title"><div class="map-heading"><p class="kicker">02 — TOT ESTÀ CONNECTAT</p><h2 id="map-title">Una màquina canvia<br><em>més d'una cosa.</em></h2><p>La industrialització no va ser una llista d'invents. Va ser una xarxa de recursos, coneixements, inversions i nous problemes.</p></div><div class="map-flow" id="map-flow"></div><p class="map-note">Selecciona una etapa per obrir el capítol corresponent a l'atles.</p></section>
+
+      <section class="sources-section" id="fonts" aria-labelledby="sources-title"><div><p class="kicker">03 — EL TALLER DE L'HISTORIADOR</p><h2 id="sources-title">Dibuixar bé exigeix<br><em>mirar les fonts.</em></h2></div><div class="sources-copy"><p>Els esquemes d'aquest prototip són reconstruccions didàctiques originals. Simplifiquen cada mecanisme per fer visible el procés; les parts i fases es contrasten amb materials històrics i museístics.</p><p>El quadern de NotebookLM «SOC4 - 3. Els orígens de la industrialització» aporta el punt de partida. Cada escena inclou un enllaç a una font pública. En ampliar l'atles, distingirem sempre la data de la invenció, la primera aplicació i la difusió.</p><div class="source-links"><a href="https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/" target="_blank" rel="noopener noreferrer">Science Museum · Watt ↗</a><a href="https://blog.scienceandindustrymuseum.org.uk/preserving-history-thanks/" target="_blank" rel="noopener noreferrer">Science and Industry Museum · Tèxtil ↗</a><a href="https://xtec.gencat.cat/web/.content/curriculum/batxillerat/curriculum-171-2022/materies-de-modalitat/modalitat-humanitats-i-ciencies-socials/Historia-del-Mon-Contemporani.pdf" target="_blank" rel="noopener noreferrer">Currículum de Batxillerat ↗</a></div></div></section>
+    </main>
+    <footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · Codi AGPL-3.0-or-later · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>
+  </div>
+</body>
+</html>
