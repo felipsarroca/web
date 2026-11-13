@@ -64,7 +64,7 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 | `js/capital.js` | Fet i revisat visualment | Societat anònima amb viaducte i estació, banc/borsa i cotització annotada, càrtel/trust/holding + repte. |
 | `js/portada.js` + estil | Fet i revisat visualment | Paisatge complet amb 8 fites històriques detallades i tots els pins visibles a escriptori i mòbil. |
 | `js/reals.js` | Fet i revisat visualment | 13 làmines tècniques vectorials d’estudi (`RI.REALS`) d’alta resolució per a «Màquina real» amb escala humana i zoom interactiu. |
-| Esborrar `app.js` i `styles.css` | Pendent | |
+| Esborrar `app.js` i `styles.css` | Fet | |
 | Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844 (panell dret sense scroll a escriptori). |
 | `README.md`, captures noves, `VISIO-I-GUIO.md` | Pendent | |
 | Commit, push i comprovació del web publicat | Fet / actualitzat | Pujat a `main` amb totes les làmines vectorials, mode pas a pas i autoauditoria visual. |
