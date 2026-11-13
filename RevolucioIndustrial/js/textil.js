@@ -284,6 +284,8 @@
   const waterScene=cap.escenes.find(e=>e.id==='water');
   waterScene.parts.aigua={nom:'Transmissió motriu',text:'La politja rep el moviment dels eixos de la fàbrica. Una roda hidràulica exterior proporciona la força; no forma part del bastidor de filatura.'};
   waterScene.fases[3].focus=['aigua'];
+  cap.escenes.find(e=>e.id==='jenny').parts.metxes={nom:'Alimentació de metxa',text:'La metxa és cotó cardat encara tou i gruixut. Les guies la presenten a la pinça que en controla l’estiratge.'};
+  cap.escenes.find(e=>e.id==='mula').parts.roda={nom:'Roda de comandament',text:'En els primers models manuals, el filador acciona la roda i coordina el treball dels fusos amb el desplaçament del carro.'};
   const loom=cap.escenes.find(e=>e.id==='llancadora');
   loom.parts.llicos={nom:'Lliços',text:'Els fils passen pels ullets dels lliços. En aixecar un grup i abaixar l’altre s’obre la calada per on passa la llançadora.'};
   loom.parts.bastidor={nom:'Bastidor',text:'L’estructura de fusta manté els plegadors, els lliços i el batà en la posició de treball.'};

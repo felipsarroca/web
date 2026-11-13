@@ -20,9 +20,9 @@ RI.ILLUSTRACIONS = {
 RI.LAMINA_PARTS = {
   roda:[['roda',76,36],['aleta',21,42],['pedal',63,83],['corretja',44,24],['bastidor',41,64]],
   llancadora:[['ordit',22,34,"Plegador d’ordit"],['llicos',52,28],['pinta',54,46],['llancadora',59,52],['tela',58,65]],
-  jenny:[['metxes',48,12],['pinca',48,23],['fusos',41,54],['roda',80,60],['corda',48,68]],
+  jenny:[['metxes',48,12,'Guia de metxa'],['pinca',48,23],['fusos',41,54],['roda',80,60],['corda',48,68]],
   water:[['metxa',47,12],['corrons',45,32],['aleta',44,63],['aigua',81,32,'Transmissió'],['aleta',47,80,'Banc de fusos']],
-  mula:[['fileta',22,13],['corrons',23,29],['carro',56,75],['fus',53,54],['carro',83,46,'Roda de comandament']],
+  mula:[['fileta',22,13],['corrons',23,29],['carro',56,75],['fus',53,54],['roda',83,46]],
   newcomen:[['balanci',50,12],['piston',24,40],['cilindre',26,48],['caldera',26,65],['bombamina',81,68]],
   watt:[['balanci',48,12],['piston',30,43],['cilindre',31,55],['condensador',45,71],['caldera',13,63]],
   rotativa:[['balanci',43,13],['cilindre',19,61],['biela',69,38],['volant',85,54],['regulador',55,42]],
@@ -37,7 +37,7 @@ for(const id of Object.keys(RI.ILLUSTRACIONS))RI.EXPLOTADES[id]={img:`img/explod
 RI.EXPLOTADES.llancadora.parts=[['ordit',18,29,"Plegador d’ordit"],['llicos',52,28],['pinta',54,46],['llancadora',91,51],['tela',61,67,'Plegador de tela']];
 RI.EXPLOTADES.jenny.parts=[['metxes',48,24,'Guia de metxa'],['pinca',57,11],['fusos',35,68],['roda',82,60],['corda',40,80]];
 RI.EXPLOTADES.water.parts=[['metxa',48,10],['corrons',45,41],['aleta',45,66],['aigua',86,50,'Transmissió'],['aleta',43,84,'Banc de fusos']];
-RI.EXPLOTADES.mula.parts=[['fileta',21,16],['corrons',23,35],['carro',54,73],['fus',52,60],['carro',86,58,'Roda de comandament']];
+RI.EXPLOTADES.mula.parts=[['fileta',21,16],['corrons',23,35],['carro',54,73],['fus',52,60],['roda',86,58]];
 RI.EXPLOTADES.newcomen.parts=[['balanci',52,13],['piston',24,33],['cilindre',25,45],['caldera',25,67],['bombamina',82,69]];
 RI.EXPLOTADES.watt.parts=[['balanci',52,13],['piston',29,40],['cilindre',29,55],['condensador',47,59],['caldera',13,64]];
 RI.EXPLOTADES.rocket.parts=[['caldera',35,45],['cilindre',45,48],['biela',30,66],['roda',25,76],['fogar',58,51]];

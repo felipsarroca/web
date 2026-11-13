@@ -167,7 +167,7 @@
         g.bobbin(x,travel,91,95,13,'fus',t*5);
         g.thread([[x,45,325],[x,-5,278],[x,travel,197]],t,'fus',1.8);
       }
-      g.wheel([342,travel,220],125,t*1.5,'x','carro','iron');
+      g.wheel([342,travel,220],125,t*1.5,'x','roda','iron');
       g.cyl([-285,travel,75],[342,travel,75],8,'iron','carro');
     },
     roda(g,p,t){
