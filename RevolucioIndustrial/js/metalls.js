@@ -1,83 +1,114 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /* Capítol 5 · Ferro i acer: coc, alt forn, pudelació, laminatge i convertidor Bessemer. */
 (function () {
-  const { svg, foc, focs, roda, persona, nuvol, txt, retol, fletxa, tram, lerp, color } = RI;
-  const cel = (h) => `<rect class="cel" x="-60" width="1320" height="${h}"/><rect class="terra" x="-60" y="${h}" width="1320" height="${720 - h}"/><rect class="herba" x="-60" y="${h - 4}" width="1320" height="9"/>`;
+  const { svg, foc, focs, roda, persona, nuvol, arbre, txt, retol, fletxa, tram, lerp, color } = RI;
+  const cel = (h) => `<rect class="cel" x="-60" width="1320" height="${h}"/><rect class="terra" x="-60" y="${h}" width="1320" height="${720 - h}"/><rect class="herba" x="-60" y="${h - 4}" width="1320" height="10"/>`;
   const tub = (d, c, g) => `<path d="${d}" class="nf" stroke="#2a2420" stroke-width="${(g || 8) + 5}" stroke-linejoin="round"/><path d="${d}" class="nf" stroke="${c}" stroke-width="${g || 8}" stroke-linejoin="round"/>`;
-  const arbre = (x, y, k, id) => `<g ${id ? `id="${id}"` : ''} transform="translate(${x} ${y}) scale(${k})"><rect class="t2" x="-6" y="-40" width="12" height="40" fill="#7a5a3a"/><circle class="t2" cx="0" cy="-66" r="34" fill="#6f9c43"/><circle class="t2" cx="-20" cy="-48" r="20" fill="#7fae4d"/><circle class="t2" cx="20" cy="-50" r="18" fill="#7fae4d"/></g>`;
-  const soca = (x, y) => `<path class="t2" fill="#a67547" d="M${x - 9} ${y}v-14h18v14z"/>`;
+  const soca = (x, y) => `<g><path class="t2" fill="#8f6038" d="M${x - 11} ${y + 2}l3-13h16l3 13z"/><ellipse cx="${x}" cy="${y - 11}" rx="8" ry="3" fill="#d9b383" stroke="#2a2420" stroke-width="1.6"/></g>`;
 
   /* ---------- 1 · del carbó al coc ---------- */
   function coc() {
     let s = cel(560);
-    s += `<text x="190" y="90" class="tx-g mig">Abans: carbó vegetal</text><text x="600" y="90" class="tx-g mig">El forn de coc</text><text x="1010" y="90" class="tx-g mig">El resultat: coc</text><path d="M395 60V640M805 60V640" class="t1 nf" stroke-dasharray="4 8"/>`;
-    [[60, 1], [130, 1.2], [210, 0.95], [290, 1.1], [100, 0.8], [250, 0.85]].forEach(([x, k], i) => { s += soca(x, i < 4 ? 556 : 566) + arbre(x, i < 4 ? 556 : 566, k, 'ar' + i); });
-    s += `<path class="t" fill="#5a4636" d="M120 560q70-90 140 0z"/><g data-puf="190 500 20 -70 5 12 2.5" class="fum"></g>${retol(190, 610, 'un forn es menja un bosc', { fons: '#d9482b', w: 240, attr: 'data-en="0"' })}`;
-    s += `<g data-part="forn"><path class="t mao" d="M450 560V420Q450 280 600 280T750 420V560Z"/><path class="t" fill="#3d2a22" d="M486 560V430Q486 318 600 318T714 430V560Z"/><path id="carrega" class="t carbo" d="M490 558V470q110-50 220 0V558z"/><path id="roent" d="M490 558V470q110-50 220 0V558z" fill="#ff9a2e" opacity="0"/><rect class="t fosc" x="584" y="262" width="32" height="24"/><rect class="t ferro" x="560" y="500" width="80" height="60" rx="4"/></g>`;
-    s += `<g data-en="1"><g data-puf="600 256 30 -120 6 14 2" class="fum"></g>${retol(600, 610, 'gasos, quitrà i sofre fora', { fons: '#2a2420', w: 250 })}${retol(600, 190, 'gairebé sense aire: no crema, es cou', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 320 })}</g>`;
-    let pila = ''; for (let i = 0; i < 16; i++) { const f = Math.floor((Math.sqrt(8 * i + 1) - 1) / 2), c = i - (f * (f + 1)) / 2, n = 5 - f; if (n <= 0) break; }
-    [[0, 5], [1, 4], [2, 3], [3, 2], [4, 1]].forEach(([f, n]) => { for (let c = 0; c < n; c++) pila += `<path class="t2" fill="#8d8d8d" d="M${940 + c * 40 + f * 20} ${556 - f * 30}l8-22 22-6 14 14-6 16z"/><circle cx="${956 + c * 40 + f * 20}" cy="${542 - f * 30}" r="2.5" fill="#555"/>`; });
-    s += `<g data-part="coc"><g id="pila" opacity="0">${pila}${retol(1010, 250, '✓ crema molt calent', { fons: '#5b8c35', w: 230 })}${retol(1010, 292, '✓ dur: aguanta molt pes', { fons: '#5b8c35', w: 240 })}${retol(1010, 334, '✓ abundant: ve de la mina', { fons: '#5b8c35', w: 250 })}${fletxa('M1010 580V650', '#d9482b', 6)}<text x="1010" y="686" class="tx mig" style="fill:#fff">cap a l’alt forn</text></g></g>`;
+    s += `<text x="180" y="76" class="tx-g mig">Abans: carbó vegetal</text><text x="600" y="76" class="tx-g mig">El forn de coc</text><text x="1020" y="76" class="tx-g mig">El resultat: coc</text><path d="M395 54V648M805 54V648" class="t1 nf" stroke-dasharray="4 8"/>`;
+    // bosc i soques arran de terra + pila de llenya + carbonera tradicional
+    [[34, 560, 0.92], [96, 560, 1.05], [164, 558, 0.88], [244, 560, 1.1], [318, 560, 0.94]].forEach(([x, y, k], i) => {
+      s += soca(x, y) + arbre(x, y, k, { id: 'ar' + i });
+    });
+    // pila de troncs tallats
+    s += `<g id="llenya" opacity="0.25"><circle class="t1" cx="42" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="56" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="70" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="49" cy="536" r="7" fill="#d9b383"/><circle class="t1" cx="63" cy="536" r="7" fill="#d9b383"/><circle class="t1" cx="56" cy="524" r="7" fill="#d9b383"/></g>`;
+    // carbonera cònica coberta de terra amb troncs visibles i xemeneia
+    s += `<path class="t" fill="#5c4632" d="M116 560l44-88h60l44 88z"/><path d="M138 560l26-84M190 476v84M242 560l-26-84" stroke="#3d2c1e" stroke-width="2" opacity=".6"/><rect class="t fosc" x="178" y="458" width="24" height="16" rx="2"/><g data-puf="190 452 24 -75 5 11 2.4" class="fum"></g>`;
+    s += retol(185, 616, 'un sol forn es menja un bosc', { fons: '#d9482b', vora: '#2a2420', w: 264, attr: 'data-en="0"' });
+    // forn de coc (beehive oven)
+    s += `<g data-part="forn"><path class="t mao" d="M446 560V416Q446 266 600 266T754 416V560Z"/><path class="t ferro2" d="M438 560V420h14v140zM748 560V420h14v140z"/>
+      <path class="t" fill="#3a251c" d="M484 560V426Q484 308 600 308T716 426V560Z"/>
+      <path id="carrega" class="t carbo" d="M488 558V464q112-46 224 0V558z"/><path id="roent" d="M488 558V464q112-46 224 0V558z" fill="#ff9a2e" opacity="0"/>
+      <rect class="t fosc" x="580" y="246" width="40" height="24" rx="2"/><path class="t ferro" d="M558 560v-58q0-14 14-14h56q14 0 14 14v58z"/><path d="M576 504h48M576 524h48" class="t1"/></g>`;
+    s += `<g data-en="1"><g data-puf="600 240 28 -120 6 14 1.9" class="fum"></g>${retol(600, 616, 'marxen gasos, quitrà i sofre', { fons: '#2a2420', vora: '#2a2420', w: 280 })}${retol(600, 174, 'gairebé sense aire: no crema, es cou', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 330 })}</g>`;
+    // pila de coc porós amb contrast alt
+    let pila = '';
+    [[0, 5], [1, 4], [2, 3], [3, 2], [4, 1]].forEach(([f, n]) => {
+      for (let c = 0; c < n; c++) {
+        const px = 900 + c * 42 + f * 21, py = 556 - f * 30;
+        pila += `<path class="t2" fill="#70777c" d="M${px} ${py}l9-22 23-6 14 13-6 17z"/><path d="M${px + 8} ${py - 18}l16-4" stroke="#a6aeb3" stroke-width="2.5" stroke-linecap="round"/><circle cx="${px + 14}" cy="${py - 11}" r="2.2" fill="#32373b"/><circle cx="${px + 26}" cy="${py - 8}" r="1.8" fill="#32373b"/><circle cx="${px + 20}" cy="${py - 17}" r="1.6" fill="#32373b"/>`;
+      }
+    });
+    s += `<g data-part="coc"><g id="pila" opacity="0">${pila}${retol(1020, 224, '✓ crema molt més calent', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${retol(1020, 268, '✓ dur: aguanta grans torres', { fons: '#3e6e22', vora: '#2a2420', w: 260 })}${retol(1020, 312, '✓ abundant: ve de la mina', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${fletxa('M1020 572V624', '#d9482b', 6)}${retol(1020, 662, 'cap a l’alt forn →', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 190 })}</g></g>`;
     return svg(s);
   }
   function animaCoc({ p, k, el }) {
-    for (let i = 0; i < 6; i++) el('ar' + i).setAttribute('opacity', k === 0 ? (p > 0.04 + i * 0.045 ? 0 : 1) : 0);
-    el('roent').setAttribute('opacity', k === 1 ? (0.5 + 0.3 * Math.sin(p * 60)).toFixed(2) : 0);
-    el('carrega').setAttribute('fill', k >= 2 ? '#8d8d8d' : ''); el('pila').setAttribute('opacity', k >= 2 ? 1 : 0);
+    for (let i = 0; i < 5; i++) el('ar' + i).setAttribute('opacity', k === 0 ? (p > 0.05 + i * 0.05 ? 0.14 : 1) : 0.14);
+    el('llenya').setAttribute('opacity', k === 0 ? (p > 0.12 ? 1 : 0.35) : 0.85);
+    el('roent').setAttribute('opacity', k === 1 ? (0.48 + 0.32 * Math.sin(p * 55)).toFixed(2) : 0);
+    el('carrega').setAttribute('fill', k >= 2 ? '#70777c' : '');
+    el('pila').setAttribute('opacity', k >= 2 ? 1 : 0);
   }
 
   /* ---------- 2 · alt forn ---------- */
   function altForn() {
-    let s = `<rect class="cel" x="-60" width="1320" height="620"/>${nuvol(160, 110, 1.4)}<rect class="terra" x="-60" y="620" width="1320" height="100"/>`;
-    s += `<path class="terra t" d="M736 150H1270V720H700Z"/><rect class="herba" x="736" y="144" width="530" height="10"/>`;
-    s += `<defs><clipPath id="cl-cuba"><path d="M530 150L470 430L520 520V590H600V520L650 430L590 150Z"/></clipPath></defs>`;
-    s += `<g data-part="cuba"><path class="t mao" d="M380 620L462 130H658L740 620Z"/><path class="t" fill="#4a2a1c" d="M530 150L470 430L520 520V590H600V520L650 430L590 150Z"/>
+    let s = `<rect class="cel" x="-60" width="1320" height="610"/>${nuvol(150, 96, 1.4)}${nuvol(390, 62, 1.0)}<rect class="terra" x="-60" y="610" width="1320" height="110"/>`;
+    s += `<path class="terra t" d="M740 150H1270V720H700Z"/><rect class="herba" x="740" y="144" width="530" height="10"/>`;
+    s += `<defs><clipPath id="cl-cuba"><path d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/></clipPath></defs>`;
+    s += `<g data-part="cuba"><path class="t mao" d="M376 610L456 130H664L744 610Z"/><path d="M440 240h240M422 360h276M402 480h316" stroke="#3d454b" stroke-width="5"/>
+      <path class="t" fill="#4a2a1c" d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/>
       <g clip-path="url(#cl-cuba)"><g id="capes">${Array.from({ length: 7 }, (_, i) => `<rect class="carbo" x="440" y="${-120 + i * 90}" width="240" height="30"/><rect class="mineral" x="440" y="${-90 + i * 90}" width="240" height="30"/><rect class="calc" x="440" y="${-60 + i * 90}" width="240" height="30"/>`).join('')}</g>
-      <rect x="440" y="400" width="240" height="140" class="roent"/><rect x="440" y="330" width="240" height="80" fill="#ff9a2e" opacity=".45"/></g>
-      <path class="t nf" d="M530 150L470 430L520 520V590H600V520L650 430L590 150Z"/></g>`;
-    s += `<g data-part="gresol"><rect x="522" y="566" width="76" height="22" fill="#fff3a0"/><rect x="522" y="552" width="76" height="14" fill="#8a7a6a"/><text x="560" y="582" class="tx-p mig" style="font-size:12px">ferro</text></g>`;
-    s += `<g data-part="carrega"><rect class="t fusta" x="640" y="132" width="130" height="14"/>${persona(800, 146, 70, { color: '#3d5a80', barret: true, gir: true })}<path class="t fusta2" d="M700 132l40-26h36l-10 26z"/>${roda(706, 128, 12, { raigs: 6 })}<g data-fase="0-0.25"><g data-puf="600 120 -30 40 4 6 1" class="fum" opacity=".9"></g></g>
-      <g data-en="0">${retol(960, 220, 'mineral de ferro', { fons: '#9a4f32' })}${retol(960, 258, 'coc', { fons: '#2b2826', w: 70 })}${retol(960, 296, 'pedra calcària', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420' })}</g></g>`;
-    s += `<g data-puf="560 132 20 -90 6 16 2.2" class="fum" opacity=".6"></g>${foc(560, 150, 50, 70)}`;
-    s += `<g data-part="bufadora"><rect class="t pedra" x="80" y="500" width="150" height="120"/><rect class="t ferro" x="100" y="380" width="110" height="120" rx="6"/><rect x="108" y="388" width="94" height="104" fill="#dbe9ef"/><g id="embol"><rect class="t ferro2" x="108" y="-7" width="94" height="14"/><rect class="t ferro" x="150" y="-80" width="10" height="80"/></g>
-      ${tub('M210 470H430V500H520', '#c9d6dc', 10)}<path d="M214 470H430V500H516" class="flux s-blau" data-flux="3" stroke-width="5"/><path d="M700 500H604" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M700 500H604" class="nf" stroke="#c9d6dc" stroke-width="10"/><path d="M698 500H606" class="flux s-blau" data-flux="3" stroke-width="5"/></g>`;
-    s += `<g data-en="1">${retol(300, 430, 'aire a pressió', { fons: '#2f7fb5' })}</g><g data-en="2">${retol(960, 400, 'més de 1.500 °C', { fons: '#d9482b' })}${retol(960, 180, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420' })}${fletxa('M900 380V210', '#d9482b', 5)}</g>`;
-    s += `<g data-part="llit"><path class="t" fill="#d8c49a" d="M150 640H500V700H150Z"/><path d="M520 592Q470 600 470 650H180M440 650V690M390 650V690M340 650V690M290 650V690M240 650V690M190 650V690" class="nf" stroke="#8a6a4a" stroke-width="13" stroke-linecap="round"/>
-      <path id="colada" d="M520 592Q470 600 470 650H180M440 650V690M390 650V690M340 650V690M290 650V690M240 650V690M190 650V690" class="nf" stroke="#ffb02e" stroke-width="8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></g>`;
-    s += `<g data-en="3">${retol(330, 610, 'ferro colat en lingots', { fons: '#d9482b', w: 220 })}</g>`;
+      <rect x="440" y="395" width="240" height="145" fill="url(#g-bany)" opacity=".92"/><rect x="440" y="315" width="240" height="90" fill="#ff9a2e" opacity=".48"/></g>
+      <path class="t nf" d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/></g>`;
+    // gresol amb dues capes separades: ferro colat (baix) + escòria (sobre)
+    s += `<g data-part="gresol"><rect x="518" y="562" width="84" height="24" fill="#fff3a0" stroke="#2a2420" stroke-width="1.4"/><rect x="518" y="544" width="84" height="18" fill="#6b635a" stroke="#2a2420" stroke-width="1.4"/><text x="560" y="579" class="tx-p mig" style="font-size:12px;font-weight:800">ferro</text><text x="560" y="557" class="tx-p mig" style="font-size:11px;fill:#fff">escòria</text></g>`;
+    // boca de càrrega i passarel·la
+    s += `<g data-part="carrega"><rect class="t fusta" x="634" y="132" width="142" height="14"/><path d="M680 146v36M726 146v36" class="t" stroke="#8f6038" stroke-width="6"/>
+      ${persona(806, 146, 72, { color: '#3d5a80', barret: true, gir: true })}<path class="t fusta2" d="M694 132l36-28h42l-10 28z"/><path class="mineral" d="M712 114h42l-6 10h-34z"/>${roda(700, 128, 12, { raigs: 6 })}
+      <g data-fase="0-0.25"><g data-puf="596 122 -28 42 4 6 1" class="fum" opacity=".9"></g></g>
+      <g data-en="0">${retol(970, 224, 'mineral de ferro', { fons: '#9a4f32', vora: '#2a2420' })}${retol(970, 264, 'coc', { fons: '#2b2826', vora: '#2a2420', w: 80 })}${retol(970, 304, 'pedra calcària', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420' })}</g></g>`;
+    s += `<g data-puf="560 132 22 -90 6 16 2.1" class="fum" opacity=".6"></g>${foc(560, 150, 48, 66)}`;
+    // màquina bufadora realista amb volant, cilindre i toveres còniques
+    s += `<g data-part="bufadora"><rect class="t pedra" x="58" y="490" width="176" height="120"/><rect class="t ferro" x="86" y="362" width="112" height="128" rx="6"/><rect x="96" y="372" width="92" height="108" fill="#dbe9ef" stroke="#2a2420" stroke-width="1.8"/>
+      <rect class="t ferro2" x="128" y="330" width="28" height="32"/><g id="embol"><rect class="t ferro2" x="96" y="-8" width="92" height="16"/><rect class="t ferro" x="136" y="-92" width="12" height="92"/></g>
+      ${roda(64, 420, 40, { raigs: 6, color: '#56636c', gruix: 8 })}<circle class="t llauto" cx="142" cy="300" r="10"/>
+      ${tub('M198 468H422V498H520', '#c9d6dc', 10)}<path class="t ferro2" d="M490 486l34 6v12l-34 6z"/><path d="M202 468H422V498H516" class="flux s-blau" data-flux="3" stroke-width="5"/>
+      <path d="M704 498H600" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M704 498H600" class="nf" stroke="#c9d6dc" stroke-width="10"/><path class="t ferro2" d="M630 486l-34 6v12l34 6z"/><path d="M700 498H604" class="flux s-blau" data-flux="3" stroke-width="5"/></g>`;
+    s += `<g data-en="1">${retol(308, 424, 'aire a pressió', { fons: '#2f7fb5', vora: '#2a2420' })}</g><g data-en="2">${retol(970, 412, 'més de 1.500 °C', { fons: '#d9482b', vora: '#2a2420' })}${retol(970, 184, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420' })}${fletxa('M900 390V212', '#d9482b', 5)}</g>`;
+    // llit de colada pujat perquè no el tapi el peu .model
+    s += `<g data-part="llit"><path class="t" fill="#d8c49a" d="M130 622H496V684H130Z"/><path d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#8a6a4a" stroke-width="13" stroke-linecap="round"/>
+      <path id="colada" d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#ffb02e" stroke-width="8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></g>`;
+    s += `<g data-en="3">${retol(312, 594, 'ferro colat en lingots', { fons: '#d9482b', vora: '#2a2420', w: 224 })}</g>`;
     return svg(s);
   }
   function animaForn({ p, t, el }) {
     el('capes').setAttribute('transform', `translate(0 ${((t * 14) % 90).toFixed(1)})`);
-    el('embol').setAttribute('transform', `translate(0 ${(440 + 40 * Math.sin(t * 3)).toFixed(1)})`);
+    el('embol').setAttribute('transform', `translate(0 ${(430 + 42 * Math.sin(t * 3)).toFixed(1)})`);
     el('colada').setAttribute('stroke-dashoffset', p < 0.75 ? 900 : tram(p, 0.76, 0.95, 900, 0).toFixed(0));
   }
 
   /* ---------- 3 · pudelació i laminatge ---------- */
   function pudelat() {
     let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="600" width="1320" height="120"/>`;
-    s += `<g data-part="xemeneia"><path class="t mao" d="M520 600V90h70V600z"/><path d="M555 330V100" class="flux s-gris" data-flux="2"/></g><g data-puf="555 84 30 -60 5 13 2.2" class="fum"></g>`;
-    s += `<g data-part="forn"><path class="t mao" d="M60 600V330Q300 250 540 330V600Z"/><path class="t" fill="#4a2a1c" d="M90 520V370Q300 300 520 360V440H470V520H240V440H210V520Z"/>
-      <path d="M130 500Q220 330 340 400T530 380" class="flux s-taronja" stroke-width="9" data-flux="2.2"/><path d="M130 470Q230 350 350 430" class="flux s-groc" stroke-width="6" data-flux="2.6"/></g>`;
-    s += `<g data-part="fogar"><path d="M92 520H208" class="t4"/>${focs(118, 518, 3, 34, 30, 56)}<path class="t carbo" d="M96 518q54-22 110 0z"/></g>`;
-    s += `<g data-part="sola"><path class="t" fill="#ff9a2e" d="M244 518V480q110-18 222 0V518z"/><circle id="bola" class="t roent" cx="356" cy="484" r="26" opacity="0"/></g>`;
-    s += `<g data-part="pudelador">${persona(420, 600, 150, { color: '#7a5a3a', barret: true, gir: true, brac: 'M-8-68l-30 14M8-68l-34 20' })}<line id="ganxo" x1="398" y1="520" x2="340" y2="486" class="t" stroke-width="6"/></g>`;
-    s += `<g data-en="0">${retol(300, 250, 'la flama passa per sobre: el carbó no toca el ferro', { fons: '#2a2420', w: 440 })}</g><g data-en="1">${retol(300, 250, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', w: 450 })}</g>`;
-    // laminador
-    s += `<g data-part="laminador"><path class="t ferro" d="M820 600V230h160V600h-30V270H850V600z"/><rect id="barra-e" x="640" y="368" width="250" height="34" rx="6" class="t roent"/><rect id="barra-s" x="910" y="376" width="0" height="18" rx="4" class="t roent"/>
+    s += `<g data-part="xemeneia"><path class="t mao" d="M524 600V90h68V600z"/><path d="M558 330V100" class="flux s-gris" data-flux="2"/></g><g data-puf="558 84 30 -60 5 13 2.2" class="fum"></g>`;
+    // forn de reverber amb porta de fosa per al pudelador a l'esquerra del muntant
+    s += `<g data-part="forn"><path class="t mao" d="M36 600V330Q284 246 534 330V600Z"/><path class="t" fill="#4a2a1c" d="M68 520V370Q284 300 510 360V440H460V520H218V440H188V520Z"/>
+      <path d="M108 500Q200 330 330 400T520 380" class="flux s-taronja" stroke-width="9" data-flux="2.2"/><path d="M108 470Q210 350 340 430" class="flux s-groc" stroke-width="6" data-flux="2.6"/></g>`;
+    s += `<g data-part="fogar"><path d="M70 520H186" class="t4"/>${focs(96, 518, 3, 34, 30, 56)}<path class="t carbo" d="M74 518q54-22 110 0z"/></g>`;
+    s += `<g data-part="sola"><path class="t" fill="#ff9a2e" d="M222 518V478q116-18 234 0V518z"/><circle id="bola" class="t roent" cx="340" cy="484" r="26" opacity="0"/></g>`;
+    // pudelador situat clarament fora al costat de la boca de treball (amb davantal de cuir)
+    s += `<g data-part="pudelador">${persona(594, 600, 152, { color: '#7a5a3a', barret: true, gir: true, brac: 'M-8-68l-38 8M8-68l-42 16' })}<path d="M582 528h24l4 46h-32z" fill="#654022" stroke="#2a2420" stroke-width="2"/><line id="ganxo" x1="540" y1="510" x2="340" y2="486" class="t" stroke-width="6"/></g>`;
+    s += `<g data-en="0">${retol(286, 244, 'la flama passa per sobre: el carbó no toca el ferro', { fons: '#2a2420', vora: '#2a2420', w: 450 })}</g><g data-en="1">${retol(286, 244, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', vora: '#2a2420', w: 460 })}</g>`;
+    // laminador amb castells i corrons acanalats
+    s += `<g data-part="laminador"><rect class="t pedra" x="804" y="582" width="192" height="18"/><path class="t ferro" d="M820 582V226h160V582h-30V268H850V582z"/><rect class="t ferro2" x="814" y="218" width="172" height="14" rx="3"/>
+      <rect id="barra-e" x="660" y="368" width="230" height="34" rx="6" class="t roent"/><rect id="barra-s" x="910" y="376" width="0" height="18" rx="4" class="t roent"/>
       <g id="corro1">${roda(900, 330, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 290v20M900 350v20M860 330h20M920 330h20" class="t"/></g><g id="corro2">${roda(900, 442, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 402v20M900 462v20M860 442h20M920 442h20" class="t"/></g></g>`;
-    s += `<g data-en="3">${retol(900, 190, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', w: 320 })}</g>`;
-    s += `<g><text x="1080" y="560" class="tx mig">barra · planxa · rail</text><rect class="t ferro2" x="1010" y="574" width="50" height="12"/><rect class="t ferro2" x="1070" y="578" width="60" height="5"/><path class="t ferro2" d="M1146 590h30v-5h-10v-12h6v-7h-22v7h6v12h-10z"/></g>`;
+    s += `<g data-en="3">${retol(900, 184, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', vora: '#2a2420', w: 320 })}</g>`;
+    s += `<g><text x="1084" y="544" class="tx mig">barra · planxa · rail</text><rect class="t ferro2" x="1010" y="562" width="52" height="13" rx="2"/><rect class="t ferro2" x="1072" y="566" width="60" height="6" rx="1"/><path class="t ferro2" d="M1146 582h34v-6h-11v-14h7v-8h-26v8h7v14h-11z"/></g>`;
     return svg(s);
   }
   function animaPud({ p, t, k, el }) {
-    const a = t * 4, gx = 350 + 60 * Math.cos(a), gy = 492 + 10 * Math.sin(a * 2);
-    const g = el('ganxo'); g.setAttribute('x2', k === 1 ? gx.toFixed(1) : 350); g.setAttribute('y2', k === 1 ? gy.toFixed(1) : 488);
+    const a = t * 4, gx = 340 + 62 * Math.cos(a), gy = 492 + 10 * Math.sin(a * 2);
+    const g = el('ganxo'); g.setAttribute('x2', k === 1 ? gx.toFixed(1) : 340); g.setAttribute('y2', k === 1 ? gy.toFixed(1) : 488);
     const b = el('bola'), f = tram(p, 0.5, 0.66, 0, 1);
-    b.setAttribute('opacity', p > 0.4 && p < 0.68 ? 1 : 0); b.setAttribute('cx', lerp(356, 700, f).toFixed(1)); b.setAttribute('cy', lerp(484, 385, f).toFixed(1));
+    b.setAttribute('opacity', p > 0.4 && p < 0.68 ? 1 : 0); b.setAttribute('cx', lerp(340, 700, f).toFixed(1)); b.setAttribute('cy', lerp(484, 385, f).toFixed(1));
     const q = tram(p, 0.68, 0.98, 0, 1, true), e = el('barra-e'), sx = el('barra-s');
-    e.setAttribute('opacity', p >= 0.66 ? 1 : 0); e.setAttribute('x', (640 + 250 * q).toFixed(1)); e.setAttribute('width', Math.max(0, 250 * (1 - q)).toFixed(1));
-    sx.setAttribute('opacity', p >= 0.68 ? 1 : 0); sx.setAttribute('width', (470 * q).toFixed(1));
+    e.setAttribute('opacity', p >= 0.66 ? 1 : 0); e.setAttribute('x', (660 + 230 * q).toFixed(1)); e.setAttribute('width', Math.max(0, 230 * (1 - q)).toFixed(1));
+    sx.setAttribute('opacity', p >= 0.68 ? 1 : 0); sx.setAttribute('width', (450 * q).toFixed(1));
     const gir = p >= 0.66 ? (t * 220) % 360 : 0;
     el('corro1').setAttribute('transform', `rotate(${gir.toFixed(1)} 900 330)`); el('corro2').setAttribute('transform', `rotate(${(-gir).toFixed(1)} 900 442)`);
   }
@@ -88,26 +119,42 @@
   function bessemer() {
     let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="640" width="1320" height="80"/>`;
     s += `<defs><clipPath id="cl-pera"><path d="${BUIT}"/></clipPath></defs>`;
-    s += `<path class="t ferro" d="M740 640L772 350h36L840 640zM360 640L392 350h36L460 640z" opacity=".9"/>`;
-    s += `<g data-en="0"><path class="t ferro" d="M150 150h150l40 40-12 12-34-28H150z"/><path d="M332 196Q380 250 424 306" class="nf" stroke="#ff9a2e" stroke-width="12" stroke-linecap="round"/>${retol(210, 120, 'ferro colat líquid', { fons: '#d9482b', w: 190 })}</g>`;
-    s += `<g id="pera" transform="translate(600 360)"><g data-part="convertidor"><path class="t ferro" d="${PERA}"/><path d="${BUIT}" fill="#4a2a1c" class="t2"/><g clip-path="url(#cl-pera)"><g id="bany-g"><rect id="bany" x="-400" y="60" width="800" height="500" fill="#f08a4b"/><g id="bombolles" opacity="0">${Array.from({ length: 9 }, (_, i) => `<circle class="bb" cx="${-64 + i * 16}" cy="100" r="5" fill="#fffdf7"/>`).join('')}</g></g></g></g>
+    s += `<path class="t ferro" d="M740 640L772 350h36L840 640zM360 640L392 350h36L460 640z" opacity=".92"/>`;
+    s += `<g data-en="0"><path class="t ferro" d="M130 148h168l40 40-12 12-34-28H130z"/><path d="M330 194Q378 248 424 306" class="nf" stroke="#ff9a2e" stroke-width="12" stroke-linecap="round"/>${retol(208, 118, 'ferro colat líquid', { fons: '#d9482b', vora: '#2a2420', w: 190 })}</g>`;
+    s += `<g id="pera" transform="translate(600 360)"><g data-part="convertidor"><path class="t ferro" d="${PERA}"/><path d="${BUIT}" fill="#4a2a1c" class="t2"/><g clip-path="url(#cl-pera)"><g id="bany-g"><rect id="bany" x="-400" y="25" width="800" height="500" fill="#f08a4b"/><g id="bombolles" opacity="0">${Array.from({ length: 11 }, (_, i) => `<circle class="bb" cx="${-70 + i * 14}" cy="100" r="5" fill="#fffdf7"/>`).join('')}</g></g></g><path class="t nf" d="${BUIT}"/></g>
       <g data-part="toveres"><rect class="t ferro2" x="-84" y="150" width="168" height="26" rx="4"/><path d="M-60 150v-22M-30 150v-22M0 150v-22M30 150v-22M60 150v-22" class="t" stroke="#c9d6dc"/></g>
-      <g id="flama" opacity="0">${foc(0, -176, 80, 190)}<g data-puf="0 -330 0 -160 8 9 0.9" class="calor"></g></g></g>`;
-    s += `<g data-part="eix"><circle class="t llauto" cx="410" cy="360" r="20"/><circle class="t llauto" cx="790" cy="360" r="20"/>${tub('M790 360H1000V560', '#c9d6dc', 10)}<path d="M996 556V360H794" class="flux s-blau" stroke-width="5" data-flux="3" data-fase="0.3-0.7"/><rect class="t ferro" x="950" y="560" width="100" height="80" rx="6"/><text x="1000" y="606" class="tx-b mig">AIRE</text></g>`;
-    s += `<g data-part="cullera"><path class="t ferro" d="M250 560h140l-14 80H264z"/><path id="acer-c" d="M258 600h124l-8 38H266z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 330 600" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
-    s += `<g data-en="2">${retol(940, 150, 'l’aire crema el carboni', { fons: '#d9482b', w: 220 })}${retol(940, 190, 'sense gastar combustible', { fons: '#2a2420', w: 240 })}<text id="minuts" x="940" y="270" class="tx-gg mig">0 min</text></g><g data-en="3">${retol(150, 520, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
+      <g id="flama" opacity="0">${foc(0, -176, 86, 200)}<g id="espurnes">${Array.from({ length: 10 }, (_, i) => `<circle class="esp" cx="${-28 + i * 6}" cy="-260" r="3" fill="#fff6b0"/>`).join('')}</g><g data-puf="0 -330 0 -160 8 9 0.9" class="calor"></g></g></g>`;
+    // eix i màquina bufadora mecànica realista
+    s += `<g data-part="eix"><circle class="t llauto" cx="410" cy="360" r="20"/><circle class="t llauto" cx="790" cy="360" r="20"/>${tub('M790 360H1000V534', '#c9d6dc', 10)}<path d="M996 530V360H794" class="flux s-blau" stroke-width="5" data-flux="3" data-fase="0.3-0.7"/>
+      <rect class="t pedra" x="926" y="608" width="150" height="32"/><rect class="t ferro" x="944" y="534" width="114" height="74" rx="6"/><circle class="t blanc" cx="980" cy="566" r="14"/><path d="M980 566l8-8" class="t2"/>${roda(1042, 570, 32, { raigs: 6, color: '#56636c', gruix: 7 })}<text x="980" y="598" class="tx-p mig" style="font-size:12px">bufadora</text></g>`;
+    // cullera i lingotera
+    s += `<g data-part="cullera"><path class="t ferro" d="M236 550h144l-14 78H250z"/><path d="M236 550v-32M380 550v-32" class="t" stroke-width="5"/><path id="acer-c" d="M244 590h128l-8 36H252z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
+    s += `<g data-en="2">${retol(940, 150, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 190, 'sense gastar combustible', { fons: '#2a2420', vora: '#2a2420', w: 240 })}<text id="minuts" x="940" y="268" class="tx-gg mig">0 min</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
     return svg(s);
   }
   function animaBes({ p, t, el, svg: g }) {
     const a = p < 0.2 ? -75 : p < 0.3 ? tram(p, 0.2, 0.3, -75, 0) : p < 0.7 ? 0 : p < 0.8 ? tram(p, 0.7, 0.8, 0, -115) : -115;
     el('pera').setAttribute('transform', `translate(600 360) rotate(${a.toFixed(1)})`);
     el('bany-g').setAttribute('transform', `rotate(${(-a).toFixed(1)})`);
-    const niv = p < 0.2 ? tram(p, 0.02, 0.2, 130, 50) : p < 0.8 ? 50 : tram(p, 0.8, 0.98, 50, 135);
-    el('bany').setAttribute('y', niv.toFixed(1)); el('bany').setAttribute('fill', color('#f08a4b', '#fff3a0', (p - 0.3) / 0.4));
+    const niv = p < 0.2 ? tram(p, 0.02, 0.2, 124, 36) : p < 0.8 ? 36 : tram(p, 0.8, 0.98, 36, 132);
+    el('bany').setAttribute('y', niv.toFixed(1));
+    el('bany').setAttribute('fill', color('#f08a4b', '#fff3a0', (p - 0.3) / 0.4));
     const bufa = p >= 0.3 && p < 0.7;
-    el('flama').setAttribute('opacity', bufa ? 1 : 0); el('bombolles').setAttribute('opacity', bufa ? 1 : 0);
-    if (bufa) { if (!g._bb) g._bb = Array.from(g.querySelectorAll('.bb')); g._bb.forEach((c, i) => c.setAttribute('cy', (126 - ((t * 90 + i * 23) % 70)).toFixed(1))); el('minuts').textContent = Math.round(((p - 0.3) / 0.4) * 20) + ' min'; }
-    el('raig').setAttribute('opacity', p > 0.8 && p < 0.98 ? 1 : 0); el('acer-c').setAttribute('opacity', p > 0.82 ? tram(p, 0.82, 0.98, 0, 1).toFixed(2) : 0);
+    el('flama').setAttribute('opacity', bufa ? 1 : 0);
+    el('bombolles').setAttribute('opacity', bufa ? 1 : 0);
+    if (bufa) {
+      if (!g._bb) { g._bb = Array.from(g.querySelectorAll('.bb')); g._esp = Array.from(g.querySelectorAll('.esp')); }
+      g._bb.forEach((c, i) => c.setAttribute('cy', (126 - ((t * 90 + i * 23) % 85)).toFixed(1)));
+      g._esp.forEach((c, i) => {
+        const f = ((t * 2.4 + i * 0.13) % 1);
+        c.setAttribute('cx', (((i - 4.5) * 14) * (0.4 + f)).toFixed(1));
+        c.setAttribute('cy', (-210 - f * 170).toFixed(1));
+        c.setAttribute('opacity', (1 - f).toFixed(2));
+      });
+      el('minuts').textContent = Math.round(((p - 0.3) / 0.4) * 20) + ' min';
+    }
+    el('raig').setAttribute('opacity', p > 0.8 && p < 0.98 ? 1 : 0);
+    el('acer-c').setAttribute('opacity', p > 0.82 ? tram(p, 0.82, 0.98, 0, 1).toFixed(2) : 0);
   }
 
   /* ---------- 5 · tres metalls ---------- */
@@ -162,7 +209,7 @@
           gresol: { nom: 'Gresol', text: 'El fons del forn. S’hi acumula el ferro líquid i, a sobre, l’escòria, que pesa menys.' },
           llit: { nom: 'Llit de colada', text: 'Canals i motlles fets a la sorra. Recorden una truja alletant porcells: per això en anglès el lingot es diu «pig iron».' }
         },
-        etiquetes: [['carrega', 900, 100, 720, 126, 'Boca de càrrega'], ['cuba', 300, 250, 500, 290], ['bufadora', 150, 330, 150, 384, 'Màquina bufadora'], ['bufadora', 330, 540, 440, 500, 'Tovera'], ['gresol', 760, 570, 600, 574], ['llit', 620, 684, 500, 672, 'Llit de colada']],
+        etiquetes: [['carrega', 900, 100, 720, 126, 'Boca de càrrega'], ['cuba', 300, 250, 500, 290], ['bufadora', 150, 300, 142, 362, 'Màquina bufadora'], ['bufadora', 330, 540, 440, 498, 'Tovera'], ['gresol', 760, 566, 600, 572], ['llit', 638, 650, 468, 646, 'Llit de colada']],
         clau: 'Mineral + coc + aire = ferro colat. Abundant i barat, però trencadís.',
         batx: { titol: 'Carbó, ferro i vapor: un cercle', text: 'Les màquines de vapor mouen les bufadores i bomben l’aigua de les mines; les mines donen el carbó per al coc; el ferro serveix per fer màquines de vapor. Aquest cercle explica per què la industrialització s’accelera sola un cop comença.', font: 'https://www.ironbridge.org.uk/', fontNom: 'Ironbridge Gorge Museums' }
       },
@@ -186,7 +233,7 @@
           xemeneia: { nom: 'Xemeneia', text: 'Estira la flama a través del forn.' },
           laminador: { nom: 'Laminador', text: 'Dos corrons que giren en sentits contraris. Fan en minuts la feina de moltes hores de martell.' }
         },
-        etiquetes: [['fogar', 80, 640, 150, 530], ['forn', 180, 300, 240, 322, 'Volta'], ['sola', 300, 650, 330, 512], ['pudelador', 470, 680, 430, 600], ['xemeneia', 680, 130, 588, 150], ['laminador', 1090, 300, 980, 300]],
+        etiquetes: [['fogar', 80, 640, 136, 520], ['forn', 180, 296, 232, 318, 'Volta'], ['sola', 300, 650, 330, 510], ['pudelador', 676, 540, 604, 550], ['xemeneia', 680, 130, 588, 150], ['laminador', 1090, 300, 980, 300]],
         clau: 'Ferro forjat en grans quantitats: el material de les màquines, els ponts i els primers rails.',
         batx: { titol: 'Un coll d’ampolla humà', text: 'La pudelació no es va poder mecanitzar: depenia de la força i de l’ofici de cada pudelador. Per això, quan el ferrocarril dispara la demanda, es busca un mètode nou. És el camí que porta a Bessemer.', font: 'https://www.ironbridge.org.uk/', fontNom: 'Ironbridge Gorge Museums' }
       },
@@ -208,7 +255,7 @@
           eix: { nom: 'Eix i conducte d’aire', text: 'El convertidor gira sobre dos suports. L’aire hi arriba per dins d’un dels eixos.' },
           cullera: { nom: 'Cullera de colada', text: 'Recull l’acer líquid per repartir-lo en motlles (lingoteres).' }
         },
-        etiquetes: [['convertidor', 840, 480, 700, 420], ['toveres', 600, 600, 600, 540, 'Toveres', null], ['eix', 880, 310, 800, 350, 'Eix'], ['cullera', 130, 600, 256, 600, 'Cullera']],
+        etiquetes: [['convertidor', 840, 480, 700, 420], ['toveres', 600, 606, 600, 523, 'Toveres', 'pera@0,163'], ['eix', 880, 310, 800, 350, 'Eix'], ['cullera', 130, 594, 244, 594, 'Cullera']],
         clau: 'Acer abundant i barat: comença l’era dels rails d’acer, els grans vaixells i els gratacels.',
         batx: { titol: 'Un invent que al principi fallava', text: 'El procés no funcionava amb minerals rics en fòsfor (la majoria dels europeus) i l’acer sortia trencadís. Es va resoldre amb el ferromanganès de Mushet i, el 1879, amb el revestiment bàsic de Thomas i Gilchrist. Bessemer pertany ja a la Segona Revolució Industrial.', font: 'https://blog.sciencemuseum.org.uk/onward-ever-sir-henry-bessemer-frs-19-1-1813-15-3-1898/', fontNom: 'Science Museum · Henry Bessemer' }
       },

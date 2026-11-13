@@ -75,7 +75,7 @@
     telers: { nom: 'Telers', text: 'Entrecreuen els fils (ordit i trama) per fer la tela.' },
     coto: { nom: 'El cotó', text: 'Entra en bales premsades i surt convertit en peces de tela. Tot el procés passa sota un mateix sostre.' }
   };
-  const etqComunes = [['arbre', 300, 330, 380, 330, 'Arbre vertical'], ['eixos', 670, 204, 676, 258, 'Eix de transmissió'], ['corretges', 1090, 420, 880, 400, 'Corretja'], ['cardes', 1090, 660, 890, 590, 'Cardes'], ['filadores', 1100, 380, 900, 440, 'Filadores'], ['telers', 1090, 270, 900, 300, 'Telers']];
+  const etqComunes = [['arbre', 300, 330, 380, 330, 'Arbre vertical'], ['eixos', 670, 172, 676, 258, 'Eix de transmissió'], ['corretges', 1080, 404, 880, 404, 'Corretja'], ['cardes', 1090, 660, 890, 590, 'Cardes'], ['filadores', 1090, 480, 900, 466, 'Filadores'], ['telers', 1080, 276, 900, 308, 'Telers']];
   const capes = [{ id: 'forca', nom: 'Segueix la força', on: true }, { id: 'coto', nom: 'Segueix el cotó', on: false }];
 
   RI.capitol({

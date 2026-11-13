@@ -8,12 +8,25 @@
 
   /* ---------- 1 · el Great Western en tall ---------- */
   function western() {
-    let s = `<rect class="cel" x="-60" width="1320" height="470"/>${nuvol(900, 80, 1.5)}${nuvol(60, 130, 1.1)}<rect x="-60" y="470" width="1320" height="250" fill="#2f7fb5"/>`;
-    // veles i pals
-    s += `<g data-part="veles">${[[170, 120], [470, 90], [840, 90], [990, 130]].map(([x, y]) => `<rect class="t fusta2" x="${x - 5}" y="${y}" width="10" height="${380 - y}"/><path class="t blanc" d="M${x + 8} ${y + 30}L${x + 110} ${y + 60}L${x + 120} ${y + 190}L${x + 8} ${y + 200}Z"/><path d="M${x + 8} ${y + 30}L${x + 110} ${y + 60}" class="t4" stroke="#8f6038"/>`).join('')}<path class="t vermell" d="M165 120v-34l50 12-50 12"/><path d="M1110 372L1190 340" class="t4" stroke="#8f6038"/></g>`;
-    // buc
-    s += `<path class="t" fill="#3d454b" d="M84 372H1124Q1100 480 1036 578H170Q104 540 84 372Z"/><path fill="#efe3c6" class="t2" d="M110 392H1092Q1072 474 1024 558H186Q130 520 110 392Z"/><rect class="t fusta" x="80" y="366" width="1048" height="14" rx="5"/>`;
-    // interior
+    let s = `<rect class="cel" x="-60" width="1320" height="470"/>${nuvol(900, 78, 1.5)}${nuvol(60, 128, 1.1)}<rect x="-60" y="470" width="1320" height="250" fill="url(#g-mar)"/>`;
+    s += ones(470, '#e6f5fc') + ones(525, '#8cc3e6') + ones(605, '#76b5dc') + ones(672, '#5a9ec8');
+    // pals, eixàrcia i veles auxiliars amb botavares i estais
+    s += `<g data-part="veles">${[[168, 118], [468, 86], [842, 86], [990, 126]].map(([x, y]) => `
+      <rect class="t fusta2" x="${x - 5}" y="${y}" width="10" height="${380 - y}"/>
+      <path d="M${x} ${y + 12}L${x - 66} 366M${x} ${y + 12}L${x + 120} 366" stroke="#2a2420" stroke-width="1.4" opacity=".45"/>
+      <path class="t blanc" d="M${x + 8} ${y + 28}L${x + 114} ${y + 56}Q${x + 126} ${y + 125} ${x + 120} ${y + 188}L${x + 8} ${y + 198}Z"/>
+      <path d="M${x + 8} ${y + 28}L${x + 114} ${y + 56}M${x + 8} ${y + 198}L${x + 120} ${y + 188}" class="t4" stroke="#8f6038"/>`).join('')}
+      <path class="t vermell" d="M163 118v-32l52 12-52 12"/><path d="M1110 372L1204 334" class="t4" stroke="#8f6038"/><path d="M990 132L1200 335" stroke="#2a2420" stroke-width="1.6" opacity=".5"/></g>`;
+    // buc en secció nítida (sense vel blau a sobre) amb timó a popa i doble folre
+    s += `<path class="t" fill="#32393f" d="M84 372H1130Q1104 484 1038 580H170Q104 542 84 372Z"/>`;
+    s += `<path class="t" fill="#8d5034" d="M104 470H1096Q1078 528 1038 580H170Q122 544 104 470Z"/>`;
+    s += `<path class="t" fill="#32393f" d="M84 372H1130L1096 470H104Z"/>`;
+    s += `<path fill="#efe3c6" class="t2" d="M112 392H1092Q1072 474 1024 558H186Q130 520 112 392Z"/>`;
+    s += `<path class="t fusta2" d="M84 480l-22 6 4 72 34-6z"/>`;
+    s += `<rect class="t fusta" x="80" y="366" width="1054" height="14" rx="5"/>`;
+    // línia de flotació subtil fora del buc
+    s += `<path d="M-40 470H92M1104 470H1240" stroke="#fffdf7" stroke-width="3" stroke-dasharray="10 7" opacity=".85"/>`;
+    // interior: cabines, bodega, carboneres, calderes, xemeneia
     s += `<g data-part="cabines"><rect class="t2" x="122" y="396" width="92" height="78" fill="#f7d9c4"/><rect class="t vidre" x="134" y="408" width="22" height="18"/><rect class="t vidre" x="170" y="408" width="22" height="18"/>${persona(150, 474, 44, { color: '#7a4f9a' })}${persona(190, 474, 44, { color: '#3d5a80', barret: true })}
       <rect class="t2" x="810" y="396" width="150" height="78" fill="#f7d9c4"/><rect class="t vidre" x="824" y="408" width="22" height="18"/><rect class="t vidre" x="864" y="408" width="22" height="18"/><rect class="t vidre" x="904" y="408" width="22" height="18"/>${persona(850, 474, 44, { color: '#b9722a' })}${persona(920, 474, 44, { color: '#5b8c35', barret: true })}</g>`;
     s += `<g data-part="carrega"><rect class="t fusta3" x="820" y="500" width="40" height="40"/><rect class="t fusta3" x="864" y="500" width="40" height="40"/><rect class="t fusta3" x="842" y="480" width="40" height="22"/><ellipse class="t fusta2" cx="940" cy="520" rx="22" ry="20"/><ellipse class="t fusta2" cx="985" cy="524" rx="18" ry="16"/><path d="M820 520h84M842 490h40" class="t1"/></g>`;
@@ -21,16 +34,15 @@
     s += `<g data-part="calderes"><rect class="t ferro" x="302" y="420" width="140" height="136" rx="10"/><rect x="310" y="428" width="124" height="60" rx="5" class="aigua2"/><rect class="t fosc" x="312" y="498" width="54" height="50" rx="4"/><rect class="t fosc" x="378" y="498" width="54" height="50" rx="4"/>${focs(326, 546, 2, 26, 22, 34)}${focs(392, 546, 2, 26, 22, 34)}<g data-puf="350 440 0 -14 3 5 1.3" class="vap"></g><g data-puf="400 440 0 -14 3 5 1.6" class="vap"></g></g>`;
     s += `<g data-part="xemeneia"><path class="t negre" d="M352 420V170h40V420z"/><rect class="t vermell" x="350" y="170" width="44" height="26"/></g><g data-puf="372 160 -200 -80 7 18 2" class="fum"></g>`;
     s += `<path d="M442 440H476" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M442 440H476" class="nf" stroke="#f0ab68" stroke-width="8"/>`;
-    // roda de pales (darrere de la màquina)
+    // roda de pales + tambor protector
     s += `<g data-part="roda"><g id="vroda">${roda(S.x, S.y, 112, { raigs: 12, color: '#a8452f', gruix: 8, raig: 4, extra: pales(S.x, S.y, 104, 12) })}</g><path d="M548 380A122 122 0 0 1 792 380" class="t nf" stroke-width="7"/><path d="M548 380A122 122 0 0 1 792 380" class="nf" stroke="#c7935c" stroke-width="3"/></g>`;
     // màquina de palanques laterals
     s += `<g data-part="maquina"><rect class="t pedra" x="456" y="548" width="250" height="12"/><rect id="vcam" x="476" y="436" width="40" height="40" fill="#f9a35e"/><path d="M468 428H524V524H468ZM476 436V516H516V436Z" class="t" fill="#f08a4b" fill-rule="evenodd"/>
       <g id="vpist"><rect class="t ferro" x="476" y="-5" width="40" height="10"/><rect class="t ferro" x="492" y="-72" width="8" height="72"/><rect class="t ferro" x="452" y="-78" width="50" height="9" rx="3"/></g><line id="vtija" x1="458" y1="400" x2="458" y2="545" class="t" stroke-width="6"/>
       <g id="vpal"><path class="t ferro" d="M${PIV.x - MIG - 8} ${PIV.y}L${PIV.x} ${PIV.y - 16}L${PIV.x + MIG + 8} ${PIV.y}L${PIV.x} ${PIV.y + 16}Z"/></g><circle class="t llauto" cx="${PIV.x}" cy="${PIV.y}" r="9"/>
       <line id="vbiela" x1="670" y1="545" x2="670" y2="420" stroke="#2a2420" stroke-width="13" stroke-linecap="round"/><line id="vbiela2" x1="670" y1="545" x2="670" y2="420" stroke="#b4bec4" stroke-width="7" stroke-linecap="round"/><line id="vman" x1="670" y1="420" x2="700" y2="420" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><circle class="t llauto" cx="670" cy="420" r="13"/></g>`;
-    // aigua per davant
-    s += `<rect x="-60" y="470" width="1320" height="250" fill="#2f7fb5" opacity=".28"/>${ones(470)}${ones(520, '#8cc3e6')}${ones(600, '#8cc3e6')}${ones(670, '#8cc3e6')}`;
-    s += `<g data-puf="600 474 -80 -10 5 9 0.9" class="vap" opacity=".8"></g>${fletxa('M1040 640H1180', '#fffdf7', 6)}<text x="1110" y="678" class="tx-b mig">avança</text><g data-en="2">${fletxa('M900 610H740', '#fffdf7', 6)}<text x="820" y="650" class="tx-b mig">les pales empenyen l’aigua enrere</text></g>`;
+    // escuma de les pales i fletxes ben separades de les etiquetes
+    s += `<g data-puf="600 474 -80 -10 5 9 0.9" class="vap" opacity=".8"></g>${fletxa('M1050 640H1186', '#fffdf7', 6)}<text x="1118" y="676" class="tx-b mig">avança</text><g data-en="2">${fletxa('M900 618H740', '#fffdf7', 6)}<text x="820" y="654" class="tx-b mig">les pales empenyen l’aigua enrere</text></g>`;
     return svg(s);
   }
   function animaWestern({ t, el }) {
@@ -76,19 +88,33 @@
 
   /* ---------- 3 · travessar l'Atlàntic ---------- */
   function atlantic() {
-    let s = `<rect x="-60" width="1320" height="720" fill="#9fcbe6"/>${ones(120, '#d6ecf8')}${ones(380, '#d6ecf8')}${ones(600, '#d6ecf8')}`;
-    s += `<path class="t" fill="#b9cf8a" d="M-60 40Q120 60 150 200T110 420Q170 560 60 720H-60Z"/><path class="t" fill="#b9cf8a" d="M1260 60Q1090 80 1070 200T1120 380Q1040 520 1130 720H1260Z"/>`;
-    s += `<circle class="t vermell" cx="150" cy="300" r="10"/><text x="60" y="270" class="tx-g mig">Nova York</text><circle class="t vermell" cx="1070" cy="250" r="10"/><text x="1160" y="220" class="tx-g mig">Bristol</text><text x="610" y="70" class="tx-g mig">Oceà Atlàntic · uns 5.500 km</text>`;
-    s += `<path d="M1060 255Q600 180 160 300" class="t nf" stroke-dasharray="3 10"/><path id="ruta-v" d="M1060 262Q950 420 840 380T620 470T400 400T160 310" class="t nf" stroke-dasharray="3 10" opacity=".7"/>`;
-    s += `<g id="b-vapor"><path class="t" fill="#3d454b" d="M-46 0h92l-12 22h-68z"/><rect class="t negre" x="-8" y="-30" width="13" height="30"/><circle class="t vermell" cx="4" cy="12" r="11"/><g data-puf="-2 -34 60 -30 4 8 1.2" class="fum"></g></g>`;
-    s += `<g id="b-vela"><path class="t" fill="#8f6038" d="M-46 0h92l-12 22h-68z"/><path class="t blanc" d="M-22 -4v-52l30 26zM10 -4v-62l34 34z"/><path d="M-22 0v-58M10 0v-68" class="t"/></g>`;
+    let s = `<rect x="-60" width="1320" height="720" fill="#8cc0df"/>`;
+    // reticle cartogràfic (meridians i paral·lels) i ones suaus
+    for (let x = 80; x < 1200; x += 180) s += `<path d="M${x} 0V720" stroke="#fff" stroke-width="1" opacity=".22"/>`;
+    for (let y = 120; y < 700; y += 160) s += `<path d="M-60 ${y}H1260" stroke="#fff" stroke-width="1" opacity=".22"/>`;
+    s += ones(140, '#cbe5f5') + ones(410, '#cbe5f5') + ones(610, '#cbe5f5');
+    // costa est d'Amèrica del Nord (Terranova, Nova Escòcia, Nova Anglaterra, Nova York, Virgínia)
+    s += `<path class="t" fill="#b4cb84" d="M-60 20H185l24 44-34 38-36 10-8 44 48 16 14 28-44 26-26 22 30 16-24 22-36 44-8 56-38 56-10 68-42 64-28 54-48 72H-60Z"/>`;
+    // Europa Occidental (Escòcia, Gran Bretanya amb canal de Bristol, Irlanda, Bretanya i Península Ibèrica)
+    s += `<path class="t" fill="#b4cb84" d="M1076 20H1260V720H1074l-8-46 38-10 4-62-44-16 8-26 68-46 58-24-30-32-44-10-4-28 24-28 16-42-22-18-32 18-16-26 28-24-12-30-34-12 20-34-16-42 36-38 14-42z"/>`;
+    s += `<path class="t" fill="#b4cb84" d="M980 184l32-24 26 14-8 46-32 22-22-18z"/>`;
+    // vents dominants de l'oest (per què el veler triga més cap a l'oest)
+    s += `<g opacity=".78">${[[430, 125], [640, 120], [500, 325], [760, 330]].map(([x, y]) => `<path d="M${x} ${y}h95" stroke="#fffdf7" stroke-width="3.5" stroke-dasharray="10 6" marker-end="url(#m-fl)"/>`).join('')}<text x="610" y="106" class="tx-p mig" style="fill:#184566">vents dominants de l’oest (en contra)</text></g>`;
+    // ports, títol i rutes
+    s += `<circle class="t vermell" cx="132" cy="332" r="9"/><text x="64" y="370" class="tx-g mig">Nova York</text><circle class="t vermell" cx="1086" cy="240" r="9"/><text x="1164" y="210" class="tx-g mig">Bristol</text><text x="610" y="56" class="tx-g mig">Oceà Atlàntic · uns 5.500 km</text>`;
+    s += `<path d="M1076 242Q600 185 142 330" class="t nf" stroke-dasharray="4 9"/><path id="ruta-v" d="M1076 250Q955 415 835 375T615 470T380 398T142 338" class="t nf" stroke-dasharray="4 9" opacity=".75"/>`;
+    // rosa dels vents senzilla
+    s += `<g transform="translate(960 590)" opacity=".75"><circle cx="0" cy="0" r="34" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/><path d="M0-28L6 0 0 28-6 0zM-28 0L0-6 28 0 0 6z" fill="#2a2420"/><text x="0" y="-38" class="tx-p mig">N</text></g>`;
+    // vaixells en ruta
+    s += `<g id="b-vapor"><path class="t" fill="#32393f" d="M-50 0h100l-12 22h-76z"/><rect class="t fusta" x="-48" y="-4" width="96" height="5"/><rect class="t negre" x="-8" y="-34" width="13" height="30"/><rect class="vermell" x="-8" y="-34" width="13" height="8"/><circle class="t vermell" cx="5" cy="10" r="11"/><g data-puf="-2 -38 60 -30 4 8 1.2" class="fum"></g></g>`;
+    s += `<g id="b-vela"><path class="t" fill="#8f6038" d="M-48 0h96l-12 22h-72z"/><path class="t blanc" d="M-24 -4v-54l32 26zM10 -4v-64l36 34z"/><path d="M-24 0v-60M10 0v-70" class="t"/></g>`;
     s += `<g><rect class="t" x="470" y="560" width="280" height="110" rx="16" fill="#fffdf7"/><text x="610" y="600" class="tx mig">dies de viatge</text><text id="dia" x="610" y="652" class="tx-gg mig" style="font-size:46px">0</text></g>`;
-    s += `<g id="a-vapor" opacity="0">${retol(420, 170, 'Great Western (1838): 15 dies', { fons: '#d9482b', w: 290, h: 36 })}</g><g id="a-vela" opacity="0">${retol(330, 480, 'veler de línia: uns 35 dies, segons el vent', { fons: '#2a2420', w: 380, h: 36 })}</g>`;
+    s += `<g id="a-vapor" opacity="0">${retol(430, 186, 'Great Western (1838): 15 dies', { fons: '#d9482b', vora: '#2a2420', w: 295, h: 36 })}</g><g id="a-vela" opacity="0">${retol(340, 495, 'veler de línia: uns 35 dies, segons el vent', { fons: '#2a2420', vora: '#2a2420', w: 380, h: 36 })}</g>`;
     return svg(s);
   }
   function animaAtl({ p, el, svg: g }) {
     const d = Math.min(35, p * 37), fv = Math.min(1, d / 15), fs = Math.min(1, d / 35);
-    const bz = (t) => ({ x: (1 - t) * (1 - t) * 1060 + 2 * (1 - t) * t * 600 + t * t * 160, y: (1 - t) * (1 - t) * 255 + 2 * (1 - t) * t * 180 + t * t * 300 });
+    const bz = (t) => ({ x: (1 - t) * (1 - t) * 1076 + 2 * (1 - t) * t * 600 + t * t * 142, y: (1 - t) * (1 - t) * 242 + 2 * (1 - t) * t * 185 + t * t * 330 });
     const a = bz(fv); el('b-vapor').setAttribute('transform', `translate(${a.x.toFixed(1)} ${(a.y - 26).toFixed(1)})`);
     const r = el('ruta-v'), l = g._lv || (g._lv = r.getTotalLength()), b = r.getPointAtLength(l * fs);
     el('b-vela').setAttribute('transform', `translate(${b.x.toFixed(1)} ${(b.y - 26).toFixed(1)})`);
@@ -120,7 +146,7 @@
           cabines: { nom: 'Cabines', text: 'Hi viatjaven uns 150 passatgers, amb saló i menjador. El bitllet era molt car.' },
           carrega: { nom: 'Bodega', text: 'Correu, mercaderies de valor i equipatges.' }
         },
-        etiquetes: [['veles', 640, 130, 590, 180, 'Pals i veles'], ['xemeneia', 270, 230, 352, 260], ['calderes', 300, 640, 360, 540], ['carbonera', 130, 620, 240, 520, 'Carboneres'], ['maquina', 480, 690, 500, 552, 'Màquina'], ['roda', 780, 280, 740, 330, 'Roda de pales'], ['cabines', 1020, 330, 900, 410], ['carrega', 1090, 560, 990, 524, 'Bodega']],
+        etiquetes: [['veles', 640, 130, 590, 180, 'Pals i veles'], ['xemeneia', 270, 230, 352, 260], ['calderes', 300, 626, 360, 540], ['carbonera', 120, 610, 240, 520, 'Carboneres'], ['maquina', 488, 668, 504, 550, 'Màquina'], ['roda', 780, 280, 740, 330, 'Roda de pales'], ['cabines', 1020, 330, 900, 410], ['carrega', 1090, 560, 990, 524, 'Bodega']],
         clau: 'El vapor dona al mar el que el tren dona a la terra: horaris. El vaixell surt i arriba el dia previst.',
         batx: { titol: 'El problema del carbó', text: 'Molts científics deien que cap vapor podria carregar prou carbó per creuar l’oceà. Brunel va entendre que la capacitat creix amb el cub de la mida i la resistència de l’aigua només amb el quadrat: calia fer el vaixell més gran. Relaciona-ho amb les estacions carboneres i l’expansió colonial.', font: 'https://www.ssgreatbritain.org/brunel/', fontNom: 'Brunel’s SS Great Britain · Brunel i els seus vaixells' }
       },

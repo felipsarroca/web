@@ -193,9 +193,9 @@ h1,h2,h3,h4,p{margin:0}
 .esc.te-sel [data-part]:not(.sel){opacity:.28}
 .esc.te-sel .atenua{opacity:.28}
 .esc [data-part].sel{filter:drop-shadow(0 0 5px #f2b632) drop-shadow(0 0 10px #f2b632)}
-.esc.te-focus [data-part]:not(.foc){opacity:.42}
-.esc.te-focus .atenua{opacity:.42}
-.esc.te-focus .etq:not(.foc){opacity:.45}
+.esc.te-focus [data-part]:not(.foc){opacity:.66}
+.esc.te-focus .atenua{opacity:.58}
+.esc.te-focus .etq:not(.foc){opacity:.62}
 .flama{animation:flama .7s ease-in-out infinite alternate;stroke:#2a2420;stroke-width:1.6;stroke-linejoin:round}
 @keyframes flama{from{transform:scale(1,1) skewX(-3deg)}to{transform:scale(.9,1.16) skewX(4deg)}}
 .etq{cursor:pointer}
@@ -215,10 +215,10 @@ h1,h2,h3,h4,p{margin:0}
 .portada{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;padding:12px 18px}
 .vista{flex:1;min-height:0;position:relative;border:3px solid var(--tinta);border-radius:16px;box-shadow:var(--ombra);overflow:hidden;background:#bfe3f0}
 .vista>svg{position:absolute;inset:0;width:100%;height:100%}
-.vista-text{position:absolute;left:22px;top:16px;z-index:2;max-width:44%;pointer-events:none}
-.vista-text h1{font-family:var(--f-t);font-weight:900;font-size:2.5rem;line-height:1;letter-spacing:-.02em;text-shadow:0 2px 0 #fff,0 0 18px #fff}
+.vista-text{position:absolute;left:22px;top:14px;z-index:2;max-width:42%;pointer-events:none}
+.vista-text h1{font-family:var(--f-t);font-weight:900;font-size:2.35rem;line-height:1;letter-spacing:-.02em;text-shadow:0 2px 0 #fff,0 0 18px #fff}
 .vista-text h1 em{color:var(--vermell);font-weight:600}
-.vista-text p{margin-top:8px;font-weight:700;font-size:.98rem;background:rgba(255,253,247,.85);display:inline-block;padding:4px 12px;border-radius:999px;border:2px solid var(--tinta)}
+.vista-text p{margin-top:6px;font-weight:700;font-size:.9rem;background:rgba(255,253,247,.92);display:inline-block;padding:4px 12px;border-radius:999px;border:2px solid var(--tinta);box-shadow:2px 2px 0 rgba(42,36,32,.15)}
 .lloc{cursor:pointer}
 .lloc .pin{transition:transform .15s}
 .pin-n{font-size:15px;font-weight:800;fill:#fff}
@@ -249,7 +249,7 @@ h1,h2,h3,h4,p{margin:0}
 .mobil .vista{flex:none;aspect-ratio:16/10}
 .mobil .vista-text{position:static;max-width:none;padding:12px 14px 4px;background:var(--blanc)}
 .mobil .vista{display:flex;flex-direction:column;aspect-ratio:auto}
-.mobil .vista>svg{position:static;height:auto;aspect-ratio:16/9}
+.mobil .vista>svg{position:static;height:auto;aspect-ratio:1600/520}
 .mobil .vista-text h1{font-size:1.8rem}
 .mobil .targetes{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (prefers-reduced-motion:reduce){.fumet,.balanci,.gira-mig,.oneja,.tren-p{animation:none}.fumet{opacity:.6}}

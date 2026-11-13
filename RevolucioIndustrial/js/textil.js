@@ -76,7 +76,7 @@
     let s = fons();
     s += `<rect class="t fusta" x="120" y="140" width="880" height="450" rx="10"/><rect class="crema" x="146" y="166" width="828" height="398"/>`;
     s += `<g data-part="corda"><path d="M1080 300V620H190V560" class="nf t" stroke-dasharray="7 5"/><path d="M1080 300V620H190V560" class="flux2 s-taronja" stroke-width="3" data-flux="-2"/></g>`;
-    s += `<g data-part="metxes">${FILES.map((y) => `<circle class="t blanc" cx="910" cy="${y}" r="21"/><circle class="t1 fusta3" cx="910" cy="${y}" r="6"/>`).join('')}</g>`;
+    s += `<g data-part="metxes">${FILES.map((y) => `<circle class="t blanc" cx="910" cy="${y}" r="21"/><circle cx="910" cy="${y}" r="14" fill="none" stroke="#dfd5be" stroke-width="2" stroke-dasharray="6 4"/><circle class="t1 fusta3" cx="910" cy="${y}" r="6"/>`).join('')}</g>`;
     s += `<g id="fils-m" stroke="#fff" stroke-linecap="round">${FILES.map((y, i) => `<line class="fm" x1="890" y1="${y}" x2="500" y2="${y}" stroke-width="8"/>`).join('')}</g><g id="fils-f" stroke-linecap="round">${FILES.map((y) => `<line class="ff0" x1="500" y1="${y}" x2="226" y2="${y}" stroke="#2a2420" stroke-width="9"/><line class="ff" x1="500" y1="${y}" x2="226" y2="${y}" stroke="#fff" stroke-width="7"/>`).join('')}</g>`;
     s += `<g data-part="fusos">${FILES.map((y) => `<g><rect class="t2 fusta2" x="160" y="${y - 4}" width="70" height="8" rx="3"/><ellipse class="cop t2" cx="198" cy="${y}" rx="22" ry="8" fill="#fbf3dc"/><path class="marca-f" d="M186 ${y - 6}l8 12M202 ${y - 6}l8 12" stroke="#2a2420" stroke-width="1.6"/></g>`).join('')}</g>`;
     s += `<g data-part="pinca" id="pinca"><rect class="t fusta" x="-16" y="160" width="14" height="410" rx="5"/><rect id="pinca2" class="t fusta" x="2" y="160" width="14" height="410" rx="5"/><rect class="t fusta2" x="-30" y="150" width="60" height="18" rx="6"/><rect class="t fusta2" x="-30" y="562" width="60" height="18" rx="6"/></g>`;
@@ -103,15 +103,16 @@
   /* ---------- 4 · Water Frame ---------- */
   function water() {
     let s = fons();
-    s += `<rect class="aigua" x="-60" y="640" width="470" height="80"/><g data-part="aigua"><path class="t fusta" d="M-60 300H180v18H-60z"/><rect x="-60" y="304" width="238" height="9" class="aigua"/><path d="M178 308q22 6 24 36" class="nf s-blau" stroke-width="10" stroke-linecap="round"/><g data-girat="180 490 50">${roda(180, 490, 150, { raigs: 8, color: '#a67547', gruix: 22, raig: 8 })}</g>
-      <path d="M180 490L470 250M180 490L470 480" class="nf t" stroke-dasharray="7 5"/><path d="M180 490L470 250" class="flux2 s-taronja" stroke-width="3" data-flux="2"/></g>`;
-    s += `<rect class="t fusta" x="440" y="70" width="330" height="590" rx="10"/><rect class="crema" x="462" y="92" width="286" height="546"/>`;
-    s += `<g data-part="metxa"><ellipse class="t blanc" cx="605" cy="140" rx="46" ry="34"/><rect class="t1 fusta3" x="599" y="100" width="12" height="80"/></g>`;
+    s += `<rect class="aigua" x="-60" y="644" width="1320" height="76"/><path d="M-60 644H1260" stroke="#2d6699" stroke-width="5"/><path d="M-60 662q60-8 120 0t120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0" stroke="#d6ecf3" stroke-width="3" fill="none" opacity=".6"/>`;
+    s += `<g data-part="aigua"><path class="t fusta" d="M-60 300H180v18H-60z"/><rect x="-60" y="304" width="238" height="9" class="aigua"/><path d="M178 308q24 8 28 42M186 318q18 14 22 44" class="nf s-blau" stroke-width="9" stroke-linecap="round"/><path d="M170 618q16-14 34 0M240 622q20-16 40 0" stroke="#d6ecf3" stroke-width="4" fill="none" stroke-linecap="round"/><g data-girat="180 490 50">${roda(180, 490, 150, { raigs: 8, color: '#a67547', gruix: 22, raig: 8 })}</g>
+      <path d="M180 490L452 250M180 490L452 480" class="nf t" stroke-dasharray="7 5"/><path d="M180 490L452 250" class="flux2 s-taronja" stroke-width="3" data-flux="2"/></g>`;
+    s += `<rect class="t fusta" x="430" y="70" width="380" height="584" rx="10"/><rect class="crema" x="452" y="92" width="336" height="540"/>`;
+    s += `<g data-part="metxa"><ellipse class="t blanc" cx="605" cy="140" rx="46" ry="34"/><ellipse cx="605" cy="140" rx="34" ry="22" fill="none" stroke="#dfd5be" stroke-width="2" stroke-dasharray="8 4"/><rect class="t1 fusta3" x="599" y="100" width="12" height="80"/></g>`;
     s += `<path d="M605 174V226" stroke="#2a2420" stroke-width="16"/><path d="M605 174V226" stroke="#fff" stroke-width="13"/><path d="M605 226V296" stroke="#2a2420" stroke-width="11"/><path d="M605 226V296" stroke="#fff" stroke-width="8"/><path d="M605 296V366" stroke="#2a2420" stroke-width="7.5"/><path d="M605 296V366" stroke="#fff" stroke-width="4.5"/><path d="M605 366V452" stroke="#2a2420" stroke-width="5"/><path d="M605 366V452" stroke="#f2c230" stroke-width="2.6"/><path d="M605 180V450" class="flux2" stroke="#b9722a" stroke-width="2" data-flux="1.5" opacity=".7"/>`;
-    const parell = (y, v, nom) => `<g data-girat="578 ${y} ${v}"><circle class="t ferro2" cx="578" cy="${y}" r="24"/><path d="M558 ${y}h40M578 ${y - 20}v40" class="t2"/></g><g data-girat="632 ${y} ${-v}"><circle class="t fusta2" cx="632" cy="${y}" r="24"/><path d="M612 ${y}h40M632 ${y - 20}v40" class="t2"/></g><text x="700" y="${y + 6}" class="tx">${nom}</text>`;
+    const parell = (y, v, nom) => `<g data-girat="578 ${y} ${v}"><circle class="t ferro2" cx="578" cy="${y}" r="24"/><path d="M558 ${y}h40M578 ${y - 20}v40" class="t2"/></g><g data-girat="632 ${y} ${-v}"><circle class="t fusta2" cx="632" cy="${y}" r="24"/><path d="M612 ${y}h40M632 ${y - 20}v40" class="t2"/></g><text x="670" y="${y + 6}" class="tx">${nom}</text>`;
     s += `<g data-part="corrons">${parell(226, 60, 'lent')}${parell(296, 130, 'més ràpid')}${parell(366, 280, 'molt ràpid')}</g>`;
     s += `<g data-part="aleta"><path id="aleta" d="M605 452V470M560 470H650M560 470V560M650 470V560" class="t nf" stroke-width="5"/><rect class="t2 ferro" x="601" y="470" width="8" height="150"/><rect id="wbob" class="t" x="583" y="500" width="44" height="70" rx="8" fill="#fbf3dc"/><path d="M585 515h40M585 530h40M585 545h40" stroke="#f2c230" stroke-width="3"/><path id="wfil" d="M560 540H584" stroke="#f2c230" stroke-width="2.6"/></g>`;
-    s += `<g>${retol(960, 150, 'metxa: cotó tou i gruixut', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 250 })}${fletxa('M960 176V250', '#2a2420', 4)}${retol(960, 280, 'els corrons l’estiren', { fons: '#b9722a', w: 210 })}${fletxa('M960 306V380', '#2a2420', 4)}${retol(960, 410, 'l’aleta el torça', { fons: '#b9722a', w: 170 })}${fletxa('M960 436V510', '#2a2420', 4)}${retol(960, 540, 'fil prim i resistent', { fons: '#f2c230', color: '#2a2420', vora: '#2a2420', w: 200 })}</g>`;
+    s += `<g>${retol(990, 150, 'metxa: cotó tou i gruixut', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 250 })}${fletxa('M990 176V250', '#2a2420', 4)}${retol(990, 280, 'els corrons l’estiren', { fons: '#b9722a', w: 210 })}${fletxa('M990 306V380', '#2a2420', 4)}${retol(990, 410, 'l’aleta el torça', { fons: '#b9722a', w: 170 })}${fletxa('M990 436V510', '#2a2420', 4)}${retol(990, 540, 'fil prim i resistent', { fons: '#f2c230', color: '#2a2420', vora: '#2a2420', w: 200 })}</g>`;
     return svg(s);
   }
   function animaWater({ t, el }) {
@@ -206,7 +207,7 @@
           roda: { nom: 'Roda', text: 'Es mou a mà. Un sol gir fa rodar tots els fusos.' },
           corda: { nom: 'Corda de transmissió', text: 'Porta el moviment de la roda fins als fusos.' }
         },
-        etiquetes: [['metxes', 910, 120, 910, 170, 'Metxa'], ['pinca', 0, 120, 0, 156, 'Pinça mòbil', 'pinca'], ['fusos', 60, 360, 162, 340, 'Fusos'], ['roda', 1150, 120, 1110, 190], ['corda', 760, 664, 760, 620, 'Corda']],
+        etiquetes: [['metxes', 910, 114, 910, 170, 'Metxa'], ['pinca', 0, 108, 0, 152, 'Pinça mòbil', 'pinca'], ['fusos', 60, 360, 162, 340, 'Fusos'], ['roda', 1150, 120, 1110, 190], ['corda', 760, 664, 760, 620, 'Corda']],
         clau: 'Una màquina petita, barata i manual: multiplica el fil sense sortir de casa.',
         batx: { titol: 'Una màquina domèstica', text: 'La Jenny no necessitava motor i cabia en una casa: va reforçar el treball a domicili abans que la fàbrica el substituís. El seu fil, poc resistent, servia per a la trama però no per a l’ordit.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
       },
@@ -228,7 +229,7 @@
           aleta: { nom: 'Aleta i bobina', text: 'L’aleta gira al voltant de la bobina: torça el fil i l’enrotlla en un moviment continu.' },
           aigua: { nom: 'Roda hidràulica', text: 'Dona la força a centenars de fusos alhora. Obliga a reunir màquines i treballadors en un edifici: la fàbrica.' }
         },
-        etiquetes: [['metxa', 500, 50, 580, 120, 'Bobina de metxa'], ['corrons', 440, 330, 556, 300, 'Corrons'], ['aleta', 480, 600, 560, 540, 'Aleta'], ['aigua', 200, 250, 180, 350, 'Roda hidràulica']],
+        etiquetes: [['metxa', 500, 50, 580, 120, 'Bobina de metxa'], ['corrons', 392, 330, 556, 300, 'Corrons'], ['aleta', 480, 600, 560, 540, 'Aleta'], ['aigua', 200, 250, 180, 350, 'Roda hidràulica']],
         clau: 'Fil fort, continu i sense força humana: la màquina que va crear la fàbrica.',
         batx: { titol: 'Arkwright, empresari', text: 'Més que inventor, Arkwright va ser organitzador: va reunir invents d’altres, capital i mà d’obra (sovint infantil) a Cromford (1771). Les seves patents van ser anul·lades el 1785 i la màquina es va estendre per tot Lancashire.', font: 'https://www.cromfordmills.org.uk/', fontNom: 'Cromford Mills' }
       },
@@ -249,7 +250,7 @@
           carro: { nom: 'Carro mòbil', text: 'Va i ve sobre rails portant tots els fusos. És la idea de la Jenny, però més gran.' },
           fus: { nom: 'Fus', text: 'Gira per tòrcer el fil i després per enrotllar-lo.' }
         },
-        etiquetes: [['fileta', 90, 110, 140, 160], ['corrons', 400, 240, 316, 290], ['carro', 15, 640, 15, 548, 'Carro mòbil', 'carro'], ['fus', 150, 400, 30, 420, 'Fus', 'carro']],
+        etiquetes: [['fileta', 90, 110, 140, 160], ['corrons', 400, 240, 316, 290], ['carro', 15, 646, 15, 540, 'Carro mòbil', 'carro'], ['fus', 112, 408, 22, 420, 'Fus', 'carro']],
         clau: 'Fil fi com el de l’Índia, fort com el de la Water Frame i en quantitats industrials.',
         batx: { titol: 'El cotó britànic contra les mussolines de l’Índia', text: 'Fins llavors els teixits fins de cotó venien de Bengala. Amb la mula, Lancashire els pot imitar més barats; el 1830 una mula «automàtica» (Roberts) ja no necessita un filador expert. Relaciona-ho amb la desindustrialització tèxtil de l’Índia sota domini britànic.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
       }

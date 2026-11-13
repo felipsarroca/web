@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /* Capítol 6 · La locomotora: la Rocket per dins i la cursa de Liverpool a Manchester. */
 (function () {
-  const { svg, foc, focs, roda, persona, nuvol, txt, retol, fletxa } = RI;
+  const { svg, foc, focs, roda, persona, nuvol, cavall, txt, retol, fletxa } = RI;
   const W = { x: 760, y: 480 }, RM = 42, LB = 230, UA = (-145 * Math.PI) / 180, U = { x: Math.cos(UA), y: Math.sin(UA) };
   const tub = (d, c, g) => `<path d="${d}" class="nf" stroke="#2a2420" stroke-width="${(g || 8) + 5}" stroke-linejoin="round"/><path d="${d}" class="nf" stroke="${c}" stroke-width="${g || 8}" stroke-linejoin="round"/>`;
-  const arbre = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-4" y="-30" width="8" height="30" fill="#7a5a3a"/><circle cx="0" cy="-48" r="26" fill="#6f9c43"/><circle cx="-14" cy="-36" r="16" fill="#7fae4d"/></g>`;
+  const arbre = (x, y, k) => RI.arbre(x, y, (k || 1) * 0.72);
 
   function rocket() {
     let s = `<rect class="cel" x="-60" width="1320" height="600"/>${nuvol(150, 110, 1.5)}${nuvol(980, 170, 1.2)}<path class="herba2" d="M-60 520c200-70 380-30 560-50s420-60 760 10v120H-60z" opacity=".5"/>`;
@@ -64,7 +64,6 @@
   }
 
   /* ---------- la cursa ---------- */
-  const cavall = (x, y, k, c) => `<g transform="translate(${x} ${y}) scale(${k})"><path d="M-22-20v20M-12-20v20M12-20v20M22-20v20" stroke="#2a2420" stroke-width="5" stroke-linecap="round"/><path class="t2" fill="${c || '#8a5c36'}" d="M-28-38q0-10 12-10h28l12-18 12 4-6 12-6 4v12q0 10-10 10h-32q-12 0-12-10z"/><path d="M-28-40q-10 4-8 18" class="t2 nf"/></g>`;
   function cursa() {
     let s = `<rect class="crema" x="-60" width="1320" height="720"/>`;
     s += `<text x="120" y="70" class="tx-g mig">Liverpool</text><text x="1080" y="70" class="tx-g mig">Manchester</text><path d="M200 62H1000" class="t nf" stroke-dasharray="2 10"/><text x="600" y="54" class="tx-p mig">uns 50 km</text>`;
@@ -72,10 +71,10 @@
     s += `<g><circle class="t blanc" cx="600" cy="120" r="44"/><path d="M600 84v8M600 148v8M564 120h8M628 120h8" class="t2"/><line id="agulla" x1="600" y1="120" x2="600" y2="88" class="t" stroke-width="5"/><circle cx="600" cy="120" r="5" class="negre"/></g><text id="hores" x="662" y="130" class="tx-gg">0 h</text>`;
     // canal
     s += `<rect x="-60" y="196" width="1320" height="100" fill="#cfe6ee"/><rect class="aigua" x="-60" y="246" width="1320" height="50" opacity=".85"/><rect class="herba" x="-60" y="232" width="1320" height="16"/><text x="-40" y="218" class="tx">Canal · barcassa estirada per un cavall</text>
-      <g id="v-canal"><path class="t fusta" d="M-150 250h130l-14 30h-104z"/><path class="t carbo" d="M-136 250q50-30 96 0z"/>${persona(-32, 250, 34, { color: '#7a4f9a' })}<path d="M-20 256L52 226" class="t1"/>${cavall(70, 240, 0.7)}</g>`;
+      <g id="v-canal"><path class="t fusta" d="M-150 250h130l-14 30h-104z"/><path class="t carbo" d="M-136 250q50-30 96 0z"/>${persona(-32, 250, 34, { color: '#7a4f9a' })}<path d="M-20 256L48 228" class="t1"/>${cavall(68, 240, 0.72, { arnes: true })}</g>`;
     // camí
     s += `<rect x="-60" y="352" width="1320" height="100" fill="#efe0bd"/><rect x="-60" y="430" width="1320" height="22" fill="#c9a877"/><text x="-40" y="374" class="tx">Camí · diligència amb quatre cavalls</text>
-      <g id="v-cami"><rect class="t vermell" x="-150" y="384" width="80" height="36" rx="8"/><rect class="t vidre" x="-140" y="390" width="22" height="14"/><rect class="t vidre" x="-108" y="390" width="22" height="14"/><path class="t fosc" d="M-156 384h92l-6-10h-80z"/>${roda(-132, 426, 14, { raigs: 6 })}${roda(-88, 426, 14, { raigs: 6 })}<path d="M-70 410h30" class="t"/>${cavall(-18, 434, 0.62, '#5a4636')}${cavall(34, 434, 0.62)}</g>`;
+      <g id="v-cami"><rect class="t vermell" x="-150" y="384" width="80" height="36" rx="8"/><rect class="t vidre" x="-140" y="390" width="22" height="14"/><rect class="t vidre" x="-108" y="390" width="22" height="14"/><path class="t fosc" d="M-156 384h92l-6-10h-80z"/>${roda(-132, 426, 14, { raigs: 6 })}${roda(-88, 426, 14, { raigs: 6 })}<path d="M-70 410h34" class="t"/>${cavall(-16, 434, 0.64, { color: '#5a4636', arnes: true })}${cavall(34, 434, 0.64, { arnes: true })}</g>`;
     // via
     s += `<rect x="-60" y="508" width="1320" height="110" fill="#e3ead5"/><rect class="pedra" x="-60" y="596" width="1320" height="22"/><rect class="t ferro" x="-60" y="590" width="1320" height="7"/><text x="-40" y="530" class="tx">Ferrocarril · locomotora de vapor amb vagons</text>
       <g id="v-tren">${[-330, -250, -170].map((x) => `<rect class="t blau" x="${x}" y="548" width="70" height="30" rx="4"/><rect class="t vidre" x="${x + 8}" y="554" width="14" height="12"/><rect class="t vidre" x="${x + 28}" y="554" width="14" height="12"/><rect class="t vidre" x="${x + 48}" y="554" width="14" height="12"/>${roda(x + 16, 582, 9, { raigs: 4 })}${roda(x + 54, 582, 9, { raigs: 4 })}`).join('')}

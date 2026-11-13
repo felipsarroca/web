@@ -30,21 +30,25 @@
 
   /* ---------- definicions SVG compartides ---------- */
   RI.DEFS = `<defs>
-  <linearGradient id="g-ferro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9b4bb"/><stop offset="1" stop-color="#5d6a73"/></linearGradient>
-  <linearGradient id="g-ferroh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5d6a73"/><stop offset=".35" stop-color="#b4bec4"/><stop offset="1" stop-color="#56636c"/></linearGradient>
-  <linearGradient id="g-coure" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0ab68"/><stop offset="1" stop-color="#b3622c"/></linearGradient>
-  <linearGradient id="g-llauto" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6da7c"/><stop offset="1" stop-color="#c2952a"/></linearGradient>
-  <linearGradient id="g-fusta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7935c"/><stop offset="1" stop-color="#8f6038"/></linearGradient>
-  <linearGradient id="g-cel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3f0"/><stop offset="1" stop-color="#f3ecd9"/></linearGradient>
-  <linearGradient id="g-aigua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb9e0"/><stop offset="1" stop-color="#2f7fb5"/></linearGradient>
-  <radialGradient id="g-foc" cx=".5" cy=".9" r=".9"><stop offset="0" stop-color="#fff6b0"/><stop offset=".45" stop-color="#ffb02e"/><stop offset="1" stop-color="#e2501f"/></radialGradient>
-  <radialGradient id="g-roent" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fff3a0"/><stop offset=".6" stop-color="#ff9a2e"/><stop offset="1" stop-color="#d9482b"/></radialGradient>
+  <linearGradient id="g-ferro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4bfc6"/><stop offset=".5" stop-color="#87949d"/><stop offset="1" stop-color="#536069"/></linearGradient>
+  <linearGradient id="g-ferroh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#525e67"/><stop offset=".35" stop-color="#c3cdd3"/><stop offset=".65" stop-color="#909ca4"/><stop offset="1" stop-color="#4e5a63"/></linearGradient>
+  <linearGradient id="g-acer" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dde5ea"/><stop offset=".45" stop-color="#97a4ad"/><stop offset="1" stop-color="#596670"/></linearGradient>
+  <linearGradient id="g-coure" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5b87b"/><stop offset=".55" stop-color="#d8823f"/><stop offset="1" stop-color="#9e5020"/></linearGradient>
+  <linearGradient id="g-llauto" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe391"/><stop offset=".6" stop-color="#ddb344"/><stop offset="1" stop-color="#a87d1c"/></linearGradient>
+  <linearGradient id="g-fusta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d29f68"/><stop offset="1" stop-color="#895932"/></linearGradient>
+  <linearGradient id="g-fustaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a693f"/><stop offset="1" stop-color="#654022"/></linearGradient>
+  <linearGradient id="g-cel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b5ddf0"/><stop offset=".65" stop-color="#dfeef2"/><stop offset="1" stop-color="#f5eedb"/></linearGradient>
+  <linearGradient id="g-aigua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#76bfe4"/><stop offset="1" stop-color="#2976aa"/></linearGradient>
+  <linearGradient id="g-mar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5da9d4"/><stop offset=".45" stop-color="#2c75a8"/><stop offset="1" stop-color="#194d75"/></linearGradient>
+  <radialGradient id="g-foc" cx=".5" cy=".9" r=".9"><stop offset="0" stop-color="#fff9c4"/><stop offset=".45" stop-color="#ffb02e"/><stop offset="1" stop-color="#e2501f"/></radialGradient>
+  <radialGradient id="g-roent" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fff6b3"/><stop offset=".55" stop-color="#ff9a2e"/><stop offset="1" stop-color="#d9482b"/></radialGradient>
+  <linearGradient id="g-bany" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3a8"/><stop offset=".4" stop-color="#ff9f33"/><stop offset="1" stop-color="#d9482b"/></linearGradient>
   <pattern id="p-tall" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#c5ccd0"/><line x1="0" y1="0" x2="0" y2="9" stroke="${TINTA}" stroke-width="1.6"/></pattern>
-  <pattern id="p-mao" width="34" height="20" patternUnits="userSpaceOnUse"><rect width="34" height="20" fill="#c9694a"/><path d="M0 0h34M0 10h34M0 0v10M17 10v10" stroke="#f1d9c0" stroke-width="1.6"/></pattern>
+  <pattern id="p-mao" width="34" height="20" patternUnits="userSpaceOnUse"><rect width="34" height="20" fill="#c66547"/><path d="M0 0h34M0 10h34M0 0v10M17 10v10" stroke="#f1d9c0" stroke-width="1.6"/><rect x="1" y="1" width="15" height="8" fill="#b7583b" opacity=".35"/><rect x="18" y="11" width="15" height="8" fill="#d87858" opacity=".3"/></pattern>
   <pattern id="p-maof" width="34" height="20" patternUnits="userSpaceOnUse"><rect width="34" height="20" fill="#e4c9a0"/><path d="M0 0h34M0 10h34M0 0v10M17 10v10" stroke="#b99468" stroke-width="1.6"/></pattern>
-  <pattern id="p-terra" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#8a6a4a"/><circle cx="8" cy="9" r="2.4" fill="#6f5338"/><circle cx="27" cy="22" r="3" fill="#a17f5c"/><circle cx="14" cy="31" r="1.8" fill="#6f5338"/><circle cx="34" cy="6" r="1.6" fill="#a17f5c"/></pattern>
-  <pattern id="p-pedra" width="44" height="30" patternUnits="userSpaceOnUse"><rect width="44" height="30" fill="#a9a59a"/><path d="M0 0h44M0 15h44M0 0v15M22 15v15" stroke="#7f7b70" stroke-width="1.6"/></pattern>
-  <pattern id="p-carbo" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#2b2826"/><path d="M3 5l5-2 4 4-3 4-5-1zM13 14l6-1 1 5-5 2z" fill="#4a4541"/></pattern>
+  <pattern id="p-terra" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#826242"/><circle cx="8" cy="9" r="2.4" fill="#684d33"/><circle cx="27" cy="22" r="3" fill="#9c7a57"/><circle cx="14" cy="31" r="1.8" fill="#684d33"/><circle cx="34" cy="6" r="1.6" fill="#9c7a57"/></pattern>
+  <pattern id="p-pedra" width="44" height="30" patternUnits="userSpaceOnUse"><rect width="44" height="30" fill="#a9a59a"/><path d="M0 0h44M0 15h44M0 0v15M22 15v15" stroke="#787469" stroke-width="1.6"/><rect x="1" y="1" width="20" height="13" fill="#b6b2a7" opacity=".4"/></pattern>
+  <pattern id="p-carbo" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#2b2826"/><path d="M3 5l5-2 4 4-3 4-5-1zM13 14l6-1 1 5-5 2z" fill="#4f4944"/></pattern>
   <pattern id="p-mineral" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#9a4f32"/><path d="M3 5l5-2 4 4-3 4-5-1zM13 14l6-1 1 5-5 2z" fill="#c0704a"/></pattern>
   <pattern id="p-calc" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#d9d4c5"/><path d="M3 5l5-2 4 4-3 4-5-1zM13 14l6-1 1 5-5 2z" fill="#f4f0e4"/></pattern>
   <marker id="m-fl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="context-stroke"/></marker>
@@ -83,6 +87,20 @@
     return `<g transform="translate(${x} ${y}) scale(${f1(k * (o.gir ? -1 : 1) * 100) / 100} ${f1(k * 100) / 100})" ${o.attr || ''}><path d="M-7 0v-36M7 0v-36" stroke="${TINTA}" stroke-width="7" stroke-linecap="round"/><path d="M-11-34h22l-3-38h-16z" fill="${c}" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/><path d="${o.brac || 'M-8-68l-8 26M8-68l8 26'}" stroke="${TINTA}" stroke-width="5.5" stroke-linecap="round" fill="none"/><circle cx="0" cy="-84" r="10" fill="#e9b98f" stroke="${TINTA}" stroke-width="3"/>${o.barret ? `<path d="M-13-90h26M-8-90v-8h16v8" fill="${TINTA}" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>` : ''}</g>`;
   };
   RI.nuvol = (x, y, k, o) => `<path transform="translate(${x} ${y}) scale(${k})" d="M0 0c-14 0-16-18-2-20 2-16 26-18 32-4 10-8 26 0 22 12 12 2 10 14-2 12z" fill="#fff" opacity="${o || 0.85}"/>`;
+  RI.arbre = (x, y, k, o = {}) => `<g ${o.id ? `id="${o.id}"` : ''} transform="translate(${x} ${y}) scale(${k || 1})"><path class="t2" fill="#7a5333" d="M-6 0l2-42h8l2 42zM0-32l-16-16M0-28l14-14"/><ellipse class="t2" cx="-16" cy="-54" rx="22" ry="18" fill="#5b8c35"/><ellipse class="t2" cx="18" cy="-52" rx="20" ry="16" fill="#6f9c43"/><ellipse class="t2" cx="0" cy="-70" rx="28" ry="24" fill="#7fae4d"/><path d="M-12-78q12-10 24 0" fill="none" stroke="#9ac965" stroke-width="3" stroke-linecap="round"/></g>`;
+  RI.cavall = (x, y, k, o = {}) => {
+    const c = o.color || '#8d5b34', cr = o.crin || '#3d2817', sx = (o.gir ? -1 : 1) * (k || 1);
+    return `<g transform="translate(${x} ${y}) scale(${sx} ${k || 1})">
+      <path d="M-24-22l-5 12 3 10M-15-20l3 10-2 10M11-20l-2 11 4 9M20-21l5 11-2 10" stroke="${TINTA}" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M-26-38q-10 3-10 21l4 4q2-12 8-19" fill="${cr}" stroke="${TINTA}" stroke-width="2" stroke-linejoin="round"/>
+      <path class="t2" fill="${c}" d="M-26-36q0-10 13-10h24q8 0 13-14l9-9 4 5 7 9-4 5-10 2q-4 7-4 14v8q0 10-11 10h-29q-12 0-12-10z"/>
+      <path d="M12-46q8-9 13-22" stroke="${cr}" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <circle cx="32" cy="-59" r="1.6" fill="${TINTA}"/>
+      ${o.arnes ? `<path d="M15-46l7 15-8 3M-12-35h28" stroke="#2a2420" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="19" cy="-37" r="2.6" fill="#ddb344" stroke="${TINTA}" stroke-width="1"/>` : ''}
+    </g>`;
+  };
+  RI.ovella = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k || 1})"><path d="M-11 0v9M-5 0v9M6 0v9M12 0v9" stroke="${TINTA}" stroke-width="2.6" stroke-linecap="round"/><path class="t2" fill="#fbf7ec" d="M-15-8q-4-8 4-11 4-6 12-4 8-3 13 3 6 4 2 11 2 6-5 7h-21q-7-1-5-6z"/><ellipse class="t2" fill="#3a322c" cx="17" cy="-12" rx="6.5" ry="5"/><path d="M14-16l-4-3" stroke="${TINTA}" stroke-width="2.2" stroke-linecap="round"/><circle cx="19" cy="-13" r="1.2" fill="#fff"/></g>`;
+  RI.vaca = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k || 1})"><path d="M-19 0v13M-11 0v13M11 0v13M19 0v13" stroke="${TINTA}" stroke-width="3.2" stroke-linecap="round"/><path d="M-25-19q-7 4-6 15" stroke="${TINTA}" stroke-width="2.2" fill="none" stroke-linecap="round"/><path class="t2" fill="#fffdf7" d="M-25-18q0-9 11-9h28q8 0 11-6l11-1 3 10-6 7-5 1v10q0 8-9 8h-33q-11 0-11-8z"/><path d="M-14-27q7 11 16 0zM4-5q7-10 14 0z" fill="#3a322c"/><path d="M27-33q-3-6-6-5M31-33q3-6 6-5" stroke="#d9c7a3" stroke-width="2.6" stroke-linecap="round" fill="none"/><ellipse cx="36" cy="-23" rx="4.5" ry="3.5" fill="#eab7b0" stroke="${TINTA}" stroke-width="1.4"/><circle cx="32" cy="-29" r="1.5" fill="${TINTA}"/></g>`;
   RI.txt = (x, y, s, cls, extra) => `<text x="${x}" y="${y}" class="${cls || 'tx'}" ${extra || ''}>${s}</text>`;
   RI.fletxa = (d, color, gruix, extra) => `<path d="${d}" fill="none" stroke="${color || TINTA}" stroke-width="${gruix || 4}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-fl)" ${extra || ''}/>`;
   /* nota amb fons (rètol dins del dibuix) */
@@ -228,7 +246,7 @@
     g.setAttribute('class', 'etqs');
     g.innerHTML = e.etiquetes.map(([part, x, y, ax, ay, text, segueix]) => {
       const nom = text || (e.parts[part] ? e.parts[part].nom : part);
-      return `<g class="etq" data-etq="${part}"${segueix ? ` data-seg="${segueix}"` : ''} tabindex="0" role="button" aria-label="${esc(nom)}"><line x1="${x}" y1="${y}" x2="${ax}" y2="${ay}"/><circle cx="${ax}" cy="${ay}" r="5"/><rect x="${x}" y="${y - 15}" width="10" height="30" rx="15"/><text x="${x}" y="${y + 5.5}" text-anchor="middle">${esc(nom)}</text></g>`;
+      return `<g class="etq" data-etq="${part}"${segueix ? ` data-seg="${segueix}"` : ''} data-ax="${ax}" data-ay="${ay}" tabindex="0" role="button" aria-label="${esc(nom)}"><line x1="${x}" y1="${y}" x2="${ax}" y2="${ay}"/><circle cx="${ax}" cy="${ay}" r="5"/><rect x="${x}" y="${y - 15}" width="10" height="30" rx="15"/><text x="${x}" y="${y + 5.5}" text-anchor="middle">${esc(nom)}</text></g>`;
     }).join('');
     svgEl.appendChild(g);
     $$('.etq', g).forEach((n) => {
@@ -340,9 +358,30 @@
       }
     });
     if (e.anima) e.anima({ p, t, k, el, capes: st.capes, svg: svgEl, sel: st.sel });
-    /* etiquetes que acompanyen una peça mòbil */
+    /* etiquetes que acompanyen una peça mòbil (translació o punt local amb id@lx,ly) */
     if (!svgEl._seg) svgEl._seg = $$('.etq[data-seg]', svgEl);
-    svgEl._seg.forEach((n) => n.setAttribute('transform', el(n.dataset.seg).getAttribute('transform') || ''));
+    svgEl._seg.forEach((n) => {
+      const s = n.dataset.seg;
+      if (s.indexOf('@') < 0) {
+        n.setAttribute('transform', el(s).getAttribute('transform') || '');
+      } else {
+        const [id, pt] = s.split('@'), [lx0, ly0] = pt.split(',').map(Number);
+        const tr = (el(id).getAttribute('transform') || '');
+        let x = lx0, y = ly0;
+        const ops = tr.match(/(translate|rotate)\([^)]+\)/g) || [];
+        for (let i = ops.length - 1; i >= 0; i--) {
+          const op = ops[i], nums = op.slice(op.indexOf('(') + 1, -1).trim().split(/[\s,]+/).map(Number);
+          if (op.startsWith('translate')) { x += nums[0] || 0; y += nums[1] || 0; }
+          else if (op.startsWith('rotate')) {
+            const rad = (nums[0] * Math.PI) / 180, cx = nums[1] || 0, cy = nums[2] || 0;
+            const dx = x - cx, dy = y - cy;
+            x = cx + dx * Math.cos(rad) - dy * Math.sin(rad);
+            y = cy + dx * Math.sin(rad) + dy * Math.cos(rad);
+          }
+        }
+        n.setAttribute('transform', `translate(${(x - +n.dataset.ax).toFixed(1)} ${(y - +n.dataset.ay).toFixed(1)})`);
+      }
+    });
   }
 
   /* ---------- repte final ---------- */

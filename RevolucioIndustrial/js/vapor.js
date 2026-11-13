@@ -123,7 +123,7 @@
     s += `<rect x="-60" y="0" width="1320" height="40" class="mao t"/>`;
     // eix de transmissió i corretja
     s += `<g data-part="corretja"><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#2a2420" stroke-width="9"/><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#8f6038" stroke-width="5"/><path d="M790 430L1058 96" class="flux2 s-groc" data-flux="3" stroke-width="3"/>
-      <rect class="t ferro" x="1040" y="110" width="160" height="14"/><g data-girat="1070 117 300">${roda(1070, 117, 34, { raigs: 4, color: '#a67547' })}</g>${fletxa('M1100 178H1190', '#d9482b', 5)}<text x="1145" y="160" class="tx mig">cap a les màquines</text></g>`;
+      <rect class="t ferro" x="1040" y="110" width="160" height="14"/><g data-girat="1070 117 300">${roda(1070, 117, 34, { raigs: 4, color: '#a67547' })}</g>${fletxa('M1108 184H1198', '#d9482b', 5)}<text x="1152" y="166" class="tx mig">cap a les màquines</text></g>`;
     // volant
     s += `<g data-part="volant"><g id="volant">${roda(S.x, S.y, 168, { raigs: 6, color: '#56636c', gruix: 22, raig: 9 })}</g></g>`;
     // columna
@@ -218,7 +218,7 @@
           balanci: { nom: 'Balancí', text: 'Transmet el moviment del pistó a la bomba de la mina.' },
           bombamina: { nom: 'Bomba de la mina', text: 'Fa la mateixa feina que amb Newcomen, però gastant molt menys carbó.' }
         },
-        etiquetes: [['caldera', 170, 600, 180, 520], ['tub', 130, 230, 180, 300], ['camisa', 200, 330, 260, 330], ['cilindre', 330, 180, 330, 214, 'Cilindre tancat'], ['equilibri', 500, 320, 424, 340], ['condensador', 400, 600, 458, 520], ['bomba', 600, 600, 512, 530], ['balanci', 470, 60, 500, 100], ['bombamina', 950, 500, 868, 560]],
+        etiquetes: [['caldera', 170, 622, 180, 520], ['tub', 130, 230, 180, 300], ['camisa', 200, 330, 260, 330], ['cilindre', 330, 180, 330, 214, 'Cilindre tancat'], ['equilibri', 500, 320, 424, 340], ['condensador', 392, 622, 458, 520], ['bomba', 576, 622, 512, 530], ['balanci', 470, 60, 500, 100], ['bombamina', 950, 500, 868, 560]],
         clau: 'La mateixa feina amb fins a un 75 % menys de carbó: el fred i la calor ja no es barallen dins del mateix cilindre.',
         batx: { titol: 'De la idea (1765) a la fàbrica (1776)', text: 'Watt té la idea el 1765, la patenta el 1769 i no ven màquines fins al 1776, associat amb l’empresari Matthew Boulton. Calien capital, obrers hàbils i cilindres ben foradats (Wilkinson). Invent i innovació no són el mateix moment.', font: 'https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/', fontNom: 'Science Museum · Watt i el condensador separat' }
       },
@@ -244,7 +244,7 @@
           regulador: { nom: 'Regulador de boles', text: 'Si la màquina s’accelera, les boles s’obren i tanquen el pas de vapor; si s’alenteix, es tanquen i l’obren. Controla la velocitat tot sol.' },
           corretja: { nom: 'Corretja i eix', text: 'Porten el gir fins a les màquines de la fàbrica.' }
         },
-        etiquetes: [['cilindre', 330, 250, 300, 318, 'Cilindre de doble efecte'], ['distribucio', 80, 440, 142, 430], ['balanci', 420, 110, 440, 152], ['biela', 880, 250, 796, 280], ['planeta', 640, 330, 760, 400, 'Planeta'], ['sol', 650, 520, 770, 480, 'Sol'], ['volant', 690, 680, 720, 620, 'Volant d’inèrcia'], ['regulador', 1080, 460, 1046, 420], ['corretja', 1000, 220, 990, 190]],
+        etiquetes: [['cilindre', 330, 250, 300, 318, 'Cilindre de doble efecte'], ['distribucio', 80, 440, 142, 430], ['balanci', 420, 110, 440, 152], ['biela', 880, 250, 796, 280], ['planeta', 886, 354, 790, 380, 'Planeta', 'planeta@0,0'], ['sol', 650, 520, 770, 480, 'Sol'], ['volant', 690, 680, 720, 620, 'Volant d’inèrcia'], ['regulador', 1080, 460, 1046, 420], ['corretja', 1000, 220, 990, 190]],
         clau: 'Quan el vapor fa girar un eix, la fàbrica ja no ha d’estar al costat d’un riu.',
         batx: { titol: 'Per què «sol i planeta» i no una simple manovella?', text: 'La manovella estava protegida per una patent d’un competidor (James Pickard, 1780). Boulton & Watt la van esquivar amb aquest engranatge fins que la patent va caducar. Les patents condicionen el camí de la tècnica.', font: 'https://collection.sciencemuseumgroup.org.uk/objects/co50948/rotative-steam-engine-by-boulton-and-watt-1788', fontNom: 'Science Museum Group · Màquina rotativa de 1788' }
       }

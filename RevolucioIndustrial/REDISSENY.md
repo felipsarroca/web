@@ -52,19 +52,19 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 
 | Peça | Estat | Notes |
 |---|---|---|
-| `css/estil.css`, `js/nucli.js` | Primera implementació feta | Pendent de revisió visual global. |
+| `css/estil.css`, `js/nucli.js` | Fet i revisat visualment | Gradients metàl·lics/fusta/mar, ajudes realistes (`arbre`, `cavall`, `ovella`, `vaca`), focus legible i etiquetes que segueixen punts rotats (`id@lx,ly`). |
 | Carcasses HTML (9) | Fet | |
-| `js/vapor.js` | Fet i revisat visualment | Newcomen, condensador de Watt, màquina rotativa (sol i planeta) + repte. |
-| `js/tren.js` | Fet i revisat visualment | Rocket en tall + cursa Liverpool–Manchester + repte. |
-| `js/fabrica.js` | Fet i revisat visualment | Filatura hidràulica i de vapor, capes «força» i «cotó» + repte. |
-| `js/textil.js` | Fet i revisat visualment | Balança, llançadora volant, Jenny, Water Frame, mula + repte. |
-| `js/metalls.js` | Primera implementació feta | Pendent de revisió visual i de contingut. |
-| `js/vaixell.js` | Primera implementació feta | Pendent de revisió visual i de contingut. |
-| `js/camp.js` | Primera implementació feta | Pendent de revisió visual i de contingut. |
-| `js/capital.js` | Primera implementació feta | Pendent de revisió visual i de contingut. |
-| `js/portada.js` + estil | Primera implementació feta | Pendent de revisió visual. |
+| `js/vapor.js` | Fet i revisat visualment | Newcomen, condensador de Watt, màquina rotativa (sol i planeta amb etiqueta dinàmica) + repte. |
+| `js/tren.js` | Fet i revisat visualment | Rocket en tall + cursa Liverpool–Manchester (cavalls amb arnés) + repte. |
+| `js/fabrica.js` | Fet i revisat visualment | Filatura hidràulica i de vapor, capes «força» i «cotó», etiquetes ajustades + repte. |
+| `js/textil.js` | Fet i revisat visualment | Balança, llançadora volant, Jenny, Water Frame (bastidor eixamplat i canal continu), mula + repte. |
+| `js/metalls.js` | Fet i revisat visualment | Carbonera/forn de coc, alt forn amb bufadora i escòria, pudelador i convertidor Bessemer basculant + repte. |
+| `js/vaixell.js` | Fet i revisat visualment | Tall net del *Great Western* amb eixàrcia i folre de coure, *Rattler*–*Alecto*, mapa Atlàntic real + repte. |
+| `js/camp.js` | Fet i revisat visualment | Rotació Norfolk detallada, sembradora de Tull amb transmissió i ocells, arada de Rotherham amb gleves i tàndem + repte. |
+| `js/capital.js` | Fet i revisat visualment | Societat anònima amb viaducte i estació, banc/borsa i cotització annotada, càrtel/trust/holding + repte. |
+| `js/portada.js` + estil | Fet i revisat visualment | Paisatge complet amb 8 fites històriques detallades i tots els pins visibles a escriptori i mòbil. |
 | Esborrar `app.js` i `styles.css` | Pendent | |
-| Verificació a 3 mides | Pendent | |
+| Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844. |
 | `README.md`, captures noves, `VISIO-I-GUIO.md` | Pendent | |
 | Commit, push i comprovació del web publicat | En curs | Felip ha demanat publicar les novetats per veure el progrés. |
 
