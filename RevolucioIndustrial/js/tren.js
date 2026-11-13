@@ -24,25 +24,25 @@
     s += `<rect class="t fosc" x="336" y="440" width="528" height="13"/><rect class="t fusta" x="852" y="424" width="16" height="44"/><rect class="t fusta2" x="296" y="440" width="52" height="11"/>`;
     s += persona(320, 440, 118, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     // fogar
-    s += `<g data-part="fogar" data-exp="-42 -36"><rect class="t coure" x="350" y="235" width="92" height="215" rx="8"/><rect x="358" y="243" width="76" height="180" rx="4" fill="#8fc3e0"/><rect class="t" x="368" y="255" width="64" height="188" rx="4" fill="#4a2a1c"/><rect x="368" y="255" width="64" height="150" fill="#f08a4b" opacity=".45"/>
+    s += `<g data-part="fogar" data-exp="-42 -36"><rect class="t" fill="url(#g-coure)" x="350" y="235" width="92" height="215" rx="8"/><path d="M354 252v182M438 252v182" stroke="#7c3e16" stroke-width="2" stroke-dasharray="2 12" opacity=".6"/><rect x="358" y="243" width="76" height="180" rx="4" fill="#8fc3e0"/><rect class="t" x="368" y="255" width="64" height="188" rx="4" fill="#4a2a1c"/><rect x="368" y="255" width="64" height="150" fill="#f08a4b" opacity=".45"/>
       ${focs(384, 434, 2, 32, 30, 60)}<path d="M366 436h68" class="t4"/><path class="t carbo" d="M370 434q30-16 60 0z"/><rect class="t ferro" x="342" y="330" width="10" height="46" rx="3"/></g>`;
     // caldera en tall
-    s += `<g data-part="caldera" data-exp="0 -34"><rect class="t" x="440" y="250" width="362" height="130" rx="10" fill="#f2c230"/><rect x="448" y="258" width="346" height="114" rx="5" fill="#fbe9c4"/><rect x="448" y="278" width="346" height="94" fill="#7fbde0"/>
+    s += `<g data-part="caldera" data-exp="0 -34"><rect class="t" x="440" y="250" width="362" height="130" rx="10" fill="url(#g-llautoc)"/><path d="M530 250v130M620 250v130M710 250v130" stroke="#7c5412" stroke-width="2.5" opacity=".5"/><rect x="448" y="258" width="346" height="114" rx="5" fill="#fbe9c4"/><rect x="448" y="278" width="346" height="94" fill="#7fbde0"/>
       <path d="M448 278q14-7 28 0t28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 28 0 10 0" class="nf s-blanc" stroke-width="2.5"/>
       <g data-puf="560 276 0 -16 3 5 1.3" class="vap"></g><g data-puf="700 276 0 -16 3 5 1.7" class="vap"></g></g>`;
     let tubs = ''; [298, 317, 336, 355].forEach((y, i) => { tubs += `<path d="M432 ${y}H802" stroke="#2a2420" stroke-width="13"/><path d="M432 ${y}H802" stroke="#e08a45" stroke-width="8"/><path d="M436 ${y}H800" class="flux s-groc" stroke-width="4" data-flux="${2.2 + i * 0.2}"/>`; });
     s += `<g data-part="tubs" data-exp="-12 -64">${tubs}</g>`;
     // caixa de fums i xemeneia
-    s += `<g data-part="xemeneia" data-exp="42 -54"><rect class="t fosc" x="800" y="246" width="48" height="138" rx="6"/><path class="t blanc" d="M806 250V96l-8-26h52l-8 26v154z"/><path d="M824 262V120" class="flux s-gris" data-flux="3"/></g><g data-puf="824 66 -170 -70 7 15 1.5" class="vap"></g><g data-puf="824 66 -150 -50 4 12 2.1" class="fum" opacity=".5"></g>`;
+    s += `<g data-part="xemeneia" data-exp="42 -54"><rect class="t" fill="url(#g-ferroc)" x="800" y="246" width="48" height="138" rx="6"/><path class="t blanc" d="M806 250V96l-8-26h52l-8 26v154z"/><path d="M806 234h36" stroke="#c79a2c" stroke-width="4"/><path d="M824 262V120" class="flux s-gris" data-flux="3"/></g><g data-puf="824 66 -170 -70 7 15 1.5" class="vap"></g><g data-puf="824 66 -150 -50 4 12 2.1" class="fum" opacity=".5"></g>`;
     // tubs de vapor i d'escapament
-    s += `<g data-part="vapor" data-exp="0 -66"><path class="t llauto" d="M598 252q0-26 22-26t22 26z"/>${tub('M620 232V222H506V246', '#f08a4b', 7)}<path d="M620 232V222H506V244" class="flux s-blanc" stroke-width="4" data-flux="2.5"/></g>`;
+    s += `<g data-part="vapor" data-exp="0 -66"><path class="t" fill="url(#g-llautoc)" d="M598 252q0-26 22-26t22 26z"/>${tub('M620 232V222H506V246', '#f08a4b', 7)}<path d="M620 232V222H506V244" class="flux s-blanc" stroke-width="4" data-flux="2.5"/></g>`;
     s += `<g data-part="escapament" data-exp="14 -68">${tub('M474 236V204H824V268', '#c9d6dc', 7)}<path d="M474 232V204H824V262" class="flux s-blanc" stroke-width="4" data-flux="3"/></g>`;
     // roda motriu
     s += `<g data-part="roda" data-exp="40 42"><g id="rmot">${roda(W.x, W.y, 120, { raigs: 12, color: '#f2c230', gruix: 13, extra: `<path d="M${W.x} ${W.y}h${RM}" stroke="#2a2420" stroke-width="16" stroke-linecap="round"/><path d="M${W.x} ${W.y}h${RM}" stroke="#8d9aa3" stroke-width="9" stroke-linecap="round"/>` })}</g></g>`;
     // cilindre inclinat (coordenades locals: x al llarg de l'eix, des del centre de la roda)
     s += `<g transform="translate(${W.x} ${W.y}) rotate(-145)"><g data-part="cilindre" data-exp="0 -34"><path d="M176 -15H300M176 15H300" class="t"/><rect x="310" y="-22" width="100" height="44" fill="#eef4f6"/><rect id="cam-a" x="310" y="-22" width="40" height="44" fill="#f9a35e"/><rect id="cam-b" x="360" y="-22" width="50" height="44" fill="#eef4f6"/>
-      <path d="M302 -30H418V30H302ZM310 -22V22H410V-22Z" class="t" fill="#f2c230" fill-rule="evenodd"/><rect class="t llauto" x="330" y="-52" width="60" height="22" rx="4"/></g>
-      <g data-part="piston" id="creu"><rect class="t ferro" x="0" y="-4" width="130" height="8"/><rect class="t ferro" x="125" y="-22" width="10" height="44"/><rect class="t ferro" x="-12" y="-17" width="24" height="34" rx="4"/></g></g>`;
+      <path d="M302 -30H418V30H302ZM310 -22V22H410V-22Z" class="t" fill="url(#g-llautoc)" fill-rule="evenodd"/><rect class="t" fill="url(#g-llautoc)" x="330" y="-52" width="60" height="22" rx="4"/></g>
+      <g data-part="piston" id="creu"><rect class="t" fill="url(#g-ferroh)" x="0" y="-4" width="130" height="8"/><rect class="t" fill="url(#g-ferroc)" x="125" y="-22" width="10" height="44"/><rect class="t" fill="url(#g-ferroc)" x="-12" y="-17" width="24" height="34" rx="4"/></g></g>`;
     s += `<g data-part="biela"><line id="biela" x1="600" y1="370" x2="760" y2="480" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><line id="biela2" x1="600" y1="370" x2="760" y2="480" stroke="#b4bec4" stroke-width="8" stroke-linecap="round"/><circle id="bulo" class="t llauto" cx="760" cy="480" r="9"/></g>`;
     s += `<g data-en="3">${retol(980, 420, 'vaivé → gir', { fons: '#d9482b' })}</g><g data-en="4">${retol(1000, 150, 'el raig de vapor estira l’aire', { fons: '#2a2420', w: 250 })}${retol(1000, 186, 'i aviva el foc', { fons: '#2a2420' })}</g>`;
     return svg(s);
@@ -124,6 +124,18 @@
           tender: { nom: 'Tènder', text: 'Vagó amb la reserva d’aigua (la bota) i de combustible.' }
         },
         etiquetes: [['fogar', 300, 180, 372, 250], ['tubs', 620, 660, 620, 356, 'Tubs de fum'], ['caldera', 500, 660, 500, 370], ['vapor', 700, 160, 628, 226, 'Presa de vapor'], ['cilindre', 420, 120, 462, 240], ['biela', 960, 480, 700, 440], ['roda', 940, 560, 850, 540, 'Roda motriu'], ['escapament', 590, 110, 600, 204, 'Tub d’escapament'], ['xemeneia', 940, 110, 840, 130], ['tender', 150, 320, 150, 372]],
+        explotada: {
+          img: 'img/exp-rocket.webp',
+          model: 'Làmina tècnica en vista explotada · Locomotora Rocket (Stephenson, 1829)',
+          zones: [['fogar', 265, 225, 135, 135], ['xemeneia', 435, 235, 55, 155], ['vapor', 615, 175, 65, 75], ['caldera', 615, 365, 145, 115], ['tubs', 685, 425, 145, 85], ['cilindre', 625, 610, 125, 85], ['cilindre', 840, 505, 115, 85], ['roda', 340, 615, 145, 135], ['tender', 950, 265, 145, 145]],
+          etiquetes: [['fogar', 135, 115, 255, 205], ['xemeneia', 340, 78, 435, 185], ['vapor', 625, 82, 615, 165, 'Presa de vapor'], ['tender', 1035, 120, 975, 195], ['tubs', 845, 345, 705, 415, 'Tubs de fum'], ['caldera', 345, 445, 520, 325], ['roda', 155, 665, 300, 605, 'Roda motriu'], ['cilindre', 745, 705, 655, 625]]
+        },
+        real: {
+          img: 'img/real-rocket.webp',
+          titol: 'Locomotora Rocket original de George i Robert Stephenson (1829)',
+          museu: 'National Railway Museum · York (Regne Unit)',
+          lic: 'Foto: domini públic (CC0) · Wikimedia Commons'
+        },
         clau: 'Calor → vapor a pressió → vaivé del pistó → gir de les rodes.',
         batx: { titol: 'Tres idees que fan guanyar la Rocket', text: 'Caldera multitubular, tiratge forçat amb el vapor d’escapament i cilindres units directament a les rodes. Cap era del tot nova (Trevithick ja havia fet córrer una locomotora el 1804), però combinades donen una màquina lleugera i ràpida. La innovació sovint és combinació.', font: 'https://www.railwaymuseum.org.uk/objects-and-stories/stephensons-rocket-rainhill-and-rise-locomotive', fontNom: 'National Railway Museum · La Rocket i Rainhill' }
       },

@@ -28,10 +28,10 @@
     } else {
       s += `<polygon class="crema" points="-60,430 340,430 340,620 -60,620"/><path class="t" fill="#a8452f" d="M-70 432H346V416H-70z"/><rect class="t pedra" x="-60" y="618" width="400" height="10"/>`;
       s += `<g data-part="xemeneia"><path class="t mao" d="M-50 430L-44 70h26l6 360z"/><rect class="t fosc" x="-48" y="60" width="34" height="12"/></g><g data-puf="-31 54 60 -50 6 16 2.4" class="fum"></g>`;
-      s += `<g data-part="caldera"><rect class="t mao" x="-56" y="520" width="112" height="100"/><rect class="t fosc" x="-44" y="572" width="88" height="42" rx="4"/>${focs(-22, 612, 2, 40, 30, 34)}<rect class="t coure" x="-48" y="468" width="96" height="88" rx="34"/><path d="M-45 520h90v6q0 26-30 26h-30q-30 0-30-26z" class="aigua" opacity=".9"/><rect class="t nf" x="-48" y="468" width="96" height="88" rx="34"/>
+      s += `<g data-part="caldera"><rect class="t mao" x="-56" y="520" width="112" height="100"/><rect class="t fosc" x="-44" y="572" width="88" height="42" rx="4"/>${focs(-22, 612, 2, 40, 30, 34)}<rect class="t" fill="url(#g-coure)" x="-48" y="468" width="96" height="88" rx="34"/><path d="M-45 520h90v6q0 26-30 26h-30q-30 0-30-26z" class="aigua" opacity=".9"/><path d="M-24 470v82M24 470v82" stroke="#7c3e16" stroke-width="1.6" stroke-dasharray="2 9" opacity=".6"/><rect class="t nf" x="-48" y="468" width="96" height="88" rx="34"/>
         <path d="M0 468V452H104V522" class="nf" stroke="#2a2420" stroke-width="12"/><path d="M0 468V452H104V522" class="nf" stroke="#f0ab68" stroke-width="7"/><path d="M0 466V452H104V520" class="flux s-blanc" stroke-width="4" data-flux="2"/><path class="t carbo" d="M62 620q22-30 44 0z"/></g>`;
-      s += `<g data-part="motor"><rect class="t pedra" x="60" y="560" width="92" height="60"/><rect id="f-cam" x="66" y="526" width="40" height="30" fill="#f9a35e"/><path d="M58 518H150V564H58ZM66 526V556H142V526Z" class="t" fill="#f08a4b" fill-rule="evenodd"/>
-        <g id="f-pist"><rect class="t ferro" x="-70" y="-4" width="70" height="8"/><rect class="t ferro" x="-76" y="-15" width="9" height="30"/><rect class="t ferro" x="-8" y="-10" width="16" height="20" rx="3"/></g>
+      s += `<g data-part="motor"><rect class="t pedra" x="60" y="560" width="92" height="60"/><rect id="f-cam" x="66" y="526" width="40" height="30" fill="#f9a35e"/><path d="M58 518H150V564H58ZM66 526V556H142V526Z" class="t" fill="url(#g-ferroc)" fill-rule="evenodd"/>
+        <g id="f-pist"><rect class="t" fill="url(#g-ferroh)" x="-70" y="-4" width="70" height="8"/><rect class="t" fill="url(#g-ferroc)" x="-76" y="-15" width="9" height="30"/><rect class="t" fill="url(#g-ferroc)" x="-8" y="-10" width="16" height="20" rx="3"/></g>
         <g id="f-volant">${roda(250, 541, 86, { raigs: 6, color: '#56636c', gruix: 15, raig: 6 })}</g><line id="f-biela" x1="180" y1="541" x2="250" y2="541" stroke="#2a2420" stroke-width="11" stroke-linecap="round"/><line id="f-biela2" x1="180" y1="541" x2="250" y2="541" stroke="#b4bec4" stroke-width="6" stroke-linecap="round"/></g>`;
     }
     // transmissió
@@ -95,6 +95,12 @@
         ],
         parts: Object.assign({ motor: { nom: 'Roda hidràulica', text: 'El motor de la fàbrica. Aprofita el pes de l’aigua que cau. Obliga a construir la fàbrica al costat d’un riu amb prou cabal.' } }, partsComunes),
         etiquetes: [['motor', 130, 400, 200, 480, 'Roda hidràulica']].concat(etqComunes),
+        real: {
+          img: 'img/real-fabrica.webp',
+          titol: 'Antiga filatura hidràulica de Richard Arkwright (Masson Mill)',
+          museu: 'Vall del Derwent · Derbyshire (Regne Unit)',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+        },
         clau: 'La fàbrica és una sola gran màquina: un motor, una xarxa d’eixos i moltes màquines treballant alhora.',
         batx: { titol: 'Disciplina de fàbrica', text: 'Com que tot depèn d’un sol motor, tothom ha de començar i acabar alhora: horaris, torns, sirenes i vigilants. Compara-ho amb el treball a domicili, on cada família decidia el seu ritme. La tècnica imposa una nova organització del treball.', font: 'https://www.cromfordmills.org.uk/', fontNom: 'Cromford Mills · la primera filatura hidràulica' }
       },

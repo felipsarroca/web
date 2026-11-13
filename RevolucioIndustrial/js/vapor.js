@@ -29,8 +29,8 @@
       // Newcomen: caldera sota el cilindre
       s += `<g data-guia="1"><path d="M150 180l-42-22M330 420v44M220 420l-48 34M590 110V64"/></g>`;
       s += `<g data-part="caldera" data-exp="0 44"><rect class="t mao" x="215" y="470" width="240" height="90"/><rect class="t fosc" x="245" y="512" width="170" height="44" rx="4"/>${focs(275, 554, 4, 37, 30, 36)}
-        <path class="t coure" d="M225 506C225 426 435 426 435 506Z"/><path d="M232 484H428L434 505H226Z" class="aigua" opacity=".9"/><path d="M225 506C225 426 435 426 435 506Z" class="t nf"/>
-        <rect class="t coure" x="318" y="384" width="24" height="64"/></g>`;
+        <path class="t" fill="url(#g-coure)" d="M225 506C225 426 435 426 435 506Z"/><path d="M232 484H428L434 505H226Z" class="aigua" opacity=".9"/><path d="M236 484h188M244 468h172" stroke="#7c3e16" stroke-width="1.5" stroke-dasharray="3 11" opacity=".65"/><path class="t nf" d="M225 506C225 426 435 426 435 506Z"/>
+        <rect class="t" fill="url(#g-coure)" x="318" y="384" width="24" height="64"/><rect class="t" fill="url(#g-llautoc)" x="314" y="408" width="32" height="8" rx="2"/></g>`;
       s += `<g data-puf="330 478 0 -26 4 7 1.6" class="vap"></g>`;
       s += `<g data-part="diposit" data-exp="-54 -28"><rect class="t" fill="url(#g-fustac)" x="105" y="140" width="80" height="55"/><rect class="aigua" x="108" y="152" width="74" height="40"/><path class="t nf" d="M90 200h100"/><path d="M145 195V358H272" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M145 195V358H272" class="nf" stroke="#58a9d6" stroke-width="8"/></g>`;
       s += `<g data-part="desguas" data-exp="-52 38"><path d="M296 384V404H175V522" class="nf" stroke="#2a2420" stroke-width="11"/><path d="M296 384V404H175V522" class="nf" stroke="#9fb4c0" stroke-width="6"/><path class="t fusta" d="M150 520h50l-5 38h-40z"/><path d="M175 404V520" class="flux2 s-blau" data-flux="1.5" data-fase="0.84-1"/></g>`;
@@ -38,24 +38,24 @@
       // Watt: caldera a part, camisa de vapor, condensador separat
       s += `<g data-guia="1"><path d="M180 420l-42 32M220 220l-42-24M330 300l42-16M405 300h48M480 460l46 38M590 110V64"/></g>`;
       s += `<g data-part="caldera" data-exp="-48 38"><rect class="t mao" x="95" y="452" width="170" height="108"/><rect class="t fosc" x="115" y="512" width="130" height="44" rx="4"/>${focs(142, 554, 3, 38, 30, 36)}
-        <rect class="t coure" x="105" y="400" width="150" height="108" rx="40"/><path d="M108 462h144v10q0 33-36 33h-72q-36 0-36-33z" class="aigua" opacity=".9"/><rect class="t nf" x="105" y="400" width="150" height="108" rx="40"/></g>`;
+        <rect class="t" fill="url(#g-coure)" x="105" y="400" width="150" height="108" rx="40"/><path d="M108 462h144v10q0 33-36 33h-72q-36 0-36-33z" class="aigua" opacity=".9"/><path d="M138 402v104M222 402v104" stroke="#2a2420" stroke-width="4" opacity=".45"/><path d="M138 412v86M222 412v86" stroke="#fff3d6" stroke-width="1.5" stroke-dasharray="2 10" opacity=".7"/><rect class="t nf" x="105" y="400" width="150" height="108" rx="40"/></g>`;
       s += `<g data-puf="180 448 0 -24 4 7 1.6" class="vap"></g>`;
       s += `<g data-part="tub" data-exp="-46 -32"><path d="M180 400V196H272V232" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M180 400V196H272V232" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M180 396V196H270" class="flux s-blanc" data-flux="2" data-fase="0-0.45"/></g>`;
       s += `<rect class="t pedra" x="262" y="384" width="136" height="176"/>`;
-      s += `<g data-part="camisa" data-exp="42 -16"><rect class="t" x="258" y="216" width="144" height="172" rx="8" fill="#f08a4b"/></g>`;
+      s += `<g data-part="camisa" data-exp="42 -16"><rect class="t" x="258" y="216" width="144" height="172" rx="8" fill="url(#g-coure)"/><path d="M262 246h136M262 356h136" stroke="#7c3e16" stroke-width="2" stroke-dasharray="3 12" opacity=".55"/></g>`;
       s += `<g data-part="equilibri" data-exp="54 0"><path d="M388 240H420V364H388" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M388 240H420V364H388" class="nf" stroke="#f0ab68" stroke-width="8"/><path d="M392 240H420V364H392" class="flux s-blanc" data-flux="2" data-fase="0.55-0.97"/></g>`;
       s += `<g data-part="condensador" data-exp="54 44"><rect class="t" fill="url(#g-fustac)" x="430" y="436" width="122" height="124"/><rect class="aigua" x="434" y="448" width="114" height="108"/>
         <path d="M300 384V414H457V470" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M300 384V414H457V470" class="nf" stroke="#c9d6dc" stroke-width="8"/><path d="M300 388V414H457V466" class="flux s-taronja" data-flux="2.5" data-fase="0-0.34"/>
         <rect class="t" x="440" y="466" width="36" height="78" rx="6" fill="#eaf4f8"/><g id="gotes"><circle cx="450" cy="500" r="3.5" class="blau"/><circle cx="462" cy="514" r="3.5" class="blau"/><circle cx="454" cy="528" r="3.5" class="blau"/><circle cx="466" cy="492" r="3.5" class="blau"/></g></g>`;
-      s += `<g data-part="bomba" data-exp="54 44"><rect class="t" x="492" y="466" width="36" height="78" rx="4" fill="#eaf4f8"/><path d="M476 536h16" class="t4"/><g id="bomba-m"><path d="M510 122V500" class="t" stroke-width="5"/><rect class="t ferro2" x="494" y="494" width="32" height="10"/></g></g>`;
+      s += `<g data-part="bomba" data-exp="54 44"><rect class="t" x="492" y="466" width="36" height="78" rx="4" fill="#eaf4f8"/><path d="M476 536h16" class="t4"/><g id="bomba-m"><path d="M510 122V500" class="t" stroke-width="5"/><rect class="t" fill="url(#g-ferroc)" x="494" y="494" width="32" height="10"/></g></g>`;
     }
 
     // cilindre
     s += `<g data-part="cilindre"><rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0"/>' : ''}
-      <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="#f08a4b"/>${w ? '<path class="t ferro" d="M268 212h124v12H268z"/><rect class="t llauto" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
+      <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="url(#g-ferroc)"/>${w ? '<path class="t" fill="url(#g-ferro)" d="M268 212h124v12H268z"/><rect class="t" fill="url(#g-llautoc)" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
     if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 7"/></g>`;
     s += `<text id="buit" x="330" y="350" class="tx mig" fill="#2f7fb5" opacity="0">BUIT</text>`;
-    s += `<g data-part="piston" id="piston"><rect class="t ferro" x="325" y="-112" width="10" height="112"/><rect class="t ferro" x="282" y="-11" width="96" height="22" rx="3"/><rect x="282" y="-3" width="96" height="6" class="fosc"/></g>`;
+    s += `<g data-part="piston" id="piston"><rect class="t" fill="url(#g-ferroh)" x="325" y="-112" width="10" height="112"/><rect class="t" fill="url(#g-ferroc)" x="282" y="-11" width="96" height="22" rx="3"/><rect x="284" y="-3" width="92" height="6" fill="url(#g-llauto)"/></g>`;
     s += `<line id="cad1" x1="330" y1="110" x2="330" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
     // vàlvules
     s += w ? valv('v-adm', 228, 196) + valv('v-eq', 420, 300) + valv('v-esc', 380, 414) : valv('v-adm', 330, 416) + valv('v-inj', 145, 290);
@@ -133,19 +133,19 @@
     s += `<path class="t" fill="url(#g-fustac)" d="M490 600L508 190h24l18 410z"/><path class="t fusta2" d="M440 600h160v-14H440z"/>`;
     // cilindre de doble efecte
     s += `<g data-part="cilindre" data-exp="-44 20"><rect class="t pedra" x="190" y="540" width="120" height="60"/><rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6"/>
-      <path d="M195 312V540H305V312H293V530H207V312Z" class="t" fill="#f08a4b"/><rect class="t ferro" x="190" y="300" width="120" height="14"/><rect class="t llauto" x="240" y="290" width="20" height="12"/></g>`;
+      <path d="M195 312V540H305V312H293V530H207V312Z" class="t" fill="url(#g-ferroc)"/><rect class="t" fill="url(#g-ferro)" x="190" y="300" width="120" height="14"/><rect class="t" fill="url(#g-llautoc)" x="240" y="290" width="20" height="12"/></g>`;
     s += `<g data-part="distribucio" data-exp="-66 -18"><rect class="t" fill="url(#g-ferroc)" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/>
       <text x="62" y="282" class="tx-p">vapor de la caldera</text><path d="M160 520V566H100" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M160 520V566H100" class="nf" stroke="#c9d6dc" stroke-width="8"/><rect class="t" x="52" y="540" width="56" height="56" rx="6" fill="#a9d6ee"/><text x="80" y="528" class="tx-p mig">condensador</text>
       <g id="fl-d">${fletxa('M186 350H232', '#d9482b', 6)}</g><g id="fl-b">${fletxa('M186 500H232', '#d9482b', 6)}</g></g>`;
-    s += `<g data-part="piston" id="rpiston"><rect class="t ferro" x="245" y="-250" width="10" height="250"/><rect class="t ferro" x="207" y="-8" width="86" height="16" rx="3"/></g>`;
+    s += `<g data-part="piston" id="rpiston"><rect class="t" fill="url(#g-ferroh)" x="245" y="-250" width="10" height="250"/><rect class="t" fill="url(#g-ferroc)" x="207" y="-8" width="86" height="16" rx="3"/><rect x="209" y="-2" width="82" height="4" fill="url(#g-llauto)"/></g>`;
     // balancí
     s += `<g data-exp="0 -54"><g data-part="balanci" id="rbiga"><path class="t" fill="url(#g-fustac)" d="M250 158L520 146 790 158V182L520 194 250 182Z"/><circle class="t llauto" cx="250" cy="170" r="9"/><circle class="t llauto" cx="790" cy="170" r="9"/><circle class="t llauto" cx="520" cy="170" r="12"/></g></g>`;
     // biela + planeta + sol
     s += `<g data-part="sol" data-exp="-38 42"><g id="sol">${engranatge(S.x, S.y, 45, 14, { color: '#c79a2c', boto: '#fffdf7' })}</g></g>`;
-    s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="#2a2420" stroke-width="17" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#8d9aa3" stroke-width="10" stroke-linecap="round"/></g>`;
+    s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="#2a2420" stroke-width="17" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#b9c3c9" stroke-width="10" stroke-linecap="round"/></g>`;
     s += `<g data-part="planeta" data-exp="38 -38"><g id="planeta">${engranatge(0, 0, 45, 14, { color: '#d9482b', boto: '#fffdf7' })}</g></g>`;
     // regulador
-    s += `<g data-part="regulador" data-exp="60 -22"><rect class="t ferro" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t llauto" cx="990" cy="390" r="19"/><circle id="reg-2" class="t llauto" cx="1090" cy="390" r="19"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
+    s += `<g data-part="regulador" data-exp="60 -22"><rect class="t" fill="url(#g-ferroh)" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t" fill="url(#g-llautoc)" cx="990" cy="390" r="19"/><circle id="reg-2" class="t" fill="url(#g-llautoc)" cx="1090" cy="390" r="19"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
     s += persona(380, 600, 150, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     return svg(s);
   }
@@ -195,6 +195,18 @@
           bombamina: { nom: 'Bomba de la mina', text: 'La vareta mou una bomba al fons del pou i eleva l’aigua fins a la superfície.' }
         },
         etiquetes: [['caldera', 150, 470, 240, 470], ['cilindre', 465, 380, 388, 360], ['piston', 200, 250, 284, 296], ['balanci', 470, 60, 500, 100], ['diposit', 190, 118, 150, 150, 'Aigua freda'], ['desguas', 130, 420, 176, 430], ['bombamina', 950, 500, 868, 560]],
+        explotada: {
+          img: 'img/exp-newcomen.webp',
+          model: 'Làmina tècnica en vista explotada · Màquina atmosfèrica de Newcomen (1712)',
+          zones: [['caldera', 320, 490, 145, 195], ['balanci', 575, 165, 290, 85], ['piston', 600, 310, 75, 48], ['cilindre', 615, 480, 85, 110], ['desguas', 675, 530, 55, 42], ['diposit', 980, 265, 110, 95], ['bombamina', 885, 555, 65, 160]],
+          etiquetes: [['balanci', 575, 82, 575, 155], ['caldera', 145, 355, 285, 425], ['piston', 465, 295, 585, 295], ['cilindre', 465, 485, 595, 480], ['desguas', 725, 625, 670, 495], ['diposit', 1035, 145, 985, 255, 'Aigua freda'], ['bombamina', 1020, 560, 885, 555]]
+        },
+        real: {
+          img: 'img/real-newcomen.webp',
+          titol: 'Rèplica a escala real de la màquina de Newcomen (1712)',
+          museu: 'Black Country Living Museum · Dudley (Regne Unit)',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+        },
         clau: 'No és el vapor qui empeny: és l’aire. El vapor només serveix per fer el buit.',
         batx: { titol: 'Una màquina malgastadora, però útil durant dècades', text: 'El rendiment era molt baix i només sortia a compte on el carbó era barat: a la boca de la mina. Tot i això se’n van construir centenars durant el segle XVIII. Una tecnologia imperfecta es pot difondre si resol un problema urgent.', font: 'https://blog.sciencemuseum.org.uk/a-new-age/', fontNom: 'Science Museum · A new age' }
       },
@@ -222,6 +234,18 @@
           bombamina: { nom: 'Bomba de la mina', text: 'Fa la mateixa feina que amb Newcomen, però gastant molt menys carbó.' }
         },
         etiquetes: [['caldera', 170, 622, 180, 520], ['tub', 130, 230, 180, 300], ['camisa', 200, 330, 260, 330], ['cilindre', 330, 180, 330, 214, 'Cilindre tancat'], ['equilibri', 500, 320, 424, 340], ['condensador', 392, 622, 458, 520], ['bomba', 576, 622, 512, 530], ['balanci', 470, 60, 500, 100], ['bombamina', 950, 500, 868, 560]],
+        explotada: {
+          img: 'img/exp-watt.webp',
+          model: 'Làmina tècnica en vista explotada · Màquina de Watt amb condensador separat (1769)',
+          zones: [['caldera', 225, 465, 155, 235], ['camisa', 468, 435, 65, 105], ['cilindre', 605, 425, 75, 175], ['equilibri', 755, 455, 85, 95], ['condensador', 965, 505, 75, 105], ['bomba', 1075, 480, 55, 115], ['balanci', 790, 170, 290, 85]],
+          etiquetes: [['caldera', 130, 170, 225, 345], ['balanci', 540, 72, 675, 108], ['cilindre', 455, 200, 585, 340, 'Cilindre tancat'], ['camisa', 360, 440, 482, 440], ['equilibri', 725, 345, 725, 420], ['condensador', 805, 675, 945, 515], ['bomba', 1065, 305, 1065, 445]]
+        },
+        real: {
+          img: 'img/real-watt.webp',
+          titol: 'Primer model experimental de condensador separat de Watt (1765)',
+          museu: 'Science Museum · Londres',
+          lic: 'Foto: Wikimedia Commons (CC BY 3.0)'
+        },
         clau: 'La mateixa feina amb fins a un 75 % menys de carbó: el fred i la calor ja no es barallen dins del mateix cilindre.',
         batx: { titol: 'De la idea (1765) a la fàbrica (1776)', text: 'Watt té la idea el 1765, la patenta el 1769 i no ven màquines fins al 1776, associat amb l’empresari Matthew Boulton. Calien capital, obrers hàbils i cilindres ben foradats (Wilkinson). Invent i innovació no són el mateix moment.', font: 'https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/', fontNom: 'Science Museum · Watt i el condensador separat' }
       },
@@ -248,6 +272,18 @@
           corretja: { nom: 'Corretja i eix', text: 'Porten el gir fins a les màquines de la fàbrica.' }
         },
         etiquetes: [['cilindre', 330, 250, 300, 318, 'Cilindre de doble efecte'], ['distribucio', 80, 440, 142, 430], ['balanci', 420, 110, 440, 152], ['biela', 880, 250, 796, 280], ['planeta', 886, 354, 790, 380, 'Planeta', 'planeta@0,0'], ['sol', 650, 520, 770, 480, 'Sol'], ['volant', 690, 680, 720, 620, 'Volant d’inèrcia'], ['regulador', 1080, 460, 1046, 420], ['corretja', 1000, 220, 990, 190]],
+        explotada: {
+          img: 'img/exp-rotativa.webp',
+          model: 'Làmina tècnica en vista explotada · Màquina rotativa de Boulton & Watt (1788)',
+          zones: [['distribucio', 245, 545, 125, 115], ['cilindre', 445, 475, 95, 125], ['balanci', 595, 145, 195, 75], ['biela', 765, 325, 45, 140], ['sol', 615, 455, 75, 75], ['planeta', 685, 515, 75, 75], ['volant', 885, 545, 145, 195], ['regulador', 910, 240, 85, 105]],
+          etiquetes: [['distribucio', 145, 415, 240, 535], ['cilindre', 295, 325, 470, 455, 'Cilindre de doble efecte'], ['balanci', 395, 105, 550, 125], ['biela', 725, 210, 765, 295], ['sol', 540, 345, 610, 445, 'Sol'], ['planeta', 545, 650, 690, 455, 'Planeta'], ['regulador', 1040, 165, 915, 235], ['volant', 1055, 690, 955, 565, 'Volant d’inèrcia']]
+        },
+        real: {
+          img: 'img/real-rotativa.webp',
+          titol: 'Engranatge de sol i planeta d’una màquina de Boulton & Watt (1788)',
+          museu: 'Science Museum · Londres',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 4.0)'
+        },
         clau: 'Quan el vapor fa girar un eix, la fàbrica ja no ha d’estar al costat d’un riu.',
         batx: { titol: 'Per què «sol i planeta» i no una simple manovella?', text: 'La manovella estava protegida per una patent d’un competidor (James Pickard, 1780). Boulton & Watt la van esquivar amb aquest engranatge fins que la patent va caducar. Les patents condicionen el camí de la tècnica.', font: 'https://collection.sciencemuseumgroup.org.uk/objects/co50948/rotative-steam-engine-by-boulton-and-watt-1788', fontNom: 'Science Museum Group · Màquina rotativa de 1788' }
       }

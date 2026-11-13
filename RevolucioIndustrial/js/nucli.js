@@ -69,9 +69,10 @@
     let s = '';
     for (let i = 0; i < n; i++) {
       const a = (i * 2 * Math.PI) / n;
-      s += `<line x1="${f1(cx + Math.cos(a) * r * 0.12)}" y1="${f1(cy + Math.sin(a) * r * 0.12)}" x2="${f1(cx + Math.cos(a) * (r - g))}" y2="${f1(cy + Math.sin(a) * (r - g))}" stroke="${o.raigColor || TINTA}" stroke-width="${f1(rg)}" stroke-linecap="round"/>`;
+      s += `<line x1="${f1(cx + Math.cos(a) * r * 0.14)}" y1="${f1(cy + Math.sin(a) * r * 0.14)}" x2="${f1(cx + Math.cos(a) * (r - g))}" y2="${f1(cy + Math.sin(a) * (r - g))}" stroke="${o.raigColor || TINTA}" stroke-width="${f1(rg)}" stroke-linecap="round"/>`;
     }
-    return `<g ${o.attr || ''}><circle cx="${cx}" cy="${cy}" r="${f1(r - g / 2)}" fill="${o.fons || 'none'}" stroke="${TINTA}" stroke-width="${f1(g + 5)}"/><circle cx="${cx}" cy="${cy}" r="${f1(r - g / 2)}" fill="none" stroke="${o.color || '#7d8a92'}" stroke-width="${f1(g)}"/>${s}<circle cx="${cx}" cy="${cy}" r="${f1(Math.max(5, r * 0.17))}" fill="${o.boto || '#c79a2c'}" stroke="${TINTA}" stroke-width="2.5"/>${o.extra || ''}</g>`;
+    const rim = r - g / 2;
+    return `<g ${o.attr || ''}><circle cx="${cx}" cy="${cy}" r="${f1(rim)}" fill="${o.fons || 'none'}" stroke="${TINTA}" stroke-width="${f1(g + 5)}"/><circle cx="${cx}" cy="${cy}" r="${f1(rim)}" fill="none" stroke="${o.color || 'url(#g-ferro)'}" stroke-width="${f1(g)}"/><circle cx="${cx}" cy="${cy}" r="${f1(rim)}" fill="none" stroke="#fff" stroke-opacity=".24" stroke-width="${f1(Math.max(1.2, g * 0.25))}"/>${s}<circle cx="${cx}" cy="${cy}" r="${f1(Math.max(5, r * 0.17))}" fill="${o.boto || 'url(#g-llauto)'}" stroke="${TINTA}" stroke-width="2.5"/><circle cx="${cx}" cy="${cy}" r="${f1(Math.max(2, r * 0.06))}" fill="${TINTA}" opacity=".6"/>${o.extra || ''}</g>`;
   };
   RI.engranatge = (cx, cy, r, n, o = {}) => {
     const h = o.dent || r * 0.16, pts = [];
@@ -81,7 +82,7 @@
         pts.push(f1(cx + Math.cos(a0 + st * k) * rr) + ',' + f1(cy + Math.sin(a0 + st * k) * rr));
       });
     }
-    return `<g ${o.attr || ''}><polygon points="${pts.join(' ')}" fill="${o.color || '#7d8a92'}" stroke="${TINTA}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="${cx}" cy="${cy}" r="${f1(r * 0.55)}" fill="none" stroke="${TINTA}" stroke-width="2" opacity=".5"/><circle cx="${cx}" cy="${cy}" r="${f1(Math.max(4, r * 0.2))}" fill="${o.boto || '#c79a2c'}" stroke="${TINTA}" stroke-width="2.5"/><line x1="${cx}" y1="${cy}" x2="${f1(cx + r * 0.5)}" y2="${cy}" stroke="${TINTA}" stroke-width="2.5"/></g>`;
+    return `<g ${o.attr || ''}><polygon points="${pts.join(' ')}" fill="${o.color || 'url(#g-ferro)'}" stroke="${TINTA}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="${cx}" cy="${cy}" r="${f1(r * 0.56)}" fill="none" stroke="${TINTA}" stroke-width="2" opacity=".45"/><circle cx="${cx}" cy="${cy}" r="${f1(r * 0.42)}" fill="none" stroke="#fff" stroke-width="1.5" opacity=".32"/><circle cx="${cx}" cy="${cy}" r="${f1(Math.max(4, r * 0.2))}" fill="${o.boto || 'url(#g-llauto)'}" stroke="${TINTA}" stroke-width="2.5"/><circle cx="${cx}" cy="${cy}" r="${f1(Math.max(2, r * 0.07))}" fill="${TINTA}" opacity=".6"/><line x1="${cx}" y1="${cy}" x2="${f1(cx + r * 0.5)}" y2="${cy}" stroke="${TINTA}" stroke-width="2.5"/></g>`;
   };
   RI.foc = (x, y, w, h) => {
     const fl = (ww, hh, c, d) => `<path class="flama" style="animation-delay:${d}s;transform-origin:${x}px ${y}px" d="M${f1(x - ww / 2)} ${y}C${f1(x - ww / 2)} ${f1(y - hh * 0.5)} ${f1(x - ww * 0.12)} ${f1(y - hh * 0.6)} ${x} ${f1(y - hh)}C${f1(x + ww * 0.12)} ${f1(y - hh * 0.6)} ${f1(x + ww / 2)} ${f1(y - hh * 0.5)} ${f1(x + ww / 2)} ${y}Z" fill="${c}"/>`;
@@ -126,8 +127,8 @@
   };
 
   /* ---------- estat ---------- */
-  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, brut: true, repte: false };
-  let svgEl = null, auto = null, els = {}, darrer = 0;
+  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, real: false, brut: true, repte: false };
+  let svgEl = null, expSvg = null, auto = null, els = {}, darrer = 0;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const esc = (t) => String(t).replace(/[&<>"]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
@@ -204,8 +205,10 @@
     $('#cos').innerHTML = `
     <section class="escenari">
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
+        ${e.explotada ? `<div class="lamina-exp" id="lamina-exp"><img src="${esc(e.explotada.img)}" alt="" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div>` : ''}
+        ${e.real ? `<div class="lamina-real" id="lamina-real"><img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy"><div class="real-peu"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${esc(e.real.lic)}</small></div></div>` : ''}
         ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : ''}
-        <div class="capes" id="capes">${e.etiquetes || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
+        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Com era en realitat: peça original o document de museu">Màquina real</button>' : ''}${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
       </div>
       <div class="comandament${e.estatica ? ' sense' : ''}">
@@ -225,12 +228,12 @@
       ${e.batx ? `<div class="batx-bloc"><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div>` : ''}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
-    svgEl = $('#tela svg'); els = {};
+    svgEl = $('#tela svg'); expSvg = $('#lamina-exp .exp-svg'); els = {};
     st.vista = e.vistes && e.vistes.length ? e.vistes[0].id : null;
-    st.explota = false;
-    const bExp = $('#capes [data-capa="_exp"]');
-    if (bExp) bExp.hidden = !$$('[data-exp]', svgEl).length;
-    mostraVistes(); posaEtiquetes(e); prepara(); pintaPeca();
+    st.explota = false; st.real = false;
+    const bExp = $('#capes [data-capa="_exp"]'), bReal = $('#capes [data-capa="_real"]');
+    if (bExp) bExp.hidden = !e.explotada && !$$('[data-exp]', svgEl).length;
+    mostraVistes(); posaEtiquetes(e); if (e.explotada && expSvg) muntaLamina(e); prepara(); pintaPeca();
     $('#b-play').addEventListener('click', () => { st.fiPas = null; st.play = !st.play; botoPlay(); });
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
     $('#b-ant').addEventListener('click', () => vesFase(st.iFase - 1));
@@ -243,16 +246,26 @@
       const b = ev.target.closest('[data-vista-btn]');
       if (!b || b.dataset.vistaBtn === st.vista) return;
       st.vista = b.dataset.vistaBtn;
+      if (st.explota && e.explotada) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); }
+      if (st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); }
       $$('[data-vista-btn]', vBox).forEach((x) => x.setAttribute('aria-pressed', x.dataset.vistaBtn === st.vista));
-      const v = (e.vistes || []).find((x) => x.id === st.vista);
-      const mEl = $('#tela .model'); if (mEl && (v && v.model || e.model)) mEl.textContent = (v && v.model) || e.model;
       mostraVistes(); posaEtiquetes(e); svgEl._seg = null; pintaPeca(); aplicaExplota(); st.brut = true;
     });
-    $('#capes').addEventListener('click', (ev) => { const b = ev.target.closest('[data-capa]'); if (!b) return; const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); } else if (b.dataset.capa === '_exp') { st.explota = on; aplicaExplota(); } else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); } st.brut = true; });
+    $('#capes').addEventListener('click', (ev) => {
+      const b = ev.target.closest('[data-capa]'); if (!b) return;
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', on);
+      if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); if (expSvg) expSvg.classList.toggle('sense-etq', !on); }
+      else if (b.dataset.capa === '_exp') { st.explota = on; if (on && st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
+      else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
+      else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); }
+      st.brut = true;
+    });
     (e.capes || []).forEach((c) => svgEl.classList.toggle('capa-' + c.id, !!c.on));
     mostraCapes(); aplicaExplota();
     st.etq = true;
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
+    if (expSvg) expSvg.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     $('.p-nav').addEventListener('click', (ev) => { const b = ev.target.closest('[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); });
     $('#peca').addEventListener('click', (ev) => { const b = ev.target.closest('[data-tria]'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria); });
     botoPlay(); st.brut = true;
@@ -273,12 +286,21 @@
   }
   function aplicaExplota() {
     if (!svgEl) return;
-    svgEl.classList.toggle('explota', st.explota);
+    const e = st.esc, lam = $('#lamina-exp'), lamR = $('#lamina-real');
+    svgEl.classList.toggle('explota', st.explota && !lam);
+    if (lam) lam.classList.toggle('activa', st.explota);
+    if (lamR) lamR.classList.toggle('activa', st.real);
+    const mEl = $('#tela .model');
+    if (mEl && e) {
+      const v = e.vistes ? e.vistes.find((x) => x.id === st.vista) : null;
+      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model : (v && v.model) || e.model;
+      if (m) mEl.textContent = m;
+    }
     const offMap = {};
     $$('[data-exp]', svgEl).forEach((n) => {
       const raw = (n.dataset.exp || '0 0').trim().split(/[\s,]+/);
       const dx = +raw[0] || 0, dy = +raw[1] || 0;
-      n.style.transform = st.explota ? `translate(${dx}px,${dy}px)` : '';
+      n.style.transform = st.explota && !lam ? `translate(${dx}px,${dy}px)` : '';
       if (!amagat(n)) {
         if (n.dataset.part && !offMap[n.dataset.part]) offMap[n.dataset.part] = [dx, dy];
         $$('[data-part]', n).forEach((c) => { if (!offMap[c.dataset.part]) offMap[c.dataset.part] = [dx, dy]; });
@@ -286,27 +308,48 @@
     });
     $$('.etq-e', svgEl).forEach((w) => {
       const o = offMap[w.dataset.etqP];
-      w.style.transform = st.explota && o ? `translate(${o[0]}px,${o[1]}px)` : '';
+      w.style.transform = st.explota && !lam && o ? `translate(${o[0]}px,${o[1]}px)` : '';
     });
   }
 
-  function posaEtiquetes(e) {
-    const ant = $('.etqs', svgEl); if (ant) ant.remove();
-    const vAct = e.vistes ? e.vistes.find((v) => v.id === st.vista) : null;
-    const llista = (vAct && vAct.etiquetes) || e.etiquetes;
-    if (!llista) return;
+  function renderEtqs(destSvg, llista, e) {
+    const ant = $('.etqs', destSvg); if (ant) ant.remove();
+    if (!llista || !llista.length) return;
     const NS = 'http://www.w3.org/2000/svg', g = document.createElementNS(NS, 'g');
     g.setAttribute('class', 'etqs');
     g.innerHTML = llista.map(([part, x, y, ax, ay, text, segueix]) => {
       const nom = text || (e.parts[part] ? e.parts[part].nom : part);
       return `<g class="etq-e" data-etq-p="${part}"><g class="etq" data-etq="${part}"${segueix ? ` data-seg="${segueix}"` : ''} data-ax="${ax}" data-ay="${ay}" tabindex="0" role="button" aria-label="${esc(nom)}"><line x1="${x}" y1="${y}" x2="${ax}" y2="${ay}"/><circle cx="${ax}" cy="${ay}" r="5"/><rect x="${x}" y="${y - 15}" width="10" height="30" rx="15"/><text x="${x}" y="${y + 5.5}" text-anchor="middle">${esc(nom)}</text></g></g>`;
     }).join('');
-    svgEl.appendChild(g);
+    destSvg.appendChild(g);
     $$('.etq', g).forEach((n) => {
       const t = $('text', n), r = $('rect', n), w = t.getComputedTextLength() + 26, x = +t.getAttribute('x');
       r.setAttribute('x', x - w / 2); r.setAttribute('width', w);
       n.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); tria(n.dataset.etq); } });
     });
+  }
+  function posaEtiquetes(e) {
+    const vAct = e.vistes ? e.vistes.find((v) => v.id === st.vista) : null;
+    renderEtqs(svgEl, (vAct && vAct.etiquetes) || e.etiquetes, e);
+  }
+  function muntaLamina(e) {
+    if (!expSvg || !e.explotada) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    expSvg.innerHTML = '';
+    const zg = document.createElementNS(NS, 'g');
+    zg.setAttribute('class', 'exp-zones');
+    (e.explotada.zones || []).forEach((z) => {
+      const [part] = z, rect = z[5] === 'r', sh = document.createElementNS(NS, rect ? 'rect' : 'ellipse');
+      if (rect) { sh.setAttribute('x', z[1]); sh.setAttribute('y', z[2]); sh.setAttribute('width', z[3]); sh.setAttribute('height', z[4]); sh.setAttribute('rx', 12); }
+      else { sh.setAttribute('cx', z[1]); sh.setAttribute('cy', z[2]); sh.setAttribute('rx', z[3]); sh.setAttribute('ry', z[4]); }
+      sh.setAttribute('class', 'exp-zona'); sh.dataset.part = part;
+      sh.setAttribute('tabindex', '0'); sh.setAttribute('role', 'button');
+      sh.setAttribute('aria-label', (e.parts[part] && e.parts[part].nom) || part);
+      sh.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); tria(part); } });
+      zg.appendChild(sh);
+    });
+    expSvg.appendChild(zg);
+    renderEtqs(expSvg, e.explotada.etiquetes, e);
   }
 
   function prepara() {
@@ -346,9 +389,11 @@
     if (!claus.length) { box.innerHTML = ''; return; }
     const p = st.sel ? parts[st.sel] : null;
     box.innerHTML = `<h3 class="p-t">Les peces <small>toca’n una al dibuix</small></h3><div class="xips">${claus.map((k) => `<button type="button" data-tria="${k}" aria-pressed="${k === st.sel}">${esc(parts[k].nom)}</button>`).join('')}</div>${p ? `<div class="fitxa"><strong>${esc(p.nom)}</strong><p>${p.text}</p></div>` : ''}`;
-    if (svgEl) {
-      svgEl.classList.toggle('te-sel', !!st.sel);
-      $$('[data-part],[data-etq]', svgEl).forEach((n) => n.classList.toggle('sel', (n.dataset.part || n.dataset.etq) === st.sel));
+    const tela = $('#tela');
+    if (tela) {
+      if (svgEl) svgEl.classList.toggle('te-sel', !!st.sel);
+      if (expSvg) expSvg.classList.toggle('te-sel', !!st.sel);
+      $$('[data-part],[data-etq]', tela).forEach((n) => n.classList.toggle('sel', (n.dataset.part || n.dataset.etq) === st.sel));
       focus();
     }
   }

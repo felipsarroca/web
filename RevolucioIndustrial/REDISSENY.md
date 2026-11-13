@@ -89,3 +89,7 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
    - Nous gradients i textures de roure, ferro fos, llautó i cotó a `RI.DEFS`.
    - Reconstrucció 3D i multi-vista completa de les 4 màquines de `js/textil.js` (`Llançadora volant`, `Spinning Jenny`, `Water Frame`, `La mula`), més vistes explotades a `sembradora`, `arada`, `watt`, `rotativa`, `rocket`, `bessemer` i `western`.
    - Enllaç de `AGPL-3.0-or-later` al peu de pàgina cap a `LICENSE` a GitHub.
+5. **Làmines tècniques 3D explotades, comparació amb «Màquina real» i segona passada SVG (13/11/2026)**:
+   - 12 làmines tècniques en vista explotada 3D estil enciclopèdic (`img/exp-*.webp`), integrades amb fusió sobre pergamí (`#lamina-exp`), zones interactives (`.exp-zona`) i etiquetes en català que es poden amagar com a autoavaluació.
+   - Botó «Màquina real» (`#lamina-real`, `data-capa="_real"`) en 13 escenes clau amb fotografies de museu i gravats d'arxiu originals (`img/real-*.webp`) de Wikimedia Commons i cartela amb títol, museu i llicència.
+   - Segona passada de realisme metàl·lic i estructural (`RI.roda`, `RI.engranatge`, reblons de caldera, cilindres i palanques en `vapor.js`, `tren.js`, `vaixell.js`, `metalls.js`, `fabrica.js` i `camp.js`), més correcció d'ID duplicat `#capes` a `metalls.js` (`#fcapes`).

@@ -121,7 +121,7 @@
     s += `<g data-guia="1"><path d="M350 340l-52-24M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
     s += `<g data-part="esteves" data-exp="-60 -30"><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
     s += `<g data-part="cama" data-exp="0 -14"><path class="t" fill="url(#g-fustac)" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
-    s += `<g data-part="orello" data-exp="-34 42"><path class="t ferroh" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/></g>`;
+    s += `<g data-part="orello" data-exp="-34 42"><path class="t" fill="url(#g-acer)" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/></g>`;
     s += `<g data-part="rella" data-exp="56 32"><path class="t" fill="url(#g-ferroc)" d="M660 528L540 532L560 490Z"/></g>`;
     s += `<g data-part="ganivet" data-exp="0 -56"><path class="t" fill="url(#g-ferroc)" d="M690 378h14l-22 150-10-6z"/></g>`;
     s += `<g data-en="0">${retol(820, 560, 'talla la terra en vertical', { fons: '#2a2420', w: 240 })}</g><g data-en="1">${retol(760, 600, 'talla per sota i l’aixeca', { fons: '#2a2420', w: 230 })}</g><g data-en="2">${retol(300, 566, 'la gira i colga les males herbes', { fons: '#2a2420', w: 290 })}</g>`;
@@ -173,6 +173,18 @@
           esteves: { nom: 'Esteves', text: 'Els mànecs per guiar la màquina.' }
         },
         etiquetes: [['tremuja', 400, 230, 470, 280], ['dosador', 400, 330, 498, 360], ['roda', 740, 380, 690, 420], ['tub', 480, 480, 536, 470], ['rella', 660, 600, 574, 548], ['rasclet', 370, 600, 440, 530]],
+        explotada: {
+          img: 'img/exp-sembradora.webp',
+          model: 'Làmina tècnica en vista explotada · Sembradora mecànica de Jethro Tull (c. 1701)',
+          zones: [['tremuja', 550, 185, 145, 115], ['dosador', 550, 325, 110, 65], ['tub', 535, 425, 105, 65], ['bastidor', 590, 505, 215, 95], ['esteves', 840, 395, 125, 85], ['rella', 590, 635, 75, 85], ['rasclet', 995, 475, 115, 75], ['roda', 285, 605, 130, 145], ['roda', 855, 595, 130, 145]],
+          etiquetes: [['tremuja', 315, 150, 520, 185], ['dosador', 310, 305, 535, 315], ['tub', 330, 415, 568, 388], ['roda', 120, 620, 280, 605], ['rella', 585, 755, 590, 645], ['esteves', 940, 245, 785, 315], ['rasclet', 1055, 405, 995, 465]]
+        },
+        real: {
+          img: 'img/real-sembradora.webp',
+          titol: 'Gravat tècnic original de la sembradora de Jethro Tull (làmina V, s. XVIII)',
+          museu: 'Horse-Hoeing Husbandry · Arxiu històric',
+          lic: 'Imatge: domini públic · Wikimedia Commons'
+        },
         clau: 'Menys llavor, més collita: la sembra en fileres és el principi de l’agricultura mecanitzada.',
         batx: { titol: 'Un invent avançat al seu temps', text: 'Tull la construeix cap al 1701 i la publica el 1731, però les sembradores no es generalitzen a Anglaterra fins ben entrat el segle XIX: eren cares, delicades i calia terra ben treballada. Bon exemple de la distància entre invenció i difusió.', font: 'https://www.bbc.co.uk/history/historic_figures/tull_jethro.shtml', fontNom: 'BBC History · Jethro Tull' }
       },
@@ -196,6 +208,12 @@
           esteves: { nom: 'Esteves', text: 'Els dos mànecs amb què el pagès guia l’arada.' }
         },
         etiquetes: [['ganivet', 790, 300, 700, 400], ['rella', 720, 640, 620, 528], ['orello', 430, 640, 470, 470, 'Orelló'], ['cama', 600, 300, 600, 378], ['esteves', 200, 250, 290, 318]],
+        explotada: {
+          img: 'img/exp-arada.webp',
+          model: 'Làmina tècnica en vista explotada · Arada triangular de Rotherham (Foljambe, 1730)',
+          zones: [['cama', 475, 275, 300, 62], ['esteves', 905, 235, 145, 145], ['ganivet', 525, 445, 65, 105], ['rella', 475, 645, 110, 85], ['orello', 775, 555, 175, 95]],
+          etiquetes: [['cama', 355, 165, 485, 270], ['esteves', 1035, 130, 945, 172], ['ganivet', 300, 445, 520, 445], ['rella', 275, 655, 465, 645], ['orello', 985, 585, 815, 545, 'Orelló']]
+        },
         clau: 'Ferro al camp: eines més eficients alliberen braços i animals.',
         batx: { titol: 'Del taller a la fàbrica', text: 'L’arada de Rotherham es va fabricar en sèrie, amb peces iguals, i més endavant totalment de ferro (Ransome, 1785, rella de ferro colat). L’agricultura esdevé client de la siderúrgia: un altre fil que lliga el camp amb la indústria.', font: 'https://www.bbc.co.uk/history/british/empire_seapower/agricultural_revolution_01.shtml', fontNom: 'BBC History · Agricultural Revolution in England' }
       }

@@ -660,6 +660,18 @@
           tela: { nom: 'Tela', text: 'Ordit i trama ja entrecreuats. S’enrotlla al corró de baix.' }
         },
         etiquetes: [['ordit', 600, 160, 600, 200], ['llancadora', 360, 250, 300, 318, 'Llançadora'], ['caixes', 80, 400, 180, 340, 'Caixa'], ['cordill', 760, 420, 700, 402, 'Cordill i mànec'], ['pinta', 1110, 330, 1024, 330], ['tela', 600, 690, 600, 600]],
+        explotada: {
+          img: 'img/exp-teler.webp',
+          model: 'Làmina tècnica en vista explotada · Teler manual amb llançadora volant (John Kay, 1733)',
+          zones: [['ordit', 330, 215, 115, 70], ['pinta', 680, 385, 130, 58], ['llancadora', 775, 445, 92, 46], ['caixes', 515, 610, 75, 44], ['caixes', 935, 345, 75, 44], ['cordill', 1020, 220, 95, 75], ['tela', 900, 575, 135, 80]],
+          etiquetes: [['ordit', 180, 125, 330, 215], ['pinta', 595, 145, 640, 340], ['cordill', 1030, 115, 995, 185], ['caixes', 1055, 355, 935, 345, 'Caixa'], ['llancadora', 645, 540, 760, 455], ['tela', 1030, 695, 915, 595]]
+        },
+        real: {
+          img: 'img/real-teler.webp',
+          titol: 'Teler manual amb caixa per a llançadora volant',
+          museu: 'Weaver’s Cottage Museum · Kilbarchan (Escòcia)',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+        },
         clau: 'Un sol teixidor fa teles amples i treballa el doble de ràpid: de cop, falta fil.',
         batx: { titol: 'Kay i la por a les màquines', text: 'Teixidors que temien perdre la feina van assaltar la casa de Kay, que va acabar emigrant a França. La resistència a les màquines és anterior al ludisme (1811-1816) i forma part de la història de cada innovació.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
       },
@@ -694,6 +706,18 @@
           corda: { nom: 'Corda de transmissió', text: 'Porta el moviment de la roda fins als fusos.' }
         },
         etiquetes: [['metxes', 910, 114, 910, 170, 'Metxa'], ['pinca', 0, 108, 0, 152, 'Pinça mòbil', 'pinca'], ['fusos', 60, 360, 162, 340, 'Fusos'], ['roda', 1150, 120, 1110, 190], ['corda', 760, 664, 760, 620, 'Corda']],
+        explotada: {
+          img: 'img/exp-jenny.webp',
+          model: 'Làmina tècnica en vista explotada · Spinning Jenny (James Hargreaves, 1764)',
+          zones: [['metxes', 280, 590, 175, 105], ['pinca', 295, 465, 185, 55], ['corda', 715, 385, 135, 95], ['fusos', 895, 195, 155, 105], ['roda', 990, 540, 135, 155]],
+          etiquetes: [['pinca', 145, 125, 245, 495, 'Pinça mòbil'], ['metxes', 130, 685, 220, 585, 'Bobines de metxa'], ['corda', 635, 610, 675, 425, 'Tambor i corda'], ['fusos', 655, 115, 835, 165, 'Fusos'], ['roda', 1065, 265, 1005, 435]]
+        },
+        real: {
+          img: 'img/real-jenny.webp',
+          titol: 'Rèplica operativa d’una Spinning Jenny',
+          museu: 'Belper North Mill Museum · Derbyshire (Regne Unit)',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+        },
         clau: 'Una màquina petita, barata i manual: multiplica el fil sense sortir de casa.',
         batx: { titol: 'Una màquina domèstica', text: 'La Jenny no necessitava motor i cabia en una casa: va reforçar el treball a domicili abans que la fàbrica el substituís. El seu fil, poc resistent, servia per a la trama però no per a l’ordit.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
       },
@@ -728,6 +752,18 @@
           aigua: { nom: 'Roda hidràulica', text: 'Dona la força a centenars de fusos alhora. Obliga a reunir màquines i treballadors en un edifici: la fàbrica.' }
         },
         etiquetes: [['metxa', 500, 50, 580, 120, 'Bobina de metxa'], ['corrons', 392, 330, 556, 300, 'Corrons'], ['aleta', 480, 600, 560, 540, 'Aleta'], ['aigua', 200, 250, 180, 350, 'Roda hidràulica']],
+        explotada: {
+          img: 'img/exp-water.webp',
+          model: 'Làmina tècnica en vista explotada · Water Frame (Richard Arkwright, 1769)',
+          zones: [['aigua', 200, 445, 115, 160], ['metxa', 485, 115, 115, 72], ['corrons', 835, 335, 175, 125], ['aleta', 890, 575, 130, 115]],
+          etiquetes: [['aigua', 160, 215, 195, 330], ['metxa', 260, 105, 440, 125, 'Bobines de metxa'], ['corrons', 830, 135, 800, 215, 'Corrons i pesos'], ['aleta', 1030, 645, 900, 555, 'Aletes i bobines']]
+        },
+        real: {
+          img: 'img/real-water.webp',
+          titol: 'Water Frame original de Richard Arkwright (c. 1775)',
+          museu: 'Science and Industry Museum · Manchester',
+          lic: 'Foto: Wikimedia Commons (CC BY 3.0)'
+        },
         clau: 'Fil fort, continu i sense força humana: la màquina que va crear la fàbrica.',
         batx: { titol: 'Arkwright, empresari', text: 'Més que inventor, Arkwright va ser organitzador: va reunir invents d’altres, capital i mà d’obra (sovint infantil) a Cromford (1771). Les seves patents van ser anul·lades el 1785 i la màquina es va estendre per tot Lancashire.', font: 'https://www.cromfordmills.org.uk/', fontNom: 'Cromford Mills' }
       },
@@ -761,6 +797,18 @@
           fus: { nom: 'Fus', text: 'Gira per tòrcer el fil i després per enrotllar-lo.' }
         },
         etiquetes: [['fileta', 90, 110, 140, 160], ['corrons', 400, 240, 316, 290], ['carro', 15, 646, 15, 540, 'Carro mòbil', 'carro'], ['fus', 112, 408, 22, 420, 'Fus', 'carro']],
+        explotada: {
+          img: 'img/exp-mula.webp',
+          model: 'Làmina tècnica en vista explotada · Spinning Mule (Samuel Crompton, 1779)',
+          zones: [['fileta', 225, 225, 125, 145], ['corrons', 395, 345, 95, 85], ['carro', 805, 520, 230, 125], ['fus', 860, 325, 165, 95]],
+          etiquetes: [['fileta', 140, 115, 235, 200], ['corrons', 460, 145, 410, 310], ['fus', 835, 145, 825, 285, 'Fusos i fil-guia'], ['carro', 960, 685, 880, 480, 'Carro mòbil sobre rails']]
+        },
+        real: {
+          img: 'img/real-mula.webp',
+          titol: 'Mula de filar històrica en sala tèxtil',
+          museu: 'Quarry Bank Mill · Styal, Cheshire (Regne Unit)',
+          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+        },
         clau: 'Fil fi com el de l’Índia, fort com el de la Water Frame i en quantitats industrials.',
         batx: { titol: 'El cotó britànic contra les mussolines de l’Índia', text: 'Fins llavors els teixits fins de cotó venien de Bengala. Amb la mula, Lancashire els pot imitar més barats; el 1830 una mula «automàtica» (Roberts) ja no necessita un filador expert. Relaciona-ho amb la desindustrialització tèxtil de l’Índia sota domini britànic.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
       }

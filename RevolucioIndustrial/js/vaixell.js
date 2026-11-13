@@ -18,12 +18,12 @@
       <path class="t blanc" d="M${x + 8} ${y + 28}L${x + 114} ${y + 56}Q${x + 126} ${y + 125} ${x + 120} ${y + 188}L${x + 8} ${y + 198}Z"/>
       <path d="M${x + 8} ${y + 28}L${x + 114} ${y + 56}M${x + 8} ${y + 198}L${x + 120} ${y + 188}" class="t4" stroke="#8f6038"/>`).join('')}
       <path class="t vermell" d="M163 118v-32l52 12-52 12"/><path d="M1110 372L1204 334" class="t4" stroke="#8f6038"/><path d="M990 132L1200 335" stroke="#2a2420" stroke-width="1.6" opacity=".5"/></g>`;
-    // buc en secció nítida (sense vel blau a sobre) amb timó a popa i doble folre
+    // buc en secció nítida (sense vel blau a sobre) amb timó a popa i doble folre de coure
     s += `<path class="t" fill="#32393f" d="M84 372H1130Q1104 484 1038 580H170Q104 542 84 372Z"/>`;
-    s += `<path class="t" fill="#8d5034" d="M104 470H1096Q1078 528 1038 580H170Q122 544 104 470Z"/>`;
+    s += `<path class="t" fill="url(#g-coure)" d="M104 470H1096Q1078 528 1038 580H170Q122 544 104 470Z"/>`;
     s += `<path class="t" fill="#32393f" d="M84 372H1130L1096 470H104Z"/>`;
-    s += `<path fill="#efe3c6" class="t2" d="M112 392H1092Q1072 474 1024 558H186Q130 520 112 392Z"/>`;
-    s += `<path class="t fusta2" d="M84 480l-22 6 4 72 34-6z"/>`;
+    s += `<path fill="#efe3c6" class="t2" d="M112 392H1092Q1072 474 1024 558H186Q130 520 112 392Z"/><path d="M260 558V578M380 558V578M500 558V578M620 558V578M740 558V578M860 558V578" stroke="#4a2b16" stroke-width="3" opacity=".55"/>`;
+    s += `<path class="t" fill="url(#g-fustac)" d="M84 480l-22 6 4 72 34-6z"/>`;
     s += `<rect class="t" fill="url(#g-fustac)" x="80" y="366" width="1054" height="14" rx="5"/>`;
     // línia de flotació subtil fora del buc
     s += `<path d="M-40 470H92M1104 470H1240" stroke="#fffdf7" stroke-width="3" stroke-dasharray="10 7" opacity=".85"/>`;
@@ -32,15 +32,15 @@
       <rect class="t2" x="810" y="396" width="150" height="78" fill="#f7d9c4"/><rect class="t vidre" x="824" y="408" width="22" height="18"/><rect class="t vidre" x="864" y="408" width="22" height="18"/><rect class="t vidre" x="904" y="408" width="22" height="18"/>${persona(850, 474, 44, { color: '#b9722a' })}${persona(920, 474, 44, { color: '#5b8c35', barret: true })}</g>`;
     s += `<g data-part="carrega" data-exp="52 36"><rect class="t fusta3" x="820" y="500" width="40" height="40"/><rect class="t fusta3" x="864" y="500" width="40" height="40"/><rect class="t fusta3" x="842" y="480" width="40" height="22"/><ellipse class="t fusta2" cx="940" cy="520" rx="22" ry="20"/><ellipse class="t fusta2" cx="985" cy="524" rx="18" ry="16"/><path d="M820 520h84M842 490h40" class="t1"/></g>`;
     s += `<g data-part="carbonera" data-exp="-44 26"><path class="t carbo" d="M222 556V430q36-22 72 0V556z"/><path class="t carbo" d="M196 556V490h26v66zM790 556V440q-18-10-36 0v116z"/></g>`;
-    s += `<g data-part="calderes" data-exp="-38 28"><rect class="t" fill="url(#g-ferroc)" x="302" y="420" width="140" height="136" rx="10"/><rect x="310" y="428" width="124" height="60" rx="5" class="aigua2"/><rect class="t fosc" x="312" y="498" width="54" height="50" rx="4"/><rect class="t fosc" x="378" y="498" width="54" height="50" rx="4"/>${focs(326, 546, 2, 26, 22, 34)}${focs(392, 546, 2, 26, 22, 34)}<g data-puf="350 440 0 -14 3 5 1.3" class="vap"></g><g data-puf="400 440 0 -14 3 5 1.6" class="vap"></g></g>`;
-    s += `<g data-part="xemeneia" data-exp="-26 -62"><path class="t negre" d="M352 420V170h40V420z"/><rect class="t vermell" x="350" y="170" width="44" height="26"/></g><g data-puf="372 160 -200 -80 7 18 2" class="fum"></g>`;
+    s += `<g data-part="calderes" data-exp="-38 28"><rect class="t" fill="url(#g-ferroc)" x="302" y="420" width="140" height="136" rx="10"/><path d="M312 492h120" stroke="#9aa6af" stroke-width="2" stroke-dasharray="2 10" opacity=".6"/><rect x="310" y="428" width="124" height="60" rx="5" class="aigua2"/><rect class="t fosc" x="312" y="498" width="54" height="50" rx="4"/><rect class="t fosc" x="378" y="498" width="54" height="50" rx="4"/>${focs(326, 546, 2, 26, 22, 34)}${focs(392, 546, 2, 26, 22, 34)}<g data-puf="350 440 0 -14 3 5 1.3" class="vap"></g><g data-puf="400 440 0 -14 3 5 1.6" class="vap"></g></g>`;
+    s += `<g data-part="xemeneia" data-exp="-26 -62"><path class="t negre" d="M352 420V170h40V420z"/><rect class="t vermell" x="350" y="170" width="44" height="26"/><path d="M352 246h40M352 320h40" stroke="#536069" stroke-width="2"/></g><g data-puf="372 160 -200 -80 7 18 2" class="fum"></g>`;
     s += `<path d="M442 440H476" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M442 440H476" class="nf" stroke="#f0ab68" stroke-width="8"/>`;
     // roda de pales + tambor protector
     s += `<g data-part="roda" data-exp="62 -30"><g id="vroda">${roda(S.x, S.y, 112, { raigs: 12, color: '#a8452f', gruix: 8, raig: 4, extra: pales(S.x, S.y, 104, 12) })}</g><path d="M548 380A122 122 0 0 1 792 380" class="t nf" stroke-width="7"/><path d="M548 380A122 122 0 0 1 792 380" class="nf" stroke="#c7935c" stroke-width="3"/></g>`;
     // màquina de palanques laterals
-    s += `<g data-part="maquina" data-exp="36 40"><rect class="t pedra" x="456" y="548" width="250" height="12"/><rect id="vcam" x="476" y="436" width="40" height="40" fill="#f9a35e"/><path d="M468 428H524V524H468ZM476 436V516H516V436Z" class="t" fill="#f08a4b" fill-rule="evenodd"/>
-      <g id="vpist"><rect class="t ferro" x="476" y="-5" width="40" height="10"/><rect class="t ferro" x="492" y="-72" width="8" height="72"/><rect class="t ferro" x="452" y="-78" width="50" height="9" rx="3"/></g><line id="vtija" x1="458" y1="400" x2="458" y2="545" class="t" stroke-width="6"/>
-      <g id="vpal"><path class="t ferro" d="M${PIV.x - MIG - 8} ${PIV.y}L${PIV.x} ${PIV.y - 16}L${PIV.x + MIG + 8} ${PIV.y}L${PIV.x} ${PIV.y + 16}Z"/></g><circle class="t llauto" cx="${PIV.x}" cy="${PIV.y}" r="9"/>
+    s += `<g data-part="maquina" data-exp="36 40"><rect class="t pedra" x="456" y="548" width="250" height="12"/><rect id="vcam" x="476" y="436" width="40" height="40" fill="#f9a35e"/><path d="M468 428H524V524H468ZM476 436V516H516V436Z" class="t" fill="url(#g-ferroc)" fill-rule="evenodd"/>
+      <g id="vpist"><rect class="t" fill="url(#g-ferroc)" x="476" y="-5" width="40" height="10"/><rect class="t" fill="url(#g-ferroh)" x="492" y="-72" width="8" height="72"/><rect class="t" fill="url(#g-ferro)" x="452" y="-78" width="50" height="9" rx="3"/></g><line id="vtija" x1="458" y1="400" x2="458" y2="545" class="t" stroke-width="6"/>
+      <g id="vpal"><path class="t" fill="url(#g-ferroc)" d="M${PIV.x - MIG - 8} ${PIV.y}L${PIV.x} ${PIV.y - 16}L${PIV.x + MIG + 8} ${PIV.y}L${PIV.x} ${PIV.y + 16}Z"/></g><circle class="t llauto" cx="${PIV.x}" cy="${PIV.y}" r="9"/>
       <line id="vbiela" x1="670" y1="545" x2="670" y2="420" stroke="#2a2420" stroke-width="13" stroke-linecap="round"/><line id="vbiela2" x1="670" y1="545" x2="670" y2="420" stroke="#b4bec4" stroke-width="7" stroke-linecap="round"/><line id="vman" x1="670" y1="420" x2="700" y2="420" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><circle class="t llauto" cx="670" cy="420" r="13"/></g>`;
     // escuma de les pales i fletxes ben separades de les etiquetes
     s += `<g data-puf="600 474 -80 -10 5 9 0.9" class="vap" opacity=".8"></g>${fletxa('M1050 640H1186', '#fffdf7', 6)}<text x="1118" y="676" class="tx-b mig">avança</text><g data-en="2">${fletxa('M900 618H740', '#fffdf7', 6)}<text x="820" y="654" class="tx-b mig">les pales empenyen l’aigua enrere</text></g>`;
@@ -148,6 +148,18 @@
           carrega: { nom: 'Bodega', text: 'Correu, mercaderies de valor i equipatges.' }
         },
         etiquetes: [['veles', 640, 130, 590, 180, 'Pals i veles'], ['xemeneia', 270, 230, 352, 260], ['calderes', 300, 626, 360, 540], ['carbonera', 120, 610, 240, 520, 'Carboneres'], ['maquina', 488, 668, 504, 550, 'Màquina'], ['roda', 780, 280, 740, 330, 'Roda de pales'], ['cabines', 1020, 330, 900, 410], ['carrega', 1090, 560, 990, 524, 'Bodega']],
+        explotada: {
+          img: 'img/exp-western.webp',
+          model: 'Làmina tècnica en vista explotada · SS Great Western (Brunel, 1838)',
+          zones: [['veles', 790, 235, 245, 165], ['xemeneia', 550, 245, 55, 115], ['calderes', 535, 285, 95, 75], ['maquina', 545, 395, 115, 65], ['roda', 825, 635, 155, 145], ['carbonera', 495, 665, 85, 65], ['carrega', 355, 655, 115, 85], ['cabines', 925, 455, 135, 75]],
+          etiquetes: [['xemeneia', 625, 95, 550, 195], ['veles', 980, 115, 835, 195, 'Pals i veles'], ['calderes', 345, 235, 515, 275], ['maquina', 325, 395, 545, 395, 'Màquina'], ['carrega', 195, 675, 355, 645, 'Bodega'], ['carbonera', 385, 745, 495, 665, 'Carboneres'], ['cabines', 1060, 415, 935, 455], ['roda', 1005, 695, 825, 650, 'Roda de pales']]
+        },
+        real: {
+          img: 'img/real-western.webp',
+          titol: 'El vapor SS Great Western salpant cap a Nova York (Joseph Walter, 1838)',
+          museu: 'Bristol Museums, Galleries and Archives',
+          lic: 'Pintura d’època: domini públic · Wikimedia Commons'
+        },
         clau: 'El vapor dona al mar el que el tren dona a la terra: horaris. El vaixell surt i arriba el dia previst.',
         batx: { titol: 'El problema del carbó', text: 'Molts científics deien que cap vapor podria carregar prou carbó per creuar l’oceà. Brunel va entendre que la capacitat creix amb el cub de la mida i la resistència de l’aigua només amb el quadrat: calia fer el vaixell més gran. Relaciona-ho amb les estacions carboneres i l’expansió colonial.', font: 'https://www.ssgreatbritain.org/brunel/', fontNom: 'Brunel’s SS Great Britain · Brunel i els seus vaixells' }
       },
