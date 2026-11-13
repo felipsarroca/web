@@ -10,19 +10,18 @@
   const cross = (a,b) => [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
   const unit = a => mul(a,1/(Math.hypot(...a)||1));
   const lerp = (a,b,t) => a+(b-a)*t;
-  const smooth = t => { t=Math.max(0,Math.min(1,t)); return t*t*(3-2*t); };
   const state = (id,p)=>RI.TEXTIL_ESTATS[id](p);
-  const jennyTravel=p=>state('jenny',p).travel;
-  const muleTravel=p=>state('mula',p).travel;
   const project = ([x,y,z]) => [.94*x+.48*y, .12*x-.29*y-.96*z];
-  const depth = ([x,y,z]) => .3*x+.8*y-.5*z;
+  // La profunditat és perpendicular als dos eixos de la projecció.
+  const camera=[.4608,-.9024,.3302];
+  const depth = p => -dot(p,camera);
   const palette = {oak:'#cbb79a',end:'#ac9677',iron:'#859196',brass:'#bc9755',cotton:'#eee3ca',dark:'#36454a',red:'#b85f41'};
   function shade(hex,n){ const k=.83+.30*Math.max(0,dot(unit(n),unit([-.4,-.5,1]))); return '#'+hex.slice(1).match(/../g).map(c=>Math.min(255,Math.round(parseInt(c,16)*k)).toString(16).padStart(2,'0')).join(''); }
   class Scene {
     constructor(){this.faces=[];}
-    poly(points,mat='oak',part='',normal=[0,-1,0]){
-      if(dot(normal,[-.3,-.8,.5]) < -.001) return;
-      this.faces.push({points,fill:shade(palette[mat]||mat,normal),part,grain:mat==='oak',d:points.reduce((s,p)=>s+depth(p),0)/points.length});
+    poly(points,mat='oak',part='',normal=[0,-1,0],smooth=false){
+      if(dot(normal,camera) < -.001) return;
+      this.faces.push({points,fill:shade(palette[mat]||mat,normal),part,smooth,grain:mat==='oak',d:points.reduce((s,p)=>s+depth(p),0)/points.length});
     }
     line(points,color='#735c3c',width=3,part='',dash=''){
       this.faces.push({points,color,width,part,d:points.reduce((s,p)=>s+depth(p),0)/points.length-.15,dash});
@@ -30,13 +29,16 @@
     box(x,y,z,w,d,h,mat='oak',part=''){
       const p=[[x,y,z],[x+w,y,z],[x+w,y+d,z],[x,y+d,z],[x,y,z+h],[x+w,y,z+h],[x+w,y+d,z+h],[x,y+d,z+h]];
       this.poly([p[0],p[3],p[7],p[4]],mat,part,[-1,0,0]);
+      this.poly([p[1],p[5],p[6],p[2]],mat,part,[1,0,0]);
       this.poly([p[0],p[4],p[5],p[1]],mat,part,[0,-1,0]);
+      this.poly([p[3],p[2],p[6],p[7]],mat,part,[0,1,0]);
       this.poly([p[4],p[7],p[6],p[5]],mat,part,[0,0,1]);
+      this.poly([p[0],p[1],p[2],p[3]],mat,part,[0,0,-1]);
     }
     cyl(a,b,r,mat='iron',part='',n=20){
       const axis=unit(sub(b,a)), u=unit(cross(axis,Math.abs(axis[2])<.8?[0,0,1]:[0,1,0])),v=cross(axis,u), rings=[[],[]];
       for(let i=0;i<n;i++){const off=V(mul(u,r*Math.cos(i*2*Math.PI/n)),mul(v,r*Math.sin(i*2*Math.PI/n)));rings[0].push(V(a,off));rings[1].push(V(b,off));}
-      for(let i=0;i<n;i++){const j=(i+1)%n;this.poly([rings[0][i],rings[0][j],rings[1][j],rings[1][i]],mat,part,sub(V(rings[0][i],rings[0][j]),mul(a,2)));}
+      for(let i=0;i<n;i++){const j=(i+1)%n;this.poly([rings[0][i],rings[0][j],rings[1][j],rings[1][i]],mat,part,sub(V(rings[0][i],rings[0][j]),mul(a,2)),true);}
       this.poly(rings[0],mat,part,mul(axis,-1));this.poly(rings[1],mat,part,axis);
     }
     wheel(c,r,angle,axis='y',part='roda',mat='oak'){
@@ -44,8 +46,9 @@
       const n=40;
       for(let i=0;i<n;i++){
         const a=i*2*Math.PI/n,b=(i+1)*2*Math.PI/n;
-        this.poly([at(a,r,-8),at(b,r,-8),at(b,r-12,-8),at(a,r-12,-8)],mat,part,axis==='y'?[0,-1,0]:[-1,0,0]);
-        this.poly([at(a,r,-8),at(a,r,8),at(b,r,8),at(b,r,-8)],mat,part,sub(at((a+b)/2,r),c));
+        this.poly([at(a,r,-8),at(b,r,-8),at(b,r-12,-8),at(a,r-12,-8)],mat,part,axis==='y'?[0,-1,0]:[-1,0,0],true);
+        this.poly([at(a,r,8),at(a,r-12,8),at(b,r-12,8),at(b,r,8)],mat,part,axis==='y'?[0,1,0]:[1,0,0],true);
+        this.poly([at(a,r,-8),at(a,r,8),at(b,r,8),at(b,r,-8)],mat,part,sub(at((a+b)/2,r),c),true);
       }
       for(let i=0;i<8;i++)this.cyl(at(angle+i*Math.PI/4,14),at(angle+i*Math.PI/4,r-12),5,mat,part,8);
       this.cyl(at(0,0,-17),at(0,0,17),19,'brass',part);
@@ -64,7 +67,7 @@
       for(let j=0;j<levels.length-1;j++)for(let i=0;i<n;i++){
         const at=(level,a)=>[x+r*levels[level][1]*Math.cos(a),y+r*levels[level][1]*Math.sin(a),z+h*levels[level][0]];
         const a=i*Math.PI*2/n,b=(i+1)*Math.PI*2/n;
-        this.poly([at(j,a),at(j,b),at(j+1,b),at(j+1,a)],'cotton',part,[Math.cos((a+b)/2),Math.sin((a+b)/2),.1]);
+        this.poly([at(j,a),at(j,b),at(j+1,b),at(j+1,a)],'cotton',part,[Math.cos((a+b)/2),Math.sin((a+b)/2),.1],true);
       }
       const seam=[];
       for(let i=0;i<=40;i++){
@@ -83,13 +86,13 @@
     // Fibres de longitud constant: llisquen sense allargar-se com una goma.
     fibres(a,b,q,width=8,part='metxes'){
       const direction=unit(sub(b,a)),side=unit(cross(direction,[1,0,0]));
-      this.line([a,b],'#b7a079',width+3,part);
-      this.line([a,b],'#f2e8d3',width,part);
+      this.line([a,b],'#9eafa5',width+3,part);
+      this.line([a,b],'#e7eee1',width,part);
       const length=Math.hypot(...sub(b,a));
       for(let i=0;i<12;i++){
         const f=((i/12+q)%1+1)%1, at=V(a,mul(direction,Math.max(0,length-30)*f));
         const off=mul(side,Math.sin(i*2.4)*width*.32);
-        this.line([V(at,off),V(V(at,mul(direction,30)),off)],i===4?'#a76b30':'#c4ad81',i===4?2:1,part);
+        this.line([V(at,off),V(V(at,mul(direction,30)),off)],i===4?'#347e77':'#aab9a6',i===4?2.5:1,part);
       }
     }
     yarn(a,b,q,twist=1,part='fusos',width=2.8){
@@ -149,14 +152,17 @@
       g.poly([[-275,-155,270],[275,-155,270],[275,-190,165],[-275,-190,165]],'cotton','tela',[0,-1,1]);
       for(let i=0;i<22;i++)g.line([[-272+i*26,-155,270],[-272+i*26,-190,168]],'#d5c7ac',.6,'tela');
       // New rows are retained after beating, including alternating over/under crossings.
-      const row=(y,amount)=>{
+      const row=(y,amount,reverse=false)=>{
+        amount=Math.max(0,Math.min(1,amount));
         const z=310+(270-310)*(40-y)/195;
-        for(let i=0;i<25*amount;i++){
-          const x=-273+i*21.8;g.line([[x,y,z+(i%2?1.8:-1.8)],[x+21.8,y,z+(i%2?-1.8:1.8)]],'#ba684b',3.2,'tela');
+        const from=reverse?273-546*amount:-273,to=reverse?273:-273+546*amount;
+        for(let i=0;i<25;i++){
+          const x=-273+i*21.84,lo=Math.max(x,from),hi=Math.min(x+21.84,to);
+          if(hi>lo)g.line([[lo,y,z+(i%2?1.8:-1.8)],[hi,y,z+(i%2?-1.8:1.8)]],'#ba684b',3.2,'tela');
         }
       };
-      if(p>=.18){const y=p<.4?-82:lerp(-82,-155,s.beat1);row(y,p<.38?(s.x+288)/576:1);}
-      if(p>=.67){const y=p<.86?-82:lerp(-82,-152,s.beat2);row(y,p<.85?(288-s.x)/576:1);}
+      if(p>=.18){const y=p<.4?-82:lerp(-82,-155,s.beat1);row(y,p<.38?(s.x+273)/546:1);}
+      if(p>=.67){const y=p<.86?-82:lerp(-82,-152,s.beat2);row(y,p<.85?(273-s.x)/546:1,true);}
       const z=s.boatZ;
       g.poly([[s.x-28,-82,z],[s.x,-94,z],[s.x+28,-82,z],[s.x,-70,z]],'brass','llancadora',[0,0,1]);
       g.cyl([s.x-12,-82,z+3],[s.x+12,-82,z+3],4,'cotton','llancadora',10);
@@ -174,7 +180,7 @@
         g.cop(x,-170,200,90,s.copRadius,'fusos',s.spindleAngle);
         g.bobbin(x,298,185,42,22,'metxes',s.draw*.5);
         g.fibres([x,298,235],[x,travel,315],s.draw*.3,6,'metxes');
-        const a=[x,travel,315],b=[x,-170,p<.7?305:245+12*Math.sin(s.wind*12)];
+        const a=[x,travel,315],b=[x,-170,s.guideZ+15*Math.sin(s.wind*12)];
         if(p<.52)g.fibres(a,b,s.draw*.55,lerp(6,2,s.draw),'fusos');
         else g.yarn(a,b,s.spindleAngle,1,'fusos',i===3?4:2.4);
         g.cyl([x,-180,178],[x,-170,202],5,'brass','corda',8);
@@ -190,43 +196,37 @@
     },
     water(g,p,t){
       const s=state('water',p);
-      base(g,620,210,560);
-      g.box(-310,-105,180,620,20,20,'oak','bastidor');
-      for(let i=0;i<4;i++)g.bobbin(-225+i*150,15,480,55,25,'metxa',p);
+      base(g,620,600,550);
+      for(let i=0;i<4;i++)g.bobbin(-225+i*150,280,420,52,24,'metxa',p);
       for(let j=0;j<3;j++){
-        const z=430-j*57;
-        [-28,12].forEach((y,n)=>{
-          const a=s.pairs[j][n];
-          for(let i=0;i<4;i++){
-            const x=-225+i*150,start=g.faces.length;
-            g.cyl([x-42,y,z],[x+42,y,z],17,'iron','corrons');
-            if(n===0)g.faces.slice(start).forEach(f=>f.alpha=.45);
-            g.line([[x-42,y+17*Math.cos(a),z+17*Math.sin(a)],[x+42,y+17*Math.cos(a),z+17*Math.sin(a)]],'#e6e6d9',2,'corrons');
-          }
-          g.cyl([-280,y,z],[280,y,z],3,'iron','corrons',8);
+        const y=220-j*105;
+        [369,331].forEach((z,n)=>{
+          const angle=s.pairs[j][n],start=g.faces.length;
+          g.cyl([-280,y,z],[280,y,z],17,'iron','corrons');
+          if(n===0)g.faces.slice(start).forEach(f=>f.alpha=.35);
+          g.line([[-278,y+17*Math.cos(angle),z+17*Math.sin(angle)],[278,y+17*Math.cos(angle),z+17*Math.sin(angle)]],'#e6e6d9',2,'corrons');
         });
       }
       for(let i=0;i<4;i++){
-        const x=-225+i*150,a=s.flyerAngle,b=s.bobbinAngle,r=10+12*s.fill;
-        const start=g.faces.length;
-        g.fibres([x,15,480],[x,-8,430],p*.3,9,'metxa');
-        g.fibres([x,-8,430],[x,-8,373],p*.48,6,'corrons');
-        g.fibres([x,-8,373],[x,-8,316],p*.96,3.2,'corrons');
-        // The front roller is cut away; keep its fibre path legible through it.
+        const x=-225+i*150,a=s.flyerAngle,r=10+13*s.fill,start=g.faces.length;
+        g.fibres([x,280,420],[x,220,350],p*2,15,'metxa');
+        g.fibres([x,220,350],[x,115,350],p*3.2,10,'corrons');
+        g.fibres([x,115,350],[x,10,350],p*6.4,5,'corrons');
         g.faces.slice(start).forEach(f=>f.d=-10000+i);
-        g.bobbin(x,-10,190,87,r,'aleta',b);
-        const arm=[x+34*Math.cos(a),-10+34*Math.sin(a),280],end=[arm[0],arm[1],194];
-        g.cyl([x,-10,306],arm,3,'brass','aleta',8);
-        g.cyl(arm,end,3,'brass','aleta',8);
-        const hook=[arm[0],arm[1],210+50*p];
-        g.yarn([x,-8,316],[x,-10,306],a,1,'aleta',2.4);
-        g.thread([[x,-10,306],arm,hook,[x+r*Math.cos(a),-10+r*Math.sin(a),hook[2]]],p*3,'aleta',2.6);
+        g.bobbin(x,-8,78,105,r,'aleta',s.bobbinAngle);
+        const arm=[x+40*Math.cos(a),-8+40*Math.sin(a),202],hook=[arm[0],arm[1],94+75*p];
+        for(const side of [arm,[x-40*Math.cos(a),-8-40*Math.sin(a),202]]){
+          g.cyl([x,-8,223],side,3,'brass','aleta',8);
+          g.cyl(side,[side[0],side[1],75],3,'brass','aleta',8);
+        }
+        g.yarn([x,10,350],[x,-8,223],a,1,'aleta',2.4);
+        g.thread([[x,-8,223],arm,hook,[x+r*Math.cos(a),-8+r*Math.sin(a),hook[2]]],p*3,'aleta',2.6);
       }
-      g.cyl([-285,10,158],[340,10,158],10,'iron','aigua');
+      g.cyl([-285,10,108],[340,10,108],10,'iron','aigua');
       g.wheel([345,10,385],116,p*6,'x','aigua','iron');
-      g.wheel([345,10,158],27,p*6*116/27,'x','aigua','iron');
-      g.belt([345,10,385],[345,10,158],116,27,'aigua');
-      for(const x of [-280,280])g.cyl([x,10,155],[x,10,440],5,'iron','aigua',10);
+      g.wheel([345,10,108],27,p*6*116/27,'x','aigua','iron');
+      g.belt([345,10,385],[345,10,108],116,27,'aigua');
+      for(const x of [-280,280])g.cyl([x,10,105],[x,10,440],5,'iron','aigua',10);
     },
     mula(g,p,t){
       const s=state('mula',p),travel=s.travel;
@@ -234,7 +234,7 @@
       for(const x of [-290,270])g.box(x,-390,5,14,520,12,'iron','carro');
       for(let i=0;i<6;i++)g.bobbin(-250+i*100,45,320,60,23,'fileta',s.rollerAngle*.2);
       [-22,12].forEach((y,n)=>{
-        const a=s.rollerAngle*(n?-1:1);
+        const a=s.rollerAngle*(n?1:-1);
         g.cyl([-285,y,278],[285,y,278],16,'iron','corrons');
         g.line([[-285,y+16*Math.cos(a),278+16*Math.sin(a)],[285,y+16*Math.cos(a),278+16*Math.sin(a)]],'#e5e6df',2,'corrons');
       });
@@ -269,80 +269,11 @@
       const nx=(155-18)/448,nz=Math.sqrt(1-nx*nx);
       for(const sign of [-1,1])g.line([[200-155*nx,55,325+sign*155*nz],[-248-18*nx,55,325+sign*18*nz]],'#8c7251',2.5,'corretja');
       g.hand([s.handX,s.hand,338],'fibra');
-      const end=s.atTip?[-248,-145,325]:[-248-s.copRadius,-25,325];
+      const end=[-248-s.copRadius*s.guide,lerp(-145,-25,s.guide),325];
       if(p<.57)g.fibres([s.handX,s.hand,333],end,s.draw*.5,lerp(8,2.2,s.draw),'fibra');
       else g.yarn([s.handX,s.hand,333],end,s.spindleAngle,1,'fibra',3.8);
       for(let i=0;i<8;i++)g.line([[s.handX-58,s.hand-3+i*2,335+i],[s.handX-17,s.hand,335]],'#d7c6a4',3,'fibra');
     }
   };
-  const fits={};
-  const anchors={
-    llancadora:[['ordit',300,108,[-200,130,310]],['pinta',1040,230,[240,-90,340]],['llancadora',1030,480,[0,-82,285]],['caixes',155,445,[-330,-85,298]],['cordill',430,555,[0,-245,248]],['tela',770,565,[0,-190,210]]],
-    jenny:[['metxes',270,108,[-100,298,225]],['pinca',990,165,[0,220,315]],['fusos',500,570,[0,-170,260]],['roda',1070,405,[365,-160,270]],['corda',940,550,[160,-180,185]]],
-    water:[['metxa',440,106,[-75,15,520]],['corrons',155,280,[-240,-20,380]],['aleta',660,566,[60,-10,240]],['aigua',1045,220,[345,10,385]]],
-    mula:[['fileta',245,108,[-100,45,355]],['corrons',790,140,[100,0,278]],['carro',500,570,[0,-240,85]],['fus',1070,450,[180,-240,160]],['roda',1050,285,[342,-200,220]]],
-    roda:[['fibra',175,220,[-390,-130,333]],['fus',340,112,[-248,-25,325]],['roda',1010,150,[200,20,390]],['corretja',650,108,[-30,55,420]]]
-  };
-  function getFit(id){
-    if(fits[id])return fits[id];
-    const points=[];
-    for(const p of [0,.18,.4,.58,.8,1]){
-      const g=new Scene();models[id](g,p,p*10);
-      g.faces.filter(f=>f.part!=='bastidor').forEach(f=>{
-        const useful=f.points.filter(v=>v[2]>=(id==='llancadora'?160:id==='mula'?68:140));
-        points.push(...useful.map(project));
-      });
-    }
-    const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),x=Math.min(...xs),y=Math.min(...ys),w=Math.max(...xs)-x,h=Math.max(...ys)-y;
-    const s=Math.min(1010/w,440/h);
-    return fits[id]={s,x:600-(x+w/2)*s,y:345-(y+h/2)*s};
-  }
-  function render(id,p,t,k=0,sel=null,focus=[]){
-    const g=new Scene();models[id](g,p,t);const fit=getFit(id);
-    const mobile=window.matchMedia('(max-width:760px)').matches,font=mobile?34:15.5,labelH=mobile?50:28;
-    const shapes=g.faces.sort((a,b)=>b.d-a.d).map(f=>{
-      const pts=f.points.map(project).map(v=>v.map(n=>n.toFixed(2)).join(',')).join(' ');
-      const attr=f.part?` data-part="${f.part}" class="${sel===f.part?'sel':focus.includes(f.part)?'foc':''}"`:'';
-      return f.color?`<polyline${attr} points="${pts}" fill="none" stroke="${f.color}" stroke-width="${f.width}" stroke-linecap="round" stroke-linejoin="round"${f.dash?` stroke-dasharray="${f.dash}" stroke-dashoffset="${f.offset||0}"`:''}/>`:`<polygon${attr} points="${pts}" fill="${f.fill}" opacity="${f.alpha||1}" stroke="#554b3d" stroke-opacity=".35" stroke-width=".8" stroke-linejoin="round"/>${f.grain?`<polygon points="${pts}" fill="url(#tx-grain)" opacity=".10" pointer-events="none"/>`:''}`;
-    }).join('');
-    const e=RI.TEXTIL_ESCENES&&RI.TEXTIL_ESCENES[id];
-    const labels=(anchors[id]||[]).map(([part,x,y,fixed])=>{
-      const anchor=[...fixed];
-      if(id==='jenny'&&part==='pinca')anchor[1]=jennyTravel(p);
-      if(id==='mula'&&(part==='carro'||part==='fus'))anchor[1]=muleTravel(p);
-      if(id==='llancadora'){
-        const s=state(id,p);
-        if(['pinta','caixes'].includes(part))anchor[1]=s.y;
-        if(part==='llancadora'){anchor[0]=s.x;anchor[2]=s.boatZ;}
-      }
-      if(id==='roda'&&part==='fibra'){const s=state(id,p);anchor[0]=s.handX;anchor[1]=s.hand;}
-      const at=project(anchor),ax=fit.x+at[0]*fit.s,ay=fit.y+at[1]*fit.s;
-      let name=e&&e.parts[part]?e.parts[part].nom:part;
-      if(id==='jenny'&&part==='pinca')name=state(id,p).closed?'Pinça tancada':'Pinça oberta';
-      if(id==='mula'&&part==='corrons')name=state(id,p).rollersRunning?'Corrons alimentant':'Corrons aturats';
-      if(id==='water'&&part==='aigua')name='Energia hidràulica';
-      if(id==='water'&&part==='corrons')return '';
-      const w=name.length*(mobile?17:7.4)+22,lx=Math.max(w/2+10,Math.min(1190-w/2,x));
-      return `<g class="etq ${focus.includes(part)?'foc':''} ${sel===part?'sel':''}" data-part="${part}"><line x1="${lx}" y1="${y}" x2="${ax.toFixed(2)}" y2="${ay.toFixed(2)}"/><circle cx="${ax.toFixed(2)}" cy="${ay.toFixed(2)}" r="3"/><rect x="${lx-w/2}" y="${y-labelH/2}" width="${w}" height="${labelH}" rx="7"/><text x="${lx}" y="${y+font*.34}" style="font-size:${font}px" text-anchor="middle">${name}</text></g>`;
-    }).join('');
-    const speedLabels=id==='water'?['Lent','Més ràpid','Encara més ràpid'].map((name,j)=>{
-      const at=project([-267,-28,430-j*57]),ax=fit.x+at[0]*fit.s,ay=fit.y+at[1]*fit.s,w=name.length*(mobile?17:7.4)+22,right=mobile?Math.max(210,w+10):210;
-      return `<g class="etq ${focus.includes('corrons')?'foc':''}" data-part="corrons"><line x1="${right}" y1="${ay}" x2="${ax}" y2="${ay}"/><rect x="${right-w}" y="${ay-labelH/2}" width="${w}" height="${labelH}" rx="7"/><text x="${right-w/2}" y="${ay+font*.34}" style="font-size:${font}px" text-anchor="middle">${name}</text></g>`;
-    }).join(''):'';
-    return `<g clip-path="url(#tx-crop)"><g transform="translate(${fit.x.toFixed(2)} ${fit.y.toFixed(2)}) scale(${fit.s.toFixed(4)})">${shapes}</g></g>${labels}${speedLabels}`;
-  }
-  RI.TEXTIL_MODELS={
-    svg(id){return RI.svg(`<defs><clipPath id="tx-crop"><rect x="65" y="118" width="1070" height="455"/></clipPath><pattern id="tx-grain" width="34" height="17" patternUnits="userSpaceOnUse"><path d="M0 3Q17 1 34 4M0 11Q17 14 34 10" fill="none" stroke="#fff2cd" stroke-width="1"/></pattern></defs><rect x="-60" width="1320" height="720" fill="#fcf8ef"/><g id="tx-scene">${render(id,0,0)}</g>`).replace('class="esc"','class="esc tx-model"');},
-    anima(id){return ({p,t,k,svg,sel})=>{
-      const frame=Math.floor(t*24),stamp=id+':'+frame+':'+k+':'+sel;
-      if(svg.dataset.txFrame===stamp)return;svg.dataset.txFrame=stamp;
-      const e=RI.TEXTIL_ESCENES[id],s=state(id,p);
-      svg.querySelector('#tx-scene').innerHTML=render(id,p,t,k,sel,(e.fases[k]||{}).focus||[]);
-      const status=document.querySelector('#tx-action'),product=document.querySelector('#tx-product');
-      if(status&&status.textContent!==s.action)status.textContent=s.action;
-      const out=id==='llancadora'?s.rows+' passades incorporades':id==='water'?'4 fils en producció contínua':id==='roda'?'1 fil · estirar → tòrcer → enrotllar':id==='jenny'?'8 fils moguts per una mateixa roda':'6 fusos coordinats en aquest esquema';
-      if(product&&product.textContent!==out)product.textContent=out;
-      svg.dataset.phase=e.fases[k].nom;
-    };}
-  };
+  RI.TEXTIL_GEOMETRIA={Scene,project,depth,camera,models};
 })();

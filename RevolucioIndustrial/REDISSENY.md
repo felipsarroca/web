@@ -131,3 +131,9 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 Vegeu [el dossier de revisió](assets/revisio-coto.md) per als criteris, les fonts i les simplificacions. S’han refet les cinc seqüències per mostrar acció, transformació, recollida i aportació de cada invent. Una comparació abans/després, una vista obliqua fixa centrada en el mecanisme i els missatges sincronitzats guien la lectura. S’ha corregit la roda tradicional a una roda manual de fus apta per explicar el cotó, amb dues làmines noves de ChatGPT. La cursa és ara una cadena causal sense produccions inventades.
 
 A petició explícita de Felip, els originals anteriors s’han conservat a [versions/2026-11-13-coto-abans-revisio](versions/2026-11-13-coto-abans-revisio/README.md): 80 fitxers verificats byte a byte, manifest SHA-256, versió navegable independent i restaurador parcial. Es conserva l’estètica general vigent; no s’aplica cap nova suavització.
+
+### Segona passada: seguir un sol fil
+
+Després de veure la primera revisió, Felip demana una millora més profunda. El moviment passa a `js/textil-detalls.js`: detall funcional ampliat amb bastidor atenuat, fibra verdosa i fil daurat, miniatura sincronitzada del conjunt amb el mateix angle i indicadors de recollida simultània. En mòbil es prioritza el detall. No s’alteren les làmines estàtiques ni l’estètica general.
+
+Es corregeixen la profunditat i les cares visibles del motor geomètric, les superfícies corbes, la disposició dels corrons de la Water Frame, els dos braços de l’aleta, els moviments de les guies i el creixement de la trama segons el sentit de la llançadora. La primera revisió publicada queda conservada íntegrament a [versions/2026-11-13-coto-primera-revisio](versions/2026-11-13-coto-primera-revisio/README.md), amb 84 fitxers i manifest SHA-256. El dossier `assets/revisio-coto.md` documenta les simplificacions i les comprovacions.

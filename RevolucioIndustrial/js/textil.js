@@ -615,8 +615,9 @@
     ]
   };
   for(const e of cap.escenes){
-    e.svg=e.id==='cursa'?cursa:()=>RI.TEXTIL_MODELS.svg(e.id);
-    e.anima=e.id==='cursa'?animaCursa:RI.TEXTIL_MODELS.anima(e.id);
+    if(e.id!=='cursa')e.model='Detall ampliat · mateixa perspectiva que el conjunt';
+    e.svg=e.id==='cursa'?cursa:()=>RI.TEXTIL_DETALLS.svg(e.id);
+    e.anima=e.id==='cursa'?animaCursa:RI.TEXTIL_DETALLS.anima(e.id);
   }
   RI.TEXTIL_ESCENES=Object.fromEntries(cap.escenes.map(e=>[e.id,e]));
   RI.capitol(cap);

@@ -60,6 +60,10 @@ with sync_playwright() as p:
       assert page.locator('#tx-action').inner_text()==expected
       assert page.locator('.tx-compara').is_visible()
       assert page.locator('#tx-product').inner_text()
+      assert page.locator('#tx-detail').count()==1
+      if i==3:
+       cut=page.locator('#tx-detail polygon[data-part="corrons"][style*="0.35"]').first
+       assert abs(float(cut.evaluate('(n)=>getComputedStyle(n).opacity'))-.35)<.01
    page.locator('[data-esc="repte"]').click()
    assert page.locator('.q').count()>0
   footer=page.locator('.felip-app-footer')
@@ -76,6 +80,13 @@ with sync_playwright() as p:
    page.wait_for_timeout(60)
    page.wait_for_timeout(200)
    page.screenshot(path=str(ROOT/'captures'/f'teler-moviment-{width}.png'),full_page=width==390)
+   if width==1366:
+    page.set_viewport_size({'width':390,'height':844})
+    page.wait_for_timeout(200)
+    assert page.locator('#tela > svg').get_attribute('viewBox')=='0 0 900 720'
+    page.set_viewport_size({'width':1366,'height':768})
+    page.wait_for_timeout(200)
+    assert page.locator('#tela > svg').get_attribute('viewBox')=='0 0 1200 720'
   page.close()
  browser.close()
 print(json.dumps({'scene_viewports':count,'errors':errors}))

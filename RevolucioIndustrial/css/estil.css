@@ -455,7 +455,7 @@ svg.explota [data-guia]{opacity:.58}
 .fonts-lamina summary{cursor:pointer;font-weight:600}
 .fonts-lamina small{display:block;margin-top:3px}
 .fonts-lamina[open]{max-height:115px;overflow:auto}
-.esc.tx-model [data-part]{opacity:1!important}
+.esc.tx-model [data-part]{opacity:var(--tx-opacity,1)!important}
 .esc.tx-model [data-part].sel{filter:none;stroke:#a86a14;stroke-width:2}
 .esc.tx-model [data-part].foc{stroke-opacity:.7}
 .esc.tx-model.etiquetes-focus .etq:not(.foc):not(.sel){display:none}
@@ -488,3 +488,4 @@ body[data-capitol="textil"] .tela:has(.tx-resultat) .llegenda{display:none}
 .mobil .tx-resultat{bottom:28px;left:5px;right:5px}
 .mobil .tx-resultat strong{font-size:.78rem}
 .mobil .tx-resultat span{font-size:.7rem}
+.mobil .tx-detail .tx-context{display:none}

@@ -804,7 +804,7 @@
 
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); });
+    ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); st.brut=true; });
     const mesuraPeu=()=>{const f=document.querySelector('.felip-app-footer');if(!f)return;const z=+getComputedStyle(document.documentElement).getPropertyValue('--z')||1;document.documentElement.style.setProperty('--peu-h',Math.ceil(f.getBoundingClientRect().height/z)+'px');};
     requestAnimationFrame(()=>{mesuraPeu();const f=document.querySelector('.felip-app-footer');if(f)new ResizeObserver(mesuraPeu).observe(f);});
     window.addEventListener('resize',mesuraPeu);

@@ -6,7 +6,7 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Estat actual:** vuit capítols, 27 escenes i tretze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i cinc mecanismes animats amb una sola perspectiva obliqua. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
-**Revisió del cotó:** comparació abans/després, estiratge, torsió i recollida visibles, corrons amb girs oposats i fases coordinades de la mula. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. [Obre la versió anterior conservada](versions/2026-11-13-coto-abans-revisio/textil.html) per comparar-la; la [carpeta de seguretat](versions/2026-11-13-coto-abans-revisio/README.md) conté els originals, les seves empremtes i el restaurador.
+**Revisió del cotó:** un detall funcional ampliat permet seguir un fil, amb el bastidor atenuat i una miniatura animada del conjunt des del mateix angle. La fibra solta és verdosa; el fil torçut, daurat; la trama, vermella. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. Es conserven tant [la primera revisió](versions/2026-11-13-coto-primera-revisio/textil.html) com [la versió inicial](versions/2026-11-13-coto-abans-revisio/textil.html), cadascuna amb el codi, les imatges i les empremtes dels originals. La còpia inicial també inclou el restaurador.
 
 ## Obrir el web
 
@@ -25,7 +25,7 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Alternar entre l'explicació essencial i la capa d'anàlisi de **1r de Batxillerat**, amb una font pública per capítol.
 - Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats i fitxes clicables.
 - Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
-- Seguir cada mecanisme tèxtil des d'una única perspectiva obliqua, amb peces projectades en un mateix espai i fils associats al seu fus.
+- Seguir un sol fil en el detall ampliat de cada mecanisme tèxtil. Una miniatura sincronitzada mostra com treballa el conjunt amb la mateixa perspectiva; en mòbil es prioritza el detall.
 - Consultar la fotografia històrica i la seva atribució en el desplegable de fonts.
 - Fer servir **Amplia** en mòbil; `Esc` tanca la vista ampliada.
 
@@ -42,6 +42,10 @@ Els diagrames SVG són originals i explicatius. Mostren principis mecànics i fl
 | ![Mecanisme del teler en una perspectiva obliqua fixa](captures/teler-moviment-1366.png) | ![Vista explotada del teler en mòbil](captures/teler-explotat-390.png) |
 
 ![Roda de filar tradicional](captures/roda-filar.png)
+
+| Un fus de la Jenny ampliat | Un cap de la Water Frame ampliat |
+|---|---|
+| ![De la metxa verda al fil daurat en un fus de la Jenny](captures/coto-detall-jenny.png) | ![Tres parelles de corrons i filatura contínua en un cap de la Water Frame](captures/coto-detall-water.png) |
 
 ## Rigor i abast
 
@@ -63,7 +67,7 @@ La roda tradicional representa una roda manual de fus del tipus *great wheel*, u
 
 La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació, amb el servidor local actiu: `python assets/verifica_visual.py` (requereix Playwright i Chrome).
 
-`node assets/verifica-cinematica.cjs` comprova 1.001 posicions del cicle: marge de pas de la llançadora, temps de batuda, gir i alimentació dels corrons, aturada de la mula, rodament del carro, recollida i continuïtat dels angles dins de cada cicle. Els cons es reinicien en començar un nou cicle didàctic: el dibuix no és un comptador acumulat de producció.
+`node assets/verifica-cinematica.cjs` comprova 1.001 posicions del cicle i 105 geometries: marge de pas de la llançadora, direcció de la trama, temps de batuda, gir i alimentació dels corrons, aturada de la mula, rodament del carro, recollida, guies i continuïtat dels angles dins de cada cicle. També comprova la coherència entre projecció, profunditat i cares visibles. Els cons i els indicadors es reinicien en començar un nou cicle didàctic: no són comptadors acumulats de producció.
 
 ## Llicència i incidències
 
