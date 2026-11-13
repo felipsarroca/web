@@ -4,10 +4,12 @@
 
 Aquest fitxer és la guia per reprendre la feina des de qualsevol ordinador. **Actualitza la taula d'estat cada vegada que acabis una peça.**
 
+**Darrera revisió gràfica (13-11-2026):** dotze il·lustracions noves amb l'eina integrada de ChatGPT a `img/illustration-*.webp`; prompts a `assets/prompts-illustracions.json`. Substitueixen les làmines explotades carregades de guies i les reconstruccions SVG estàtiques. Fotografies històriques conservades. Els diagrames animats comencen en secció o planta quan hi ha diverses vistes; mostren les etiquetes del pas, amb opció de veure-les totes o cap. Retirades les càpsules d'innovació superposades i simplificat el fons de Newcomen/Watt. Mides de les il·lustracions orientatives; referència per al funcionament: l'esquema interactiu. Verificació reproduïble: `assets/verifica_visual.py`.
+
 ## 1. Decisions preses
 
 - **Diverses pàgines, sense scroll a l'ordinador.** `index.html` (portada amb un paisatge clicable) i una pàgina per capítol: `camp.html`, `vapor.html`, `textil.html`, `fabrica.html`, `metalls.html`, `tren.html`, `vaixell.html`, `capital.html`. Cada capítol té pestanyes d'**escenes** i una pestanya final **Repte** (preguntes).
-- **Imatges: SVG dibuixat a mà i animat amb JavaScript**, no imatges generades amb IA. Motiu: el mecanisme ha de ser correcte (pistó, bieles, vàlvules), s'ha de poder aturar, etiquetar en català i clicar peça a peça. No cal instal·lar res ni pagar res.
+- **Imatges (criteri revisat per Felip el 13-11-2026):** il·lustracions raster amb ChatGPT per veure la màquina completa; fotografies històriques a «Màquina real»; SVG reservat als esquemes animats i interactius. Prioritat a la claredat, les proporcions, una perspectiva coherent i poca informació simultània.
 - **Estètica:** atles il·lustrat sobre paper clar, traç de tinta gruixut, colors plans, ombra dura. Tipografies Fraunces (títols) i Figtree (text). Codi de colors: taronja = calor/vapor, blau = aigua/fred, vermell = focus.
 - **Cada escena:** pregunta inicial, dibuix gran animat, control de reproducció (play, fase anterior/següent, lliscador per «aturar el temps», velocitat), «Pas a pas», peces clicables amb fitxa, botó «Etiquetes» (amagar-les per autoavaluar-se), «La idea clau» i bloc de Batxillerat (només visible amb el nivell «+ Batxillerat»).
 - **Escala:** com `edu-apps/Equacions`: disseny base 1440 × 800 i `zoom` a `<html>` (funció `ajusta()` de `js/nucli.js`). Per sota de 980 px d'amplada passa a disposició mòbil amb scroll vertical.
@@ -63,7 +65,7 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 | `js/camp.js` | Fet i revisat visualment | Rotació Norfolk detallada, sembradora de Tull amb transmissió i ocells, arada de Rotherham amb gleves i tàndem + repte. |
 | `js/capital.js` | Fet i revisat visualment | Societat anònima amb viaducte i estació, banc/borsa i cotització annotada, càrtel/trust/holding + repte. |
 | `js/portada.js` + estil | Fet i revisat visualment | Paisatge complet amb 8 fites històriques detallades i tots els pins visibles a escriptori i mòbil. |
-| `js/reals.js` | Fet i revisat visualment | 13 làmines tècniques vectorials d’estudi (`RI.REALS`) d’alta resolució per a «Màquina real» amb escala humana i zoom interactiu. |
+| `js/reals.js` | Substituït | Manifest `RI.ILLUSTRACIONS`: 12 reconstruccions raster amb ChatGPT. Retirades les reconstruccions SVG estàtiques. Les fotos històriques es conserven. |
 | Esborrar `app.js` i `styles.css` | Fet | |
 | Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844 (panell dret sense scroll a escriptori). |
 | `README.md`, captures noves, `VISIO-I-GUIO.md` | Pendent | |

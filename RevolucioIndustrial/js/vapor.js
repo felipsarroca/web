@@ -13,16 +13,15 @@
   function motor(w) {
     let s = '';
     // paisatge i subsòl
-    s += `<rect class="cel" x="-60" y="-70" width="1320" height="630"/>${nuvol(700, 90, 1.6)}${nuvol(1010, 150, 1.1)}<path class="herba2" d="M620 560c120-60 260-70 380-40s160 20 200 0v40z" opacity=".55"/>`;
-    s += `<rect class="terra" x="-60" y="560" width="1320" height="160"/><rect class="herba" x="620" y="556" width="640" height="9"/><rect class="herba" x="-60" y="556" width="120" height="9"/>`;
+    s += `<rect x="-60" y="-70" width="1320" height="790" fill="#fcf8ef"/>`;
+    s += `<rect fill="#d6c5ab" x="-60" y="560" width="1320" height="160"/><rect class="herba" x="620" y="556" width="640" height="9"/><rect class="herba" x="-60" y="556" width="120" height="9"/>`;
     s += `<rect x="806" y="560" width="88" height="152" fill="#e7dcc3" class="t"/><rect x="640" y="640" width="520" height="72" fill="#e7dcc3" class="t"/><rect x="808" y="600" width="84" height="80" fill="#e7dcc3"/>`;
     s += `<rect class="aigua" x="642" y="686" width="516" height="24" opacity=".9"/><path d="M650 686q12-6 24 0t24 0 24 0 24 0 24 0 24 0" class="nf t1 s-blanc"/>`;
     s += persona(1050, 710, 56, { color: '#7a5a3a', barret: true }) + `<rect class="aigua" x="1020" y="688" width="60" height="22" opacity=".85"/>`;
     s += txt(740, 672, 'la mina s’inunda', 'tx mig');
     // casa de màquines
-    s += `<polygon class="crema" points="75,58 325,-44 600,58 600,96 560,96 560,560 90,560 90,58"/>`;
-    s += `<path d="M36 64L325 -52 656 64" class="nf" stroke="#2a2420" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 64L325 -52 656 64" class="nf" stroke="#a8452f" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>`;
-    s += `<rect class="t mao" x="60" y="62" width="30" height="498"/><rect class="t mao" x="560" y="128" width="60" height="432"/><rect class="t mao" x="560" y="74" width="60" height="22"/>`;
+    // Secció sense sostre: no oculta el moviment del balancí.
+    s += `<rect class="t mao" x="560" y="128" width="60" height="432"/>`;
     s += `<rect x="90" y="556" width="470" height="8" class="t2 pedra"/>`;
 
     if (!w) {
@@ -72,16 +71,6 @@
       <path d="M345 44L420 104M345 176L420 116M835 44L760 104M835 176L760 116" class="t"/>
       <rect class="t" fill="url(#g-fustac)" x="342" y="97" width="496" height="26" rx="4"/><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#c7935c" stroke-width="13"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#c7935c" stroke-width="13"/>
       <circle class="t llauto" cx="590" cy="110" r="11"/></g></g>`;
-    // indicadors de temperatura i innovació
-    if (!w) {
-      s += `<g data-fase="0.1-0.34">${retol(476, 250, 'cilindre calent', { fons: '#d9482b' })}</g><g data-fase="0.36-1,0-0.04">${retol(470, 250, 'cilindre fred', { fons: '#2f7fb5' })}</g>`;
-      s += `<g data-fase="0.86-1,0-0.1">${retol(468, 322, 'calor perduda!', { fons: '#fffdf7', color: '#d9482b', vora: '#d9482b' })}</g>`;
-      s += RI.innova(925, 62, 'INNOVACIÓ · el buit deixa que l’aire empenyi el pistó', { apunta: [330, 226], halo: [330, 300, 74, 92], w: 410 });
-    } else {
-      s += retol(518, 198, 'cilindre sempre calent (~100 °C)', { fons: '#fffdf7', color: '#d9482b', vora: '#d9482b', w: 244 });
-      s += retol(492, 416, 'fred (~20 °C)', { fons: '#d6ecf3', color: '#184566', vora: '#2f7fb5', w: 126 });
-      s += RI.innova(925, 62, 'INNOVACIÓ · condensador separat: estalvia 75 % de carbó', { apunta: [476, 462], halo: [490, 498, 70, 68], w: 435 });
-    }
     return svg(s, '-60 -64 1320 784');
   }
 

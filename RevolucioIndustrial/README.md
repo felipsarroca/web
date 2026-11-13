@@ -4,7 +4,7 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
 
-**Estat actual:** redisseny en curs. La portada i els vuit capítols ja tenen una primera implementació, però encara falta revisar-ne les il·lustracions, els textos i la visualització en diverses mides. Consulta [REDISSENY.md](REDISSENY.md) per veure què s'ha fet i què queda pendent. Les captures d'aquest README corresponen a la versió anterior.
+**Estat actual:** vuit capítols amb esquemes animats, fotografies històriques i dotze reconstruccions il·lustrades amb ChatGPT. Les etiquetes apareixen per fases per evitar la saturació visual. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i la feina pendent.
 
 ## Obrir el web
 
@@ -21,21 +21,24 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Explorar **vuit capítols**: camp, Newcomen i Watt, tèxtil, fàbrica, metalls, locomotora, vaixell i capital.
 - Avançar les fases de cada procés amb les fletxes, el control lliscant o la reproducció automàtica.
 - Alternar entre l'explicació essencial i la capa d'anàlisi de **1r de Batxillerat**, amb una font pública per capítol.
-- Obrir la **vista de peces** de les màquines de vapor, la locomotora i el vaixell.
-- Fer servir el **mode projecció** per veure la màquina i els controls dins de la pantalla; `Esc` el tanca.
-- Recórrer el **mapa del canvi** per passar d'un sistema a l'altre.
+- Obrir **Il·lustració** per veure la màquina completa amb materials i volum, i **Màquina real** per consultar la fotografia o el gravat històric.
+- Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
+- Explorar seccions, plantes i perspectives quan l'escena disposa de diversos punts de vista.
+- Fer servir **Amplia** en mòbil; `Esc` tanca la vista ampliada.
 
 Els diagrames SVG són originals i explicatius. Mostren principis mecànics i fluxos; quan representen un model simplificat s'indica expressament. El [guió i la visió del projecte](VISIO-I-GUIO.md) documenten les decisions, les fonts del quadern i els passos següents.
 
 ## Captures
 
-| Portada | Mode projecció |
+| Portada | Esquema animat amb etiquetes del pas |
 |---|---|
 | ![Portada del web amb la màquina de vapor](captures/portada.png) | ![Comparació de Newcomen i Watt en mode projecció](captures/projeccio.png) |
 
-| Vista de peces de la locomotora | Vista mòbil |
+| Reconstrucció il·lustrada amb ChatGPT | Vista mòbil |
 |---|---|
-| ![Sis parts de la locomotora separades](captures/peces-locomotora.png) | ![Capítol del vapor en una pantalla mòbil](captures/mobil.png) |
+| ![Màquina de Newcomen il·lustrada amb ChatGPT](captures/illustracio.png) | ![Capítol del vapor en una pantalla mòbil](captures/mobil.png) |
+
+![Secció lateral del teler amb les etiquetes del pas](captures/textil-net.png)
 
 ## Rigor i abast
 
@@ -47,9 +50,11 @@ Les fonts públiques principals són el [Science Museum](https://blog.sciencemus
 
 Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026**. Queden per desenvolupar il·lustracions tècniques més detallades i validades per a models històrics concrets, recorreguts interiors de fàbriques i transports, i comparacions de velocitat amb rutes i dates documentades. El guió enumera aquestes feines i els criteris de revisió.
 
-La interfície s'ha comprovat al navegador a 1440 × 900, 1366 × 768 i 390 × 844, incloent-hi la navegació, les fases, la reproducció, el canvi de nivell, les vistes de peces i el mode projecció.
+La darrera comprovació ha recorregut les 26 escenes en cinc mides (130 combinacions), incloent-hi canvis de vista, etiquetes, làmines i reptes. Sense errors de JavaScript ni desbordaments detectats. Les captures mostren la versió actual.
 
-Les fotografies de «Màquina real» provenen de Wikimedia Commons i cada cartela n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines de vista explotada generades amb IA s'indiquen com a tals. Les proves de 125 % i 150 % d'escalat real del sistema operatiu queden pendents.
+Les fotografies de «Màquina real» provenen de Wikimedia Commons i cada cartela n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les reconstruccions de «Il·lustració» són imatges generades amb ChatGPT, amb proporcions orientatives: serveixen per reconèixer el conjunt. El funcionament s'estudia amb l'esquema animat. Els prompts es conserven a `assets/prompts-illustracions.json`.
+
+La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació, amb el servidor local actiu: `python assets/verifica_visual.py` (requereix Playwright i Chrome).
 
 ## Llicència i incidències
 

@@ -144,7 +144,18 @@
   const desa = (k, v) => { try { localStorage.setItem('ri:' + k, v); } catch (e) { /* sense emmagatzematge */ } };
   const llegeix = (k) => { try { return localStorage.getItem('ri:' + k); } catch (e) { return null; } };
 
-  RI.capitol = (def) => { st.cap = def; };
+  RI.capitol = (def) => {
+    def.escenes.forEach((e) => {
+      const art = RI.ILLUSTRACIONS && RI.ILLUSTRACIONS[e.id];
+      if (art) e.explotada = { img: art, illustracio: true, model: e.nom + ' · reconstrucció il·lustrada amb IA' };
+      // Primer una projecció plana; la perspectiva es pot explorar després.
+      if (e.vistes) {
+        const ordre = { tall: 0, planta: 1, '3d': 2 };
+        e.vistes.sort((a, b) => (ordre[a.id] ?? 3) - (ordre[b.id] ?? 3));
+      }
+    });
+    st.cap = def;
+  };
 
   /* ---------- escala de la interfície ---------- */
   const BASE_W = 1440, BASE_H = 800;
@@ -262,10 +273,10 @@
     <section class="escenari" id="escenari">
       <div class="barra">
         ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : '<div class="vistes buida"></div>'}
-        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) || (e.real && e.real.etiquetes) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Fotografia o gravat autèntic de la màquina">Màquina real</button>' : ''}${hasRealSvg ? '<button type="button" class="b-recons" data-recons aria-pressed="false" hidden title="Canvia entre la imatge autèntica i la reconstrucció dibuixada">Reconstrucció</button>' : ''}<label class="comp" hidden title="Llisca per comparar el diagrama amb la màquina real"><span>Diagrama</span><input type="range" id="comp" min="0" max="100" value="0" aria-label="Compara el diagrama amb la màquina real"><span>Real</span></label><button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false" title="Mostra el dibuix a pantalla completa">Amplia</button></div>
+        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) || (e.real && e.real.etiquetes) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="${e.explotada && e.explotada.illustracio ? 'Mostra la reconstrucció il·lustrada' : 'Separa les peces'}">${e.explotada && e.explotada.illustracio ? 'Il·lustració' : 'Vista explotada'}</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Fotografia o gravat autèntic de la màquina">Màquina real</button>' : ''}${hasRealSvg ? '<button type="button" class="b-recons" data-recons aria-pressed="false" hidden title="Canvia entre la imatge autèntica i la reconstrucció dibuixada">Reconstrucció</button>' : ''}<label class="comp" hidden title="Llisca per comparar el diagrama amb la màquina real"><span>Diagrama</span><input type="range" id="comp" min="0" max="100" value="0" aria-label="Compara el diagrama amb la màquina real"><span>Real</span></label><button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false" title="Mostra el dibuix a pantalla completa">Amplia</button></div>
       </div>
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
-        ${e.explotada ? `<div class="lamina-exp" id="lamina-exp"><div class="lamina-zoom"><img src="${esc(e.explotada.img)}" alt="" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div></div>` : ''}
+        ${e.explotada ? `<div class="lamina-exp${e.explotada.illustracio ? ' illustracio' : ''}" id="lamina-exp"><div class="lamina-zoom"><img src="${esc(e.explotada.img)}" alt="${esc(e.nom)} · reconstrucció il·lustrada" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div></div>` : ''}
         ${realHtml}
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
         ${e.llegenda === false ? '' : llegenda}
@@ -335,7 +346,7 @@
       const b = ev.target.closest('[data-capa]'); if (!b) return;
       const on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on);
-      if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); if (expSvg) expSvg.classList.toggle('sense-etq', !on); const lr = $('#lamina-real'); if (lr) lr.classList.toggle('sense-etq', !on); }
+      if (b.dataset.capa === '_etq') { st.etq = st.etq === 'focus' ? 'totes' : st.etq === 'totes' ? 'cap' : 'focus'; aplicaEtiquetes(); }
       else if (b.dataset.capa === '_exp') { st.explota = on; if (on && st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
       else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } const cmp = $('#comp'); if (cmp) cmp.value = 100; aplicaExplota(); }
       else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); }
@@ -356,7 +367,7 @@
     });
     (e.capes || []).forEach((c) => svgEl.classList.toggle('capa-' + c.id, !!c.on));
     mostraCapes(); aplicaExplota();
-    st.etq = true;
+    st.etq = 'focus'; aplicaEtiquetes();
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     if (expSvg) expSvg.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     $$('.p-nav, #connecta').forEach((n) => n.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); }));
@@ -431,7 +442,7 @@
     const araEl = $('#ara'), e = st.esc;
     if (!araEl || !e) return;
     if (st.explota || st.real) {
-      araEl.innerHTML = `<span class="k muted">⏸</span><strong>${st.real ? 'Màquina real' : 'Vista explotada'}</strong><small class="seg-hint">Làmina estàtica · torna al diagrama per animar</small>`;
+      araEl.innerHTML = `<span class="k muted">⏸</span><strong>${st.real ? 'Màquina real' : e.explotada && e.explotada.illustracio ? 'Il·lustració' : 'Vista explotada'}</strong><small class="seg-hint">Làmina estàtica · torna al diagrama per animar</small>`;
       return;
     }
     const f = (e.fases || [])[st.iFase];
@@ -464,7 +475,7 @@
     const mEl = $('#tela .model');
     if (mEl && e) {
       const v = e.vistes ? e.vistes.find((x) => x.id === st.vista) : null;
-      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model + ' · il·lustració generada amb IA i revisada' : (v && v.model) || e.model;
+      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model : (v && v.model) || e.model;
       if (m) mEl.textContent = m;
     }
     const offMap = {};
@@ -502,6 +513,7 @@
   function posaEtiquetes(e) {
     const vAct = e.vistes ? e.vistes.find((v) => v.id === st.vista) : null;
     renderEtqs(svgEl, (vAct && vAct.etiquetes) || e.etiquetes, e);
+    aplicaEtiquetes();
   }
   function muntaLamina(e) {
     if (!expSvg || !e.explotada) return;
@@ -608,11 +620,24 @@
     requestAnimationFrame(encaixaConnecta);
   }
   /* cada fase pot posar el focus en unes peces (la resta s'atenua una mica) */
+  function aplicaEtiquetes() {
+    const b = $('#capes [data-capa="_etq"]');
+    if (b) {
+      b.textContent = 'Etiquetes: ' + ({ focus: 'del pas', totes: 'totes', cap: 'cap' }[st.etq]);
+      b.setAttribute('aria-pressed', String(st.etq === 'totes'));
+    }
+    [svgEl, expSvg, $('#lamina-real')].filter(Boolean).forEach((n) => {
+      n.classList.toggle('etiquetes-focus', st.etq === 'focus');
+      n.classList.toggle('sense-etq', st.etq === 'cap');
+    });
+    focus();
+  }
   function focus() {
     if (!svgEl || !st.esc) return;
     const f = (st.esc.fases || [])[st.iFase], llista = !st.sel && f && f.focus ? f.focus : null;
     svgEl.classList.toggle('te-focus', !!llista);
     $$('[data-part],[data-etq]', svgEl).forEach((n) => n.classList.toggle('foc', !!llista && llista.indexOf(n.dataset.part || n.dataset.etq) >= 0));
+    $$('.etq', svgEl).forEach((n) => { n.style.display = st.etq === 'cap' || (st.etq === 'focus' && !n.classList.contains('foc') && !n.classList.contains('sel')) ? 'none' : ''; });
   }
 
   function tecles(ev) {
