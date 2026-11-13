@@ -4,7 +4,9 @@
 
 Aquest fitxer és la guia per reprendre la feina des de qualsevol ordinador. **Actualitza la taula d'estat cada vegada que acabis una peça.**
 
-**Darrera revisió gràfica (13-11-2026):** dotze il·lustracions noves amb l'eina integrada de ChatGPT a `img/illustration-*.webp`; prompts a `assets/prompts-illustracions.json`. Substitueixen les làmines explotades carregades de guies i les reconstruccions SVG estàtiques. Fotografies històriques conservades. Els diagrames animats comencen en secció o planta quan hi ha diverses vistes; mostren les etiquetes del pas, amb opció de veure-les totes o cap. Retirades les càpsules d'innovació superposades i simplificat el fons de Newcomen/Watt. Mides de les il·lustracions orientatives; referència per al funcionament: l'esquema interactiu. Verificació reproduïble: `assets/verifica_visual.py`.
+**Darrera revisió gràfica (13-11-2026, segon encàrrec de Felip):** tretze parelles de màquina muntada i vista explotada amb ChatGPT (`img/illustration-*.webp`, `img/exploded-*.webp`). Les explotades parteixen de la làmina muntada, amb desplaçaments curts dels conjunts i punts numerats verificats per imatge. Afegida la roda de filar tradicional. Eliminats el comparador amb fotos i els selectors de punts de vista. El cotó té cinc animacions noves en perspectiva obliqua fixa (`js/textil-models.js`); les plantes i seccions ja no són la vista inicial. Fotografies conservades al desplegable de fonts. Prompts a `assets/prompts-explotades.json`. Peu fix amb distintiu a l'esquerra, dues línies a la dreta i textos «Codi: AGPLv3 · Continguts: CC BY-NC-SA 4.0», segons BibliotecaSol. La llicència de codi porta al LICENSE d'aquest projecte; la de continguts, al resum català de Creative Commons.
+
+**Verificació d'aquesta revisió:** 27 escenes × 5 finestres (1920×1080, 1366×768, 1093×614 amb DPR 1,25, 911×512 amb DPR 1,5 i 390×844): sense errors de JavaScript ni desbordaments. Comprovats els modes, la selecció de peces, el zoom, les etiquetes, els reptes, els enllaços del peu i 60 posicions dels mecanismes amb moviment reduït activat/desactivat. L'escalat de Windows s'ha simulat amb l'espai útil i el DPR; no s'ha canviat el sistema operatiu.
 
 ## 1. Decisions preses
 
@@ -59,13 +61,13 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
 | `js/vapor.js` | Fet i revisat visualment | Newcomen, condensador de Watt, màquina rotativa (sol i planeta amb etiqueta dinàmica) + repte. |
 | `js/tren.js` | Fet i revisat visualment | Rocket en tall + cursa Liverpool–Manchester (cavalls amb arnés) + repte. |
 | `js/fabrica.js` | Fet i revisat visualment | Filatura hidràulica i de vapor, capes «força» i «cotó», etiquetes ajustades + repte. |
-| `js/textil.js` | Fet i revisat visualment | Balança, llançadora volant, Jenny, Water Frame (bastidor eixamplat i canal continu), mula + repte. |
+| `js/textil.js`, `textil-models.js`, `textil-roda.js` | Revisió nova | Roda de filar → teler → Jenny → Water Frame → mula → síntesi de la cursa. Una perspectiva obliqua, amb controls de fases i repte ampliat. |
 | `js/metalls.js` | Fet i revisat visualment | Carbonera/forn de coc, alt forn amb bufadora i escòria, pudelador i convertidor Bessemer basculant + repte. |
 | `js/vaixell.js` | Fet i revisat visualment | Tall net del *Great Western* amb eixàrcia i folre de coure, *Rattler*–*Alecto*, mapa Atlàntic real + repte. |
 | `js/camp.js` | Fet i revisat visualment | Rotació Norfolk detallada, sembradora de Tull amb transmissió i ocells, arada de Rotherham amb gleves i tàndem + repte. |
 | `js/capital.js` | Fet i revisat visualment | Societat anònima amb viaducte i estació, banc/borsa i cotització annotada, càrtel/trust/holding + repte. |
 | `js/portada.js` + estil | Fet i revisat visualment | Paisatge complet amb 8 fites històriques detallades i tots els pins visibles a escriptori i mòbil. |
-| `js/reals.js` | Substituït | Manifest `RI.ILLUSTRACIONS`: 12 reconstruccions raster amb ChatGPT. Retirades les reconstruccions SVG estàtiques. Les fotos històriques es conserven. |
+| `js/reals.js` | Substituït | Manifest de 13 màquines muntades i 13 explotades, posicions dels punts i llegendes interactives. Fotos històriques al desplegable de fonts. |
 | Esborrar `app.js` i `styles.css` | Fet | |
 | Verificació a 3 mides | Fet | Comprovat sense errors de consola ni desbordaments a 1440×900, 1366×768 i 390×844 (panell dret sense scroll a escriptori). |
 | `README.md`, captures noves, `VISIO-I-GUIO.md` | Pendent | |

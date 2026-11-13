@@ -63,7 +63,7 @@
     document.querySelector('#app').innerHTML = `
     <header class="cap">${RI.marca()}<p class="lema">Entra dins les màquines. Atura el temps. Mira com funcionen.</p>${RI.eines()}</header>
     <main class="portada">
-      <section class="vista"><div class="vista-text"><h1>La Revolució Industrial <em>per dins</em></h1><p>Vuit capítols i vint-i-sis màquines i processos animats. Tria un lloc del paisatge o un capítol.</p></div>${paisatge()}</section>
+      <section class="vista"><div class="vista-text"><h1>La Revolució Industrial <em>per dins</em></h1><p>Vuit capítols i vint-i-set màquines i processos animats. Tria un lloc del paisatge o un capítol.</p></div>${paisatge()}</section>
       <nav class="targetes" aria-label="Capítols">${C.map((c, i) => `<a href="${c.id}.html" class="targeta-cap" style="--c:${c.color}"><span class="n">${i + 1}</span><span class="ic">${RI.icona(c, 26)}</span><strong>${c.nom}</strong><span class="q">${c.pregunta}</span><small>${c.epoca}</small></a>`).join('')}</nav>
     </main>${RI.peu()}`;
     RI.activaEines();

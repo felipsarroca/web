@@ -4,7 +4,7 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
 
-**Estat actual:** vuit capítols amb esquemes animats, fotografies històriques i dotze reconstruccions il·lustrades amb ChatGPT. Les etiquetes apareixen per fases per evitar la saturació visual. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i la feina pendent.
+**Estat actual:** vuit capítols, 27 escenes i tretze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i cinc mecanismes animats amb una sola perspectiva obliqua. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
 ## Obrir el web
 
@@ -21,24 +21,25 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Explorar **vuit capítols**: camp, Newcomen i Watt, tèxtil, fàbrica, metalls, locomotora, vaixell i capital.
 - Avançar les fases de cada procés amb les fletxes, el control lliscant o la reproducció automàtica.
 - Alternar entre l'explicació essencial i la capa d'anàlisi de **1r de Batxillerat**, amb una font pública per capítol.
-- Obrir **Il·lustració** per veure la màquina completa amb materials i volum, i **Màquina real** per consultar la fotografia o el gravat històric.
+- Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats i fitxes clicables.
 - Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
-- Explorar seccions, plantes i perspectives quan l'escena disposa de diversos punts de vista.
+- Seguir cada mecanisme tèxtil des d'una única perspectiva obliqua, amb peces projectades en un mateix espai i fils associats al seu fus.
+- Consultar la fotografia històrica i la seva atribució en el desplegable de fonts.
 - Fer servir **Amplia** en mòbil; `Esc` tanca la vista ampliada.
 
 Els diagrames SVG són originals i explicatius. Mostren principis mecànics i fluxos; quan representen un model simplificat s'indica expressament. El [guió i la visió del projecte](VISIO-I-GUIO.md) documenten les decisions, les fonts del quadern i els passos següents.
 
 ## Captures
 
-| Portada | Esquema animat amb etiquetes del pas |
+| Portada | Vista explotada del teler |
 |---|---|
-| ![Portada del web amb la màquina de vapor](captures/portada.png) | ![Comparació de Newcomen i Watt en mode projecció](captures/projeccio.png) |
+| ![Portada del web](captures/portada.png) | ![Teler de llançadora volant amb els conjunts separats](captures/teler-explotat-1366.png) |
 
-| Reconstrucció il·lustrada amb ChatGPT | Vista mòbil |
+| Animació obliqua del teler | Vista mòbil |
 |---|---|
-| ![Màquina de Newcomen il·lustrada amb ChatGPT](captures/illustracio.png) | ![Capítol del vapor en una pantalla mòbil](captures/mobil.png) |
+| ![Mecanisme del teler en una perspectiva obliqua fixa](captures/teler-moviment-1366.png) | ![Vista explotada del teler en mòbil](captures/teler-explotat-390.png) |
 
-![Secció lateral del teler amb les etiquetes del pas](captures/textil-net.png)
+![Roda de filar tradicional](captures/roda-filar.png)
 
 ## Rigor i abast
 
@@ -50,9 +51,13 @@ Les fonts públiques principals són el [Science Museum](https://blog.sciencemus
 
 Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026**. Queden per desenvolupar il·lustracions tècniques més detallades i validades per a models històrics concrets, recorreguts interiors de fàbriques i transports, i comparacions de velocitat amb rutes i dates documentades. El guió enumera aquestes feines i els criteris de revisió.
 
-La darrera comprovació ha recorregut les 26 escenes en cinc mides (130 combinacions), incloent-hi canvis de vista, etiquetes, làmines i reptes. Sense errors de JavaScript ni desbordaments detectats. Les captures mostren la versió actual.
+La darrera comprovació ha recorregut les 27 escenes en cinc mides (135 combinacions), incloent-hi làmines, selecció de peces, zoom, etiquetes, fases dels mecanismes i reptes. Sense errors de JavaScript ni desbordaments detectats. Les captures mostren la versió actual.
 
-Les fotografies de «Màquina real» provenen de Wikimedia Commons i cada cartela n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les reconstruccions de «Il·lustració» són imatges generades amb ChatGPT, amb proporcions orientatives: serveixen per reconèixer el conjunt. El funcionament s'estudia amb l'esquema animat. Els prompts es conserven a `assets/prompts-illustracions.json`.
+Les fotografies històriques provenen de Wikimedia Commons i el desplegable de fonts n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines són reconstruccions generades amb ChatGPT; les vistes explotades s'han editat a partir de les màquines muntades, conservant el model i l'orientació dels conjunts. Les mides són orientatives. Els prompts es conserven a `assets/prompts-illustracions.json` i `assets/prompts-explotades.json`.
+
+Els cinc mecanismes tèxtils utilitzen una projecció obliqua comuna calculada a partir de geometria tridimensional, amb rotacions dins del pla de cada roda i desplaçaments del carro que conserven les correspondències entre fils. Són esquemes didàctics: els materials i els detalls es simplifiquen respecte de les làmines.
+
+La roda de filar es basa en el principi de la roda de Saxònia amb pedal i aleta, documentat al [Science Museum Group](https://collection.sciencemuseumgroup.org.uk/objects/co44835/saxony-wheel-late-18th-century). La Water Frame representada té quatre caps de filatura; la data de 1769 identifica la invenció, no una reproducció exacta del prototip de patent.
 
 La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació, amb el servidor local actiu: `python assets/verifica_visual.py` (requereix Playwright i Chrome).
 

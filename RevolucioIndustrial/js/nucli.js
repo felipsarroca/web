@@ -147,11 +147,9 @@
   RI.capitol = (def) => {
     def.escenes.forEach((e) => {
       const art = RI.ILLUSTRACIONS && RI.ILLUSTRACIONS[e.id];
-      if (art) e.explotada = { img: art, illustracio: true, model: e.nom + ' · reconstrucció il·lustrada amb IA' };
-      // Primer una projecció plana; la perspectiva es pot explorar després.
-      if (e.vistes) {
-        const ordre = { tall: 0, planta: 1, '3d': 2 };
-        e.vistes.sort((a, b) => (ordre[a.id] ?? 3) - (ordre[b.id] ?? 3));
+      if (art) {
+        e.laminaMuntada={img:art, parts:RI.LAMINA_PARTS[e.id]||[]};
+        e.explotada=RI.EXPLOTADES[e.id];
       }
     });
     st.cap = def;
@@ -170,7 +168,7 @@
   }
 
   /* ---------- peu i capçalera ---------- */
-  const peu = () => `<footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Obra sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · Codi <a href="https://github.com/felipsarroca/web/blob/main/RevolucioIndustrial/LICENSE" target="_blank" rel="noopener noreferrer">AGPL-3.0-or-later</a> · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>`;
+  const peu = () => `<footer class="felip-app-footer"><a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0"><img class="felip-license-image" src="assets/CC_BY-NC-SA.png" alt="Creative Commons BY-NC-SA"></a><div class="felip-footer-text"><p>Aplicació creada per <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> amb assistència de la IA</p><p>Codi: <a href="https://github.com/felipsarroca/web/blob/main/RevolucioIndustrial/LICENSE" target="_blank" rel="noopener noreferrer">AGPLv3</a> · Continguts: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> · © 2026 · <a href="https://github.com/felipsarroca/web/issues/new?template=revolucio-industrial.yml" target="_blank" rel="noopener noreferrer">Suggeriments i errors</a></p></div></footer>`;
   const marca = () => `<a class="marca" href="index.html" aria-label="Torna a la portada"><span class="marca-roda" aria-hidden="true">${RI.svgMarca()}</span><span class="marca-text"><strong>La Revolució Industrial</strong><em>per dins</em></span></a>`;
   RI.svgMarca = () => `<svg viewBox="0 0 40 40" width="38" height="38"><g class="gira-lent" style="transform-origin:20px 20px">${RI.engranatge(20, 20, 14, 10, { color: '#d9482b', boto: '#f6da7c' })}</g></svg>`;
   function eines() {
@@ -255,28 +253,22 @@
     const fases = e.fases || [];
     st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 1; st.zoom = false;
     (e.capes || []).forEach((c) => { st.capes[c.id] = !!c.on; });
-    st.play = !e.estatica && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    st.play = !e.laminaMuntada && !e.estatica && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
     st.fiPas = st.play && st.pasAPas && fases.length ? fases[0].fins : null;
     marcaTab(i);
     history.replaceState(null, '', '#' + e.id);
-    const hasRealSvg = !!(e.real && RI.REALS && RI.REALS[e.id]);
     const LL = Array.isArray(cap.llegenda) ? cap.llegenda : [['#f08a4b', 'calor · vapor'], ['#2f7fb5', 'aigua · fred']];
     const llegenda = cap.llegenda ? `<div class="llegenda" aria-label="Codi de colors">${LL.map(([c, t]) => `<span><i style="background:${c}"></i>${esc(t)}</span>`).join('')}<span><i class="foc"></i>on mirar ara</span></div>` : '';
-    /* «Màquina real»: sempre la foto o el gravat autèntic; la reconstrucció dibuixada és una opció a part */
-    const realHtml = !e.real ? '' : `<div class="lamina-real" id="lamina-real" data-mode="foto">
-        <div class="lamina-zoom"><figure class="real-foto"><div class="foto-marc"><img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy">${(e.real.etiquetes || []).map(([part, x, y, t]) => `<button type="button" class="foto-etq" data-tria="${part}" style="left:${x}%;top:${y}%">${esc(t || (e.parts[part] ? e.parts[part].nom : part))}</button>`).join('')}</div></figure>${hasRealSvg ? `<div class="real-svg">${RI.REALS[e.id]()}</div>` : ''}</div>
-        <div class="real-peu" data-peu="foto"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${esc(e.real.lic)}</small></div>
-        ${hasRealSvg ? `<div class="real-peu" data-peu="dibuix"><strong>Reconstrucció dibuixada</strong><span>Dibuix d’estudi fet per a aquest web a partir de fonts d’època.</span><small>No és una fotografia · proporcions aproximades</small></div>` : ''}
-      </div>`;
+    const realHtml = e.laminaMuntada ? RI.laminaHTML(e,'muntada') : '';
     $('#cos').className = 'cos';
     $('#cos').innerHTML = `
     <section class="escenari" id="escenari">
       <div class="barra">
-        ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : '<div class="vistes buida"></div>'}
-        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) || (e.real && e.real.etiquetes) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="${e.explotada && e.explotada.illustracio ? 'Mostra la reconstrucció il·lustrada' : 'Separa les peces'}">${e.explotada && e.explotada.illustracio ? 'Il·lustració' : 'Vista explotada'}</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Fotografia o gravat autèntic de la màquina">Màquina real</button>' : ''}${hasRealSvg ? '<button type="button" class="b-recons" data-recons aria-pressed="false" hidden title="Canvia entre la imatge autèntica i la reconstrucció dibuixada">Reconstrucció</button>' : ''}<label class="comp" hidden title="Llisca per comparar el diagrama amb la màquina real"><span>Diagrama</span><input type="range" id="comp" min="0" max="100" value="0" aria-label="Compara el diagrama amb la màquina real"><span>Real</span></label><button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false" title="Mostra el dibuix a pantalla completa">Amplia</button></div>
+        <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}</div>
+        <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
-        ${e.explotada ? `<div class="lamina-exp${e.explotada.illustracio ? ' illustracio' : ''}" id="lamina-exp"><div class="lamina-zoom"><img src="${esc(e.explotada.img)}" alt="${esc(e.nom)} · reconstrucció il·lustrada" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div></div>` : ''}
+        ${e.explotada && RI.laminaHTML ? RI.laminaHTML(e,'explotada') : ''}
         ${realHtml}
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
         ${e.llegenda === false ? '' : llegenda}
@@ -297,15 +289,16 @@
       <div class="peca" id="peca"></div>
       ${e.clau ? `<div class="clau"><span>La idea clau</span><p>${e.clau}</p></div>` : ''}
       ${e.batx ? `<div class="batx-wrap" id="batx-wrap"><button type="button" class="batx-toggle" aria-expanded="false"><span>Per aprofundir · 1r de Batxillerat</span><em style="font-style:normal">Mostra ▾</em></button><div class="batx-bloc"><button type="button" class="fitxa-tanca" aria-label="Tanca">×</button><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div></div>` : ''}
+      ${e.real ? `<details class="fonts-lamina"><summary>Font i fotografia històrica</summary><p>${esc(e.real.titol)} · ${esc(e.real.museu)}</p><a href="${esc(e.real.img)}" target="_blank" rel="noopener noreferrer">Obre la fotografia</a><small>${esc(e.real.lic)}</small></details>` : ''}
       ${connecta(cap, i)}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
     svgEl = $('#tela svg'); expSvg = $('#lamina-exp .exp-svg'); els = {};
     st.vista = e.vistes && e.vistes.length ? e.vistes[0].id : null;
-    st.explota = false; st.real = false;
-    const bExp = $('#capes [data-capa="_exp"]'), bReal = $('#capes [data-capa="_real"]');
+    st.explota = false; st.real = !!e.laminaMuntada;
+    const bExp = $('.barra [data-capa="_exp"]'), bReal = $('.barra [data-capa="_real"]');
     if (bExp) bExp.hidden = !e.explotada && !$$('[data-exp]', svgEl).length;
-    mostraVistes(); posaEtiquetes(e); if (e.explotada && expSvg) muntaLamina(e); prepara(); pintaPeca();
+    mostraVistes(); posaEtiquetes(e);  prepara(); pintaPeca();
     $('#b-play').addEventListener('click', togglePlay);
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
     $('#b-ant').addEventListener('click', () => vesFase(st.iFase - 1));
@@ -337,7 +330,7 @@
       $$('[data-vista-btn]', vBox).forEach((x) => x.setAttribute('aria-pressed', x.dataset.vistaBtn === st.vista));
       mostraVistes(); posaEtiquetes(e); svgEl._seg = null; pintaPeca(); aplicaExplota(); st.brut = true;
     });
-    $('#capes').addEventListener('click', (ev) => {
+    $('.barra').addEventListener('click', (ev) => {
       const bz = ev.target.closest('[data-zoom]');
       if (bz) { setZoom(!st.zoom); return; }
       const bRec = ev.target.closest('[data-recons]');
@@ -347,16 +340,17 @@
       const on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on);
       if (b.dataset.capa === '_etq') { st.etq = st.etq === 'focus' ? 'totes' : st.etq === 'totes' ? 'cap' : 'focus'; aplicaEtiquetes(); }
-      else if (b.dataset.capa === '_exp') { st.explota = on; if (on && st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
-      else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } const cmp = $('#comp'); if (cmp) cmp.value = 100; aplicaExplota(); }
+      else if (b.dataset.capa === '_mov') { const wasStatic=st.real||st.explota; st.explota=false; st.real=false; aplicaExplota(); if(wasStatic&&!e.estatica&&!matchMedia('(prefers-reduced-motion: reduce)').matches)togglePlay(); }
+      else if (b.dataset.capa === '_exp') { st.explota = true; if (on && st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
+      else if (b.dataset.capa === '_real') { st.real = true; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
       else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); }
       st.brut = true;
     });
-    const cmp = $('#comp');
-    if (cmp) cmp.addEventListener('input', () => aplicaComp());
-    const lrEl = $('#lamina-real');
-    if (lrEl) { const im = $('.real-foto img', lrEl); if (im) { im.loading = 'eager'; im.addEventListener('load', encaixaFoto); } }
-    if (lrEl) lrEl.addEventListener('click', (ev) => { const b = ev.target.closest('.foto-etq'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria); });
+    for(const plate of $$('.lamina-plate')) {
+      const choose=ev=>{const n=ev.target.closest('[data-tria],[data-part]');if(n)tria((n.dataset.tria||n.dataset.part)===st.sel?null:(n.dataset.tria||n.dataset.part));};
+      plate.addEventListener('click',choose);
+      plate.addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&ev.target.matches('.plate-mark')){ev.preventDefault();choose(ev);}});
+    }
     const telaEl = $('#tela');
     telaEl.addEventListener('mousemove', (ev) => {
       if (!st.zoom) return;
@@ -369,7 +363,7 @@
     mostraCapes(); aplicaExplota();
     st.etq = 'focus'; aplicaEtiquetes();
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
-    if (expSvg) expSvg.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
+
     $$('.p-nav, #connecta').forEach((n) => n.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); }));
     $('#peca').addEventListener('click', (ev) => {
       if (ev.target.closest('.fitxa-tanca')) { tria(null); return; }
@@ -395,13 +389,6 @@
     marc.style.width = Math.round(img.naturalWidth * k) + 'px'; marc.style.height = Math.round(img.naturalHeight * k) + 'px';
   }
   RI.encaixaFoto = encaixaFoto;
-  /* comparador diagrama ↔ real: retalla la làmina real des de l'esquerra */
-  function aplicaComp() {
-    const lr = $('#lamina-real'), c = $('#comp'); if (!lr) return;
-    const v = st.real && c ? +c.value : 100;
-    lr.style.clipPath = st.real && v < 100 ? `inset(0 0 0 ${100 - v}%)` : '';
-    lr.classList.toggle('partida', st.real && v < 100);
-  }
   /* mode ampliat (sobretot per al mòbil): el dibuix ocupa tota la pantalla, en horitzontal si es pot */
   function amplia(force) {
     const esc_ = $('#escenari'), b = $('#b-amplia'); if (!esc_) return;
@@ -442,7 +429,7 @@
     const araEl = $('#ara'), e = st.esc;
     if (!araEl || !e) return;
     if (st.explota || st.real) {
-      araEl.innerHTML = `<span class="k muted">⏸</span><strong>${st.real ? 'Màquina real' : e.explotada && e.explotada.illustracio ? 'Il·lustració' : 'Vista explotada'}</strong><small class="seg-hint">Làmina estàtica · torna al diagrama per animar</small>`;
+      araEl.innerHTML = `<span class="k muted">⏸</span><strong>${st.real ? 'Màquina muntada' : 'Vista explotada'}</strong><small class="seg-hint">Làmina estàtica · tria Moviment per animar</small>`;
       return;
     }
     const f = (e.fases || [])[st.iFase];
@@ -462,20 +449,24 @@
     }
     const bz = $('#capes [data-zoom]');
     if (bz) { bz.hidden = !estatica; if (!estatica && st.zoom) setZoom(false); }
+    $$('.barra [data-capa="_real"]').forEach(b=>b.setAttribute('aria-pressed',st.real));
+    $$('.barra [data-capa="_exp"]').forEach(b=>b.setAttribute('aria-pressed',st.explota));
+    $$('.barra [data-capa="_mov"]').forEach(b=>b.setAttribute('aria-pressed',!st.real&&!st.explota));
     botoPlay();
     actualitzaAra();
     svgEl.classList.toggle('explota', st.explota && !lam);
     const tela = $('#tela'); if (tela) tela.classList.toggle('real-activa', st.real);
     const escE = $('#escenari'); if (escE) { escE.classList.toggle('real-activa', st.real); escE.classList.toggle('exp-activa', st.explota); }
-    if (lam) lam.classList.toggle('activa', st.explota);
-    if (lamR) lamR.classList.toggle('activa', st.real);
-    const bRec = $('#capes [data-recons]'); if (bRec) bRec.hidden = !st.real;
-    const cmpL = $('#capes .comp'); if (cmpL) cmpL.hidden = !st.real || (lamR && lamR.dataset.mode === 'dibuix');
-    aplicaComp(); if (st.real) requestAnimationFrame(encaixaFoto);
+    if (lam) {lam.classList.toggle('activa', st.explota);lam.inert=!st.explota;lam.setAttribute('aria-hidden',!st.explota);}
+    if (lamR) {lamR.classList.toggle('activa', st.real);lamR.inert=!st.real;lamR.setAttribute('aria-hidden',!st.real);}
+    svgEl.setAttribute('aria-hidden',estatica);
+
+
+
     const mEl = $('#tela .model');
     if (mEl && e) {
       const v = e.vistes ? e.vistes.find((x) => x.id === st.vista) : null;
-      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model : (v && v.model) || e.model;
+      const m = st.real ? e.nom+' · reconstrucció il·lustrada' : st.explota ? e.nom+' · vista explotada' : (v && v.model) || e.model;
       if (m) mEl.textContent = m;
     }
     const offMap = {};
@@ -563,7 +554,7 @@
     if (st.explota || st.real) {
       if (!surtLamina) return;
       st.explota = false; st.real = false;
-      const bExp = $('#capes [data-capa="_exp"]'), bReal = $('#capes [data-capa="_real"]');
+      const bExp = $('.barra [data-capa="_exp"]'), bReal = $('.barra [data-capa="_real"]');
       if (bExp) bExp.setAttribute('aria-pressed', 'false');
       if (bReal) bReal.setAttribute('aria-pressed', 'false');
       aplicaExplota();
@@ -614,6 +605,7 @@
       if (svgEl) svgEl.classList.toggle('te-sel', !!st.sel);
       if (expSvg) expSvg.classList.toggle('te-sel', !!st.sel);
       $$('[data-part],[data-etq]', tela).forEach((n) => n.classList.toggle('sel', (n.dataset.part || n.dataset.etq) === st.sel));
+      $$('.lamina-clau [data-tria]',tela).forEach(n=>{n.classList.toggle('sel',n.dataset.tria===st.sel);n.setAttribute('aria-pressed',n.dataset.tria===st.sel);});
       $$('.foto-etq', tela).forEach((n) => n.classList.toggle('sel', n.dataset.tria === st.sel));
       focus();
     }
@@ -626,7 +618,7 @@
       b.textContent = 'Etiquetes: ' + ({ focus: 'del pas', totes: 'totes', cap: 'cap' }[st.etq]);
       b.setAttribute('aria-pressed', String(st.etq === 'totes'));
     }
-    [svgEl, expSvg, $('#lamina-real')].filter(Boolean).forEach((n) => {
+    [svgEl, expSvg, ...$$('.lamina-plate')].filter(Boolean).forEach((n) => {
       n.classList.toggle('etiquetes-focus', st.etq === 'focus');
       n.classList.toggle('sense-etq', st.etq === 'cap');
     });
@@ -812,6 +804,10 @@
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); });
+    const mesuraPeu=()=>{const f=document.querySelector('.felip-app-footer');if(!f)return;const z=+getComputedStyle(document.documentElement).getPropertyValue('--z')||1;document.documentElement.style.setProperty('--peu-h',Math.ceil(f.getBoundingClientRect().height/z)+'px');};
+    requestAnimationFrame(()=>{mesuraPeu();const f=document.querySelector('.felip-app-footer');if(f)new ResizeObserver(mesuraPeu).observe(f);});
+    window.addEventListener('resize',mesuraPeu);
+
     document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && $('#escenari.gran') && document.documentElement.classList.contains('mobil')) amplia(false); });
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && $('#escenari.gran')) amplia(false); });
     if (document.body.dataset.capitol === 'portada') { if (RI.portada) RI.portada(); }
