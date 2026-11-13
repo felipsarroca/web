@@ -1,6 +1,6 @@
 # La Revolució Industrial per dins — visió i guió del projecte
 
-**Estat:** Felip ha autoritzat començar la construcció. Primera versió funcional en curs, amb vuit capítols. Les idees futures continuen sent propostes.<br>
+**Estat:** primera versió funcional publicada el 13-11-2026, amb vuit capítols. Les idees futures continuen sent propostes.<br>
 **Data de la conversa:** 12 de novembre de 2026.<br>
 **Repositori:** `W:\La meva unitat\Github\web\RevolucioIndustrial` (era buit en començar aquesta proposta).<br>
 **Quadern de treball:** NotebookLM, «SOC4 - 3. Els orígens de la industrialització», ID `c24727a0-d943-4a7f-8b3a-cdaf64df2f9a`.
@@ -189,3 +189,12 @@ Felip va dir «Ja pots començar. Endavant. Sorprèn-me». S'ha creat una primer
 Els SVG són esquemes originals i deliberadament simplificats. Les vistes de peces no són encara il·lustracions tècniques d'un exemplar museístic concret. El treball futur més important és aprofundir i verificar visualment aquests models, ampliar el recorregut interior de màquines i fàbriques i preparar comparacions quantitatives del transport amb dades documentades. També cal revisar la web amb escalat real de Windows al 125 % i al 150 % i, abans de publicar, comprovar la versió final tal com la veurà l'usuari.
 
 **Punt de represa:** obrir el web i el `README.md`, contrastar els diagrames amb les fonts de cada capítol i continuar el guió d'aquest fitxer. No donar per aprovades les propostes de fases futures fins que Felip les revisi.
+
+## 11. Publicació del 13-11-2026
+
+- Repositori GitHub: `https://github.com/felipsarroca/web/tree/main/RevolucioIndustrial`.
+- GitHub Pages: `https://felipsarroca.github.io/web/RevolucioIndustrial/`.
+- Enllaç curt: `https://ja.cat/revindustrial` (ID de ja.cat `524564`), actiu i apuntant a GitHub Pages.
+- Targeta afegida al menú general `https://felipsarroca.github.io/web/`, amb el curt de ja.cat com a destinació.
+- Commit inicial publicat: `df5f122eacf280dda929a10c11b89212ac29c83a`. El flux de GitHub Pages ha acabat correctament i s'han comprovat l'adreça directa, els fitxers estàtics, la navegació i la redirecció del curt al navegador.
+- Els esquemes continuen sent didàctics i simplificats. Per a les fases següents, prioritzar models històrics concrets, vistes tècniques validades, trajectes i temps de viatge documentats i proves d'escalat real del sistema al 125 % i 150 %.

@@ -2,6 +2,8 @@
 
 Atles interactiu en català per entendre **com funcionen** les innovacions de la industrialització. Creat per projectar a classe i per explorar-lo individualment a 4t d'ESO i a 1r de Batxillerat.
 
+**Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
+
 ## Obrir el web
 
 Obre [`index.html`](index.html) al navegador. També el pots servir localment des d'aquesta carpeta:
@@ -41,7 +43,7 @@ Les fonts públiques principals són el [Science Museum](https://blog.sciencemus
 
 ## Estat del projecte
 
-Aquesta és la **primera versió funcional**. Queden per desenvolupar il·lustracions tècniques més detallades i validades per a models històrics concrets, recorreguts interiors de fàbriques i transports, i comparacions de velocitat amb rutes i dates documentades. El guió enumera aquestes feines i els criteris de revisió.
+Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026**. Queden per desenvolupar il·lustracions tècniques més detallades i validades per a models històrics concrets, recorreguts interiors de fàbriques i transports, i comparacions de velocitat amb rutes i dates documentades. El guió enumera aquestes feines i els criteris de revisió.
 
 La interfície s'ha comprovat al navegador a 1440 × 900, 1366 × 768 i 390 × 844, incloent-hi la navegació, les fases, la reproducció, el canvi de nivell, les vistes de peces i el mode projecció. Les proves de 125 % i 150 % d'escalat real del sistema operatiu queden pendents.
 
