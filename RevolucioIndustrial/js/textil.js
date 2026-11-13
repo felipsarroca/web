@@ -103,14 +103,16 @@
         <path d="${Array.from({ length: 40 }, (_, i) => `M${292 + i * 16} 322v26`).join('')}" stroke="#3e3934" stroke-width="1.4" opacity=".8"/>
       </g>
       <g data-part="caixes" data-exp="-58 14">
-        <rect class="t fusta" x="150" y="318" width="92" height="50" rx="5"/><rect class="fusta3" x="160" y="326" width="76" height="28" rx="3"/>
-        <rect id="t3-tacoL" class="t ferro2" x="164" y="328" width="14" height="24" rx="2"/>
-        <circle id="t3-copL" cx="195" cy="340" r="14" fill="#d9482b" opacity="0"/>
+        <rect class="t fusta" x="124" y="306" width="122" height="70" rx="6"/><rect fill="#3a2a1c" x="136" y="318" width="110" height="40" rx="3"/>
+        <rect id="t3-tacoL" fill="#a0522d" stroke="#2a2420" stroke-width="2.2" x="140" y="316" width="20" height="44" rx="3"/><path d="M150 316V300" stroke="#4c3926" stroke-width="3"/>
+        <text x="185" y="396" class="tx-p mig" style="font-size:13px;font-weight:800">taco</text>
+        <circle id="t3-copL" cx="196" cy="338" r="18" fill="#d9482b" opacity="0"/>
       </g>
       <g data-part="caixes" data-exp="58 14">
-        <rect class="t fusta" x="958" y="318" width="92" height="50" rx="5"/><rect class="fusta3" x="964" y="326" width="76" height="28" rx="3"/>
-        <rect id="t3-tacoR" class="t ferro2" x="1022" y="328" width="14" height="24" rx="2"/>
-        <circle id="t3-copR" cx="1005" cy="340" r="14" fill="#d9482b" opacity="0"/>
+        <rect class="t fusta" x="954" y="306" width="122" height="70" rx="6"/><rect fill="#3a2a1c" x="954" y="318" width="110" height="40" rx="3"/>
+        <rect id="t3-tacoR" fill="#a0522d" stroke="#2a2420" stroke-width="2.2" x="1040" y="316" width="20" height="44" rx="3"/><path d="M1050 316V300" stroke="#4c3926" stroke-width="3"/>
+        <text x="1015" y="396" class="tx-p mig" style="font-size:13px;font-weight:800">taco</text>
+        <circle id="t3-copR" cx="1004" cy="338" r="18" fill="#d9482b" opacity="0"/>
       </g>
       <g data-exp="0 -26"><g id="t3-llan" data-part="llancadora">
         <path class="t" fill="#7d4c23" d="M-46 0q22-14 46-14t46 14q-22 14-46 14t-46-14z"/>
@@ -120,7 +122,7 @@
         <circle cx="-18" cy="11" r="3" fill="#c9952a"/><circle cx="18" cy="11" r="3" fill="#c9952a"/>
       </g></g>
       <g data-part="cordill" data-exp="0 46">
-        <path id="t3-cord" d="M174 334L600 412L1026 334" class="nf" stroke="#4c3926" stroke-width="2.4" stroke-dasharray="5 3"/>
+        <path id="t3-cord" d="M150 300L600 412L1050 300" class="nf" stroke="#4c3926" stroke-width="2.4" stroke-dasharray="5 3"/>
         <g id="t3-manec"><rect class="t" fill="url(#g-fustac)" x="-9" y="-14" width="18" height="44" rx="7"/><circle class="t llauto" cx="0" cy="-6" r="5"/>
           <path d="M10 18q22 18 32 48" stroke="#c68d67" stroke-width="12" stroke-linecap="round" fill="none" opacity=".88"/>
           <circle cx="8" cy="14" r="9" fill="#e5b38c" stroke="#2a2420" stroke-width="1.6"/>
@@ -142,8 +144,8 @@
       <rect class="t1" fill="#e6d09c" x="314" y="530" width="572" height="44" rx="8"/>
       <circle class="t ferro2" cx="912" cy="552" r="18"/>
     </g>`;
-    s += `<g data-fase="0.17-0.36,0.67-0.86">${retol(600, 46, 'una estirada de cordill fa volar la llançadora!', { fons: '#d9482b', w: 380 })}</g>`;
-    s += RI.innova(225, 58, 'INNOVACIÓ · caixes + cordill: 1 sol teixidor fa teles amples', { apunta: [196, 318], halo: [196, 342, 62, 38], w: 405 });
+    s += `<g data-fase="0.17-0.36,0.67-0.86">${retol(790, 46, 'una estirada de cordill fa volar la llançadora!', { fons: '#d9482b', w: 380 })}</g>`;
+    s += RI.innova(225, 58, 'INNOVACIÓ · caixes + cordill: 1 sol teixidor fa teles amples', { apunta: [185, 306], halo: [185, 341, 78, 50], w: 405 });
     s += `</g>`;
 
     /* === VISTA 2: SECCIÓ LATERAL (OBERTURA DE LA CALADA I PICADA) === */
@@ -232,9 +234,9 @@
       const cop = m > 0.24 && m < 0.48 ? Math.sin(((m - 0.24) / 0.24) * Math.PI) : 0;
       const mx = 600 + (anada ? 1 : -1) * 52 * cop;
       el('t3-manec').setAttribute('transform', `translate(${mx.toFixed(1)} 412)`);
-      el('t3-cord').setAttribute('d', `M174 334L${mx.toFixed(1)} 412L1026 334`);
-      el('t3-tacoL').setAttribute('x', anada ? (164 + cop * 28).toFixed(1) : '164');
-      el('t3-tacoR').setAttribute('x', !anada ? (1022 - cop * 28).toFixed(1) : '1022');
+      el('t3-cord').setAttribute('d', `M${(150 + (anada ? cop * 34 : 0)).toFixed(1)} 300L${mx.toFixed(1)} 412L${(1050 - (!anada ? cop * 34 : 0)).toFixed(1)} 300`);
+      el('t3-tacoL').setAttribute('x', anada ? (140 + cop * 34).toFixed(1) : '140');
+      el('t3-tacoR').setAttribute('x', !anada ? (1040 - cop * 34).toFixed(1) : '1040');
       el('t3-copL').setAttribute('opacity', anada && m > 0.28 && m < 0.4 ? (cop * 0.5).toFixed(2) : '0');
       el('t3-copR').setAttribute('opacity', !anada && m > 0.28 && m < 0.4 ? (cop * 0.5).toFixed(2) : '0');
 
@@ -376,12 +378,13 @@
 
     /* Gran volant manual a la dreta */
     s += `<g data-part="roda" data-exp="72 15">
-      <g id="j3-roda">${roda(946, 360, 108, { raigs: 10, color: '#9f6939', gruix: 14, extra: '<circle class="t ferro2" cx="946" cy="360" r="14"/><rect class="t fusta2" x="1012" y="352" width="28" height="16" rx="6"/>' })}</g>
+      <g id="j3-roda">${roda(946, 360, 108, { raigs: 10, color: '#9f6939', gruix: 14, extra: '<circle class="t ferro2" cx="946" cy="360" r="14"/><circle class="t fusta2" cx="991" cy="360" r="9"/>' })}</g>
     </g>`;
-    s += persona(1080, 560, 175, { color: '#7a4f9a', brac: 'M-8-68l-28-6M8-68l16-12', attr: 'class="atenua"' });
-    s += `<g id="j3-r1" opacity="0">${retol(600, 672, '1 · pinça OBERTA: deixa passar metxa gruixuda i tova', { fons: '#5b8c35', w: 445 })}</g>
-          <g id="j3-r2" opacity="0">${retol(600, 672, '2 · pinça TANCADA: estira la metxa i els fusos la torcen en fil fi', { fons: '#d9482b', w: 525 })}</g>
-          <g id="j3-r3" opacity="0">${retol(600, 672, '3 · el carro torna i el fil-guia bobina els 8 cons alhora', { fons: '#2f7fb5', w: 475 })}</g>`;
+    s += persona(1112, 622, 290, { color: '#7a4f9a', brac: 'M8-68l8 26', attr: 'class="atenua"' });
+    s += `<g class="atenua"><path id="j3-brac" d="" fill="none" stroke="#2a2420" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><circle id="j3-ma" r="11" fill="#e9b98f" stroke="#2a2420" stroke-width="3"/></g>`;
+    s += `<g id="j3-r1" opacity="0">${retol(600, 98, '1 · pinça OBERTA: deixa passar metxa gruixuda i tova', { fons: '#5b8c35', w: 445 })}</g>
+          <g id="j3-r2" opacity="0">${retol(600, 98, '2 · pinça TANCADA: estira la metxa i els fusos la torcen en fil fi', { fons: '#d9482b', w: 525 })}</g>
+          <g id="j3-r3" opacity="0">${retol(600, 98, '3 · el carro torna i el fil-guia bobina els 8 cons alhora', { fons: '#2f7fb5', w: 475 })}</g>`;
     s += RI.innova(300, 56, 'INNOVACIÓ · 1 roda + 1 pinça = 8 fils estirats i torçuts alhora', { apunta: [730, 215], halo: [835, 240, 108, 72], w: 455 });
     s += `</g>`;
 
@@ -440,7 +443,15 @@
       el('j3-rovs').innerHTML = rovs;
       el('j3-fils').innerHTML = fils;
       const gir = k >= 1;
-      if (gir) el('j3-roda').setAttribute('transform', `rotate(${((t * 190) % 360).toFixed(1)} 946 360)`);
+      if (gir) g._ang = (t * 190) % 360;
+      const ang = g._ang || 0;
+      el('j3-roda').setAttribute('transform', `rotate(${ang.toFixed(1)} 946 360)`);
+      /* braç amb colze: la mà segueix la maneta de la roda */
+      const ra = (ang * Math.PI) / 180, hx = 946 + 45 * Math.cos(ra), hy = 360 + 45 * Math.sin(ra), sx = 1089, sy = 425, L = 104;
+      const dx = hx - sx, dy = hy - sy, d = Math.min(Math.hypot(dx, dy), 2 * L - 1), a0 = Math.atan2(dy, dx), b = Math.acos(d / (2 * L));
+      const ex = sx + L * Math.cos(a0 - b), ey = sy + L * Math.sin(a0 - b);
+      el('j3-brac').setAttribute('d', `M${sx} ${sy}L${ex.toFixed(1)} ${ey.toFixed(1)}L${hx.toFixed(1)} ${hy.toFixed(1)}`);
+      el('j3-ma').setAttribute('cx', hx.toFixed(1)); el('j3-ma').setAttribute('cy', hy.toFixed(1));
       el('j3-bandes').setAttribute('opacity', gir ? (0.35 + 0.55 * Math.sin(t * 16)).toFixed(2) : '.55');
       if (!g._j3mf) { g._j3mf = Array.from(g.querySelectorAll('.j3-mf')); g._j3wh = Array.from(g.querySelectorAll('.j3-whorl')); }
       g._j3mf.forEach((m) => m.setAttribute('transform', gir ? `translate(0 ${((t * 60) % 14 - 7).toFixed(1)})` : ''));
@@ -722,7 +733,6 @@
     s += `<g id="m3-r1" opacity="0">${retol(750, 152, '1 · el carro surt: els corrons donen metxa i els fusos la torcen', { fons: '#d9482b', w: 430 })}</g>
           <g id="m3-r2" opacity="0">${retol(750, 152, '2 · corrons PARATS: un últim estirament fa el fil ultra-fi', { fons: '#2a2420', w: 420 })}</g>
           <g id="m3-r3" opacity="0">${retol(750, 152, '3 · el carro torna i el fil-guia baixa per bobinar els 6 cons', { fons: '#2f7fb5', w: 410 })}</g>`;
-    s += persona(1124, 592, 168, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     s += `</g>`;
 
     /* === VISTA 2: SECCIÓ LATERAL (1 CAP CLAR) === */
@@ -740,8 +750,12 @@
     /* Fil entre corrons i punta del fus + ona helicoïdal de torsió */
     s += `<line id="m2-fil0" x1="386" y1="282" x2="600" y2="330" stroke="#2a2420" stroke-width="7" stroke-linecap="round"/><line id="m2-fil" x1="386" y1="282" x2="600" y2="330" stroke="#f2c230" stroke-width="4.5" stroke-linecap="round"/><path id="m2-torc" d="" fill="none" stroke="#8f4f12" stroke-width="1.8" stroke-linecap="round"/>`;
     s += `<g data-part="carro" id="m2-carro"><rect class="t" fill="url(#g-fustac)" x="-70" y="470" width="170" height="80" rx="8"/><g id="m2-w0">${roda(-36, 566, 24, { raigs: 6 })}</g><g id="m2-w1">${roda(66, 566, 24, { raigs: 6 })}</g><g data-part="fus" data-exp="0 -54"><path d="M40 500L-6 322" class="t" stroke-width="7"/><path id="m2-cop" class="t" fill="url(#g-cotoblanc)" d="M28 470L6 380h12l24 86z"/><path id="m2-guia" d="M-24 352H22" stroke="#2f7fb5" stroke-width="4.2" stroke-linecap="round"/></g></g>`;
-    s += RI.innova(760, 62, 'INNOVACIÓ · corrons (Water Frame) + carro mòbil (Jenny)', { apunta: [340, 282], halo: [340, 282, 58, 42], w: 435 });
-    s += persona(1130, 600, 170, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
+    s += RI.innova(760, 52, 'INNOVACIÓ · corrons (Water Frame) + carro mòbil (Jenny)', { apunta: [340, 282], halo: [340, 282, 58, 42], w: 435 });
+    s += `<g id="m2-r1" opacity="0">${retol(760, 104, '1 · el carro surt: els corrons donen metxa i el fus la torça', { fons: '#d9482b', w: 440 })}</g>
+          <g id="m2-r2" opacity="0">${retol(760, 104, '2 · corrons PARATS: el carro estira una mica més → fil molt fi', { fons: '#2a2420', w: 470 })}</g>
+          <g id="m2-r3" opacity="0">${retol(760, 104, '3 · el carro torna i el fus enrotlla el fil acabat', { fons: '#2f7fb5', w: 400 })}</g>`;
+    /* cota del recorregut del carro */
+    s += `<g opacity=".85"><path d="M449 178v20M954 178v20M449 188H954" stroke="#2a2420" stroke-width="2" fill="none"/><path d="M449 188l12-6v12zM954 188l-12-6v12z" fill="#2a2420"/><rect x="574" y="176" width="256" height="24" rx="12" fill="#fffdf7" stroke="#2a2420" stroke-width="1.5"/><text x="702" y="193" class="tx-p mig" style="font-weight:800">el carro recorre ≈ 1,5 m (no a escala)</text></g>`;
     s += `</g>`;
 
     return svg(s);
@@ -813,17 +827,18 @@
       el('m2-guia').setAttribute('transform', p >= 0.6 ? `translate(0 ${(Math.sin(((p - 0.6) / 0.4) * Math.PI) * 34).toFixed(1)})` : '');
       const w = p < 0.6 ? 0 : tram(p, 0.6, 1, 0, 14);
       el('m2-cop').setAttribute('d', `M${28 - w} 470L6 380h12l${24 + w} 86z`);
+      ['m2-r1', 'm2-r2', 'm2-r3'].forEach((id, i) => el(id).setAttribute('opacity', i === k ? 1 : 0));
     }
   }
 
   RI.capitol({
-    id: 'textil', titol: 'El cotó',
+    id: 'textil', titol: 'El cotó', llegenda: [['#fff8e8', 'metxa (cotó tou)'], ['#f2c230', 'fil estirat i torçut'], ['#d9482b', 'fil de trama']],
     escenes: [
       {
         id: 'cursa', nom: 'La cursa', any: '1733 – 1785', durada: 30, bucle: true,
         pregunta: 'Per què un invent en demana un altre?',
         intro: 'Per fer tela calen dues feines: <b>filar</b> (fer fil amb la fibra) i <b>teixir</b> (encreuar fils). Quan una s’accelera, l’altra no dona l’abast. Mira com es decanta la balança.',
-        svg: cursa, anima: animaCursa,
+        svg: cursa, anima: animaCursa, llegenda: false,
         fases: [
           { fins: 0.1, nom: 'Abans: tot a mà', text: 'Roda de filar i teler manual, a casa. Lent, però equilibrat.' },
           { fins: 0.28, nom: '1733 · Llançadora volant', text: 'Els teixidors treballen el doble de ràpid… i gasten el doble de fil. <b>Falta fil</b>: el problema ara és filar.' },
@@ -840,12 +855,12 @@
         model: 'Teler manual vist des de dalt · esquema didàctic',
         pregunta: 'Com passes un fil entre centenars de fils sense tocar-lo?',
         intro: 'Teixir és passar un fil (la <b>trama</b>) per entre els fils llargs (l’<b>ordit</b>). Abans la llançadora es passava de mà en mà; Kay la fa volar amb una estirada de cordill.',
-        svg: teler, anima: animaTeler,
+        svg: teler, anima: animaTeler, innova: [1],
         vistes: [
           {
             id: '3d', nom: 'Perspectiva 3D',
             model: 'Teler manual de fusta amb llançadora volant · perspectiva 3D',
-            etiquetes: [['ordit', 600, 128, 600, 200], ['pinta', 980, 205, 870, 260, 'Pinta i batà'], ['caixes', 120, 315, 195, 340, 'Caixa'], ['llancadora', 450, 286, 420, 338], ['cordill', 1025, 420, 740, 384, 'Cordill i mànec'], ['tela', 600, 650, 600, 520]]
+            etiquetes: [['ordit', 600, 128, 600, 200], ['pinta', 980, 205, 870, 260, 'Pinta i batà'], ['caixes', 70, 250, 150, 306, 'Caixa i taco'], ['llancadora', 450, 286, 420, 338], ['cordill', 1025, 420, 740, 384, 'Cordill i mànec'], ['tela', 600, 650, 600, 520]]
           },
           {
             id: 'tall', nom: 'Secció lateral (calada)',
@@ -882,9 +897,10 @@
         },
         real: {
           img: 'img/real-teler.webp',
-          titol: 'Teler manual amb caixa per a llançadora volant',
-          museu: 'Weaver’s Cottage Museum · Kilbarchan (Escòcia)',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+          titol: 'Teler manual de teixidor, encara en funcionament',
+          museu: 'Weaver’s Cottage · Kilbarchan (Escòcia)',
+          lic: 'Foto: Richard Sutcliffe · Wikimedia Commons · CC BY-SA 2.0',
+          etiquetes: [['tela', 70, 62, 'Tela'], ['ordit', 52, 48, 'Ordit']]
         },
         clau: 'Un sol teixidor fa teles amples i treballa el doble de ràpid: de cop, falta fil.',
         batx: { titol: 'Kay i la por a les màquines', text: 'Teixidors que temien perdre la feina van assaltar la casa de Kay, que va acabar emigrant a França. La resistència a les màquines és anterior al ludisme (1811-1816) i forma part de la història de cada innovació.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
@@ -894,7 +910,7 @@
         model: 'Spinning Jenny de vuit fusos, vista des de dalt · esquema didàctic',
         pregunta: 'Com fila una sola persona vuit fils alhora?',
         intro: 'Filar és fer dues coses: <b>estirar</b> la fibra i <b>tòrcer-la</b> perquè no es trenqui. La Jenny ho fa amb vuit fils a la vegada, amb una roda i una pinça.',
-        svg: jenny, anima: animaJenny,
+        svg: jenny, anima: animaJenny, innova: [1],
         vistes: [
           {
             id: '3d', nom: 'Perspectiva 3D',
@@ -929,9 +945,10 @@
         },
         real: {
           img: 'img/real-jenny.webp',
-          titol: 'Rèplica operativa d’una Spinning Jenny',
-          museu: 'Belper North Mill Museum · Derbyshire (Regne Unit)',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+          titol: 'Spinning Jenny (model del tipus de Hargreaves)',
+          museu: 'North Mill Museum · Belper, Derbyshire (Regne Unit)',
+          lic: 'Foto: Betty Longbottom · Wikimedia Commons · CC BY-SA 2.0',
+          etiquetes: [['fusos', 52, 13, 'Fusos'], ['metxes', 62, 46, 'Bobines de metxa']]
         },
         clau: 'Una màquina petita, barata i manual: multiplica el fil sense sortir de casa.',
         batx: { titol: 'Una màquina domèstica', text: 'La Jenny no necessitava motor i cabia en una casa: va reforçar el treball a domicili abans que la fàbrica el substituís. El seu fil, poc resistent, servia per a la trama però no per a l’ordit.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
@@ -941,7 +958,7 @@
         model: 'Un cap de filatura de la Water Frame, de costat · esquema didàctic',
         pregunta: 'Com s’estira el cotó sense mans?',
         intro: 'El secret són <b>tres parells de corrons</b>. Cada parell gira més de pressa que l’anterior i, com que estira més fil del que rep, el cotó s’aprima.',
-        svg: water, anima: animaWater,
+        svg: water, anima: animaWater, innova: [1],
         vistes: [
           {
             id: '3d', nom: 'Perspectiva 3D (4 fusos)',
@@ -976,9 +993,10 @@
         },
         real: {
           img: 'img/real-water.webp',
-          titol: 'Water Frame original de Richard Arkwright (c. 1775)',
+          titol: 'Water Frame d’Arkwright (c. 1775)',
           museu: 'Science and Industry Museum · Manchester',
-          lic: 'Foto: Wikimedia Commons (CC BY 3.0)'
+          lic: 'Foto: Clem Rutter · Wikimedia Commons · CC BY 3.0',
+          etiquetes: [['metxa', 46, 22, 'Bobines de metxa'], ['corrons', 52, 42, 'Corrons'], ['aleta', 48, 92, 'Aletes i bobines']]
         },
         clau: 'Fil fort, continu i sense força humana: la màquina que va crear la fàbrica.',
         batx: { titol: 'Arkwright, empresari', text: 'Més que inventor, Arkwright va ser organitzador: va reunir invents d’altres, capital i mà d’obra (sovint infantil) a Cromford (1771). Les seves patents van ser anul·lades el 1785 i la màquina es va estendre per tot Lancashire.', font: 'https://www.cromfordmills.org.uk/', fontNom: 'Cromford Mills' }
@@ -988,17 +1006,17 @@
         model: 'Mula de filar, de costat (un sol fus) · esquema didàctic',
         pregunta: 'I si ajuntem el millor de les dues màquines?',
         intro: 'Crompton combina els <b>corrons</b> de la Water Frame amb el <b>carro mòbil</b> de la Jenny. Com la mula, filla d’egua i ase, és un encreuament.',
-        svg: mula, anima: animaMula,
+        svg: mula, anima: animaMula, innova: [0, 1],
         vistes: [
           {
-            id: '3d', nom: 'Perspectiva del carro',
-            model: 'Mula de Crompton · tren de corrons + carro mòbil de 6 fusos sobre rails',
-            etiquetes: [['fileta', 165, 118, 185, 185], ['corrons', 380, 198, 375, 270], ['carro', -10, 640, 20, 540, 'Carro mòbil', 'm3-carro'], ['fus', 65, 285, -18, 385, 'Fusos i fil-guia', 'm3-carro']]
-          },
-          {
-            id: 'tall', nom: 'Secció lateral',
+            id: 'tall', nom: 'De costat (1 fus)',
             model: 'Secció lateral d’un fus de la mula · estirament i bobinatge',
             etiquetes: [['fileta', 90, 110, 140, 160], ['corrons', 400, 210, 340, 260], ['carro', 15, 646, 15, 540, 'Carro mòbil', 'm2-carro'], ['fus', 112, 408, 22, 420, 'Fus i fil-guia', 'm2-carro']]
+          },
+          {
+            id: '3d', nom: 'Perspectiva (6 fusos)',
+            model: 'Mula de Crompton · tren de corrons + carro mòbil de 6 fusos sobre rails',
+            etiquetes: [['fileta', 165, 118, 185, 185], ['corrons', 380, 198, 375, 270], ['carro', -10, 640, 20, 540, 'Carro mòbil', 'm3-carro'], ['fus', 65, 285, -18, 385, 'Fusos i fil-guia', 'm3-carro']]
           }
         ],
         fases: [
@@ -1022,9 +1040,10 @@
         },
         real: {
           img: 'img/real-mula.webp',
-          titol: 'Mula de filar històrica en sala tèxtil',
+          titol: 'Mula de filar del segle XIX (ja automàtica)',
           museu: 'Quarry Bank Mill · Styal, Cheshire (Regne Unit)',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+          lic: 'Foto: David Dixon · Wikimedia Commons · CC BY-SA 2.0',
+          etiquetes: [['fus', 18, 32, 'Fusos'], ['carro', 30, 62, 'Carro mòbil']]
         },
         clau: 'Fil fi com el de l’Índia, fort com el de la Water Frame i en quantitats industrials.',
         batx: { titol: 'El cotó britànic contra les mussolines de l’Índia', text: 'Fins llavors els teixits fins de cotó venien de Bengala. Amb la mula, Lancashire els pot imitar més barats; el 1830 una mula «automàtica» (Roberts) ja no necessita un filador expert. Relaciona-ho amb la desindustrialització tèxtil de l’Índia sota domini britànic.', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/cottonopolis', fontNom: 'Science and Industry Museum' }
@@ -1036,6 +1055,9 @@
       { q: 'Com estira el cotó la Water Frame?', o: ['Amb una pinça que recula', 'Amb parells de corrons que giren cada cop més de pressa', 'Amb el pes d’una pedra'], c: 1, e: 'Cada parell estira més fil del que rep de l’anterior.' },
       { q: 'Per què la Water Frame va fer néixer la fàbrica?', o: ['Perquè necessitava una roda hidràulica i un gran edifici', 'Perquè era molt petita', 'Perquè només la podien fer servir nens'], c: 0, e: 'Era massa gran i pesant per moure-la a mà o tenir-la a casa.' },
       { q: 'Què combina la mula de Crompton?', o: ['El teler i la llançadora', 'Els corrons de la Water Frame i el carro de la Jenny', 'La roda d’aigua i el vapor'], c: 1, e: 'D’aquí li ve el nom: és un encreuament de dues màquines.' },
+      { tipus: 'toca', esc: 'llancadora', part: 'caixes', p: 0.3, q: 'Toca la peça que va afegir John Kay perquè la llançadora volés sola.', e: 'Les caixes dels costats, amb un taco que colpeja la llançadora quan el teixidor estira el cordill.' },
+      { tipus: 'toca', esc: 'water', part: 'corrons', p: 0.4, q: 'Toca la peça de la Water Frame que estira el cotó sense mans.', e: 'Els corrons: cada parell gira més de pressa que l’anterior i el cotó s’aprima.' },
+      { tipus: 'ordena', esc: 'mula', q: 'Ordena el que fa la mula en cada cicle.', e: 'Surt el carro → últim estirament amb els corrons parats → el carro torna i enrotlla.' },
       { q: 'Per què les innovacions tèxtils arriben «en cadena»?', o: ['Per casualitat', 'Perquè cada invent crea un nou coll d’ampolla en una altra fase', 'Perquè ho manava el rei'], c: 1, e: 'Accelerar una fase deixa enrere l’altra i empeny a buscar una nova solució.' }
     ]
   });

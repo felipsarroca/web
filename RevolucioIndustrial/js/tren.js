@@ -22,7 +22,7 @@
     // roda posterior, bastidor
     s += `<g id="rpost">${roda(470, 540, 60, { raigs: 8, color: '#f2c230' })}</g>`;
     s += `<rect class="t fosc" x="336" y="440" width="528" height="13"/><rect class="t fusta" x="852" y="424" width="16" height="44"/><rect class="t fusta2" x="296" y="440" width="52" height="11"/>`;
-    s += persona(320, 440, 118, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
+    s += persona(316, 441, 215, { color: '#3d5a80', barret: true, brac: 'M-8-68l-10 24M8-68l14 22', attr: 'class="atenua"' });
     // fogar
     s += `<g data-part="fogar" data-exp="-42 -36"><rect class="t" fill="url(#g-coure)" x="350" y="235" width="92" height="215" rx="8"/><path d="M354 252v182M438 252v182" stroke="#7c3e16" stroke-width="2" stroke-dasharray="2 12" opacity=".6"/><rect x="358" y="243" width="76" height="180" rx="4" fill="#8fc3e0"/><rect class="t" x="368" y="255" width="64" height="188" rx="4" fill="#4a2a1c"/><rect x="368" y="255" width="64" height="150" fill="#f08a4b" opacity=".45"/>
       ${focs(384, 434, 2, 32, 30, 60)}<path d="M366 436h68" class="t4"/><path class="t carbo" d="M370 434q30-16 60 0z"/><rect class="t ferro" x="342" y="330" width="10" height="46" rx="3"/></g>`;
@@ -98,14 +98,14 @@
   }
 
   RI.capitol({
-    id: 'tren', titol: 'La locomotora',
+    id: 'tren', titol: 'La locomotora', llegenda: [['#f08a4b', 'calor · vapor'], ['#2f7fb5', 'aigua'], ['#c9d6dc', 'vapor usat']],
     escenes: [
       {
         id: 'rocket', nom: 'La Rocket per dins', any: '1829', qui: 'George i Robert Stephenson', durada: 20,
         model: 'Locomotora Rocket (1829), secció simplificada · reconstrucció didàctica',
         pregunta: 'Com mous un tren sense cavalls?',
         intro: 'La <b>Rocket</b> va guanyar el concurs de Rainhill (1829) i va fixar el model de totes les locomotores de vapor. Segueix l’energia: del foc a les rodes en cinc passos.',
-        svg: rocket, anima: animaRocket,
+        svg: rocket, anima: animaRocket, innova: [1, 4],
         fases: [
           { fins: 0.2, nom: 'El foc crema al fogar', text: 'El fogoner hi tira coc. Les parets del fogar estan envoltades d’aigua, que comença a escalfar-se.', focus: ['fogar', 'tender'] },
           { fins: 0.4, nom: 'Els tubs fan bullir l’aigua', text: 'Els gasos calents del foc travessen la caldera per 25 tubs de coure (aquí en veus quatre). Com que toquen molta aigua alhora, es fa <b>molt vapor en poc temps</b>.', focus: ['caldera', 'tubs'] },
@@ -136,9 +136,10 @@
         },
         real: {
           img: 'img/real-rocket.webp',
-          titol: 'Locomotora Rocket original de George i Robert Stephenson (1829)',
+          titol: 'La Rocket original (1829), tal com es conserva avui, vista per darrere',
           museu: 'National Railway Museum · York (Regne Unit)',
-          lic: 'Foto: domini públic (CC0) · Wikimedia Commons'
+          lic: 'Foto: Malcolmxl5 · Wikimedia Commons · CC0',
+          etiquetes: [['fogar', 58, 50, 'Fogar'], ['cilindre', 33, 38, 'Cilindre'], ['xemeneia', 36, 6, 'Xemeneia']]
         },
         clau: 'Calor → vapor a pressió → vaivé del pistó → gir de les rodes.',
         batx: { titol: 'Tres idees que fan guanyar la Rocket', text: 'Caldera multitubular, tiratge forçat amb el vapor d’escapament i cilindres units directament a les rodes. Cap era del tot nova (Trevithick ja havia fet córrer una locomotora el 1804), però combinades donen una màquina lleugera i ràpida. La innovació sovint és combinació.', font: 'https://www.railwaymuseum.org.uk/objects-and-stories/stephensons-rocket-rainhill-and-rise-locomotive', fontNom: 'National Railway Museum · La Rocket i Rainhill' }
@@ -147,7 +148,7 @@
         id: 'cursa', nom: 'Més de pressa que cap cavall', any: '1830', qui: 'Línia Liverpool – Manchester', durada: 14,
         pregunta: 'Quant temps guanyes amb el tren?',
         intro: 'El 1830 s’obre la primera línia entre dues ciutats amb locomotores de vapor i horari fix. Fes sortir els tres transports alhora i mira el rellotge.',
-        svg: cursa, anima: animaCursa,
+        svg: cursa, anima: animaCursa, llegenda: false,
         fases: [
           { fins: 0.15, nom: 'El tren arriba en menys de 2 hores', text: 'I no porta una quinzena de viatgers, sinó centenars, o desenes de tones de cotó del port a les fàbriques.' },
           { fins: 0.33, nom: 'La diligència, unes 4 hores', text: 'Cal canviar els cavalls pel camí. El bitllet és car i hi cap poca gent.' },
@@ -159,7 +160,8 @@
     ],
     repte: [
       { q: 'Per què la caldera de la Rocket té molts tubs?', o: ['Perquè pesi menys', 'Perquè els gasos calents toquin més aigua i facin més vapor', 'Per guardar-hi el carbó'], c: 1, e: 'Més superfície de contacte entre el foc i l’aigua vol dir més vapor en menys temps.' },
-      { q: 'Quina peça converteix el vaivé del pistó en gir?', o: ['La biela', 'La xemeneia', 'El tènder'], c: 0, e: 'La biela uneix el pistó amb un punt de la roda que no és el centre.' },
+      { tipus: 'toca', esc: 'rocket', part: 'biela', p: 0.7, q: 'Toca la peça que converteix el vaivé del pistó en gir de la roda.', e: 'La biela: uneix el pistó amb un punt de la roda que no és el centre.' },
+      { tipus: 'ordena', esc: 'rocket', q: 'Segueix l’energia: ordena el que passa dins la Rocket.', e: 'Foc → tubs i vapor → pistó → biela i roda → el vapor usat aviva el foc.' },
       { q: 'Què passa amb el vapor que ja ha empès el pistó?', o: ['Torna a la caldera', 'Surt per la xemeneia i aviva el foc', 'Es guarda al tènder'], c: 1, e: 'El raig de vapor arrossega l’aire i fa que el foc cremi més fort.' },
       { q: 'Què porta el tènder?', o: ['Viatgers', 'Aigua i combustible', 'Les eines del maquinista'], c: 1, e: 'Sense aigua no hi ha vapor i sense combustible no hi ha foc.' },
       { q: 'Cap al 1830, quant trigava el tren de Liverpool a Manchester?', o: ['Menys de 2 hores', 'Unes 6 hores', 'Un dia sencer'], c: 0, e: 'La diligència necessitava unes 4 hores i la barcassa del canal, unes 12.' },

@@ -13,16 +13,16 @@
   function motor(w) {
     let s = '';
     // paisatge i subsòl
-    s += `<rect class="cel" x="-60" width="1320" height="560"/>${nuvol(700, 90, 1.6)}${nuvol(1010, 150, 1.1)}<path class="herba2" d="M620 560c120-60 260-70 380-40s160 20 200 0v40z" opacity=".55"/>`;
+    s += `<rect class="cel" x="-60" y="-70" width="1320" height="630"/>${nuvol(700, 90, 1.6)}${nuvol(1010, 150, 1.1)}<path class="herba2" d="M620 560c120-60 260-70 380-40s160 20 200 0v40z" opacity=".55"/>`;
     s += `<rect class="terra" x="-60" y="560" width="1320" height="160"/><rect class="herba" x="620" y="556" width="640" height="9"/><rect class="herba" x="-60" y="556" width="120" height="9"/>`;
     s += `<rect x="806" y="560" width="88" height="152" fill="#e7dcc3" class="t"/><rect x="640" y="640" width="520" height="72" fill="#e7dcc3" class="t"/><rect x="808" y="600" width="84" height="80" fill="#e7dcc3"/>`;
     s += `<rect class="aigua" x="642" y="686" width="516" height="24" opacity=".9"/><path d="M650 686q12-6 24 0t24 0 24 0 24 0 24 0 24 0" class="nf t1 s-blanc"/>`;
     s += persona(1050, 710, 56, { color: '#7a5a3a', barret: true }) + `<rect class="aigua" x="1020" y="688" width="60" height="22" opacity=".85"/>`;
     s += txt(740, 672, 'la mina s’inunda', 'tx mig');
     // casa de màquines
-    s += `<polygon class="crema" points="75,78 325,22 600,78 600,96 560,96 560,560 90,560 90,78"/>`;
-    s += `<path d="M36 80L325 14 656 80" class="nf" stroke="#2a2420" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 80L325 14 656 80" class="nf" stroke="#a8452f" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>`;
-    s += `<rect class="t mao" x="60" y="80" width="30" height="480"/><rect class="t mao" x="560" y="128" width="60" height="432"/><rect class="t mao" x="560" y="74" width="60" height="22"/>`;
+    s += `<polygon class="crema" points="75,58 325,-44 600,58 600,96 560,96 560,560 90,560 90,58"/>`;
+    s += `<path d="M36 64L325 -52 656 64" class="nf" stroke="#2a2420" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 64L325 -52 656 64" class="nf" stroke="#a8452f" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>`;
+    s += `<rect class="t mao" x="60" y="62" width="30" height="498"/><rect class="t mao" x="560" y="128" width="60" height="432"/><rect class="t mao" x="560" y="74" width="60" height="22"/>`;
     s += `<rect x="90" y="556" width="470" height="8" class="t2 pedra"/>`;
 
     if (!w) {
@@ -53,14 +53,14 @@
     // cilindre
     s += `<g data-part="cilindre"><rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0"/>' : ''}
       <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="url(#g-ferroc)"/>${w ? '<path class="t" fill="url(#g-ferro)" d="M268 212h124v12H268z"/><rect class="t" fill="url(#g-llautoc)" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
-    if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 7"/></g>`;
-    s += `<text id="buit" x="330" y="350" class="tx-p mig" fill="#2f7fb5" opacity="0" style="font-weight:800">BUIT (≈0)</text>`;
+    if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="8 7"/></g>`;
+    s += `<text id="buit" x="330" y="350" class="mig" fill="#1d5f8f" opacity="0" style="font-weight:900;font-size:22px;paint-order:stroke;stroke:#fff;stroke-width:5px">BUIT</text>`;
     s += `<g data-part="piston" id="piston"><rect class="t" fill="url(#g-ferroh)" x="325" y="-112" width="10" height="112"/><rect class="t" fill="url(#g-ferroc)" x="282" y="-11" width="96" height="22" rx="3"/><rect x="284" y="-3" width="92" height="6" fill="url(#g-llauto)"/></g>`;
     s += `<line id="cad1" x1="330" y1="110" x2="330" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
     // vàlvules
     s += w ? valv('v-adm', 228, 196) + valv('v-eq', 420, 300) + valv('v-esc', 380, 414) : valv('v-adm', 330, 416) + valv('v-inj', 145, 290);
     // pressió atmosfèrica (Newcomen) o vapor (Watt)
-    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M296 128V214', '#2f7fb5', 7)}${fletxa('M364 128V214', '#2f7fb5', 7)}${retol(456, 150, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 205 })}</g>`;
+    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M290 120V214', '#2f7fb5', 11)}${fletxa('M330 116V200', '#2f7fb5', 11)}${fletxa('M370 120V214', '#2f7fb5', 11)}${retol(500, 150, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 205 })}</g>`;
     else s += `<g data-fase="0.03-0.45">${fletxa('M304 232V272', '#d9482b', 6)}${fletxa('M356 232V272', '#d9482b', 6)}${retol(495, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
     // bomba de la mina
     s += `<g data-part="bombamina"><rect class="t" x="832" y="535" width="36" height="172" fill="#58a9d6"/><path d="M850 696V544" class="flux s-blanc" stroke-width="5" data-flux="2.5" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><path class="t ferro2" d="M868 541h96v12h-96z"/>
@@ -82,7 +82,7 @@
       s += retol(492, 416, 'fred (~20 °C)', { fons: '#d6ecf3', color: '#184566', vora: '#2f7fb5', w: 126 });
       s += RI.innova(925, 62, 'INNOVACIÓ · condensador separat: estalvia 75 % de carbó', { apunta: [476, 462], halo: [490, 498, 70, 68], w: 435 });
     }
-    return svg(s);
+    return svg(s, '-60 -64 1320 784');
   }
 
   function animaMotor(w) {
@@ -105,7 +105,7 @@
       const v = el('vap'); v.setAttribute('y', (yp + 11).toFixed(1)); v.setAttribute('height', Math.max(0, 372 - yp - 11).toFixed(1));
       if (!w) {
         const buit = p >= 0.38 && p < 0.86;
-        v.setAttribute('fill', p < 0.34 ? '#f9c9a0' : color('#f9c9a0', '#e6f1f6', (p - 0.34) / 0.08));
+        v.setAttribute('fill', p < 0.34 ? '#f9c9a0' : color('#f9c9a0', '#bcdcef', (p - 0.34) / 0.08));
         el('buit').setAttribute('opacity', buit && u < 0.3 ? 1 : 0); el('buit').setAttribute('y', (yp + 11 + (372 - yp - 11) / 2 + 6).toFixed(1));
         el('cil').setAttribute('fill', color('#8fc3e0', '#f08a4b', calent));
         posaValv(el, 'v-adm', 330, 416, p < 0.34, true); posaValv(el, 'v-inj', 145, 290, p >= 0.34 && p < 0.47, true);
@@ -179,19 +179,19 @@
   }
 
   RI.capitol({
-    id: 'vapor', titol: 'El vapor',
+    id: 'vapor', titol: 'El vapor', llegenda: true,
     escenes: [
       {
         id: 'newcomen', nom: 'Newcomen', any: '1712', qui: 'Thomas Newcomen · Anglaterra', durada: 11,
         model: 'Màquina atmosfèrica de Newcomen · reconstrucció didàctica',
         pregunta: 'Com treus l’aigua d’una mina inundada?',
         intro: 'Les mines de carbó s’omplien d’aigua. Newcomen va construir la primera màquina de vapor útil: una bomba gegant que funcionava <b>fent el buit</b> dins d’un cilindre.',
-        svg: () => motor(false), anima: animaMotor(false),
+        svg: () => motor(false), anima: animaMotor(false), innova: [1, 2],
         fases: [
-          { fins: 0.34, nom: 'El vapor omple el cilindre', text: 'S’obre la vàlvula. El vapor de la caldera entra al cilindre mentre el pes de la vareta de la bomba fa pujar el pistó.' },
-          { fins: 0.47, nom: 'Un raig d’aigua freda', text: 'Es tanca el vapor i s’injecta aigua freda <b>dins del cilindre</b>. El vapor es refreda de cop i es torna aigua: ocupa molt menys espai.' },
-          { fins: 0.84, nom: 'El buit: l’aire empeny el pistó', text: 'Sota el pistó queda gairebé el buit. La pressió de l’aire de fora l’empeny cap avall, el balancí bascula i la vareta puja l’aigua de la mina.' },
-          { fins: 1, nom: 'Tornar a escalfar-ho tot', text: 'Surt l’aigua condensada. El cilindre ha quedat fred i el vapor nou l’ha de tornar a escalfar: <b>a cada cicle es llença calor</b>, és a dir, carbó.' }
+          { fins: 0.34, focus: ['caldera', 'cilindre', 'piston'], nom: 'El vapor omple el cilindre', text: 'S’obre la vàlvula. El vapor de la caldera entra al cilindre mentre el pes de la vareta de la bomba fa pujar el pistó.' },
+          { fins: 0.47, focus: ['diposit', 'cilindre'], nom: 'Un raig d’aigua freda', text: 'Es tanca el vapor i s’injecta aigua freda <b>dins del cilindre</b>. El vapor es refreda de cop i es torna aigua: ocupa molt menys espai.' },
+          { fins: 0.84, focus: ['piston', 'balanci', 'bombamina'], nom: 'El buit: l’aire empeny el pistó', text: 'Sota el pistó queda gairebé el buit. La pressió de l’aire de fora l’empeny cap avall, el balancí bascula i la vareta puja l’aigua de la mina.' },
+          { fins: 1, focus: ['desguas', 'caldera', 'cilindre'], nom: 'Tornar a escalfar-ho tot', text: 'Surt l’aigua condensada. El cilindre ha quedat fred i el vapor nou l’ha de tornar a escalfar: <b>a cada cicle es llença calor</b>, és a dir, carbó.' }
         ],
         parts: {
           caldera: { nom: 'Caldera', text: 'Un dipòsit de coure amb aigua sobre el foc. L’aigua bull i produeix vapor a poca pressió.' },
@@ -212,9 +212,10 @@
         },
         real: {
           img: 'img/real-newcomen.webp',
-          titol: 'Rèplica a escala real de la màquina de Newcomen (1712)',
+          titol: 'Rèplica de la màquina de Newcomen en funcionament',
           museu: 'Black Country Living Museum · Dudley (Regne Unit)',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+          lic: 'Foto: Chris Allen · Wikimedia Commons · CC BY-SA 2.0',
+          etiquetes: [['balanci', 37, 36, 'Balancí'], ['bombamina', 26, 62, 'Bomba de la mina'], ['caldera', 71, 18, 'Xemeneia de la caldera']]
         },
         clau: 'No és el vapor qui empeny: és l’aire. El vapor només serveix per fer el buit.',
         batx: { titol: 'Una màquina malgastadora, però útil durant dècades', text: 'El rendiment era molt baix i només sortia a compte on el carbó era barat: a la boca de la mina. Tot i això se’n van construir centenars durant el segle XVIII. Una tecnologia imperfecta es pot difondre si resol un problema urgent.', font: 'https://blog.sciencemuseum.org.uk/a-new-age/', fontNom: 'Science Museum · A new age' }
@@ -224,11 +225,11 @@
         model: 'Màquina de Watt d’efecte simple amb condensador separat · reconstrucció didàctica',
         pregunta: 'I si el cilindre no s’hagués de refredar mai?',
         intro: 'Watt reparava una maqueta de Newcomen i va veure el problema: es refredava i s’escalfava el mateix cilindre. La solució: <b>refredar el vapor en un altre lloc</b>.',
-        svg: () => motor(true), anima: animaMotor(true),
+        svg: () => motor(true), anima: animaMotor(true), innova: [0],
         fases: [
-          { fins: 0.5, nom: 'Vapor a dalt, buit a baix', text: 'El vapor entra per sobre del pistó. El que hi havia a sota s’escapa cap al <b>condensador</b>, que és fred: allà es torna aigua i fa el buit. El pistó baixa amb força.' },
-          { fins: 0.55, nom: 'Canvi de vàlvules', text: 'Es tanquen l’entrada de vapor i la sortida al condensador. S’obre la vàlvula que comunica la part de dalt i la de baix del cilindre.' },
-          { fins: 1, nom: 'El pistó torna a pujar', text: 'Amb la mateixa pressió a dalt i a baix, el pes de la vareta fa pujar el pistó. El vapor passa a sota, preparat per al cicle següent. El cilindre <b>no s’ha refredat</b>.' }
+          { fins: 0.5, focus: ['caldera', 'tub', 'cilindre', 'condensador', 'piston'], nom: 'Vapor a dalt, buit a baix', text: 'El vapor entra per sobre del pistó. El que hi havia a sota s’escapa cap al <b>condensador</b>, que és fred: allà es torna aigua i fa el buit. El pistó baixa amb força.' },
+          { fins: 0.55, focus: ['equilibri', 'cilindre'], nom: 'Canvi de vàlvules', text: 'Es tanquen l’entrada de vapor i la sortida al condensador. S’obre la vàlvula que comunica la part de dalt i la de baix del cilindre.' },
+          { fins: 1, focus: ['equilibri', 'piston', 'balanci', 'bomba', 'bombamina'], nom: 'El pistó torna a pujar', text: 'Amb la mateixa pressió a dalt i a baix, el pes de la vareta fa pujar el pistó. El vapor passa a sota, preparat per al cicle següent. El cilindre <b>no s’ha refredat</b>.' }
         ],
         parts: {
           caldera: { nom: 'Caldera', text: 'Ara és a part del cilindre. Produeix el vapor que empeny el pistó.' },
@@ -252,9 +253,10 @@
         },
         real: {
           img: 'img/real-watt.webp',
-          titol: 'Primer model experimental de condensador separat de Watt (1765)',
-          museu: 'Science Museum · Londres',
-          lic: 'Foto: Wikimedia Commons (CC BY 3.0)'
+          titol: 'El primer condensador separat de James Watt (c. 1765)',
+          museu: 'Peça original conservada al Regne Unit',
+          lic: 'Foto: Mirko Junge · Wikimedia Commons · CC BY 3.0',
+          etiquetes: [['condensador', 50, 45, 'Condensador separat']]
         },
         clau: 'La mateixa feina amb fins a un 75 % menys de carbó: el fred i la calor ja no es barallen dins del mateix cilindre.',
         batx: { titol: 'De la idea (1765) a la fàbrica (1776)', text: 'Watt té la idea el 1765, la patenta el 1769 i no ven màquines fins al 1776, associat amb l’empresari Matthew Boulton. Calien capital, obrers hàbils i cilindres ben foradats (Wilkinson). Invent i innovació no són el mateix moment.', font: 'https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/', fontNom: 'Science Museum · Watt i el condensador separat' }
@@ -264,10 +266,10 @@
         model: 'Màquina rotativa de Watt amb engranatge de sol i planeta · reconstrucció didàctica',
         pregunta: 'Com fas girar una fàbrica amb un pistó que només puja i baixa?',
         intro: 'Una bomba només necessita pujar i baixar. Però un teler o una filadora necessiten <b>un eix que giri</b>. Watt va afegir quatre invents a la seva màquina.',
-        svg: rotativa, anima: animaRot,
+        svg: rotativa, anima: animaRot, innova: [0, 1],
         fases: [
-          { fins: 0.5, nom: 'El vapor empeny per sota', text: 'La distribució envia vapor sota el pistó i el fa pujar. L’altre extrem del balancí baixa i la biela arrossega l’engranatge «planeta».' },
-          { fins: 1, nom: 'El vapor empeny per dalt', text: 'Ara el vapor entra per sobre: el pistó fa força <b>en els dos sentits</b> (doble efecte). El planeta acaba la volta al voltant del «sol» i el volant no para de girar.' }
+          { fins: 0.5, focus: ['distribucio', 'cilindre', 'balanci', 'biela', 'planeta', 'sol'], nom: 'El vapor empeny per sota', text: 'La distribució envia vapor sota el pistó i el fa pujar. L’altre extrem del balancí baixa i la biela arrossega l’engranatge «planeta».' },
+          { fins: 1, focus: ['distribucio', 'cilindre', 'planeta', 'sol', 'volant', 'regulador'], nom: 'El vapor empeny per dalt', text: 'Ara el vapor entra per sobre: el pistó fa força <b>en els dos sentits</b> (doble efecte). El planeta acaba la volta al voltant del «sol» i el volant no para de girar.' }
         ],
         parts: {
           cilindre: { nom: 'Cilindre de doble efecte', text: 'El vapor empeny el pistó cap amunt i cap avall. La màquina fa el doble de feina amb el mateix cilindre.' },
@@ -291,9 +293,10 @@
         },
         real: {
           img: 'img/real-rotativa.webp',
-          titol: 'Engranatge de sol i planeta d’una màquina de Boulton & Watt (1788)',
+          titol: 'Engranatge de sol i planeta d’una màquina de Boulton & Watt',
           museu: 'Science Museum · Londres',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 4.0)'
+          lic: 'Foto: Geni · Wikimedia Commons · CC BY-SA 4.0',
+          etiquetes: [['biela', 42, 28, 'Biela'], ['sol', 52, 72, 'Sol i planeta']]
         },
         clau: 'Quan el vapor fa girar un eix, la fàbrica ja no ha d’estar al costat d’un riu.',
         batx: { titol: 'Per què «sol i planeta» i no una simple manovella?', text: 'La manovella estava protegida per una patent d’un competidor (James Pickard, 1780). Boulton & Watt la van esquivar amb aquest engranatge fins que la patent va caducar. Les patents condicionen el camí de la tècnica.', font: 'https://collection.sciencemuseumgroup.org.uk/objects/co50948/rotative-steam-engine-by-boulton-and-watt-1788', fontNom: 'Science Museum Group · Màquina rotativa de 1788' }
@@ -305,6 +308,8 @@
       { q: 'Quina és la gran idea de Watt?', o: ['Condensar el vapor en un recipient separat', 'Fer la caldera més gran', 'Canviar el carbó per llenya'], c: 0, e: 'Amb el condensador separat, el cilindre es manté sempre calent i s’estalvia molt combustible.' },
       { q: 'Per a què serveix l’engranatge de sol i planeta?', o: ['Per refredar el vapor', 'Per convertir el vaivé del pistó en gir', 'Per pujar l’aigua de la mina'], c: 1, e: 'Transforma el moviment d’anada i tornada en la rotació d’un eix que pot moure màquines.' },
       { q: 'Què fa el volant d’inèrcia?', o: ['Produeix vapor', 'Regula el pas de l’aigua', 'Fa que el gir sigui regular'], c: 2, e: 'És una roda pesant que acumula moviment i suavitza les estrebades del pistó.' },
+      { tipus: 'toca', esc: 'watt', part: 'condensador', p: 0.25, q: 'Toca la peça que va inventar Watt per estalviar carbó.', e: 'El condensador separat: el vapor es refreda allà i el cilindre es manté sempre calent.' },
+      { tipus: 'ordena', esc: 'newcomen', q: 'Ordena el cicle de la màquina de Newcomen.', e: 'Vapor → aigua freda → buit → tornar a escalfar: a cada volta es llença calor.' },
       { q: 'Què va permetre la màquina rotativa a les fàbriques?', o: ['Instal·lar-se lluny dels rius', 'Funcionar sense treballadors', 'No necessitar carbó'], c: 0, e: 'Abans depenien de la roda hidràulica; amb el vapor es podien construir a les ciutats i prop del carbó.' }
     ]
   });

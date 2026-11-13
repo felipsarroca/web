@@ -47,7 +47,9 @@ Les fonts públiques principals són el [Science Museum](https://blog.sciencemus
 
 Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026**. Queden per desenvolupar il·lustracions tècniques més detallades i validades per a models històrics concrets, recorreguts interiors de fàbriques i transports, i comparacions de velocitat amb rutes i dates documentades. El guió enumera aquestes feines i els criteris de revisió.
 
-La interfície s'ha comprovat al navegador a 1440 × 900, 1366 × 768 i 390 × 844, incloent-hi la navegació, les fases, la reproducció, el canvi de nivell, les vistes de peces i el mode projecció. Les proves de 125 % i 150 % d'escalat real del sistema operatiu queden pendents.
+La interfície s'ha comprovat al navegador a 1440 × 900, 1366 × 768 i 390 × 844, incloent-hi la navegació, les fases, la reproducció, el canvi de nivell, les vistes de peces i el mode projecció.
+
+Les fotografies de «Màquina real» provenen de Wikimedia Commons i cada cartela n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines de vista explotada generades amb IA s'indiquen com a tals. Les proves de 125 % i 150 % d'escalat real del sistema operatiu queden pendents.
 
 ## Llicència i incidències
 

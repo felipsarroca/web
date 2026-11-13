@@ -49,7 +49,7 @@
     // el cotó: carro, bales i recorregut
     s += `<g data-part="coto"><rect class="t fusta" x="1040" y="574" width="130" height="14"/>${roda(1068, 600, 20, { raigs: 8, color: '#a67547' })}${roda(1142, 600, 20, { raigs: 8, color: '#a67547' })}<rect class="t blanc" x="1048" y="544" width="52" height="30" rx="7"/><rect class="t blanc" x="1104" y="544" width="52" height="30" rx="7"/><rect class="t blanc" x="1076" y="514" width="52" height="30" rx="7"/><path d="M1060 544v30M1088 544v30M1116 544v30M1144 544v30M1090 514v30M1114 514v30" class="t1"/>
       <g>${[0, 1, 2].map((i) => `<circle class="t blanc" cx="${940}" cy="${352 - i * 0}" r="0"/>`).join('')}<rect class="t" x="928" y="318" width="44" height="14" rx="7" fill="#d9482b"/><rect class="t" x="928" y="332" width="44" height="14" rx="7" fill="#2f7fb5"/><rect class="t" x="928" y="346" width="44" height="14" rx="7" fill="#f2b632"/></g></g>`;
-    s += `<g data-capa="coto"><path d="M1040 604H436V474H916V344H930" class="nf" stroke="#fffdf7" stroke-width="12" stroke-linejoin="round" opacity=".7"/><path d="M1040 604H436V474H916V344H930" class="flux s-verd" stroke-width="8" data-flux="1.6" stroke-linejoin="round"/>${retol(1100, 492, 'bales de cotó', { fons: '#5b8c35' })}${retol(1066, 330, 'tela acabada', { fons: '#5b8c35' })}</g>`;
+    s += `<g data-capa="coto"><path d="M1040 604H436V474H916V344H930" class="nf" stroke="#fffdf7" stroke-width="12" stroke-linejoin="round" opacity=".7"/><path d="M1040 604H436V474H916V344H930" class="flux s-verd" stroke-width="8" data-flux="1.6" stroke-linejoin="round"/>${retol(1150, 652, 'bales de cotó', { fons: '#5b8c35' })}${retol(1066, 330, 'tela acabada', { fons: '#5b8c35' })}</g>`;
     s += txt(670, 118, aigua ? 'Filatura hidràulica' : 'Filatura de vapor', 'tx-g mig');
     s += aigua
       ? RI.innova(340, 48, 'INNOVACIÓ · 1 sola roda d’aigua mou tots els pisos (prop del riu)', { apunta: [384, 384], halo: [384, 410, 26, 165], w: 505 })
@@ -78,18 +78,18 @@
     telers: { nom: 'Telers', text: 'Entrecreuen els fils (ordit i trama) per fer la tela.' },
     coto: { nom: 'El cotó', text: 'Entra en bales premsades i surt convertit en peces de tela. Tot el procés passa sota un mateix sostre.' }
   };
-  const etqComunes = [['arbre', 300, 330, 380, 330, 'Arbre vertical'], ['eixos', 670, 172, 676, 258, 'Eix de transmissió'], ['corretges', 1080, 404, 880, 404, 'Corretja'], ['cardes', 1090, 660, 890, 590, 'Cardes'], ['filadores', 1090, 480, 900, 466, 'Filadores'], ['telers', 1080, 276, 900, 308, 'Telers']];
+  const etqComunes = [['arbre', 300, 330, 380, 330, 'Arbre vertical'], ['eixos', 670, 172, 676, 258, 'Eix de transmissió'], ['corretges', 1080, 404, 880, 404, 'Corretja'], ['cardes', 960, 662, 890, 590, 'Cardes'], ['filadores', 1090, 480, 900, 466, 'Filadores'], ['telers', 1080, 276, 900, 308, 'Telers']];
   const capes = [{ id: 'forca', nom: 'Segueix la força', on: true }, { id: 'coto', nom: 'Segueix el cotó', on: false }];
 
   RI.capitol({
-    id: 'fabrica', titol: 'La fàbrica',
+    id: 'fabrica', titol: 'La fàbrica', llegenda: [['#f08a4b', 'força del motor'], ['#5b8c35', 'camí del cotó']],
     escenes: [
       {
         id: 'hidraulica', nom: 'Fàbrica d’aigua', any: '1771', qui: 'Model d’Arkwright · Cromford', durada: 16, capes,
         model: 'Filatura de diversos pisos · model didàctic, no és un edifici concret',
         pregunta: 'Com mous cent màquines amb un sol motor?',
         intro: 'Abans es filava a casa, amb una roda per persona. La fàbrica ho capgira: <b>un sol motor</b> mou totes les màquines de l’edifici. Activa «Segueix la força» i «Segueix el cotó».',
-        svg: () => fabrica('aigua'), anima: anima('aigua'),
+        svg: () => fabrica('aigua'), anima: anima('aigua'), innova: [1], capaFase: { forca: [0, 1, 2], coto: [3] },
         fases: [
           { fins: 0.25, nom: 'L’aigua fa girar la roda', text: 'Un canal desvia l’aigua del riu i la deixa caure sobre la roda. El pes de l’aigua la fa girar dia i nit.', focus: ['motor'] },
           { fins: 0.5, nom: 'L’arbre vertical puja la força', text: 'L’eix de la roda entra a l’edifici i, amb engranatges, fa girar un arbre dret que travessa tots els pisos.', focus: ['arbre'] },
@@ -100,9 +100,9 @@
         etiquetes: [['motor', 130, 400, 200, 480, 'Roda hidràulica']].concat(etqComunes),
         real: {
           img: 'img/real-fabrica.webp',
-          titol: 'Antiga filatura hidràulica de Richard Arkwright (Masson Mill)',
-          museu: 'Vall del Derwent · Derbyshire (Regne Unit)',
-          lic: 'Foto: Wikimedia Commons (CC BY-SA 2.0)'
+          titol: 'Filatura d’Arkwright a Cromford (1771)',
+          museu: 'Cromford Mills · Derbyshire (Regne Unit)',
+          lic: 'Foto: Alan Heardman · Wikimedia Commons · CC BY-SA 2.0'
         },
         clau: 'La fàbrica és una sola gran màquina: un motor, una xarxa d’eixos i moltes màquines treballant alhora.',
         batx: { titol: 'Disciplina de fàbrica', text: 'Com que tot depèn d’un sol motor, tothom ha de començar i acabar alhora: horaris, torns, sirenes i vigilants. Compara-ho amb el treball a domicili, on cada família decidia el seu ritme. La tècnica imposa una nova organització del treball.', font: 'https://www.cromfordmills.org.uk/', fontNom: 'Cromford Mills · la primera filatura hidràulica' }
@@ -112,7 +112,7 @@
         model: 'El mateix edifici amb una màquina de vapor · model didàctic',
         pregunta: 'Què canvia si traiem la roda i hi posem vapor?',
         intro: 'Per dins, la fàbrica és igual: arbre, eixos i corretges. Però ara el motor és una <b>màquina de vapor</b>. Fixa’t en què apareix de nou a l’esquerra.',
-        svg: () => fabrica('vapor'), anima: anima('vapor'),
+        svg: () => fabrica('vapor'), anima: anima('vapor'), innova: [0, 1], capaFase: { forca: [0, 1, 2], coto: [3] },
         fases: [
           { fins: 0.25, nom: 'El carbó escalfa la caldera', text: 'Ja no cal un riu: cal carbó. Per això les fàbriques es traslladen a prop de les mines, dels ports o del tren.', focus: ['caldera', 'xemeneia'] },
           { fins: 0.5, nom: 'El pistó fa girar el volant', text: 'El vapor empeny el pistó, la biela mou el volant i el volant fa girar el mateix arbre vertical d’abans.', focus: ['motor', 'arbre'] },
@@ -127,7 +127,8 @@
     ],
     repte: [
       { q: 'Quina és la idea essencial d’una fàbrica?', o: ['Cada treballador té el seu motor', 'Un sol motor mou totes les màquines', 'Les màquines funcionen a mà'], c: 1, e: 'Roda o màquina de vapor: una única font de força per a tot l’edifici.' },
-      { q: 'Com arriba la força del motor als pisos de dalt?', o: ['Per un arbre vertical amb engranatges', 'Per canonades d’aigua', 'La pugen els treballadors'], c: 0, e: 'L’arbre dret travessa els pisos i fa girar l’eix de cada planta.' },
+      { tipus: 'toca', esc: 'hidraulica', part: 'arbre', p: 0.4, q: 'Toca la peça que puja la força del motor fins als pisos de dalt.', e: 'L’arbre vertical: travessa els pisos i, amb engranatges, fa girar l’eix de cada planta.' },
+      { tipus: 'ordena', esc: 'hidraulica', q: 'Ordena el camí de la força dins la fàbrica d’aigua.', e: 'Roda hidràulica → arbre vertical → eixos i corretges → màquines que treballen el cotó.' },
       { q: 'Què fa la corretja?', o: ['Subjecta el sostre', 'Porta el gir de l’eix del sostre fins a cada màquina', 'Transporta el cotó'], c: 1, e: 'Cada màquina rep el moviment per la seva corretja.' },
       { q: 'En quin ordre es treballa el cotó?', o: ['Teixir, filar, cardar', 'Cardar, filar, teixir', 'Filar, cardar, teixir'], c: 1, e: 'Primer es desenreda (cardar), després es fa fil (filar) i al final tela (teixir).' },
       { q: 'Quin límit tenia la fàbrica hidràulica?', o: ['Havia d’estar al costat d’un riu amb prou aigua', 'No podia tenir més d’un pis', 'Només funcionava de nit'], c: 0, e: 'Depenia del lloc i del cabal: sequeres i glaçades l’aturaven.' },

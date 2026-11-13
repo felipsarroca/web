@@ -117,11 +117,12 @@
   };
   /* càpsula destacada per assenyalar on és la innovació */
   RI.innova = (x, y, s, o = {}) => {
+    /* text més gran (14 px) i halo/punter que només s'encenen a la fase de la innovació (classe innova-on a l'SVG) */
     const text = o.senseEstel ? s : `★ ${s}`;
-    const w = o.w || Math.max(132, text.length * 7.6 + 26), h = o.h || 28;
-    const ptr = o.apunta ? `<line x1="${x}" y1="${y + (o.apunta[1] > y ? h / 2 : -h / 2)}" x2="${o.apunta[0]}" y2="${o.apunta[1]}" stroke="#d97706" stroke-width="2.2" stroke-dasharray="4 3"/><circle cx="${o.apunta[0]}" cy="${o.apunta[1]}" r="5.5" fill="#fbbf24" stroke="#92400e" stroke-width="1.8"/>` : '';
-    const ring = o.halo ? `<ellipse cx="${o.halo[0]}" cy="${o.halo[1]}" rx="${o.halo[2]}" ry="${o.halo[3] || o.halo[2]}" fill="rgba(251,191,36,.10)" stroke="#d97706" stroke-width="2.4" stroke-dasharray="6 4"/>` : '';
-    return `<g ${o.attr || ''}>${ring}${ptr}<rect x="${f1(x - w / 2)}" y="${f1(y - h / 2)}" width="${f1(w)}" height="${h}" rx="${h / 2}" fill="${o.fons || '#fffbeb'}" stroke="${o.vora || '#d97706'}" stroke-width="2.2"/><text x="${x}" y="${f1(y + 4.8)}" text-anchor="middle" font-size="12.5" font-weight="800" fill="${o.color || '#92400e'}" letter-spacing=".02em">${text}</text></g>`;
+    const w = (o.w ? o.w * 1.1 : Math.max(146, text.length * 8.4 + 30)), h = o.h || 32;
+    const ptr = o.apunta ? `<g class="innova-halo"><line x1="${x}" y1="${y + (o.apunta[1] > y ? h / 2 : -h / 2)}" x2="${o.apunta[0]}" y2="${o.apunta[1]}" stroke="#d97706" stroke-width="2.6" stroke-dasharray="5 4"/><circle cx="${o.apunta[0]}" cy="${o.apunta[1]}" r="7" fill="#fbbf24" stroke="#92400e" stroke-width="2"/></g>` : '';
+    const ring = o.halo ? `<ellipse class="innova-halo innova-pols" cx="${o.halo[0]}" cy="${o.halo[1]}" rx="${o.halo[2]}" ry="${o.halo[3] || o.halo[2]}" fill="rgba(251,191,36,.14)" stroke="#d97706" stroke-width="3" stroke-dasharray="7 5"/>` : '';
+    return `<g class="innova" ${o.attr || ''}>${ring}${ptr}<rect x="${f1(x - w / 2)}" y="${f1(y - h / 2)}" width="${f1(w)}" height="${h}" rx="${h / 2}" fill="${o.fons || '#fffbeb'}" stroke="${o.vora || '#d97706'}" stroke-width="2.4" filter="url(#f-ombra)"/><text x="${x}" y="${f1(y + 5)}" text-anchor="middle" font-size="14" font-weight="800" fill="${o.color || '#92400e'}" letter-spacing=".01em">${text}</text></g>`;
   };
   RI.lerp = (a, b, k) => a + (b - a) * k;
   RI.clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -207,6 +208,35 @@
     requestAnimationFrame(bucle);
   }
 
+  /* ---------- «Connecta amb…»: línia del temps del capítol i enllaços amb altres capítols ---------- */
+  RI.CONNEXIONS = {
+    camp: [['textil', 'Més menjar i menys pagesos: mà d’obra per a les fàbriques tèxtils.'], ['metalls', 'Les arades de ferro fan de l’agricultura un client de la siderúrgia.']],
+    vapor: [['metalls', 'Les màquines de vapor bomben les mines i bufen els alts forns.'], ['fabrica', 'Amb el gir de Watt, la fàbrica ja no depèn del riu.']],
+    textil: [['fabrica', 'La Water Frame necessita aigua i un edifici: neix la fàbrica.'], ['camp', 'El cotó ve de lluny, però els treballadors venen del camp.']],
+    fabrica: [['vapor', 'El motor de la fàbrica: primer l’aigua, després el vapor.'], ['capital', 'Un edifici ple de màquines costa molts diners: qui els posa?']],
+    metalls: [['tren', 'Rails, rodes i calderes: el ferrocarril devora ferro i acer.'], ['vapor', 'Sense cilindres de ferro ben foradats no hi ha màquina de Watt.']],
+    tren: [['metalls', 'Cada quilòmetre de via necessita tones de ferro.'], ['capital', 'El ferrocarril es paga amb accions: neix la gran societat anònima.']],
+    vaixell: [['tren', 'La mateixa idea que la locomotora, però sobre l’aigua.'], ['textil', 'El cotó americà arriba a Manchester més de pressa i més barat.']],
+    capital: [['tren', 'El ferrocarril és el gran negoci de la borsa del segle XIX.'], ['fabrica', 'Les primeres fàbriques es paguen amb diners de la família.']]
+  };
+  function connecta(cap, i) {
+    const es = cap.escenes, ll = RI.CONNEXIONS[cap.id] || [];
+    const linia = es.length > 1 ? `<div class="cn-linia">${es.map((x, k) => `<button type="button" data-va="${k}" class="${k === i ? 'actual' : ''}"><b>${esc(x.any || '·')}</b><span>${esc(x.nom)}</span></button>`).join('')}</div>` : '';
+    const enll = ll.map(([id, t]) => { const c = RI.CAPITOLS.find((x) => x.id === id); return c ? `<a href="${c.id}.html" style="--c:${c.color}">${RI.icona(c, 16)}<span><b>${esc(c.nom)}</b> ${esc(t)}</span></a>` : ''; }).join('');
+    return `<div class="connecta" id="connecta"><h3 class="p-t">Connecta amb…</h3>${linia}<div class="cn-enll">${enll}</div></div>`;
+  }
+  /* amaga el bloc «Connecta» si no hi cap sense scroll (escriptori) */
+  function encaixaConnecta() {
+    const p = $('#panell'), c = $('#connecta'); if (!p || !c) return;
+    const ll = $('.cn-enll', c), li = $('.cn-linia', c), sobra = () => p.scrollHeight > p.clientHeight + 1;
+    c.hidden = false; if (ll) ll.hidden = false; if (li) li.hidden = false;
+    if (document.documentElement.classList.contains('mobil')) return;
+    if (sobra() && ll) ll.hidden = true;
+    if (sobra() && li) { li.hidden = true; if (ll) ll.hidden = false; if (sobra() && ll) ll.hidden = true; }
+    if (sobra()) c.hidden = true;
+  }
+  RI.encaixaConnecta = encaixaConnecta;
+
   function marcaTab(v) { $$('#escenes button').forEach((b) => b.setAttribute('aria-selected', b.dataset.esc === String(v))); }
 
   function obreEscena(i) {
@@ -219,15 +249,26 @@
     marcaTab(i);
     history.replaceState(null, '', '#' + e.id);
     const hasRealSvg = !!(e.real && RI.REALS && RI.REALS[e.id]);
+    const LL = Array.isArray(cap.llegenda) ? cap.llegenda : [['#f08a4b', 'calor · vapor'], ['#2f7fb5', 'aigua · fred']];
+    const llegenda = cap.llegenda ? `<div class="llegenda" aria-label="Codi de colors">${LL.map(([c, t]) => `<span><i style="background:${c}"></i>${esc(t)}</span>`).join('')}<span><i class="foc"></i>on mirar ara</span></div>` : '';
+    /* «Màquina real»: sempre la foto o el gravat autèntic; la reconstrucció dibuixada és una opció a part */
+    const realHtml = !e.real ? '' : `<div class="lamina-real" id="lamina-real" data-mode="foto">
+        <div class="lamina-zoom"><figure class="real-foto"><div class="foto-marc"><img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy">${(e.real.etiquetes || []).map(([part, x, y, t]) => `<button type="button" class="foto-etq" data-tria="${part}" style="left:${x}%;top:${y}%">${esc(t || (e.parts[part] ? e.parts[part].nom : part))}</button>`).join('')}</div></figure>${hasRealSvg ? `<div class="real-svg">${RI.REALS[e.id]()}</div>` : ''}</div>
+        <div class="real-peu" data-peu="foto"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${esc(e.real.lic)}</small></div>
+        ${hasRealSvg ? `<div class="real-peu" data-peu="dibuix"><strong>Reconstrucció dibuixada</strong><span>Dibuix d’estudi fet per a aquest web a partir de fonts d’època.</span><small>No és una fotografia · proporcions aproximades</small></div>` : ''}
+      </div>`;
     $('#cos').className = 'cos';
     $('#cos').innerHTML = `
-    <section class="escenari">
+    <section class="escenari" id="escenari">
+      <div class="barra">
+        ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : '<div class="vistes buida"></div>'}
+        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) || (e.real && e.real.etiquetes) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Fotografia o gravat autèntic de la màquina">Màquina real</button>' : ''}${hasRealSvg ? '<button type="button" class="b-recons" data-recons aria-pressed="false" hidden title="Canvia entre la imatge autèntica i la reconstrucció dibuixada">Reconstrucció</button>' : ''}<label class="comp" hidden title="Llisca per comparar el diagrama amb la màquina real"><span>Diagrama</span><input type="range" id="comp" min="0" max="100" value="0" aria-label="Compara el diagrama amb la màquina real"><span>Real</span></label><button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false" title="Mostra el dibuix a pantalla completa">Amplia</button></div>
+      </div>
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
         ${e.explotada ? `<div class="lamina-exp" id="lamina-exp"><div class="lamina-zoom"><img src="${esc(e.explotada.img)}" alt="" loading="lazy"><svg class="exp-svg" viewBox="0 0 1200 805" preserveAspectRatio="xMidYMid meet"></svg></div></div>` : ''}
-        ${e.real ? `<div class="lamina-real" id="lamina-real"><div class="lamina-zoom">${hasRealSvg ? `<div class="real-svg">${RI.REALS[e.id]()}</div>` : `<img src="${esc(e.real.img)}" alt="${esc(e.real.titol)}" loading="lazy">`}</div><div class="real-peu"><strong>${esc(e.real.titol)}</strong><span>${esc(e.real.museu)}</span><small>${hasRealSvg ? 'Il·lustració tècnica d’estudi · proporcions històriques' : esc(e.real.lic)}</small></div></div>` : ''}
-        ${e.vistes ? `<div class="vistes" id="vistes">${e.vistes.map((v, idx) => `<button type="button" data-vista-btn="${v.id}" aria-pressed="${idx === 0}">${esc(v.nom)}</button>`).join('')}</div>` : ''}
-        <div class="capes" id="capes">${e.etiquetes || e.explotada || (e.vistes && e.vistes.some((v) => v.etiquetes)) ? '<button type="button" data-capa="_etq" aria-pressed="true" title="Amaga les etiquetes i comprova si recordes cada peça">Etiquetes</button>' : ''}<button type="button" data-capa="_exp" aria-pressed="false" hidden title="Separa les peces per veure’n l’estructura interna">Vista explotada</button>${e.real ? '<button type="button" data-capa="_real" aria-pressed="false" title="Com era en realitat: dibuix d’estudi amb escala real">Màquina real</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden title="Amplia la làmina per inspeccionar-ne els detalls">Zoom ×1,8</button>${(e.capes || []).map((c) => `<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}</div>
+        ${realHtml}
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
+        ${e.llegenda === false ? '' : llegenda}
       </div>
       <div class="comandament${e.estatica ? ' sense' : ''}">
         <div class="botons"><button type="button" id="b-ant" title="Fase anterior (←)" aria-label="Fase anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button><button type="button" id="b-play" class="principal" title="Reprodueix o atura (espai)" aria-label="Reprodueix o atura"></button><button type="button" id="b-seg" title="Fase següent (→)" aria-label="Fase següent"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button></div>
@@ -245,6 +286,7 @@
       <div class="peca" id="peca"></div>
       ${e.clau ? `<div class="clau"><span>La idea clau</span><p>${e.clau}</p></div>` : ''}
       ${e.batx ? `<div class="batx-wrap" id="batx-wrap"><button type="button" class="batx-toggle" aria-expanded="false"><span>Per aprofundir · 1r de Batxillerat</span><em style="font-style:normal">Mostra ▾</em></button><div class="batx-bloc"><button type="button" class="fitxa-tanca" aria-label="Tanca">×</button><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div></div>` : ''}
+      ${connecta(cap, i)}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
     svgEl = $('#tela svg'); expSvg = $('#lamina-exp .exp-svg'); els = {};
@@ -287,15 +329,23 @@
     $('#capes').addEventListener('click', (ev) => {
       const bz = ev.target.closest('[data-zoom]');
       if (bz) { setZoom(!st.zoom); return; }
+      const bRec = ev.target.closest('[data-recons]');
+      if (bRec) { const on = bRec.getAttribute('aria-pressed') !== 'true'; bRec.setAttribute('aria-pressed', on); const lr = $('#lamina-real'); if (lr) lr.dataset.mode = on ? 'dibuix' : 'foto'; aplicaExplota(); return; }
+      if (ev.target.closest('#b-amplia')) { amplia(); return; }
       const b = ev.target.closest('[data-capa]'); if (!b) return;
       const on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on);
-      if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); if (expSvg) expSvg.classList.toggle('sense-etq', !on); }
+      if (b.dataset.capa === '_etq') { st.etq = on; svgEl.classList.toggle('sense-etq', !on); if (expSvg) expSvg.classList.toggle('sense-etq', !on); const lr = $('#lamina-real'); if (lr) lr.classList.toggle('sense-etq', !on); }
       else if (b.dataset.capa === '_exp') { st.explota = on; if (on && st.real) { st.real = false; if (bReal) bReal.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
-      else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } aplicaExplota(); }
+      else if (b.dataset.capa === '_real') { st.real = on; if (on && st.explota) { st.explota = false; if (bExp) bExp.setAttribute('aria-pressed', 'false'); } const cmp = $('#comp'); if (cmp) cmp.value = 100; aplicaExplota(); }
       else { st.capes[b.dataset.capa] = on; svgEl.classList.toggle('capa-' + b.dataset.capa, on); mostraCapes(); aplicaExplota(); }
       st.brut = true;
     });
+    const cmp = $('#comp');
+    if (cmp) cmp.addEventListener('input', () => aplicaComp());
+    const lrEl = $('#lamina-real');
+    if (lrEl) { const im = $('.real-foto img', lrEl); if (im) { im.loading = 'eager'; im.addEventListener('load', encaixaFoto); } }
+    if (lrEl) lrEl.addEventListener('click', (ev) => { const b = ev.target.closest('.foto-etq'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria); });
     const telaEl = $('#tela');
     telaEl.addEventListener('mousemove', (ev) => {
       if (!st.zoom) return;
@@ -309,7 +359,7 @@
     st.etq = true;
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
     if (expSvg) expSvg.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
-    $('.p-nav').addEventListener('click', (ev) => { const b = ev.target.closest('[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); });
+    $$('.p-nav, #connecta').forEach((n) => n.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); }));
     $('#peca').addEventListener('click', (ev) => {
       if (ev.target.closest('.fitxa-tanca')) { tria(null); return; }
       const b = ev.target.closest('[data-tria]'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria);
@@ -322,7 +372,38 @@
       if (bClose) bClose.addEventListener('click', () => setB(false));
     }
     botoPlay(); st.brut = true;
+    requestAnimationFrame(encaixaConnecta);
   }
+
+  /* encaixa la foto real (i les seves etiquetes en %) dins l'espai disponible */
+  function encaixaFoto() {
+    const fig = $('#lamina-real .real-foto'), marc = fig && $('.foto-marc', fig), img = marc && $('img', marc);
+    if (!img || !img.naturalWidth || !fig.clientWidth) return;
+    const cs = getComputedStyle(fig), aw = fig.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), ah = fig.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const k = Math.min(aw / img.naturalWidth, ah / img.naturalHeight);
+    marc.style.width = Math.round(img.naturalWidth * k) + 'px'; marc.style.height = Math.round(img.naturalHeight * k) + 'px';
+  }
+  RI.encaixaFoto = encaixaFoto;
+  /* comparador diagrama ↔ real: retalla la làmina real des de l'esquerra */
+  function aplicaComp() {
+    const lr = $('#lamina-real'), c = $('#comp'); if (!lr) return;
+    const v = st.real && c ? +c.value : 100;
+    lr.style.clipPath = st.real && v < 100 ? `inset(0 0 0 ${100 - v}%)` : '';
+    lr.classList.toggle('partida', st.real && v < 100);
+  }
+  /* mode ampliat (sobretot per al mòbil): el dibuix ocupa tota la pantalla, en horitzontal si es pot */
+  function amplia(force) {
+    const esc_ = $('#escenari'), b = $('#b-amplia'); if (!esc_) return;
+    const on = force != null ? force : !esc_.classList.contains('gran');
+    esc_.classList.toggle('gran', on); document.body.classList.toggle('amb-gran', on);
+    if (b) { b.setAttribute('aria-pressed', on); b.textContent = on ? 'Tanca ✕' : 'Amplia'; }
+    setTimeout(encaixaFoto, 350);
+    try {
+      if (on && document.documentElement.requestFullscreen && !document.fullscreenElement) document.documentElement.requestFullscreen().then(() => { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); }).catch(() => {});
+      else if (!on && document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    } catch (er) { /* sense pantalla completa */ }
+  }
+  RI.amplia = amplia;
 
   /* els elements amb data-capa="id" només es veuen si la capa és activa */
   function mostraCapes() { $$('[data-capa]', svgEl).forEach((n) => { n.style.display = st.capes[n.dataset.capa] ? '' : 'none'; }); }
@@ -374,12 +455,16 @@
     actualitzaAra();
     svgEl.classList.toggle('explota', st.explota && !lam);
     const tela = $('#tela'); if (tela) tela.classList.toggle('real-activa', st.real);
+    const escE = $('#escenari'); if (escE) { escE.classList.toggle('real-activa', st.real); escE.classList.toggle('exp-activa', st.explota); }
     if (lam) lam.classList.toggle('activa', st.explota);
     if (lamR) lamR.classList.toggle('activa', st.real);
+    const bRec = $('#capes [data-recons]'); if (bRec) bRec.hidden = !st.real;
+    const cmpL = $('#capes .comp'); if (cmpL) cmpL.hidden = !st.real || (lamR && lamR.dataset.mode === 'dibuix');
+    aplicaComp(); if (st.real) requestAnimationFrame(encaixaFoto);
     const mEl = $('#tela .model');
     if (mEl && e) {
       const v = e.vistes ? e.vistes.find((x) => x.id === st.vista) : null;
-      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model : (v && v.model) || e.model;
+      const m = st.real && e.real ? e.real.titol : st.explota && e.explotada && e.explotada.model ? e.explotada.model + ' · il·lustració generada amb IA i revisada' : (v && v.model) || e.model;
       if (m) mEl.textContent = m;
     }
     const offMap = {};
@@ -517,8 +602,10 @@
       if (svgEl) svgEl.classList.toggle('te-sel', !!st.sel);
       if (expSvg) expSvg.classList.toggle('te-sel', !!st.sel);
       $$('[data-part],[data-etq]', tela).forEach((n) => n.classList.toggle('sel', (n.dataset.part || n.dataset.etq) === st.sel));
+      $$('.foto-etq', tela).forEach((n) => n.classList.toggle('sel', n.dataset.tria === st.sel));
       focus();
     }
+    requestAnimationFrame(encaixaConnecta);
   }
   /* cada fase pot posar el focus en unes peces (la resta s'atenua una mica) */
   function focus() {
@@ -559,6 +646,16 @@
       $$('#trams span').forEach((s) => s.classList.toggle('activa', +s.dataset.k === k));
       actualitzaAra();
       focus();
+      if (svgEl) svgEl.classList.toggle('innova-on', !e.innova || e.innova.indexOf(k) >= 0);
+      /* capes que s'activen soles segons la fase (p. ex. la força primer i el cotó al final) */
+      if (e.capaFase && svgEl) {
+        Object.keys(e.capaFase).forEach((id) => {
+          const on = e.capaFase[id].indexOf(k) >= 0; st.capes[id] = on; svgEl.classList.toggle('capa-' + id, on);
+          const b = $(`#capes [data-capa="${id}"]`); if (b) b.setAttribute('aria-pressed', on);
+        });
+        mostraCapes();
+      }
+      requestAnimationFrame(encaixaConnecta);
       const li = $('#fases li.activa'); if (li && li.scrollIntoView && !document.documentElement.classList.contains('mobil')) li.scrollIntoView({ block: 'nearest' });
     }
     const ll = $('#lliscador'); if (ll && document.activeElement !== ll) ll.value = Math.round(p * 1000);
@@ -605,23 +702,82 @@
   }
 
   /* ---------- repte final ---------- */
+  /* barreja (Fisher–Yates) */
+  const barreja = (arr) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  /* dibuix estàtic d'una escena per a les preguntes visuals (sense etiquetes, en un moment p del cicle) */
+  function dibuixEstatic(caixa, e, p) {
+    caixa.innerHTML = typeof e.svg === 'function' ? e.svg() : e.svg;
+    const svg = $('svg', caixa); if (!svg) return null;
+    const f = e.fases || [];
+    let k = Math.max(0, f.length - 1);
+    for (let i = 0; i < f.length; i++) if (p < f[i].fins) { k = i; break; }
+    $$('[data-fase]', svg).forEach((n) => { const r = n.dataset.fase.split(',').map((x) => x.split('-').map(Number)); n.style.opacity = r.some(([x, y]) => p >= x && p < y) ? 1 : 0; });
+    $$('[data-en]', svg).forEach((n) => { n.style.opacity = n.dataset.en.split(',').map(Number).indexOf(k) >= 0 ? 1 : 0; });
+    $$('[data-capa]', svg).forEach((n) => { n.style.display = 'none'; });
+    $$('.innova', svg).forEach((n) => { n.style.display = 'none'; });
+    if (e.vistes) $$('[data-vista]', svg).forEach((n) => { n.style.display = n.dataset.vista.split(',').indexOf(e.vistes[0].id) >= 0 ? '' : 'none'; });
+    const cache = {};
+    try { if (e.anima) e.anima({ p, t: p * (e.durada || 8), k, el: (id) => cache[id] || (cache[id] = svg.querySelector('#' + id)), capes: {}, svg, sel: null, vista: e.vistes ? e.vistes[0].id : null, explota: false }); } catch (er) { /* dibuix sense animar */ }
+    svg.classList.add('esc-repte');
+    return svg;
+  }
   function obreRepte() {
     const cap = st.cap, idx = RI.CAPITOLS.findIndex((c) => c.id === cap.id), seg = RI.CAPITOLS[idx + 1];
     st.play = false; st.fiPas = null; st.repte = true; marcaTab('repte'); history.replaceState(null, '', '#repte');
     const qs = cap.repte || [];
+    const escDe = (id) => cap.escenes.find((x) => x.id === id);
+    const cos = qs.map((q, i) => {
+      if (q.tipus === 'toca') return `<article class="q q-gran" data-i="${i}"><h3><span>${i + 1}</span>${esc(q.q)}</h3><p class="q-ajuda">Toca la peça al dibuix.</p><div class="q-dibuix"></div><p class="exp" hidden></p></article>`;
+      if (q.tipus === 'ordena') {
+        const e = escDe(q.esc), f = (e && e.fases) || [];
+        let ordre = barreja(f.map((x, k) => k)); if (ordre.every((k, n) => k === n)) ordre = ordre.reverse();
+        return `<article class="q" data-i="${i}"><h3><span>${i + 1}</span>${esc(q.q)}</h3><p class="q-ajuda">Toca les fases en l’ordre en què passen.</p><div class="ops ordena">${ordre.map((k) => `<button type="button" data-k="${k}"><i></i>${esc(f[k].nom)}</button>`).join('')}</div><p class="exp" hidden></p></article>`;
+      }
+      return `<article class="q" data-i="${i}"><h3><span>${i + 1}</span>${esc(q.q)}</h3><div class="ops">${barreja(q.o.map((o, j) => j)).map((j) => `<button type="button" data-j="${j}">${esc(q.o[j])}</button>`).join('')}</div><p class="exp" hidden></p></article>`;
+    }).join('');
     $('#cos').className = 'cos repte';
-    $('#cos').innerHTML = `<div class="repte-cap"><h2>Ho has entès?</h2><p>Respon sense mirar els dibuixos. Si falles, torna a l’escena i observa-la de nou.</p><div class="marcador" id="marcador">0 / ${qs.length}</div></div><div class="preguntes">${qs.map((q, i) => `<article class="q" data-i="${i}"><h3><span>${i + 1}</span>${esc(q.q)}</h3><div class="ops">${q.o.map((o, j) => `<button type="button" data-j="${j}">${esc(o)}</button>`).join('')}</div><p class="exp" hidden></p></article>`).join('')}</div><div class="repte-peu"><button type="button" id="r-torna">← Torna a les escenes</button>${seg ? `<a class="boto" href="${seg.id}.html">Capítol següent: ${esc(seg.nom)} →</a>` : '<a class="boto" href="index.html">Torna a la portada →</a>'}</div>`;
+    $('#cos').innerHTML = `<div class="repte-cap"><h2>Ho has entès?</h2><p>Respon de memòria. Si falles, torna a l’escena i observa-la de nou.</p><div class="marcador" id="marcador">0 / ${qs.length}</div></div><div class="preguntes">${cos}</div><div class="repte-peu"><button type="button" id="r-torna">← Torna a les escenes</button>${seg ? `<a class="boto" href="${seg.id}.html">Capítol següent: ${esc(seg.nom)} →</a>` : '<a class="boto" href="index.html">Torna a la portada →</a>'}</div>`;
     let encerts = 0, fets = 0;
+    const marca = (art, ok, text) => {
+      art.classList.add('feta', ok ? 'be' : 'malament');
+      const ex = $('.exp', art); ex.hidden = false; ex.innerHTML = (ok ? '<b>Correcte.</b> ' : '<b>No és això.</b> ') + text;
+      fets++; if (ok) encerts++;
+      $('#marcador').textContent = `${encerts} / ${qs.length}` + (fets === qs.length ? (encerts === qs.length ? ' · Perfecte!' : ' · Repassa i torna-hi') : '');
+    };
+    $$('.q-dibuix').forEach((cx) => {
+      const art = cx.closest('.q'), q = qs[+art.dataset.i], e = escDe(q.esc); if (!e) return;
+      const svg = dibuixEstatic(cx, e, q.p != null ? q.p : 0.5); if (!svg) return;
+      svg.addEventListener('click', (ev) => {
+        if (art.classList.contains('feta')) return;
+        const g = ev.target.closest('[data-part]'); if (!g) return;
+        const ok = g.dataset.part === q.part;
+        $$(`[data-part="${g.dataset.part}"]`, svg).forEach((n) => n.classList.add(ok ? 'q-be' : 'q-mal'));
+        if (!ok) $$(`[data-part="${q.part}"]`, svg).forEach((n) => n.classList.add('q-be'));
+        const nom = e.parts && e.parts[g.dataset.part] ? e.parts[g.dataset.part].nom : '';
+        marca(art, ok, (ok ? '' : `Has tocat: ${esc(nom)}. La resposta és la peça que ara brilla en verd. `) + q.e);
+      });
+    });
+    $$('.ordena').forEach((box) => {
+      const art = box.closest('.q'), q = qs[+art.dataset.i], ordre = [];
+      box.addEventListener('click', (ev) => {
+        const b = ev.target.closest('button[data-k]'); if (!b || art.classList.contains('feta') || b.classList.contains('triada')) return;
+        ordre.push(+b.dataset.k); b.classList.add('triada'); $('i', b).textContent = ordre.length;
+        if (ordre.length === $$('button', box).length) {
+          const ok = ordre.every((k, n) => k === n);
+          $$('button', box).forEach((x) => { x.disabled = true; x.classList.add(+$('i', x).textContent - 1 === +x.dataset.k ? 'bona' : 'dolenta'); });
+          const e = escDe(q.esc);
+          marca(art, ok, (ok ? '' : 'L’ordre correcte és: ' + e.fases.map((f, n) => `${n + 1}. ${esc(f.nom)}`).join(' · ') + '. ') + (q.e || ''));
+        }
+      });
+    });
     $('#r-torna').addEventListener('click', () => obreEscena(0));
     $('.preguntes').addEventListener('click', (ev) => {
       const b = ev.target.closest('button[data-j]'); if (!b) return;
       const art = b.closest('.q'); if (art.classList.contains('feta')) return;
       const q = qs[+art.dataset.i], ok = +b.dataset.j === q.c;
-      art.classList.add('feta', ok ? 'be' : 'malament'); b.classList.add('triada');
+      b.classList.add('triada');
       $$('button', art).forEach((x) => { x.disabled = true; if (+x.dataset.j === q.c) x.classList.add('bona'); });
-      const ex = $('.exp', art); ex.hidden = false; ex.innerHTML = (ok ? '<b>Correcte.</b> ' : '<b>No és això.</b> ') + q.e;
-      fets++; if (ok) encerts++;
-      $('#marcador').textContent = `${encerts} / ${qs.length}` + (fets === qs.length ? (encerts === qs.length ? ' · Perfecte!' : ' · Repassa i torna-hi') : '');
+      marca(art, ok, q.e);
     });
   }
 
@@ -630,7 +786,9 @@
 
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    ajusta(); window.addEventListener('resize', ajusta);
+    ajusta(); window.addEventListener('resize', () => { ajusta(); encaixaConnecta(); encaixaFoto(); });
+    document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && $('#escenari.gran') && document.documentElement.classList.contains('mobil')) amplia(false); });
+    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && $('#escenari.gran')) amplia(false); });
     if (document.body.dataset.capitol === 'portada') { if (RI.portada) RI.portada(); }
     else if (st.cap) munta();
   });

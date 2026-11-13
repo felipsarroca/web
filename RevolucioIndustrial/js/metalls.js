@@ -19,6 +19,7 @@
     // carbonera cònica coberta de terra amb troncs visibles i xemeneia
     s += `<path class="t" fill="#5c4632" d="M116 560l44-88h60l44 88z"/><path d="M138 560l26-84M190 476v84M242 560l-26-84" stroke="#3d2c1e" stroke-width="2" opacity=".6"/><rect class="t fosc" x="178" y="458" width="24" height="16" rx="2"/><g data-puf="190 452 24 -75 5 11 2.4" class="fum"></g>`;
     s += retol(185, 616, 'un sol forn es menja un bosc', { fons: '#d9482b', vora: '#2a2420', w: 264, attr: 'data-en="0"' });
+    s += `<g>${retol(185, 224, '✗ s’acaben els boscos', { fons: '#a8452f', vora: '#2a2420', w: 230 })}${retol(185, 268, '✗ la fusta és cada cop més cara', { fons: '#a8452f', vora: '#2a2420', w: 270 })}${retol(185, 312, '✗ tou: s’esclafa en forns alts', { fons: '#a8452f', vora: '#2a2420', w: 262 })}</g>`;
     // forn de coc (beehive oven)
     s += `<g data-part="forn"><path class="t mao" d="M446 560V416Q446 266 600 266T754 416V560Z"/><path class="t ferro2" d="M438 560V420h14v140zM748 560V420h14v140z"/>
       <path class="t" fill="#3a251c" d="M484 560V426Q484 308 600 308T716 426V560Z"/>
@@ -35,6 +36,7 @@
     });
     s += `<g data-part="coc"><g id="pila" opacity="0">${pila}${retol(1020, 224, '✓ crema molt més calent', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${retol(1020, 268, '✓ dur: aguanta grans torres', { fons: '#3e6e22', vora: '#2a2420', w: 260 })}${retol(1020, 312, '✓ abundant: ve de la mina', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${fletxa('M1020 572V624', '#d9482b', 6)}${retol(1020, 662, 'cap a l’alt forn →', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 190 })}</g></g>`;
     s += RI.innova(600, 118, 'INNOVACIÓ · coure sense aire → coc pur i dur', { apunta: [600, 266], halo: [600, 420, 168, 150], w: 386 });
+    s += `<g data-en="0">${retol(600, 616, 'entra carbó mineral (de la mina)', { fons: '#2b2826', vora: '#2a2420', w: 290 })}</g><g data-en="2">${retol(600, 174, 'ha perdut els gasos i el sofre', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 280 })}${retol(600, 616, 'surt coc: gris, porós i dur', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}</g>`;
     return svg(s);
   }
   function animaCoc({ p, k, el }) {
@@ -98,9 +100,9 @@
     s += RI.innova(286, 52, 'INNOVACIÓ · el mur separa el carbó del ferro + laminatge final', { apunta: [203, 470], halo: [203, 480, 24, 48], w: 485 });
     // laminador amb castells i corrons acanalats
     s += `<g data-part="laminador"><rect class="t pedra" x="804" y="582" width="192" height="18"/><path class="t" fill="url(#g-ferroc)" d="M820 582V226h160V582h-30V268H850V582z"/><rect class="t" fill="url(#g-ferro)" x="814" y="218" width="172" height="14" rx="3"/><path d="M835 245v325M965 245v325" stroke="#9aa6af" stroke-width="2" stroke-dasharray="2 16" opacity=".6"/>
-      <rect id="barra-e" x="660" y="368" width="230" height="34" rx="6" class="t roent"/><rect id="barra-s" x="910" y="376" width="0" height="18" rx="4" class="t roent"/>
-      <g id="corro1">${roda(900, 330, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 290v20M900 350v20M860 330h20M920 330h20" class="t"/></g><g id="corro2">${roda(900, 442, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 402v20M900 462v20M860 442h20M920 442h20" class="t"/></g></g>`;
-    s += `<g data-en="3">${retol(900, 184, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', vora: '#2a2420', w: 320 })}</g>`;
+      <rect id="barra-e" x="660" y="369" width="230" height="34" rx="6" class="t roent"/><rect id="barra-s" x="900" y="377" width="0" height="18" rx="4" class="t roent"/>
+      <g id="corro1">${roda(900, 321, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 281v20M900 341v20M860 321h20M920 321h20" class="t"/></g><g id="corro2">${roda(900, 451, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 411v20M900 471v20M860 451h20M920 451h20" class="t"/></g></g>`;
+    s += `<g data-en="3">${retol(900, 184, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', vora: '#2a2420', w: 320 })}<text x="745" y="356" class="tx-p mig" style="font-weight:800">entra gruixuda</text><text x="1085" y="420" class="tx-p mig" style="font-weight:800">surt prima i llarga</text></g>`;
     s += `<g><text x="1084" y="544" class="tx mig">barra · planxa · rail</text><rect class="t ferro2" x="1010" y="562" width="52" height="13" rx="2"/><rect class="t ferro2" x="1072" y="566" width="60" height="6" rx="1"/><path class="t ferro2" d="M1146 582h34v-6h-11v-14h7v-8h-26v8h7v14h-11z"/></g>`;
     return svg(s);
   }
@@ -111,9 +113,9 @@
     b.setAttribute('opacity', p > 0.4 && p < 0.68 ? 1 : 0); b.setAttribute('cx', lerp(340, 700, f).toFixed(1)); b.setAttribute('cy', lerp(484, 385, f).toFixed(1));
     const q = tram(p, 0.68, 0.98, 0, 1, true), e = el('barra-e'), sx = el('barra-s');
     e.setAttribute('opacity', p >= 0.66 ? 1 : 0); e.setAttribute('x', (660 + 230 * q).toFixed(1)); e.setAttribute('width', Math.max(0, 230 * (1 - q)).toFixed(1));
-    sx.setAttribute('opacity', p >= 0.68 ? 1 : 0); sx.setAttribute('width', (450 * q).toFixed(1));
+    sx.setAttribute('opacity', p >= 0.68 ? 1 : 0); sx.setAttribute('width', (320 * q).toFixed(1));
     const gir = p >= 0.66 ? (t * 220) % 360 : 0;
-    el('corro1').setAttribute('transform', `rotate(${gir.toFixed(1)} 900 330)`); el('corro2').setAttribute('transform', `rotate(${(-gir).toFixed(1)} 900 442)`);
+    el('corro1').setAttribute('transform', `rotate(${gir.toFixed(1)} 900 321)`); el('corro2').setAttribute('transform', `rotate(${(-gir).toFixed(1)} 900 451)`);
   }
 
   /* ---------- 4 · convertidor Bessemer ---------- */
@@ -133,7 +135,7 @@
       <rect class="t pedra" x="926" y="608" width="150" height="32"/><rect class="t" fill="url(#g-ferroc)" x="944" y="534" width="114" height="74" rx="6"/><circle class="t blanc" cx="980" cy="566" r="14"/><path d="M980 566l8-8" class="t2"/>${roda(1042, 570, 32, { raigs: 6, color: '#56636c', gruix: 7 })}<text x="980" y="598" class="tx-p mig" style="font-size:12px;fill:#fffdf7">bufadora</text></g>`;
     // cullera i lingotera
     s += `<g data-part="cullera" data-exp="-56 32"><path class="t" fill="url(#g-ferroc)" d="M236 550h144l-14 78H250z"/><path d="M236 550v-32M380 550v-32" class="t" stroke-width="5"/><path id="acer-c" d="M244 590h128l-8 36H252z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
-    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}${retol(980, 442, '1.200 → 1.600 °C (sense combustible)', { fons: '#a8452f', vora: '#2a2420', w: 290 })}<text id="minuts" x="940" y="256" class="tx-gg mig">0 min</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
+    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}${retol(980, 442, '1.200 → 1.600 °C (sense combustible)', { fons: '#a8452f', vora: '#2a2420', w: 290 })}<text id="minuts" x="940" y="256" class="tx-gg mig">minut 0 de 20</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
     s += RI.innova(600, 44, 'INNOVACIÓ · aire fred pel fons: crema el carboni en 20 min, ZERO carbó', { apunta: [600, 520], halo: [600, 522, 92, 26], w: 545 });
     return svg(s);
   }
@@ -156,7 +158,7 @@
         c.setAttribute('cy', (-210 - f * 170).toFixed(1));
         c.setAttribute('opacity', (1 - f).toFixed(2));
       });
-      el('minuts').textContent = Math.round(((p - 0.3) / 0.4) * 20) + ' min';
+      el('minuts').textContent = 'minut ' + Math.round(((p - 0.3) / 0.4) * 20) + ' de 20';
     }
     el('raig').setAttribute('opacity', p > 0.8 && p < 0.98 ? 1 : 0);
     el('acer-c').setAttribute('opacity', p > 0.82 ? tram(p, 0.82, 0.98, 0, 1).toFixed(2) : 0);
@@ -180,13 +182,13 @@
   }
 
   RI.capitol({
-    id: 'metalls', titol: 'Ferro i acer',
+    id: 'metalls', titol: 'Ferro i acer', llegenda: [['#ff9a2e', 'calor · metall roent'], ['#2f7fb5', 'aire a pressió']],
     escenes: [
       {
         id: 'coc', nom: 'Del carbó al coc', any: '1709', qui: 'Abraham Darby · Coalbrookdale', durada: 15,
         pregunta: 'Amb què alimentes un forn quan s’acaben els boscos?',
         intro: 'Per fondre ferro es feia servir carbó vegetal, fet de fusta. Anglaterra es quedava sense boscos. Darby prova amb carbó mineral, però abans el <b>cou</b>.',
-        svg: coc, anima: animaCoc,
+        svg: coc, anima: animaCoc, innova: [1],
         fases: [
           { fins: 0.33, nom: 'El problema: la fusta', text: 'Cada forn necessita hectàrees de bosc cada any. La fusta s’encareix i el ferro també.' },
           { fins: 0.66, nom: 'Coure el carbó sense aire', text: 'Es tanca el carbó mineral en un forn amb molt poc aire. No crema: s’escalfa i perd els gasos, el quitrà i part del sofre, que faria el ferro trencadís.', focus: ['forn'] },
@@ -201,7 +203,7 @@
         model: 'Alt forn de coc en secció · esquema didàctic',
         pregunta: 'Com treus ferro d’una pedra?',
         intro: 'El mineral de ferro és ferro enganxat a oxigen. L’alt forn és una torre que funciona dia i nit: per dalt hi entren pedres, per baix en surt <b>ferro líquid</b>.',
-        svg: altForn, anima: animaForn,
+        svg: altForn, anima: animaForn, innova: [1, 2],
         fases: [
           { fins: 0.25, nom: 'Es carrega per dalt', text: 'Capes de mineral de ferro, coc i pedra calcària. A mesura que es consumeix el de baix, tot va baixant.', focus: ['carrega', 'cuba'] },
           { fins: 0.5, nom: 'S’hi bufa aire per baix', text: 'Una màquina bufadora injecta aire a pressió per les toveres. Amb més aire, el coc crema amb molta més força.', focus: ['bufadora'] },
@@ -218,9 +220,10 @@
         etiquetes: [['carrega', 900, 100, 720, 126, 'Boca de càrrega'], ['cuba', 300, 250, 500, 290], ['bufadora', 150, 300, 142, 362, 'Màquina bufadora'], ['bufadora', 330, 540, 440, 498, 'Tovera'], ['gresol', 760, 566, 600, 572], ['llit', 638, 650, 468, 646, 'Llit de colada']],
         real: {
           img: 'img/real-altforn.webp',
-          titol: 'Antic alt forn de coc d’Abraham Darby (1709)',
-          museu: 'Coalbrookdale Museum of Iron · Ironbridge Gorge (Regne Unit)',
-          lic: 'Foto: Helen Simonsson · Wikimedia Commons (CC BY-SA 3.0)'
+          titol: 'L’alt forn d’Abraham Darby a Coalbrookdale (on es va fondre ferro amb coc el 1709)',
+          museu: 'Museum of Iron · Ironbridge Gorge (Regne Unit)',
+          lic: 'Foto: IronbridgeG · Wikimedia Commons · CC BY-SA 4.0',
+          etiquetes: [['cuba', 50, 22, 'Torre del forn'], ['llit', 50, 82, 'Boca de colada']]
         },
         clau: 'Mineral + coc + aire = ferro colat. Abundant i barat, però trencadís.',
         batx: { titol: 'Carbó, ferro i vapor: un cercle', text: 'Les màquines de vapor mouen les bufadores i bomben l’aigua de les mines; les mines donen el carbó per al coc; el ferro serveix per fer màquines de vapor. Aquest cercle explica per què la industrialització s’accelera sola un cop comença.', font: 'https://www.ironbridge.org.uk/', fontNom: 'Ironbridge Gorge Museums' }
@@ -230,7 +233,7 @@
         model: 'Forn de reverber i tren de laminatge · esquema didàctic',
         pregunta: 'Com converteixes un ferro trencadís en bigues i rails?',
         intro: 'El ferro colat té massa carboni: no es pot forjar. Cort ho resol amb dues idees: un forn on el ferro es <b>remena</b> i uns <b>corrons</b> que el pasten.',
-        svg: pudelat, anima: animaPud,
+        svg: pudelat, anima: animaPud, innova: [0, 3],
         fases: [
           { fins: 0.25, nom: 'Un forn de dues cambres', text: 'El carbó crema en una banda i el ferro es fon a l’altra. Només hi arriba la flama, rebotada pel sostre: així el sofre del carbó no l’embruta.', focus: ['fogar', 'forn', 'xemeneia'] },
           { fins: 0.5, nom: 'El pudelador remena', text: 'Amb una barra llarga remou el bany. L’aire crema el carboni i el ferro, cada cop més pur, es va fent pastós.', focus: ['pudelador', 'sola'] },
@@ -254,7 +257,7 @@
         model: 'Convertidor Bessemer en secció · esquema didàctic',
         pregunta: 'Com fas acer en vint minuts?',
         intro: 'L’acer era el millor metall, però caríssim: es feia en petits gresols. Bessemer té una idea que sembla absurda: <b>bufar aire fred</b> a través del ferro fos.',
-        svg: bessemer, anima: animaBes,
+        svg: bessemer, anima: animaBes, innova: [2],
         fases: [
           { fins: 0.2, nom: 'Càrrega', text: 'El convertidor s’inclina i s’hi aboca ferro colat líquid, acabat de sortir de l’alt forn.', focus: ['convertidor'] },
           { fins: 0.3, nom: 'S’aixeca i comença el vent', text: 'Es posa dret i s’obre l’aire, que entra pel fons a través de les toveres.', focus: ['toveres', 'eix'] },
@@ -277,15 +280,16 @@
         },
         real: {
           img: 'img/real-bessemer.webp',
-          titol: 'Convertidor Bessemer industrial de 25 tones',
+          titol: 'Convertidor Bessemer de 25 tones (s. XX), conservat a l’aire lliure',
           museu: 'Kelham Island Industrial Museum · Sheffield (Regne Unit)',
-          lic: 'Foto: Wikimedia Commons (CC BY 2.0)'
+          lic: 'Foto: cooldudeandy01 · Wikimedia Commons · CC BY 2.0',
+          etiquetes: [['convertidor', 50, 32, 'Convertidor'], ['eix', 77, 40, 'Eix de basculament']]
         },
         clau: 'Acer abundant i barat: comença l’era dels rails d’acer, els grans vaixells i els gratacels.',
         batx: { titol: 'Un invent que al principi fallava', text: 'El procés no funcionava amb minerals rics en fòsfor (la majoria dels europeus) i l’acer sortia trencadís. Es va resoldre amb el ferromanganès de Mushet i, el 1879, amb el revestiment bàsic de Thomas i Gilchrist. Bessemer pertany ja a la Segona Revolució Industrial.', font: 'https://blog.sciencemuseum.org.uk/onward-ever-sir-henry-bessemer-frs-19-1-1813-15-3-1898/', fontNom: 'Science Museum · Henry Bessemer' }
       },
       {
-        id: 'tres', nom: 'Tres metalls', estatica: true,
+        id: 'tres', nom: 'Tres metalls', estatica: true, llegenda: false,
         pregunta: 'Ferro colat, ferro forjat o acer?',
         intro: 'Tots tres són ferro. La diferència és <b>quant carboni</b> porten barrejat, i això canvia del tot com es comporten.',
         svg: tres,
@@ -297,8 +301,11 @@
       { q: 'Què és el coc?', o: ['Carbó vegetal fet amb fusta', 'Carbó mineral cuit sense aire', 'Un mineral de ferro'], c: 1, e: 'En coure’s perd gasos, quitrà i sofre, i queda gairebé carboni pur.' },
       { q: 'Quines dues feines fa el coc dins l’alt forn?', o: ['Escalfa i treu l’oxigen del mineral', 'Refreda i filtra el ferro', 'Bufa aire i fa escòria'], c: 0, e: 'És combustible i, alhora, el que separa el ferro de l’oxigen.' },
       { q: 'Què surt de l’alt forn?', o: ['Acer', 'Ferro forjat', 'Ferro colat'], c: 2, e: 'Ferro amb molt carboni (3-4 %): dur però trencadís.' },
+      { tipus: 'toca', esc: 'altforn', part: 'bufadora', p: 0.4, q: 'Toca la màquina que fa que el coc cremi amb molta més força dins l’alt forn.', e: 'La bufadora: injecta aire a pressió per les toveres.' },
+      { tipus: 'ordena', esc: 'altforn', q: 'Ordena el procés de l’alt forn.', e: 'Càrrega per dalt → aire per baix → el coc escalfa i treu l’oxigen → sagnia del ferro colat.' },
       { q: 'Què aconsegueix el pudelador remenant el ferro?', o: ['Afegir-hi carboni', 'Cremar el carboni que sobra', 'Refredar-lo més de pressa'], c: 1, e: 'Amb menys carboni, el ferro es pot forjar i laminar.' },
       { q: 'Per què el convertidor Bessemer no necessita combustible?', o: ['Perquè funciona amb electricitat', 'Perquè el carboni del mateix ferro crema amb l’aire i fa pujar la temperatura', 'Perquè el ferro ja és fred'], c: 1, e: 'La combustió de les impureses dona tota la calor necessària.' },
+      { tipus: 'toca', esc: 'bessemer', part: 'toveres', p: 0.5, q: 'Toca per on entra l’aire que crema el carboni al convertidor Bessemer.', e: 'Les toveres del fons: l’aire travessa tot el ferro líquid de baix a dalt.' },
       { q: 'Quin metall és dur i elàstic alhora?', o: ['El ferro colat', 'El ferro forjat', 'L’acer'], c: 2, e: 'Té la quantitat justa de carboni: entre el 0,2 i l’1,5 %.' }
     ]
   });

@@ -80,9 +80,9 @@
     // terra llaurada al darrere (esquerra), solc obert sota la rella/tub, herba sense sembrar davant (dreta)
     s += `<rect x="-60" y="540" width="510" height="22" fill="#705236"/><rect x="450" y="546" width="125" height="16" fill="#5e432a"/><rect class="herba" x="574" y="534" width="690" height="10"/>`;
     s += `<g id="llavors">${Array.from({ length: 11 }, () => `<g class="ll"><path class="brot" d="M0 0v-30m0 12q-12-2-14-14m14 6q12-2 14-14" stroke="#4f8a3a" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse class="t1" cx="0" cy="4" rx="6" ry="4.5" fill="#e6b93c"/></g>`).join('')}</g>`;
-    s += `${cavall(880, 540, 2.35, { arnes: true })}<path d="M708 424L834 406M708 438L848 420" class="t nf" stroke-width="4.5"/>${persona(250, 540, 170, { color: '#7a5a3a', barret: true, brac: 'M-8-68l36 16M8-68l32 10' })}`;
+    s += `${cavall(880, 540, 2.35, { arnes: true })}<path d="M708 424L834 406M708 438L848 420" class="t nf" stroke-width="4.5"/>${persona(280, 540, 170, { color: '#7a5a3a', barret: true, brac: 'M-8-68l37.4 12.7M8-68l21.4 19.8' })}`;
     s += `<g data-guia="1"><path d="M530 248v-58M530 340h-46M530 386v40M445 450l-52 30M564 520l44 30M640 468l60-16M370 415l-56-24"/></g>`;
-    s += `<g data-part="esteves" data-exp="-64 -26"><path d="M326 398L416 436M326 386L416 424" class="t" stroke="#8f6038" stroke-width="9"/></g>`;
+    s += `<g data-part="esteves" data-exp="-64 -26"><path d="M330 446L416 436M330 458L416 446" class="t" stroke="#8f6038" stroke-width="9" stroke-linecap="round"/></g>`;
     s += `<g data-part="bastidor"><path class="t" fill="url(#g-fustac)" d="M410 422H712V444H410Z"/><path class="t fusta2" d="M480 340L446 422M580 340L616 422" stroke-width="8"/></g>`;
     s += `<g data-part="rasclet" data-exp="-54 34"><path d="M426 444V550M446 444V550M464 444V548" class="t ferro2" stroke-width="5.5"/></g>`;
     s += `<g data-part="tremuja" data-exp="0 -56"><path class="t" fill="url(#g-fustac)" d="M450 248H610L580 340H480Z"/><path class="t2" d="M462 260H598L574 330H486Z" fill="#e6b93c"/><path d="M472 270h10m14 6h10m20-8h10m-50 22h10m24 0h10m16-12h10m-70 26h10m30 4h10" stroke="#9e6e14" stroke-width="4.5" stroke-linecap="round"/></g>`;
@@ -119,9 +119,9 @@
       return `<path class="t2" fill="#6b4e33" d="M${sx} 500q-34-44-70-6l-10 6z"/><path d="M${sx - 12} 498q-18-16-36-4" stroke="#4f8236" stroke-width="3.5" fill="none" opacity=".75"/>`;
     }).join('')}</g><rect x="-60" y="500" width="700" height="6" fill="#6b4e33"/>`;
     // 2 cavalls tirant en tàndem + cadena fins a la cama
-    s += `${cavall(1030, 500, 2.3, { color: '#5a4636', arnes: true })}${cavall(915, 500, 2.3, { arnes: true })}<path d="M798 380L874 374M798 386L988 378" class="t nf" stroke-width="4" stroke-dasharray="6 3"/>${persona(210, 500, 170, { color: '#3d5a80', barret: true, brac: 'M-8-68l40 2M8-68l36 6' })}`;
-    s += `<g data-guia="1"><path d="M350 340l-52-24M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
-    s += `<g data-part="esteves" data-exp="-60 -30"><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
+    s += `${cavall(1030, 500, 2.3, { color: '#5a4636', arnes: true })}${cavall(915, 500, 2.3, { arnes: true })}<path d="M798 380L874 374M798 386L988 378" class="t nf" stroke-width="4" stroke-dasharray="6 3"/>${persona(232, 500, 170, { color: '#3d5a80', barret: true, brac: 'M-8-68l31.5 21M8-68l15.5 30.4' })}`;
+    s += `<g data-guia="1"><path d="M330 432v-60M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
+    s += `<g data-part="esteves" data-exp="-60 -30"><path d="M272 420L470 462M272 436L478 478" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M272 420L470 462M272 436L478 478" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
     s += `<g data-part="cama" data-exp="0 -14"><path class="t" fill="url(#g-fustac)" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
     s += `<g data-part="orello" data-exp="-34 42"><path class="t" fill="url(#g-acer)" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/><path id="gleba-gira" d="M548 498Q500 442 440 448" class="flux s-verd" stroke-width="4" data-flux="-1.8"/></g>`;
     s += `<g data-part="rella" data-exp="56 32"><path class="t" fill="url(#g-ferroc)" d="M660 528L540 532L560 490Z"/></g>`;
@@ -158,7 +158,7 @@
         model: 'Sembradora de Jethro Tull, secció simplificada (una sola filera) · reconstrucció didàctica',
         pregunta: 'Com sembres sense llençar la meitat de les llavors?',
         intro: 'Sembrar «a eixam» era llançar grapats de llavor caminant. Moltes quedaven a la vista dels ocells o massa juntes. Tull construeix una màquina que les col·loca <b>d’una en una</b>.',
-        svg: sembradora, anima: animaSemb,
+        svg: sembradora, anima: animaSemb, innova: [1, 2],
         fases: [
           { fins: 0.25, nom: 'La tremuja guarda la llavor', text: 'Un dipòsit en forma d’embut. La llavor baixa pel seu propi pes.', focus: ['tremuja'] },
           { fins: 0.5, nom: 'El dosador les compta', text: 'Un cilindre amb osques gira mogut per la roda. A cada osca hi cap una llavor: com més avança la màquina, més llavors cauen, sempre a la mateixa distància.', focus: ['dosador', 'roda'] },
@@ -184,9 +184,9 @@
         },
         real: {
           img: 'img/real-sembradora.webp',
-          titol: 'Gravat tècnic original de la sembradora de Jethro Tull (làmina V, s. XVIII)',
-          museu: 'Horse-Hoeing Husbandry · Arxiu històric',
-          lic: 'Imatge: domini públic · Wikimedia Commons'
+          titol: 'Gravat original de la sembradora de Jethro Tull (làmina V)',
+          museu: 'J. Tull, Horse-Hoeing Husbandry (1733)',
+          lic: 'Domini públic · Wikimedia Commons'
         },
         clau: 'Menys llavor, més collita: la sembra en fileres és el principi de l’agricultura mecanitzada.',
         batx: { titol: 'Un invent avançat al seu temps', text: 'Tull la construeix cap al 1701 i la publica el 1731, però les sembradores no es generalitzen a Anglaterra fins ben entrat el segle XIX: eren cares, delicades i calia terra ben treballada. Bon exemple de la distància entre invenció i difusió.', font: 'https://www.bbc.co.uk/history/historic_figures/tull_jethro.shtml', fontNom: 'BBC History · Jethro Tull' }
@@ -196,7 +196,7 @@
         model: 'Arada de Rotherham · reconstrucció didàctica',
         pregunta: 'Com llaures més terra amb menys animals?',
         intro: 'Llaurar és tallar una llesca de terra i girar-la. L’arada de Rotherham ho fa amb un bastidor triangular lleuger i un <b>orelló corbat folrat de ferro</b>.',
-        svg: arada, anima: animaArada,
+        svg: arada, anima: animaArada, innova: [2],
         fases: [
           { fins: 0.25, nom: 'El ganivet talla', text: 'Una fulla vertical va al davant i talla la terra com un ganivet talla el pa.', focus: ['ganivet'] },
           { fins: 0.5, nom: 'La rella aixeca', text: 'La punta de ferro avança sota terra i separa la llesca del fons.', focus: ['rella'] },
@@ -210,7 +210,7 @@
           cama: { nom: 'Cama', text: 'La biga principal, d’on estiren els animals.' },
           esteves: { nom: 'Esteves', text: 'Els dos mànecs amb què el pagès guia l’arada.' }
         },
-        etiquetes: [['ganivet', 790, 300, 700, 400], ['rella', 720, 640, 620, 528], ['orello', 430, 640, 470, 470, 'Orelló'], ['cama', 600, 300, 600, 378], ['esteves', 200, 250, 290, 318]],
+        etiquetes: [['ganivet', 790, 300, 700, 400], ['rella', 720, 640, 620, 528], ['orello', 430, 640, 470, 470, 'Orelló'], ['cama', 600, 300, 600, 378], ['esteves', 330, 330, 330, 432]],
         explotada: {
           img: 'img/exp-arada.webp',
           model: 'Làmina tècnica en vista explotada · Arada triangular de Rotherham (Foljambe, 1730)',
@@ -225,8 +225,10 @@
       { q: 'Què és el guaret?', o: ['Un tipus de blat', 'Deixar una terra sense sembrar perquè es recuperi', 'Una eina per llaurar'], c: 1, e: 'Era la manera antiga de fer descansar la terra, però deixava una part del camp sense collita.' },
       { q: 'Quins quatre conreus fan girar el sistema Norfolk?', o: ['Blat, naps, ordi i trèvol', 'Blat, patates, vinya i olivera', 'Arròs, cotó, blat i sucre'], c: 0, e: 'Dos cereals i dues plantes farratgeres que es van alternant.' },
       { q: 'Per què els naps i el trèvol són tan importants?', o: ['Perquè es venen molt cars', 'Perquè alimenten el bestiar i ajuden a recuperar la terra', 'Perquè no necessiten aigua'], c: 1, e: 'Més farratge vol dir més animals, més fems i terra més fèrtil.' },
-      { q: 'Què fa el dosador de la sembradora?', o: ['Obre el solc', 'Deixa caure les llavors d’una en una', 'Tapa la llavor'], c: 1, e: 'És un cilindre amb osques que gira amb la roda.' },
+      { tipus: 'toca', esc: 'sembradora', part: 'dosador', p: 0.4, q: 'Toca la peça de la sembradora que deixa caure les llavors d’una en una.', e: 'El dosador: un cilindre amb osques que gira amb la roda.' },
+      { tipus: 'ordena', esc: 'sembradora', q: 'Ordena el camí que fa una llavor dins la sembradora.', e: 'Tremuja → dosador → rella i tub → rasclet.' },
       { q: 'Quin avantatge té sembrar en fileres?', o: ['Es gasta menys llavor i es pot desherbar entremig', 'Les plantes creixen sense sol', 'No cal llaurar'], c: 0, e: 'Totes les llavors queden colgades, separades i en línia.' },
+      { tipus: 'toca', esc: 'arada', part: 'orello', p: 0.6, q: 'Toca la peça de l’arada de Rotherham que gira la terra.', e: 'L’orelló: una planxa corbada folrada de ferro. La seva forma és la gran millora.' },
       { q: 'Què va canviar amb l’arada de Rotherham?', o: ['Calien més bous', 'N’hi havia prou amb dos cavalls i una persona', 'Ja no calia sembrar'], c: 1, e: 'Era lleugera i el seu orelló de ferro girava la terra amb menys esforç.' }
     ]
   });

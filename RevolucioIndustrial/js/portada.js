@@ -4,7 +4,7 @@
   const { roda, foc, nuvol, ovella, arbre } = RI;
   const C = RI.CAPITOLS;
   const pin = (i, x, y) => `<g class="pin" transform="translate(${x} ${y})"><path d="M0 0v32" stroke="#2a2420" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/><rect x="-14" y="-17" width="${C[i].nom.length * 9.2 + 54}" height="34" rx="17" fill="#fffdf7" stroke="#2a2420" stroke-width="3"/><circle cx="3" cy="0" r="13" fill="${C[i].color}"/><text x="3" y="5.5" text-anchor="middle" class="pin-n">${i + 1}</text><text x="24" y="5.5" class="pin-t">${C[i].nom}</text></g>`;
-  const fum = (x, y, n, cls) => Array.from({ length: n || 3 }, (_, i) => `<circle class="fumet ${cls || ''}" cx="${x}" cy="${y}" r="9" style="animation-delay:${-i * 1.3}s"/>`).join('');
+  const fum = (x, y, n, cls) => Array.from({ length: n || 3 }, (_, i) => `<circle class="fumet ${cls || ''}" cx="${x}" cy="${y}" r="13" style="animation-delay:${-i * 1.3}s"/>`).join('');
   const finestres = (x, y, cols, files, dx, dy) => { let s = ''; for (let r = 0; r < files; r++) for (let c = 0; c < cols; c++) s += `<rect x="${x + c * dx}" y="${y + r * dy}" width="12" height="16" rx="1" fill="#ffe9a8" stroke="#2a2420" stroke-width="1.6"/>`; return s; };
   const lloc = (i, inner) => `<a class="lloc" href="${C[i].id}.html" aria-label="${i + 1}. ${C[i].nom}: ${C[i].pregunta}">${inner}</a>`;
 
@@ -26,10 +26,10 @@
       <g class="balanci" style="transform-origin:400px 236px"><rect x="348" y="230" width="112" height="11" rx="4" fill="#c7935c" stroke="#2a2420" stroke-width="2.8"/><path d="M454 220a24 24 0 0 1 0 30" fill="none" stroke="#2a2420" stroke-width="4"/></g>
       <path d="M456 240v94M440 334l16-66 16 66" stroke="#2a2420" stroke-width="3.6" fill="none"/><path d="M420 334q14-20 30 0z" fill="#2b2826" stroke="#2a2420" stroke-width="2"/>${pin(1, 316, 162)}`);
     // 3 cotó: nau industrial de coberta dentada amb claraboies de vidre i bales de cotó
-    s += lloc(2, `<path d="M498 334V268l30-18v18l30-18v18l30-18v84z" fill="#efe3c6" stroke="#2a2420" stroke-width="2.8"/>
+    s += lloc(2, `<g transform="translate(543 334) scale(1.4) translate(-543 -334)"><path d="M498 334V268l30-18v18l30-18v18l30-18v84z" fill="#efe3c6" stroke="#2a2420" stroke-width="2.8"/>
       <path d="M528 250v18M558 250v18M588 250v18" stroke="#8fc3e0" stroke-width="3.5"/><path d="M498 268l30-18M528 268l30-18M558 268l30-18" stroke="#b9722a" stroke-width="5" stroke-linecap="round"/>
       <rect x="524" y="294" width="38" height="40" rx="3" fill="#fffdf7" stroke="#2a2420" stroke-width="2.4"/><path d="M524 306h38M524 318h38" stroke="#b9722a" stroke-width="2.5"/>
-      <rect x="568" y="318" width="16" height="16" rx="4" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/><rect x="585" y="318" width="16" height="16" rx="4" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/>${pin(2, 512, 212)}`);
+      <rect x="568" y="318" width="16" height="16" rx="4" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/><rect x="585" y="318" width="16" height="16" rx="4" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/></g>${pin(2, 500, 180)}`);
     // 4 fàbrica: edifici multi-pis amb canal hidràulic i roda d'aigua
     s += lloc(3, `<rect x="786" y="158" width="20" height="178" fill="url(#p-mao)" stroke="#2a2420" stroke-width="2.8"/>${fum(796, 148, 4)}
       <rect x="660" y="196" width="130" height="140" fill="url(#p-mao)" stroke="#2a2420" stroke-width="2.8"/><path d="M650 198l75-28 75 28z" fill="#a8452f" stroke="#2a2420" stroke-width="2.8"/>${finestres(672, 208, 5, 4, 24, 30)}
@@ -54,7 +54,7 @@
     s += `<path d="M0 452H1240" stroke="#8a7a6a" stroke-width="20"/><path d="M0 444H1240" stroke="#2a2420" stroke-width="5"/><path d="M6 452H1240" stroke="#2a2420" stroke-width="12" stroke-dasharray="6 20"/>`;
     s += lloc(5, `<rect x="0" y="376" width="1240" height="84" fill="transparent"/><g class="tren-p">${fum(154, 366, 3)}<rect x="94" y="404" width="66" height="28" rx="7" fill="#f2c230" stroke="#2a2420" stroke-width="2.8"/><path d="M146 404v-34h13v34z" fill="#fffdf7" stroke="#2a2420" stroke-width="2.8"/><rect x="56" y="410" width="32" height="22" rx="7" fill="#c7935c" stroke="#2a2420" stroke-width="2.8"/><path d="M88 430h10" stroke="#2a2420" stroke-width="4"/>
       ${[-22, -92, -162].map((x) => `<rect x="${x}" y="406" width="62" height="26" rx="4" fill="#2f7fb5" stroke="#2a2420" stroke-width="2.8"/><rect x="${x + 8}" y="412" width="12" height="10" fill="#d6ecf3"/><rect x="${x + 26}" y="412" width="12" height="10" fill="#d6ecf3"/><rect x="${x + 44}" y="412" width="12" height="10" fill="#d6ecf3"/><circle cx="${x + 14}" cy="436" r="8" fill="#3d454b" stroke="#2a2420" stroke-width="2.4"/><circle cx="${x + 48}" cy="436" r="8" fill="#3d454b" stroke="#2a2420" stroke-width="2.4"/>`).join('')}
-      <circle cx="72" cy="436" r="8" fill="#3d454b" stroke="#2a2420" stroke-width="2.4"/><circle cx="110" cy="434" r="10" fill="#f2c230" stroke="#2a2420" stroke-width="2.8"/><circle cx="142" cy="430" r="14" fill="#f2c230" stroke="#2a2420" stroke-width="2.8"/></g>${pin(5, 560, 376)}`);
+      <circle cx="72" cy="436" r="8" fill="#3d454b" stroke="#2a2420" stroke-width="2.4"/><circle cx="110" cy="434" r="10" fill="#f2c230" stroke="#2a2420" stroke-width="2.8"/><circle cx="142" cy="430" r="14" fill="#f2c230" stroke="#2a2420" stroke-width="2.8"/></g>${pin(5, 236, 356)}`);
     s += `<path d="M0 470H1250L1180 520H0Z" fill="#6f9c43"/>`;
     return `<svg class="esc paisatge" viewBox="0 0 1600 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paisatge de la Revolució Industrial amb vuit llocs que porten als capítols">${RI.DEFS}${s}</svg>`;
   }
