@@ -44,7 +44,8 @@
       <path d="M302 -30H418V30H302ZM310 -22V22H410V-22Z" class="t" fill="url(#g-llautoc)" fill-rule="evenodd"/><rect class="t" fill="url(#g-llautoc)" x="330" y="-52" width="60" height="22" rx="4"/></g>
       <g data-part="piston" id="creu"><rect class="t" fill="url(#g-ferroh)" x="0" y="-4" width="130" height="8"/><rect class="t" fill="url(#g-ferroc)" x="125" y="-22" width="10" height="44"/><rect class="t" fill="url(#g-ferroc)" x="-12" y="-17" width="24" height="34" rx="4"/></g></g>`;
     s += `<g data-part="biela"><line id="biela" x1="600" y1="370" x2="760" y2="480" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><line id="biela2" x1="600" y1="370" x2="760" y2="480" stroke="#b4bec4" stroke-width="8" stroke-linecap="round"/><circle id="bulo" class="t llauto" cx="760" cy="480" r="9"/></g>`;
-    s += `<g data-en="3">${retol(980, 420, 'vaivé → gir', { fons: '#d9482b' })}</g><g data-en="4">${retol(1000, 150, 'el raig de vapor estira l’aire', { fons: '#2a2420', w: 250 })}${retol(1000, 186, 'i aviva el foc', { fons: '#2a2420' })}</g>`;
+    s += `<g data-en="1">${retol(620, 404, '×5 més superfície de calor', { fons: '#b9722a', w: 220 })}</g><g data-en="3">${retol(980, 420, 'vaivé → gir', { fons: '#d9482b' })}</g><g data-en="4">${retol(1000, 150, 'el raig de vapor estira l’aire', { fons: '#2a2420', w: 250 })}${retol(1000, 186, 'i aviva el foc', { fons: '#2a2420' })}</g>`;
+    s += RI.innova(315, 48, 'INNOVACIÓ · 25 tubs de foc + tir d’escapament + cilindre directe', { apunta: [620, 317], halo: [616, 326, 182, 42], w: 510 });
     return svg(s);
   }
   function animaRocket({ t, el }) {
@@ -70,6 +71,8 @@
     s += `<text x="120" y="70" class="tx-g mig">Liverpool</text><text x="1080" y="70" class="tx-g mig">Manchester</text><path d="M200 62H1000" class="t nf" stroke-dasharray="2 10"/><text x="600" y="54" class="tx-p mig">uns 50 km</text>`;
     s += `<path d="M120 90V680M1080 90V680" class="t nf" stroke-dasharray="8 8"/>`;
     s += `<g><circle class="t blanc" cx="600" cy="120" r="44"/><path d="M600 84v8M600 148v8M564 120h8M628 120h8" class="t2"/><line id="agulla" x1="600" y1="120" x2="600" y2="88" class="t" stroke-width="5"/><circle cx="600" cy="120" r="5" class="negre"/></g><text id="hores" x="662" y="130" class="tx-gg">0 h</text>`;
+    s += RI.innova(255, 120, 'INNOVACIÓ · rail de ferro + vapor = velocitat i càrrega gegants', { w: 455 });
+    s += retol(965, 120, '30 t (canal) → centenars de t (tren)', { fons: '#1f6f78', w: 290 });
     // canal
     s += `<rect x="-60" y="196" width="1320" height="100" fill="#cfe6ee"/><rect class="aigua" x="-60" y="246" width="1320" height="50" opacity=".85"/><rect class="herba" x="-60" y="232" width="1320" height="16"/><text x="-40" y="218" class="tx">Canal · barcassa estirada per un cavall</text>
       <g id="v-canal"><path class="t fusta" d="M-150 250h130l-14 30h-104z"/><path class="t carbo" d="M-136 250q50-30 96 0z"/>${persona(-32, 250, 34, { color: '#7a4f9a' })}<path d="M-20 256L48 228" class="t1"/>${cavall(68, 240, 0.72, { arnes: true })}</g>`;

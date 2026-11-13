@@ -50,7 +50,10 @@
     s += `<g data-part="coto"><rect class="t fusta" x="1040" y="574" width="130" height="14"/>${roda(1068, 600, 20, { raigs: 8, color: '#a67547' })}${roda(1142, 600, 20, { raigs: 8, color: '#a67547' })}<rect class="t blanc" x="1048" y="544" width="52" height="30" rx="7"/><rect class="t blanc" x="1104" y="544" width="52" height="30" rx="7"/><rect class="t blanc" x="1076" y="514" width="52" height="30" rx="7"/><path d="M1060 544v30M1088 544v30M1116 544v30M1144 544v30M1090 514v30M1114 514v30" class="t1"/>
       <g>${[0, 1, 2].map((i) => `<circle class="t blanc" cx="${940}" cy="${352 - i * 0}" r="0"/>`).join('')}<rect class="t" x="928" y="318" width="44" height="14" rx="7" fill="#d9482b"/><rect class="t" x="928" y="332" width="44" height="14" rx="7" fill="#2f7fb5"/><rect class="t" x="928" y="346" width="44" height="14" rx="7" fill="#f2b632"/></g></g>`;
     s += `<g data-capa="coto"><path d="M1040 604H436V474H916V344H930" class="nf" stroke="#fffdf7" stroke-width="12" stroke-linejoin="round" opacity=".7"/><path d="M1040 604H436V474H916V344H930" class="flux s-verd" stroke-width="8" data-flux="1.6" stroke-linejoin="round"/>${retol(1100, 492, 'bales de cotó', { fons: '#5b8c35' })}${retol(1066, 330, 'tela acabada', { fons: '#5b8c35' })}</g>`;
-    s += txt(670, 122, aigua ? 'Filatura hidràulica' : 'Filatura de vapor', 'tx-g mig');
+    s += txt(670, 118, aigua ? 'Filatura hidràulica' : 'Filatura de vapor', 'tx-g mig');
+    s += aigua
+      ? RI.innova(340, 48, 'INNOVACIÓ · 1 sola roda d’aigua mou tots els pisos (prop del riu)', { apunta: [384, 384], halo: [384, 410, 26, 165], w: 505 })
+      : RI.innova(340, 48, 'INNOVACIÓ · el vapor allibera la fàbrica del riu: pot anar a la ciutat', { apunta: [250, 541], halo: [220, 541, 128, 70], w: 530 });
     return svg(s);
   }
   function anima(v) {

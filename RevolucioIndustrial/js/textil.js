@@ -18,7 +18,8 @@
     }
     s += `<path class="t fusta" d="M584 230h32l26 250H558z"/><path class="t fusta2" d="M500 480h200v18H500z"/>`;
     s += `<g id="biga"><rect class="t fusta" x="290" y="190" width="620" height="20" rx="8"/><circle class="t llauto" cx="600" cy="200" r="14"/></g>${plat('plat-o', bob)}${plat('plat-d', tel)}`;
-    s += `<text x="300" y="70" class="tx-g mig">Fil que es fabrica</text><text x="300" y="96" class="tx-p mig">filar</text><text x="900" y="70" class="tx-g mig">Fil que demanen els telers</text><text x="900" y="96" class="tx-p mig">teixir</text>`;
+    s += `<text x="300" y="76" class="tx-g mig">Fil que es fabrica</text><text x="300" y="100" class="tx-p mig">filar</text><text x="900" y="76" class="tx-g mig">Fil que demanen els telers</text><text x="900" y="100" class="tx-p mig">teixir</text>`;
+    s += RI.innova(600, 26, 'INNOVACIÓ EN CADENA · accelerar una fase obliga a innovar l’altra', { w: 485 });
     s += `<g id="r-falta" opacity="0">${retol(600, 120, 'Falta fil!', { fons: '#d9482b', w: 150, h: 40 })}</g><g id="r-sobra" opacity="0">${retol(600, 120, 'Sobra fil: falten telers!', { fons: '#2f7fb5', w: 270, h: 40 })}</g><g id="r-eq" opacity="0">${retol(600, 120, 'Equilibri', { fons: '#5b8c35', w: 130, h: 40 })}</g>`;
     INVENTS.forEach(([any, nom, tipus, qui], i) => {
       const x = 44 + i * 226;
@@ -121,6 +122,7 @@
       <circle class="t ferro2" cx="912" cy="552" r="18"/>
     </g>`;
     s += `<g data-fase="0.17-0.36,0.67-0.86">${retol(600, 46, 'un sol cop de mà: la llançadora vola', { fons: '#d9482b', w: 340 })}</g>`;
+    s += RI.innova(225, 58, 'INNOVACIÓ · caixes + cordill: 1 sol teixidor fa teles amples', { apunta: [196, 318], halo: [196, 342, 62, 38], w: 405 });
     s += `</g>`;
 
     /* === VISTA 2: SECCIÓ LATERAL (OBERTURA DE LA CALADA) === */
@@ -137,7 +139,9 @@
     s += `<g id="tt-bata"><g data-part="pinta" data-exp="0 -60"><rect class="t" fill="url(#g-fustac)" x="676" y="132" width="20" height="288" rx="4"/><circle class="t llauto" cx="686" cy="136" r="7"/><rect class="t fusta2" x="650" y="394" width="68" height="24" rx="5"/><line x1="686" y1="312" x2="686" y2="394" stroke="#403a35" stroke-width="4"/></g><g data-part="llancadora" data-exp="0 30"><g id="tt-llan"><path class="t" fill="#7d4c23" d="M624 376h46l-6 18h-34z"/><ellipse cx="647" cy="380" rx="14" ry="5" fill="#d9482b"/></g></g></g>`;
     /* pitral + tela + plegador de tela */
     s += `<g data-part="tela" data-exp="55 0"><path class="t" fill="#e8d49d" d="M776 360H958q26 0 26 26v104H956V388H776z"/><rect class="t" fill="url(#g-fustac)" x="946" y="346" width="38" height="36" rx="10"/><circle class="t" fill="url(#g-fustac)" cx="956" cy="500" r="52"/><circle class="t1" fill="#e6cf98" cx="956" cy="500" r="42"/><circle class="t ferro2" cx="956" cy="500" r="12"/></g>`;
-    s += `<text x="615" y="90" class="tx mig">Quan els llissos s’obren, la llançadora passa pel túnel (la calada)</text>`;
+    s += `<text x="585" y="365" class="tx-p mig" fill="#92400e" style="font-weight:700">CALADA</text>`;
+    s += `<text x="615" y="92" class="tx mig">Quan els llissos s’obren, la llançadora passa pel túnel (la calada)</text>`;
+    s += RI.innova(595, 42, 'INNOVACIÓ · la llançadora creua el túnel disparada per cordill', { apunta: [647, 376], halo: [647, 382, 46, 32], w: 465 });
     s += `</g>`;
 
     /* === VISTA 3: PLANTA (DES DE DALT) === */
@@ -156,6 +160,7 @@
       <g data-exp="0 -24"><g data-part="llancadora" id="tp-llan"><path class="t" fill="#8f6038" d="M-44 0q22-17 44-17t44 17q-22 17-44 17t-44-17z"/><ellipse class="t1" fill="#f2c230" cx="0" cy="0" rx="20" ry="7"/></g></g>
       <g data-part="cordill" data-exp="0 46"><path id="tp-cord" d="M206 0L600 96L994 0" class="nf t1" stroke-dasharray="5 4"/><g id="tp-manec"><rect class="t fusta" x="-8" y="-22" width="16" height="48" rx="7"/></g></g></g>`;
     s += `<text x="80" y="300" class="tx mig" transform="rotate(-90 80 300)">ORDIT (fils llargs)</text><text x="1120" y="540" class="tx mig" transform="rotate(90 1120 540)">TELA</text>`;
+    s += RI.innova(600, 42, 'INNOVACIÓ · una estirada de mànec dispara la llançadora d’una caixa a l’altra', { apunta: [330, 330], w: 545 });
     s += `</g>`;
 
     return svg(s);
@@ -297,6 +302,7 @@
     s += `<g id="j3-r1" opacity="0">${retol(600, 672, 'la pinça s’obre: surt metxa gruixuda', { fons: '#2a2420', w: 290 })}</g>
           <g id="j3-r2" opacity="0">${retol(600, 672, 'pinça tancada: recula, estira i torça 8 fils alhora', { fons: '#d9482b', w: 375 })}</g>
           <g id="j3-r3" opacity="0">${retol(600, 672, 'el carro torna i el fil-guia bobina els 8 cons', { fons: '#2f7fb5', w: 350 })}</g>`;
+    s += RI.innova(310, 58, 'INNOVACIÓ · 1 roda + 1 pinça = 8 fils estirats i torçuts alhora', { apunta: [730, 215], halo: [835, 240, 108, 72], w: 455 });
     s += `</g>`;
 
     /* === VISTA 2: PLANTA SUPERIOR (8 FILS EN PARAL·LEL) === */
@@ -309,6 +315,7 @@
     s += `<g data-part="fusos" data-exp="-54 0">${FILES.map((y) => `<g><rect class="t2 fusta2" x="160" y="${y - 4}" width="70" height="8" rx="3"/><ellipse class="j2-cop t2" cx="198" cy="${y}" rx="22" ry="8" fill="url(#g-cotoblanc)"/><path class="j2-mf" d="M186 ${y - 6}l8 12M202 ${y - 6}l8 12" stroke="#2a2420" stroke-width="1.6"/></g>`).join('')}</g>`;
     s += `<g data-exp="0 -54"><g data-part="pinca" id="j2-pinca"><rect class="t fusta" x="-16" y="160" width="14" height="410" rx="5"/><rect id="j2-pinca2" class="t fusta" x="2" y="160" width="14" height="410" rx="5"/><rect class="t fusta2" x="-30" y="150" width="60" height="18" rx="6"/><rect class="t fusta2" x="-30" y="562" width="60" height="18" rx="6"/></g></g>`;
     s += `<g data-part="roda" data-exp="54 0"><g id="j2-roda">${roda(1080, 300, 120, { raigs: 10, color: '#a67547', gruix: 14, extra: '<circle class="t llauto" cx="1150" cy="300" r="12"/>' })}</g></g>`;
+    s += RI.innova(330, 54, 'INNOVACIÓ · la pinça mòbil estira totes 8 metxes a la vegada', { apunta: [500, 360], w: 435 });
     s += `</g>`;
 
     return svg(s);
@@ -436,7 +443,9 @@
         <path id="w3-fi${i}" d="M${x - 28} 524H${x}" stroke="#f2c230" stroke-width="2.2"/>
       </g>`).join('')}
     </g>`;
-    s += `<text x="690" y="38" class="tx mig">4 fusos alhora moguts per una sola roda d’aigua · fil fort d’ordit</text>`;
+    s += `<text x="690" y="34" class="tx mig">4 fusos alhora moguts per una sola roda d’aigua · fil fort d’ordit</text>`;
+    s += `${retol(992, 240, '×1', { fons: '#2a2420', w: 46, h: 24 })}${retol(992, 296, '×2', { fons: '#b9722a', w: 46, h: 24 })}${retol(992, 352, '×4', { fons: '#d9482b', w: 46, h: 24 })}`;
+    s += RI.innova(660, 74, 'INNOVACIÓ · corrons a velocitats creixents + força de l’aigua (fàbrica)', { apunta: [440, 296], halo: [490, 296, 70, 96], w: 510 });
     s += `</g>`;
 
     /* === VISTA 2: SECCIÓ D'UN CAP DE FILATURA === */
@@ -449,9 +458,10 @@
     s += `<g data-part="metxa" data-exp="0 -54"><ellipse class="t" fill="url(#g-cotocrem)" cx="605" cy="140" rx="46" ry="34"/><ellipse cx="605" cy="140" rx="34" ry="22" fill="none" stroke="#dfd5be" stroke-width="2" stroke-dasharray="8 4"/><rect class="t1 fusta3" x="599" y="100" width="12" height="80"/></g>`;
     s += `<path d="M605 174V226" stroke="#2a2420" stroke-width="16"/><path d="M605 174V226" stroke="#fff" stroke-width="13"/><path d="M605 226V296" stroke="#2a2420" stroke-width="11"/><path d="M605 226V296" stroke="#fff" stroke-width="8"/><path d="M605 296V366" stroke="#2a2420" stroke-width="7.5"/><path d="M605 296V366" stroke="#fff" stroke-width="4.5"/><path d="M605 366V452" stroke="#2a2420" stroke-width="5"/><path d="M605 366V452" stroke="#f2c230" stroke-width="2.6"/><path d="M605 180V450" class="flux2" stroke="#b9722a" stroke-width="2" data-flux="1.5" opacity=".7"/>`;
     const parell = (y, v, nom) => `<g data-girat="578 ${y} ${v}"><circle class="t ferro2" cx="578" cy="${y}" r="24"/><path d="M558 ${y}h40M578 ${y - 20}v40" class="t2"/></g><g data-girat="632 ${y} ${-v}"><circle class="t fusta2" cx="632" cy="${y}" r="24"/><path d="M612 ${y}h40M632 ${y - 20}v40" class="t2"/></g><text x="670" y="${y + 6}" class="tx">${nom}</text>`;
-    s += `<g data-part="corrons" data-exp="-46 0">${parell(226, 60, 'lent')}${parell(296, 130, 'més ràpid')}${parell(366, 280, 'molt ràpid')}<path d="M632 250v170" stroke="#3c4348" stroke-width="3"/><rect class="t" fill="url(#g-ferroc)" x="620" y="420" width="24" height="32" rx="4"/></g>`;
+    s += `<g data-part="corrons" data-exp="-46 0">${parell(226, 60, '×1 · lent')}${parell(296, 130, '×2 · ràpid')}${parell(366, 280, '×4 · molt ràpid')}<path d="M632 250v170" stroke="#3c4348" stroke-width="3"/><rect class="t" fill="url(#g-ferroc)" x="620" y="420" width="24" height="32" rx="4"/></g>`;
     s += `<g data-part="aleta" data-exp="48 24"><path id="w2-aleta" d="M605 452V470M560 470H650M560 470V560M650 470V560" class="t nf" stroke-width="5"/><rect class="t2 ferro" x="601" y="470" width="8" height="150"/><rect class="t" fill="url(#g-cotoblanc)" x="583" y="500" width="44" height="70" rx="8"/><path d="M585 515h40M585 530h40M585 545h40" stroke="#f2c230" stroke-width="3"/><path id="w2-fil" d="M560 540H584" stroke="#f2c230" stroke-width="2.6"/></g>`;
     s += `<g>${retol(990, 150, 'metxa: cotó tou i gruixut', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 250 })}${fletxa('M990 176V250', '#2a2420', 4)}${retol(990, 280, 'els corrons l’estiren', { fons: '#b9722a', w: 210 })}${fletxa('M990 306V380', '#2a2420', 4)}${retol(990, 410, 'l’aleta el torça', { fons: '#b9722a', w: 170 })}${fletxa('M990 436V510', '#2a2420', 4)}${retol(990, 540, 'fil prim i resistent', { fons: '#f2c230', color: '#2a2420', vora: '#2a2420', w: 200 })}</g>`;
+    s += RI.innova(960, 68, 'INNOVACIÓ · els corrons substitueixen els dits humans', { apunta: [656, 296], halo: [605, 296, 84, 102], w: 405 });
     s += `</g>`;
 
     return svg(s);
@@ -537,6 +547,7 @@
     </g>`;
 
     s += `<g>${retol(270, 52, 'corrons de la Water Frame', { fons: '#b9722a', w: 235 })}<text x="415" y="60" class="tx-gg mig">+</text>${retol(555, 52, 'carro de la Jenny', { fons: '#2f7fb5', w: 175 })}<text x="668" y="60" class="tx-gg mig">=</text>${retol(795, 52, 'MULA: fil fi i fort', { fons: '#f2c230', color: '#2a2420', vora: '#2a2420', w: 205, h: 36 })}</g>`;
+    s += RI.innova(765, 102, 'INNOVACIÓ · corrons s’aturen al final i el carro fa l’últim estirament', { apunta: [366, 285], halo: [370, 285, 74, 38], w: 505 });
     s += `<g id="m3-r1" opacity="0">${retol(740, 152, 'el carro surt: els corrons donen metxa i els fusos la torcen', { fons: '#d9482b', w: 430 })}</g>
           <g id="m3-r2" opacity="0">${retol(740, 152, 'corrons aturats: un últim estirament fa el fil ultra-fi', { fons: '#2a2420', w: 410 })}</g>
           <g id="m3-r3" opacity="0">${retol(740, 152, 'el carro torna i el fil-guia bobina els 6 cons', { fons: '#2f7fb5', w: 360 })}</g>`;
@@ -551,6 +562,7 @@
     s += `<g data-part="corrons" data-exp="0 -56"><g id="m2-c1"><circle class="t ferro2" cx="300" cy="284" r="15"/><path d="M288 284h24" class="t2"/></g><g id="m2-c2"><circle class="t fusta2" cx="300" cy="316" r="15"/><path d="M288 316h24" class="t2"/></g></g>`;
     s += `<line id="m2-fil0" x1="312" y1="300" x2="600" y2="330" stroke="#2a2420" stroke-width="7" stroke-linecap="round"/><line id="m2-fil" x1="312" y1="300" x2="600" y2="330" stroke="#f2c230" stroke-width="4.5" stroke-linecap="round"/>`;
     s += `<g data-part="carro" id="m2-carro"><rect class="t" fill="url(#g-fustac)" x="-70" y="470" width="170" height="80" rx="8"/>${roda(-36, 566, 24, { raigs: 6 })}${roda(66, 566, 24, { raigs: 6 })}<g data-part="fus" data-exp="0 -54"><path d="M40 500L-6 322" class="t" stroke-width="7"/><path id="m2-cop" class="t" fill="url(#g-cotoblanc)" d="M28 470L6 380h12l24 86z"/></g></g>`;
+    s += RI.innova(760, 62, 'INNOVACIÓ · corrons (Water Frame) + carro mòbil (Jenny)', { apunta: [300, 298], halo: [300, 300, 40, 44], w: 435 });
     s += persona(1130, 600, 170, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     s += `</g>`;
 

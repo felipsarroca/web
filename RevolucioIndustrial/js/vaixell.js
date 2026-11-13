@@ -44,6 +44,7 @@
       <line id="vbiela" x1="670" y1="545" x2="670" y2="420" stroke="#2a2420" stroke-width="13" stroke-linecap="round"/><line id="vbiela2" x1="670" y1="545" x2="670" y2="420" stroke="#b4bec4" stroke-width="7" stroke-linecap="round"/><line id="vman" x1="670" y1="420" x2="700" y2="420" stroke="#2a2420" stroke-width="15" stroke-linecap="round"/><circle class="t llauto" cx="670" cy="420" r="13"/></g>`;
     // escuma de les pales i fletxes ben separades de les etiquetes
     s += `<g data-puf="600 474 -80 -10 5 9 0.9" class="vap" opacity=".8"></g>${fletxa('M1050 640H1186', '#fffdf7', 6)}<text x="1118" y="676" class="tx-b mig">avança</text><g data-en="2">${fletxa('M900 618H740', '#fffdf7', 6)}<text x="820" y="654" class="tx-b mig">les pales empenyen l’aigua enrere</text></g>`;
+    s += RI.innova(310, 48, 'INNOVACIÓ · màquina baixa de palanques + gran autonomia de carbó', { apunta: [580, 515], halo: [580, 515, 120, 48], w: 500 });
     return svg(s);
   }
   function animaWestern({ t, el }) {
@@ -77,6 +78,7 @@
     s += `<g id="esc-h" opacity="0"><g data-puf="640 448 90 0 5 9 0.8" class="vap"></g></g><g id="esc-p" opacity="0"><g data-puf="850 440 -90 -10 5 9 0.8" class="vap"></g></g>`;
     s += `<g data-en="2">${fletxa('M560 560H300', '#fffdf7', 8)}<text x="430" y="600" class="tx-b mig">l’hèlix arrossega l’altre vaixell, popa endavant</text></g>`;
     s += `<g>${retol(250, 660, 'sempre treballa sota l’aigua', { fons: '#2a2420', w: 270 })}${retol(590, 660, 'les onades no la trenquen', { fons: '#2a2420', w: 250 })}${retol(940, 660, 'deixa lliures els costats del buc', { fons: '#2a2420', w: 290 })}</g>`;
+    s += RI.innova(600, 46, 'INNOVACIÓ · hèlix sempre submergida (100 % empenyiment) vs pales exposades', { apunta: [535, 448], w: 565 });
     return svg(s);
   }
   function animaProva({ p, t, k, el }) {
@@ -102,7 +104,7 @@
     // vents dominants de l'oest (per què el veler triga més cap a l'oest)
     s += `<g opacity=".78">${[[430, 125], [640, 120], [500, 325], [760, 330]].map(([x, y]) => `<path d="M${x} ${y}h95" stroke="#fffdf7" stroke-width="3.5" stroke-dasharray="10 6" marker-end="url(#m-fl)"/>`).join('')}<text x="610" y="106" class="tx-p mig" style="fill:#184566">vents dominants de l’oest (en contra)</text></g>`;
     // ports, títol i rutes
-    s += `<circle class="t vermell" cx="132" cy="332" r="9"/><text x="64" y="370" class="tx-g mig">Nova York</text><circle class="t vermell" cx="1086" cy="240" r="9"/><text x="1164" y="210" class="tx-g mig">Bristol</text><text x="610" y="56" class="tx-g mig">Oceà Atlàntic · uns 5.500 km</text>`;
+    s += `<circle class="t vermell" cx="132" cy="332" r="9"/><text x="64" y="370" class="tx-g mig">Nova York</text><circle class="t vermell" cx="1086" cy="240" r="9"/><text x="1164" y="210" class="tx-g mig">Bristol</text><text x="610" y="64" class="tx-g mig">Oceà Atlàntic · uns 5.500 km</text>`;
     s += `<path d="M1076 242Q600 185 142 330" class="t nf" stroke-dasharray="4 9"/><path id="ruta-v" d="M1076 250Q955 415 835 375T615 470T380 398T142 338" class="t nf" stroke-dasharray="4 9" opacity=".75"/>`;
     // rosa dels vents senzilla
     s += `<g transform="translate(960 590)" opacity=".75"><circle cx="0" cy="0" r="34" fill="#fffdf7" stroke="#2a2420" stroke-width="2"/><path d="M0-28L6 0 0 28-6 0zM-28 0L0-6 28 0 0 6z" fill="#2a2420"/><text x="0" y="-38" class="tx-p mig">N</text></g>`;
@@ -111,6 +113,7 @@
     s += `<g id="b-vela"><path class="t" fill="#8f6038" d="M-48 0h96l-12 22h-72z"/><path class="t blanc" d="M-24 -4v-54l32 26zM10 -4v-64l36 34z"/><path d="M-24 0v-60M10 0v-70" class="t"/></g>`;
     s += `<g><rect class="t" x="470" y="560" width="280" height="110" rx="16" fill="#fffdf7"/><text x="610" y="600" class="tx mig">dies de viatge</text><text id="dia" x="610" y="652" class="tx-gg mig" style="font-size:46px">0</text></g>`;
     s += `<g id="a-vapor" opacity="0">${retol(430, 186, 'Great Western (1838): 15 dies', { fons: '#d9482b', vora: '#2a2420', w: 295, h: 36 })}</g><g id="a-vela" opacity="0">${retol(340, 495, 'veler de línia: uns 35 dies, segons el vent', { fons: '#2a2420', vora: '#2a2420', w: 380, h: 36 })}</g>`;
+    s += RI.innova(610, 22, 'INNOVACIÓ · ruta directa contra el vent gràcies al vapor', { w: 435 });
     return svg(s);
   }
   function animaAtl({ p, el, svg: g }) {

@@ -32,6 +32,7 @@
     s += `<g data-en="3">${retol(805, 350, 'inversió', { fons: '#f2b632', color: '#2a2420', w: 100 })}${retol(805, 500, 'ingressos', { fons: '#5b8c35', w: 110 })}</g>`;
     s += `<g data-en="2">${retol(585, 264, 'diners a canvi d’accions', { fons: '#2a2420', w: 240 })}</g><g data-en="4">${retol(585, 264, 'dividends: qui té més accions, cobra més', { fons: '#5b8c35', w: 370 })}</g>`;
     s += `<g data-en="4"><rect class="t" x="800" y="582" width="390" height="96" rx="14" fill="#fff6d6"/><text x="995" y="616" class="tx mig">I si l’empresa fa fallida?</text><text x="995" y="642" class="tx-p mig">Cada soci només perd el que hi va posar:</text><text x="995" y="662" class="tx-p mig">és la responsabilitat limitada.</text></g>`;
+    s += RI.innova(985, 52, 'INNOVACIÓ · accions petites + responsabilitat limitada', { apunta: [585, 300], halo: [585, 415, 130, 82], w: 420 });
     return svg(s);
   }
   function animaSoc({ p, k, el, svg: g }) {
@@ -50,6 +51,8 @@
   function banc() {
     let s = fons();
     s += `<text x="300" y="60" class="tx-g mig">El banc</text><text x="900" y="60" class="tx-g mig">La borsa</text><path d="M600 40V680" class="t1 nf" stroke-dasharray="4 8"/>`;
+    s += RI.innova(300, 102, 'INNOVACIÓ · converteix estalvis petits en crèdit industrial', { w: 425 });
+    s += RI.innova(900, 294, 'INNOVACIÓ · converteix accions en diners líquids al moment', { w: 435 });
     s += `<g data-part="estalviadors">${persona(60, 300, 80, { color: '#2f7fb5' })}${persona(60, 430, 80, { color: '#b9722a', barret: true })}${persona(60, 560, 80, { color: '#5b8c35' })}<text x="60" y="610" class="tx-p mig">estalviadors</text></g>`;
     s += `<g data-part="banc">${temple(300, 470, 'BANC')}</g>`;
     s += `<g data-part="empresari">${fabr(530, 300, '#a8452f', 0.9)}${persona(520, 420, 80, { color: '#7a4f9a', barret: true })}<text x="525" y="450" class="tx-p mig">empresari</text></g>`;
@@ -62,7 +65,7 @@
     s += `<g data-part="preu"><rect class="t" x="676" y="468" width="460" height="206" rx="14" fill="#fffdf7"/><path d="M710 640H1110M710 640V492" class="t2"/><path d="M710 590H1110M710 540H1110" stroke="#e5dcc8" stroke-width="1.5" stroke-dasharray="4 4"/><text x="720" y="488" class="tx-p">preu de l’acció</text><text x="1086" y="658" class="tx-p">temps</text>
       <path id="corba" d="M712 610L760 590 800 600 850 560 900 570 950 520 990 500 1020 530 1040 620 1070 600 1098 612" class="nf s-lila" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
       <g data-fase="0.78-1">${retol(842, 508, 'eufòria: tothom compra', { fons: '#5b8c35', w: 196 })}</g>
-      <g data-fase="0.88-1"><circle cx="990" cy="500" r="6" fill="#d9482b"/>${retol(1020, 662, 'pànic: tothom ven', { fons: '#d9482b', w: 190 })}</g></g>`;
+      <g data-fase="0.88-1"><circle cx="990" cy="500" r="6" fill="#d9482b"/>${retol(980, 662, 'pànic: tothom ven', { fons: '#d9482b', w: 176 })}</g></g>`;
     return svg(s);
   }
   function animaBanc({ p, el }) { el('corba').setAttribute('stroke-dashoffset', p < 0.72 ? 100 : tram(p, 0.72, 0.98, 100, 0, true).toFixed(1)); }
@@ -71,6 +74,7 @@
   function concentracio() {
     let s = fons();
     const marc = (x, nom, any, sub) => `<rect class="t" x="${x}" y="50" width="376" height="620" rx="18" fill="#fffdf7"/><text x="${x + 188}" y="96" class="tx-gg mig">${nom}</text><text x="${x + 188}" y="122" class="tx-p mig">${any}</text>${sub.map((l, i) => `<text x="${x + 188}" y="${570 + i * 26}" class="tx mig">${l}</text>`).join('')}`;
+    s += RI.innova(600, 24, 'INNOVACIÓ EMPRESARIAL · de competir per preus a controlar el mercat', { w: 515 });
     // càrtel
     s += `<g data-part="cartel">${marc(10, 'Càrtel', 'acord entre empreses', ['Empreses independents', 'pacten preus i es reparteixen', 'el mercat per no competir'])}
       ${fabr(100, 310, '#d9482b')}${fabr(300, 310, '#2f7fb5')}${fabr(200, 480, '#5b8c35')}<path d="M150 284H250M130 326L180 398M270 326L220 398" class="t nf" stroke-dasharray="8 7"/>${retol(198, 236, 'preu pactat', { fons: '#2a2420', w: 130 })}${retol(198, 366, 'acord fràgil', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 118 })}</g>`;

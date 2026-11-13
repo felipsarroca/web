@@ -41,16 +41,17 @@
     // tancats rurals (enclosures) al voltant de les parcel·les
     s += `<path d="M46 72H594M46 544H594M46 72V544M594 72V544" stroke="#6b4628" stroke-width="4" opacity=".55"/>`;
     // sistema antic (tres fulles)
-    s += `<g id="g-antic">${[['blat', 60], ['ordi', 240], ['guaret', 420]].map(([c, x]) => `<g transform="translate(${x} 90)"><svg width="160" height="430" viewBox="0 0 250 200" preserveAspectRatio="none">${conreu(c)}</svg><rect class="t nf" width="160" height="430"/></g>${retol(x + 80, 120, NOMS[c][0], { fons: c === 'guaret' ? '#d9482b' : '#2a2420', w: 116 })}`).join('')}${retol(500, 480, '1/3 sense collita', { fons: '#d9482b', w: 156 })}</g>`;
+    s += `<g id="g-antic">${[['blat', 60], ['ordi', 240], ['guaret', 420]].map(([c, x]) => `<g transform="translate(${x} 90)"><svg width="160" height="430" viewBox="0 0 250 200" preserveAspectRatio="none">${conreu(c)}</svg><rect class="t nf" width="160" height="430"/></g>${retol(x + 80, 120, NOMS[c][0], { fons: c === 'guaret' ? '#d9482b' : '#2a2420', w: 116 })}`).join('')}${retol(500, 480, '1/3 sense collita', { fons: '#d9482b', w: 156 })}${retol(180, 480, 'només 67 % útil', { fons: '#2a2420', w: 156 })}</g>`;
     // Norfolk: quatre parcel·les, cadascuna amb les quatre capes de conreu
     s += `<g id="g-norfolk">${POS.map(([x, y], i) => `<g transform="translate(${x} ${y})">${ORDRE.map((c) => `<g class="cv" data-i="${i}" data-c="${c}">${conreu(c)}<g transform="translate(125 26)">${retol(0, 0, NOMS[c][0] + ' · ' + NOMS[c][1], { fons: '#2a2420', w: 228 })}</g></g>`).join('')}<rect class="t nf" width="250" height="200"/><circle class="t blanc" cx="24" cy="176" r="15"/><text x="24" y="182" class="tx mig">${i + 1}</text></g>`).join('')}
+      ${RI.innova(320, 26, 'INNOVACIÓ · naps i trèvol eliminen el guaret → 100 % productiu', { w: 470 })}
       <path d="M294 78q26-22 52 0" class="nf s-blanc" stroke-width="5" stroke-linecap="round" marker-end="url(#m-fl)"/>
       <path d="M594 282q22 26 0 52" class="nf s-blanc" stroke-width="5" stroke-linecap="round" marker-end="url(#m-fl)"/>
       <path d="M346 538q-26 22-52 0" class="nf s-blanc" stroke-width="5" stroke-linecap="round" marker-end="url(#m-fl)"/>
       <path d="M46 334q-22-26 0-52" class="nf s-blanc" stroke-width="5" stroke-linecap="round" marker-end="url(#m-fl)"/></g>`;
     s += `<rect x="70" y="582" width="500" height="84" rx="14" fill="#2a2420" opacity=".82"/><text id="any" x="320" y="618" class="tx-gg mig" style="fill:#fff">Any 1</text><text id="sub" x="320" y="648" class="tx mig" style="fill:#f7efe0">cada conreu passa a la parcel·la següent</text>`;
     // el cercle del bestiar
-    s += `<g id="cercle"><rect class="t" x="650" y="50" width="530" height="620" rx="18" fill="#fffdf7"/><text x="915" y="96" class="tx-g mig">Per què funciona?</text>
+    s += `<g id="cercle"><rect class="t" x="650" y="50" width="530" height="620" rx="18" fill="#fffdf7"/><text x="915" y="92" class="tx-g mig">Per què funciona?</text>${retol(915, 122, 'el trèvol fixa nitrogen · el bestiar fa fems', { fons: '#5b8c35', w: 332 })}
       <circle cx="915" cy="380" r="168" class="nf" stroke="#dfd3bc" stroke-width="18"/><circle cx="915" cy="380" r="168" class="flux s-verd" stroke-width="9" data-flux="1.2"/>
       <path d="M982 224a168 168 0 0 1 70 64" class="nf s-verd" stroke-width="4" marker-end="url(#m-fl)"/>
       <path d="M1070 448a168 168 0 0 1-64 70" class="nf s-verd" stroke-width="4" marker-end="url(#m-fl)"/>
@@ -88,7 +89,8 @@
     s += `<g data-part="dosador" data-exp="-46 -18"><rect class="t" fill="url(#g-ferroc)" x="496" y="340" width="68" height="46" rx="6"/><g id="dos"><circle class="t fusta3" cx="530" cy="363" r="17"/><path d="M530 346v8M530 372v8M513 363h8M539 363h8M518 351l6 6M536 369l6 6M542 351l-6 6M524 369l-6 6" class="t2"/></g></g>`;
     s += `<g data-part="tub" data-exp="0 28"><path class="t" fill="#d9b383" d="M518 386h24l22 156h-12z"/></g><ellipse id="cau" class="t1" cx="540" cy="400" rx="6" ry="4.5" fill="#e6b93c"/>`;
     s += `<g data-part="rella" data-exp="48 34"><path class="t" fill="url(#g-ferroc)" d="M554 516h34l-18 46z"/></g>`;
-    s += `<g data-part="roda" data-exp="64 -16"><g id="sroda">${roda(640, 468, 72, { raigs: 10, color: '#a67547', gruix: 10 })}<circle class="t2 ferro" cx="640" cy="468" r="14"/></g><path d="M634 455L524 348M646 481L536 378" class="t1 nf" stroke-dasharray="5 4"/></g>`;
+    s += `<g data-part="roda" data-exp="64 -16"><g id="sroda">${roda(640, 468, 72, { raigs: 10, color: '#a67547', gruix: 10 })}<circle class="t2 ferro" cx="640" cy="468" r="14"/></g><path d="M634 455L524 348M646 481L536 378" class="t1 nf" stroke-dasharray="5 4"/><path d="M634 455L524 348" class="flux2 s-taronja" stroke-width="3" data-flux="-2.2"/></g>`;
+    s += RI.innova(350, 48, 'INNOVACIÓ · roda → dosador + rella + tub (sembra exacta)', { apunta: [530, 356], halo: [534, 424, 62, 108], w: 425 });
     // comparació: ocells menjant les llavors tirades a mà vs sembra en fileres tapades
     s += `<g><rect class="t" x="770" y="46" width="200" height="190" rx="14" fill="#9e825e"/><rect class="t" x="990" y="46" width="200" height="190" rx="14" fill="#8b6d46"/>
       ${[1040, 1090, 1140].map((x) => `<rect x="${x - 8}" y="82" width="16" height="146" fill="#6f5232" rx="4"/>` + Array.from({ length: 6 }, (_, i) => `<ellipse cx="${x}" cy="${98 + i * 22}" rx="4.5" ry="3.2" fill="#e6b93c" stroke="#2a2420"/>`).join('')).join('')}
@@ -121,9 +123,10 @@
     s += `<g data-guia="1"><path d="M350 340l-52-24M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
     s += `<g data-part="esteves" data-exp="-60 -30"><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M250 300L420 368M250 318L424 384" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
     s += `<g data-part="cama" data-exp="0 -14"><path class="t" fill="url(#g-fustac)" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
-    s += `<g data-part="orello" data-exp="-34 42"><path class="t" fill="url(#g-acer)" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/></g>`;
+    s += `<g data-part="orello" data-exp="-34 42"><path class="t" fill="url(#g-acer)" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/><path id="gleba-gira" d="M548 498Q500 442 440 448" class="flux s-verd" stroke-width="4" data-flux="-1.8"/></g>`;
     s += `<g data-part="rella" data-exp="56 32"><path class="t" fill="url(#g-ferroc)" d="M660 528L540 532L560 490Z"/></g>`;
     s += `<g data-part="ganivet" data-exp="0 -56"><path class="t" fill="url(#g-ferroc)" d="M690 378h14l-22 150-10-6z"/></g>`;
+    s += RI.innova(995, 240, 'INNOVACIÓ · bastidor triangular + orelló corbat de ferro', { apunta: [530, 456], halo: [518, 468, 128, 62], w: 420 });
     s += `<g data-en="0">${retol(820, 560, 'talla la terra en vertical', { fons: '#2a2420', w: 240 })}</g><g data-en="1">${retol(760, 600, 'talla per sota i l’aixeca', { fons: '#2a2420', w: 230 })}</g><g data-en="2">${retol(300, 566, 'la gira i colga les males herbes', { fons: '#2a2420', w: 290 })}</g>`;
     s += `<g><rect class="t" x="48" y="38" width="356" height="156" rx="14" fill="#fffdf7"/><text x="226" y="68" class="tx mig">Arada pesant antiga</text>${cavall(96, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(144, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(192, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(240, 150, 0.85, { color: '#9a8468', arnes: true })}${persona(316, 150, 56, { color: '#7a5a3a' })}${persona(352, 150, 56, { color: '#7a5a3a' })}<text x="226" y="178" class="tx-p mig">4 o més animals i 2 persones</text>
       <rect class="t" x="424" y="38" width="330" height="156" rx="14" fill="#fff6d6"/><text x="589" y="68" class="tx mig">Arada de Rotherham</text>${cavall(510, 150, 0.85, { arnes: true })}${cavall(562, 150, 0.85, { arnes: true })}${persona(646, 150, 56, { color: '#3d5a80' })}<text x="589" y="178" class="tx-p mig">2 cavalls i 1 persona</text></g>`;

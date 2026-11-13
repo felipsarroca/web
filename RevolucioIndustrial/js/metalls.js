@@ -34,6 +34,7 @@
       }
     });
     s += `<g data-part="coc"><g id="pila" opacity="0">${pila}${retol(1020, 224, '✓ crema molt més calent', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${retol(1020, 268, '✓ dur: aguanta grans torres', { fons: '#3e6e22', vora: '#2a2420', w: 260 })}${retol(1020, 312, '✓ abundant: ve de la mina', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${fletxa('M1020 572V624', '#d9482b', 6)}${retol(1020, 662, 'cap a l’alt forn →', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 190 })}</g></g>`;
+    s += RI.innova(600, 118, 'INNOVACIÓ · coure sense aire → coc pur i dur', { apunta: [600, 266], halo: [600, 420, 168, 150], w: 386 });
     return svg(s);
   }
   function animaCoc({ p, k, el }) {
@@ -68,7 +69,8 @@
       ${roda(64, 420, 40, { raigs: 6, color: '#56636c', gruix: 8 })}<circle class="t llauto" cx="142" cy="300" r="10"/>
       ${tub('M198 468H422V498H520', '#c9d6dc', 10)}<path class="t" fill="url(#g-llautoc)" d="M490 486l34 6v12l-34 6z"/><path d="M202 468H422V498H516" class="flux s-blau" data-flux="3" stroke-width="5"/>
       <path d="M704 498H600" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M704 498H600" class="nf" stroke="#c9d6dc" stroke-width="10"/><path class="t" fill="url(#g-llautoc)" d="M630 486l-34 6v12l34 6z"/><path d="M700 498H604" class="flux s-blau" data-flux="3" stroke-width="5"/></g>`;
-    s += `<g data-en="1">${retol(308, 424, 'aire a pressió', { fons: '#2f7fb5', vora: '#2a2420' })}</g><g data-en="2">${retol(970, 412, 'més de 1.500 °C', { fons: '#d9482b', vora: '#2a2420' })}${retol(970, 184, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420' })}${fletxa('M900 390V212', '#d9482b', 5)}</g>`;
+    s += `<g data-en="1">${retol(308, 424, 'aire a pressió', { fons: '#2f7fb5', vora: '#2a2420' })}</g><g data-en="2">${retol(970, 412, 'més de 1.500 °C', { fons: '#d9482b', vora: '#2a2420' })}${retol(970, 184, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420' })}${fletxa('M900 390V212', '#d9482b', 5)}${retol(970, 494, 'calcària atrapa impureses → escòria', { fons: '#6b635a', vora: '#2a2420', w: 295 })}</g>`;
+    s += RI.innova(230, 184, 'INNOVACIÓ · coc + bufadora mecànica = temperatures molt altes', { apunta: [520, 496], halo: [560, 496, 86, 44], w: 435 });
     // llit de colada pujat perquè no el tapi el peu .model
     s += `<g data-part="llit"><path class="t" fill="#d8c49a" d="M130 622H496V684H130Z"/><path d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#8a6a4a" stroke-width="13" stroke-linecap="round"/>
       <path id="colada" d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#ffb02e" stroke-width="8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></g>`;
@@ -92,7 +94,8 @@
     s += `<g data-part="sola"><path class="t" fill="#ff9a2e" d="M222 518V478q116-18 234 0V518z"/><circle id="bola" class="t roent" cx="340" cy="484" r="26" opacity="0"/></g>`;
     // pudelador situat clarament fora al costat de la boca de treball (amb davantal de cuir)
     s += `<g data-part="pudelador">${persona(594, 600, 152, { color: '#7a5a3a', barret: true, gir: true, brac: 'M-8-68l-38 8M8-68l-42 16' })}<path d="M582 528h24l4 46h-32z" fill="#654022" stroke="#2a2420" stroke-width="2"/><line id="ganxo" x1="540" y1="510" x2="340" y2="486" class="t" stroke-width="6"/></g>`;
-    s += `<g data-en="0">${retol(286, 244, 'la flama passa per sobre: el carbó no toca el ferro', { fons: '#2a2420', vora: '#2a2420', w: 450 })}</g><g data-en="1">${retol(286, 244, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', vora: '#2a2420', w: 460 })}</g>`;
+    s += `<g data-en="0">${retol(286, 244, 'la flama passa per sobre: el carbó no toca el ferro', { fons: '#2a2420', vora: '#2a2420', w: 450 })}</g><g data-en="1">${retol(286, 244, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', vora: '#2a2420', w: 460 })}${retol(694, 244, '4 % → < 0,1 % C', { fons: '#a8452f', vora: '#2a2420', w: 160 })}</g>`;
+    s += RI.innova(286, 52, 'INNOVACIÓ · el mur separa el carbó del ferro + laminatge final', { apunta: [203, 470], halo: [203, 480, 24, 48], w: 485 });
     // laminador amb castells i corrons acanalats
     s += `<g data-part="laminador"><rect class="t pedra" x="804" y="582" width="192" height="18"/><path class="t" fill="url(#g-ferroc)" d="M820 582V226h160V582h-30V268H850V582z"/><rect class="t" fill="url(#g-ferro)" x="814" y="218" width="172" height="14" rx="3"/><path d="M835 245v325M965 245v325" stroke="#9aa6af" stroke-width="2" stroke-dasharray="2 16" opacity=".6"/>
       <rect id="barra-e" x="660" y="368" width="230" height="34" rx="6" class="t roent"/><rect id="barra-s" x="910" y="376" width="0" height="18" rx="4" class="t roent"/>
@@ -130,7 +133,8 @@
       <rect class="t pedra" x="926" y="608" width="150" height="32"/><rect class="t" fill="url(#g-ferroc)" x="944" y="534" width="114" height="74" rx="6"/><circle class="t blanc" cx="980" cy="566" r="14"/><path d="M980 566l8-8" class="t2"/>${roda(1042, 570, 32, { raigs: 6, color: '#56636c', gruix: 7 })}<text x="980" y="598" class="tx-p mig" style="font-size:12px;fill:#fffdf7">bufadora</text></g>`;
     // cullera i lingotera
     s += `<g data-part="cullera" data-exp="-56 32"><path class="t" fill="url(#g-ferroc)" d="M236 550h144l-14 78H250z"/><path d="M236 550v-32M380 550v-32" class="t" stroke-width="5"/><path id="acer-c" d="M244 590h128l-8 36H252z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
-    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}<text id="minuts" x="940" y="256" class="tx-gg mig">0 min</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
+    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}${retol(980, 442, '1.200 → 1.600 °C (sense combustible)', { fons: '#a8452f', vora: '#2a2420', w: 290 })}<text id="minuts" x="940" y="256" class="tx-gg mig">0 min</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
+    s += RI.innova(600, 44, 'INNOVACIÓ · aire fred pel fons: crema el carboni en 20 min, ZERO carbó', { apunta: [600, 520], halo: [600, 522, 92, 26], w: 545 });
     return svg(s);
   }
   function animaBes({ p, t, el, svg: g }) {
@@ -171,6 +175,7 @@
     s += fitxa(20, 'Ferro colat', 'surt de l’alt forn', '3 – 4 %', 34, 'Dur, però es trenca d’un cop', ['S’emmotlla: olles, columnes,', 'canonades, peces de màquina'], '#4a4541', `<path class="t ferro2" d="M90 440h100l-8 14 10 16H90zM220 470l8-16-10-14h102v30z"/><path d="M196 426l10 12M214 424l-4 14" class="t s-vermell"/>`);
     s += fitxa(415, 'Ferro forjat', 'surt del forn de pudelar', 'menys de 0,1 %', 2, 'Tou: es doblega i es forja', ['Es lamina i es martelleja:', 'barres, cadenes, primers rails'], '#a8452f', `<path class="nf" d="M490 470Q600 400 710 470" stroke="#2a2420" stroke-width="22" stroke-linecap="round"/><path class="nf" d="M490 470Q600 400 710 470" stroke="#7d8a92" stroke-width="16" stroke-linecap="round"/>`);
     s += fitxa(810, 'Acer', 'surt del convertidor', '0,2 – 1,5 %', 10, 'Dur i elàstic alhora', ['Rails, eines, molles, canons,', 'vaixells, ponts i gratacels'], '#2f7fb5', `<rect class="t ferro" x="880" y="444" width="230" height="20" rx="6"/><path d="M920 430q-10-14 0-26M1070 430q10-14 0-26" class="t nf s-blau"/>`);
+    s += RI.innova(600, 22, 'INNOVACIÓ · controlar el % de carboni canvia completament la duresa', { w: 515 });
     return svg(s);
   }
 

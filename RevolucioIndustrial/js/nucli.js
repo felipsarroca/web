@@ -115,6 +115,14 @@
     const w = o.w || s.length * 8.6 + 24, h = o.h || 30;
     return `<g ${o.attr || ''}><rect x="${f1(x - w / 2)}" y="${y - h / 2}" width="${f1(w)}" height="${h}" rx="${h / 2}" fill="${o.fons || TINTA}" ${o.vora ? `stroke="${o.vora}" stroke-width="2.5"` : ''}/><text x="${x}" y="${y + 5.5}" text-anchor="middle" class="tx-r" fill="${o.color || '#fff'}">${s}</text></g>`;
   };
+  /* càpsula destacada per assenyalar on és la innovació */
+  RI.innova = (x, y, s, o = {}) => {
+    const text = o.senseEstel ? s : `★ ${s}`;
+    const w = o.w || Math.max(132, text.length * 7.6 + 26), h = o.h || 28;
+    const ptr = o.apunta ? `<line x1="${x}" y1="${y + (o.apunta[1] > y ? h / 2 : -h / 2)}" x2="${o.apunta[0]}" y2="${o.apunta[1]}" stroke="#d97706" stroke-width="2.2" stroke-dasharray="4 3"/><circle cx="${o.apunta[0]}" cy="${o.apunta[1]}" r="5.5" fill="#fbbf24" stroke="#92400e" stroke-width="1.8"/>` : '';
+    const ring = o.halo ? `<ellipse cx="${o.halo[0]}" cy="${o.halo[1]}" rx="${o.halo[2]}" ry="${o.halo[3] || o.halo[2]}" fill="rgba(251,191,36,.10)" stroke="#d97706" stroke-width="2.4" stroke-dasharray="6 4"/>` : '';
+    return `<g ${o.attr || ''}>${ring}${ptr}<rect x="${f1(x - w / 2)}" y="${f1(y - h / 2)}" width="${f1(w)}" height="${h}" rx="${h / 2}" fill="${o.fons || '#fffbeb'}" stroke="${o.vora || '#d97706'}" stroke-width="2.2"/><text x="${x}" y="${f1(y + 4.8)}" text-anchor="middle" font-size="12.5" font-weight="800" fill="${o.color || '#92400e'}" letter-spacing=".02em">${text}</text></g>`;
+  };
   RI.lerp = (a, b, k) => a + (b - a) * k;
   RI.clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   RI.suau = (k) => { k = RI.clamp(k, 0, 1); return k * k * (3 - 2 * k); };

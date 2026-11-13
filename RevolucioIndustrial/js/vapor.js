@@ -54,7 +54,7 @@
     s += `<g data-part="cilindre"><rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0"/>' : ''}
       <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="url(#g-ferroc)"/>${w ? '<path class="t" fill="url(#g-ferro)" d="M268 212h124v12H268z"/><rect class="t" fill="url(#g-llautoc)" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
     if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 7"/></g>`;
-    s += `<text id="buit" x="330" y="350" class="tx mig" fill="#2f7fb5" opacity="0">BUIT (≈0 atm)</text>`;
+    s += `<text id="buit" x="330" y="350" class="tx-p mig" fill="#2f7fb5" opacity="0" style="font-weight:800">BUIT (≈0)</text>`;
     s += `<g data-part="piston" id="piston"><rect class="t" fill="url(#g-ferroh)" x="325" y="-112" width="10" height="112"/><rect class="t" fill="url(#g-ferroc)" x="282" y="-11" width="96" height="22" rx="3"/><rect x="284" y="-3" width="92" height="6" fill="url(#g-llauto)"/></g>`;
     s += `<line id="cad1" x1="330" y1="110" x2="330" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
     // vàlvules
@@ -63,7 +63,7 @@
     if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M296 128V214', '#2f7fb5', 7)}${fletxa('M364 128V214', '#2f7fb5', 7)}${retol(456, 150, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 205 })}</g>`;
     else s += `<g data-fase="0.03-0.45">${fletxa('M304 232V272', '#d9482b', 6)}${fletxa('M356 232V272', '#d9482b', 6)}${retol(495, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
     // bomba de la mina
-    s += `<g data-part="bombamina"><rect class="t" x="832" y="535" width="36" height="172" fill="#58a9d6"/><path class="t ferro2" d="M868 541h96v12h-96z"/>
+    s += `<g data-part="bombamina"><rect class="t" x="832" y="535" width="36" height="172" fill="#58a9d6"/><path d="M850 696V544" class="flux s-blanc" stroke-width="5" data-flux="2.5" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><path class="t ferro2" d="M868 541h96v12h-96z"/>
       <path d="M962 551q22 0 24 12" class="nf s-blau" stroke-width="9" stroke-linecap="round" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><ellipse class="aigua" cx="1010" cy="566" rx="70" ry="9"/>
       <g id="vareta"><rect class="t fusta" x="843" y="-400" width="14" height="400"/><rect class="t ferro" x="836" y="-6" width="28" height="14" rx="3"/><rect class="t ferro" x="838" y="-436" width="24" height="40"/></g></g>`;
     s += `<line id="cad2" x1="850" y1="110" x2="850" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
@@ -72,12 +72,15 @@
       <path d="M345 44L420 104M345 176L420 116M835 44L760 104M835 176L760 116" class="t"/>
       <rect class="t" fill="url(#g-fustac)" x="342" y="97" width="496" height="26" rx="4"/><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#c7935c" stroke-width="13"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#c7935c" stroke-width="13"/>
       <circle class="t llauto" cx="590" cy="110" r="11"/></g></g>`;
-    // indicadors de temperatura
+    // indicadors de temperatura i innovació
     if (!w) {
       s += `<g data-fase="0.1-0.34">${retol(476, 250, 'cilindre calent', { fons: '#d9482b' })}</g><g data-fase="0.36-1,0-0.04">${retol(470, 250, 'cilindre fred', { fons: '#2f7fb5' })}</g>`;
       s += `<g data-fase="0.86-1,0-0.1">${retol(468, 322, 'calor perduda!', { fons: '#fffdf7', color: '#d9482b', vora: '#d9482b' })}</g>`;
+      s += RI.innova(925, 62, 'INNOVACIÓ · el buit deixa que l’aire empenyi el pistó', { apunta: [330, 226], halo: [330, 300, 74, 92], w: 410 });
     } else {
-      s += retol(486, 204, 'cilindre sempre calent', { fons: '#fffdf7', color: '#d9482b', vora: '#d9482b', w: 196 });
+      s += retol(518, 198, 'cilindre sempre calent (~100 °C)', { fons: '#fffdf7', color: '#d9482b', vora: '#d9482b', w: 244 });
+      s += retol(492, 416, 'fred (~20 °C)', { fons: '#d6ecf3', color: '#184566', vora: '#2f7fb5', w: 126 });
+      s += RI.innova(925, 62, 'INNOVACIÓ · condensador separat: estalvia 75 % de carbó', { apunta: [476, 462], halo: [490, 498, 70, 68], w: 435 });
     }
     return svg(s);
   }
@@ -134,9 +137,9 @@
     // cilindre de doble efecte
     s += `<g data-part="cilindre" data-exp="-44 20"><rect class="t pedra" x="190" y="540" width="120" height="60"/><rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6"/>
       <path d="M195 312V540H305V312H293V530H207V312Z" class="t" fill="url(#g-ferroc)"/><rect class="t" fill="url(#g-ferro)" x="190" y="300" width="120" height="14"/><rect class="t" fill="url(#g-llautoc)" x="240" y="290" width="20" height="12"/></g>`;
-    s += `<g data-part="distribucio" data-exp="-66 -18"><rect class="t" fill="url(#g-ferroc)" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/>
+    s += `<g data-part="distribucio" data-exp="-66 -18"><rect class="t" fill="url(#g-ferroc)" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/><circle id="papallona" cx="110" cy="300" r="6.5" fill="#fbbf24" stroke="#92400e" stroke-width="1.8"/>
       <text x="62" y="282" class="tx-p">vapor de la caldera</text><path d="M160 520V566H100" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M160 520V566H100" class="nf" stroke="#c9d6dc" stroke-width="8"/><rect class="t" x="52" y="540" width="56" height="56" rx="6" fill="#a9d6ee"/><text x="80" y="528" class="tx-p mig">condensador</text>
-      <g id="fl-d">${fletxa('M186 350H232', '#d9482b', 6)}</g><g id="fl-b">${fletxa('M186 500H232', '#d9482b', 6)}</g></g>`;
+      <g id="fl-d">${fletxa('M186 350H232', '#d9482b', 6)}${fletxa('M250 330V374', '#d9482b', 5)}</g><g id="fl-b">${fletxa('M186 500H232', '#d9482b', 6)}${fletxa('M250 518V474', '#d9482b', 5)}</g></g>`;
     s += `<g data-part="piston" id="rpiston"><rect class="t" fill="url(#g-ferroh)" x="245" y="-250" width="10" height="250"/><rect class="t" fill="url(#g-ferroc)" x="207" y="-8" width="86" height="16" rx="3"/><rect x="209" y="-2" width="82" height="4" fill="url(#g-llauto)"/></g>`;
     // balancí
     s += `<g data-exp="0 -54"><g data-part="balanci" id="rbiga"><path class="t" fill="url(#g-fustac)" d="M250 158L520 146 790 158V182L520 194 250 182Z"/><circle class="t llauto" cx="250" cy="170" r="9"/><circle class="t llauto" cx="790" cy="170" r="9"/><circle class="t llauto" cx="520" cy="170" r="12"/></g></g>`;
@@ -144,8 +147,9 @@
     s += `<g data-part="sol" data-exp="-38 42"><g id="sol">${engranatge(S.x, S.y, 45, 14, { color: '#c79a2c', boto: '#fffdf7' })}</g></g>`;
     s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="#2a2420" stroke-width="17" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#b9c3c9" stroke-width="10" stroke-linecap="round"/></g>`;
     s += `<g data-part="planeta" data-exp="38 -38"><g id="planeta">${engranatge(0, 0, 45, 14, { color: '#d9482b', boto: '#fffdf7' })}</g></g>`;
-    // regulador
-    s += `<g data-part="regulador" data-exp="60 -22"><rect class="t" fill="url(#g-ferroh)" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t" fill="url(#g-llautoc)" cx="990" cy="390" r="19"/><circle id="reg-2" class="t" fill="url(#g-llautoc)" cx="1090" cy="390" r="19"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
+    // regulador amb màniga i tirant cap a la vàlvula del vapor
+    s += `<g data-part="regulador" data-exp="60 -22"><path id="tirant" d="M1040 436L520 264L110 292" fill="none" stroke="#d97706" stroke-width="2.6" stroke-dasharray="5 4" opacity=".8"/><rect class="t" fill="url(#g-ferroh)" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t" fill="url(#g-llautoc)" cx="990" cy="390" r="19"/><circle id="reg-2" class="t" fill="url(#g-llautoc)" cx="1090" cy="390" r="19"/><rect id="reg-m" class="t llauto" x="1028" y="424" width="24" height="22" rx="4"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
+    s += RI.innova(540, 74, 'INNOVACIÓ · doble efecte + sol i planeta + regulador centrífug', { apunta: [790, 470], halo: [790, 470, 94, 94], w: 468 });
     s += persona(380, 600, 150, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
     return svg(s);
   }
@@ -168,6 +172,10 @@
     const c = Math.cos(t * 5), ob = 52;
     el('reg-1').setAttribute('cx', (1040 - ob * c).toFixed(1)); el('reg-2').setAttribute('cx', (1040 + ob * c).toFixed(1));
     el('reg-a').setAttribute('x2', (1040 - ob * c).toFixed(1)); el('reg-b').setAttribute('x2', (1040 + ob * c).toFixed(1));
+    const ym = 424 - Math.abs(ob * c) * 0.42;
+    el('reg-m').setAttribute('y', ym.toFixed(1));
+    el('tirant').setAttribute('d', `M1040 ${(ym + 11).toFixed(1)}L520 264L110 296`);
+    el('papallona').setAttribute('r', (4.5 + 3 * (1 - Math.abs(c))).toFixed(1));
   }
 
   RI.capitol({
