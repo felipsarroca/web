@@ -1,24 +1,24 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 RI.RODA_ESCENA = {
-  id:'roda', nom:'La roda de filar', any:'abans de la mecanització', qui:'Treball manual · roda amb pedal', durada:12,
-  model:'Roda de filar amb pedal i aleta · un sol fil',
-  pregunta:'Com converteixes un floc de cotó en un fil?',
-  intro:'Les mans estiren la fibra; la roda fa girar l’aleta que la torça. La bobina recull el fil. Amb aquesta roda es treballa <b>un sol fil cada vegada</b>.',
+  id:'roda', nom:'La roda de filar', any:'abans de la mecanització', qui:'Roda manual de fus', durada:16,
+  model:'Roda manual de fus · cicle esquemàtic alentit',
+  pregunta:'Com es transforma el cotó cardat en un fil?',
+  intro:'Una mà mou la roda i l’altra controla la fibra. El fus <b>torça</b> el cotó estirat; després s’hi <b>enrotlla</b> el fil. Es treballa un sol fil cada vegada.',
   svg:()=>RI.TEXTIL_MODELS.svg('roda'), anima:RI.TEXTIL_MODELS.anima('roda'),
+  innovacio:{abans:'El fus es fa girar directament amb la mà',ara:'La roda transmet el gir al fus'},
   fases:[
-    {fins:.25,nom:'El pedal fa girar la roda',text:'El peu mou el pedal. La biela transmet aquest moviment al manubri de la roda i la fa girar.',focus:['pedal','roda']},
-    {fins:.5,nom:'La corretja transmet el gir',text:'La corretja uneix la roda gran amb les politges petites del conjunt de filatura.',focus:['corretja','aleta']},
-    {fins:.75,nom:'Les mans estiren; l’aleta torça',text:'La persona deixa passar poca fibra, l’estira amb els dits i controla el gruix. El gir de l’aleta dona torsió al fil.',focus:['fibra','aleta']},
-    {fins:1,nom:'La bobina recull un sol fil',text:'La diferència de gir entre l’aleta i la bobina permet enrotllar el fil. Aquestes accions es combinen mentre es fila.',focus:['aleta']}
+    {fins:.15,nom:'Preparar la fibra',text:'La mà subjecta una metxa de cotó cardat prop de la punta del fus.',focus:['fibra']},
+    {fins:.57,nom:'Estirar i donar torsió',text:'La mà s’allunya del fus i deixa lliscar les fibres. La roda acciona el fus: la torsió uneix les fibres i forma el fil.',focus:['fibra','fus']},
+    {fins:.72,nom:'Preparar la recollida',text:'S’acaba de donar torsió i es desfà una mica el fil de la punta. La mà el situa de costat per poder enrotllar-lo.',focus:['fus']},
+    {fins:1,nom:'Enrotllar al fus',text:'La mà s’acosta mentre el fus recull el fil ja fet. El petit con de fil creix. Després es prepara un altre tram.',focus:['fus','fibra']}
   ],
   parts:{
-    bastidor:{nom:'Banc i suports',text:'Mantenen alineades la roda i el conjunt de filatura.'},
-    pedal:{nom:'Pedal i biela',text:'Permeten moure la roda amb el peu i deixar les mans lliures per estirar la fibra.'},
-    roda:{nom:'Roda motriu',text:'El volant manté el gir i acciona la transmissió.'},
-    corretja:{nom:'Corretja',text:'Porta el moviment de la roda a les politges del conjunt d’aleta i bobina.'},
-    aleta:{nom:'Aleta i bobina',text:'L’aleta torça la fibra i guia el fil; la bobina el recull. Giren amb una petita diferència de velocitat.'},
-    fibra:{nom:'Fibra i fil',text:'La fibra de cotó és curta i solta. Estirant-la i torçant-la s’obté un fil continu.'}
+    bastidor:{nom:'Banc i suports',text:'Mantenen els eixos de la roda i del fus paral·lels i subjecten la màquina.'},
+    roda:{nom:'Roda manual',text:'La persona la fa girar amb una mà. La roda gran acciona la petita politja del fus.'},
+    corretja:{nom:'Corretja',text:'Transmet el moviment de la roda al fus. La politja petita fa més voltes que la roda gran.'},
+    fus:{nom:'Fus i con de fil',text:'El fus gira per donar torsió al fil. En una fase separada, el fil es col·loca de costat i s’enrotlla formant un con.'},
+    fibra:{nom:'Mà, fibra i fil',text:'Els dits regulen l’estiratge. Les fibres llisquen unes respecte de les altres; la torsió les manté unides.'}
   },
-  clau:'Una roda, una persona i un sol fil: aquest és el punt de partida per entendre la Jenny.',
-  batx:{titol:'Estirar, tòrcer i enrotllar',text:'El pedal allibera les mans, però el gruix del fil continua depenent de l’habilitat de la persona. La Jenny multiplicarà els fusos; els corrons de la Water Frame mecanitzaran l’estiratge.',font:'https://collection.sciencemuseumgroup.org.uk/objects/co44835/saxony-wheel-late-18th-century',fontNom:'Science Museum Group · roda de Saxònia'}
+  clau:'La roda facilita el gir del fus, però la persona encara regula cada tram i treballa un sol fil.',
+  batx:{titol:'El punt de partida de la mecanització',text:'Aquesta roda manual de fus és del tipus anomenat great wheel, utilitzat per a llana i també cotó. Estirar i tòrcer precedeix l’enrotllament. La Jenny multiplica els fusos; els corrons mecanitzen l’estiratge. No s’ha de confondre amb la roda de Saxònia de pedal i aleta, habitual en altres fibres.',font:'https://collection.sciencemuseumgroup.org.uk/objects/co44851/great-wheel',fontNom:'Science Museum Group · roda manual de fus'}
 };

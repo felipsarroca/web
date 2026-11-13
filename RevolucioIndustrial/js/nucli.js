@@ -268,6 +268,7 @@
         <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
+        ${e.innovacio ? `<div class="tx-compara"><span><small>Abans</small>${esc(e.innovacio.abans)}</span><b aria-hidden="true">→</b><span><small>Amb aquest invent</small>${esc(e.innovacio.ara)}</span></div><div class="tx-resultat"><strong id="tx-action"></strong><span id="tx-product"></span></div>` : ''}
         ${e.explotada && RI.laminaHTML ? RI.laminaHTML(e,'explotada') : ''}
         ${realHtml}
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}

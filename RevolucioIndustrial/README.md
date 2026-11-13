@@ -6,6 +6,8 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Estat actual:** vuit capítols, 27 escenes i tretze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i cinc mecanismes animats amb una sola perspectiva obliqua. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
+**Revisió del cotó:** comparació abans/després, estiratge, torsió i recollida visibles, corrons amb girs oposats i fases coordinades de la mula. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. [Obre la versió anterior conservada](versions/2026-11-13-coto-abans-revisio/textil.html) per comparar-la; la [carpeta de seguretat](versions/2026-11-13-coto-abans-revisio/README.md) conté els originals, les seves empremtes i el restaurador.
+
 ## Obrir el web
 
 Obre [`index.html`](index.html) al navegador. També el pots servir localment des d'aquesta carpeta:
@@ -53,13 +55,15 @@ Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026*
 
 La darrera comprovació ha recorregut les 27 escenes en cinc mides (135 combinacions), incloent-hi làmines, selecció de peces, zoom, etiquetes, fases dels mecanismes i reptes. Sense errors de JavaScript ni desbordaments detectats. Les captures mostren la versió actual.
 
-Les fotografies històriques provenen de Wikimedia Commons i el desplegable de fonts n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines són reconstruccions generades amb ChatGPT; les vistes explotades s'han editat a partir de les màquines muntades, conservant el model i l'orientació dels conjunts. Les mides són orientatives. Els prompts es conserven a `assets/prompts-illustracions.json` i `assets/prompts-explotades.json`.
+Les fotografies històriques provenen de Wikimedia Commons i el desplegable de fonts n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines són reconstruccions generades amb ChatGPT; les vistes explotades s'han editat a partir de les màquines muntades, conservant el model i l'orientació dels conjunts. Les mides són orientatives. Els prompts es conserven a `assets/prompts-illustracions.json`, `assets/prompts-explotades.json` i [prompts de la roda manual de fus](assets/prompts-coto-revisio.json).
 
 Els cinc mecanismes tèxtils utilitzen una projecció obliqua comuna calculada a partir de geometria tridimensional, amb rotacions dins del pla de cada roda i desplaçaments del carro que conserven les correspondències entre fils. Són esquemes didàctics: els materials i els detalls es simplifiquen respecte de les làmines.
 
-La roda de filar es basa en el principi de la roda de Saxònia amb pedal i aleta, documentat al [Science Museum Group](https://collection.sciencemuseumgroup.org.uk/objects/co44835/saxony-wheel-late-18th-century). La Water Frame representada té quatre caps de filatura; la data de 1769 identifica la invenció, no una reproducció exacta del prototip de patent.
+La roda tradicional representa una roda manual de fus del tipus *great wheel*, utilitzat també per al cotó, documentat al [Science Museum Group](https://collection.sciencemuseumgroup.org.uk/objects/co44851/great-wheel). La versió de Saxònia amb pedal i aleta es conserva a la carpeta anterior. La Water Frame representada té quatre caps de filatura i tres parelles de corrons; és una síntesi del principi, amb velocitats relatives il·lustratives. La data de 1769 identifica la invenció, no una reproducció exacta del prototip de patent. El [dossier de revisió](assets/revisio-coto.md) explica les fonts, les simplificacions i els límits.
 
 La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació, amb el servidor local actiu: `python assets/verifica_visual.py` (requereix Playwright i Chrome).
+
+`node assets/verifica-cinematica.cjs` comprova 1.001 posicions del cicle: marge de pas de la llançadora, temps de batuda, gir i alimentació dels corrons, aturada de la mula, rodament del carro, recollida i continuïtat dels angles dins de cada cicle. Els cons es reinicien en començar un nou cicle didàctic: el dibuix no és un comptador acumulat de producció.
 
 ## Llicència i incidències
 

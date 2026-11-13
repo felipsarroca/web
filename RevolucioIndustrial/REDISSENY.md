@@ -124,3 +124,10 @@ Atributs automàtics dins l'SVG: `data-flux="v"` (guions que corren), `data-fase
    - **Escenes**: Newcomen (sostre, balancí i buit), caixes i tacos de la llançadora, braç de la Jenny que segueix la manovella, mula vista de costat amb fases i cota, laminador amb escletxa real, comptador «minut N de 20» al Bessemer, roda de pales «fantasma», mapa real de l'Atlàntic (Natural Earth, domini públic) amb rutes i vents, monedes i accions que circulen a «El capital», colors de flux per fase a la fàbrica i retocs de la portada (fum, tren, nau del cotó, pins).
    - **Parcials (3 i 8)**: la regeneració de làmines IA (`img/exp-*.webp`) queda pendent perquè fal.ai no té saldo; s'ha tret la làmina IA del Great Western (queda la vista explotada vectorial) i les làmines IA estan etiquetades com a tals.
    - Comprovat sense errors de consola a 1366 × 768, 1440 × 810 i 390 × 844.
+
+
+## Revisió del moviment del cotó (13 de novembre de 2026)
+
+Vegeu [el dossier de revisió](assets/revisio-coto.md) per als criteris, les fonts i les simplificacions. S’han refet les cinc seqüències per mostrar acció, transformació, recollida i aportació de cada invent. Una comparació abans/després, una vista obliqua fixa centrada en el mecanisme i els missatges sincronitzats guien la lectura. S’ha corregit la roda tradicional a una roda manual de fus apta per explicar el cotó, amb dues làmines noves de ChatGPT. La cursa és ara una cadena causal sense produccions inventades.
+
+A petició explícita de Felip, els originals anteriors s’han conservat a [versions/2026-11-13-coto-abans-revisio](versions/2026-11-13-coto-abans-revisio/README.md): 80 fitxers verificats byte a byte, manifest SHA-256, versió navegable independent i restaurador parcial. Es conserva l’estètica general vigent; no s’aplica cap nova suavització.

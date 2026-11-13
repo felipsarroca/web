@@ -55,6 +55,11 @@ with sync_playwright() as p:
      page.wait_for_timeout(45)
      bad=page.locator('#tela > svg').evaluate('(n)=>/NaN|Infinity/.test(n.innerHTML)')
      if bad: errors.append([cap,i,width,'invalid geometry'])
+     if cap=='textil' and i<5:
+      expected=page.evaluate('([id,p])=>RI.TEXTIL_ESTATS[id](p).action',[['roda','llancadora','jenny','water','mula'][i],moment/1000])
+      assert page.locator('#tx-action').inner_text()==expected
+      assert page.locator('.tx-compara').is_visible()
+      assert page.locator('#tx-product').inner_text()
    page.locator('[data-esc="repte"]').click()
    assert page.locator('.q').count()>0
   footer=page.locator('.felip-app-footer')

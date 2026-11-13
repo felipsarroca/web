@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Reconstruccions il·lustrades amb ChatGPT. Les fotografies històriques són a cada capítol.
 RI.ILLUSTRACIONS = {
-  roda: 'img/illustration-roda.webp',
+  roda: 'img/illustration-roda-fus.webp',
   newcomen: 'img/illustration-newcomen.webp',
   watt: 'img/illustration-watt.webp',
   rotativa: 'img/illustration-rotativa.webp',
@@ -18,7 +18,7 @@ RI.ILLUSTRACIONS = {
 
 // Posicions sobre la làmina completa, en percentatge. Màxim cinc conjunts.
 RI.LAMINA_PARTS = {
-  roda:[['roda',76,36],['aleta',21,42],['pedal',63,83],['corretja',44,24],['bastidor',41,64]],
+  roda:[['roda',73,31],['fus',19,54],['fibra',40,64,'Cotó cardat'],['corretja',44,24],['bastidor',42,70]],
   llancadora:[['ordit',22,34,"Plegador d’ordit"],['llicos',52,28],['pinta',54,46],['llancadora',59,52],['tela',58,65]],
   jenny:[['metxes',48,12,'Guia de metxa'],['pinca',48,23],['fusos',41,54],['roda',80,60],['corda',48,68]],
   water:[['metxa',47,12],['corrons',45,32],['aleta',44,63],['aigua',81,32,'Transmissió'],['aleta',47,80,'Banc de fusos']],
@@ -45,7 +45,7 @@ RI.EXPLOTADES.sembradora.parts=[['tremuja',51,26],['dosador',51,50],['roda',20,6
 RI.EXPLOTADES.arada.parts=[['cama',53,59],['ganivet',46,77],['rella',55,85],['orello',79,75]];
 RI.EXPLOTADES.bessemer.parts=[['convertidor',46,40],['eix',69,50],['toveres',52,77],['eix',84,47,'Engranatge de basculació']];
 RI.EXPLOTADES.western.parts=[['calderes',43,61],['maquina',51,62],['roda',42,84],['veles',56,28]];
-RI.EXPLOTADES.roda.parts=[['roda',82,32],['aleta',21,28],['pedal',56,83],['corretja',45,25],['bastidor',40,63]];
+RI.EXPLOTADES.roda={img:'img/exploded-roda-fus.webp',parts:[['roda',74,30],['fus',19,53],['fibra',40,65,'Cotó cardat'],['corretja',44,24],['bastidor',42,70]]};
 
 RI.laminaHTML = function(e,mode){
   const mounted=mode==='muntada', data=mounted?e.laminaMuntada:e.explotada;
