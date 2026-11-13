@@ -251,7 +251,7 @@
       return svg.replace('class="esc"','class="esc tx-model tx-detail"');
     },
     anima(id){return ({p,t,k,svg,sel})=>{
-      const small=mobile(),stamp=[Math.floor(t*24),k,sel,small].join(':');
+      const small=mobile(),stamp=[Math.floor(t*24),k,sel,small,p>=.999].join(':');
       if(svg.dataset.txFrame===stamp)return;svg.dataset.txFrame=stamp;
       const e=RI.TEXTIL_ESCENES[id],focus=e.fases[k].focus||[],s=S(id,p),f=fit(id,small),g=buildScene(id,p);
       svg.setAttribute('viewBox',`0 0 ${small?900:1200} 720`);
@@ -260,7 +260,7 @@
       svg.querySelector('#tx-multiple').innerHTML=multiple(id,s);
       const action=document.querySelector('#tx-action'),product=document.querySelector('#tx-product');
       if(action&&action.textContent!==s.action)action.textContent=s.action;
-      const out=id==='llancadora'||id==='cartwright'?s.rows+' passades incorporades a la tela':id==='roda'?'Fibres soltes → fil torçut → fil recollit':id==='jenny'?'Detall d’un fus · 8 treballen alhora':id==='water'?'Detall d’un cap · producció contínua':'Detall d’un fus · 6 coordinats en aquest esquema';
+      const out=id==='llancadora'||id==='cartwright'?(s.rows===1?'1 passada incorporada a la tela':s.rows+' passades incorporades a la tela'):id==='roda'?'Fibres soltes → fil torçut → fil recollit':id==='jenny'?'Detall d’un fus · 8 treballen alhora':id==='water'?'Detall d’un cap · producció contínua':'Detall d’un fus · 6 coordinats en aquest esquema';
       if(product&&product.textContent!==out)product.textContent=out;
       svg.dataset.phase=e.fases[k].nom;
     };}

@@ -70,6 +70,7 @@ for(let i=0;i<=1000;i++){
   }else if(Math.abs(s.shed)<.5)assert(Math.abs(s.x)-28>273,'shuttle must park clear of closing shed');
 }
 assert.equal(states.cartwright(1).rows,2);
+assert.equal(states.cartwright(.9999).rows,2,'slider endpoint must display both completed picks');
 const powered=context.RI.TEXTIL_DETALLS.buildScene('cartwright',.2);
 assert(!powered.faces.some(f=>f.part==='cordill'),'power loom must not retain the manual hand cord');
 for(const p of [.2,.25,.3,.35,.69,.72,.78,.82]){

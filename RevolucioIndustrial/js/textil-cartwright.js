@@ -19,12 +19,12 @@
     const kick=12*(seg(q,.30,.34)-seg(q,.34,.40));
     const wefts=[];
     if(p>=.15)wefts.push({y:p>=.5?-155:y,amount:p>=.5?1:clamp((x+270)/540),reverse:false});
-    if(p>=.65)wefts.push({y:p===1?-152:y,amount:clamp((270-x)/540),reverse:true});
+    if(p>=.65)wefts.push({y:p>=.999?-152:y,amount:clamp((270-x)/540),reverse:true});
     const step=q<.30?0:q<.60?1:2;
     return {x,y,shed,boatY:y,boatZ:centre,upperZ:centre+halfGap,lowerZ:centre-halfGap,
       angle,camAngle:-TAU*p,crank,rodEnd:[430,y,100],half,q,step,
       pickerLeft:half===0?kick:0,pickerRight:half===1?kick:0,
-      weaving:q>=.30&&q<.60,rows:Number(p>=.5)+Number(p===1),wefts,
+      weaving:q>=.30&&q<.60,rows:Number(p>=.5)+Number(p>=.999),wefts,
       action:step===0?'Les lleves canvien els lliços i obren la calada':step===1?'La transmissió impulsa la llançadora':'La biela mou el batà i atapeeix la trama'};
   }
   RI.TEXTIL_ESTATS.cartwright=state;
