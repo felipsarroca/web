@@ -218,7 +218,7 @@
     requestAnimationFrame(bucle);
   }
 
-  /* ---------- «Connecta amb…»: línia del temps del capítol i enllaços amb altres capítols ---------- */
+  /* ---------- «Connecta amb…»: dues relacions entre capítols ---------- */
   RI.CONNEXIONS = {
     camp: [['textil', 'Més menjar i menys pagesos: mà d’obra per a les fàbriques tèxtils.'], ['metalls', 'Les arades de ferro fan de l’agricultura un client de la siderúrgia.']],
     vapor: [['metalls', 'Les màquines de vapor bomben les mines i bufen els alts forns.'], ['fabrica', 'Amb el gir de Watt, la fàbrica ja no depèn del riu.']],
@@ -229,20 +229,17 @@
     vaixell: [['tren', 'La mateixa idea que la locomotora, però sobre l’aigua.'], ['textil', 'El cotó americà arriba a Manchester més de pressa i més barat.']],
     capital: [['tren', 'El ferrocarril és el gran negoci de la borsa del segle XIX.'], ['fabrica', 'Les primeres fàbriques es paguen amb diners de la família.']]
   };
-  function connecta(cap, i) {
-    const es = cap.escenes, ll = RI.CONNEXIONS[cap.id] || [];
-    const linia = es.length > 1 ? `<div class="cn-linia">${es.map((x, k) => `<button type="button" data-va="${k}" class="${k === i ? 'actual' : ''}"><b>${esc(x.any || '·')}</b><span>${esc(x.nom)}</span></button>`).join('')}</div>` : '';
+  function connecta(cap) {
+    const ll = (RI.CONNEXIONS[cap.id] || []).slice(0, 2);
     const enll = ll.map(([id, t]) => { const c = RI.CAPITOLS.find((x) => x.id === id); return c ? `<a href="${c.id}.html" style="--c:${c.color}">${RI.icona(c, 16)}<span><b>${esc(c.nom)}</b> ${esc(t)}</span></a>` : ''; }).join('');
-    return `<div class="connecta" id="connecta"><h3 class="p-t">Connecta amb…</h3>${linia}<div class="cn-enll">${enll}</div></div>`;
+    return `<div class="connecta" id="connecta"><h3 class="p-t">Connecta amb…</h3><div class="cn-enll">${enll}</div></div>`;
   }
   /* amaga el bloc «Connecta» si no hi cap sense scroll (escriptori) */
   function encaixaConnecta() {
     const p = $('#panell'), c = $('#connecta'); if (!p || !c) return;
-    const ll = $('.cn-enll', c), li = $('.cn-linia', c), sobra = () => p.scrollHeight > p.clientHeight + 1;
-    c.hidden = false; if (ll) ll.hidden = false; if (li) li.hidden = false;
+    const sobra = () => p.scrollHeight > p.clientHeight + 1;
+    c.hidden = false;
     if (document.documentElement.classList.contains('mobil')) return;
-    if (sobra() && ll) ll.hidden = true;
-    if (sobra() && li) { li.hidden = true; if (ll) ll.hidden = false; if (sobra() && ll) ll.hidden = true; }
     if (sobra()) c.hidden = true;
   }
   RI.encaixaConnecta = encaixaConnecta;
@@ -302,7 +299,7 @@
       ${e.clau ? `<div class="clau"><span>La idea clau</span><p>${e.clau}</p></div>` : ''}
       ${e.batx ? `<div class="batx-wrap" id="batx-wrap"><button type="button" class="batx-toggle" aria-expanded="false"><span>Per aprofundir · 1r de Batxillerat</span><em style="font-style:normal">Mostra ▾</em></button><div class="batx-bloc"><button type="button" class="fitxa-tanca" aria-label="Tanca">×</button><span>Per aprofundir · 1r de Batxillerat</span><h4>${esc(e.batx.titol)}</h4><p>${e.batx.text}</p>${e.batx.font ? `<a href="${e.batx.font}" target="_blank" rel="noopener noreferrer">${esc(e.batx.fontNom || 'Consulta la font')} ↗</a>` : ''}</div></div>` : ''}
       ${e.real ? `<details class="fonts-lamina"><summary>Font i imatge històrica</summary><p>${esc(e.real.titol)} · ${esc(e.real.museu)}</p><a href="${esc(e.real.img)}" target="_blank" rel="noopener noreferrer">Obre la imatge</a><small>${esc(e.real.lic)}</small></details>` : ''}
-      ${connecta(cap, i)}
+      ${connecta(cap)}
       <div class="p-nav">${i > 0 ? `<button type="button" data-va="${i - 1}">← ${esc(cap.escenes[i - 1].nom)}</button>` : '<span></span>'}${i < cap.escenes.length - 1 ? `<button type="button" class="seg" data-va="${i + 1}">${esc(cap.escenes[i + 1].nom)} →</button>` : '<button type="button" class="seg" data-va="repte">Repte final →</button>'}</div>
     </aside>`;
     svgEl = $('#tela svg'); expSvg = $('#lamina-exp .exp-svg'); els = {};
@@ -376,7 +373,7 @@
     st.etq = 'focus'; aplicaEtiquetes();
     svgEl.addEventListener('click', (ev) => { const g = ev.target.closest('[data-part],[data-etq]'); tria(g ? g.dataset.part || g.dataset.etq : null); });
 
-    $$('.p-nav, #connecta').forEach((n) => n.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); }));
+    $$('.p-nav').forEach((n) => n.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-va]'); if (!b) return; if (b.dataset.va === 'repte') obreRepte(); else obreEscena(+b.dataset.va); }));
     $('#peca').addEventListener('click', (ev) => {
       if (ev.target.closest('.fitxa-tanca')) { tria(null); return; }
       const b = ev.target.closest('[data-tria]'); if (b) tria(b.dataset.tria === st.sel ? null : b.dataset.tria);

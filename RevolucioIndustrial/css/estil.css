@@ -226,16 +226,10 @@ svg.explota [data-guia]{opacity:.58}
 .batx-bloc a{display:inline-block;margin-top:5px;font-weight:700;font-size:.74rem;color:var(--blau)}
 .connecta{display:flex;flex-direction:column;gap:5px}
 .connecta[hidden],.connecta [hidden]{display:none!important}
-.cn-linia{display:flex;gap:3px}
-.cn-linia button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;border:1.5px solid #e4dac2;background:#faf5e8;border-radius:8px;padding:3px 7px;text-align:left}
-.cn-linia button b{font-size:.66rem;color:var(--cap);font-weight:700}
-.cn-linia button span{font-size:.68rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.cn-linia button.actual{border-color:var(--tinta);background:#fff;box-shadow:none}
-.cn-linia button:hover{background:#ffefbd}
 .cn-enll{display:flex;flex-direction:column;gap:4px}
-.cn-enll a{display:flex;gap:7px;align-items:flex-start;text-decoration:none;font-size:.72rem;line-height:1.3;border-left:2px solid var(--c);background:#faf5e8;padding:4px 8px;border-radius:0 7px 7px 0}
+.cn-enll a{display:flex;gap:7px;align-items:flex-start;text-decoration:none;font-size:.75rem;line-height:1.3;border-left:2px solid var(--c);background:#faf5e8;padding:4px 8px;border-radius:0 7px 7px 0}
 .cn-enll a .ico{color:var(--c);flex:none;margin-top:1px}
-.cn-enll a b{color:var(--c)}
+.cn-enll a b{color:var(--c);display:block}
 .cn-enll a:hover{background:#ffefbd}
 .p-nav{display:flex;justify-content:space-between;gap:8px;margin-top:auto;padding-top:7px;border-top:1px solid #e6dcc4}
 .p-nav button,.boto,.repte-peu button{border:1px solid var(--linia);background:var(--paper2);border-radius:999px;padding:4.5px 11px;font-weight:700;font-size:.76rem;text-decoration:none;max-width:56%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -471,14 +465,16 @@ svg.explota [data-guia]{opacity:.58}
 .mobil .lamina-clau{top:4px;gap:3px}
 .mobil .lamina-clau button{font-size:.59rem;padding:2px 4px}
 .mobil .lamina-clau i{width:15px;height:15px;font-size:.58rem}
-.mobil .lamina-exp .lamina-clau{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}
+.mobil .lamina-exp{display:flex;flex-direction:column}
+.mobil .escenari.exp-activa .tela{aspect-ratio:auto;height:clamp(440px,120vw,580px)}
+.mobil .lamina-exp .lamina-clau{position:relative;inset:auto;order:2;flex:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;margin:0 6px 28px}
 .mobil .lamina-exp .lamina-clau button{padding:3px 4px}
 .mobil .lamina-exp .lamina-clau button small{font-size:.57rem}
-.mobil .lamina-exp .lamina-camp{top:166px}
+.mobil .lamina-exp .lamina-camp{position:relative;inset:auto;order:1;flex:1;min-height:0;margin:6px 6px 0}
 .mobil .vistes{gap:4px}
 .mobil .vistes button{padding:4px 7px;font-size:.72rem}
 #app{padding-bottom:var(--peu-h,45px)}
-.mobil .escenari.real-activa .tela,.mobil .escenari.exp-activa .tela{aspect-ratio:1/1}
+.mobil .escenari.real-activa .tela{aspect-ratio:1/1}
 body[data-capitol="textil"] .escenes button small{display:none}
 body[data-capitol="textil"] .escenes button{padding-left:9px;padding-right:9px;gap:5px}
 .mobil .ara{flex-wrap:wrap;gap:5px;align-items:center;font-size:.95rem}

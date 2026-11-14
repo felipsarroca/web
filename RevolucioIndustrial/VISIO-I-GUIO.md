@@ -206,3 +206,7 @@ Felip demana que els esquemes animats siguin molt realistes i estètics, i que m
 ## 13. Revisió de les vistes explotades del 14-11-2026
 
 Felip considera que les primeres vistes explotades s'assemblen massa a les muntades. Demana separar més els conjunts i indicar, de manera clara i senzilla, el nom i la funció només de les peces importants. S'han revisat les catorze làmines explotades amb una separació més visible, mantenint les màquines reconeixibles. Les llegendes mostren entre tres i cinc conjunts amb una funció breu; els punts numerats s'han reposicionat sobre les làmines noves. Les reconstruccions continuen sent il·lustracions didàctiques, no fonts històriques originals. La revisió visual i funcional ha passat per 140 combinacions d'escena i mida de pantalla, incloent-hi portàtil, mòbil i escalat simulat.
+
+## 14. Llegibilitat mòbil i connexions del 14-11-2026
+
+En mòbil, la vista explotada presenta primer la màquina i després la llegenda de les peces. La làmina té més alçada perquè la imatge es vegi més gran sense tapar les explicacions. «Connecta amb…» mostra dues relacions entre capítols, amb el nom complet i una explicació breu; la navegació entre màquines continua als botons anterior i següent del panell. Verificat amb 135 combinacions d'escena i mida de pantalla, i revisades les captures del teler a 390 i 1366 píxels.
