@@ -56,11 +56,11 @@ from watt_3d import (
 def build_newcomen_scene(animate=False):
     clear_scene()
 
-    pbr_brick = build_pbr_pair("NcMao", "brick", 320, 320, bump_scale=3.0)
-    pbr_wood = build_pbr_pair("NcRoure", "wood", 288, 288, bump_scale=2.2)
-    pbr_stone = build_pbr_pair("NcPedra", "stone", 288, 288, bump_scale=2.6)
-    pbr_iron = build_pbr_pair("NcFerro", "castiron", 224, 224, bump_scale=2.0)
-    pbr_copper = build_pbr_pair("NcCoure", "copper", 224, 224, bump_scale=1.2)
+    pbr_brick = build_pbr_pair("NcMao", "brick", 512, 512, bump_scale=3.0)
+    pbr_wood = build_pbr_pair("NcRoure", "wood", 512, 512, bump_scale=2.2)
+    pbr_stone = build_pbr_pair("NcPedra", "stone", 512, 512, bump_scale=2.6)
+    pbr_iron = build_pbr_pair("NcFerro", "castiron", 512, 512, bump_scale=2.0)
+    pbr_copper = build_pbr_pair("NcCoure", "copper", 512, 512, bump_scale=1.2)
 
     m_stone = make_mat("Pedra", "#aea389", roughness=0.90, pbr_pair=pbr_stone, tex_scale=(1.1, 1.1), normal_strength=0.95)
     m_brick = make_mat("Mao", "#8f402a", roughness=0.86, pbr_pair=pbr_brick, tex_scale=(1.35, 1.35), normal_strength=1.0)

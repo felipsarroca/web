@@ -137,7 +137,7 @@
   };
 
   /* ---------- estat ---------- */
-  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 1, pasAPas: true, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, real: false, zoom: false, brut: true, repte: false };
+  const st = { cap: null, esc: null, iEsc: 0, p: 0, voltes: 0, play: true, vel: 0.65, pasAPas: false, fiPas: null, iFase: -1, sel: null, capes: {}, etq: true, vista: null, explota: false, real: false, zoom: false, brut: true, repte: false };
   let svgEl = null, expSvg = null, auto = null, els = {}, darrer = 0;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -259,7 +259,7 @@
   function obreEscena(i) {
     const cap = st.cap, e = cap.escenes[i];
     const fases = e.fases || [];
-    st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 1; st.zoom = false;
+    st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 0.65; st.zoom = false;
     (e.capes || []).forEach((c) => { st.capes[c.id] = !!c.on; });
     st.play = !e.laminaMuntada && !e.estatica && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
     st.fiPas = st.play && st.pasAPas && fases.length ? fases[0].fins : null;
@@ -287,8 +287,7 @@
       <div class="comandament${e.estatica ? ' sense' : ''}">
         <div class="botons"><button type="button" id="b-ant" title="Fase anterior (←)" aria-label="Fase anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button><button type="button" id="b-play" class="principal" title="Reprodueix o atura (espai)" aria-label="Reprodueix o atura"></button><button type="button" id="b-seg" title="Fase següent (→)" aria-label="Fase següent"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button></div>
         <div class="linia"><div class="trams" id="trams">${fases.map((f, k) => { const a = k ? fases[k - 1].fins : 0; return `<span style="flex:${(f.fins - a).toFixed(3)}" data-k="${k}"><i>${k + 1}</i></span>`; }).join('')}</div><input type="range" id="lliscador" min="0" max="1000" value="0" aria-label="Moment del cicle"></div>
-        <button type="button" id="b-vel" class="vel" title="Velocitat de l’animació">×1</button>
-        <button type="button" id="b-pas" class="vel pas-btn" aria-pressed="${st.pasAPas}" title="Atura l’animació al final de cada pas">${st.pasAPas ? 'Pas a pas' : 'Continu'}</button>
+        <button type="button" id="b-vel" class="vel" title="Velocitat de l’animació">Vel: lenta</button>
       </div>
       <div class="ara" id="ara" aria-live="polite"></div>
     </section>
@@ -313,21 +312,10 @@
     $('#b-play').addEventListener('click', togglePlay);
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
     $('#b-ant').addEventListener('click', () => vesFase(st.iFase - 1));
-    $('#b-vel').addEventListener('click', () => { st.vel = st.vel === 1 ? 0.4 : st.vel === 0.4 ? 2 : 1; $('#b-vel').textContent = st.vel === 0.4 ? 'lent' : '×' + st.vel; });
-    $('#b-pas').addEventListener('click', () => {
-      st.pasAPas = !st.pasAPas;
-      const bp = $('#b-pas');
-      bp.setAttribute('aria-pressed', st.pasAPas);
-      bp.textContent = st.pasAPas ? 'Pas a pas' : 'Continu';
-      const fs = e.fases || [];
-      if (!st.pasAPas) {
-        st.fiPas = null;
-        if (!st.play && !e.estatica && !st.explota && !st.real) { st.play = true; botoPlay(); }
-      } else if (fs.length && st.play) {
-        st.fiPas = fs[faseDe(st.p)].fins;
-      }
-      actualitzaAra();
-    });
+    const vels = [['lenta', 0.65], ['molt lenta', 0.35], ['normal', 1.0]];
+    const pintaVel = () => { const cur = vels.find((x) => Math.abs(x[1] - st.vel) < 0.05) || vels[0]; $('#b-vel').textContent = 'Vel: ' + cur[0]; };
+    pintaVel();
+    $('#b-vel').addEventListener('click', () => { const idx = vels.findIndex((x) => Math.abs(x[1] - st.vel) < 0.05); st.vel = vels[(idx + 1) % vels.length][1]; pintaVel(); });
     $('#lliscador').addEventListener('input', (ev) => { st.play = false; st.fiPas = null; st.p = Math.min(0.9999, ev.target.value / 1000); st.brut = true; botoPlay(); actualitzaAra(); });
     $('#trams').addEventListener('click', (ev) => { const s = ev.target.closest('[data-k]'); if (s) vesFase(+s.dataset.k); });
     const lf = $('#fases'); if (lf) lf.addEventListener('click', (ev) => { const li = ev.target.closest('li'); if (li) vesFase(+li.dataset.k, true); });

@@ -11,7 +11,7 @@ import os
 import bmesh
 import bpy
 from bpy_extras.object_utils import world_to_camera_view
-from mathutils import Vector
+from mathutils import Euler, Vector
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT_DIR = os.path.join(ROOT, "assets", "blender", "out")
@@ -43,61 +43,126 @@ def _hash2(x, y):
     return n - math.floor(n)
 
 
-def _sample_height_and_color(kind, u, v, px, py):
-    """Retorna (r, g, b, height) per generar albedo sRGB i mapa normal coherent."""
-    if kind == "wood":
-        wobble = math.sin(u * 8.5 + _hash2(int(u * 10), int(v * 16)) * 0.45)
-        grain = 0.5 + 0.5 * math.sin(v * 72.0 + 3.8 * wobble)
-        ring = 0.5 + 0.5 * math.sin(v * 18.0 + 1.4 * wobble)
-        seam = 1.0 if (v * 3.0) % 1.0 > 0.025 else 0.70
-        fine = (_hash2(px * 0.22, py) - 0.5) * 0.045
-        r = (0.45 + 0.14 * grain + 0.04 * ring + fine) * seam
-        g = (0.27 + 0.095 * grain + 0.03 * ring + fine * 0.7) * seam
-        b = (0.13 + 0.045 * grain + 0.015 * ring + fine * 0.4) * seam
-        ht = (0.52 + 0.34 * grain + fine) * seam
-        return r, g, b, ht
+def _vnoise_tile(u, v, px, py, seed=0.0):
+    """Soroll de valor 2D suau i perfectament enrajolable (periode px × py)."""
+    fu = (u * px) % px
+    fv = (v * py) % py
+    i0 = int(fu) % px
+    j0 = int(fv) % py
+    i1 = (i0 + 1) % px
+    j1 = (j0 + 1) % py
+    sx = fu - int(fu)
+    sy = fv - int(fv)
+    sx = sx * sx * (3.0 - 2.0 * sx)
+    sy = sy * sy * (3.0 - 2.0 * sy)
+    h00 = _hash2(i0 + seed, j0 + seed * 1.7)
+    h10 = _hash2(i1 + seed, j0 + seed * 1.7)
+    h01 = _hash2(i0 + seed, j1 + seed * 1.7)
+    h11 = _hash2(i1 + seed, j1 + seed * 1.7)
+    a = h00 + (h10 - h00) * sx
+    b = h01 + (h11 - h01) * sx
+    return a + (b - a) * sy
 
-    if kind == "wood_dark":
-        wobble = math.sin(u * 7.0 + _hash2(int(u * 8), int(v * 14)) * 0.35)
-        grain = 0.5 + 0.5 * math.sin(v * 68.0 + 3.2 * wobble)
-        fine = (_hash2(px * 0.25, py) - 0.5) * 0.04
-        r = 0.28 + 0.10 * grain + fine
-        g = 0.16 + 0.06 * grain + fine * 0.7
-        b = 0.08 + 0.03 * grain + fine * 0.4
-        return r, g, b, 0.50 + 0.32 * grain + fine
+
+def _fbm_tile(u, v, px, py, octaves=3, seed=0.0):
+    val = 0.0
+    amp = 0.5
+    norm = 0.0
+    for k in range(octaves):
+        mul = 1 << k
+        val += amp * _vnoise_tile(u, v, px * mul, py * mul, seed + k * 19.3)
+        norm += amp
+        amp *= 0.5
+    return val / norm
+
+
+def _sample_height_and_color(kind, u, v, px, py):
+    """Retorna (r, g, b, height) sense franges ni quadrícules artificials."""
+    if kind in ("wood", "wood_dark"):
+        warp = _fbm_tile(u, v, 3, 6, octaves=2, seed=1.3)
+        fiber = _fbm_tile(u + 0.08 * warp, v, 4, 34, octaves=3, seed=4.7)
+        ring = 0.5 + 0.5 * math.sin((u * 3.0 + warp * 1.8) * math.pi * 2.0)
+        pore = (_vnoise_tile(u, v, 12, 96, seed=9.1) - 0.5) * 0.05
+        tone = 0.65 * fiber + 0.35 * ring
+        if kind == "wood":
+            r = 0.39 + 0.16 * tone + pore
+            g = 0.23 + 0.105 * tone + pore * 0.7
+            b = 0.11 + 0.050 * tone + pore * 0.4
+        else:
+            r = 0.22 + 0.11 * tone + pore * 0.8
+            g = 0.13 + 0.065 * tone + pore * 0.6
+            b = 0.065 + 0.032 * tone + pore * 0.35
+        return r, g, b, 0.45 + 0.35 * fiber + 0.12 * ring + pore
+
+    if kind == "wood_floor":
+        planks = 6.0
+        p_idx = math.floor(u * planks)
+        fu = (u * planks) % 1.0
+        v_shift = (v + 0.37 * _hash2(p_idx, 3.0)) % 1.0
+        fv = (v_shift * 2.0) % 1.0
+        seam = min(fu, 1.0 - fu) < 0.012 or min(fv, 1.0 - fv) < 0.008
+        p_var = (_hash2(p_idx, math.floor(v_shift * 2.0) + 5.0) - 0.5) * 0.065
+        grain = _fbm_tile(u * 2.0, v_shift, 6, 36, octaves=3, seed=2.4 + p_idx)
+        tone = 0.35 + 0.12 * grain + p_var
+        sk = 0.68 if seam else 1.0
+        return (tone * 1.14) * sk, (tone * 0.80) * sk, (tone * 0.48) * sk, (0.30 if seam else 0.52 + 0.28 * grain)
 
     if kind == "castiron":
-        n1 = _hash2(px * 0.85, py * 0.85)
-        n2 = _hash2(int(u * 56), int(v * 56))
-        patina = max(0.0, _hash2(int(u * 16), int(v * 16)) - 0.78) * 0.30
-        val = 0.16 + 0.07 * n1 + 0.04 * n2
-        return val + patina * 0.40, val * 1.02 + patina * 0.14, val * 1.08, 0.45 + 0.36 * n1 + 0.14 * n2
+        n1 = _fbm_tile(u, v, 24, 24, octaves=3, seed=7.2)
+        n2 = _vnoise_tile(u, v, 72, 72, seed=11.4)
+        patina = max(0.0, _fbm_tile(u, v, 8, 8, octaves=2, seed=3.1) - 0.62) * 0.28
+        val = 0.15 + 0.08 * n1 + 0.04 * n2
+        return val + patina * 0.38, val * 1.02 + patina * 0.16, val * 1.07, 0.42 + 0.38 * n1 + 0.16 * n2
 
     if kind == "brass":
-        brush = 0.028 * math.sin(u * 140.0) + 0.025 * (_hash2(px * 0.35, py) - 0.5)
-        patina = max(0.0, _hash2(int(u * 14), int(v * 14)) - 0.70) * 0.12
+        brush = 0.022 * (_vnoise_tile(u, v, 6, 72, seed=5.5) - 0.5)
+        patina = max(0.0, _fbm_tile(u, v, 7, 7, octaves=2, seed=6.8) - 0.65) * 0.14
         r = 0.80 + brush - patina * 0.45
         g = 0.61 + brush * 0.7 - patina * 0.35
-        b = 0.22 + brush * 0.3 + patina * 0.12
-        return r, g, b, 0.55 + brush * 1.6
+        b = 0.23 + brush * 0.3 + patina * 0.10
+        return r, g, b, 0.54 + brush * 2.5
 
     if kind == "leather":
-        n1 = _hash2(int(u * 64), int(v * 64))
-        crease = 0.03 * math.sin(u * 38.0 + n1 * 1.8)
-        r = 0.34 + 0.08 * n1 + crease
-        g = 0.20 + 0.05 * n1 + crease * 0.6
-        b = 0.11 + 0.03 * n1 + crease * 0.4
-        return r, g, b, 0.50 + 0.32 * n1 + crease * 2.0
+        n1 = _fbm_tile(u, v, 20, 20, octaves=3, seed=12.1)
+        crease = (_vnoise_tile(u, v, 8, 32, seed=4.2) - 0.5) * 0.07
+        r = 0.32 + 0.10 * n1 + crease
+        g = 0.19 + 0.06 * n1 + crease * 0.6
+        b = 0.10 + 0.035 * n1 + crease * 0.4
+        return r, g, b, 0.46 + 0.36 * n1 + crease * 1.4
 
     if kind == "cotton_cloth":
-        warp = 0.5 + 0.5 * math.sin(u * 140.0)
-        weft = 0.5 + 0.5 * math.sin(v * 140.0)
-        weave = 0.52 * warp + 0.48 * weft
-        n = (_hash2(px * 0.6, py * 0.6) - 0.5) * 0.04
-        r = 0.84 + 0.09 * weave + n
-        g = 0.79 + 0.09 * weave + n
-        b = 0.67 + 0.08 * weave + n
-        return r, g, b, 0.35 + 0.55 * weave + n
+        # Fibra de cotó cardat orgànica i tova, zero quadrícula
+        wisp = _fbm_tile(u, v, 6, 36, octaves=3, seed=14.3)
+        fluff = _fbm_tile(u, v, 18, 18, octaves=2, seed=8.9)
+        tone = 0.55 * wisp + 0.45 * fluff
+        r = 0.86 + 0.09 * tone
+        g = 0.82 + 0.09 * tone
+        b = 0.72 + 0.08 * tone
+        return r, g, b, 0.40 + 0.44 * wisp + 0.16 * fluff
+
+    if kind == "woven_cloth":
+        # Teixit fi de cotó/lli per als telers sense quadres gegants
+        micro_u = math.sin(u * math.pi * 2.0 * 48.0)
+        micro_v = math.sin(v * math.pi * 2.0 * 48.0)
+        weave = 0.5 + 0.5 * (micro_u * micro_v)
+        slub = _fbm_tile(u, v, 10, 22, octaves=2, seed=15.7)
+        tone = 0.84 + 0.045 * slub + 0.025 * weave
+        return tone, tone * 0.955, tone * 0.845, 0.42 + 0.24 * weave + 0.22 * slub
+
+    if kind == "twisted_yarn":
+        # Ratlles helicoïdals suaus per visualitzar la torsió en girar sobre el seu eix
+        helix = 0.5 + 0.5 * math.sin((u * 3.0 + v * 6.0) * math.pi * 2.0)
+        fiber = _fbm_tile(u + v * 0.5, v, 12, 32, octaves=2, seed=21.2)
+        val = 0.76 + 0.16 * helix + 0.06 * fiber
+        return val, val * 0.91, val * 0.70, 0.35 + 0.50 * helix + 0.15 * fiber
+
+    if kind == "workshop_plaster":
+        mottle = _fbm_tile(u, v, 6, 6, octaves=3, seed=18.4)
+        grit = (_vnoise_tile(u, v, 40, 40, seed=2.9) - 0.5) * 0.03
+        r = 0.81 + 0.08 * mottle + grit
+        g = 0.76 + 0.075 * mottle + grit
+        b = 0.65 + 0.065 * mottle + grit
+        return r, g, b, 0.48 + 0.28 * mottle + grit * 2.0
 
     if kind == "brick":
         rows, cols = 8.0, 4.0
@@ -106,70 +171,83 @@ def _sample_height_and_color(kind, u, v, px, py):
         col = math.floor(u_off)
         fu = u_off - col
         fv = v * rows - row
-        mortar = min(fu, 1.0 - fu) < 0.045 or min(fv, 1.0 - fv) < 0.065
-        n1 = _hash2(int(u * 40), int(v * 40))
-        n2 = _hash2(px * 0.45, py * 0.45)
+        mortar = min(fu, 1.0 - fu) < 0.042 or min(fv, 1.0 - fv) < 0.062
+        n1 = _fbm_tile(u, v, 20, 20, octaves=2, seed=31.0)
         bvar = (_hash2(col + row * 11.0, row * 17.0) - 0.5) * 0.14
         if mortar:
-            val = 0.62 + (n1 - 0.5) * 0.08
-            return val, val * 0.96, val * 0.88, 0.28 + n2 * 0.12
-        r = 0.58 + bvar + (n1 - 0.5) * 0.08
+            val = 0.60 + (n1 - 0.5) * 0.08
+            return val, val * 0.96, val * 0.88, 0.26 + n1 * 0.12
+        r = 0.57 + bvar + (n1 - 0.5) * 0.08
         g = 0.25 + bvar * 0.5 + (n1 - 0.5) * 0.05
         b = 0.17 + bvar * 0.3 + (n1 - 0.5) * 0.04
-        return r, g, b, 0.68 + n2 * 0.22
+        return r, g, b, 0.64 + n1 * 0.24
 
     if kind == "copper":
-        brush = 0.032 * math.sin(u * 130.0) + 0.035 * (_hash2(px * 0.3, py) - 0.5)
-        hammer = 0.035 * math.sin(u * 28.0) * math.cos(v * 28.0)
-        patina = max(0.0, _hash2(int(u * 16), int(v * 16)) - 0.68) * 0.18
+        brush = 0.025 * (_vnoise_tile(u, v, 6, 64, seed=6.3) - 0.5)
+        hammer = 0.030 * _fbm_tile(u, v, 14, 14, octaves=2, seed=9.4)
+        patina = max(0.0, _fbm_tile(u, v, 8, 8, octaves=2, seed=13.2) - 0.66) * 0.18
         r = 0.76 + brush + hammer * 0.5 - patina * 0.65
         g = 0.41 + brush * 0.6 + hammer * 0.3 + patina * 0.22
         b = 0.22 + brush * 0.4 + patina * 0.30
-        return r, g, b, 0.55 + hammer * 2.2 + brush * 0.8
+        return r, g, b, 0.52 + hammer * 2.4 + brush
 
     if kind == "painted_iron":
-        n1 = _hash2(int(u * 42), int(v * 42))
-        n2 = _hash2(px * 0.4, py * 0.4)
-        wear = max(0.0, _hash2(int(u * 12), int(v * 12)) - 0.84) * 0.4
-        r = 0.16 + 0.04 * n1 + wear * 0.18
-        g = 0.26 + 0.05 * n1 + wear * 0.12
-        b = 0.28 + 0.05 * n1 + wear * 0.08
-        return r, g, b, 0.52 + 0.15 * n2
+        n1 = _fbm_tile(u, v, 18, 18, octaves=2, seed=10.5)
+        wear = max(0.0, _fbm_tile(u, v, 8, 8, octaves=2, seed=1.9) - 0.72) * 0.4
+        r = 0.16 + 0.05 * n1 + wear * 0.18
+        g = 0.26 + 0.06 * n1 + wear * 0.12
+        b = 0.28 + 0.06 * n1 + wear * 0.08
+        return r, g, b, 0.50 + 0.18 * n1
 
     if kind == "soil":
-        n1 = _hash2(int(u * 60), int(v * 60))
-        n2 = _hash2(px * 0.7, py * 0.7)
-        furrow = 0.5 + 0.5 * math.sin(v * 32.0)
-        r = 0.30 + 0.10 * furrow + (n1 - 0.5) * 0.07
-        g = 0.21 + 0.07 * furrow + (n1 - 0.5) * 0.05
-        b = 0.13 + 0.04 * furrow + (n1 - 0.5) * 0.04
-        return r, g, b, 0.30 + 0.48 * furrow + 0.20 * n2
+        n1 = _fbm_tile(u, v, 24, 24, octaves=3, seed=22.4)
+        furrow = 0.5 + 0.5 * math.sin(v * math.pi * 2.0 * 5.0)
+        r = 0.29 + 0.09 * furrow + (n1 - 0.5) * 0.08
+        g = 0.20 + 0.06 * furrow + (n1 - 0.5) * 0.06
+        b = 0.12 + 0.04 * furrow + (n1 - 0.5) * 0.04
+        return r, g, b, 0.28 + 0.46 * furrow + 0.24 * n1
 
     if kind == "slate":
-        n1 = _hash2(int(u * 48), int(v * 48))
-        seam = 1.0 if (v * 6.0) % 1.0 > 0.04 else 0.72
-        v0 = (0.28 + 0.07 * n1) * seam
-        return v0 * 0.94, v0 * 0.98, v0 * 1.08, (0.55 + 0.25 * n1) * seam
+        n1 = _fbm_tile(u, v, 18, 18, octaves=3, seed=25.1)
+        seam = 1.0 if (v * 5.0) % 1.0 > 0.032 else 0.74
+        v0 = (0.27 + 0.08 * n1) * seam
+        return v0 * 0.94, v0 * 0.98, v0 * 1.08, (0.54 + 0.26 * n1) * seam
 
-    # stone (sol i socol de taller)
-    rows, cols = 4.0, 3.0
+    if kind == "flagstone":
+        rows, cols = 3.0, 2.0
+        row = math.floor(v * rows)
+        u_off = (u * cols + (0.5 if int(row) % 2 else 0.0)) % cols
+        col = math.floor(u_off)
+        fu = u_off - col
+        fv = v * rows - row
+        is_seam = min(fu, 1.0 - fu) < 0.018 or min(fv, 1.0 - fv) < 0.024
+        n1 = _fbm_tile(u, v, 14, 14, octaves=3, seed=27.3)
+        block_var = (_hash2(col + row * 7.0, row * 13.0) - 0.5) * 0.07
+        val = (n1 - 0.5) * 0.10 + block_var
+        sk = 0.72 if is_seam else 1.0
+        ht = (0.24 if is_seam else 0.62) + n1 * 0.24
+        return (0.52 + val) * sk, (0.50 + val) * sk, (0.46 + val) * sk, ht
+
+    # stone (pedra natural treballada, juntes discretes)
+    rows, cols = 3.0, 3.0
     row = math.floor(v * rows)
     u_off = (u * cols + (0.5 if int(row) % 2 else 0.0)) % cols
     col = math.floor(u_off)
     fu = u_off - col
     fv = v * rows - row
-    is_seam = min(fu, 1.0 - fu) < 0.032 or min(fv, 1.0 - fv) < 0.042
-    n1 = _hash2(int(u * 48), int(v * 48))
-    n2 = _hash2(px * 0.5, py * 0.5)
-    block_var = (_hash2(col + row * 7.0, row * 13.0) - 0.5) * 0.08
-    val = (n1 * 0.55 + n2 * 0.45 - 0.5) * 0.09 + block_var
-    seam_k = 0.78 if is_seam else 1.0
-    ht = (0.28 if is_seam else 0.66) + (n1 * 0.20 + n2 * 0.12)
-    return (0.69 + val) * seam_k, (0.64 + val) * seam_k, (0.54 + val) * seam_k, ht
+    is_seam = min(fu, 1.0 - fu) < 0.020 or min(fv, 1.0 - fv) < 0.025
+    n1 = _fbm_tile(u, v, 16, 16, octaves=3, seed=19.8)
+    block_var = (_hash2(col + row * 7.0, row * 13.0) - 0.5) * 0.07
+    val = (n1 - 0.5) * 0.09 + block_var
+    seam_k = 0.80 if is_seam else 1.0
+    ht = (0.28 if is_seam else 0.64) + n1 * 0.22
+    return (0.66 + val) * seam_k, (0.61 + val) * seam_k, (0.52 + val) * seam_k, ht
 
 
-def build_pbr_pair(name, kind, width=256, height=256, bump_scale=2.4):
-    """Genera parella (albedo_sRGB, tangent_normal) empaquetada per a Cycles i glTF."""
+def build_pbr_pair(name, kind, width=512, height=512, bump_scale=2.4):
+    """Genera parella (albedo_sRGB, tangent_normal) empaquetada a >=512px per a Cycles i glTF."""
+    width = max(int(width), 512)
+    height = max(int(height), 512)
     alb = bpy.data.images.new(f"{name}_Alb", width=width, height=height, alpha=False)
     nrm = bpy.data.images.new(f"{name}_Nrm", width=width, height=height, alpha=False)
     nrm.colorspace_settings.name = "Non-Color"
@@ -177,33 +255,40 @@ def build_pbr_pair(name, kind, width=256, height=256, bump_scale=2.4):
     alb_buf = [0.0] * (width * height * 4)
     hts = [0.0] * (width * height)
 
+    inv_w = 1.0 / width
+    inv_h = 1.0 / height
+    sample_fn = _sample_height_and_color
     for py in range(height):
-        v = py / height
+        v = py * inv_h
+        row_off = py * width
         for px in range(width):
-            u = px / width
-            r, g, b, h = _sample_height_and_color(kind, u, v, px, py)
-            idx = (py * width + px) * 4
-            alb_buf[idx] = max(0.0, min(1.0, r))
-            alb_buf[idx + 1] = max(0.0, min(1.0, g))
-            alb_buf[idx + 2] = max(0.0, min(1.0, b))
+            u = px * inv_w
+            r, g, b, h = sample_fn(kind, u, v, px, py)
+            pidx = row_off + px
+            idx = pidx * 4
+            alb_buf[idx] = 0.0 if r < 0.0 else 1.0 if r > 1.0 else r
+            alb_buf[idx + 1] = 0.0 if g < 0.0 else 1.0 if g > 1.0 else g
+            alb_buf[idx + 2] = 0.0 if b < 0.0 else 1.0 if b > 1.0 else b
             alb_buf[idx + 3] = 1.0
-            hts[py * width + px] = h
+            hts[pidx] = h
 
     nrm_buf = [0.0] * (width * height * 4)
+    sqrt = math.sqrt
     for py in range(height):
-        py0 = (py - 1) % height
-        py1 = (py + 1) % height
+        row0 = ((py - 1) % height) * width
+        row_c = py * width
+        row1 = ((py + 1) % height) * width
         for px in range(width):
             px0 = (px - 1) % width
             px1 = (px + 1) % width
-            dx = (hts[py * width + px1] - hts[py * width + px0]) * bump_scale
-            dy = (hts[py1 * width + px] - hts[py0 * width + px]) * bump_scale
-            nx, ny, nz = -dx, -dy, 1.0
-            inv = 1.0 / math.sqrt(nx * nx + ny * ny + nz * nz)
-            idx = (py * width + px) * 4
+            dx = (hts[row_c + px1] - hts[row_c + px0]) * bump_scale
+            dy = (hts[row1 + px] - hts[row0 + px]) * bump_scale
+            nx, ny = -dx, -dy
+            inv = 1.0 / sqrt(nx * nx + ny * ny + 1.0)
+            idx = (row_c + px) * 4
             nrm_buf[idx] = 0.5 + 0.5 * (nx * inv)
             nrm_buf[idx + 1] = 0.5 + 0.5 * (ny * inv)
-            nrm_buf[idx + 2] = 0.5 + 0.5 * (nz * inv)
+            nrm_buf[idx + 2] = 0.5 + 0.5 * inv
             nrm_buf[idx + 3] = 1.0
 
     alb.pixels.foreach_set(alb_buf)
@@ -283,6 +368,12 @@ def set_smooth(obj):
             p.use_smooth = True
 
 
+def set_flat(obj):
+    if obj.type == "MESH" and obj.data:
+        for p in obj.data.polygons:
+            p.use_smooth = False
+
+
 def apply_box_uv(obj, uv_scale=0.65):
     mesh = obj.data
     if not mesh.uv_layers:
@@ -302,6 +393,27 @@ def apply_box_uv(obj, uv_scale=0.65):
             else:
                 u, vv = wx, wz
             uv_layer[li].uv = (u * uv_scale, vv * uv_scale)
+
+
+def apply_cyl_uv(obj, uv_scale=0.65, u_turns=1.0):
+    """UV cilíndric sense costures planes ni distorsions (u=angle, v=z)."""
+    mesh = obj.data
+    if not mesh.uv_layers:
+        mesh.uv_layers.new(name="UVMap")
+    uv_layer = mesh.uv_layers.active.data
+    sx, sy, sz = obj.scale
+    inv_tau = 1.0 / (2.0 * math.pi)
+    for poly in mesh.polygons:
+        n = poly.normal
+        is_cap = abs(n.z) > 0.85
+        for li in poly.loop_indices:
+            v = mesh.vertices[mesh.loops[li].vertex_index].co
+            wx, wy, wz = v.x * sx, v.y * sy, v.z * sz
+            if is_cap:
+                uv_layer[li].uv = (wx * uv_scale + 0.5, wy * uv_scale + 0.5)
+            else:
+                ang = math.atan2(wy, wx) * inv_tau + 0.5
+                uv_layer[li].uv = (ang * u_turns, (wz + 0.5) * uv_scale)
 
 
 def add_bevel(obj, width=0.008, segments=2):
@@ -329,7 +441,7 @@ def make_cyl(name, radius, depth, loc, mat, rot=(0, 0, 0), verts=28, parent=None
     bpy.ops.mesh.primitive_cylinder_add(vertices=verts, radius=radius, depth=depth, location=loc, rotation=rot)
     obj = bpy.context.active_object
     obj.name = name
-    apply_box_uv(obj, uv_scale=uv_scale)
+    apply_cyl_uv(obj, uv_scale=uv_scale)
     obj.data.materials.append(mat)
     set_smooth(obj)
     if bevel > 0:
@@ -345,7 +457,7 @@ def make_cone(name, radius1, radius2, depth, loc, mat, rot=(0, 0, 0), verts=24, 
     )
     obj = bpy.context.active_object
     obj.name = name
-    apply_box_uv(obj, uv_scale=0.65)
+    apply_cyl_uv(obj, uv_scale=0.85)
     obj.data.materials.append(mat)
     set_smooth(obj)
     if bevel > 0:
@@ -663,6 +775,510 @@ def make_torus(name, major_r, minor_r, loc, mat, rot=(0, 0, 0), major_segs=32, m
     return obj
 
 
+def make_coal_pile(name, center, rx, ry, height, mat, count=48, seed=7, parent=None):
+    """Munt de carbó mineral facetat i irregular en una sola malla (sense boles llises)."""
+    import random
+
+    rng = random.Random(seed)
+    bm = bmesh.new()
+    # Base en forma de muntanya baixa
+    rings, segs = 4, 14
+    cx, cy, cz = center
+    verts_ring = []
+    center_top = bm.verts.new((cx, cy, cz + height * 0.72))
+    for r_i in range(1, rings + 1):
+        frac = r_i / rings
+        ring_v = []
+        for s_i in range(segs):
+            a = 2.0 * math.pi * s_i / segs
+            jit = 0.86 + 0.24 * rng.random()
+            vx = cx + rx * frac * jit * math.cos(a)
+            vy = cy + ry * frac * jit * math.sin(a)
+            vz = cz + height * 0.68 * (1.0 - frac ** 1.35) * (0.85 + 0.30 * rng.random())
+            ring_v.append(bm.verts.new((vx, vy, vz)))
+        verts_ring.append(ring_v)
+    for s_i in range(segs):
+        bm.faces.new((center_top, verts_ring[0][s_i], verts_ring[0][(s_i + 1) % segs]))
+    for r_i in range(rings - 1):
+        for s_i in range(segs):
+            s_j = (s_i + 1) % segs
+            bm.faces.new((verts_ring[r_i][s_i], verts_ring[r_i + 1][s_i], verts_ring[r_i + 1][s_j], verts_ring[r_i][s_j]))
+
+    # Trossos angulars de carbó encavalcats
+    lump_r = max(0.022, min(rx, ry) * 0.19)
+    for idx in range(count):
+        rad_f = (rng.random() ** 0.65) * 0.88
+        ang = rng.uniform(0.0, 2.0 * math.pi)
+        lx = cx + rx * rad_f * math.cos(ang)
+        ly = cy + ry * rad_f * math.sin(ang)
+        lz = cz + height * 0.66 * (1.0 - rad_f ** 1.3) + lump_r * 0.25
+        sc = (rng.uniform(0.65, 1.35), rng.uniform(0.60, 1.28), rng.uniform(0.45, 0.95))
+        ret = bmesh.ops.create_icosphere(bm, subdivisions=1, radius=lump_r)
+        verts_l = ret["verts"]
+        rot_m = Euler((rng.uniform(0, 3.14), rng.uniform(0, 3.14), rng.uniform(0, 3.14))).to_matrix().to_4x4()
+        for v in verts_l:
+            v.co.x *= sc[0] * rng.uniform(0.82, 1.18)
+            v.co.y *= sc[1] * rng.uniform(0.82, 1.18)
+            v.co.z *= sc[2] * rng.uniform(0.82, 1.18)
+            v.co = rot_m @ v.co
+            v.co += Vector((lx, ly, lz))
+
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=1.2)
+    set_flat(obj)
+    return obj
+
+
+def make_grain_pile(name, center, rx, ry, height, mat, count=110, seed=13, parent=None):
+    """Munt de gra de blat o ordi amb llavors el·lipsoïdals visibles damunt d'un llit ondulat."""
+    import random
+
+    rng = random.Random(seed)
+    bm = bmesh.new()
+    cx, cy, cz = center
+    segs = 18
+    top_v = bm.verts.new((cx, cy, cz + height))
+    mid_ring = []
+    bot_ring = []
+    for i in range(segs):
+        a = 2.0 * math.pi * i / segs
+        w = 0.94 + 0.10 * math.sin(3 * a)
+        mid_ring.append(bm.verts.new((cx + rx * 0.56 * w * math.cos(a), cy + ry * 0.56 * w * math.sin(a), cz + height * 0.62)))
+        bot_ring.append(bm.verts.new((cx + rx * 0.98 * w * math.cos(a), cy + ry * 0.98 * w * math.sin(a), cz)))
+    for i in range(segs):
+        j = (i + 1) % segs
+        bm.faces.new((top_v, mid_ring[i], mid_ring[j]))
+        bm.faces.new((mid_ring[i], bot_ring[i], bot_ring[j], mid_ring[j]))
+
+    grain_r = max(0.008, min(rx, ry) * 0.045)
+    for _ in range(count):
+        rf = (rng.random() ** 0.55) * 0.92
+        a = rng.uniform(0.0, 2.0 * math.pi)
+        gx = cx + rx * rf * math.cos(a)
+        gy = cy + ry * rf * math.sin(a)
+        gz = cz + height * max(0.04, 1.0 - rf * 0.95)
+        ret = bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=5, radius=grain_r)
+        rot_m = Euler((rng.uniform(-0.4, 0.4), rng.uniform(-0.4, 0.4), rng.uniform(0, 3.14))).to_matrix().to_4x4()
+        for v in ret["verts"]:
+            v.co.x *= 1.85
+            v.co.y *= 0.72
+            v.co.z *= 0.62
+            v.co = (rot_m @ v.co) + Vector((gx, gy, gz))
+
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=2.2)
+    set_smooth(obj)
+    return obj
+
+
+def make_smoke_plume(name, base_loc, height, drift_x, drift_y, r_base, mat, wisps=16, seed=19, parent=None, flare=0.0):
+    """Plomall orgànic de fum o flama turbulent (flocs allargats en espiral, mai boles gegants)."""
+    import random
+
+    rng = random.Random(seed)
+    bm = bmesh.new()
+    bx, by, bz = base_loc
+    for i in range(wisps):
+        t = i / max(1, wisps - 1)
+        curve_t = t ** 1.15
+        wx = bx + drift_x * curve_t + math.sin(t * 7.2 + seed) * r_base * (0.28 + 0.55 * t)
+        wy = by + drift_y * curve_t + math.cos(t * 6.4 + seed) * r_base * (0.22 + 0.45 * t)
+        wz = bz + height * t
+        if flare > 0.0:
+            rad = r_base * (1.0 - 0.55 * t) * rng.uniform(0.75, 1.25)
+        else:
+            rad = r_base * (0.58 + 1.15 * (t ** 0.75)) * rng.uniform(0.72, 1.18)
+        ret = bmesh.ops.create_icosphere(bm, subdivisions=2, radius=rad)
+        rot_m = Euler((rng.uniform(0, 3.14), rng.uniform(0, 3.14), rng.uniform(0, 3.14))).to_matrix().to_4x4()
+        sx, sy, sz = rng.uniform(0.68, 1.35), rng.uniform(0.65, 1.25), rng.uniform(0.85, 1.65)
+        for v in ret["verts"]:
+            n = 1.0 + 0.22 * math.sin(v.co.x * 9.0 + i) * math.cos(v.co.y * 9.0 - i)
+            v.co.x *= sx * n
+            v.co.y *= sy * n
+            v.co.z *= sz * n
+            v.co = (rot_m @ v.co) + Vector((wx, wy, wz))
+
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=0.6)
+    set_smooth(obj)
+    return obj
+
+
+def make_rivet_ring(name, center, radius, count, rivet_r=0.008, axis="Z", mat=None, parent=None):
+    """Anell o filera de reblons en una sola malla lleugera per a calderes i convertidors."""
+    bm = bmesh.new()
+    cx, cy, cz = center
+    for i in range(count):
+        a = 2.0 * math.pi * i / count
+        ca, sa = math.cos(a), math.sin(a)
+        if axis == "Z":
+            pos = Vector((cx + radius * ca, cy + radius * sa, cz))
+            norm = Vector((ca, sa, 0.0))
+        elif axis == "X":
+            pos = Vector((cx, cy + radius * ca, cz + radius * sa))
+            norm = Vector((0.0, ca, sa))
+        else:
+            pos = Vector((cx + radius * ca, cy, cz + radius * sa))
+            norm = Vector((ca, 0.0, sa))
+        ret = bmesh.ops.create_icosphere(bm, subdivisions=1, radius=rivet_r)
+        rot_m = norm.to_track_quat("Z", "X").to_matrix().to_4x4()
+        for v in ret["verts"]:
+            v.co.z *= 0.62
+            v.co = (rot_m @ v.co) + pos
+
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    if mat:
+        obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    set_smooth(obj)
+    return obj
+
+
+def make_helical_blade(
+    name,
+    r_hub,
+    r_tip,
+    pitch_in_deg,
+    pitch_out_deg,
+    arc_deg,
+    thickness,
+    mat,
+    segs_r=8,
+    segs_u=10,
+    loc=(0, 0, 0),
+    rot=(0, 0, 0),
+    parent=None,
+):
+    """Pala d'hèlix marina helicoïdal real amb torsió radial variable i perfil hidrodinàmic."""
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.location = loc
+    obj.rotation_euler = rot
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+
+    bm = bmesh.new()
+    top_grid, bot_grid = [], []
+    arc_rad = math.radians(arc_deg)
+    for ir in range(segs_r + 1):
+        fr = ir / segs_r
+        r = r_hub + (r_tip - r_hub) * fr
+        pitch = math.radians(pitch_in_deg + (pitch_out_deg - pitch_in_deg) * fr)
+        chord_ang = arc_rad * (0.48 + 0.52 * math.sin(math.pi * (0.18 + 0.72 * fr)))
+        half_t = thickness * (1.0 - 0.58 * fr)
+        row_t, row_b = [], []
+        for iu in range(segs_u + 1):
+            fu = (iu / segs_u) - 0.5
+            theta = fu * chord_ang
+            profile = math.cos(fu * math.pi * 0.92)
+            ax = r * math.tan(theta) * math.cos(pitch)
+            x_loc = ax * 0.35
+            y_loc = r * math.sin(theta)
+            z_loc = r * math.cos(theta)
+            # Desplaçament helicoïdal al llarg de l'eix X (eix del vaixell)
+            helix_x = r * theta * math.sin(pitch)
+            x_center = helix_x
+            dt = half_t * max(0.18, profile)
+            row_t.append(bm.verts.new((x_center + dt, y_loc, z_loc)))
+            row_b.append(bm.verts.new((x_center - dt, y_loc, z_loc)))
+        top_grid.append(row_t)
+        bot_grid.append(row_b)
+
+    for ir in range(segs_r):
+        for iu in range(segs_u):
+            bm.faces.new((top_grid[ir][iu], top_grid[ir + 1][iu], top_grid[ir + 1][iu + 1], top_grid[ir][iu + 1]))
+            bm.faces.new((bot_grid[ir][iu], bot_grid[ir][iu + 1], bot_grid[ir + 1][iu + 1], bot_grid[ir + 1][iu]))
+    for ir in range(segs_r):
+        bm.faces.new((top_grid[ir][0], bot_grid[ir][0], bot_grid[ir + 1][0], top_grid[ir + 1][0]))
+        bm.faces.new((top_grid[ir][-1], top_grid[ir + 1][-1], bot_grid[ir + 1][-1], bot_grid[ir][-1]))
+    for iu in range(segs_u):
+        bm.faces.new((top_grid[-1][iu], bot_grid[-1][iu], bot_grid[-1][iu + 1], top_grid[-1][iu + 1]))
+        bm.faces.new((top_grid[0][iu], top_grid[0][iu + 1], bot_grid[0][iu + 1], bot_grid[0][iu]))
+
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=1.2)
+    set_smooth(obj)
+    return obj
+
+
+def make_furrow_bed(
+    name,
+    center,
+    size_x,
+    size_y,
+    base_z,
+    mat_soil,
+    furrows=6,
+    amp=0.048,
+    unploughed_x=None,
+    nx=56,
+    ny=42,
+    seed=23,
+    parent=None,
+):
+    """Llit de terra llaurada en relleu real amb solcs ondulats i gleves irregulars."""
+    cx, cy = center
+    bm = bmesh.new()
+    grid = []
+    bot_grid = []
+    for ix in range(nx + 1):
+        fx = ix / nx
+        x = cx + (fx - 0.5) * size_x
+        row_t, row_b = [], []
+        for iy in range(ny + 1):
+            fy = iy / ny
+            y = cy + (fy - 0.5) * size_y
+            ridge = abs(math.sin(fy * furrows * math.pi)) ** 1.35 * amp
+            ripple = 0.010 * math.sin(x * 11.0 + y * 5.0 + seed) * math.cos(x * 6.5 - y * 8.0)
+            if unploughed_x is not None and x > unploughed_x:
+                blend = max(0.0, min(1.0, (x - unploughed_x) / 0.14))
+                ridge *= 1.0 - blend * 0.78
+                ripple *= 0.45
+            z = base_z + ridge + ripple
+            row_t.append(bm.verts.new((x, y, z)))
+            row_b.append(bm.verts.new((x, y, base_z - 0.06)))
+        grid.append(row_t)
+        bot_grid.append(row_b)
+
+    for ix in range(nx):
+        for iy in range(ny):
+            bm.faces.new((grid[ix][iy], grid[ix + 1][iy], grid[ix + 1][iy + 1], grid[ix][iy + 1]))
+            bm.faces.new((bot_grid[ix][iy], bot_grid[ix][iy + 1], bot_grid[ix + 1][iy + 1], bot_grid[ix + 1][iy]))
+    for ix in range(nx):
+        bm.faces.new((grid[ix][0], bot_grid[ix][0], bot_grid[ix + 1][0], grid[ix + 1][0]))
+        bm.faces.new((grid[ix][-1], grid[ix + 1][-1], bot_grid[ix + 1][-1], bot_grid[ix][-1]))
+    for iy in range(ny):
+        bm.faces.new((grid[0][iy], grid[0][iy + 1], bot_grid[0][iy + 1], bot_grid[0][iy]))
+        bm.faces.new((grid[-1][iy], bot_grid[-1][iy], bot_grid[-1][iy + 1], grid[-1][iy + 1]))
+
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.data.materials.append(mat_soil)
+    if parent:
+        obj.parent = parent
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=0.55)
+    set_smooth(obj)
+    return obj
+
+
+def make_twisted_strand(name, mat, radius=0.0035, verts=10, parent=None):
+    """Bri articulat orientable + giratori (per mostrar estirament, aprimament i torsió real)."""
+    aim_emp = add_empty(name, (0.0, 0.0, 0.0), parent=parent)
+    aim_emp.rotation_mode = "QUATERNION"
+    spin_emp = add_empty(f"{name}_Spin", (0.0, 0.0, 0.0), parent=aim_emp)
+    mesh_obj = make_cyl(
+        f"{name}_Mesh",
+        radius,
+        1.0,
+        (0.0, 0.0, 0.5),
+        mat,
+        verts=verts,
+        parent=spin_emp,
+        bevel=0.0,
+        uv_scale=1.8,
+    )
+    _ = mesh_obj
+    return (aim_emp, spin_emp)
+
+
+def aim_and_twist_strand(strand_pair, p0, p1, radius_scale=1.0, twist_angle=0.0):
+    """Orienta el fil entre p0 i p1, n'ajusta el gruix (radius_scale) i el fa girar per mostrar torsió."""
+    aim_emp, spin_emp = strand_pair
+    va, vb = Vector(p0), Vector(p1)
+    d = vb - va
+    dist = max(1e-4, d.length)
+    aim_emp.location = p0
+    aim_emp.rotation_mode = "QUATERNION"
+    aim_emp.rotation_quaternion = d.to_track_quat("Z", "Y")
+    spin_emp.rotation_euler = (0.0, 0.0, twist_angle)
+    spin_emp.scale = (radius_scale, radius_scale, dist)
+
+
+def make_worker(name, loc, facing_yaw=0.0, scale=1.0, role="spinner", parent=None):
+    """Figura humana històrica proporcionada (s. XVIII–XIX) amb articulacions animables per glTF/Cycles."""
+    root = add_empty(name, loc, parent=parent)
+    root.rotation_euler = (0.0, 0.0, facing_yaw)
+    root.scale = (scale, scale, scale)
+
+    m_skin = make_mat(f"{name}_Pell", "#dfb692", roughness=0.76)
+    m_shirt = make_mat(f"{name}_Camisa", "#ebe3cf", roughness=0.86)
+    m_vest = make_mat(f"{name}_Armilla", "#6e422b" if role != "weaver" else "#3e5245", roughness=0.82)
+    m_pants = make_mat(f"{name}_Calces", "#3a434e" if role != "piecer" else "#4b3e33", roughness=0.84)
+    m_apron = make_mat(f"{name}_Davantal", "#cbb998", roughness=0.88)
+    m_shoe = make_mat(f"{name}_Sabata", "#2b1d14", roughness=0.68)
+    m_hair = make_mat(f"{name}_Cabell", "#4b3423", roughness=0.82)
+    m_cap = make_mat(f"{name}_Gorra", "#2f2925" if role != "piecer" else "#ede4d0", roughness=0.84)
+
+    # Cames separades lleugerament per estabilitat realista (peus a Z = 0)
+    pelvis = add_empty(f"{name}_Pelvis", (0.0, 0.0, 0.88), parent=root)
+    make_box(f"{name}_Malucs", (0.29, 0.17, 0.14), (0.0, 0.0, 0.02), m_pants, parent=pelvis, bevel=0.03)
+    make_box(f"{name}_DavantalInf", (0.26, 0.04, 0.34), (0.0, 0.095, -0.11), m_apron, parent=pelvis, bevel=0.012)
+
+    legs = {}
+    for side, sx in (("l", -0.095), ("r", 0.095)):
+        hip = add_empty(f"{name}_Hip_{side}", (sx, 0.0, -0.03), parent=pelvis)
+        make_cyl(f"{name}_Cuixa_{side}", 0.068, 0.41, (0.0, 0.0, -0.205), m_pants, verts=14, parent=hip, bevel=0.008)
+        knee = add_empty(f"{name}_Knee_{side}", (0.0, 0.0, -0.41), parent=hip)
+        make_cyl(f"{name}_Cama_{side}", 0.052, 0.38, (0.0, 0.0, -0.19), m_pants, verts=14, parent=knee, bevel=0.006)
+        make_box(f"{name}_Sabata_{side}", (0.095, 0.21, 0.068), (0.0, 0.045, -0.405), m_shoe, parent=knee, bevel=0.018)
+        legs[side] = (hip, knee)
+
+    torso = add_empty(f"{name}_Torso", (0.0, 0.0, 0.08), parent=pelvis)
+    make_cyl(f"{name}_Pitrera", 0.145, 0.44, (0.0, 0.0, 0.22), m_vest, verts=16, parent=torso, bevel=0.015)
+    make_box(f"{name}_PitreraPla", (0.29, 0.17, 0.42), (0.0, 0.0, 0.22), m_vest, parent=torso, bevel=0.035)
+    make_box(f"{name}_DavantalSup", (0.22, 0.035, 0.30), (0.0, 0.088, 0.16), m_apron, parent=torso, bevel=0.010)
+
+    neck = add_empty(f"{name}_Neck", (0.0, 0.0, 0.43), parent=torso)
+    make_cyl(f"{name}_Coll", 0.048, 0.085, (0.0, 0.0, 0.04), m_skin, verts=12, parent=neck, bevel=0.005)
+    head = add_empty(f"{name}_Head", (0.0, 0.0, 0.078), parent=neck)
+    make_sphere(f"{name}_Cap", 0.098, (0.0, 0.0, 0.045), m_skin, segs=18, rings=12, parent=head)
+    make_sphere(f"{name}_Nas", 0.018, (0.0, 0.096, 0.035), m_skin, segs=10, rings=8, parent=head)
+    make_sphere(f"{name}_CabellPost", 0.095, (0.0, -0.022, 0.056), m_hair, segs=14, rings=10, parent=head)
+    make_cyl(f"{name}_GorraCopa", 0.104, 0.065, (0.0, -0.005, 0.108), m_cap, verts=16, parent=head, bevel=0.012)
+    make_box(f"{name}_Visera", (0.14, 0.08, 0.016), (0.0, 0.075, 0.086), m_cap, rot=(0.22, 0.0, 0.0), parent=head, bevel=0.005)
+
+    arms = {}
+    for side, sx in (("l", -0.165), ("r", 0.165)):
+        sh = add_empty(f"{name}_Sh_{side}", (sx, 0.0, 0.39), parent=torso)
+        make_sphere(f"{name}_Espatlla_{side}", 0.056, (0.0, 0.0, 0.0), m_shirt, segs=12, rings=8, parent=sh)
+        make_cyl(f"{name}_Brac_{side}", 0.048, 0.27, (0.0, 0.0, -0.135), m_shirt, verts=12, parent=sh, bevel=0.006)
+        elb = add_empty(f"{name}_Elb_{side}", (0.0, 0.0, -0.27), parent=sh)
+        make_cyl(f"{name}_AvBrac_{side}", 0.039, 0.24, (0.0, 0.0, -0.12), m_shirt, verts=12, parent=elb, bevel=0.005)
+        make_sphere(f"{name}_Ma_{side}", 0.036, (0.0, 0.0, -0.255), m_skin, segs=12, rings=8, parent=elb)
+        arms[side] = (sh, elb)
+
+    return {
+        "root": root,
+        "pelvis": pelvis,
+        "torso": torso,
+        "head": head,
+        "l_sh": arms["l"][0],
+        "l_elb": arms["l"][1],
+        "r_sh": arms["r"][0],
+        "r_elb": arms["r"][1],
+        "l_hip": legs["l"][0],
+        "l_knee": legs["l"][1],
+        "r_hip": legs["r"][0],
+        "r_knee": legs["r"][1],
+    }
+
+
+def set_worker_pose(
+    rig,
+    torso_rot=(0.0, 0.0, 0.0),
+    head_rot=(0.0, 0.0, 0.0),
+    l_sh=(0.0, 0.0, 0.0),
+    l_elb=(0.0, 0.0, 0.0),
+    r_sh=(0.0, 0.0, 0.0),
+    r_elb=(0.0, 0.0, 0.0),
+    l_hip=(0.0, 0.0, 0.0),
+    l_knee=(0.0, 0.0, 0.0),
+    r_hip=(0.0, 0.0, 0.0),
+    r_knee=(0.0, 0.0, 0.0),
+):
+    rig["torso"].rotation_euler = torso_rot
+    rig["head"].rotation_euler = head_rot
+    rig["l_sh"].rotation_euler = l_sh
+    rig["l_elb"].rotation_euler = l_elb
+    rig["r_sh"].rotation_euler = r_sh
+    rig["r_elb"].rotation_euler = r_elb
+    rig["l_hip"].rotation_euler = l_hip
+    rig["l_knee"].rotation_euler = l_knee
+    rig["r_hip"].rotation_euler = r_hip
+    rig["r_knee"].rotation_euler = r_knee
+
+
+def make_workshop_floor(kind="cottage_wood", size=(3.4, 2.6, 0.12), center=(0.0, 0.0), with_room_backdrop=False):
+    """Sol propi de cada màquina (postes de roure o lloses de fàbrica) + fons de taller per a Cycles."""
+    sx, sy, sz = size
+    cx, cy = center
+    grp = add_empty("EntornTaller")
+
+    if kind == "cottage_wood":
+        p_fl = build_pbr_pair("FlPostes", "wood_floor", 512, 512, bump_scale=2.2)
+        p_tr = build_pbr_pair("FlVora", "wood_dark", 512, 512, bump_scale=2.0)
+        m_fl = make_mat("TerraPostes", "#8f6239", roughness=0.72, pbr_pair=p_fl, tex_scale=(1.4, 1.4), normal_strength=0.75)
+        m_tr = make_mat("VoraFusta", "#4f3018", roughness=0.78, pbr_pair=p_tr, normal_strength=0.75)
+        make_box("SocolTaller", (sx, sy, sz), (cx, cy, sz * 0.5), m_fl, parent=grp, bevel=0.012, uv_scale=0.55)
+        # Vores de roure perimetrals rebaixades per rematar el taulat
+        make_box("VoraNord", (sx + 0.06, 0.06, sz * 0.92), (cx, cy + sy * 0.5 + 0.015, sz * 0.46), m_tr, parent=grp, bevel=0.008)
+        make_box("VoraSud", (sx + 0.06, 0.06, sz * 0.92), (cx, cy - sy * 0.5 - 0.015, sz * 0.46), m_tr, parent=grp, bevel=0.008)
+    else:
+        p_fg = build_pbr_pair("FlLloses", "flagstone", 512, 512, bump_scale=2.4)
+        p_ir = build_pbr_pair("FlFerro", "castiron", 512, 512, bump_scale=1.8)
+        m_fg = make_mat("TerraLloses", "#8c867a", roughness=0.88, pbr_pair=p_fg, tex_scale=(1.2, 1.2), normal_strength=0.85)
+        m_ir = make_mat("VoraFerro", "#2c3137", metallic=0.82, roughness=0.48, pbr_pair=p_ir, normal_strength=0.60)
+        make_box("SocolTaller", (sx, sy, sz), (cx, cy, sz * 0.5), m_fg, parent=grp, bevel=0.014, uv_scale=0.55)
+        make_box("CanalVora", (sx + 0.04, 0.05, sz * 0.85), (cx, cy - sy * 0.5 - 0.01, sz * 0.425), m_ir, parent=grp, bevel=0.006)
+
+    if with_room_backdrop:
+        # Escenografia de taller NOMÉS per a renders Cycles (esborrada abans d'exportar el .glb)
+        p_pl = build_pbr_pair("BgCal", "workshop_plaster", 512, 512, bump_scale=1.6)
+        p_wd = build_pbr_pair("BgFusta", "wood_dark", 512, 512, bump_scale=1.8)
+        m_pl = make_mat("ParetTaller", "#d9cdb6", roughness=0.92, pbr_pair=p_pl, tex_scale=(1.6, 1.6), normal_strength=0.55)
+        m_wd = make_mat("SocolParet", "#4c2f1a", roughness=0.72, pbr_pair=p_wd, normal_strength=0.70)
+        m_win = make_mat("FinestraDia", "#fff5de", roughness=0.25, emission_hex="#fff5dc", emission_strength=2.6)
+
+        back_y = cy + sy * 0.5 + 1.05
+        ro_objs = []
+        ro_objs.append(make_box("BgTerraExtes", (12.0, 9.0, 0.04), (cx, cy + 0.8, 0.02), m_wd if kind == "cottage_wood" else m_pl, bevel=0.0, uv_scale=0.35))
+        ro_objs.append(make_box("BgParetPost", (11.0, 0.14, 5.0), (cx, back_y, 2.4), m_pl, bevel=0.0, uv_scale=0.35))
+        ro_objs.append(make_box("BgSocolFusta", (11.0, 0.18, 0.88), (cx, back_y - 0.02, 0.44), m_wd, bevel=0.0, uv_scale=0.45))
+        ro_objs.append(make_box("BgCornisa", (11.0, 0.22, 0.06), (cx, back_y - 0.04, 0.90), m_wd, bevel=0.004))
+        # Finestral de taller amb llum natural i muntants a l'esquerra
+        wx, wy, wz = cx - 1.55, back_y - 0.07, 1.85
+        ro_objs.append(make_box("BgFinestraVidre", (1.06, 0.03, 1.36), (wx, wy, wz), m_win, bevel=0.0))
+        ro_objs.append(make_box("BgFinestraMarcL", (0.09, 0.07, 1.50), (wx - 0.57, wy - 0.01, wz), m_wd, bevel=0.004))
+        ro_objs.append(make_box("BgFinestraMarcR", (0.09, 0.07, 1.50), (wx + 0.57, wy - 0.01, wz), m_wd, bevel=0.004))
+        ro_objs.append(make_box("BgFinestraMarcT", (1.24, 0.07, 0.09), (wx, wy - 0.01, wz + 0.71), m_wd, bevel=0.004))
+        ro_objs.append(make_box("BgFinestraMarcB", (1.26, 0.10, 0.09), (wx, wy - 0.02, wz - 0.71), m_wd, bevel=0.004))
+        ro_objs.append(make_box("BgFinestraMuntV", (0.035, 0.05, 1.36), (wx, wy - 0.01, wz), m_wd, bevel=0.002))
+        ro_objs.append(make_box("BgFinestraMuntH", (1.06, 0.05, 0.035), (wx, wy - 0.01, wz + 0.06), m_wd, bevel=0.002))
+        for ro in ro_objs:
+            ro["render_only"] = True
+        bpy.context.scene["render_room"] = 1
+
+    return grp
+
+
 def add_shadow_floor(z=0.0, size=14.0):
     bpy.ops.mesh.primitive_plane_add(size=size, location=(0.0, 0.0, z))
     pl = bpy.context.active_object
@@ -671,13 +1287,17 @@ def add_shadow_floor(z=0.0, size=14.0):
     return pl
 
 
-def setup_lighting(cam_loc, target, lens=44.0):
+def setup_lighting(cam_loc, target, lens=44.0, mood="workshop"):
     world = bpy.data.worlds.new("TallerFons")
     bpy.context.scene.world = world
     world.use_nodes = True
     bg = world.node_tree.nodes.get("Background")
-    bg.inputs["Color"].default_value = hex_rgba("#f7f1e1", 1.0)
-    bg.inputs["Strength"].default_value = 0.85
+    if mood == "forge":
+        bg.inputs["Color"].default_value = hex_rgba("#efe4d1", 1.0)
+        bg.inputs["Strength"].default_value = 0.72
+    else:
+        bg.inputs["Color"].default_value = hex_rgba("#f4ecda", 1.0)
+        bg.inputs["Strength"].default_value = 0.78
 
     def add_light(name, ltype, loc, rot, energy, size=6.0, color="#fffaf0"):
         ld = bpy.data.lights.new(name=name, type=ltype)
@@ -691,9 +1311,10 @@ def setup_lighting(cam_loc, target, lens=44.0):
         link_obj(lo)
         return lo
 
-    add_light("SolPrincipal", "SUN", (4.5, -5.0, 7.0), (0.78, 0.28, -0.58), 2.75, color="#fff5e0")
-    add_light("OmplertDavant", "AREA", (-2.6, -6.5, 3.2), (1.25, 0.0, -0.38), 160.0, size=5.5, color="#eef4ff")
-    add_light("ContraContorn", "AREA", (2.0, 5.2, 4.8), (-1.05, 0.0, 2.80), 130.0, size=4.8, color="#ffefd1")
+    # Llum de taller: finestra càlida lateral + llum difusa de nord + rebot càlid del sòl
+    add_light("FinestraPrincipal", "AREA", (3.6, -3.4, 4.1), (0.94, 0.20, 0.68), 320.0, size=3.4, color="#fff2d8")
+    add_light("ClaraboyaOmplert", "AREA", (-3.0, -4.6, 3.8), (1.06, -0.15, -0.52), 185.0, size=5.2, color="#e3edfa")
+    add_light("ContraTaller", "AREA", (-1.8, 3.8, 3.2), (-1.12, 0.0, 2.65), 115.0, size=4.0, color="#ffe8c4")
 
     cam_data = bpy.data.cameras.new("Camara34")
     cam_data.lens = lens
@@ -731,7 +1352,7 @@ def render_image(out_path, res_x=1200, res_y=760, samples=32, file_format="PNG")
     scene.cycles.samples = samples
     scene.cycles.use_denoising = True
     scene.cycles.max_bounces = 6
-    scene.render.film_transparent = True
+    scene.render.film_transparent = not bool(scene.get("render_room"))
     scene.render.resolution_x = res_x
     scene.render.resolution_y = res_y
     scene.render.resolution_percentage = 100
@@ -769,7 +1390,7 @@ def anchors_to_gltf_3d(anchors):
 
 def export_glb_and_meta(prefix, glb_name, anchors, extra_meta=None):
     for obj in list(bpy.data.objects):
-        if obj.name == "SombraTerra" or getattr(obj, "is_shadow_catcher", False):
+        if obj.name == "SombraTerra" or getattr(obj, "is_shadow_catcher", False) or obj.get("render_only"):
             bpy.data.objects.remove(obj, do_unlink=True)
     glb_path = os.path.join(MODELS_DIR, glb_name)
     bpy.ops.export_scene.gltf(

@@ -254,3 +254,11 @@ Després d'una anàlisi de les animacions i dels models 3D, Felip tria aplicar l
 - **Pes:** els set models passen d'1,7–2,4 MB a 0,17–0,25 MB cadascun (Draco + WebP) amb `python assets/optimitza_models.py`, sense diferències visibles ni a l'animació. Cal tornar-lo a executar després de cada exportació nova des de Blender; els fitxers ja comprimits se salten.
 
 Verificat a 1366 × 768, 1920 × 1080, 125 % i mòbil, i amb `verifica_visual.py` (140 combinacions, sense errors) i `verifica-cinematica.cjs`.
+
+## 21. Millores dels models 3D, navegació interior i moviment tèxtil (14-11-2026)
+
+- **Visor 3D i navegació interior (`visor-3d.html`, `js/visor3d-dades.js`):** s'afegeix una barra de progrés interactiva de l'animació (`#mv-seek`), velocitat inicial alentida (`0,16×`), recorregut guiat pas a pas per l'interior (`Recorregut interior`), botó `Acosta-t'hi` amb navegació anterior/següent/restaura en cada punt d'interès i ancoratge del quadre descriptiu per no tapar el detall enfocat (inclòs el mòbil).
+- **Realisme i seccions interiors de tots 18 models Blender (`assets/blender/*.py`):** regenerats amb taller i il·luminació pròpia, persona a escala on escau i seccions interiors obertes; destaquen el refinament del tren *Rocket* (`rocket_3d.py`) i del vapor *SS Great Western* (`western_3d.py`, eliminant la roda lateral propera que tapava el tall interior per mostrar cabines, carbonera amb fogoner, caldera de doble retorn amb manòmetres, màquina side-lever amb vàlvula corredora animada i bodega, tot conservant la roda de pales completa al costat oposat).
+- **Optimització GLB:** tots els 18 models GLB queden comprimits (99–258 KB cadascun) amb `python assets/optimitza_models.py`.
+- **Moviment del cotó amb seqüències 3D reals i lupa macro (`js/textil-dibuix.js`, `img/moviment/*.webp`):** les cinc màquines mecanitzades (`llancadora`, `jenny`, `water`, `mula`, `cartwright`) mostren seqüències de 28 fotogrames WebP renderitzades amb Cycles + halos interactius sobre cada peça (classe `.tx3`) i una lupa macro sincronitzada; es conserva l'esquema previ a `versions/2026-11-14-textil-2d`.
+- **Verificació:** `python assets/verifica_visual.py` passa amb sortida neta (`scene_viewports: 140`, `visor3d_checks: 15`, `errors: []`).

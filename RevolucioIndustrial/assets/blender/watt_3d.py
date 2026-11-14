@@ -58,122 +58,10 @@ def clear_scene():
     bpy.ops.wm.read_factory_settings(use_empty=True)
 
 
-def _hash2(x, y):
-    n = math.sin(x * 127.1 + y * 311.7) * 43758.5453123
-    return n - math.floor(n)
-
-
-def _sample_height_and_color(kind, u, v, px, py):
-    """Retorna (r, g, b, height) per generar albedo sRGB i mapa normal coherent."""
-    if kind == "brick":
-        rows, cols = 10.0, 5.0
-        row = math.floor(v * rows)
-        u_off = (u * cols + (0.5 if int(row) % 2 else 0.0)) % cols
-        col = math.floor(u_off)
-        fu = u_off - col
-        fv = v * rows - row
-        du = min(fu, 1.0 - fu)
-        dv = min(fv, 1.0 - fv)
-        is_mortar = du < 0.055 or dv < 0.085
-        soot = (_hash2(math.floor(u * 8.0), math.floor(v * 8.0)) - 0.5) * 0.06
-        if is_mortar:
-            n = (_hash2(px * 0.45, py * 0.45) - 0.5) * 0.06
-            return 0.61 + n + soot, 0.56 + n + soot, 0.47 + n + soot, 0.18 + n
-        h = _hash2(col + row * 17.0, row * 31.0)
-        grain = (_hash2(px * 0.65, py * 0.65) - 0.5) * 0.07
-        bevel = min(1.0, (du - 0.055) * 14.0) * min(1.0, (dv - 0.085) * 12.0)
-        r = 0.48 + 0.16 * h + grain + soot
-        g = 0.20 + 0.08 * h + grain * 0.6 + soot * 0.7
-        b = 0.13 + 0.05 * h + grain * 0.4 + soot * 0.6
-        return r, g, b, 0.65 + 0.30 * bevel + grain * 0.4
-
-    if kind == "wood":
-        wobble = math.sin(u * 9.0 + _hash2(int(u * 10), int(v * 18)) * 0.4)
-        grain = 0.5 + 0.5 * math.sin(v * 74.0 + 3.6 * wobble)
-        plank_seam = 1.0 if (v * 3.0) % 1.0 > 0.03 else 0.65
-        fine = (_hash2(px * 0.2, py) - 0.5) * 0.05
-        r = (0.44 + 0.14 * grain + fine) * plank_seam
-        g = (0.27 + 0.10 * grain + fine * 0.7) * plank_seam
-        b = (0.14 + 0.05 * grain + fine * 0.4) * plank_seam
-        ht = (0.55 + 0.32 * grain + fine) * plank_seam
-        return r, g, b, ht
-
-    if kind == "castiron":
-        n1 = _hash2(px * 0.85, py * 0.85)
-        n2 = _hash2(int(u * 56), int(v * 56))
-        rust = max(0.0, _hash2(int(u * 14), int(v * 14)) - 0.78) * 0.35
-        val = 0.16 + 0.075 * n1 + 0.045 * n2
-        return val + rust * 0.45, val * 1.02 + rust * 0.15, val * 1.08, 0.45 + 0.38 * n1 + 0.15 * n2
-
-    if kind == "copper":
-        brush = 0.032 * math.sin(u * 130.0) + 0.035 * (_hash2(px * 0.3, py) - 0.5)
-        hammer = 0.035 * math.sin(u * 28.0) * math.cos(v * 28.0)
-        patina = max(0.0, _hash2(int(u * 16), int(v * 16)) - 0.65) * 0.18
-        r = 0.75 + brush + hammer * 0.5 - patina * 0.7
-        g = 0.40 + brush * 0.6 + hammer * 0.3 + patina * 0.25
-        b = 0.22 + brush * 0.4 + patina * 0.35
-        return r, g, b, 0.55 + hammer * 2.2 + brush * 0.8
-
-    # stone
-    rows, cols = 4.0, 3.0
-    row = math.floor(v * rows)
-    u_off = (u * cols + (0.5 if int(row) % 2 else 0.0)) % cols
-    col = math.floor(u_off)
-    fu = u_off - col
-    fv = v * rows - row
-    is_seam = min(fu, 1.0 - fu) < 0.032 or min(fv, 1.0 - fv) < 0.042
-    n1 = _hash2(int(u * 48), int(v * 48))
-    n2 = _hash2(px * 0.5, py * 0.5)
-    block_var = (_hash2(col + row * 7.0, row * 13.0) - 0.5) * 0.08
-    val = (n1 * 0.55 + n2 * 0.45 - 0.5) * 0.09 + block_var
-    seam_k = 0.76 if is_seam else 1.0
-    ht = (0.28 if is_seam else 0.66) + (n1 * 0.20 + n2 * 0.12)
-    return (0.67 + val) * seam_k, (0.62 + val) * seam_k, (0.52 + val) * seam_k, ht
-
-
-def build_pbr_pair(name, kind, width=256, height=256, bump_scale=2.6):
-    """Genera parella (albedo_sRGB, tangent_normal) empaquetada per a Cycles i glTF."""
-    alb = bpy.data.images.new(f"{name}_Alb", width=width, height=height, alpha=False)
-    nrm = bpy.data.images.new(f"{name}_Nrm", width=width, height=height, alpha=False)
-    nrm.colorspace_settings.name = "Non-Color"
-
-    alb_buf = [0.0] * (width * height * 4)
-    hts = [0.0] * (width * height)
-
-    for py in range(height):
-        v = py / height
-        for px in range(width):
-            u = px / width
-            r, g, b, h = _sample_height_and_color(kind, u, v, px, py)
-            idx = (py * width + px) * 4
-            alb_buf[idx] = max(0.0, min(1.0, r))
-            alb_buf[idx + 1] = max(0.0, min(1.0, g))
-            alb_buf[idx + 2] = max(0.0, min(1.0, b))
-            alb_buf[idx + 3] = 1.0
-            hts[py * width + px] = h
-
-    nrm_buf = [0.0] * (width * height * 4)
-    for py in range(height):
-        py0 = (py - 1) % height
-        py1 = (py + 1) % height
-        for px in range(width):
-            px0 = (px - 1) % width
-            px1 = (px + 1) % width
-            dx = (hts[py * width + px1] - hts[py * width + px0]) * bump_scale
-            dy = (hts[py1 * width + px] - hts[py0 * width + px]) * bump_scale
-            nx, ny, nz = -dx, -dy, 1.0
-            inv = 1.0 / math.sqrt(nx * nx + ny * ny + nz * nz)
-            idx = (py * width + px) * 4
-            nrm_buf[idx] = 0.5 + 0.5 * (nx * inv)
-            nrm_buf[idx + 1] = 0.5 + 0.5 * (ny * inv)
-            nrm_buf[idx + 2] = 0.5 + 0.5 * (nz * inv)
-            nrm_buf[idx + 3] = 1.0
-
-    alb.pixels.foreach_set(alb_buf)
-    alb.pack()
-    nrm.pixels.foreach_set(nrm_buf)
-    nrm.pack()
-    return alb, nrm
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+if THIS_DIR not in sys.path:
+    sys.path.insert(0, THIS_DIR)
+from pbr_comu import build_pbr_pair  # noqa: E402, F401
 
 
 def make_mat(
@@ -545,11 +433,11 @@ def build_watt_scene(exploded=False, animate=False):
     clear_scene()
 
     # Parelles de textures sRGB + mapes normals tangents (Cycles + glTF)
-    pbr_brick = build_pbr_pair("TexMao1769", "brick", 320, 320, bump_scale=3.0)
-    pbr_wood = build_pbr_pair("TexRoure1769", "wood", 288, 288, bump_scale=2.2)
-    pbr_stone = build_pbr_pair("TexPedra1769", "stone", 288, 288, bump_scale=2.6)
-    pbr_iron = build_pbr_pair("TexFerro1769", "castiron", 224, 224, bump_scale=2.0)
-    pbr_copper = build_pbr_pair("TexCoure1769", "copper", 224, 224, bump_scale=1.2)
+    pbr_brick = build_pbr_pair("TexMao1769", "brick", 512, 512, bump_scale=3.0)
+    pbr_wood = build_pbr_pair("TexRoure1769", "wood", 512, 512, bump_scale=2.2)
+    pbr_stone = build_pbr_pair("TexPedra1769", "stone", 512, 512, bump_scale=2.6)
+    pbr_iron = build_pbr_pair("TexFerro1769", "castiron", 512, 512, bump_scale=2.0)
+    pbr_copper = build_pbr_pair("TexCoure1769", "copper", 512, 512, bump_scale=1.2)
 
     m_stone = make_mat("Pedra", "#aea389", metallic=0.0, roughness=0.90, pbr_pair=pbr_stone, tex_scale=(1.1, 1.1), normal_strength=0.95)
     m_brick = make_mat("Mao", "#8f402a", metallic=0.0, roughness=0.86, pbr_pair=pbr_brick, tex_scale=(1.35, 1.35), normal_strength=1.0)

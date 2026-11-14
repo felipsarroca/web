@@ -46,10 +46,13 @@ from pbr_comu import (
     make_shuttle,
     make_sphere,
     make_spoked_wheel,
+    make_worker,
+    make_workshop_floor,
     project_anchors,
     render_closeup,
     render_image,
     set_linear_fcurves,
+    set_worker_pose,
     setup_lighting,
 )
 
@@ -156,34 +159,34 @@ def eval_cartwright_state(p):
 def build_cartwright_scene(animate=False):
     clear_scene()
 
-    pbr_wood = build_pbr_pair("CwRoure", "wood", 256, 256, bump_scale=2.2)
-    pbr_wood_dark = build_pbr_pair("CwRoureFosc", "wood_dark", 224, 224, bump_scale=2.0)
-    pbr_stone = build_pbr_pair("CwPedra", "stone", 256, 256, bump_scale=2.4)
-    pbr_iron = build_pbr_pair("CwFerro", "castiron", 224, 224, bump_scale=2.0)
-    pbr_brass = build_pbr_pair("CwLlauto", "brass", 192, 192, bump_scale=0.9)
-    pbr_leather = build_pbr_pair("CwCuir", "leather", 192, 192, bump_scale=2.0)
-    pbr_cloth = build_pbr_pair("CwTela", "cotton_cloth", 256, 256, bump_scale=2.4)
+    pbr_wood = build_pbr_pair("CwRoure", "wood", 512, 512, bump_scale=2.2)
+    pbr_wood_dark = build_pbr_pair("CwRoureFosc", "wood_dark", 512, 512, bump_scale=2.0)
+    pbr_iron = build_pbr_pair("CwFerro", "castiron", 512, 512, bump_scale=2.0)
+    pbr_brass = build_pbr_pair("CwLlauto", "brass", 512, 512, bump_scale=0.9)
+    pbr_leather = build_pbr_pair("CwCuir", "leather", 512, 512, bump_scale=2.0)
+    pbr_cotton = build_pbr_pair("CwCotoCru", "cotton_cloth", 512, 512, bump_scale=2.2)
+    pbr_cloth = build_pbr_pair("CwTelaTeixida", "woven_cloth", 512, 512, bump_scale=2.2)
 
-    m_stone = make_mat("Pedra", "#aba086", roughness=0.90, pbr_pair=pbr_stone, tex_scale=(1.1, 1.1), normal_strength=0.90)
     m_wood = make_mat("Roure", "#8a572c", roughness=0.56, pbr_pair=pbr_wood, tex_scale=(1.0, 1.0), normal_strength=0.75)
     m_wood_dark = make_mat("RoureFosc", "#523117", roughness=0.64, pbr_pair=pbr_wood_dark, tex_scale=(1.1, 1.1), normal_strength=0.75)
     m_iron = make_mat("Ferro", "#2e3339", metallic=0.86, roughness=0.42, pbr_pair=pbr_iron, normal_strength=0.65)
     m_steel = make_mat("Acer", "#bcc4cc", metallic=0.93, roughness=0.20)
     m_brass = make_mat("Llauto", "#d6a63b", metallic=0.92, roughness=0.22, pbr_pair=pbr_brass, normal_strength=0.35)
     m_leather = make_mat("Cuir", "#58341c", roughness=0.68, pbr_pair=pbr_leather, normal_strength=0.80)
-    m_cloth = make_mat("TelaCoto", "#e9dfc4", roughness=0.86, pbr_pair=pbr_cloth, tex_scale=(2.4, 2.4), normal_strength=0.70)
+    m_cotton = make_mat("CotoOrdit", "#e9dfc4", roughness=0.88, pbr_pair=pbr_cotton, tex_scale=(1.8, 1.8), normal_strength=0.65)
+    m_cloth = make_mat("TelaCoto", "#ebe1c7", roughness=0.84, pbr_pair=pbr_cloth, tex_scale=(1.8, 1.8), normal_strength=0.60)
     m_warp = make_mat("OrditCru", "#e2d4b4", roughness=0.80)
     m_weft = make_mat("TramaVermella", "#b83a24", roughness=0.72)
 
     add_shadow_floor(z=0.0, size=14.0)
 
-    # Sòcol del taller industrial
-    make_box("SocolTaller", (3.68, 2.38, 0.14), (0.16, 0.0, 0.07), m_stone, bevel=0.020)
+    # Sòcol de lloses de fàbrica del Lancashire i escenografia interior
+    make_workshop_floor("mill_stone", size=(3.90, 2.95, 0.14), center=(0.15, -0.15), with_room_backdrop=True)
 
     # --- 1. BASTIDOR DE ROURE ANGLÈS AMB FERRETES I COIXINETS ---
     g_frame = add_empty("Bastidor")
     z_main = 0.60
-    z_cam = 0.528
+    z_cam = 0.536  # distància exacta als centres: hypot(0.244, 0.064) = 0.252 m -> Pinyo(0.085)+Roda(0.168) engranen!
     y_main = -0.34
     y_cam = -0.096
 
@@ -253,10 +256,12 @@ def build_cartwright_scene(animate=False):
         make_box(f"BracManovella_{sx}", (0.040, 0.050, 0.145), (sx, 0.0, -0.055), m_iron, parent=g_main_shaft, bevel=0.005)
         make_cyl(f"PernManovella_{sx}", 0.019, 0.072, (sx, 0.0, -0.11), m_brass, rot=(0, math.pi / 2, 0), verts=14, parent=g_main_shaft)
 
-    # Eix de lleves engranat 2:1 sota l'ordit
+    # Eix de lleves engranat 2:1 sota l'ordit (desfasat mig dent perquè engranin netament)
     g_cam_shaft = add_empty("EixLleves", (0.0, y_cam, z_cam), parent=g_eix)
     make_cyl("BarraEixLleves", 0.024, 2.38, (0.04, 0.0, 0.0), m_steel, rot=(0, math.pi / 2, 0), verts=20, parent=g_cam_shaft)
-    make_gear("Roda2a1", 0.168, 0.042, 28, (1.13, 0.0, 0.0), m_iron, mat_hub=m_brass, axis="X", parent=g_cam_shaft)
+    g_roda_phase = add_empty("Roda2a1_Phase", (1.13, 0.0, 0.0), parent=g_cam_shaft)
+    g_roda_phase.rotation_euler = (math.pi / 28.0, 0.0, 0.0)
+    make_gear("Roda2a1", 0.168, 0.042, 28, (0.0, 0.0, 0.0), m_iron, mat_hub=m_brass, axis="X", parent=g_roda_phase)
     # Lleves en cor per als trepitjadors dels lliços
     make_cam("LlevaLlic1", 0.058, 0.064, 0.044, (-0.18, 0.0, 0.0), m_brass, axis="X", rot_phase=0.0, parent=g_cam_shaft)
     make_cam("LlevaLlic2", 0.058, 0.064, 0.044, (0.18, 0.0, 0.0), m_brass, axis="X", rot_phase=math.pi, parent=g_cam_shaft)
@@ -267,7 +272,7 @@ def build_cartwright_scene(animate=False):
     # --- 4. PLEGADOR D'ORDIT AMB CONTRAPÈS DE TENSIÓ I 34 FILS D'ORDIT FINS ---
     g_ordit = add_empty("Ordit")
     make_cyl("PlegadorOrditNucli", 0.045, 2.14, (0.0, 0.72, 0.66), m_wood_dark, rot=(0, math.pi / 2, 0), parent=g_ordit)
-    make_cyl("PlegadorOrditCoto", 0.125, 1.54, (0.0, 0.72, 0.66), m_cloth, rot=(0, math.pi / 2, 0), parent=g_ordit)
+    make_cyl("PlegadorOrditCoto", 0.125, 1.54, (0.0, 0.72, 0.66), m_cotton, rot=(0, math.pi / 2, 0), parent=g_ordit)
     make_gear("TrinquetOrdit", 0.125, 0.024, 20, (-0.92, 0.72, 0.66), m_iron, mat_hub=m_brass, axis="X", parent=g_ordit)
     # Palanca i contrapès regulador de tensió de l'ordit (dins el bastidor dret/posterior)
     make_cyl("BridaTensio", 0.130, 0.022, (0.86, 0.72, 0.66), m_leather, rot=(0, math.pi / 2, 0), parent=g_ordit)
@@ -382,6 +387,9 @@ def build_cartwright_scene(animate=False):
     make_cyl("PlegadorTelaCoto", 0.115, 1.54, (0.0, -0.70, 0.66), m_cloth, rot=(0, math.pi / 2, 0), parent=g_tela)
     make_gear("RodaTela", 0.115, 0.024, 18, (-0.92, -0.70, 0.66), m_brass, mat_hub=m_iron, axis="X", parent=g_tela)
 
+    # --- 9. TEIXIDORA VIGILANT EL TELER MECÀNIC A ESCALA REAL ---
+    worker = make_worker("VigilantCartwright", (-0.88, -1.24, 0.14), facing_yaw=math.pi * 0.14, scale=1.0, role="weaver")
+
     def apply_pose(p):
         st = eval_cartwright_state(p)
         g_main_shaft.rotation_euler = (st["ang_main"], 0.0, 0.0)
@@ -427,10 +435,22 @@ def build_cartwright_scene(animate=False):
         vis_x = max(0.05, min(1.0, abs(st["shuttle_x"]) / 0.85))
         g_trama_activa.scale = (vis_x, 1.0, 1.0)
 
+        # Teixidora supervisant la tela i els engranatges
+        set_worker_pose(
+            worker,
+            torso_rot=(0.10 + 0.03 * math.sin(2.0 * math.pi * p), 0.0, 0.0),
+            head_rot=(-0.12, 0.0, -0.18 + 0.06 * math.sin(2.0 * math.pi * p)),
+            l_sh=(0.68, 0.0, -0.08),
+            l_elb=(-0.58, 0.0, 0.0),
+            r_sh=(0.82, -0.08, 0.14),
+            r_elb=(-0.62, 0.0, 0.0),
+        )
+
     if animate:
         scene = bpy.context.scene
         scene.frame_start = 1
         scene.frame_end = 60
+        worker_objs = [worker["torso"], worker["head"], worker["l_sh"], worker["l_elb"], worker["r_sh"], worker["r_elb"]]
         anim_objs = [
             g_main_shaft,
             g_loom_pulley,
@@ -448,7 +468,7 @@ def build_cartwright_scene(animate=False):
             g_imp_dret,
             g_llanc,
             g_trama_activa,
-        ] + palanques + [b for b, _ in biela_objs]
+        ] + palanques + [b for b, _ in biela_objs] + worker_objs
         for fr in range(1, 61):
             p = (fr - 1) / 60.0
             apply_pose(p)
@@ -460,7 +480,7 @@ def build_cartwright_scene(animate=False):
     else:
         apply_pose(0.20)
 
-    setup_lighting(cam_loc=(3.20, -3.78, 2.38), target=(0.18, -0.05, 0.94), lens=40.0)
+    setup_lighting(cam_loc=(3.28, -3.88, 2.38), target=(0.12, -0.18, 0.94), lens=38.0, mood="workshop")
 
     anchors = {
         "transmissio": (1.40, -0.34, 0.86),

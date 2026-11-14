@@ -204,6 +204,17 @@
       <g id="rd-detall-pass"></g>
     </g>`;
 
+    // Lupa macro sobre la punta del fus
+    s += `<g id="tx-lupa" transform="translate(185, 132)" data-part="fibra">
+      <line x1="0" y1="62" x2="-22" y2="176" stroke="#b45309" stroke-width="2" stroke-dasharray="5 5" opacity=".72"/>
+      <circle cx="0" cy="0" r="64" fill="#fffdf7" stroke="#8d5d2e" stroke-width="5"/>
+      <clipPath id="clip-lupa-roda"><circle cx="0" cy="0" r="60"/></clipPath>
+      <g id="tx-lupa-body" clip-path="url(#clip-lupa-roda)"></g>
+      <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(46,34,26,.22)" stroke-width="1.5"/>
+      <rect x="-58" y="54" width="116" height="22" rx="11" fill="#6f4e28" stroke="#fffdf7" stroke-width="1.5"/>
+      <text x="0" y="69" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">Lupa ×8 · Torsió</text>
+    </g>`;
+
     return RI.svg(s);
   }
 
@@ -266,6 +277,17 @@
         <rect x="0" y="72" width="185" height="44" rx="8" fill="${winding ? '#fff2cc' : '#f7f1e1'}" stroke="${winding ? '#b45309' : '#d6cbb5'}" stroke-width="1.5"/>
         <text x="92" y="91" text-anchor="middle" font-size="13" font-weight="800" fill="${winding ? '#92400e' : '#787166'}">2 · Canviar angle i recollir</text>
         <text x="92" y="108" text-anchor="middle" font-size="11.5" fill="#4a4139">S’enrotlla al con del fus</text>`;
+
+      const lupaEl = el('tx-lupa-body');
+      if (lupaEl) {
+        const tw = clamp(s.draw * 0.9 + (p >= 0.57 ? 0.35 : 0), 0.12, 1.15);
+        const w1 = lerp(28, 12, s.draw);
+        lupaEl.innerHTML =
+          `<rect x="-64" y="-64" width="128" height="128" fill="#f7f0df"/>` +
+          fibresHTML(-56, 0, 8, 0, w1, lerp(11, 5.5, s.draw), s.draw * 0.8) +
+          filTorcutHTML(4, 0, 56, 0, s.spindleAngle * 0.35, tw, lerp(6.8, 3.8, s.draw)) +
+          `<text x="0" y="-36" text-anchor="middle" font-size="10.5" font-weight="800" fill="#6f4e28">${winding ? 'Enrotllant fil torçut' : 'Fibres llisquen i torcen'}</text>`;
+      }
     };
   }
 
@@ -1229,25 +1251,200 @@
     };
   }
 
+  /* ==================== RENDERS BLENDER + HALOS + LUPA MACRO ==================== */
+  const BLENDER_N = 28;
+  const BLENDER_VER = '20261114-m2';
+  const FRAME_CACHE = {};
+
+  function precarregaFrames(id) {
+    if (FRAME_CACHE[id]) return FRAME_CACHE[id];
+    const arr = [];
+    for (let i = 0; i < BLENDER_N; i++) {
+      const im = new Image();
+      im.src = `img/moviment/${id}-${String(i).padStart(2, '0')}.webp?v=${BLENDER_VER}`;
+      arr.push(im);
+    }
+    FRAME_CACHE[id] = arr;
+    return arr;
+  }
+
+  const BLENDER_SPEC = {
+    llancadora: {
+      lupa: [1066, 126, 673, 369, 'Lupa ×8 · Calada i passada'],
+      parts: {
+        ordit: [[634, 322, 114, 42]],
+        llancadora: [[673, 369, 66, 36]],
+        caixes: [[433, 315, 62, 42], [928, 362, 58, 40]],
+        cordill: [[637, 319, 86, 36]],
+        pinta: [[757, 348, 86, 40]],
+        tela: [[523, 412, 128, 52]],
+        bastidor: [[281, 223, 56, 72]],
+        llicos: [[636, 279, 108, 36]]
+      }
+    },
+    jenny: {
+      lupa: [1066, 126, 540, 316, 'Lupa ×8 · Estiratge i torsió'],
+      parts: {
+        metxes: [[492, 467, 110, 46]],
+        pinca: [[618, 344, 92, 40]],
+        fusos: [[412, 285, 96, 54]],
+        roda: [[612, 453, 84, 84]],
+        corda: [[460, 459, 68, 36]],
+        bastidor: [[499, 399, 96, 48]]
+      }
+    },
+    water: {
+      lupa: [1066, 126, 650, 290, 'Lupa ×10 · Corrons i aleta'],
+      parts: {
+        metxa: [[652, 172, 118, 46]],
+        corrons: [[674, 251, 118, 42]],
+        engranatges: [[802, 278, 54, 48]],
+        aleta: [[566, 420, 128, 56]],
+        aigua: [[370, 454, 96, 56]],
+        bastidor: [[710, 385, 68, 88]]
+      }
+    },
+    mula: {
+      lupa: [1066, 126, 525, 382, 'Lupa ×8 · Estiratge fi i torsió'],
+      parts: {
+        fileta: [[326, 211, 132, 62]],
+        corrons: [[359, 369, 118, 42]],
+        carro: [[678, 599, 146, 52]],
+        fus: [[684, 393, 128, 48]],
+        bastidor: [[193, 400, 62, 86]],
+        roda: [[325, 451, 86, 86]]
+      }
+    },
+    cartwright: {
+      lupa: [1066, 126, 606, 362, 'Lupa ×8 · Batuda i lleves 2:1'],
+      parts: {
+        transmissio: [[863, 485, 76, 84]],
+        eix: [[748, 534, 88, 54]],
+        llicos: [[618, 280, 110, 42]],
+        llancadora: [[586, 362, 66, 36]],
+        pinta: [[713, 350, 96, 42]],
+        ordit: [[607, 317, 118, 42]],
+        tela: [[478, 388, 126, 54]],
+        bastidor: [[551, 192, 92, 66]]
+      }
+    }
+  };
+
+  function pintaLupaBlender(id, p, s) {
+    let body = `<rect x="-74" y="-74" width="148" height="148" fill="#f7f0df"/>`;
+    if (id === 'jenny') {
+      const tw = clamp(0.25 + 0.95 * (p < 0.70 ? clamp(p / 0.70, 0, 1) : 1), 0.25, 1.3);
+      const xJoin = lerp(-12, 22, s.draw);
+      const thick = lerp(6.8, 3.0, s.draw);
+      body += fibresHTML(-62, 6, xJoin, 6, lerp(28, 13, s.draw), thick + 4, s.draw * 0.7);
+      body += filTorcutHTML(xJoin, 6, 62, 6, s.spindleAngle * 0.45, tw, thick);
+      body += `<rect x="${f1(-58 + s.draw * 16)}" y="-22" width="12" height="56" rx="4" fill="#8d5d2e" stroke="${INK}" stroke-width="1.5"/>`;
+      body += `<text x="0" y="-36" text-anchor="middle" font-size="9" font-weight="800" fill="#6f4e28">${p < 0.52 ? 'Pinça: estira i torça' : 'Fil-guia: plega al fus'}</text>`;
+    } else if (id === 'water') {
+      const spd = p * Math.PI * 16;
+      const xs = [-44, -8, 28];
+      xs.forEach((cx, i) => {
+        body += `<circle cx="${cx}" cy="-14" r="11" fill="#464c52" stroke="${INK}" stroke-width="1.6"/>`;
+        body += `<circle cx="${cx}" cy="16" r="11" fill="#9ca4ab" stroke="${INK}" stroke-width="1.6"/>`;
+        const a = spd * [1, 1.6, 3.2][i];
+        body += `<line x1="${f1(cx + 7 * Math.cos(a))}" y1="${f1(16 + 7 * Math.sin(a))}" x2="${f1(cx - 7 * Math.cos(a))}" y2="${f1(16 - 7 * Math.sin(a))}" stroke="#d97706" stroke-width="2.2"/>`;
+        body += `<text x="${cx}" y="-30" text-anchor="middle" font-size="9.5" font-weight="800" fill="#51473b">${['1×', '1,6×', '3,2×'][i]}</text>`;
+      });
+      body += fibresHTML(-64, 1, -8, 1, 20, 10, (p * 4) % 1);
+      body += fibresHTML(-8, 1, 28, 1, 10, 5.2, (p * 6.4) % 1);
+      body += filTorcutHTML(28, 1, 66, 1, spd * 1.4, 1.15, 3.3);
+      body += `<text x="0" y="38" text-anchor="middle" font-size="9" font-weight="800" fill="#6f4e28">Estiratge → aleta</text>`;
+    } else if (id === 'mula') {
+      const afterDraft = p >= 0.36 && p < 0.56;
+      const mDraw = clamp(0.75 * s.fed + 0.25 * s.last, 0, 1);
+      const wStart = lerp(24, 9, mDraw);
+      const thick = afterDraft ? 2.5 : lerp(5.8, 3.2, mDraw);
+      body += `<circle cx="-46" cy="-12" r="9" fill="#464c52" stroke="${INK}" stroke-width="1.4"/><circle cx="-46" cy="14" r="9" fill="#9ca4ab" stroke="${INK}" stroke-width="1.4"/>`;
+      body += fibresHTML(-46, 2, -6, 2, wStart, thick + 3.5, mDraw * 0.9);
+      body += filTorcutHTML(-6, 2, 62, 2, s.spindleAngle * 0.45, afterDraft ? 1.45 : 0.95, thick);
+      body += `<text x="0" y="-36" text-anchor="middle" font-size="9" font-weight="800" fill="${afterDraft ? '#9e2d18' : '#6f4e28'}">${afterDraft ? 'Corrons aturats: fi!' : p < 0.36 ? 'Carro surt: estira' : 'Retorn: plega al fus'}</text>`;
+    } else {
+      const shed = s.shed != null ? s.shed : Math.sin(p * Math.PI * 2);
+      const shxNorm = s.x != null ? s.x / 325 : Math.sin(p * Math.PI * 2);
+      const shx = clamp(shxNorm, -1, 1) * 46;
+      const beatVal = s.beat1 != null ? Math.max(s.beat1, s.beat2) : clamp((-(s.y != null ? s.y : -82) - 82) / 70, 0, 1);
+      const reedX = lerp(42, -16, beatVal);
+      body += `<rect x="-66" y="-28" width="44" height="56" rx="4" fill="#ebe0c7" stroke="#9e8e70" stroke-width="1.2"/>`;
+      for (let k = -22; k <= 22; k += 8) {
+        body += `<line x1="-64" y1="${k}" x2="-24" y2="${k}" stroke="#b8422b" stroke-width="2.2" opacity=".72"/>`;
+      }
+      const dyS = shed * 18;
+      body += `<line x1="-22" y1="0" x2="64" y2="${f1(-dyS)}" stroke="#5c4732" stroke-width="2"/><line x1="-22" y1="0" x2="64" y2="${f1(dyS)}" stroke="#9c7e5a" stroke-width="2"/>`;
+      body += `<line x1="-22" y1="0" x2="${f1(shx)}" y2="0" stroke="#c23b22" stroke-width="3.2" stroke-linecap="round"/>`;
+      body += `<g transform="translate(${f1(shx)}, 0)"><polygon points="-16,0 -8,-6 8,-6 16,0 8,6 -8,6" fill="#6d4323" stroke="${INK}" stroke-width="1.3"/><rect x="-6" y="-2.5" width="12" height="5" rx="2" fill="#d9482b"/></g>`;
+      body += `<line x1="${f1(reedX)}" y1="-34" x2="${f1(reedX)}" y2="34" stroke="#39444d" stroke-width="3.5" stroke-dasharray="4 3"/>`;
+      body += `<text x="0" y="-36" text-anchor="middle" font-size="8.8" font-weight="800" fill="#6f4e28">${id === 'cartwright' ? 'Lleva 2:1 bat la trama' : 'Calada i vol de trama'}</text>`;
+    }
+    return body;
+  }
+
+  function svgBlenderMachine(id) {
+    precarregaFrames(id);
+    const sp = BLENDER_SPEC[id];
+    const [lx, ly, ax, ay, lbl] = sp.lupa;
+    let halos = '';
+    for (const [part, list] of Object.entries(sp.parts)) {
+      halos += `<g data-part="${part}">`;
+      for (const [cx, cy, rx, ry] of list) {
+        halos += `<ellipse class="tx-3d-halo" cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>`;
+      }
+      halos += `</g>`;
+    }
+    const inner = `
+      <image id="tx-frame-bg" x="0" y="0" width="1200" height="760" href="img/moviment/${id}-00.webp?v=${BLENDER_VER}" preserveAspectRatio="xMidYMid slice"/>
+      ${halos}
+      <g id="tx-lupa" transform="translate(${lx}, ${ly})">
+        <line x1="-58" y1="44" x2="${f1(ax - lx)}" y2="${f1(ay - ly)}" stroke="#b45309" stroke-width="2.4" stroke-dasharray="6 5" opacity=".82"/>
+        <circle cx="${f1(ax - lx)}" cy="${f1(ay - ly)}" r="7" fill="rgba(217,119,6,.35)" stroke="#b45309" stroke-width="2"/>
+        <circle cx="0" cy="0" r="72" fill="#fffdf7" stroke="#8d5d2e" stroke-width="5.5"/>
+        <clipPath id="clip-lupa-${id}"><circle cx="0" cy="0" r="68"/></clipPath>
+        <g id="tx-lupa-body" clip-path="url(#clip-lupa-${id})"></g>
+        <circle cx="0" cy="0" r="68" fill="none" stroke="rgba(46,34,26,.22)" stroke-width="1.5"/>
+        <rect x="-86" y="62" width="172" height="24" rx="12" fill="#6f4e28" stroke="#fffdf7" stroke-width="1.5"/>
+        <text x="0" y="78" text-anchor="middle" font-size="11.2" font-weight="800" fill="#fff">${lbl}</text>
+      </g>`;
+    return RI.svg(inner, '0 0 1200 760').replace('class="esc"', 'class="esc tx3"');
+  }
+
+  function animaBlenderMachine(id) {
+    let lastFrame = -1;
+    return ({ p, el }) => {
+      precarregaFrames(id);
+      const idx = Math.floor((((p % 1) + 1) % 1) * BLENDER_N) % BLENDER_N;
+      if (idx !== lastFrame) {
+        lastFrame = idx;
+        const bg = el('tx-frame-bg');
+        if (bg) bg.setAttribute('href', `img/moviment/${id}-${String(idx).padStart(2, '0')}.webp?v=${BLENDER_VER}`);
+      }
+      const lupaEl = el('tx-lupa-body');
+      if (lupaEl) lupaEl.innerHTML = pintaLupaBlender(id, p, S(id, p));
+    };
+  }
+
   /* ==================== REGISTRE D'ESCENES, ETIQUETES I SORTIDA ==================== */
   const BUILDERS = {
     roda: svgRoda,
-    llancadora: svgLlancadora,
-    jenny: svgJenny,
-    water: svgWater,
-    mula: svgMula,
-    cartwright: svgCartwright
+    llancadora: () => svgBlenderMachine('llancadora'),
+    jenny: () => svgBlenderMachine('jenny'),
+    water: () => svgBlenderMachine('water'),
+    mula: () => svgBlenderMachine('mula'),
+    cartwright: () => svgBlenderMachine('cartwright')
   };
   const ANIMATORS = {
     roda: animaRoda(),
-    llancadora: animaLlancadora(),
-    jenny: animaJenny(),
-    water: animaWater(),
-    mula: animaMula(),
-    cartwright: animaCartwright()
+    llancadora: animaBlenderMachine('llancadora'),
+    jenny: animaBlenderMachine('jenny'),
+    water: animaBlenderMachine('water'),
+    mula: animaBlenderMachine('mula'),
+    cartwright: animaBlenderMachine('cartwright')
   };
 
-  /* Etiquetes posicionades amb precisió i seguiment dinàmic (data-seg). */
+  /* Etiquetes posicionades amb precisió sobre els renders 1200×760. */
   const ETIQUETES = {
     roda: [
       ['roda', 935, 130, 880, 175],
@@ -1257,55 +1454,56 @@
       ['bastidor', 540, 520, 540, 466]
     ],
     llancadora: [
-      ['ordit', 755, 168, 740, 272],
-      ['llicos', 185, 242, 460, 267],
-      ['caixes', 150, 322, 286, 322],
-      ['llancadora', 336, 224, 336, 303, null, 'll-shuttle@0,0'],
-      ['pinta', 975, 336, 754, 357],
-      ['cordill', 350, 514, 474, 452],
-      ['tela', 185, 424, 415, 388],
-      ['bastidor', 885, 494, 738, 478]
+      ['ordit', 775, 118, 634, 322],
+      ['llicos', 495, 118, 636, 279],
+      ['caixes', 195, 290, 433, 315],
+      ['llancadora', 690, 575, 673, 369],
+      ['pinta', 980, 355, 757, 348],
+      ['cordill', 310, 148, 637, 319],
+      ['tela', 270, 565, 523, 412],
+      ['bastidor', 165, 185, 281, 223]
     ],
     jenny: [
-      ['metxes', 442, 420, 340, 434],
-      ['pinca', 415, 146, 415, 230, null, 'jn-clasp@0,230'],
-      ['fusos', 108, 152, 138, 260],
-      ['corda', 455, 515, 455, 418],
-      ['roda', 715, 212, 715, 265],
-      ['bastidor', 225, 550, 225, 515]
+      ['metxes', 225, 590, 492, 467],
+      ['pinca', 765, 175, 618, 344],
+      ['fusos', 225, 175, 412, 285],
+      ['corda', 395, 635, 460, 459],
+      ['roda', 845, 545, 612, 453],
+      ['bastidor', 845, 365, 499, 399]
     ],
     water: [
-      ['metxa', 195, 124, 195, 170],
-      ['corrons', 435, 124, 435, 208],
-      ['aleta', 625, 124, 635, 355],
-      ['aigua', 1055, 168, 1055, 245],
-      ['bastidor', 112, 460, 150, 460]
+      ['metxa', 415, 112, 652, 172],
+      ['corrons', 875, 228, 674, 251],
+      ['engranatges', 965, 310, 802, 278],
+      ['aleta', 255, 355, 566, 420],
+      ['aigua', 195, 525, 370, 454],
+      ['bastidor', 895, 495, 710, 385]
     ],
     mula: [
-      ['fileta', 126, 120, 126, 182],
-      ['corrons', 252, 120, 252, 226],
-      ['carro', 435, 495, 435, 432, null, 'ml-carro@0,432'],
-      ['fus', 345, 332, 379, 285, null, 'ml-carro@-56,285'],
-      ['roda', 565, 375, 515, 338, null, 'ml-carro@80,338'],
-      ['bastidor', 140, 512, 140, 440]
+      ['fileta', 175, 128, 326, 211],
+      ['corrons', 155, 285, 359, 369],
+      ['carro', 865, 625, 678, 599],
+      ['fus', 885, 395, 684, 393],
+      ['roda', 185, 615, 325, 451],
+      ['bastidor', 110, 415, 193, 400]
     ],
     cartwright: [
-      ['ordit', 735, 168, 740, 272],
-      ['llicos', 185, 242, 460, 267],
-      ['eix', 685, 526, 787, 435],
-      ['pinta', 1005, 344, 816, 404],
-      ['llancadora', 336, 224, 336, 303, null, 'cw-shuttle@0,0'],
-      ['tela', 185, 424, 415, 388],
-      ['transmissio', 900, 136, 902, 206],
-      ['bastidor', 155, 488, 265, 444]
+      ['transmissio', 1020, 470, 863, 485],
+      ['eix', 935, 625, 748, 534],
+      ['llicos', 495, 118, 618, 280],
+      ['llancadora', 645, 645, 586, 362],
+      ['pinta', 975, 345, 713, 350],
+      ['ordit', 785, 125, 607, 317],
+      ['tela', 235, 515, 478, 388],
+      ['bastidor', 265, 145, 551, 192]
     ]
   };
 
   const SORTIDA = {
     roda: () => 'Fibres soltes → fil torçut → fil recollit',
-    jenny: () => 'Una roda, vuit fusos: vuit fils alhora',
-    water: () => 'Quatre caps filant en continu',
-    mula: () => 'Corrons i carro coordinats: sis fusos',
+    jenny: () => 'Una roda, múltiples fusos: tots els fils alhora',
+    water: () => 'Quatre caps filant en continu amb força hidràulica',
+    mula: () => 'Corrons i carro mòbil coordinats: 24 fusos fins',
     llancadora: (s) => (s.rows === 1 ? '1 passada incorporada a la tela' : s.rows + ' passades incorporades a la tela'),
     cartwright: (s) => (s.rows === 1 ? '1 passada incorporada a la tela' : s.rows + ' passades incorporades a la tela')
   };
@@ -1330,11 +1528,11 @@
 
   const MODELS = {
     roda: 'Roda manual de fus · tall lateral animat',
-    llancadora: 'Teler manual amb llançadora volant · vista en perspectiva 3/4',
-    jenny: 'Spinning Jenny de vuit fusos · tall lateral i vista simultània',
-    water: 'Water Frame d’Arkwright · corrons, aleta i força hidràulica',
-    mula: 'Mula de Crompton · tall lateral de corrons i carro mòbil',
-    cartwright: 'Teler mecànic (1787–1790) · vista en perspectiva 3/4 amb eix i lleves 2:1'
+    llancadora: 'Llançadora volant de Kay · seqüència 3D real i lupa macro',
+    jenny: 'Spinning Jenny (Lowry) · seqüència 3D real i lupa macro',
+    water: 'Water Frame d’Arkwright · seqüència 3D real i lupa macro',
+    mula: 'Mula de Crompton (24 fusos) · seqüència 3D real i lupa macro',
+    cartwright: 'Teler mecànic de Cartwright · seqüència 3D real i lupa macro'
   };
 
   RI.TEXTIL_DIBUIX = { svg, anima, ETIQUETES, MODELS };

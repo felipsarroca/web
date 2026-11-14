@@ -39,13 +39,17 @@ from pbr_comu import (
     make_box,
     make_cyl,
     make_gear,
+    make_mat,
     make_rod_between,
     make_shuttle,
     make_sphere,
+    make_worker,
+    make_workshop_floor,
     project_anchors,
     render_closeup,
     render_image,
     set_linear_fcurves,
+    set_worker_pose,
     setup_lighting,
 )
 
@@ -100,33 +104,30 @@ def eval_loom_state(p):
 def build_llancadora_scene(animate=False):
     clear_scene()
 
-    pbr_wood = build_pbr_pair("LlanRoure", "wood", 256, 256, bump_scale=2.2)
-    pbr_wood_dark = build_pbr_pair("LlanRoureFosc", "wood_dark", 224, 224, bump_scale=2.0)
-    pbr_stone = build_pbr_pair("LlanPedra", "stone", 256, 256, bump_scale=2.4)
-    pbr_iron = build_pbr_pair("LlanFerro", "castiron", 192, 192, bump_scale=1.8)
-    pbr_brass = build_pbr_pair("LlanLlauto", "brass", 192, 192, bump_scale=0.9)
-    pbr_leather = build_pbr_pair("LlanCuir", "leather", 192, 192, bump_scale=2.0)
-    pbr_cloth = build_pbr_pair("LlanTela", "cotton_cloth", 256, 256, bump_scale=2.5)
+    pbr_wood = build_pbr_pair("LlanRoure", "wood", 512, 512, bump_scale=2.2)
+    pbr_wood_dark = build_pbr_pair("LlanRoureFosc", "wood_dark", 512, 512, bump_scale=2.0)
+    pbr_iron = build_pbr_pair("LlanFerro", "castiron", 512, 512, bump_scale=1.8)
+    pbr_brass = build_pbr_pair("LlanLlauto", "brass", 512, 512, bump_scale=0.9)
+    pbr_leather = build_pbr_pair("LlanCuir", "leather", 512, 512, bump_scale=2.0)
+    pbr_cotton = build_pbr_pair("LlanCotoCru", "cotton_cloth", 512, 512, bump_scale=2.2)
+    pbr_cloth = build_pbr_pair("LlanTelaTeixida", "woven_cloth", 512, 512, bump_scale=2.2)
 
-    m_stone = bpy.data.materials.get("Pedra") or None
-    from pbr_comu import make_mat
-
-    m_stone = make_mat("Pedra", "#aea389", roughness=0.90, pbr_pair=pbr_stone, tex_scale=(1.1, 1.1), normal_strength=0.90)
     m_wood = make_mat("Roure", "#8e5c30", roughness=0.60, pbr_pair=pbr_wood, tex_scale=(1.0, 1.0), normal_strength=0.75)
     m_wood_dark = make_mat("RoureFosc", "#5a371a", roughness=0.65, pbr_pair=pbr_wood_dark, tex_scale=(1.1, 1.1), normal_strength=0.75)
     m_iron = make_mat("Ferro", "#31363c", metallic=0.84, roughness=0.44, pbr_pair=pbr_iron, normal_strength=0.65)
     m_steel = make_mat("Acer", "#aeb7bf", metallic=0.92, roughness=0.22)
     m_brass = make_mat("Llauto", "#d4a43a", metallic=0.92, roughness=0.24, pbr_pair=pbr_brass, normal_strength=0.35)
     m_leather = make_mat("Cuir", "#4e2e19", roughness=0.72, pbr_pair=pbr_leather, normal_strength=0.80)
-    m_cloth = make_mat("TelaCoto", "#e9dfc4", roughness=0.86, pbr_pair=pbr_cloth, tex_scale=(2.2, 2.2), normal_strength=0.70)
+    m_cotton = make_mat("CotoOrdit", "#e9dfc4", roughness=0.88, pbr_pair=pbr_cotton, tex_scale=(1.8, 1.8), normal_strength=0.65)
+    m_cloth = make_mat("TelaCoto", "#ebe1c7", roughness=0.84, pbr_pair=pbr_cloth, tex_scale=(1.8, 1.8), normal_strength=0.60)
     m_warp = make_mat("OrditCru", "#e4d7b7", roughness=0.82)
     m_weft = make_mat("TramaVermella", "#b83a24", roughness=0.74)
     m_cord = make_mat("CordillCanem", "#9a7a4a", roughness=0.82)
 
     add_shadow_floor(z=0.0, size=14.0)
 
-    # Sòcol del taller
-    make_box("SocolTaller", (3.25, 2.45, 0.14), (0.0, 0.0, 0.07), m_stone, bevel=0.020)
+    # Sòcol de postes de roure i escenografia de taller domèstic
+    make_workshop_floor("cottage_wood", size=(3.60, 2.75, 0.14), center=(0.0, -0.20), with_room_backdrop=True)
 
     # --- 1. BASTIDOR DE ROURE ANGLÈS ---
     # Costat frontal = -Y (cara al teixidor/càmera); costat posterior = +Y (ordit)
@@ -155,24 +156,24 @@ def build_llancadora_scene(animate=False):
     # --- 2. PLEGADOR D'ORDIT POSTERIOR I FILS EN DUES CAPES (CALADA) ---
     g_ordit = add_empty("Ordit")
     make_cyl("PlegadorOrditNucli", 0.045, 2.16, (0.0, 0.72, 0.66), m_wood_dark, rot=(0, math.pi / 2, 0), parent=g_ordit)
-    make_cyl("PlegadorOrditCoto", 0.125, 1.56, (0.0, 0.72, 0.66), m_cloth, rot=(0, math.pi / 2, 0), parent=g_ordit)
+    make_cyl("PlegadorOrditCoto", 0.125, 1.56, (0.0, 0.72, 0.66), m_cotton, rot=(0, math.pi / 2, 0), parent=g_ordit)
     make_gear("TrinquetOrdit", 0.13, 0.025, 18, (-0.94, 0.72, 0.66), m_iron, mat_hub=m_brass, axis="X", parent=g_ordit)
     make_cyl("RodetPosterior", 0.040, 1.80, (0.0, 0.78, 0.91), m_wood, rot=(0, math.pi / 2, 0), parent=g_ordit)
 
-    # Pivots dels fils d'ordit: de rodet posterior (Y=0.78,Z=0.91) -> lliços (Y=0.32,Z=0.91±0.095) -> línia de tela (Y=-0.42,Z=0.91)
-    # Això permet animació rígida neta sense deformar malles dins glTF
+    # Pivots dels fils d'ordit: 22+22 fils fins (densitat històrica realista sense barres gruixudes)
+    n_warp = 22
     def build_warp_group(name, y_pivot, z_pivot, y_end, x_offset):
         grp = add_empty(name, (0.0, y_pivot, z_pivot), parent=g_ordit)
         dy = y_end - y_pivot
-        for i in range(13):
-            x = -0.72 + i * 0.12 + x_offset
-            make_rod_between(f"{name}_Fil_{i}", (x, 0.0, 0.0), (x, dy, 0.0), 0.0042, m_warp, verts=6, parent=grp)
+        for i in range(n_warp):
+            x = -0.74 + i * (1.48 / (n_warp - 1)) + x_offset
+            make_rod_between(f"{name}_Fil_{i}", (x, 0.0, 0.0), (x, dy, 0.0), 0.0022, m_warp, verts=6, parent=grp)
         return grp
 
-    g_ord_par_darr = build_warp_group("OrditParellDarr", 0.78, 0.91, 0.32, -0.03)
-    g_ord_par_dav = build_warp_group("OrditParellDav", -0.42, 0.91, 0.32, -0.03)
-    g_ord_imp_darr = build_warp_group("OrditImparellDarr", 0.78, 0.91, 0.32, 0.03)
-    g_ord_imp_dav = build_warp_group("OrditImparellDav", -0.42, 0.91, 0.32, 0.03)
+    g_ord_par_darr = build_warp_group("OrditParellDarr", 0.78, 0.91, 0.32, -0.015)
+    g_ord_par_dav = build_warp_group("OrditParellDav", -0.42, 0.91, 0.32, -0.015)
+    g_ord_imp_darr = build_warp_group("OrditImparellDarr", 0.78, 0.91, 0.32, 0.015)
+    g_ord_imp_dav = build_warp_group("OrditImparellDav", -0.42, 0.91, 0.32, 0.015)
 
     # --- 3. LLIÇOS, CORRONS SUPERIORS I PEDALS INFERIORS ---
     g_llicos = add_empty("Llicos")
@@ -189,14 +190,14 @@ def build_llancadora_scene(animate=False):
         for px in (-0.42, 0.42):
             make_cyl(f"{name}_CordSup_{px}", 0.006, 0.55, (px, 0.0, 0.54), m_cord, verts=8, parent=hf, bevel=0.0)
             make_cyl(f"{name}_CordInf_{px*0.35}", 0.006, 0.58, (px * 0.35, 0.0, -0.54), m_cord, verts=8, parent=hf, bevel=0.0)
-        for k in range(13):
-            kx = -0.72 + k * 0.12 + x_off
-            make_cyl(f"{name}_Filferro_{k}", 0.0028, 0.48, (kx, 0.0, 0.0), m_steel, verts=6, parent=hf, bevel=0.0)
-            make_sphere(f"{name}_Ullet_{k}", 0.0085, (kx, 0.0, 0.0), m_brass, segs=8, rings=6, parent=hf)
+        for k in range(n_warp):
+            kx = -0.74 + k * (1.48 / (n_warp - 1)) + x_off
+            make_cyl(f"{name}_Filferro_{k}", 0.0022, 0.48, (kx, 0.0, 0.0), m_steel, verts=6, parent=hf, bevel=0.0)
+            make_sphere(f"{name}_Ullet_{k}", 0.0072, (kx, 0.0, 0.0), m_brass, segs=8, rings=6, parent=hf)
         return hf
 
-    g_llic1 = build_heddle_frame("Llic1", 0.28, -0.03)
-    g_llic2 = build_heddle_frame("Llic2", 0.36, 0.03)
+    g_llic1 = build_heddle_frame("Llic1", 0.28, -0.015)
+    g_llic2 = build_heddle_frame("Llic2", 0.36, 0.015)
 
     # Pedals inferiors pivotats darrere (Y = 0.65, Z = 0.21)
     g_pedal1 = add_empty("Pedal1", (-0.16, 0.65, 0.21), parent=g_llicos)
@@ -269,6 +270,9 @@ def build_llancadora_scene(animate=False):
     make_box("ManovellaBrac", (0.025, 0.032, 0.16), (1.18, -0.74, 0.59), m_iron, parent=g_tela, bevel=0.003)
     make_cyl("ManovellaPom", 0.018, 0.11, (1.24, -0.74, 0.52), m_wood_dark, rot=(0, math.pi / 2, 0), parent=g_tela)
 
+    # --- 9. TEIXIDOR A ESCALA REAL DAVANT DEL TELER ---
+    worker = make_worker("TeixidorKay", (0.14, -1.24, 0.14), facing_yaw=0.08, scale=1.0, role="weaver")
+
     def apply_pose(p):
         st = eval_loom_state(p)
         # Batà: reposa enrere (+0.29 rad -> pista a Y~+0.09) i bat fins Y=-0.40 (-0.23 rad)
@@ -302,10 +306,34 @@ def build_llancadora_scene(animate=False):
         vis_x = max(0.05, min(1.0, (st["shuttle_x"] + 0.75) / 1.50))
         g_trama_activa.scale = (vis_x, 1.0, 1.0)
 
+        # Teixidor: mà dreta estira el mànec del cordill; mà esquerra acompanya el batà; cames premen els pedals
+        hx = st["handle_x"]
+        set_worker_pose(
+            worker,
+            torso_rot=(0.14 + 0.08 * st["beat"], 0.0, -0.08 * hx),
+            head_rot=(-0.14, 0.0, 0.12 * hx),
+            r_sh=(1.22, 0.0, -0.35 + 0.65 * hx),
+            r_elb=(-0.55 - 0.18 * abs(hx), 0.0, 0.0),
+            l_sh=(1.08 + 0.25 * st["beat"], 0.0, 0.22),
+            l_elb=(-0.62 + 0.18 * st["beat"], 0.0, 0.0),
+            l_hip=(0.12 * st["shed"], 0.0, 0.0),
+            r_hip=(-0.12 * st["shed"], 0.0, 0.0),
+        )
+
     if animate:
         scene = bpy.context.scene
         scene.frame_start = 1
         scene.frame_end = 60
+        worker_objs = [
+            worker["torso"],
+            worker["head"],
+            worker["l_sh"],
+            worker["l_elb"],
+            worker["r_sh"],
+            worker["r_elb"],
+            worker["l_hip"],
+            worker["r_hip"],
+        ]
         anim_objs = [
             g_bata,
             g_llic1,
@@ -323,7 +351,7 @@ def build_llancadora_scene(animate=False):
             g_cord_v_esq,
             g_cord_v_dret,
             g_trama_activa,
-        ]
+        ] + worker_objs
         for fr in range(1, 61):
             p = (fr - 1) / 60.0
             apply_pose(p)
@@ -336,7 +364,7 @@ def build_llancadora_scene(animate=False):
         # Posa en el moment més didàctic: calada ben oberta i llançadora creuant el centre
         apply_pose(0.27)
 
-    setup_lighting(cam_loc=(2.75, -3.55, 2.28), target=(0.02, -0.05, 0.92), lens=44.0)
+    setup_lighting(cam_loc=(2.88, -3.72, 2.28), target=(0.0, -0.22, 0.92), lens=38.0, mood="workshop")
 
     anchors = {
         "ordit": (-0.45, 0.56, 0.92),

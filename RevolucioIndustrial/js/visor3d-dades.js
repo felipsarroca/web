@@ -256,12 +256,12 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Anada i tornada del carro',
     fonamentHtml: 'Basat en la primera mula de fusta conservada de Samuel Crompton (c. 1780): <a href="https://boltonlams.co.uk/museum/crompton/" target="_blank" rel="noopener">Bolton Museum — Hall i’ th’ Wood</a>.',
     hotspots: {
-      fileta: { num: 1, titol: 'Fileta de metxes de cotó', text: 'Prestatge inclinat amb 6 bobines de cotó cardat (rovings) que alimenten sense tensió els corrons posteriors.', pos3d: [-0.98, 1.48, 0.25] },
-      corrons: { num: 2, titol: 'Tres parells de corrons i engranatges', text: 'Roden a velocitat creixent (1×, 1,6× i 3,2×) amb pesos penjants i rodes de llautó externes per aprimar la metxa.', pos3d: [-0.53, 1.05, 0.45] },
-      carro: { num: 3, titol: 'Carro mòbil sobre rails', text: 'Plataforma amb quatre rodes de pestanya que s’allunya estirant el fil i torna cap als corrons per enrotllar-lo.', pos3d: [0.48, 0.44, 0.48] },
-      fus: { num: 4, titol: 'Fusos inclinats, fusades i fil-guia', text: 'Inclinats uns 14° cap als corrons perquè el fil llisqui per la punta mentre torça; el fil-guia el baixa per fer la fusada.', pos3d: [0.34, 1.02, 0.18] },
-      bastidor: { num: 5, titol: 'Bastidor fix de roure', text: 'Sosté la fileta superior i els suports de fosa dels corrons d’estiratge alineats amb els rails del terra.', pos3d: [-1.12, 0.90, 0.58] },
-      roda: { num: 6, titol: 'Roda manual i corró de llauna', text: 'El filador gira la roda amb manovella i fa moure per corretja el corró de llauna longitudinal que acciona tots els fusos alhora.', pos3d: [0.60, 0.92, 0.70] }
+      fileta: { num: 1, titol: 'Fileta de metxes de cotó', text: 'Prestatge inclinat amb 6 bobines de cotó cardat (rovings) que alimenten sense tensió els corrons posteriors.', pos3d: [-1.04, 1.48, 0.35] },
+      corrons: { num: 2, titol: 'Tres parells de corrons i engranatges', text: 'Roden a velocitat creixent (1×, 1,6× i 3,2×) amb pesos penjants i rodes de llautó externes per aprimar la metxa.', pos3d: [-0.54, 1.03, 0.85] },
+      carro: { num: 3, titol: 'Carro mòbil sobre rails', text: 'Plataforma amb quatre rodes de pestanya que s’allunya estirant el fil i torna cap als corrons per enrotllar-lo.', pos3d: [0.72, 0.42, 0.88] },
+      fus: { num: 4, titol: 'Fusos inclinats, fusades i fil-guia', text: 'Inclinats uns 14° cap als corrons perquè el fil llisqui per la punta mentre torça; el fil-guia el baixa per fer la fusada.', pos3d: [0.55, 0.98, 0.45] },
+      bastidor: { num: 5, titol: 'Bastidor fix de roure', text: 'Sosté la fileta superior i els suports de fosa dels corrons d’estiratge alineats amb els rails del terra.', pos3d: [-1.16, 0.88, 1.04] },
+      roda: { num: 6, titol: 'Roda manual i corró de llauna', text: 'El filador gira la roda amb manovella i fa moure per corretja el corró de llauna longitudinal que acciona tots els fusos alhora.', pos3d: [-0.35, 0.9, 1.3] }
     },
     flows: [
       { id: 'mu-fil', cls: 'fl-hot', lbl: 'estiratge de la metxa', fases: [0, 1], from: 'fileta', to: 'corrons', dx1: 6, dy1: 8, dx2: -8, dy2: -4, ctrlDy: -6, lblDy: -8 },
@@ -408,7 +408,7 @@ window.RI_VISOR3D_DADES = {
       corrons: { num: 2, titol: 'Corrons d’estirament i pesos', text: 'Tres parells d’acer estriat i cuir premuts per contrapesos penjants de ferro colat per evitar que les fibres rellissin.', pos3d: [0.12, 1.45, -0.02] },
       engranatges: { num: 3, titol: 'Tren lateral d’engranatges', text: 'Multiplica la velocitat de cada parell successiu (1×, 1,6× i 3,2×) perquè la metxa s’estiri progressivament.', pos3d: [0.59, 1.41, -0.02] },
       aleta: { num: 4, titol: 'Aletes en U i pont de vaivé', text: 'Cada aleta metàl·lica gira ràpidament per tòrcer el fil mentre el pont elevador puja i baixa les bobines per repartir-lo.', pos3d: [-0.12, 0.88, 0.27] },
-      aigua: { num: 5, titol: 'Transmissió hidràulica inferior', text: 'Roda de pales al canaló, parell cònic cap a l’eix rei vertical i tambor d’estany amb cordons fins als fusos.', pos3d: [-0.98, 0.42, 0.0] },
+      aigua: { num: 5, titol: 'Transmissió hidràulica inferior', text: 'Roda de pales al canaló, parell cònic cap a l’eix rei vertical i tambor d’estany amb cordons fins als fusos.', pos3d: [-1.4, 0.42, 0.0] },
       bastidor: { num: 6, titol: 'Bastidor tipus armari fabril', text: 'Màquina alta, pesant i contínua: massa gran per a una casa, obliga a reunir les filadores dins d’una fàbrica vora un riu.', pos3d: [0.54, 1.15, 0.42] }
     },
     flows: [
@@ -554,15 +554,15 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Vapor d’escapament i control centrífug',
     fonamentHtml: 'Reconstrucció mecànica inspirada en els models horitzontals de doble efecte amb vàlvula lliscant en D i regulador centrífug de boles (col·leccions del Science Museum i esquemes clàssics d’enginyeria del segle XIX).',
     hotspots: {
-      cilindre: { num: 1, titol: 'Cilindre horitzontal de doble efecte', text: 'Completament tancat per tots dos caps: rep vapor a pressió primer darrere del pistó i després davant, aprofitant tant l’anada com la tornada.', pos3d: [-1.96, 0.96, 0.32] },
-      piston: { num: 2, titol: 'Pistó i tija estanca', text: 'Pistó metàl·lic amb segments que travessa la tapa davantera mitjançant una caixa d’estopa per no perdre vapor.', pos3d: [-2.02, 0.96, 0.18] },
-      distribucio: { num: 3, titol: 'Vàlvula lliscant en D (caixa de distribució)', text: 'Desplaçant-se a contrafase, connecta alternativament cada lumbrera amb el vapor viu o amb el conducte d’escapament central.', pos3d: [-1.96, 1.42, 0.18] },
-      creuera: { num: 4, titol: 'Creuera i guies lineals', text: 'Manté la tija del pistó perfectament alineada mentre la biela oscil·la d’amunt a avall.', pos3d: [-0.82, 0.96, 0.16] },
-      biela: { num: 5, titol: 'Biela i manovella', text: 'Converteixen el moviment rectilini alternatiu del pistó en gir continu de l’eix principal.', pos3d: [0.2, 0.94, 0.12] },
-      excentrica: { num: 6, titol: 'Excèntrica de distribució', text: 'Anell descentrat sobre l’eix que mou automàticament la barra de la vàlvula en D sincronitzada amb la manovella.', pos3d: [1.05, 1.06, -0.08] },
-      regulador: { num: 7, titol: 'Regulador centrífug de boles (Watt)', text: 'Quan l’eix accelera, les dues boles pesants s’obren per força centrífuga i tanquen parcialment la papallona d’entrada de vapor.', pos3d: [-0.58, 1.66, -0.1] },
-      volant: { num: 8, titol: 'Volant d’inèrcia pesant', text: 'Emmagatzema energia cinètica per superar els punts morts de la manovella amb una velocitat uniforme.', pos3d: [1.6, 1.85, -0.25] },
-      corretja: { num: 9, titol: 'Politja i corretja cap a la fàbrica', text: 'Transmet la força rotatòria al sostre de la nau industrial per moure desenes de telers i filadores.', pos3d: [1.58, 1.62, -0.23] }
+      cilindre: { num: 1, titol: 'Cilindre horitzontal de doble efecte', text: 'Completament tancat per tots dos caps: rep vapor a pressió primer darrere del pistó i després davant, aprofitant tant l’anada com la tornada.', pos3d: [-1.96, 0.96, 0.32], orbit: '10deg 76deg 2.5m' },
+      piston: { num: 2, titol: 'Pistó i tija estanca', text: 'Pistó metàl·lic amb segments que travessa la tapa davantera mitjançant una caixa d’estopa per no perdre vapor.', pos3d: [-2.02, 0.96, 0.18], orbit: '6deg 76deg 2.2m' },
+      distribucio: { num: 3, titol: 'Vàlvula lliscant en D (caixa de distribució)', text: 'Desplaçant-se a contrafase, connecta alternativament cada lumbrera amb el vapor viu o amb el conducte d’escapament central.', pos3d: [-1.96, 1.42, 0.18], orbit: '8deg 74deg 2.1m' },
+      creuera: { num: 4, titol: 'Creuera i guies lineals', text: 'Manté la tija del pistó perfectament alineada mentre la biela oscil·la d’amunt a avall.', pos3d: [-0.82, 0.96, 0.16], orbit: '12deg 76deg 2.4m' },
+      biela: { num: 5, titol: 'Biela i manovella', text: 'Converteixen el moviment rectilini alternatiu del pistó en gir continu de l’eix principal.', pos3d: [0.2, 0.94, 0.12], orbit: '16deg 76deg 3.0m' },
+      excentrica: { num: 6, titol: 'Excèntrica de distribució', text: 'Anell descentrat sobre l’eix que mou automàticament la barra de la vàlvula en D sincronitzada amb la manovella.', pos3d: [1.05, 1.06, -0.08], orbit: '18deg 75deg 2.4m' },
+      regulador: { num: 7, titol: 'Regulador centrífug de boles (Watt)', text: 'Quan l’eix accelera, les dues boles pesants s’obren per força centrífuga i tanquen parcialment la papallona d’entrada de vapor.', pos3d: [-0.58, 1.66, -0.1], orbit: '14deg 74deg 2.4m' },
+      volant: { num: 8, titol: 'Volant d’inèrcia pesant', text: 'Emmagatzema energia cinètica per superar els punts morts de la manovella amb una velocitat uniforme.', pos3d: [1.6, 1.85, -0.25], orbit: '22deg 74deg 3.8m' },
+      corretja: { num: 9, titol: 'Politja i corretja cap a la fàbrica', text: 'Transmet la força rotatòria al sostre de la nau industrial per moure desenes de telers i filadores.', pos3d: [1.58, 1.62, -0.23], orbit: '26deg 72deg 3.6m' }
     },
     flows: [
       { id: 'r-adm', cls: 'fl-hot', lbl: 'admissió regulada', fases: [0, 2], from: 'regulador', to: 'distribucio', dx1: -10, dy1: 0, dx2: 10, dy2: -4, ctrlDy: -16, lblDy: -10 },
@@ -615,15 +615,15 @@ window.RI_VISOR3D_DADES = {
     backLabel: 'Tornar al capítol del ferrocarril',
     glb: 'assets/models/rocket.glb',
     poster: 'assets/blender/out/rocket-muntada.png',
-    cameraOrbit: '20deg 76deg 8.2m',
+    cameraOrbit: '20deg 76deg 8.0m',
     cameraTarget: '-0.35m 1.25m 0m',
     fov: '35deg',
     detallImg: 'assets/blender/out/rocket-detall.png',
     detallAlt: 'Detall de la caldera multitubular seccionada amb els tubs de coure, el fogar i la biela motriu',
-    detallL: '2–5 · Caldera multitubular i cilindre motriu',
+    detallL: '2–6 · Caldera multitubular, caixa de distribució i cilindre',
     detallR: 'acosta al detall ↗',
-    detallOrbit: '14deg 75deg 3.8m',
-    detallTarget: '0.05m 1.18m 0.15m',
+    detallOrbit: '14deg 75deg 3.5m',
+    detallTarget: '-0.15m 1.22m 0.12m',
     ideaTitol: 'Molts tubs calents + xuclada d’escapament',
     ideaHtml: 'En lloc d’un sol tub gruixut, els fums passen per <strong>25 tubs de coure submergits</strong> que multipliquen l’escalfor. A més, el vapor usat s’injecta dins la xemeneia (<strong>tub d’escapament</strong>) i fa un tir molt fort com més ràpid corre el tren.',
     flowBtnLabel: 'Fums calents, vapor i força',
@@ -631,16 +631,16 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Aigua i vapor d’escapament',
     fonamentHtml: 'Reconstrucció didàctica de 1829 basada en la locomotora original conservada al <a href="https://collection.sciencemuseumgroup.org.uk/objects/co205793/stephensons-rocket-steam-locomotive" target="_blank" rel="noopener">Science Museum de Londres</a>.',
     hotspots: {
-      tender: { num: 1, titol: 'Tènder de coc i aigua', text: 'Vagó annex amb un bocoi d’aigua connectat per mànega a la caldera i coc sense fum per alimentar el fogar.', pos3d: [-2.55, 1.15, 0.2] },
-      fogar: { num: 2, titol: 'Fogar amb camisa d’aigua', text: 'Cremador de coc completament envoltat d’aigua per aprofitar tota la calor radiant sense cremar les parets.', pos3d: [-1.04, 1.05, 0.25] },
-      caldera: { num: 3, titol: 'Caldera cilíndrica seccionada', text: 'Conté l’aigua bullint fins a mitja alçada i acumula el vapor a pressió a la cambra superior i la cúpula.', pos3d: [0.1, 1.25, 0.35] },
-      tubs: { num: 4, titol: 'Feix de tubs de coure', text: 'Condueixen els gasos roents del fogar fins a la caixa de fums, transmetent calor a l’aigua de forma molt ràpida.', pos3d: [0.2, 1.04, 0.2] },
-      vapor: { num: 5, titol: 'Cúpula de vapor sec', text: 'Recull el vapor més sec de la part alta per portar-lo cap als cilindres sense arrossegar gotes d’aigua.', pos3d: [-0.15, 1.78, 0.15] },
-      cilindre: { num: 6, titol: 'Cilindre inclinat a 35°', text: 'Empenta directa sense balancins feixucs: dues unitats laterals mouen directament les rodes motrius davanteres.', pos3d: [-0.48, 1.44, 0.62] },
-      biela: { num: 7, titol: 'Biela i creuera', text: 'Transmeten la cursa del pistó directament al botó de manovella de la gran roda motriu.', pos3d: [0.25, 1.1, 0.62] },
-      roda: { num: 8, titol: 'Gran roda motriu davantera', text: 'Dues rodes de fusta amb cercles de ferro acoblades als cilindres que arrosseguen tot el comboi sobre els rails.', pos3d: [0.87, 0.805, 0.58] },
-      escapament: { num: 9, titol: 'Tub d’escapament (blastpipe)', text: 'Descarrega el vapor usat sota la xemeneia per crear buit i atiar el foc com més de pressa va la locomotora.', pos3d: [0.45, 1.56, 0.28] },
-      xemeneia: { num: 10, titol: 'Xemeneia frontal alta', text: 'Expulsa els fums i el vapor blanc creat pel tir forçat sense envair la visió del maquinista.', pos3d: [1.14, 2.65, 0.16] }
+      tender: { num: 1, titol: 'Tènder de coc i aigua', text: 'Vagó annex amb un bocoi d’aigua seccionat connectat per mànega a la caldera i coc sense fum per alimentar el fogar.', pos3d: [-2.62, 1.12, 0.18], orbit: '16deg 76deg 3.1m' },
+      fogar: { num: 2, titol: 'Fogar amb camisa d’aigua', text: 'Cremador de coc de coure completament envoltat d’aigua, amb graella i virotillos per aprofitar tota la calor sense cremar les parets.', pos3d: [-1.08, 1.05, 0.1], orbit: '6deg 78deg 2.2m' },
+      caldera: { num: 3, titol: 'Caldera cilíndrica seccionada', text: 'Conté l’aigua bullint a la meitat inferior i acumula el vapor a pressió a la cambra superior amb indicador de nivell i manòmetre.', pos3d: [0.08, 1.24, 0.15], orbit: '4deg 76deg 2.6m' },
+      tubs: { num: 4, titol: 'Feix de tubs de coure', text: 'Condueixen els gasos roents del fogar fins a la caixa de fums, transmetent calor a l’aigua circumdant de forma molt ràpida.', pos3d: [0.18, 1.04, 0.05], orbit: '4deg 78deg 2.1m' },
+      vapor: { num: 5, titol: 'Cúpula de vapor sec', text: 'Recull el vapor més sec de la part alta per portar-lo pel regulador cap als cilindres sense arrossegar gotes d’aigua.', pos3d: [-0.14, 1.78, 0.08], orbit: '10deg 72deg 2.2m' },
+      cilindre: { num: 6, titol: 'Cilindre inclinat i vàlvula corredora', text: 'Empenta directa sense balancins feixucs: la caixa de distribució seccionada reparteix el vapor a un i altre costat del pistó.', pos3d: [-0.5, 1.48, 0.58], orbit: '8deg 75deg 2.0m' },
+      biela: { num: 7, titol: 'Biela i creuera', text: 'Transmeten la cursa del pistó directament al botó de manovella de la gran roda motriu.', pos3d: [0.28, 1.12, 0.6], orbit: '8deg 78deg 2.2m' },
+      roda: { num: 8, titol: 'Gran roda motriu davantera', text: 'Dues rodes de fusta amb cercles de ferro acoblades als cilindres que arrosseguen tot el comboi sobre els rails.', pos3d: [0.86, 0.829, 0.58], orbit: '14deg 78deg 2.6m' },
+      escapament: { num: 9, titol: 'Tub d’escapament (blastpipe)', text: 'Descarrega el vapor usat dels dos cilindres sota la xemeneia per crear buit i atiar el foc com més de pressa va la locomotora.', pos3d: [1.1, 1.48, 0.12], orbit: '12deg 76deg 2.3m' },
+      xemeneia: { num: 10, titol: 'Xemeneia frontal alta', text: 'Expulsa els fums i el vapor blanc creat pel tir forçat sense envair la visió del maquinista.', pos3d: [1.15, 2.65, 0.14], orbit: '18deg 74deg 3.2m' }
     },
     flows: [
       { id: 'rk-fum', cls: 'fl-hot', lbl: 'gasos pels tubs', fases: [0], from: 'fogar', to: 'tubs', dx1: 8, dy1: 0, dx2: -8, dy2: 0, ctrlDy: 8, lblDy: 14 },
@@ -693,15 +693,15 @@ window.RI_VISOR3D_DADES = {
     backLabel: 'Tornar al capítol dels vaixells',
     glb: 'assets/models/western.glb',
     poster: 'assets/blender/out/western-muntada.png',
-    cameraOrbit: '14deg 75deg 11.4m',
-    cameraTarget: '0m 1.35m 0m',
+    cameraOrbit: '18deg 76deg 10.6m',
+    cameraTarget: '0m 1.38m 0m',
     fov: '35deg',
     detallImg: 'assets/blender/out/western-detall.png',
-    detallAlt: 'Detall de la sala de màquines seccionada amb el cilindre vertical, el balancí lateral (side-lever) i la roda de pales',
-    detallL: '3–5 · Calderes, side-lever i roda de pales',
+    detallAlt: 'Detall de la sala de màquines seccionada amb el doble fogar, els tubs de retorn, la vàlvula lliscant i el balancí lateral (side-lever)',
+    detallL: '2–6 · Caldera seccionada, side-lever i roda de pales',
     detallR: 'acosta al detall ↗',
-    detallOrbit: '12deg 76deg 4.6m',
-    detallTarget: '0.25m 1.05m 0.25m',
+    detallOrbit: '8deg 76deg 4.2m',
+    detallTarget: '0.28m 0.96m 0.05m',
     ideaTitol: 'Més mida = molt més carbó i menys fregament',
     ideaHtml: 'Brunel va demostrar que el volum del casc creix al <strong>cub</strong> mentre la resistència de l’aigua creix al <strong>quadrat</strong>: un vaixell gran pot carregar tot el carbó necessari per creuar l’Atlàntic en 15 dies sense aturar-se.',
     flowBtnLabel: 'Circuit de carbó, vapor i empenta',
@@ -709,14 +709,14 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Empenta naval i velam auxiliar',
     fonamentHtml: 'Reconstrucció basada en els plànols de casc i sala de màquines Maudslay de l’<a href="https://www.ssgreatbritain.org/" target="_blank" rel="noopener">SS Great Western (1838)</a>.',
     hotspots: {
-      cabines: { num: 1, titol: 'Cabines i saló de passatgers', text: 'Allotjament a popa per a 128 passatgers de primera classe amb luxe victoriana per a la travessia oceànica.', pos3d: [-2.62, 0.85, 0.1] },
-      carbonera: { num: 2, titol: 'Carboneres d’alta capacitat', text: 'Enormes bodegues centrals capaces d’emmagatzemar fins a 800 tones de carbó al voltant de la sala de calderes.', pos3d: [-1.45, 0.65, 0.05] },
-      calderes: { num: 3, titol: 'Quatre calderes tubulars', text: 'Generen vapor constant dia i nit, mantenint estable el centre de gravetat al mig del casc.', pos3d: [-0.36, 0.88, 0.08] },
-      xemeneia: { num: 4, titol: 'Xemeneia de ferro', text: 'Evacua el fum per sobre dels pals de popa i els balcons de passeig de coberta.', pos3d: [-0.36, 2.72, -0.12] },
-      maquina: { num: 5, titol: 'Màquina side-lever (balancí baix)', text: 'Disseny marí de Maudslay: col·loca els pesants balancins a la part baixa per donar estabilitat en mar oberta.', pos3d: [0.85, 0.92, 0.18] },
-      roda: { num: 6, titol: 'Rodes de pales laterals', text: 'Dues rodes de gairebé 9 metres de diàmetre submergeixen les pales de fusta i empenyen el vaixell contra l’onatge.', pos3d: [0.34, 1.45, 0.92] },
-      veles: { num: 7, titol: 'Quatre pals amb velam mixt', text: 'Amb vent favorable es despleguen les veles per estalviar carbó i estabilitzar el balanceig lateral.', pos3d: [1.38, 2.85, -0.15] },
-      carrega: { num: 8, titol: 'Bodega de càrrega i proa reforçada', text: 'Bodegues davanteres amb quadernes de roure reforçades per resistir les ones de l’Atlàntic Nord.', pos3d: [2.25, 0.72, 0.05] }
+      cabines: { num: 1, titol: 'Cabines i saló de passatgers', text: 'Allotjament a popa per a 128 passatgers de primera classe amb lliteres, taula de caoba, ulls de bou i claraboia.', pos3d: [-2.72, 0.85, 0.05], orbit: '10deg 76deg 2.8m' },
+      carbonera: { num: 2, titol: 'Carboneres i fogoner amb pala', text: 'Enormes bodegues centrals (800 t de carbó) amb el fogoner carregant directament els dos fogars de la caldera.', pos3d: [-1.72, 0.65, 0.08], orbit: '8deg 76deg 2.4m' },
+      calderes: { num: 3, titol: 'Caldera marina retornada seccionada', text: 'Doble fogar de brases, sis tubs de retorn de coure submergits dins l’aigua, indicador de nivell, manòmetre i cúpula de vapor.', pos3d: [-0.58, 0.96, 0.1], orbit: '4deg 78deg 2.3m' },
+      xemeneia: { num: 4, titol: 'Xemeneia de ferro amb vents', text: 'Evacua els gasos que retornen pels tubs de coure per sobre dels pals de popa i les veles.', pos3d: [-0.62, 2.75, -0.08], orbit: '14deg 74deg 3.6m' },
+      maquina: { num: 5, titol: 'Màquina side-lever de Maudslay', text: 'Cilindre vertical seccionat, caixa de vàlvula corredora, condensador, bomba d’aire, balancí baix, biela i bastidor gòtic.', pos3d: [1.12, 0.9, 0.12], orbit: '6deg 76deg 2.3m' },
+      roda: { num: 6, titol: 'Rodes de pales laterals', text: 'Dues rodes de gairebé 9 m (vista completa al costat de babord i arc de secció al frontal) que empenyen contra l’onatge.', pos3d: [0.58, 2.1, -0.98], orbit: '22deg 74deg 4.6m' },
+      veles: { num: 7, titol: 'Quatre pals amb velam mixt', text: 'Amb vent favorable es despleguen les veles per estalviar carbó i estabilitzar el balanceig lateral.', pos3d: [1.48, 2.85, -0.16], orbit: '18deg 74deg 4.8m' },
+      carrega: { num: 8, titol: 'Bodega de càrrega i proa reforçada', text: 'Bocois amb cèrcols de ferro, caixes amb llistons, bales de cotó, escala d’escotilla i molinet d’àncora.', pos3d: [2.25, 0.72, 0.04], orbit: '14deg 76deg 2.8m' }
     },
     flows: [
       { id: 'gw-car', cls: 'fl-hot', lbl: 'carbó cap a calderes', fases: [0], from: 'carbonera', to: 'calderes', dx1: 6, dy1: 0, dx2: -6, dy2: 0, ctrlDy: -10, lblDy: -8 },
@@ -785,11 +785,11 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Empenta de pales i cable de tracció',
     fonamentHtml: 'Reconstrucció del duel històric d’abril de 1845 entre l’<em>HMS Rattler</em> (hèlix de Smith) i l’<em>HMS Alecto</em> (rodes de pales), tots dos amb màquina de 200 CV.',
     hotspots: {
-      motor: { num: 1, titol: 'Màquina del Rattler i engranatge multiplicador', text: 'Una roda dentada multiplica les revolucions perquè l’arbre inferior giri molt més de pressa que una roda de pales.', pos3d: [-2.15, 1.05, 0.0] },
-      arbre: { num: 2, titol: 'Arbre submergit amb bocina estanca', text: 'Eix d’acer que travessa la quilla sota la línia de flotació sense deixar entrar l’aigua dins el casc.', pos3d: [-1.55, 0.62, 0.0] },
-      rattler: { num: 3, titol: 'Hèlix de bronze submergida (HMS Rattler)', text: 'Quatre pales helicoïdals que cargolen l’aigua cap enrere (anells d’empenta) amb màxim aprofitament hidrodinàmic.', pos3d: [-0.68, 0.72, 0.0] },
-      cable: { num: 4, titol: 'Cable d’estira-i-arronsa', text: 'Amarrats popa amb popa, tots dos vaixells posen les màquines a màxima potència en direccions oposades.', pos3d: [0.0, 1.62, 0.0] },
-      alecto: { num: 5, titol: 'Rodes de pales (HMS Alecto)', text: 'Pateixen relliscament superficial i cavitació quan l’onatge deixa mitja pala a l’aire.', pos3d: [1.95, 1.32, 0.6] }
+      motor: { num: 1, titol: 'Màquina del Rattler i engranatge multiplicador', text: 'Una roda dentada multiplica les revolucions perquè l’arbre inferior giri molt més de pressa que una roda de pales.', pos3d: [-2.15, 1.05, 0.0], orbit: '10deg 74deg 2.6m' },
+      arbre: { num: 2, titol: 'Arbre submergit amb bocina estanca', text: 'Eix d’acer que travessa la quilla sota la línia de flotació sense deixar entrar l’aigua dins el casc.', pos3d: [-1.55, 0.6, 0.0], orbit: '12deg 78deg 2.2m' },
+      rattler: { num: 3, titol: 'Hèlix de bronze submergida (HMS Rattler)', text: 'Quatre pales helicoïdals que cargolen l’aigua cap enrere (anells d’empenta) amb màxim aprofitament hidrodinàmic.', pos3d: [-0.64, 0.68, 0.0], orbit: '18deg 78deg 2.1m' },
+      cable: { num: 4, titol: 'Cable d’estira-i-arronsa', text: 'Amarrats popa amb popa, tots dos vaixells posen les màquines a màxima potència en direccions oposades.', pos3d: [0.0, 1.56, 0.0], orbit: '10deg 74deg 3.2m' },
+      alecto: { num: 5, titol: 'Rodes de pales (HMS Alecto)', text: 'Pateixen relliscament superficial i cavitació quan l’onatge deixa mitja pala a l’aire.', pos3d: [1.95, 1.32, 0.6], orbit: '14deg 75deg 3.4m' }
     },
     flows: [
       { id: 'hx-trans', cls: 'fl-hot', lbl: 'engranatge multiplicador', fases: [0, 1], from: 'motor', to: 'rattler', dx1: 4, dy1: 8, dx2: -8, dy2: -4, ctrlDy: 12, lblDy: 14 },
@@ -849,14 +849,14 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Obertura del solc i coberta',
     fonamentHtml: 'Reconstrucció de la sembradora de tres fileres basada en els gravats i tractats de <em>The Horse-Hoeing Husbandry</em> (Jethro Tull, 1731).',
     hotspots: {
-      tremuja: { num: 1, titol: 'Tremuja de fusta amb blat', text: 'Dipòsit superior en forma d’embut que alimenta contínuament els tres compartiments dosadors sense embussos.', pos3d: [0.08, 1.32, 0.25] },
+      tremuja: { num: 1, titol: 'Tremuja de fusta amb blat', text: 'Dipòsit superior en forma d’embut que alimenta contínuament els tres compartiments dosadors sense embussos.', pos3d: [0.08, 1.34, 0.25] },
       dosador: { num: 2, titol: 'Engranatges i tambors dosadors', text: 'Rodes acanalades mogudes per l’eix de les rodes que recullen una dosi regular de llavor a cada gir.', pos3d: [0.08, 0.92, 0.45] },
-      roda: { num: 3, titol: 'Rodes de fusta ferrades', text: 'Suporten tot el bastidor i transmeten el gir al mecanisme dosador: si l’arrossega el cavall, sembra sola; si s’atura, para.', pos3d: [0.05, 0.92, 0.78] },
-      tub: { num: 4, titol: 'Tubs de caiguda fins al solc', text: 'Tres conductes verticals que protegeixen la llavor del vent i la dipositen just al fons de cada solc.', pos3d: [0.08, 0.5, 0.42] },
-      rella: { num: 5, titol: 'Relles obresolcs', text: 'Tres puntes de ferro anteriors que tracen solcs paral·lels de profunditat uniforme davant de cada tub.', pos3d: [0.42, 0.22, 0.42] },
-      rasclet: { num: 6, titol: 'Rasclet posterior col·lector', text: 'Unes pues posteriors arrosseguen terra fina sobre els tres solcs per enterrar el gra a resguard dels ocells.', pos3d: [-0.94, 0.32, 0.35] },
+      roda: { num: 3, titol: 'Rodes de fusta ferrades', text: 'Suporten tot el bastidor i transmeten el gir al mecanisme dosador: si l’arrossega el cavall, sembra sola; si s’atura, para.', pos3d: [0.05, 0.92, 0.8] },
+      tub: { num: 4, titol: 'Tubs de caiguda fins al solc', text: 'Tres conductes verticals que protegeixen la llavor del vent i la dipositen just al fons de cada solc.', pos3d: [0.06, 0.48, 0.42] },
+      rella: { num: 5, titol: 'Relles obresolcs', text: 'Tres puntes de ferro anteriors que tracen solcs paral·lels de profunditat uniforme davant de cada tub.', pos3d: [0.38, 0.2, 0.42] },
+      rasclet: { num: 6, titol: 'Rasclet posterior col·lector', text: 'Unes pues posteriors arrosseguen terra fina sobre els tres solcs per enterrar el gra a resguard dels ocells.', pos3d: [-0.96, 0.3, 0.35] },
       bastidor: { num: 7, titol: 'Bastidor i llances de tir', text: 'Estructura de roure lleugera però rígida amb dues vares davanteres per enganxar-hi el cavall de tir.', pos3d: [0.72, 0.74, 0.64] },
-      esteves: { num: 8, titol: 'Esteves de guia', text: 'Permeten al pagès mantenir les fileres ben rectes i aixecar les relles en girar al capdavall del camp.', pos3d: [-1.58, 1.1, 0.42] }
+      esteves: { num: 8, titol: 'Esteves de guia', text: 'Permeten al pagès mantenir les fileres ben rectes i aixecar les relles en girar al capdavall del camp.', pos3d: [-1.52, 1.08, 0.42] }
     },
     flows: [
       { id: 'sm-rot', cls: 'fl-hot', lbl: 'gir roda → dosador', fases: [0, 1], from: 'roda', to: 'dosador', dx1: -6, dy1: -8, dx2: 6, dy2: 4, ctrlDy: -14, lblDy: -10 },
@@ -925,9 +925,9 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Gleva tallada i bolcada',
     fonamentHtml: 'Reconstrucció basada en la patent de Joseph Foljambe (1730, Rotherham) i exemplars de museu agrari del segle XVIII.',
     hotspots: {
-      cama: { num: 1, titol: 'Cama i bastidor triangular lleuger', text: 'Dues bigues planes sense rodes davanteres que alleugereixen el conjunt a menys de la meitat del pes tradicional.', pos3d: [0.45, 0.82, 0.06] },
-      ganivet: { num: 2, titol: 'Ganivet vertical (coulter)', text: 'Fulla d’acer inclinada que fa el primer tall vertical separant la banda de terra del sòl sense llaurar.', pos3d: [0.64, 0.56, 0.06] },
-      rella: { num: 3, titol: 'Rella triangular afuada', text: 'Talla la gleva horitzontalment per sota de les arrels de la gespa i les males herbes.', pos3d: [0.44, 0.23, 0.14] },
+      cama: { num: 1, titol: 'Cama i bastidor triangular lleuger', text: 'Dues bigues planes sense rodes davanteres que alleugereixen el conjunt a menys de la meitat del pes tradicional.', pos3d: [0.45, 0.8, 0.06] },
+      ganivet: { num: 2, titol: 'Ganivet vertical (coulter)', text: 'Fulla d’acer inclinada que fa el primer tall vertical separant la banda de terra del sòl sense llaurar.', pos3d: [0.64, 0.55, 0.06] },
+      rella: { num: 3, titol: 'Rella triangular afuada', text: 'Talla la gleva horitzontalment per sota de les arrels de la gespa i les males herbes.', pos3d: [0.44, 0.22, 0.14] },
       orello: { num: 4, titol: 'Orelló helicoïdal folrat de ferro', text: 'La peça clau: eleva progressivament la tira de terra i la capgira 135° fent un mínim fregament.', pos3d: [-0.08, 0.36, 0.26] },
       esteves: { num: 5, titol: 'Dues esteves de control', text: 'Un sol pagès pot dirigir l’arada i controlar-ne la profunditat sense necessitat d’un ajudant per guiar els animals.', pos3d: [-1.45, 1.08, 0.22] }
     },
@@ -997,12 +997,12 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Aire fred forçat de la bufadora',
     fonamentHtml: 'Reconstrucció de l’alt forn de coc del segle XVIII inspirada en el forn conservat de <a href="https://www.ironbridge.org.uk/" target="_blank" rel="noopener">Coalbrookdale (Ironbridge)</a>.',
     hotspots: {
-      carrega: { num: 1, titol: 'Pont de càrrega i vagoneta', text: 'Des d’un talús lateral s’aboquen capes alternes de mineral de ferro (vermell), coc (negre) i pedra calcària (blanca).', pos3d: [0.85, 2.95, -0.05] },
-      cuba: { num: 2, titol: 'Cuba refractària amb capes', text: 'A mesura que la càrrega baixa cap a l’interior, els gasos ascendents escalfen i redueixen químicament l’òxid de ferro.', pos3d: [0.0, 2.05, -0.02] },
-      bufadora: { num: 3, titol: 'Cilindre bufador de ferro colat', text: 'Un gran pistó mogut per roda hidràulica o màquina de vapor envia un corrent d’aire potent i continu.', pos3d: [-2.25, 1.15, 0.1] },
-      toveres: { num: 4, titol: 'Tovera d’injecció d’aire', text: 'Broquet cònic que concentra el buf d’aire fins a superar els 1.500 °C just a la zona de fusió del ventre.', pos3d: [-0.55, 0.92, -0.05] },
-      gresol: { num: 5, titol: 'Gresol: ferro líquid i escòria', text: 'El ferro fos pesant s’acumula al fons i les impureses (combinades amb la calcària) floten a sobre en forma d’escòria.', pos3d: [0.0, 0.56, 0.1] },
-      llit: { num: 6, titol: 'Colada al llit de sorra (lingots)', text: 'S’obre la piquera i el ferro colat roent corre pels canals de sorra omplint motlles de lingots («truges i garrins»).', pos3d: [0.0, 0.38, 0.82] }
+      carrega: { num: 1, titol: 'Pont de càrrega i vagoneta', text: 'Des d’un talús lateral s’aboquen capes alternes de mineral de ferro (vermell), coc (negre) i pedra calcària (blanca).', pos3d: [0.85, 2.95, -0.05], orbit: '14deg 72deg 3.2m' },
+      cuba: { num: 2, titol: 'Cuba refractària amb capes', text: 'A mesura que la càrrega baixa cap a l’interior, els gasos ascendents escalfen i redueixen químicament l’òxid de ferro.', pos3d: [0.0, 2.05, -0.02], orbit: '6deg 76deg 2.8m' },
+      bufadora: { num: 3, titol: 'Cilindre bufador de ferro colat', text: 'Un gran pistó mogut per roda hidràulica o màquina de vapor envia un corrent d’aire potent i continu.', pos3d: [-2.25, 1.15, 0.1], orbit: '14deg 74deg 2.8m' },
+      toveres: { num: 4, titol: 'Tovera d’injecció d’aire', text: 'Broquet cònic que concentra el buf d’aire fins a superar els 1.500 °C just a la zona de fusió del ventre.', pos3d: [-0.55, 0.92, -0.05], orbit: '6deg 76deg 2.2m' },
+      gresol: { num: 5, titol: 'Gresol: ferro líquid i escòria', text: 'El ferro fos pesant s’acumula al fons i les impureses (combinades amb la calcària) floten a sobre en forma d’escòria.', pos3d: [0.0, 0.56, 0.1], orbit: '8deg 76deg 2.2m' },
+      llit: { num: 6, titol: 'Colada al llit de sorra (lingots)', text: 'S’obre la piquera i el ferro colat roent corre pels canals de sorra omplint motlles de lingots («truges i garrins»).', pos3d: [0.0, 0.38, 0.82], orbit: '14deg 64deg 2.8m' }
     },
     flows: [
       { id: 'af-desc', cls: 'fl-hot', lbl: 'capes baixen escalfant-se', fases: [0], from: 'carrega', to: 'cuba', dx1: -10, dy1: 4, dx2: 10, dy2: -8, ctrlDy: -8, lblDy: -10 },
@@ -1144,10 +1144,10 @@ window.RI_VISOR3D_DADES = {
     legendCold: 'Aire comprimit per l’eix i toveres',
     fonamentHtml: 'Reconstrucció basada en el convertidor basculant patentat per Sir Henry Bessemer (1856) i la instal·lació de Sheffield.',
     hotspots: {
-      convertidor: { num: 1, titol: 'Pera basculant amb maó refractari', text: 'Carcassa d’acer en forma de pera amb folre gruixut de maó refractari que conté el bany de ferro roent.', pos3d: [0.0, 1.85, 0.35] },
-      toveres: { num: 2, titol: 'Fons perforat amb toveres de llautó', text: 'Injecta dolls d’aire a alta pressió des de baix perquè travessin tota la massa líquida en bombolles.', pos3d: [0.0, 0.92, 0.1] },
-      eix: { num: 3, titol: 'Eix buit (munyó) i cremallera', text: 'Permet fer bascular la pera per carregar o colar sense aturar el pas de l’aire pel conducte intern.', pos3d: [1.18, 1.98, 0.15] },
-      cullera: { num: 4, titol: 'Cullera receptora d’acer fos', text: 'Recull l’acer líquid acabat quan el convertidor bascula al final dels 20 minuts de bufada.', pos3d: [-1.65, 0.77, 0.4] }
+      convertidor: { num: 1, titol: 'Pera basculant amb maó refractari', text: 'Carcassa d’acer en forma de pera amb folre gruixut de maó refractari que conté el bany de ferro roent.', pos3d: [0.0, 1.85, 0.35], orbit: '8deg 75deg 3.0m' },
+      toveres: { num: 2, titol: 'Fons perforat amb toveres de llautó', text: 'Injecta dolls d’aire a alta pressió des de baix perquè travessin tota la massa líquida en bombolles.', pos3d: [0.0, 0.92, 0.1], orbit: '6deg 76deg 2.2m' },
+      eix: { num: 3, titol: 'Eix buit (munyó) i cremallera', text: 'Permet fer bascular la pera per carregar o colar sense aturar el pas de l’aire pel conducte intern.', pos3d: [1.18, 1.98, 0.15], orbit: '22deg 74deg 2.6m' },
+      cullera: { num: 4, titol: 'Cullera receptora d’acer fos', text: 'Recull l’acer líquid acabat quan el convertidor bascula al final dels 20 minuts de bufada.', pos3d: [-1.68, 0.77, 0.4], orbit: '18deg 70deg 2.6m' }
     },
     flows: [
       { id: 'bs-aire', cls: 'fl-cold', lbl: 'aire pel munyó buit', fases: [0, 1], from: 'eix', to: 'toveres', dx1: -4, dy1: 8, dx2: 8, dy2: 0, ctrlDx: 12, ctrlDy: 12, lblDx: 18, lblDy: 10 },
@@ -1292,7 +1292,7 @@ window.RI_VISOR3D_DADES = {
     fonamentHtml: 'Reconstrucció comparativa d’una fàbrica tèxtil de vapor de Manchester o Terrassa del segle XIX (vapors textils urbans).',
     hotspots: {
       caldera: { num: 1, titol: 'Fogar de carbó i caldera de vapor', text: 'Crema carbó mineral de manera ininterrompuda sense dependre del cabal ni del clima.', pos3d: [-2.95, 1.05, 0.0] },
-      xemeneia: { num: 2, titol: 'Xemeneia alta de maó', text: 'Garanteix un tir intens per al foc i eleva els fums per sobre les teulades del barri obrer.', pos3d: [-3.48, 3.25, -0.2] },
+      xemeneia: { num: 2, titol: 'Xemeneia alta de maó', text: 'Garanteix un tir intens per al foc i eleva els fums per sobre les teulades del barri obrer.', pos3d: [-3.5, 3.25, -0.2] },
       motor: { num: 3, titol: 'Màquina de vapor horitzontal i volant', text: 'El cilindre i el gran volant donen gir regular tot l’any i s’acoblen directe a l’arbre mestre.', pos3d: [-1.72, 1.56, 0.0] },
       arbre: { num: 4, titol: 'Arbre vertical mestre', text: 'Recull la potència del motor de vapor i la reparteix per tot l’edifici com a la fàbrica hidràulica.', pos3d: [-0.72, 2.05, 0.0] },
       eixos: { num: 5, titol: 'Embarrats del sostre', text: 'Fan girar desenes de politges simultàniament amb velocitat estabilitzada pel volant d’inèrcia.', pos3d: [0.85, 2.36, 0.0] },

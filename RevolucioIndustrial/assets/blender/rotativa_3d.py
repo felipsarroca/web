@@ -27,10 +27,13 @@ from pbr_comu import (
     make_cyl,
     make_gear,
     make_mat,
+    make_rivet_ring,
     make_rod_between,
+    make_smoke_plume,
     make_sphere,
     make_spoked_wheel,
     make_torus,
+    make_workshop_floor,
     project_anchors,
     render_closeup,
     render_image,
@@ -84,10 +87,16 @@ def build_rotativa(animate=True):
     )
 
     add_shadow_floor(z=0.0, size=14.0)
+    make_workshop_floor("mill_stone", size=(6.4, 3.2, 0.14), center=(-0.10, 0.10), with_room_backdrop=False)
 
     # 1. PLINT DE PEDRA I BANCADA DE FOSA
     make_box("PlintPedra", (4.70, 1.32, 0.42), (-0.12, 0.14, 0.21), m_stone, bevel=0.018, uv_scale=0.5)
     make_box("CornisaPlint", (4.82, 1.42, 0.06), (-0.12, 0.14, 0.43), m_stone, bevel=0.01)
+    # Reblons i llautó d'engreixador al cilindre i manòmetre a l'entrada de vapor
+    make_rivet_ring("ReblonsCilEsq", (cyl_cx - 0.39 if False else -2.35, 0.0, 0.96), 0.30, 14, rivet_r=0.008, axis="X", mat=m_steel)
+    make_rivet_ring("ReblonsCilDret", (-1.57, 0.0, 0.96), 0.30, 14, rivet_r=0.008, axis="X", mat=m_steel)
+    make_cyl("LubricadorCil", 0.036, 0.11, (-1.96, 0.12, 1.56), m_brass)
+    make_cyl("ManometreEsfera", 0.065, 0.028, (-2.22, -0.06, 2.22), m_brass, rot=(math.pi / 2, 0, 0))
 
     # Bancada de ferro pintat (part esquerra sota cilindre/creuera + fossa dreta del volant)
     make_box("BancadaEsq", (2.30, 0.72, 0.28), (-1.22, 0.08, 0.60), m_paint, bevel=0.014)
@@ -208,11 +217,8 @@ def build_rotativa(animate=True):
     # Tub d'escapament vertical
     make_cyl("TubEscapament", 0.055, 0.85, (-1.94, 0.06, 1.88), m_iron)
     make_cyl("BridaEsc", 0.09, 0.03, (-1.94, 0.06, 1.50), m_iron)
-    g_fum_esc = add_empty("NúvolEscapament", (-1.94, 0.06, 2.38))
-    for si, (sx, sy, sz, sr) in enumerate(
-        [(0.0, 0.0, 0.0, 0.07), (0.02, -0.01, 0.11, 0.09), (-0.02, 0.01, 0.24, 0.11)]
-    ):
-        make_sphere(f"VaporEsc_{si}", sr, (sx, sy, sz), m_steam_out, parent=g_fum_esc)
+    g_fum_esc = add_empty("NúvolEscapament", (-1.94, 0.06, 2.34))
+    make_smoke_plume("VaporEsc", (0.0, 0.0, 0.0), 0.62, -0.08, 0.04, 0.068, m_steam_out, wisps=12, seed=29, parent=g_fum_esc)
 
     # Càmeres de vapor dins el cilindre (esquerra i dreta del pistó: alterna calent/usat amb escala per glTF)
     g_cam_esq_hot = add_empty("VaporCamEsqHot", (cyl_cx - cyl_len * 0.45, 0.0, cyl_cz))
@@ -441,12 +447,13 @@ def build_rotativa(animate=True):
                 o.keyframe_insert(data_path="rotation_euler", frame=fr)
                 o.keyframe_insert(data_path="scale", frame=fr)
         set_linear_fcurves(anim_objs)
+        scene.frame_set(12)
     else:
         apply_pose(0.18)
 
-    cam_loc = (-0.25, -7.15, 2.55)
-    target = (-0.12, 0.05, 1.30)
-    setup_lighting(cam_loc, target, lens=42.0)
+    cam_loc = (2.15, -6.45, 2.75)
+    target = (-0.15, 0.05, 1.28)
+    setup_lighting(cam_loc, target, lens=42.0, mood="workshop")
 
     anchors = {
         "cilindre": (cyl_cx, -0.32, cyl_cz),
