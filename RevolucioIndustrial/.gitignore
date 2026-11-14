@@ -1,2 +1,5 @@
 # Captures, registres i snapshots temporals de les proves de navegador.
 .playwright-mcp/
+__pycache__/
+*.pyc
+

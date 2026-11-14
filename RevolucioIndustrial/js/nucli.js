@@ -269,11 +269,12 @@
     const llegenda = cap.llegenda ? `<div class="llegenda" aria-label="Codi de colors">${LL.map(([c, t]) => `<span><i style="background:${c}"></i>${esc(t)}</span>`).join('')}<span><i class="foc"></i>on mirar ara</span></div>` : '';
     const realHtml = e.laminaMuntada ? RI.laminaHTML(e,'muntada') : '';
     $('#cos').className = 'cos';
+    const te3D = VISTES_3D[e.id];
     $('#cos').innerHTML = `
     <section class="escenari" id="escenari">
       <div class="barra">
         <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}</div>
-        <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
+        <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}${te3D ? '<button type="button" class="b-3d" id="b-3d" title="Obre el visor 3D interactiu">3D</button>' : ''}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
       ${e.innovacio ? `<div class="tx-compara"><span><small>Abans</small>${esc(e.innovacio.abans)}</span><b aria-hidden="true">→</b><span><small>Amb aquest invent</small>${esc(e.innovacio.ara)}</span></div>` : ''}
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
@@ -345,6 +346,7 @@
       if (bz) { setZoom(!st.zoom); return; }
       const bRec = ev.target.closest('[data-recons]');
       if (bRec) { const on = bRec.getAttribute('aria-pressed') !== 'true'; bRec.setAttribute('aria-pressed', on); const lr = $('#lamina-real'); if (lr) lr.dataset.mode = on ? 'dibuix' : 'foto'; aplicaExplota(); return; }
+      if (ev.target.closest('#b-3d')) { obreModal3D(e.id); return; }
       if (ev.target.closest('#b-amplia')) { amplia(); return; }
       const b = ev.target.closest('[data-capa]'); if (!b) return;
       const on = b.getAttribute('aria-pressed') !== 'true';
@@ -808,6 +810,80 @@
     });
   }
 
+  const VISTES_3D = {
+    watt: 'El cilindre calent, el condensador fred · 3D',
+    llancadora: 'La llançadora volant de John Kay · 3D',
+    mula: 'La mula de filar (Mule-Jenny) · 3D',
+    cartwright: 'El teler mecànic de Cartwright · 3D'
+  };
+
+  function asseguraModal3D() {
+    let mod = $('#modal-3d');
+    if (mod) return mod;
+    mod = document.createElement('div');
+    mod.id = 'modal-3d';
+    mod.className = 'modal-3d';
+    mod.setAttribute('role', 'dialog');
+    mod.setAttribute('aria-modal', 'true');
+    mod.setAttribute('aria-labelledby', 'modal-3d-tit');
+    mod.innerHTML =
+      '<div class="modal-3d-caixa" id="modal-3d-caixa">' +
+        '<div class="modal-3d-cap">' +
+          '<strong id="modal-3d-tit">Model 3D interactiu</strong>' +
+          '<div class="modal-3d-accions">' +
+            '<button type="button" class="modal-3d-btn" id="modal-3d-fs" aria-pressed="false">Pantalla completa</button>' +
+            '<button type="button" class="modal-3d-btn tanca" id="modal-3d-tanca" aria-label="Tanca la finestra 3D">Tanca ×</button>' +
+          '</div>' +
+        '</div>' +
+        '<iframe id="modal-3d-frame" class="modal-3d-frame" src="about:blank" title="Visor 3D interactiu" allow="fullscreen" allowfullscreen></iframe>' +
+      '</div>';
+    document.body.appendChild(mod);
+    const caixa = $('#modal-3d-caixa', mod);
+    const btnFs = $('#modal-3d-fs', mod);
+    const syncFsBtn = () => {
+      const enFs = document.fullscreenElement === caixa;
+      btnFs.setAttribute('aria-pressed', enFs ? 'true' : 'false');
+      btnFs.textContent = enFs ? 'Surt de pantalla completa' : 'Pantalla completa';
+    };
+    mod.addEventListener('click', (ev) => { if (ev.target === mod) tancaModal3D(); });
+    $('#modal-3d-tanca', mod).addEventListener('click', tancaModal3D);
+    btnFs.addEventListener('click', () => {
+      if (document.fullscreenElement === caixa) document.exitFullscreen().catch(() => {});
+      else if (caixa.requestFullscreen) caixa.requestFullscreen().catch(() => {});
+    });
+    document.addEventListener('fullscreenchange', syncFsBtn);
+    return mod;
+  }
+
+  function obreModal3D(id) {
+    const tit = VISTES_3D[id];
+    if (!tit) return;
+    const mod = asseguraModal3D();
+    const frame = $('#modal-3d-frame', mod);
+    $('#modal-3d-tit', mod).textContent = tit;
+    frame.title = tit;
+    frame.src = `visor-3d.html?m=${encodeURIComponent(id)}&popup=1`;
+    mod.classList.add('obert');
+    document.body.classList.add('amb-modal-3d');
+    const bTanca = $('#modal-3d-tanca', mod);
+    if (bTanca) bTanca.focus();
+  }
+
+  function tancaModal3D() {
+    const mod = $('#modal-3d');
+    if (!mod || !mod.classList.contains('obert')) return;
+    const caixa = $('#modal-3d-caixa', mod);
+    if (document.fullscreenElement && (document.fullscreenElement === caixa || mod.contains(document.fullscreenElement))) {
+      document.exitFullscreen().catch(() => {});
+    }
+    mod.classList.remove('obert');
+    document.body.classList.remove('amb-modal-3d');
+    const frame = $('#modal-3d-frame', mod);
+    if (frame) frame.src = 'about:blank';
+    const b3d = $('#b-3d');
+    if (b3d) b3d.focus();
+  }
+
   /* accés directe a una escena i un moment (proves i enllaços) */
   RI.ves = (i, p) => { obreEscena(i); if (p != null) { st.play = false; st.fiPas = null; st.p = p; st.brut = true; botoPlay(); actualitzaAra(); } };
 
@@ -819,7 +895,14 @@
     window.addEventListener('resize',mesuraPeu);
 
     document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && $('#escenari.gran') && document.documentElement.classList.contains('mobil')) amplia(false); });
-    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && $('#escenari.gran')) amplia(false); });
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Escape') return;
+      if ($('#modal-3d.obert')) { tancaModal3D(); return; }
+      if ($('#escenari.gran')) amplia(false);
+    });
+    window.addEventListener('message', (ev) => {
+      if (ev.data && ev.data.tipus === 'tanca-modal-3d' && $('#modal-3d.obert')) tancaModal3D();
+    });
     if (document.body.dataset.capitol === 'portada') { if (RI.portada) RI.portada(); }
     else if (st.cap) munta();
   });

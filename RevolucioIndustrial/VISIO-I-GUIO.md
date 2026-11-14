@@ -214,3 +214,17 @@ En mòbil, la vista explotada presenta primer la màquina i després la llegenda
 ## 15. Tipografia de les idees clau del 14-11-2026
 
 El text de «La idea clau» de totes les escenes passa de la tipografia de títols en seminegreta a la lletra de lectura de pes normal. L'etiqueta continua destacada i el contingut no canvia.
+
+## 16. Segona versió local del pilot de Watt del 14-11-2026
+
+La prova local a `prototips/watt-pilot/` incorpora el model de Blender més detallat, les vistes muntada i explotada renderitzades de nou i quatre conjunts seleccionables. Blender genera capes independents que permeten destacar nítidament la caldera, el cilindre i pistó, el condensador, o el balancí i bomba, mentre la resta de la imatge s'atenua. Una fitxa breu n'explica la funció i, al mòbil, un acostament mostra la peça ampliada. També es mantenen el detall del condensador i el vaivé de vint fotogrames, sense dependència de WebGL. És una reconstrucció didàctica per revisar abans d'integrar-la a `vapor.html`; no és un plànol històric exacte.
+
+## 17. Models 3D Blender 5.3 i finestra emergent «3D» del 14-11-2026
+
+- S’han modelat, texturitzat en PBR i animat en Blender 5.3 quatre màquines clau exportades a `.glb` (`assets/models/watt.glb`, `llancadora.glb`, `mula.glb`, `cartwright.glb`) amb làmines de detall i coordenades 3D verificades als `*_meta.json`:
+  - **Màquina de Watt (1769):** caldera reblonada, camisa de vapor, cilindre tancat, tub d’equilibri, condensador separat i bomba d’aire en tina freda, balancí amb sectors circulars i bomba de mina.
+  - **Llançadora volant de John Kay (1733):** bastidor de roure, ordit en dues capes, lliços i pedals alternats, batà suspès amb pinta d’acer, caixes laterals amb tacos de cuir sobre varetes i cordill central en V.
+  - **Mula de filar de Crompton (1779):** fileta inclinada amb 6 bobines de cotó, tres parells de corrons d’estiratge amb engranatges externs de llautó i pesos penjants, carro mòbil sobre rails d’acer, corró de llauna, fusos inclinats, fil-guia i roda manual lateral.
+  - **Teler mecànic de Cartwright (1787–1790):** corretja plana des de l’embarrat superior, volant d’inèrcia, eix principal de manovelles i bieles forjades, engranatge reductor 2:1 cap a l’eix de lleves, impulsors mecànics i plegador de tela frontal.
+- S’ha creat el visor unificat `visor-3d.html` alimentat per `js/visor3d-dades.js` (amb càmera 360°, zoom, pan lateral i vertical, etiquetes 3D clicables amb bafarada allà mateix, curs/moviment superposat i quatre fases del cicle).
+- A `vapor.html` (pestanya de Watt) i `textil.html` (pestanyes de llançadora volant, mula de filar i teler de Cartwright) s’ha afegit el botó pastel **`3D`** (`js/nucli.js`, `css/estil.css`), que obre el visor dins d’una finestra emergent (`?popup=1`) sense la comparativa inferior, amb botó de **Pantalla completa** i tancament mitjançant **Tanca ×**, clic fora o `Esc`.
