@@ -15,7 +15,8 @@ with sync_playwright() as pw:
             page = browser.new_page(viewport={"width": width, "height": height})
             page.on("pageerror", lambda error: failures.append(str(error)))
             page.goto((ROOT / f"{chapter}.html").as_uri() + f"#{scene}")
-            page.wait_for_selector("#tela svg path[id$='-ruta']")
+            route_id = "#rail-ruta" if chapter == "tren" else "#mar-ruta"
+            page.wait_for_selector(f"#tela svg {route_id}")
             if page.locator("#b-play").get_attribute("aria-pressed") == "true":
                 page.locator("#b-play").click()
             page.locator("#lliscador").evaluate("el => {el.value = 650; el.dispatchEvent(new Event('input'));}")
@@ -27,6 +28,21 @@ with sync_playwright() as pw:
                 title: document.querySelector('#tela svg title')?.textContent
             })""")
             assert status["route"] > 500 and status["marker"] and status["title"] and not status["overflow"], (chapter, width, status)
+            if chapter == "vaixell":
+                comparison = page.evaluate("""() => {
+                    const svg = document.querySelector('#tela svg');
+                    const out = [...svg.querySelectorAll('text')].filter(el => {
+                        const b = el.getBBox();
+                        return b.x < -60 || b.y < 0 || b.x + b.width > 1260 || b.y + b.height > 720;
+                    }).map(el => el.textContent);
+                    return {
+                        out,
+                        steam: +document.querySelector('#mar-barra-vapor').getAttribute('width'),
+                        sail: +document.querySelector('#mar-barra-vela').getAttribute('width'),
+                        ships: !!document.querySelector('#mar-vaixell') && !!document.querySelector('#mar-veler')
+                    };
+                }""")
+                assert not comparison["out"] and comparison["steam"] > comparison["sail"] and comparison["ships"], (width, comparison)
             if width in (1366, 390):
                 path = SHOTS / f"{chapter}-mapa-{width}.png"
                 page.screenshot(path=str(path), full_page=True)

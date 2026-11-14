@@ -140,13 +140,13 @@
         id: 'atlantic', nom: 'Travessar l’Atlàntic', any: '1838', durada: 16,
         model: 'QGIS · Natural Earth · connexió esquemàtica entre Bristol i Nova York',
         pregunta: 'Què canviava en travessar l’Atlàntic?',
-        intro: 'El <b>Great Western</b> va sortir de Bristol el 8 d’abril de 1838 i va arribar a Nova York el dia 23. El vapor no depenia tant del vent i feia el viatge més regular. La línia del mapa situa els ports: no és la derrota real del vaixell.',
+        intro: 'Bristol i Nova York estan separats per uns <b>5.400 km en línia recta</b>. El <b>Great Western</b> hi va arribar en quinze dies i mig el 1838. Compara-ho amb els velers cap a l’oest dels anys 1840: és una simulació de durades, no una cursa real ni la derrota exacta dels vaixells.',
         svg: RI.mapaAtlantic, anima: RI.animaMapaAtlantic, llegenda: false,
         fases: [
           { fins: 0.44, nom: 'El vapor: 15 dies i mig', text: 'El primer viatge del Great Western, de Bristol a Nova York, dura aproximadament quinze dies i mig. L’arribada demostra que un gran vapor pot creuar l’oceà.' },
           { fins: 1, nom: 'La vela: entorn de cinc setmanes', text: 'Al decenni de 1840, la travessia cap a l’oest en un veler de passatgers durava entorn de cinc setmanes. És una mitjana d’altres viatges, no el temps d’un vaixell que sortís amb el Great Western.' }
         ],
-        clau: 'La propulsió a vapor escurça i fa més previsible una travessia que amb vela encara depèn molt del vent.',
+        clau: 'Vapor (1838): 15 dies i mig. Vela (anys 1840): entorn de cinc setmanes cap a l’oest. El vapor escurça i fa més previsible la travessia.',
         batx: { titol: 'Un viatge i una mitjana', text: 'Els quinze dies i mig corresponen al primer viatge d’un vaixell concret el 1838; les cinc setmanes resumeixen travessies de velers cap a l’oest durant els anys 1840. Què perdries si presentessis aquestes dades com una cursa entre dos vaixells?', font: 'https://www.rmg.co.uk/stories/ocean/sailing-ships-steam-power-how-industrial-revolution-changed-life-sea-forever', fontNom: 'Royal Museums Greenwich · Del veler al vapor' }
       }
     ],

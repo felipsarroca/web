@@ -53,38 +53,63 @@
 
   RI.mapaAtlantic = function () {
     const m = geo.sea, p = m.places, d = line(m.route);
+    const steam = line(m.route.map(([x, y], i) => [x, y - 20 * Math.sin(Math.PI * i / (m.route.length - 1))]));
+    const sail = line(m.route.map(([x, y], i) => [x, y + 20 * Math.sin(Math.PI * i / (m.route.length - 1))]));
     const s = `
       <title>Ruta del Great Western, de Bristol a Nova York, abril de 1838</title>
       <desc>Mapa de l'Atlàntic amb els ports de Bristol i Nova York. La línia és una connexió esquemàtica i no la derrota real del vaixell.</desc>
-      <defs><linearGradient id="mapa-ocea" x2="0" y2="1"><stop stop-color="#98c4d9"/><stop offset="1" stop-color="#619cbe"/></linearGradient><pattern id="mapa-ones" width="55" height="31" patternUnits="userSpaceOnUse"><path d="M0 15q14-8 28 0t27 0" fill="none" stroke="#eef8f8" stroke-opacity=".21" stroke-width="2"/></pattern></defs>
+      <defs><linearGradient id="mapa-ocea" x2="0" y2="1"><stop stop-color="#98c4d9"/><stop offset="1" stop-color="#619cbe"/></linearGradient><pattern id="mapa-ones" width="55" height="31" patternUnits="userSpaceOnUse"><path d="M0 15q14-8 28 0t27 0" fill="none" stroke="#eef8f8" stroke-opacity=".21" stroke-width="2"/></pattern><marker id="mapa-fletxa-oest" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M1 1L8 5 1 9" fill="none" stroke="#fffaf0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
       <rect x="-60" y="0" width="1320" height="720" fill="url(#mapa-ocea)"/>
       <rect x="-60" y="0" width="1320" height="720" fill="url(#mapa-ones)"/>
       <g transform="translate(0 40)"><path d="${m.land}" fill="#e7ddbe" fill-rule="evenodd" stroke="#a5a88b" stroke-width="2"/></g>
-      ${label(20, 61, 'Bristol → Nova York', { size: 35, halo: '#e7ddbe', outline: 7 })}
-      ${label(22, 91, 'Primera travessia del Great Western · abril de 1838', { size: 17, weight: 600, fill: '#365c72', halo: '#e7ddbe' })}
-      ${label(560, 240, 'OCEÀ ATLÀNTIC', { anchor: 'middle', size: 23, weight: 600, fill: '#2b6482', halo: '#a4cddd', outline: 3 })}
-      <path d="${d}" transform="translate(0 40)" fill="none" stroke="#fffdf7" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" opacity=".86"/>
-      <path d="${d}" transform="translate(0 40)" fill="none" stroke="#356d8b" stroke-width="10" stroke-dasharray="5 11" stroke-linecap="round" stroke-linejoin="round"/>
-      <path id="mar-ruta" d="${d}" transform="translate(0 40)" fill="none" stroke="#e7933c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="243" y="24" width="713" height="57" rx="16" fill="#fffaf0" fill-opacity=".94" stroke="#c5b99e" stroke-width="2"/>
+      ${label(599, 61, 'BRISTOL → NOVA YORK · uns 5.400 km', { anchor: 'middle', size: 29, halo: '#fffaf0', outline: 3 })}
+      ${label(560, 235, 'OCEÀ ATLÀNTIC', { anchor: 'middle', size: 25, weight: 600, fill: '#245b79', halo: '#a4cddd', outline: 3 })}
+      ${label(170, 252, 'AMÈRICA DEL NORD', { size: 21, weight: 700, fill: '#36534c', halo: '#e7ddbe' })}
+      ${label(1030, 225, 'EUROPA', { anchor: 'end', size: 21, weight: 700, fill: '#36534c', halo: '#e7ddbe' })}
+      <path d="${d}" transform="translate(0 40)" fill="none" stroke="#fffdf7" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+      <path d="${steam}" transform="translate(0 40)" fill="none" stroke="#a34f25" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${sail}" transform="translate(0 40)" fill="none" stroke="#226582" stroke-width="7" stroke-dasharray="7 11" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+      <path id="mar-ruta" d="${steam}" transform="translate(0 40)" fill="none" stroke="#f0a653" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#mapa-fletxa-oest)"/>
+      <path id="mar-vela-ruta" d="${sail}" transform="translate(0 40)" fill="none" stroke="#28728e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
       ${dot(p.Bristol[0], p.Bristol[1] + 40, '#b34d2f', 10)}
       ${dot(p['Nova York'][0], p['Nova York'][1] + 40, '#b34d2f', 10)}
-      ${label(p.Bristol[0] - 17, p.Bristol[1] + 19, 'Bristol', { anchor: 'end', size: 25 })}
-      ${label(p['Nova York'][0] + 18, p['Nova York'][1] - 16, 'Nova York', { size: 25 })}
-      <g id="mar-vaixell" transform="translate(${p.Bristol[0]} ${p.Bristol[1] + 40})"><circle r="25" fill="#b34d2f" stroke="#fffaf0" stroke-width="4"/><path d="M-15 2H16l-6 11H-9Z" fill="#fffaf0"/><path d="M-3 0v-14h8V0" fill="#fffaf0"/><path d="M-13-5h6M-13-11h6" stroke="#fffaf0" stroke-width="3"/></g>
-      ${badge(38, 573, 286, 'GREAT WESTERN · 1838', '15 dies i mig', true)}
-      ${badge(335, 573, 297, 'VELERS CAP A L’OEST · 1840s', 'entorn de 5 setmanes')}
-      <g transform="translate(1050 611)" fill="none" stroke="#234c63" stroke-width="3"><circle r="28" fill="#d7e6e7" fill-opacity=".75"/><path d="M0 18V-18m0 0-8 10m8-10 8 10" stroke-linecap="round" stroke-linejoin="round"/></g>
-      ${label(1050, 572, 'N', { anchor: 'middle', size: 18, weight: 700, halo: '#b7d4df' })}
-      ${label(1190, 685, 'QGIS · Natural Earth · connexió esquemàtica entre ports', { anchor: 'end', size: 15, weight: 600, fill: '#24546e', halo: '#bbd8e2', outline: 3 })}`;
+      ${label(p.Bristol[0] + 12, p.Bristol[1] + 17, 'BRISTOL', { anchor: 'end', size: 27 })}
+      ${label(p['Nova York'][0] + 17, p['Nova York'][1] - 19, 'NOVA YORK', { size: 27 })}
+      <g id="mar-vaixell" transform="translate(${p.Bristol[0]} ${p.Bristol[1] + 24})"><circle r="25" fill="#b34d2f" stroke="#fffaf0" stroke-width="4"/><path d="M-15 2H16l-6 11H-9Z" fill="#fffaf0"/><path d="M-3 0v-14h8V0" fill="#fffaf0"/><path d="M-13-5h6M-13-11h6" stroke="#fffaf0" stroke-width="3"/></g>
+      <g id="mar-veler" transform="translate(${p.Bristol[0]} ${p.Bristol[1] + 56})"><circle r="25" fill="#226582" stroke="#fffaf0" stroke-width="4"/><path d="M-15 4H16l-6 9H-9Z" fill="#fffaf0"/><path d="M-3-1v-21l16 20zM-6 1l-13-2L-6-18z" fill="#fffaf0"/></g>
+      <rect x="35" y="546" width="1120" height="151" rx="17" fill="#fffaf0" fill-opacity=".96" stroke="#809dac" stroke-width="2"/>
+      ${label(56, 574, 'COMPARACIÓ DE DURADES · no és una cursa real', { size: 18, weight: 700, fill: '#305669', halo: '#fffaf0', outline: 2 })}
+      ${label(1065, 574, 'Dia', { anchor: 'end', size: 18, weight: 600, fill: '#305669', halo: '#fffaf0', outline: 2 })}
+      <text id="mar-dia" x="1125" y="574" text-anchor="end" fill="#203e48" font-family="Fraunces,Georgia,serif" font-size="25" font-weight="700">0</text>
+      <rect x="363" y="593" width="552" height="20" rx="10" fill="#ddd8cb"/>
+      <rect id="mar-barra-vapor" x="363" y="593" width="0" height="20" rx="10" fill="#d78239"/>
+      <rect x="363" y="642" width="552" height="20" rx="10" fill="#ddd8cb"/>
+      <rect id="mar-barra-vela" x="363" y="642" width="0" height="20" rx="10" fill="#28728e"/>
+      ${label(58, 611, 'VAPOR · 1838', { size: 22, fill: '#8d431f', halo: '#fffaf0', outline: 2 })}
+      ${label(58, 660, 'VELA · anys 1840', { size: 22, fill: '#245e77', halo: '#fffaf0', outline: 2 })}
+      ${label(1115, 611, '15 dies i mig', { anchor: 'end', size: 23, fill: '#8d431f', halo: '#fffaf0', outline: 2 })}
+      ${label(1115, 660, '≈ 5 setmanes', { anchor: 'end', size: 23, fill: '#245e77', halo: '#fffaf0', outline: 2 })}
+      ${label(1147, 715, 'QGIS · Natural Earth · rutes esquemàtiques', { anchor: 'end', size: 13, weight: 600, fill: '#24546e', halo: '#bbd8e2', outline: 2 })}`;
     return RI.svg(s);
   };
 
   RI.animaMapaAtlantic = function ({ p, el, svg }) {
-    const route = el('mar-ruta');
-    const length = svg._mapLength || (svg._mapLength = route.getTotalLength());
-    const fraction = Math.max(0, Math.min(1, (p * 35) / 15.5));
-    route.style.strokeDasharray = `${(length * fraction).toFixed(1)} ${length.toFixed(1)}`;
-    const point = route.getPointAtLength(length * fraction);
-    el('mar-vaixell').setAttribute('transform', `translate(${point.x.toFixed(1)} ${(point.y + 40).toFixed(1)})`);
+    const steam = el('mar-ruta');
+    const sail = el('mar-vela-ruta');
+    const steamLength = svg._steamLength || (svg._steamLength = steam.getTotalLength());
+    const sailLength = svg._sailLength || (svg._sailLength = sail.getTotalLength());
+    const day = Math.max(0, Math.min(35, p * 35));
+    const steamFraction = Math.min(1, day / 15.5);
+    const sailFraction = day / 35;
+    steam.style.strokeDasharray = `${(steamLength * steamFraction).toFixed(1)} ${steamLength.toFixed(1)}`;
+    sail.style.strokeDasharray = `${(sailLength * sailFraction).toFixed(1)} ${sailLength.toFixed(1)}`;
+    const steamPoint = steam.getPointAtLength(steamLength * steamFraction);
+    const sailPoint = sail.getPointAtLength(sailLength * sailFraction);
+    el('mar-vaixell').setAttribute('transform', `translate(${steamPoint.x.toFixed(1)} ${(steamPoint.y + 24).toFixed(1)})`);
+    el('mar-veler').setAttribute('transform', `translate(${sailPoint.x.toFixed(1)} ${(sailPoint.y + 56).toFixed(1)})`);
+    el('mar-barra-vapor').setAttribute('width', (552 * steamFraction).toFixed(1));
+    el('mar-barra-vela').setAttribute('width', (552 * sailFraction).toFixed(1));
+    el('mar-dia').textContent = Math.round(day);
   };
 })();
