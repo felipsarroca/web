@@ -1,0 +1,19 @@
+{
+ "revisio_git": "43f66c55b040908dfa50761751c4aa25f541fe5c",
+ "fitxers": {
+  "textil.html": "f765a6d1ca33780801981bc8d910df5f10b64ffd7adb0e72e71924c5fffd2924",
+  "css/estil.css": "9fb14ecde303d57750e95fc0f5ba44c16bbc75e266a316c94483b3cb4b33dab8",
+  "js/nucli.js": "39a6e0ded67055ea9feeae0c59e20289743366f055e97db459ed2ee618d4b5b7",
+  "js/materials.js": "f9aad2105d593b8dd625a03ec2835d851f71fed5da33d75e372615af9a10cea0",
+  "js/reals.js": "6d6d392fe3a9ab2c23aa53cdc855ab19f539e545c813dc296551cdd828ea7f43",
+  "js/textil-estats.js": "0312d28be1f88bc8cf5db9023a096b99c5b96ad919cffe1639b996963fe5b6f7",
+  "js/textil-models.js": "29c4cbf391bdc8cb30b0684b5ad5d20dce383ebffaf01a920933fdebed11392a",
+  "js/textil-detalls.js": "f050029315e15c7b12c04abeb97c199da432464343e3ed3fc2d8f897630dad55",
+  "js/textil-roda.js": "ac3952688f95acc1e1d9a8b19f365a0271112961a2a894b7cc9036e178fe35a4",
+  "js/textil-cartwright.js": "863cf9f0be8d1ee774cf04d8848fa0ef0157fb3fd1dba5897252f800f56c0de3",
+  "js/textil.js": "b43f944021eca8f8567fba2578d922dbbff555b405eaf2a185daecc8f4592073",
+  "js/textil-realista.js": "1e12616b519ce3a0eed6025d0a9224ef5ede9880407b4c62070da7a99dfcd661",
+  "assets/verifica_visual.py": "ff68a6d614c30606c4b415a27ed3df0841f98230bb6cb92b1f4442145eb728f1",
+  "assets/verifica-cinematica.cjs": "b3351545911e64eab839a3069cfd060d11733ff97cbf748612ca3b4435443f67"
+ }
+}

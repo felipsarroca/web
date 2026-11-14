@@ -202,3 +202,7 @@ Els SVG són esquemes originals i deliberadament simplificats. Les vistes de pec
 ## 12. Decisió del 14-11-2026 sobre els esquemes en moviment
 
 Felip demana que els esquemes animats siguin molt realistes i estètics, i que mostrin el funcionament i l’avantatge de cada novetat dins del mateix esquema. Descarta afegir vistes de comparació «Abans i ara»: compliquen el web i aporten poc. Quan demana conservar els dissenys anteriors, vol una còpia de seguretat per poder tornar enrere, no que es continuïn mostrant. El detall de la revisió és a `REDISSENY.md`.
+
+## 13. Revisió de les vistes explotades del 14-11-2026
+
+Felip considera que les primeres vistes explotades s'assemblen massa a les muntades. Demana separar més els conjunts i indicar, de manera clara i senzilla, el nom i la funció només de les peces importants. S'han revisat les catorze làmines explotades amb una separació més visible, mantenint les màquines reconeixibles. Les llegendes mostren entre tres i cinc conjunts amb una funció breu; els punts numerats s'han reposicionat sobre les làmines noves. Les reconstruccions continuen sent il·lustracions didàctiques, no fonts històriques originals. La revisió visual i funcional ha passat per 140 combinacions d'escena i mida de pantalla, incloent-hi portàtil, mòbil i escalat simulat.

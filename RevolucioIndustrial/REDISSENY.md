@@ -163,3 +163,9 @@ S’amplia el repte amb una pregunta de comparació amb Kay i una de selecció d
 **Còpia de seguretat:** `versions/2026-11-14-moviment-abans-realisme/` (codi exacte a `originals/` amb empremtes SHA-256, i versió navegable). No s’enllaça des del web.
 
 **Verificació:** `python assets/verifica_visual.py` (140 combinacions d’escena i mida, sense errors) i `node assets/verifica-cinematica.cjs`. Totes dues funcionen sense servidor local.
+
+## Actualització del redisseny 2D del cotó (2026-11-14)
+
+- **Còpia de seguretat arxivada:** `versions/2026-11-14-coto-abans-redisseny/` conserva els 14 fitxers originals anteriors al redisseny (inclosos `textil-models.js`, `textil-detalls.js` i `textil-realista.js`, juntament amb `manifest.json` i una còpia navegable de `textil.html`).
+- **Substitució per talls tècnics en 2D (`js/textil-dibuix.js`):** Les sis màquines de `textil.html` (`roda`, `llancadora`, `jenny`, `water`, `mula` i `cartwright`) passen d'un renderitzador oblic amb polígons a seccions i vistes tècniques en 2D amb textures de `RI.MATS`, corretges i fils animats, etiquetatge dinàmic amb seguiment i finestres de detall sincronitzades per mostrar el guany històric de cada invent.
+- **Verificació:** `node assets/verifica-cinematica.cjs` i `python assets/verifica_visual.py` superats després del canvi (`140` combinacions d'escena i finestra, `0` errors).

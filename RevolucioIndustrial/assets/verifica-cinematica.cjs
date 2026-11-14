@@ -32,26 +32,26 @@ for(let i=0;i<=1000;i++){
 }
 assert.equal(states.roda(1).output,1);assert.equal(states.jenny(1).output,8);
 assert.equal(states.mula(1).output,6);assert.equal(states.llancadora(1).rows,2);
-for(const file of ['textil-models.js','textil-detalls.js','textil-cartwright.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../js/'+file),'utf8'),context);
-const {Scene,camera,project,depth}=context.RI.TEXTIL_GEOMETRIA;
-const dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
-assert(Math.abs(dot(camera,[.94,.48,0]))<1e-10,'depth must be perpendicular to projected horizontal');
-assert(Math.abs(dot(camera,[.12,-.29,-.96]))<1e-10,'depth must be perpendicular to projected vertical');
-const box=new Scene();box.box(0,0,0,10,10,10);assert.equal(box.faces.length,3,'the three facing box surfaces must exist');
+context.RI.svg=(s)=>s;context.RI.fletxa=()=>'';
+context.document={querySelector:()=>null};
+for(const file of ['materials.js','textil-cartwright.js','textil-dibuix.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../js/'+file),'utf8'),context);
 let geometrySamples=0;
-for(const id of ['roda','llancadora','jenny','water','mula','cartwright'])for(let i=0;i<=20;i++){
-  const g=context.RI.TEXTIL_DETALLS.buildScene(id,i/20);
-  assert(g.faces.length>0);
-  for(const f of g.faces){
-    assert(Number.isFinite(f.d));
-    for(const p of f.points){
-      assert(p.every(Number.isFinite));
-      const q=p.map((v,j)=>v+camera[j]*10),a=project(p),b=project(q);
-      assert(Math.hypot(a[0]-b[0],a[1]-b[1])<1e-9,'view direction must preserve screen position');
-      assert(depth(q)<depth(p),'closer faces must sort in front');
+for(const id of ['roda','llancadora','jenny','water','mula','cartwright']){
+  const markup=context.RI.TEXTIL_DIBUIX.svg(id);
+  assert(typeof markup==='string' && markup.includes('data-part='),`${id}: cal SVG tècnic amb peces`);
+  assert(!markup.includes('NaN') && !markup.includes('undefined'),`${id}: SVG inicial sense NaN ni undefined`);
+  assert(Array.isArray(context.RI.TEXTIL_DIBUIX.ETIQUETES[id]) && context.RI.TEXTIL_DIBUIX.ETIQUETES[id].length>=5,`${id}: calen etiquetes`);
+  const anim=context.RI.TEXTIL_DIBUIX.anima(id);
+  const els={};
+  const el=(k)=>els[k]||(els[k]={style:{},attrs:{},setAttribute(a,v){this.attrs[a]=v;},getAttribute(a){return this.attrs[a]||'';},innerHTML:''});
+  for(let i=0;i<=20;i++){
+    anim({p:i/20,t:i,k:1,el,capes:{},svg:{},sel:null,vista:'mov',explota:0});
+    for(const [k,node] of Object.entries(els)){
+      assert(!String(node.innerHTML).includes('NaN') && !String(node.innerHTML).includes('undefined'),`${id}#${k}: innerHTML net a p=${i/20}`);
+      for(const v of Object.values(node.attrs))assert(!String(v).includes('NaN') && !String(v).includes('undefined'),`${id}#${k}: attr net a p=${i/20}`);
     }
+    geometrySamples++;
   }
-  geometrySamples++;
 }
 for(let i=0;i<=1000;i++){
   const s=states.cartwright(i/1000);
@@ -71,14 +71,6 @@ for(let i=0;i<=1000;i++){
 }
 assert.equal(states.cartwright(1).rows,2);
 assert.equal(states.cartwright(.9999).rows,2,'slider endpoint must display both completed picks');
-const powered=context.RI.TEXTIL_DETALLS.buildScene('cartwright',.2);
-assert(!powered.faces.some(f=>f.part==='cordill'),'power loom must not retain the manual hand cord');
-for(const p of [.2,.25,.3,.35,.69,.72,.78,.82]){
-  const g=context.RI.TEXTIL_DETALLS.buildScene('llancadora',p),x=states.llancadora(p).x;
-  const row=g.faces.filter(f=>f.color==='#b6593f'&&f.points[0][1]===-82);
-  for(const f of row)for(const point of f.points){
-    if(p<.4)assert(point[0]<=x+1e-6,'outgoing weft extends ahead of shuttle');
-    else assert(point[0]>=x-1e-6,'returning weft must grow from the right');
-  }
-}
-console.log(JSON.stringify({samples,poweredLoomSamples:1001,geometrySamples,checks:'shed, timing, nip direction, stopped rollers, winding, guides, projection, visible faces, crank rod, cam contact, gearing'}));
+const powered=context.RI.TEXTIL_DIBUIX.svg('cartwright');
+assert(!powered.includes('data-part="cordill"'),'power loom must not retain the manual hand cord');
+console.log(JSON.stringify({samples,poweredLoomSamples:1001,geometrySamples,checks:'shed, timing, nip direction, stopped rollers, winding, guides, SVG 2D parts, NaN-free frames, crank rod, cam contact, gearing'}));

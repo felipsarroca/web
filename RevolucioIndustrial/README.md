@@ -4,9 +4,11 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
 
-**Estat actual:** vuit capítols, 28 escenes i catorze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i sis mecanismes animats amb una sola perspectiva obliqua, incloent-hi el [teler mecànic de Cartwright](textil.html#cartwright). Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
+**Estat actual:** vuit capítols, 28 escenes i catorze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i sis mecanismes animats en vistes tècniques 2D, incloent-hi el [teler mecànic de Cartwright](textil.html#cartwright). Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
 **Revisió de realisme (14-11-2026):** els esquemes en moviment s’han redibuixat amb materials texturats (fusta, maó, pedra, coure, llautó i ferro), volum, talls que deixen veure l’interior i vores fines, prenent com a model les làmines il·lustrades. Al cotó es veu la màquina sencera en moviment, amb la mateixa cinemàtica verificada. Els dissenys anteriors es conserven, sense enllaç des del web, a [versions/2026-11-14-moviment-abans-realisme](versions/2026-11-14-moviment-abans-realisme/README.md).
+
+**Revisió de les vistes explotades (14-11-2026):** els conjunts de les catorze làmines estan més separats. Cada vista indica entre tres i cinc peces principals, amb un nom i una frase breu sobre la funció. Les imatges muntades i els esquemes en moviment no s'han alterat en aquesta revisió.
 
 **Revisió anterior del cotó:** un detall funcional ampliat permetia seguir un fil, amb el bastidor atenuat i una miniatura animada del conjunt des del mateix angle. La fibra solta és verdosa; el fil torçut, daurat; la trama, vermella. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. Es conserven tant [la primera revisió](versions/2026-11-13-coto-primera-revisio/textil.html) com [la versió inicial](versions/2026-11-13-coto-abans-revisio/textil.html), cadascuna amb el codi, les imatges i les empremtes dels originals. La còpia inicial també inclou el restaurador.
 
@@ -25,7 +27,7 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Explorar **vuit capítols**: camp, Newcomen i Watt, tèxtil, fàbrica, metalls, locomotora, vaixell i capital.
 - Avançar les fases de cada procés amb les fletxes, el control lliscant o la reproducció automàtica.
 - Alternar entre l'explicació essencial i la capa d'anàlisi de **1r de Batxillerat**, amb una font pública per capítol.
-- Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats i fitxes clicables.
+- Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats; a les vistes explotades, cada nom inclou una funció breu.
 - Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
 - Veure cada mecanisme tèxtil sencer i en marxa, amb la fibra solta verdosa, el fil torçut daurat i la trama vermella.
 - Consultar la imatge històrica i la seva atribució en el desplegable de fonts.
@@ -39,9 +41,9 @@ Els diagrames SVG són originals i explicatius. Mostren principis mecànics i fl
 |---|---|
 | ![Portada del web](captures/portada.png) | ![Teler de llançadora volant amb els conjunts separats](captures/teler-explotat-1366.png) |
 
-| Animació obliqua del teler | Vista mòbil |
+| Animació tècnica del teler | Vista mòbil |
 |---|---|
-| ![Mecanisme del teler en una perspectiva obliqua fixa](captures/teler-moviment-1366.png) | ![Vista explotada del teler en mòbil](captures/teler-explotat-390.png) |
+| ![Mecanisme del teler en vista tècnica 2D](captures/teler-moviment-1366.png) | ![Vista explotada del teler en mòbil](captures/teler-explotat-390.png) |
 
 ![Roda de filar tradicional](captures/roda-filar.png)
 
@@ -61,15 +63,15 @@ Aquesta és la **primera versió funcional, publicada el 13 de novembre de 2026*
 
 La darrera comprovació ha recorregut les 28 escenes en cinc mides (140 combinacions), incloent-hi làmines, selecció de peces, zoom, etiquetes, fases dels mecanismes i reptes. Sense errors de JavaScript ni desbordaments detectats. Les captures mostren la versió actual.
 
-Les fotografies històriques provenen de Wikimedia Commons i el desplegable de fonts n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines són reconstruccions generades amb ChatGPT; les vistes explotades s'han editat a partir de les màquines muntades, conservant el model i l'orientació dels conjunts. Les mides són orientatives. Els prompts es conserven a `assets/prompts-illustracions.json`, `assets/prompts-explotades.json` i [prompts de la roda manual de fus](assets/prompts-coto-revisio.json).
+Les fotografies històriques provenen de Wikimedia Commons i el desplegable de fonts n'indica l'autor i la llicència. El mapa de l'Atlàntic fa servir les costes de Natural Earth (domini públic). Les làmines són reconstruccions generades amb ChatGPT; les vistes explotades s'han editat a partir de les màquines muntades, conservant el model i l'orientació dels conjunts. Les mides són orientatives. Els prompts es conserven a `assets/prompts-illustracions.json`, `assets/prompts-explotades.json`, [revisió de les explotades](assets/prompts-explotades-revisio.md) i [prompts de la roda manual de fus](assets/prompts-coto-revisio.json).
 
-Els sis mecanismes tèxtils utilitzen una projecció obliqua comuna calculada a partir de geometria tridimensional, amb rotacions dins del pla de cada roda i desplaçaments del carro que conserven les correspondències entre fils. Són esquemes didàctics: els materials i els detalls es simplifiquen respecte de les làmines.
+Els sis mecanismes tèxtils utilitzen vistes tècniques 2D amb peces, fils i corretges animats. Els talls mostren les parts que intervenen en cada fase. Són esquemes didàctics: els materials i els detalls es simplifiquen respecte de les làmines.
 
 La roda tradicional representa una roda manual de fus del tipus *great wheel*, utilitzat també per al cotó, documentat al [Science Museum Group](https://collection.sciencemuseumgroup.org.uk/objects/co44851/great-wheel). La versió de Saxònia amb pedal i aleta es conserva a la carpeta anterior. La Water Frame representada té quatre caps de filatura i tres parelles de corrons; és una síntesi del principi, amb velocitats relatives il·lustratives. La data de 1769 identifica la invenció, no una reproducció exacta del prototip de patent. El [dossier de revisió](assets/revisio-coto.md) explica les fonts, les simplificacions i els límits.
 
 La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació: `python assets/verifica_visual.py` (requereix Playwright i Chrome; obre les pàgines directament del disc, sense servidor).
 
-`node assets/verifica-cinematica.cjs` comprova 1.001 posicions dels cicles de filatura i teixit manual, 1.001 posicions del teler mecànic i 126 geometries. Inclou marge de pas de la llançadora, direcció de la trama, batuda, corrons, rodament, recollida, guies, angles, longitud constant de la biela, contacte de les lleves i relació entre engranatges. També comprova la coherència entre projecció, profunditat i cares visibles. Els cons i els indicadors es reinicien en començar un nou cicle didàctic: no són comptadors acumulats de producció.
+`node assets/verifica-cinematica.cjs` comprova 1.001 posicions dels cicles de filatura i teixit manual, 1.001 posicions del teler mecànic i 126 geometries. Inclou marge de pas de la llançadora, direcció de la trama, batuda, corrons, rodament, recollida, guies, angles, longitud constant de la biela, contacte de les lleves i relació entre engranatges. També comprova les peces SVG de les vistes 2D i que no hi hagi geometries invàlides. Els cons i els indicadors es reinicien en començar un nou cicle didàctic: no són comptadors acumulats de producció.
 
 El teler mecànic té escena pròpia entre la mula i la síntesi, amb làmines [muntada](img/illustration-cartwright.webp) i [explotada](img/exploded-cartwright.webp), una animació coordinada i dues preguntes noves. La data de 1785 identifica la primera patent; l’esquema i la reconstrucció representen el principi horitzontal de les millores de 1787–1790. El primer prototip tenia l’ordit vertical, segons la [memòria de 1843](https://www.fadedpage.com/books/20180140/html.php); el gravat de 1790 es pot consultar al desplegable de fonts. La [fitxa del Science Museum Group](https://collection.sciencemuseumgroup.org.uk/people/ap13666/cartwright-edmund) contextualitza la patent i l’aplicació de l’energia motriu. Els [prompts de les dues làmines](assets/prompts-cartwright.json) documenten l’ús de ChatGPT i els límits de la reconstrucció.
 

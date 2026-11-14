@@ -4,7 +4,6 @@ RI.RODA_ESCENA = {
   model:'Roda manual de fus · cicle esquemàtic alentit',
   pregunta:'Com es transforma el cotó cardat en un fil?',
   intro:'Una mà mou la roda i l’altra controla la fibra. El fus <b>torça</b> el cotó estirat; després s’hi <b>enrotlla</b> el fil. Es treballa un sol fil cada vegada.',
-  svg:()=>RI.TEXTIL_DETALLS.svg('roda'), anima:RI.TEXTIL_DETALLS.anima('roda'),
   innovacio:{abans:'El fus es fa girar directament amb la mà',ara:'La roda transmet el gir al fus'},
   fases:[
     {fins:.15,nom:'Preparar la fibra',text:'La mà subjecta una metxa de cotó cardat prop de la punta del fus.',focus:['fibra']},

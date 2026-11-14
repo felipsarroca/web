@@ -439,6 +439,13 @@ svg.explota [data-guia]{opacity:.58}
 .comandament.inactiva{display:none}
 .lamina-clau{position:absolute;top:8px;left:10px;right:10px;z-index:3;display:flex;justify-content:center;gap:5px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
 .lamina-clau button{display:flex;align-items:center;gap:5px;border:1px solid #d7c9b0;border-radius:6px;background:#fffcf5;padding:3px 6px;font-size:.7rem;line-height:1.2}
+.lamina-clau button span{display:block;text-align:left}
+.lamina-clau button strong{font-weight:700}
+.lamina-clau button small{display:block;color:#42545a;font-size:.65rem;line-height:1.2;margin-top:2px}
+.lamina-exp .lamina-clau{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;gap:5px}
+.lamina-exp .lamina-clau li,.lamina-exp .lamina-clau button{min-width:0;width:100%;height:100%}
+.lamina-exp .lamina-clau button{align-items:flex-start;padding:5px 6px}
+.lamina-exp .lamina-camp{top:82px}
 .lamina-clau i{display:grid;place-items:center;width:18px;height:18px;flex:none;background:#25616a;color:white;border-radius:50%;font-style:normal;font-size:.65rem;font-weight:700}
 .lamina-clau button.sel{background:#fff0bc;border-color:#af8125}
 .lamina-camp{position:absolute;inset:43px 14px 30px}
@@ -464,6 +471,10 @@ svg.explota [data-guia]{opacity:.58}
 .mobil .lamina-clau{top:4px;gap:3px}
 .mobil .lamina-clau button{font-size:.59rem;padding:2px 4px}
 .mobil .lamina-clau i{width:15px;height:15px;font-size:.58rem}
+.mobil .lamina-exp .lamina-clau{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}
+.mobil .lamina-exp .lamina-clau button{padding:3px 4px}
+.mobil .lamina-exp .lamina-clau button small{font-size:.57rem}
+.mobil .lamina-exp .lamina-camp{top:166px}
 .mobil .vistes{gap:4px}
 .mobil .vistes button{padding:4px 7px;font-size:.72rem}
 #app{padding-bottom:var(--peu-h,45px)}

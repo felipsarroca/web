@@ -61,8 +61,8 @@ with sync_playwright() as p:
       assert page.locator('#tx-action').inner_text()==expected
       assert page.locator('.tx-compara').is_visible()
       assert page.locator('#tx-product').inner_text()
-      assert page.locator('#tx-detail').count()==1
-      assert page.locator('#tx-detail polygon').count()>40
+      assert page.locator('#tela > svg').count()==1
+      assert page.locator('#tela > svg [data-part]').count()>=4
    if cap=='textil':
     assert total==7
     if bounds['desktop']:
