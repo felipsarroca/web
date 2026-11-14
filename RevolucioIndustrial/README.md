@@ -4,7 +4,7 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Web publicada:** [ja.cat/revindustrial](https://ja.cat/revindustrial) · [Adreça directa de GitHub Pages](https://felipsarroca.github.io/web/RevolucioIndustrial/).
 
-**Estat actual:** vuit capítols, 28 escenes i catorze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i sis mecanismes animats en vistes tècniques 2D, incloent-hi el [teler mecànic de Cartwright](textil.html#cartwright). Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
+**Estat actual:** vuit capítols, 29 escenes i catorze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i sis mecanismes animats en vistes tècniques 2D, incloent-hi el [teler mecànic de Cartwright](textil.html#cartwright). Els capítols de transport incorporen mapes animats generats amb QGIS. Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
 **Revisió de realisme (14-11-2026):** els esquemes en moviment s’han redibuixat amb materials texturats (fusta, maó, pedra, coure, llautó i ferro), volum, talls que deixen veure l’interior i vores fines, prenent com a model les làmines il·lustrades. Al cotó es veu la màquina sencera en moviment, amb la mateixa cinemàtica verificada. Els dissenys anteriors es conserven, sense enllaç des del web, a [versions/2026-11-14-moviment-abans-realisme](versions/2026-11-14-moviment-abans-realisme/README.md).
 
@@ -30,6 +30,7 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats; a les vistes explotades, cada nom inclou una funció breu.
 - Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
 - Veure cada mecanisme tèxtil sencer i en marxa, amb la fibra solta verdosa, el fil torçut daurat i la trama vermella.
+- Seguir al mapa la [línia Liverpool–Manchester de 1830](tren.html#mapa) i la [connexió Bristol–Nova York del *Great Western*](vaixell.html#atlantic), amb els límits dels traçats i de les comparacions explicats.
 - Consultar la imatge històrica i la seva atribució en el desplegable de fonts.
 - Fer servir **Amplia** en mòbil; `Esc` tanca la vista ampliada.
 
@@ -46,6 +47,12 @@ Els diagrames SVG són originals i explicatius. Mostren principis mecànics i fl
 | ![Mecanisme del teler en vista tècnica 2D](captures/teler-moviment-1366.png) | ![Vista explotada del teler en mòbil](captures/teler-explotat-390.png) |
 
 ![Roda de filar tradicional](captures/roda-filar.png)
+
+| Ruta ferroviària | Travessia atlàntica |
+|---|---|
+| ![Mapa animat de la línia Liverpool–Manchester](captures/tren-mapa-1366.png) | ![Mapa animat del viatge del Great Western entre Bristol i Nova York](captures/vaixell-mapa-1366.png) |
+
+Els [mapes, les fonts i el procediment de QGIS](assets/gis/README.md) distingeixen els punts històrics del traçat reconstruït i la durada d'un viatge concret de la mitjana d'altres viatges.
 
 | Un fus de la Jenny ampliat | Un cap de la Water Frame ampliat |
 |---|---|

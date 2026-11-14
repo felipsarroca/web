@@ -160,6 +160,21 @@
         ],
         clau: 'El tren no només és més ràpid: porta molt més pes, a tota hora i amb horari. Les distàncies «s’encongeixen».',
         batx: { titol: 'Causa o conseqüència de la industrialització?', text: 'El ferrocarril necessita ferro, carbó, màquines i capital que ja existien; i alhora multiplica la demanda de tots quatre i unifica mercats. Argumenta: és més un resultat de la primera industrialització o el motor de la seva segona etapa?', font: 'https://www.scienceandindustrymuseum.org.uk/objects-and-stories/making-the-liverpool-and-manchester-railway', fontNom: 'Science and Industry Museum · Liverpool and Manchester Railway' }
+      },
+      {
+        id: 'mapa', nom: 'La ruta al mapa', any: '1830', qui: 'Liverpool – Manchester', durada: 15,
+        model: 'QGIS · Natural Earth · traçat aproximat de la línia de 1830',
+        pregunta: 'Per què aquesta línia seguia aquest camí?',
+        intro: 'Del <b>port de Liverpool</b> a les fàbriques de <b>Manchester</b>: el mapa situa la ruta, Rainhill i el pas difícil per Chat Moss. El traçat és aproximat; no representa cada corba de la via original.',
+        svg: RI.mapaFerrocarril, anima: RI.animaMapaFerrocarril, llegenda: false,
+        fases: [
+          { fins: 0.28, nom: 'Sortida de Liverpool', text: 'El port rep cotó i altres mercaderies. El terminal de viatgers de la línia de 1830 és Crown Street, a Edge Hill.' },
+          { fins: 0.48, nom: 'Rainhill', text: 'Aquí s’havien provat les locomotores el 1829. La Rocket guanyà les proves abans de l’obertura de la línia.' },
+          { fins: 0.78, nom: 'Travessar Chat Moss', text: 'El pantà obligà a construir una base especial per sostenir els rails. La ruta no era una simple línia recta sobre terra ferma.' },
+          { fins: 1, nom: 'Arribada a Manchester', text: 'La línia arriba a Liverpool Road, al costat del nucli industrial. Un servei directe de primera classe podia fer el trajecte en una hora i mitja.' }
+        ],
+        clau: 'Un trajecte d’uns 50 km connectava el port amb la ciutat tèxtil; la via també havia de superar el terreny.',
+        batx: { titol: 'Mapa, font i reconstrucció', text: 'Compara aquest traçat aproximat amb un plànol d’època: què pots confirmar i què no? Distingeix la localització dels punts històrics de la línia dibuixada entre ells.', font: 'https://hummedia.manchester.ac.uk/institutes/mui/marg/research/projects/past-projects/Liverpool_Lost_Railway_Heritage.pdf', fontNom: 'Universitat de Manchester · mapa històric de la línia (figura 1)' }
       }
     ],
     repte: [
@@ -169,7 +184,8 @@
       { q: 'Què passa amb el vapor que ja ha empès el pistó?', o: ['Torna a la caldera', 'Surt per la xemeneia i aviva el foc', 'Es guarda al tènder'], c: 1, e: 'El raig de vapor arrossega l’aire i fa que el foc cremi més fort.' },
       { q: 'Què porta el tènder?', o: ['Viatgers', 'Aigua i combustible', 'Les eines del maquinista'], c: 1, e: 'Sense aigua no hi ha vapor i sense combustible no hi ha foc.' },
       { q: 'Cap al 1830, quant trigava el tren de Liverpool a Manchester?', o: ['Menys de 2 hores', 'Unes 6 hores', 'Un dia sencer'], c: 0, e: 'La diligència necessitava unes 4 hores i la barcassa del canal, unes 12.' },
-      { q: 'Quin avantatge del tren és tan important com la velocitat?', o: ['No necessitava vies', 'Podia portar molta càrrega i molts viatgers alhora', 'No gastava carbó'], c: 1, e: 'Capacitat i regularitat: més mercaderies, més barates i amb horari.' }
+      { q: 'Quin avantatge del tren és tan important com la velocitat?', o: ['No necessitava vies', 'Podia portar molta càrrega i molts viatgers alhora', 'No gastava carbó'], c: 1, e: 'Capacitat i regularitat: més mercaderies, més barates i amb horari.' },
+      { q: 'Què exigia el pas de la línia Liverpool–Manchester per Chat Moss?', o: ['Construir una base estable sobre terreny pantanós', 'Fer-hi navegar vaixells de vapor', 'Canviar el traçat fins a Londres'], c: 0, e: 'El terreny pantanós feia difícil sostenir la via: calgué una solució d’enginyeria.' }
     ]
   });
 })();
