@@ -813,13 +813,24 @@
   }
 
   const VISTES_3D = {
+    sembradora: 'La sembradora de Jethro Tull · 3D',
+    arada: 'L’arada de Rotherham · 3D',
     newcomen: 'La màquina atmosfèrica de Newcomen · 3D',
     watt: 'El cilindre calent, el condensador fred · 3D',
+    rotativa: 'La màquina rotativa de doble efecte · 3D',
     llancadora: 'La llançadora volant de John Kay · 3D',
     jenny: 'La Spinning Jenny de Hargreaves · 3D',
     water: 'El Water Frame d’Arkwright · 3D',
     mula: 'La mula de filar (Mule-Jenny) · 3D',
-    cartwright: 'El teler mecànic de Cartwright · 3D'
+    cartwright: 'El teler mecànic de Cartwright · 3D',
+    hidraulica: 'La fàbrica hidràulica · 3D',
+    vaporera: 'La fàbrica de vapor · 3D',
+    altforn: 'L’alt forn de coc · 3D',
+    pudelat: 'Forn de pudelat i tren laminador · 3D',
+    bessemer: 'El convertidor Bessemer · 3D',
+    rocket: 'La locomotora Rocket · 3D',
+    western: 'El vapor de rodes de pales (Great Western) · 3D',
+    helix: 'Pales o hèlix? (Rattler vs Alecto) · 3D'
   };
 
   function asseguraModal3D() {

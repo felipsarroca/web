@@ -99,6 +99,58 @@ def _sample_height_and_color(kind, u, v, px, py):
         b = 0.67 + 0.08 * weave + n
         return r, g, b, 0.35 + 0.55 * weave + n
 
+    if kind == "brick":
+        rows, cols = 8.0, 4.0
+        row = math.floor(v * rows)
+        u_off = (u * cols + (0.5 if int(row) % 2 else 0.0)) % cols
+        col = math.floor(u_off)
+        fu = u_off - col
+        fv = v * rows - row
+        mortar = min(fu, 1.0 - fu) < 0.045 or min(fv, 1.0 - fv) < 0.065
+        n1 = _hash2(int(u * 40), int(v * 40))
+        n2 = _hash2(px * 0.45, py * 0.45)
+        bvar = (_hash2(col + row * 11.0, row * 17.0) - 0.5) * 0.14
+        if mortar:
+            val = 0.62 + (n1 - 0.5) * 0.08
+            return val, val * 0.96, val * 0.88, 0.28 + n2 * 0.12
+        r = 0.58 + bvar + (n1 - 0.5) * 0.08
+        g = 0.25 + bvar * 0.5 + (n1 - 0.5) * 0.05
+        b = 0.17 + bvar * 0.3 + (n1 - 0.5) * 0.04
+        return r, g, b, 0.68 + n2 * 0.22
+
+    if kind == "copper":
+        brush = 0.032 * math.sin(u * 130.0) + 0.035 * (_hash2(px * 0.3, py) - 0.5)
+        hammer = 0.035 * math.sin(u * 28.0) * math.cos(v * 28.0)
+        patina = max(0.0, _hash2(int(u * 16), int(v * 16)) - 0.68) * 0.18
+        r = 0.76 + brush + hammer * 0.5 - patina * 0.65
+        g = 0.41 + brush * 0.6 + hammer * 0.3 + patina * 0.22
+        b = 0.22 + brush * 0.4 + patina * 0.30
+        return r, g, b, 0.55 + hammer * 2.2 + brush * 0.8
+
+    if kind == "painted_iron":
+        n1 = _hash2(int(u * 42), int(v * 42))
+        n2 = _hash2(px * 0.4, py * 0.4)
+        wear = max(0.0, _hash2(int(u * 12), int(v * 12)) - 0.84) * 0.4
+        r = 0.16 + 0.04 * n1 + wear * 0.18
+        g = 0.26 + 0.05 * n1 + wear * 0.12
+        b = 0.28 + 0.05 * n1 + wear * 0.08
+        return r, g, b, 0.52 + 0.15 * n2
+
+    if kind == "soil":
+        n1 = _hash2(int(u * 60), int(v * 60))
+        n2 = _hash2(px * 0.7, py * 0.7)
+        furrow = 0.5 + 0.5 * math.sin(v * 32.0)
+        r = 0.30 + 0.10 * furrow + (n1 - 0.5) * 0.07
+        g = 0.21 + 0.07 * furrow + (n1 - 0.5) * 0.05
+        b = 0.13 + 0.04 * furrow + (n1 - 0.5) * 0.04
+        return r, g, b, 0.30 + 0.48 * furrow + 0.20 * n2
+
+    if kind == "slate":
+        n1 = _hash2(int(u * 48), int(v * 48))
+        seam = 1.0 if (v * 6.0) % 1.0 > 0.04 else 0.72
+        v0 = (0.28 + 0.07 * n1) * seam
+        return v0 * 0.94, v0 * 0.98, v0 * 1.08, (0.55 + 0.25 * n1) * seam
+
     # stone (sol i socol de taller)
     rows, cols = 4.0, 3.0
     row = math.floor(v * rows)
@@ -515,6 +567,100 @@ def make_shuttle(name, loc, mat_wood, mat_tip, mat_yarn, scale=1.0, parent=None)
         bevel=0.004,
     )
     return root
+
+
+def make_cutaway_cyl(
+    name,
+    r_in,
+    r_out,
+    height,
+    loc,
+    mat,
+    start_ang=math.pi * 0.35,
+    end_ang=math.pi * 2.15,
+    segs=36,
+    rot=(0, 0, 0),
+    parent=None,
+    capped=True,
+):
+    """Cilindre gruixut seccionat angularment per mostrar l'interior (calderes, cilindres, forns)."""
+    mesh = bpy.data.meshes.new(name + "_Mesh")
+    obj = bpy.data.objects.new(name, mesh)
+    link_obj(obj)
+    obj.location = loc
+    obj.rotation_euler = rot
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+
+    bm = bmesh.new()
+    hz = height * 0.5
+    ang_span = end_ang - start_ang
+    n = max(6, segs)
+    bot_in, bot_out, top_in, top_out = [], [], [], []
+    for i in range(n + 1):
+        a = start_ang + ang_span * (i / n)
+        ca, sa = math.cos(a), math.sin(a)
+        bot_in.append(bm.verts.new((r_in * ca, r_in * sa, -hz)))
+        bot_out.append(bm.verts.new((r_out * ca, r_out * sa, -hz)))
+        top_in.append(bm.verts.new((r_in * ca, r_in * sa, hz)))
+        top_out.append(bm.verts.new((r_out * ca, r_out * sa, hz)))
+
+    for i in range(n):
+        j = i + 1
+        bm.faces.new((bot_out[i], bot_out[j], top_out[j], top_out[i]))
+        bm.faces.new((top_in[i], top_in[j], bot_in[j], bot_in[i]))
+        bm.faces.new((top_out[i], top_out[j], top_in[j], top_in[i]))
+        bm.faces.new((bot_in[i], bot_in[j], bot_out[j], bot_out[i]))
+
+    if capped and abs(ang_span - 2.0 * math.pi) > 1e-3:
+        bm.faces.new((bot_in[0], bot_out[0], top_out[0], top_in[0]))
+        bm.faces.new((top_in[-1], top_out[-1], bot_out[-1], bot_in[-1]))
+
+    bm.normal_update()
+    bm.to_mesh(mesh)
+    bm.free()
+    apply_box_uv(obj, uv_scale=0.65)
+    set_smooth(obj)
+    return obj
+
+
+def make_curve_tube(name, points, radius, mat, bevel_res=6, closed=False, parent=None):
+    """Tub continu al llarg d'una llista de punts 3D."""
+    curve_data = bpy.data.curves.new(name=name + "_Curve", type="CURVE")
+    curve_data.dimensions = "3D"
+    curve_data.bevel_depth = radius
+    curve_data.bevel_resolution = bevel_res
+    spline = curve_data.splines.new("POLY")
+    spline.points.add(len(points) - 1)
+    for i, pt in enumerate(points):
+        spline.points[i].co = (pt[0], pt[1], pt[2], 1.0)
+    spline.use_cyclic_u = closed
+    obj = bpy.data.objects.new(name, curve_data)
+    link_obj(obj)
+    obj.data.materials.append(mat)
+    if parent:
+        obj.parent = parent
+    return obj
+
+
+def make_torus(name, major_r, minor_r, loc, mat, rot=(0, 0, 0), major_segs=32, minor_segs=14, parent=None):
+    bpy.ops.mesh.primitive_torus_add(
+        major_radius=major_r,
+        minor_radius=minor_r,
+        major_segments=major_segs,
+        minor_segments=minor_segs,
+        location=loc,
+        rotation=rot,
+    )
+    obj = bpy.context.active_object
+    obj.name = name
+    apply_box_uv(obj, uv_scale=0.8)
+    obj.data.materials.append(mat)
+    set_smooth(obj)
+    if parent:
+        obj.parent = parent
+    return obj
 
 
 def add_shadow_floor(z=0.0, size=14.0):

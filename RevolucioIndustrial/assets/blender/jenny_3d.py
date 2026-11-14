@@ -5,14 +5,14 @@ Spinning Jenny de James Hargreaves (1764–1770, North Mill Museum, Belper).
 
 Inclou:
   - Bastidor de roure envellit en trapezi inclinat amb travessers, escaires de ferro i carrils guia
-  - Rampa inferior amb 10 bobines de metxa de cotó cardat i regleta guia de llautó
+  - Rampa inferior amb 8 bobines de metxa de cotó cardat i regleta guia de llautó
   - Carro mòbil de la pinça doble (pinca de fusta) sobre rodetes de llautó amb mordassa articulada
     que estreny les metxes en el recorregut d'estirament i s'obre en el retorn
-  - Banc de 10 fusos verticals d'acer amb torteres de llautó, fusades còniques de fil i fil guia
+  - Banc de 8 fusos verticals (com la primera jenny de Hargreaves) d'acer amb torteres de llautó, fusades còniques de fil i fil guia
     basculant per dirigir el plegat del fil
   - Gran roda lateral de fusta de 8 raigs amb maneta tornejada, corretja de cuir cap al tambor
-    d'estany inferior i cordons sense fi fins als 10 fusos
-  - 10 fils continus articulats que connecten metxes -> pinça mòbil -> punta dels fusos
+    d'estany inferior i cordons sense fi fins als 8 fusos
+  - 8 fils continus articulats que connecten metxes -> pinça mòbil -> punta dels fusos
 
 Ús:
   blender -b -P assets/blender/jenny_3d.py
@@ -185,8 +185,8 @@ def build_jenny_scene(animate=False):
     make_box("BigaDavantSup", (1.36, 0.072, 0.070), (0.0, -0.82, 0.75), m_wood_dark, parent=g_frame)
     make_box("BigaDarrereSup", (1.36, 0.075, 0.075), (0.0, 0.62, 0.99), m_wood_dark, parent=g_frame)
 
-    # --- 2. RASTELLERA INFERIOR DE 10 BOBINES DE METXA ---
-    n_sp = 10
+    # --- 2. RASTELLERA INFERIOR DE 8 BOBINES DE METXA ---
+    n_sp = 8
     xs_sp = [-0.54 + i * (1.08 / (n_sp - 1)) for i in range(n_sp)]
     g_metxes = add_empty("RampaMetxes", (0.0, 0.0, 0.0), parent=g_frame)
     for sx in (-0.64, 0.64):
@@ -203,7 +203,7 @@ def build_jenny_scene(animate=False):
         make_sphere(f"UllGuiaMetxa_{i}", 0.011, (x, -0.05, 0.58), m_brass, parent=g_metxes)
         roving_tips.append((x, -0.05, 0.585))
 
-    # --- 3. BANC DE 10 FUSOS VERTICALS, TORTERES, TAMBOR D'ESTANY I FIL GUIA ---
+    # --- 3. BANC DE 8 FUSOS VERTICALS, TORTERES, TAMBOR D'ESTANY I FIL GUIA ---
     g_spindles_bank = add_empty("BancFusos", (0.0, 0.0, 0.0))
     # Regletes del pont de fusos (inclinats lleugerament cap endavant, base Y=0.58 Z=0.66, cap Y=0.50 Z=1.08)
     make_box("PontFusosBaix", (1.38, 0.075, 0.045), (0.0, 0.58, 0.65), m_wood_dark, parent=g_spindles_bank, bevel=0.004)
@@ -271,7 +271,7 @@ def build_jenny_scene(animate=False):
     make_rod_between("CorretjaRodaSup", (0.80, -0.02, 1.115), (0.80, 0.36, 0.595), 0.010, m_leather, verts=8, parent=g_wheel_grp)
     make_rod_between("CorretjaRodaInf", (0.80, 0.08, 0.405), (0.80, 0.40, 0.485), 0.010, m_leather, verts=8, parent=g_wheel_grp)
 
-    # --- 6. 10 FILS CONTINUS (METXA -> PINÇA -> FUS) ---
+    # --- 6. 8 FILS CONTINUS (METXA -> PINÇA -> FUS) ---
     g_strands = add_empty("Fils")
     strands_back = []
     strands_front = []
@@ -304,7 +304,7 @@ def build_jenny_scene(animate=False):
         # Fil guia pivota cap avall per abaixar el fil fins a la panxa de la fusada durant el bobinatge
         g_faller.rotation_euler = (-0.65 * st["faller"], 0.0, 0.0)
 
-        # Actualitzar els 10 fils continus
+        # Actualitzar els 8 fils continus
         fy_end = sp_tip_y * (1.0 - st["faller"]) + sp_cop_y * st["faller"]
         fz_end = sp_tip_z * (1.0 - st["faller"]) + sp_cop_z * st["faller"]
         clamp_z = cz + 0.045

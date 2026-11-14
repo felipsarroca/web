@@ -765,7 +765,7 @@
         ${corroHTML(cx, 208, 19, `wt-rt-${j}`, 'corrons', { cuir: true })}
         ${corroHTML(cx, 250, 19, `wt-rb-${j}`, 'corrons')}
         <rect x="${cx - 10}" y="272" width="20" height="26" rx="2" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        ${badge(cx, 162, ['×1', '×2', '×4'][j], j === 0 ? '#5b6258' : j === 1 ? '#2f6f68' : '#b45309', '#fff')}
+        ${badge(cx, 162, ['×1', '×1,6', '×3,2'][j], j === 0 ? '#5b6258' : j === 1 ? '#2f6f68' : '#b45309', '#fff')}
       `).join('')}
       <path d="M325 162H405M465 162H545" stroke="#b45309" stroke-width="2.2" marker-end="url(#m-fl)"/>
     </g>`;
