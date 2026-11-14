@@ -64,13 +64,15 @@ h1,h2,h3,h4,p{margin:0}
 /* ---------- cos: escenari + panell ---------- */
 .cos{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) clamp(370px,27.5vw,410px);gap:14px;padding:0 18px 10px;position:relative}
 .escenari{display:flex;flex-direction:column;min-height:0;background:var(--blanc);border:1px solid var(--linia);border-radius:12px;box-shadow:var(--ombra);overflow:hidden}
-.tela{flex:1;min-height:0;position:relative;background:#f7f1e1;overflow:hidden}
+.tela{flex:1;min-height:0;position:relative;background:#f7f1e1;overflow:hidden;touch-action:manipulation}
 .tela>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .barra{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 10px;background:var(--paper2);border-bottom:2px solid var(--linia);flex:none;min-height:42px}
-.vistes{display:flex;gap:5px;flex-wrap:wrap;min-width:0}
+.vistes{display:flex;gap:5px;flex-wrap:wrap;align-items:center;min-width:0}
 .vistes button{border:1px solid var(--linia);background:rgba(255,253,247,.94);border-radius:8px;padding:4px 10px;font-size:.76rem;font-weight:700;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .vistes button:hover{border-color:var(--cap,var(--tinta))}
 .vistes button[aria-pressed=true]{background:var(--cap,var(--tinta));border-color:var(--cap,var(--tinta));color:#fff}
+.vistes .b-3d{background:#fde6d2;color:#6b3410;border-color:#d4976a;font-weight:800;letter-spacing:.03em;padding:4px 11px;box-shadow:0 1px 0 rgba(107,52,16,.14)}
+.vistes .b-3d:hover{background:#fad7b8;border-color:#9e2d18}
 .capes{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;margin-left:auto}
 .capes button{border:1px solid var(--linia);background:var(--blanc);border-radius:999px;padding:4px 11px 4px 26px;font-size:.78rem;font-weight:700;position:relative;cursor:pointer}
 .capes button::before{content:'';position:absolute;left:8px;top:50%;width:11px;height:11px;margin-top:-6.5px;border-radius:50%;border:1px solid var(--linia);background:#fff}
@@ -93,11 +95,9 @@ h1,h2,h3,h4,p{margin:0}
 .real-svg{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .real-svg svg{width:100%;height:100%;display:block}
 .escenari.real-activa .vistes,.tela.real-activa .model,.tela.real-activa .llegenda{opacity:0;pointer-events:none}
-.capes .b-recons,.capes .b-amplia,.capes .b-3d{padding-left:11px}
-.capes .b-recons::before,.capes .b-amplia::before,.capes .b-3d::before{display:none}
+.capes .b-recons,.capes .b-amplia{padding-left:11px}
+.capes .b-recons::before,.capes .b-amplia::before{display:none}
 .capes .b-recons[aria-pressed=true]{background:#1f4f5c;border-color:#1f4f5c}
-.capes .b-3d{background:#fde6d2;color:#6b3410;border-color:#d4976a;font-weight:800;letter-spacing:.03em;box-shadow:0 1px 0 rgba(107,52,16,.14)}
-.capes .b-3d:hover{background:#fad7b8;border-color:#9e2d18}
 .capes .b-amplia{display:none}
 .mobil .capes .b-amplia{display:inline-block;background:var(--groc)}
 body.amb-modal-3d{overflow:hidden}

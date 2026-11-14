@@ -273,8 +273,8 @@
     $('#cos').innerHTML = `
     <section class="escenari" id="escenari">
       <div class="barra">
-        <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}</div>
-        <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}${te3D ? '<button type="button" class="b-3d" id="b-3d" title="Obre el visor 3D interactiu">3D</button>' : ''}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
+        <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}${te3D ? '<button type="button" class="b-3d" id="b-3d" title="Obre el visor 3D interactiu">3D</button>' : ''}</div>
+        <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
       ${e.innovacio ? `<div class="tx-compara"><span><small>Abans</small>${esc(e.innovacio.abans)}</span><b aria-hidden="true">→</b><span><small>Amb aquest invent</small>${esc(e.innovacio.ara)}</span></div>` : ''}
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
@@ -364,13 +364,15 @@
       plate.addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&ev.target.matches('.plate-mark')){ev.preventDefault();choose(ev);}});
     }
     const telaEl = $('#tela');
-    telaEl.addEventListener('mousemove', (ev) => {
+    const mouFocusZoom = (ev) => {
       if (!st.zoom) return;
       const r = telaEl.getBoundingClientRect();
       const ox = RI.clamp(((ev.clientX - r.left) / r.width) * 100, 8, 92).toFixed(1) + '%';
       const oy = RI.clamp(((ev.clientY - r.top) / r.height) * 100, 8, 92).toFixed(1) + '%';
       $$('.lamina-zoom', telaEl).forEach((z) => { z.style.transformOrigin = `${ox} ${oy}`; });
-    });
+    };
+    telaEl.addEventListener('pointermove', mouFocusZoom);
+    telaEl.addEventListener('pointerdown', mouFocusZoom);
     (e.capes || []).forEach((c) => svgEl.classList.toggle('capa-' + c.id, !!c.on));
     mostraCapes(); aplicaExplota();
     st.etq = 'focus'; aplicaEtiquetes();
@@ -811,8 +813,11 @@
   }
 
   const VISTES_3D = {
+    newcomen: 'La màquina atmosfèrica de Newcomen · 3D',
     watt: 'El cilindre calent, el condensador fred · 3D',
     llancadora: 'La llançadora volant de John Kay · 3D',
+    jenny: 'La Spinning Jenny de Hargreaves · 3D',
+    water: 'El Water Frame d’Arkwright · 3D',
     mula: 'La mula de filar (Mule-Jenny) · 3D',
     cartwright: 'El teler mecànic de Cartwright · 3D'
   };
@@ -840,16 +845,23 @@
     document.body.appendChild(mod);
     const caixa = $('#modal-3d-caixa', mod);
     const btnFs = $('#modal-3d-fs', mod);
+    const frame = $('#modal-3d-frame', mod);
     const syncFsBtn = () => {
       const enFs = document.fullscreenElement === caixa;
       btnFs.setAttribute('aria-pressed', enFs ? 'true' : 'false');
       btnFs.textContent = enFs ? 'Surt de pantalla completa' : 'Pantalla completa';
+      if (frame && frame.contentWindow) {
+        try { frame.contentWindow.postMessage({ tipus: 'fs-modal-3d', actiu: enFs }, '*'); } catch (_) {}
+      }
     };
     mod.addEventListener('click', (ev) => { if (ev.target === mod) tancaModal3D(); });
     $('#modal-3d-tanca', mod).addEventListener('click', tancaModal3D);
     btnFs.addEventListener('click', () => {
       if (document.fullscreenElement === caixa) document.exitFullscreen().catch(() => {});
       else if (caixa.requestFullscreen) caixa.requestFullscreen().catch(() => {});
+    });
+    if (frame) frame.addEventListener('load', () => {
+      if (document.fullscreenElement === caixa) syncFsBtn();
     });
     document.addEventListener('fullscreenchange', syncFsBtn);
     return mod;
@@ -901,7 +913,17 @@
       if ($('#escenari.gran')) amplia(false);
     });
     window.addEventListener('message', (ev) => {
-      if (ev.data && ev.data.tipus === 'tanca-modal-3d' && $('#modal-3d.obert')) tancaModal3D();
+      if (!ev.data) return;
+      if (ev.data.tipus === 'tanca-modal-3d' && $('#modal-3d.obert')) tancaModal3D();
+      if (ev.data.tipus === 'consulta-fs-modal-3d') {
+        const mod = $('#modal-3d.obert');
+        if (!mod) return;
+        const caixa = $('#modal-3d-caixa', mod);
+        const frame = $('#modal-3d-frame', mod);
+        if (frame && frame.contentWindow && caixa) {
+          try { frame.contentWindow.postMessage({ tipus: 'fs-modal-3d', actiu: document.fullscreenElement === caixa }, '*'); } catch (_) {}
+        }
+      }
     });
     if (document.body.dataset.capitol === 'portada') { if (RI.portada) RI.portada(); }
     else if (st.cap) munta();
