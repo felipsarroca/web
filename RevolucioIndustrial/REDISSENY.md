@@ -169,3 +169,9 @@ S’amplia el repte amb una pregunta de comparació amb Kay i una de selecció d
 - **Còpia de seguretat arxivada:** `versions/2026-11-14-coto-abans-redisseny/` conserva els 14 fitxers originals anteriors al redisseny (inclosos `textil-models.js`, `textil-detalls.js` i `textil-realista.js`, juntament amb `manifest.json` i una còpia navegable de `textil.html`).
 - **Substitució per talls tècnics en 2D (`js/textil-dibuix.js`):** Les sis màquines de `textil.html` (`roda`, `llancadora`, `jenny`, `water`, `mula` i `cartwright`) passen d'un renderitzador oblic amb polígons a seccions i vistes tècniques en 2D amb textures de `RI.MATS`, corretges i fils animats, etiquetatge dinàmic amb seguiment i finestres de detall sincronitzades per mostrar el guany històric de cada invent.
 - **Verificació:** `node assets/verifica-cinematica.cjs` i `python assets/verifica_visual.py` superats després del canvi (`140` combinacions d'escena i finestra, `0` errors).
+
+## Retirada de «La cursa» i redisseny clarificat de Cartwright (2026-11-14)
+
+- **Arxiu abans del canvi:** `versions/2026-11-14-cartwright-i-cursa-abans-redisseny/` conserva `textil.html`, tots els scripts `js/textil*.js`, `js/nucli.js`, `js/materials.js`, `js/reals.js`, `css/estil.css` i els guions d'`assets/`.
+- **Eliminació de la pestanya 7 («La cursa»):** retirada de `js/textil.js`; l'apartat del cotó passa a 6 escenes centrades en les màquines (més el Repte final) i s'ajusta `assets/verifica_visual.py` (`total == 6`).
+- **Teler mecànic de Cartwright (`js/textil-dibuix.js`):** nova disposició neta sense muntants centrals davant els fils, amb balancí superior dels lliços, lleves d'excentricitat pronunciada amb rodet seguidor, impulsor lateral articulat, engranatge reductor `Relació 2:1`, biela en pla inferior lliure, tela progressiva i vista frontal ampliada amb dents de pinta, braços impulsors mecànics i indicadors de fase sincronitzats.

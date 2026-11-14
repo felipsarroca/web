@@ -275,13 +275,14 @@
         <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}</div>
         <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
+      ${e.innovacio ? `<div class="tx-compara"><span><small>Abans</small>${esc(e.innovacio.abans)}</span><b aria-hidden="true">→</b><span><small>Amb aquest invent</small>${esc(e.innovacio.ara)}</span></div>` : ''}
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
-        ${e.innovacio ? `<div class="tx-compara"><span><small>Abans</small>${esc(e.innovacio.abans)}</span><b aria-hidden="true">→</b><span><small>Amb aquest invent</small>${esc(e.innovacio.ara)}</span></div><div class="tx-resultat"><strong id="tx-action"></strong><span id="tx-product"></span></div>` : ''}
         ${e.explotada && RI.laminaHTML ? RI.laminaHTML(e,'explotada') : ''}
         ${realHtml}
         ${(e.vistes && e.vistes[0].model) || e.model ? `<div class="model">${esc((e.vistes && e.vistes[0].model) || e.model)}</div>` : ''}
         ${e.llegenda === false ? '' : llegenda}
       </div>
+      ${e.innovacio ? `<div class="tx-resultat"><strong id="tx-action"></strong><span id="tx-product"></span></div>` : ''}
       <div class="comandament${e.estatica ? ' sense' : ''}">
         <div class="botons"><button type="button" id="b-ant" title="Fase anterior (←)" aria-label="Fase anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button><button type="button" id="b-play" class="principal" title="Reprodueix o atura (espai)" aria-label="Reprodueix o atura"></button><button type="button" id="b-seg" title="Fase següent (→)" aria-label="Fase següent"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></button></div>
         <div class="linia"><div class="trams" id="trams">${fases.map((f, k) => { const a = k ? fases[k - 1].fins : 0; return `<span style="flex:${(f.fins - a).toFixed(3)}" data-k="${k}"><i>${k + 1}</i></span>`; }).join('')}</div><input type="range" id="lliscador" min="0" max="1000" value="0" aria-label="Moment del cicle"></div>

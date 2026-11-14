@@ -21,7 +21,7 @@
   </defs>`;
 
   function taller(floorY = 562) {
-    return `${RI.fons(0)}<rect x="-60" y="${floorY}" width="1320" height="${720 - floorY}" fill="#e6dac0" opacity=".78"/><line x1="-60" y1="${floorY}" x2="1260" y2="${floorY}" stroke="#b9a988" stroke-width="2"/>`;
+    return `${RI.fons(0)}<rect x="-260" y="${floorY}" width="1720" height="${740 - floorY}" fill="#e6dac0" opacity=".78"/><line x1="-260" y1="${floorY}" x2="1460" y2="${floorY}" stroke="#b9a988" stroke-width="2"/>`;
   }
 
   function badge(x, y, text, fons = '#2e221a', color = '#fff', extra = '') {
@@ -269,208 +269,316 @@
     };
   }
 
+  /* ==================== HELPERS 3D AXONOMÈTRICS 3/4 PER ALS TELERS ==================== */
+  const TELER_OX = 590, TELER_OY = 464;
+  function P3(x, y, z) {
+    return [TELER_OX + 0.90 * x - 0.56 * y, TELER_OY + 0.14 * x + 0.36 * y - 0.90 * z];
+  }
+  const pt3 = (x, y, z) => { const [px, py] = P3(x, y, z); return `${f1(px)},${f1(py)}`; };
+  const poly3 = (pts, fill, sw = 1.3, op = 1) =>
+    `<polygon points="${pts.map((p) => `${f1(p[0])},${f1(p[1])}`).join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="${sw}" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+  const line3 = (a, b, col, sw = 2, extra = '') => {
+    const [x1, y1] = P3(...a), [x2, y2] = P3(...b);
+    return `<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" stroke="${col}" stroke-width="${sw}" stroke-linecap="round"${extra}/>`;
+  };
+  const PALS3 = {
+    fusta: { top: '#deb47b', front: '#bc854a', side: '#8d5d2e' },
+    fustaf: { top: '#b8834d', front: '#946133', side: '#6c431f' },
+    ferro: { top: '#8f98a0', front: '#656e75', side: '#464d53' },
+    llauto: { top: '#f2d37a', front: '#d4a63a', side: '#9b731c' },
+    coto: { top: '#fbf5e6', front: '#e8dec5', side: '#c6b999' }
+  };
+  function box3(x0, x1, y0, y1, z0, z1, pal = 'fusta', sw = 1.3) {
+    const c = PALS3[pal] || PALS3.fusta;
+    const p010 = P3(x0, y1, z0), p110 = P3(x1, y1, z0), p111 = P3(x1, y1, z1), p011 = P3(x0, y1, z1);
+    const p100 = P3(x1, y0, z0), p101 = P3(x1, y0, z1), p001 = P3(x0, y0, z1);
+    return poly3([p100, p110, p111, p101], c.side, sw) +
+      poly3([p010, p110, p111, p011], c.front, sw) +
+      poly3([p001, p101, p111, p011], c.top, sw);
+  }
+  function cylX3(x0, x1, cy, cz, r, fillBody, fillEnd, sw = 1.5) {
+    // Angles extrems perpendiculars a l'eix X projectat (0.90, 0.14)
+    const a0 = Math.atan2(-0.81, 0.4024);
+    const pts = [];
+    for (let i = 0; i <= 14; i++) {
+      const a = a0 + (Math.PI * i) / 14;
+      pts.push(P3(x1, cy + r * Math.cos(a), cz + r * Math.sin(a)));
+    }
+    for (let i = 14; i >= 0; i--) {
+      const a = a0 + (Math.PI * i) / 14;
+      pts.push(P3(x0, cy + r * Math.cos(a), cz + r * Math.sin(a)));
+    }
+    const endPts = [];
+    for (let i = 0; i < 24; i++) {
+      const a = (Math.PI * 2 * i) / 24;
+      endPts.push(P3(x1, cy + r * Math.cos(a), cz + r * Math.sin(a)));
+    }
+    return poly3(pts, fillBody, sw) + poly3(endPts, fillEnd, sw);
+  }
+  function discYZ3(cx, cy, cz, r, dx, fillFace, fillRim, ang = 0, spokes = 0, sw = 1.4, teeth = 0) {
+    const steps = teeth ? teeth * 4 : 32;
+    const fPts = [], bPts = [];
+    for (let i = 0; i < steps; i++) {
+      const a = (Math.PI * 2 * i) / steps + ang;
+      const rr = teeth ? r + (i % 4 < 2 ? 3.5 : -2) : r;
+      const dy = rr * Math.cos(a), dz = rr * Math.sin(a);
+      fPts.push(P3(cx + dx * 0.5, cy + dy, cz + dz));
+      bPts.push(P3(cx - dx * 0.5, cy + dy, cz + dz));
+    }
+    let out = '';
+    for (let i = 0; i < steps; i++) {
+      const j = (i + 1) % steps;
+      out += `<polygon points="${f1(bPts[i][0])},${f1(bPts[i][1])} ${f1(bPts[j][0])},${f1(bPts[j][1])} ${f1(fPts[j][0])},${f1(fPts[j][1])} ${f1(fPts[i][0])},${f1(fPts[i][1])}" fill="${fillRim}" stroke="${INK}" stroke-width="0.9"/>`;
+    }
+    out += poly3(fPts, fillFace, sw);
+    if (spokes > 0) {
+      const ir = r * 0.78;
+      const hole = [];
+      for (let i = 0; i < 24; i++) {
+        const a = (Math.PI * 2 * i) / 24;
+        hole.push(P3(cx + dx * 0.5, cy + ir * Math.cos(a), cz + ir * Math.sin(a)));
+      }
+      out += poly3(hole, '#f4ebd7', 1.1, 0.72);
+      for (let k = 0; k < spokes; k++) {
+        const a = ang + (Math.PI * 2 * k) / spokes;
+        out += line3([cx + dx * 0.5, cy, cz], [cx + dx * 0.5, cy + ir * Math.cos(a), cz + ir * Math.sin(a)], '#4b5258', 3.4);
+      }
+    }
+    const [hx, hy] = P3(cx + dx * 0.5, cy, cz);
+    out += `<circle cx="${f1(hx)}" cy="${f1(hy)}" r="${f1(Math.max(3.5, r * 0.14))}" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
+    return out;
+  }
+  function shuttle3HTML() {
+    // Barqueta orientada al llarg de X centrada a (0,0,0) en pantalla relativa a P3(0,0,0)
+    const o = P3(0, 0, 0);
+    const rel = (x, y, z) => { const p = P3(x, y, z); return [p[0] - o[0], p[1] - o[1]]; };
+    const topDeck = [rel(-33, 0, 6), rel(-15, -9, 7.5), rel(15, -9, 7.5), rel(33, 0, 6), rel(15, 9, 7.5), rel(-15, 9, 7.5)];
+    const frontWall = [rel(-33, 0, 6), rel(-15, 9, 7.5), rel(15, 9, 7.5), rel(33, 0, 6), rel(15, 9, -4.5), rel(-15, 9, -4.5)];
+    const cav = [rel(-14, -4, 7.5), rel(14, -4, 7.5), rel(14, 4, 7.5), rel(-14, 4, 7.5)];
+    const tipL = [rel(-41, 0, 1.5), rel(-30, -4, 5.5), rel(-30, 4, 5.5), rel(-30, 4, -3)];
+    const tipR = [rel(41, 0, 1.5), rel(30, -4, 5.5), rel(30, 4, 5.5), rel(30, 4, -3)];
+    const pC0 = rel(-11, 0, 5), pC1 = rel(11, 0, 5);
+    return poly3(frontWall, '#946133', 1.4) + poly3(topDeck, '#eab96e', 1.5) +
+      poly3(tipL, 'url(#tx-llauto)', 1.2) + poly3(tipR, 'url(#tx-llauto)', 1.2) +
+      poly3(cav, '#2e1f15', 1) +
+      `<line x1="${f1(pC0[0])}" y1="${f1(pC0[1])}" x2="${f1(pC1[0])}" y2="${f1(pC1[1])}" stroke="#fffdf5" stroke-width="6.5" stroke-linecap="round"/>` +
+      `<line x1="${f1(pC0[0])}" y1="${f1(pC0[1])}" x2="${f1(pC1[0])}" y2="${f1(pC1[1])}" stroke="#b4a78b" stroke-width="1.3" stroke-dasharray="2 3"/>`;
+  }
+  function batten3HTML(beatY, kickL, kickR, opts = {}) {
+    // Batà penjant amb pues de la pinta, pista de lliscament i dues caixes laterals amb tacos
+    const pivotY = 48, pivotZ = 252;
+    let s = '';
+    // Suports penjants des del pont superior fins a la pista (Y = beatY)
+    s += line3([-246, pivotY, pivotZ], [-246, beatY + 2, 138], INK, 9);
+    s += line3([-246, pivotY, pivotZ], [-246, beatY + 2, 138], '#8d5d2e', 6);
+    s += line3([246, pivotY, pivotZ], [246, beatY + 2, 138], INK, 9);
+    s += line3([246, pivotY, pivotZ], [246, beatY + 2, 138], '#8d5d2e', 6);
+    // Pinta (darrere de la llançadora: Y = beatY - 6)
+    s += box3(-218, 218, beatY - 10, beatY - 3, 170, 178, 'fustaf', 1.1);
+    for (let rx = -205; rx <= 205; rx += 16) {
+      s += line3([rx, beatY - 6, 134], [rx, beatY - 6, 171], '#6d777f', 1.6);
+    }
+    // Pista de lliscament inferior
+    s += box3(-225, 225, beatY - 8, beatY + 18, 128, 137, 'fusta', 1.3);
+    // Caixa esquerra i dreta amb taco mòbil dins
+    s += box3(-326, -225, beatY - 9, beatY + 18, 128, 158, 'fustaf', 1.2);
+    s += box3(-318 + kickL, -300 + kickL, beatY - 3, beatY + 13, 137, 155, 'llauto', 1.1);
+    s += box3(225, 326, beatY - 9, beatY + 18, 128, 158, 'fustaf', 1.2);
+    s += box3(300 - kickR, 318 - kickR, beatY - 3, beatY + 13, 137, 155, 'llauto', 1.1);
+    if (!opts.noPivots) {
+      for (const sx of [-246, 246]) {
+        const [px, py] = P3(sx, pivotY, pivotZ);
+        s += `<circle cx="${f1(px)}" cy="${f1(py)}" r="5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
+      }
+    }
+    return s;
+  }
+
   /* ==================== 2. LLANÇADORA VOLANT (JOHN KAY, 1733) ==================== */
   function svgLlancadora() {
     let s = EXTRA_DEFS + taller(565);
-    s += ombra(660, 572, 460, 9);
+    // Ombra del bastidor al terra Z=0
+    s += poly3([P3(-285, -195, 0), P3(285, -195, 0), P3(285, 185, 0), P3(-285, 185, 0)], '#9b8b6c', 0, 0.25);
 
-    // Marc exterior del teler (fora de la zona dels fils, res no tapa el teixit)
+    // Bastidor posterior i plegador d'ordit (darrere)
     s += `<g data-part="bastidor">
-      ${caixa(265, 134, 18, 415, 'fustaf', 'cil')}${caixa(1055, 134, 18, 415, 'fustaf', 'cil')}
-      ${caixa(228, 120, 24, 445, 'fusta-v', 'cil')}${caixa(1088, 120, 24, 445, 'fusta-v', 'cil')}
-      ${caixa(220, 114, 900, 22, 'fusta', 'tub', { rx: 3 })}
-      ${caixa(228, 542, 884, 22, 'fusta', 'tub', { rx: 2 })}
-      ${reblons(240, 125, 240, 125, 1, 3, '#6b4423')}${reblons(1100, 125, 1100, 125, 1, 3, '#6b4423')}
+      ${box3(-265, -247, -185, -167, 0, 260, 'fustaf')}
+      ${box3(247, 265, -185, -167, 0, 260, 'fustaf')}
+      ${box3(-265, 265, -185, -167, 244, 260, 'fusta')}
+      ${box3(-265, 265, -185, -167, 18, 34, 'fusta')}
+      ${box3(-265, -247, -175, 175, 18, 34, 'fustaf')}
+      ${box3(247, 265, -175, 175, 18, 34, 'fustaf')}
+      ${box3(-265, -247, -175, 58, 244, 260, 'fusta')}
+      ${box3(247, 265, -175, 58, 244, 260, 'fusta')}
+      ${box3(-265, 265, 40, 56, 244, 260, 'fusta')}
     </g>`;
 
-    // Plegador d'ordit (darrere-dalt) + fils inferiors de l'ordit
+    // Plegador d'ordit posterior + grup inferior de l'ordit (passa per sota la llançadora)
     s += `<g data-part="ordit">
-      ${caixa(274, 152, 792, 34, 'fustaf', 'tub', { rx: 4 })}
-      <rect x="294" y="148" width="752" height="42" rx="6" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.6"/>
+      ${cylX3(-226, 226, -175, 148, 22, 'url(#tx-cotobob)', '#efe5cd', 1.5)}
+      ${cylX3(226, 244, -175, 148, 9, '#8d5d2e', '#6c431f', 1.2)}
+      <polygon id="ll-shed-glow" points="" fill="#fff3b8" opacity=".36"/>
       <g id="ll-warp-low"></g>
-      <polygon id="ll-shed-glow" points="305,270 1035,270 1035,342 305,342" fill="#fff3b8" opacity=".32"/>
     </g>`;
 
-    // Lliços (dos marcs que pugen i baixen en oposició)
+    // Lliços (dos marcs amb politges superiors penjant de la biga a Y=-38)
     s += `<g data-part="llicos">
-      <circle cx="440" cy="128" r="11" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.4"/>
-      <circle cx="900" cy="128" r="11" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.4"/>
-      <g id="ll-heddle-1"></g>
-      <g id="ll-heddle-2"></g>
+      ${box3(-265, 265, -48, -30, 244, 258, 'fusta')}
+      <g id="ll-heddles"></g>
     </g>`;
 
-    // Tela ja teixida + plegador de tela a baix
-    s += `<g data-part="tela">
-      <polygon points="305,428 1035,428 1035,516 305,516" fill="url(#tx-tela)" stroke="${INK}" stroke-width="1.6"/>
-      <g id="ll-cloth-grid"></g>
-      <g id="ll-wefts"></g>
-      ${caixa(274, 424, 792, 11, 'fustaf', 'tub', { rx: 2 })}
-      <rect x="294" y="502" width="752" height="34" rx="6" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.6"/>
-      ${caixa(274, 505, 22, 28, 'llauto', 'cil', { rx: 2 })}${caixa(1044, 505, 22, 28, 'llauto', 'cil', { rx: 2 })}
-    </g>`;
+    // Batà penjant + pinta + caixes laterals + tacos
+    s += `<g data-part="pinta" id="ll-batten"></g>`;
 
-    // Batà i pinta (oscil·la per atapeir la trama) + caixes laterals amb tacos tallats
-    s += `<g id="ll-beater-group">
-      <g data-part="pinta">
-        <line x1="262" y1="136" x2="262" y2="342" stroke="#474f56" stroke-width="7" stroke-linecap="round"/>
-        <line x1="1078" y1="136" x2="1078" y2="342" stroke="#474f56" stroke-width="7" stroke-linecap="round"/>
-        <g id="ll-reed"></g>
-        ${caixa(256, 338, 828, 16, 'fusta', 'tub', { rx: 2 })}
-      </g>
-      <g data-part="caixes">
-        ${caixa(190, 326, 98, 32, 'fustaf', 'tub', { rx: 3 })}
-        <rect x="198" y="332" width="84" height="18" rx="3" fill="#2c2219" stroke="${INK}" stroke-width="1.2"/>
-        <g id="ll-taco-l">${caixa(204, 333, 20, 16, 'llauto', 'cil', { rx: 2 })}</g>
-        ${caixa(1052, 326, 98, 32, 'fustaf', 'tub', { rx: 3 })}
-        <rect x="1058" y="332" width="84" height="18" rx="3" fill="#2c2219" stroke="${INK}" stroke-width="1.2"/>
-        <g id="ll-taco-r">${caixa(1116, 333, 20, 16, 'llauto', 'cil', { rx: 2 })}</g>
-      </g>
-    </g>`;
-
-    // Trama volant + barqueta llançadora (entre ordit inferior i superior)
+    // Trama volant + barqueta llançadora (dins la calada!)
     s += `<g data-part="llancadora">
       <g id="ll-active-weft"></g>
-      <g id="ll-shuttle">
-        <path d="M-34 0Q-18 -11 0 -11Q18 -11 34 0Q18 11 0 11Q-18 11 -34 0Z" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.8"/>
-        <polygon points="-34,0 -24,-4 -24,4" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1"/>
-        <polygon points="34,0 24,-4 24,4" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1"/>
-        <rect x="-15" y="-5" width="30" height="10" rx="4" fill="#3a2a1d"/>
-        <rect x="-12" y="-3.5" width="24" height="7" rx="3" fill="url(#tx-cotobob)" stroke="#8d8167" stroke-width=".9"/>
-      </g>
+      <g id="ll-shuttle">${shuttle3HTML()}</g>
     </g>`;
 
     // Fils superiors de l'ordit (passen PER DAMUNT de la llançadora!)
     s += `<g data-part="ordit" id="ll-warp-up" pointer-events="none"></g>`;
 
-    // Cordill i mànec (una sola mà impulsa la llançadora!)
+    // Tela teixida i plegador frontal de tela (en primer pla, bastidor frontal rebaixat perquè no tapi el procés)
+    s += `<g data-part="tela">
+      <g id="ll-cloth"></g>
+      ${cylX3(-226, 226, 165, 86, 20, 'url(#tx-cotobob)', '#efe5cd', 1.5)}
+      ${cylX3(226, 244, 165, 86, 8, '#d4a63a', '#9b731c', 1.2)}
+    </g>`;
+    s += `<g data-part="bastidor">
+      ${box3(-265, -247, 155, 175, 0, 156, 'fustaf')}
+      ${box3(247, 265, 155, 175, 0, 156, 'fustaf')}
+      ${box3(-265, 265, 155, 173, 140, 152, 'fusta')}
+    </g>`;
+
+    // Cordill en V, mànec central i una sola mà impulsant la llançadora
     s += `<g data-part="cordill">
-      <line id="ll-cord-l" x1="214" y1="333" x2="670" y2="490" stroke="#8b6f47" stroke-width="2.6"/>
-      <line id="ll-cord-r" x1="1126" y1="333" x2="670" y2="490" stroke="#8b6f47" stroke-width="2.6"/>
+      <line id="ll-cord-l" x1="0" y1="0" x2="0" y2="0" stroke="#8b6f47" stroke-width="2.6" stroke-linecap="round"/>
+      <line id="ll-cord-r" x1="0" y1="0" x2="0" y2="0" stroke="#8b6f47" stroke-width="2.6" stroke-linecap="round"/>
       <g id="ll-handle">
-        ${caixa(663, 478, 14, 28, 'llauto', 'cil', { rx: 4 })}
+        ${caixa(-7, -12, 14, 24, 'llauto', 'cil', { rx: 4 })}
         ${maHTML('ll-hand', 'cordill')}
       </g>
-      <text x="670" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#6f4e28">Una sola mà estira el mànec</text>
     </g>`;
 
-    // Tall lateral sincronitzat a l'esquerra (x = -35..175, y = 155..385) per veure la calada de perfil
-    s += `<g transform="translate(-35, 160)">
-      <rect x="0" y="0" width="200" height="215" rx="12" fill="url(#tx-peça-fons)" stroke="#d6cbb5" stroke-width="1.5"/>
-      <text x="100" y="22" text-anchor="middle" font-size="13.5" font-weight="800" fill="#2f6f68">Secció lateral · la calada</text>
-      <g id="ll-side"></g>
-    </g>`;
+    // Indicador compacte de les 3 accions sincronitzades al buit superior esquerre (deixa el teler gegant)
+    s += `<g id="ll-steps" transform="translate(110, 108)"></g>`;
 
-    return RI.svg(s);
+    return RI.svg(s, '95 96 965 492');
   }
 
   function animaLlancadora() {
     return ({ p, el }) => {
       const s = S('llancadora', p);
-      // Lliços i ordit: 18 fils alternats
-      const h1y = 228 - 26 * s.shed, h2y = 228 + 26 * s.shed;
-      const drawHeddle = (g, y, col) => {
-        let h = `<rect x="302" y="${f1(y - 18)}" width="736" height="6" rx="2" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.2"/>
-          <rect x="302" y="${f1(y + 12)}" width="736" height="6" rx="2" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.2"/>`;
-        for (let i = 0; i < 9; i++) {
-          const x = 324 + i * 84;
-          h += `<line x1="${x}" y1="${f1(y - 12)}" x2="${x}" y2="${f1(y + 12)}" stroke="${col}" stroke-width="1.5"/><circle cx="${x}" cy="${f1(y)}" r="2.6" fill="#fff" stroke="${col}" stroke-width="1.2"/>`;
-        }
-        g.innerHTML = h;
-      };
-      drawHeddle(el('ll-heddle-1'), h1y, '#3d747a');
-      drawHeddle(el('ll-heddle-2'), h2y, '#6f8769');
-
-      // Fils d'ordit: el grup superior passa per sobre la llançadora, l'inferior per sota
-      let up = '', low = '';
-      for (let i = 0; i < 18; i++) {
-        const x = 315 + i * 41.7, odd = i % 2 === 1;
-        const hy = odd ? h1y : h2y;
-        const isUp = (odd && s.shed >= 0) || (!odd && s.shed < 0);
-        const line = `<line x1="${f1(x)}" y1="186" x2="${f1(x)}" y2="${f1(hy)}" stroke="${odd ? '#3d747a' : '#859c7f'}" stroke-width="${odd ? 2.2 : 1.9}"/>
-          <line x1="${f1(x)}" y1="${f1(hy)}" x2="${f1(x)}" y2="428" stroke="${odd ? '#3d747a' : '#859c7f'}" stroke-width="${odd ? 2.2 : 1.9}"/>`;
-        if (isUp) up += line; else low += line;
-      }
-      el('ll-warp-up').innerHTML = up;
-      el('ll-warp-low').innerHTML = low;
-      el('ll-shed-glow').setAttribute('opacity', (0.38 * Math.abs(s.shed)).toFixed(2));
-
-      // Batà i pinta (s.y va de -82 a -152 → dy = 0 a +84 px cap avall/endavant fins a y=428)
       const beatNorm = (-82 - s.y) / 70;
-      const by = beatNorm * 82;
-      el('ll-beater-group').setAttribute('transform', `translate(0 ${f1(by)})`);
-      let reed = '';
-      for (let i = 0; i < 35; i++) {
-        const x = 305 + i * 21.4;
-        reed += `<line x1="${f1(x)}" y1="296" x2="${f1(x)}" y2="338" stroke="#7c878e" stroke-width="1.5"/>`;
-      }
-      reed += `<rect x="296" y="290" width="748" height="8" rx="2" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.2"/>`;
-      el('ll-reed').innerHTML = reed;
+      const beatY = 18 + beatNorm * 72; // 18 (enrere) -> 90 (pica la tela a Y=95)
 
-      // Graella de tela + trames incorporades
-      let cg = '';
-      for (let i = 0; i < 18; i++) cg += `<line x1="${f1(315 + i * 41.7)}" y1="428" x2="${f1(315 + i * 41.7)}" y2="502" stroke="#cfc2a4" stroke-width="1.3"/>`;
-      for (let j = 1; j < 7; j++) cg += `<line x1="305" y1="${428 + j * 11}" x2="1035" y2="${428 + j * 11}" stroke="#cfc2a4" stroke-width="1.2"/>`;
-      el('ll-cloth-grid').innerHTML = cg;
-
-      const rowHTML = (y, xFrom, xTo) => {
-        let r = '';
-        for (let i = 0; i < 17; i++) {
-          const xA = 315 + i * 41.7, xB = xA + 41.7, lo = Math.max(xA, Math.min(xFrom, xTo)), hi = Math.min(xB, Math.max(xFrom, xTo));
-          if (hi > lo) r += `<line x1="${f1(lo)}" y1="${f1(y + (i % 2 ? 1.4 : -1.4))}" x2="${f1(hi)}" y2="${f1(y + (i % 2 ? -1.4 : 1.4))}" stroke="#c84b31" stroke-width="3.6" stroke-linecap="round"/>`;
+      // Lliços 3D a Y=-58 (posterior) i Y=-22 (anterior)
+      const z1 = 148 + 28 * s.shed, z2 = 148 - 28 * s.shed;
+      const heddleHTML = (y, zc, col) => {
+        let h = box3(-212, 212, y - 3, y + 3, zc + 22, zc + 28, 'fusta', 1.1);
+        h += box3(-212, 212, y - 3, y + 3, zc - 28, zc - 22, 'fusta', 1.1);
+        h += line3([-110, y, zc + 28], [-110, y, 246], '#7a5c3a', 1.6);
+        h += line3([110, y, zc + 28], [110, y, 246], '#7a5c3a', 1.6);
+        for (let i = 0; i < 8; i++) {
+          const hx = -182 + i * 52;
+          const [cx, cy] = P3(hx, y, zc);
+          h += line3([hx, y, zc - 22], [hx, y, zc + 22], col, 1.4);
+          h += `<circle cx="${f1(cx)}" cy="${f1(cy)}" r="2.4" fill="#fffcf5" stroke="${col}" stroke-width="1.2"/>`;
         }
-        return r;
+        return h;
       };
-      let actW = '', wefts = '';
-      const sx = 670 + (s.x / 325) * 435; // -325..+325 -> 235..1105
+      // Polítges superiors del balancí dels lliços
+      let pul = '';
+      for (const px of [-110, 110]) {
+        const [gx, gy] = P3(px, -38, 246);
+        pul += `<circle cx="${f1(gx)}" cy="${f1(gy)}" r="8" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
+      }
+      el('ll-heddles').innerHTML = heddleHTML(-58, z1, '#2f6f68') + heddleHTML(-22, z2, '#7b8c6b') + pul;
+
+      // Fils d'ordit en 3D: 15 fils; la meitat superior es pinta després de la llançadora
+      let up = '', low = '';
+      for (let i = 0; i < 15; i++) {
+        const x = -196 + i * 28, odd = i % 2 === 1;
+        const yh = odd ? -58 : -22, zh = odd ? z1 : z2;
+        const isUp = (odd && s.shed >= 0) || (!odd && s.shed < 0);
+        const col = odd ? '#2f6f68' : '#7b8c6b';
+        const seg = line3([x, -175, 148], [x, yh, zh], col, odd ? 2.1 : 1.9) +
+          line3([x, yh, zh], [x, 95, 148], col, odd ? 2.1 : 1.9);
+        if (isUp) up += seg; else low += seg;
+      }
+      el('ll-warp-low').innerHTML = low;
+      el('ll-warp-up').innerHTML = up;
+      const glowPts = [P3(204, -175, 148), P3(204, s.shed >= 0 ? -58 : -22, Math.max(z1, z2)), P3(204, 95, 148), P3(204, s.shed >= 0 ? -22 : -58, Math.min(z1, z2))];
+      el('ll-shed-glow').setAttribute('points', glowPts.map((pt) => `${f1(pt[0])},${f1(pt[1])}`).join(' '));
+      el('ll-shed-glow').setAttribute('opacity', (0.48 * Math.abs(s.shed)).toFixed(2));
+
+      // Batà penjant + pinta + caixes amb tacos
+      const kickL = s.pull && p < 0.3 ? 32 : 0, kickR = s.pull && p >= 0.6 ? 32 : 0;
+      el('ll-batten').innerHTML = batten3HTML(beatY, kickL, kickR);
+
+      // Llançadora volant en 3D dins la calada (Y = beatY + 5, Z = 147)
+      const sx3 = (s.x / 325) * 268;
+      const [sx2, sy2] = P3(sx3, beatY + 5, 147);
+      el('ll-shuttle').setAttribute('transform', `translate(${f1(sx2)} ${f1(sy2)})`);
+
+      // Trama activa + fletxa direccional quan la llançadora creua la calada + trames incorporades
+      let actW = '';
+      if (s.weaving) {
+        const dir = p < 0.5 ? 1 : -1;
+        actW += line3([clamp(sx3 - dir * 68, -210, 210), beatY + 12, 162], [clamp(sx3 + dir * 48, -210, 210), beatY + 12, 162], '#d97706', 2.8, ' stroke-dasharray="5 4" marker-end="url(#m-fl)"');
+      }
       if (p >= 0.18 && p < 0.50) {
-        const wy = p < 0.40 ? 334 : lerp(334, 430, s.beat1);
-        actW += rowHTML(wy, 315, p < 0.38 ? sx : 1035);
+        const wy = p < 0.40 ? beatY + 4 : lerp(beatY + 4, 95, s.beat1);
+        const xEnd = p < 0.38 ? clamp(sx3, -200, 200) : 200;
+        if (xEnd > -200) actW += line3([-200, wy, 148], [xEnd, wy, 148], '#c84b31', 3.4);
       }
-      if (p >= 0.50) wefts += rowHTML(430, 315, 1035);
       if (p >= 0.67 && p < 0.95) {
-        const wy = p < 0.86 ? 334 : lerp(334, 435, s.beat2);
-        actW += rowHTML(wy, 1035, p < 0.85 ? sx : 315);
+        const wy = p < 0.86 ? beatY + 4 : lerp(beatY + 4, 95, s.beat2);
+        const xStart = p < 0.85 ? clamp(sx3, -200, 200) : -200;
+        if (xStart < 200) actW += line3([200, wy, 148], [xStart, wy, 148], '#c84b31', 3.4);
       }
-      if (p >= 0.95) wefts += rowHTML(436, 315, 1035);
       el('ll-active-weft').innerHTML = actW;
-      el('ll-wefts').innerHTML = wefts;
 
-      // Llançadora i tacos
-      const sy = 334 + by;
-      el('ll-shuttle').setAttribute('transform', `translate(${f1(sx)} ${f1(sy)})`);
-      const kickL = s.pull && p < 0.3 ? 34 : 0, kickR = s.pull && p >= 0.6 ? -34 : 0;
-      el('ll-taco-l').setAttribute('transform', `translate(${kickL} 0)`);
-      el('ll-taco-r').setAttribute('transform', `translate(${kickR} 0)`);
+      // Tela teixida 3D: pla horitzontal Y=95..165 a Z=148 + caiguda cap al corró frontal Y=165, Z=86
+      let cl = poly3([P3(-206, 95, 148), P3(206, 95, 148), P3(206, 165, 148), P3(-206, 165, 148)], 'url(#tx-tela)', 1.5);
+      cl += poly3([P3(-206, 165, 148), P3(206, 165, 148), P3(206, 165, 92), P3(-206, 165, 92)], '#dfd1b3', 1.4);
+      for (let i = 0; i < 15; i++) {
+        const x = -196 + i * 28;
+        cl += line3([x, 95, 148], [x, 165, 148], '#cbbd9c', 1.1);
+      }
+      for (let wy = 112; wy <= 156; wy += 11) cl += line3([-200, wy, 148], [200, wy, 148], '#d89b87', 1.8, ' opacity=".6"');
+      if (p >= 0.50) cl += line3([-200, 99, 148], [200, 99, 148], '#c84b31', 3.4);
+      if (p >= 0.95) cl += line3([-200, 105, 148], [200, 105, 148], '#c84b31', 3.4);
+      el('ll-cloth').innerHTML = cl;
 
-      // Cordill i mà
-      const hx = kickL ? 26 : kickR ? -26 : 0, hy = (kickL || kickR) ? 14 : 0;
-      el('ll-handle').setAttribute('transform', `translate(${hx} ${hy})`);
-      el('ll-hand').setAttribute('transform', `translate(684, 492)`);
-      el('ll-cord-l').setAttribute('x1', f1(214 + kickL)); el('ll-cord-l').setAttribute('y1', f1(333 + by));
-      el('ll-cord-l').setAttribute('x2', f1(670 + hx)); el('ll-cord-l').setAttribute('y2', f1(482 + hy));
+      // Cordill en V, mànec i mà estirant al davant-centre
+      const hShiftX = kickL ? 28 : kickR ? -28 : 0;
+      const [hx, hy] = P3(hShiftX, 208, 104);
+      const [cLx, cLy] = P3(-308 + kickL, beatY + 5, 152);
+      const [cRx, cRy] = P3(308 - kickR, beatY + 5, 152);
+      el('ll-handle').setAttribute('transform', `translate(${f1(hx)} ${f1(hy)})`);
+      el('ll-hand').setAttribute('transform', 'translate(14 8)');
+      el('ll-cord-l').setAttribute('x1', f1(cLx)); el('ll-cord-l').setAttribute('y1', f1(cLy));
+      el('ll-cord-l').setAttribute('x2', f1(hx)); el('ll-cord-l').setAttribute('y2', f1(hy - 8));
       el('ll-cord-l').setAttribute('stroke', kickL ? '#d97706' : '#8b6f47');
       el('ll-cord-l').setAttribute('stroke-width', kickL ? '3.8' : '2.4');
-      el('ll-cord-r').setAttribute('x1', f1(1126 + kickR)); el('ll-cord-r').setAttribute('y1', f1(333 + by));
-      el('ll-cord-r').setAttribute('x2', f1(670 + hx)); el('ll-cord-r').setAttribute('y2', f1(482 + hy));
+      el('ll-cord-r').setAttribute('x1', f1(cRx)); el('ll-cord-r').setAttribute('y1', f1(cRy));
+      el('ll-cord-r').setAttribute('x2', f1(hx)); el('ll-cord-r').setAttribute('y2', f1(hy - 8));
       el('ll-cord-r').setAttribute('stroke', kickR ? '#d97706' : '#8b6f47');
       el('ll-cord-r').setAttribute('stroke-width', kickR ? '3.8' : '2.4');
 
-      // Secció lateral sincronitzada
-      const sideShed = 26 * s.shed, reedX = 114 + beatNorm * 32;
-      const inShed = (p >= 0.18 && p < 0.38) || (p >= 0.67 && p < 0.85);
-      el('ll-side').innerHTML = `
-        <circle cx="24" cy="112" r="14" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.4"/>
-        <polygon points="32,112 146,112 78,${f1(112 - sideShed)}" fill="#fff3b8" opacity=".5"/>
-        <polygon points="32,112 146,112 78,${f1(112 + sideShed)}" fill="#fff3b8" opacity=".5"/>
-        <polyline points="32,112 78,${f1(112 - sideShed)} 146,112" fill="none" stroke="#3d747a" stroke-width="2.4"/>
-        <polyline points="32,112 78,${f1(112 + sideShed)} 146,112" fill="none" stroke="#859c7f" stroke-width="2.4"/>
-        <rect x="74" y="${f1(112 - sideShed - 18)}" width="7" height="36" rx="2" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1"/>
-        <rect x="74" y="${f1(112 + sideShed - 18)}" width="7" height="36" rx="2" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1"/>
-        <line x1="${f1(reedX)}" y1="68" x2="${f1(reedX)}" y2="148" stroke="#5a6269" stroke-width="3.2" stroke-linecap="round"/>
-        <ellipse cx="104" cy="112" rx="10" ry="6" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.3" opacity="${inShed ? 1 : 0.25}"/>
-        <line x1="146" y1="112" x2="180" y2="136" stroke="#c8b996" stroke-width="4.5" stroke-linecap="round"/>
-        <circle cx="180" cy="144" r="11" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.4"/>
-        <text x="100" y="182" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4a4139">${inShed ? 'La llançadora passa pel mig' : beatNorm > 0.2 ? 'La pinta atapeeix la trama' : 'Els lliços obren el pas'}</text>`;
+      // Indicador compacte dels 3 passos de teixir
+      const cur = s.weaving ? 1 : beatNorm > 0.08 ? 2 : 0;
+      const noms = ['1 · Calada (peus)', '2 · Llançadora (1 mà)', '3 · Batuda (pinta)'];
+      let st = `<rect x="0" y="0" width="196" height="102" rx="11" fill="url(#tx-peça-fons)" stroke="#d6cbb5" stroke-width="1.4"/>
+        <text x="98" y="18" text-anchor="middle" font-size="11.5" font-weight="800" fill="#6f4e28">Cicle del teixit</text>`;
+      noms.forEach((nom, i) => {
+        const on = cur === i;
+        st += `<rect x="10" y="${25 + i * 24}" width="176" height="20" rx="10" fill="${on ? '#b9722a' : '#efe7d4'}" stroke="${on ? INK : '#d6cbb5'}" stroke-width="1.1"/>
+          <text x="98" y="${39 + i * 24}" text-anchor="middle" font-size="10.8" font-weight="700" fill="${on ? '#fff' : '#6c655c'}">${nom}</text>`;
+      });
+      el('ll-steps').innerHTML = st;
     };
   }
 
@@ -873,168 +981,251 @@
   /* ==================== 6. TELER MECÀNIC DE CARTWRIGHT (1785 / 1787-1790) ==================== */
   function svgCartwright() {
     let s = EXTRA_DEFS + taller(565);
-    s += ombra(430, 572, 390, 9);
+    s += poly3([P3(-285, -195, 0), P3(315, -195, 0), P3(315, 185, 0), P3(-285, 185, 0)], '#9b8b6c', 0, 0.25);
 
-    // Bastidor posterior net (deixa totalment visibles lleves, biela, batà i ordit)
+    // Bastidor posterior i suports inferiors de ferro per als eixos
     s += `<g data-part="bastidor">
-      ${caixa(74, 146, 20, 418, 'fustaf', 'cil')}${caixa(720, 146, 20, 418, 'fustaf', 'cil')}
-      ${caixa(66, 134, 686, 18, 'fusta', 'tub', { rx: 3 })}${caixa(66, 540, 686, 22, 'fusta', 'tub', { rx: 2 })}
-      ${caixa(482, 152, 18, 388, 'fustaf', 'cil')}
+      ${box3(-265, -247, -185, -167, 0, 260, 'fustaf')}
+      ${box3(247, 265, -185, -167, 0, 260, 'fustaf')}
+      ${box3(-265, 265, -185, -167, 244, 260, 'fusta')}
+      ${box3(-265, 265, -185, -167, 18, 34, 'fusta')}
+      ${box3(-265, -247, -175, 175, 18, 34, 'fustaf')}
+      ${box3(247, 265, -175, 175, 18, 34, 'fustaf')}
+      ${box3(-265, -247, -175, 58, 244, 260, 'fusta')}
+      ${box3(247, 265, -175, 58, 244, 260, 'fusta')}
+      ${box3(-265, 265, 40, 56, 244, 260, 'fusta')}
+      ${box3(-265, 265, -48, -30, 244, 258, 'fusta')}
     </g>`;
 
-    // Transmissió exterior des d'un eix de fàbrica superior
-    s += `<g data-part="transmissio">
-      <line x1="740" y1="140" x2="780" y2="140" stroke="#474f56" stroke-width="9" stroke-linecap="round"/>
-      <circle cx="765" cy="140" r="34" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.8"/>
-      <circle cx="765" cy="140" r="8" fill="url(#g-esf-ferro)" stroke="${INK}" stroke-width="1.2"/>
-      ${corretjaHTML(765, 140, 34, 610, 466, 68, 'cw-belt', 'transmissio')}
-      <path d="M726 112A46 46 0 0 1 804 128" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="5 4" marker-end="url(#m-fl)"/>
-      <g id="cw-flywheel">${rodaR(610, 466, 72, { raigs: 6, tex: 'ferro', gruix: 11, raig: 5, boto: 16, pern: 'llauto' })}</g>
-    </g>`;
-
-    // Plegador d'ordit a l'esquerra + calada lateral
+    // Plegador d'ordit posterior + calada inferior + ressalt lluminós
     s += `<g data-part="ordit">
-      <circle cx="122" cy="248" r="36" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.6"/>
-      <circle cx="122" cy="248" r="10" fill="url(#tx-fustaf)" stroke="${INK}" stroke-width="1.2"/>
-      <g id="cw-shed"></g>
+      ${cylX3(-226, 226, -175, 148, 22, 'url(#tx-cotobob)', '#efe5cd', 1.5)}
+      ${cylX3(226, 244, -175, 148, 9, '#656e75', '#464d53', 1.2)}
+      <polygon id="cw-shed-glow" points="" fill="#fff3b8" opacity=".42"/>
+      <g id="cw-warp-low"></g>
     </g>`;
 
-    // Eix principal, engranatge 2:1 i eix de lleves amb seguidors dels lliços
+    // Eix de lleves (Y=-38, Z=50), lleves excèntriques sota els lliços i rodets seguidors
     s += `<g data-part="eix">
-      ${tub('M312 466H618', 10, 'ferro')}
-      <g id="cw-gear-main">${engranatgeR(586, 466, 26, 12, { tex: 'llauto', pern: 'ferro' })}</g>
-      <g id="cw-gear-cam">${engranatgeR(508, 466, 52, 24, { tex: 'llauto', pern: 'ferro' })}</g>
-      ${badge(546, 392, 'Relació 2:1', '#6f4e28', '#fff')}
+      ${line3([-250, -38, 50], [268, -38, 50], INK, 9)}
+      ${line3([-250, -38, 50], [268, -38, 50], '#7c878e', 5.5)}
       <g id="cw-cams"></g>
     </g>`;
 
-    // Lliços accionats pels seguidors de les lleves
-    s += `<g data-part="llicos">
-      <circle cx="338" cy="146" r="14" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.5"/>
-      <g id="cw-heddles"></g>
+    // Lliços accionats des de baix per les lleves i enllaçats dalt pel balancí
+    s += `<g data-part="llicos" id="cw-heddles"></g>`;
+
+    // Batà basculant amb pinta metàl·lica i caixes laterals
+    s += `<g data-part="pinta" id="cw-batten"></g>`;
+
+    // Trama activa + barqueta llançadora mecànica (dins la calada)
+    s += `<g data-part="llancadora">
+      <g id="cw-active-weft"></g>
+      <g id="cw-shuttle">${shuttle3HTML()}</g>
     </g>`;
 
-    // Batà, pinta i biela des de la manovella de l'eix principal
-    s += `<g data-part="pinta" id="cw-beater"></g>`;
+    // Fils superiors de l'ordit (passen PER DAMUNT de la llançadora!)
+    s += `<g data-part="ordit" id="cw-warp-up" pointer-events="none"></g>`;
 
-    // Llançadora en secció dins la calada + braç impulsor lateral
-    s += `<g data-part="llancadora" id="cw-shuttle-side"></g>`;
-
-    // Tela i plegador de tela a la dreta
+    // Tela teixida, plegador frontal i bastidor davanter rebaixat
     s += `<g data-part="tela">
-      <line x1="598" y1="248" x2="674" y2="248" stroke="#c8b996" stroke-width="6" stroke-linecap="round"/>
-      <line x1="674" y1="248" x2="682" y2="368" stroke="#c8b996" stroke-width="6" stroke-linecap="round"/>
-      <circle cx="674" cy="252" r="9" fill="url(#tx-fustaf)" stroke="${INK}" stroke-width="1.3"/>
-      <circle cx="682" cy="376" r="32" fill="url(#tx-cotobob)" stroke="${INK}" stroke-width="1.6"/>
-      <circle cx="682" cy="376" r="9" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.2"/>
+      <g id="cw-cloth"></g>
+      ${cylX3(-226, 226, 165, 86, 20, 'url(#tx-cotobob)', '#efe5cd', 1.5)}
+      ${cylX3(226, 244, 165, 86, 8, '#d4a63a', '#9b731c', 1.2)}
+    </g>`;
+    s += `<g data-part="bastidor">
+      ${box3(-265, -247, 155, 175, 0, 156, 'fustaf')}
+      ${box3(247, 265, 155, 175, 0, 156, 'fustaf')}
+      ${box3(-265, 265, 155, 173, 140, 152, 'fusta')}
     </g>`;
 
-    // Panell dret sincronitzat: vista frontal del pas de la llançadora i creixement de la tela
-    s += `<g transform="translate(838, 128)">
-      <rect x="0" y="0" width="386" height="436" rx="14" fill="url(#tx-peça-fons)" stroke="#d6cbb5" stroke-width="1.6"/>
-      <text x="193" y="30" text-anchor="middle" font-size="16" font-weight="800" fill="#6f4e28">Vista frontal · cicle automàtic</text>
-      <text x="193" y="50" text-anchor="middle" font-size="12.5" fill="#5b6258">L’eix coordina calada, llançadora i batuda</text>
-      <g id="cw-front"></g>
+    // Espases impulsores mecàniques a totes dues bandes (al davant de les caixes perquè es vegin colpejar)
+    s += `<g data-part="llancadora" id="cw-pickers"></g>`;
+
+    // Eix principal (Y=-92, Z=72), reductor 2:1 i biela cap al batà al costat dret completament exposat
+    s += `<g data-part="eix">
+      ${line3([-250, -92, 72], [306, -92, 72], INK, 10)}
+      ${line3([-250, -92, 72], [306, -92, 72], '#656e75', 6.5)}
+      <g id="cw-gears"></g>
+      ${badge(936, 482, 'Relació 2:1', '#6f4e28', '#fff')}
+    </g>`;
+    s += `<g data-part="pinta" id="cw-crank-rod"></g>`;
+
+    // Transmissió motriu superior, corretja 3D tangent en el pla YZ i volant d'inèrcia al lateral dret
+    const [topX, topY] = P3(290, -92, 276);
+    const bA0 = P3(290, -92 - 23, 276), bA1 = P3(290, -92 - 46, 72);
+    const bB0 = P3(290, -92 + 46, 72), bB1 = P3(290, -92 + 23, 276);
+    const dBeltA = `M${f1(bA0[0])} ${f1(bA0[1])}L${f1(bA1[0])} ${f1(bA1[1])}`;
+    const dBeltB = `M${f1(bB0[0])} ${f1(bB0[1])}L${f1(bB1[0])} ${f1(bB1[1])}`;
+    s += `<g data-part="transmissio">
+      ${line3([245, -92, 276], [322, -92, 276], '#474f56', 8)}
+      ${discYZ3(290, -92, 276, 23, 14, '#deb47b', '#8d5d2e', 0.4, 4, 1.4)}
+      <path d="${dBeltA}" stroke="${INK}" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <path d="${dBeltA}" stroke="#7a4e2c" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+      <path id="cw-belt-a" d="${dBeltA}" stroke="#e7cca0" stroke-width="2" stroke-dasharray="7 13" stroke-linecap="round" fill="none"/>
+      <path d="${dBeltB}" stroke="${INK}" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <path d="${dBeltB}" stroke="#7a4e2c" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+      <path id="cw-belt-b" d="${dBeltB}" stroke="#e7cca0" stroke-width="2" stroke-dasharray="7 13" stroke-linecap="round" fill="none"/>
+      <path d="M${f1(topX - 28)} ${f1(topY - 26)}A36 36 0 0 1 ${f1(topX + 30)} ${f1(topY - 12)}" fill="none" stroke="#b45309" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#m-fl)"/>
+      <g id="cw-flywheel"></g>
     </g>`;
 
-    return RI.svg(s);
+    // Indicador compacte de les tres accions sincronitzades al buit superior esquerre
+    s += `<g id="cw-steps" transform="translate(110, 108)"></g>`;
+
+    return RI.svg(s, '95 96 965 492');
   }
 
   function animaCartwright() {
     return ({ p, el }) => {
       const s = S('cartwright', p);
-      const mainDeg = ((s.angle * 180) / Math.PI);
-      const camDeg = ((s.camAngle * 180) / Math.PI);
-      el('cw-flywheel').setAttribute('transform', `rotate(${f1(mainDeg)} 610 466)`);
-      el('cw-gear-main').setAttribute('transform', `rotate(${f1(mainDeg)} 586 466)`);
-      el('cw-gear-cam').setAttribute('transform', `rotate(${f1(camDeg + 7.5)} 508 466)`);
-      const boff = (-s.angle * 68).toFixed(1);
+      const beatNorm = (-82 - s.y) / 70;
+      const beatY = 18 + beatNorm * 72; // 18 -> 90
+
+      // Volant d'inèrcia i corretja animats
+      el('cw-flywheel').innerHTML = discYZ3(290, -92, 72, 46, 10, '#7c878e', '#464d53', s.angle, 6, 1.4);
+      const boff = (-s.angle * 52).toFixed(1);
       el('cw-belt-a').style.strokeDashoffset = boff;
       el('cw-belt-b').style.strokeDashoffset = boff;
 
-      // Perfil real de les dues lleves calculat amb RI.CARTWRIGHT_GEOMETRIA.camRadius
-      const drawCam = (cx, sign) => {
-        let d = '';
-        for (let i = 0; i < 48; i++) {
-          const b = (Math.PI * 2 * i) / 48, a = b + s.camAngle;
-          const r = RI.CARTWRIGHT_GEOMETRIA.camRadius(b, sign) * 0.92;
-          d += (i ? 'L' : 'M') + `${f1(cx + r * Math.cos(a))} ${f1(466 - r * Math.sin(a))}`;
+      // Engranatge reductor 2:1 en perspectiva 3D al costat dret
+      el('cw-gears').innerHTML =
+        discYZ3(268, -38, 50, 34, 8, '#d4a63a', '#9b731c', s.camAngle + 0.14, 0, 1.2, 24) +
+        discYZ3(268, -92, 72, 17, 9, '#f2d37a', '#9b731c', s.angle, 0, 1.2, 12);
+
+      // Dues lleves excèntriques sota els lliços + rodets seguidors i varetes verticals
+      const z1 = 148 + 26 * s.shed, z2 = 148 - 26 * s.shed;
+      const scaleCamR = (r) => 22 + (r - 40) * 1.15;
+      const camPoly3 = (cx, sign, fillF, fillR) => {
+        const fPts = [], bPts = [];
+        for (let i = 0; i < 40; i++) {
+          const b = (Math.PI * 2 * i) / 40, a = b + s.camAngle;
+          const rr = scaleCamR(RI.CARTWRIGHT_GEOMETRIA.camRadius(b, sign));
+          const dy = rr * Math.cos(a), dz = rr * Math.sin(a);
+          fPts.push(P3(cx + 4.5, -38 + dy, 50 + dz));
+          bPts.push(P3(cx - 4.5, -38 + dy, 50 + dz));
         }
-        return d + 'Z';
+        let res = '';
+        for (let i = 0; i < 40; i++) {
+          const j = (i + 1) % 40;
+          res += `<polygon points="${f1(bPts[i][0])},${f1(bPts[i][1])} ${f1(bPts[j][0])},${f1(bPts[j][1])} ${f1(fPts[j][0])},${f1(fPts[j][1])} ${f1(fPts[i][0])},${f1(fPts[i][1])}" fill="${fillR}" stroke="${INK}" stroke-width="0.7"/>`;
+        }
+        return res + poly3(fPts, fillF, 1.3);
       };
-      const lift1 = 28 * s.shed, lift2 = -28 * s.shed;
-      const fol1Y = 466 - (40 + 11 * s.shed) * 0.92, fol2Y = 466 - (40 - 11 * s.shed) * 0.92;
-      el('cw-cams').innerHTML = `
-        <path d="${drawCam(314, 1)}" fill="url(#tx-ferro)" stroke="${INK}" stroke-width="1.6"/>
-        <path d="${drawCam(366, -1)}" fill="url(#tx-acer)" stroke="${INK}" stroke-width="1.6"/>
-        <circle cx="314" cy="${f1(fol1Y)}" r="6" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        <circle cx="366" cy="${f1(fol2Y)}" r="6" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        <line x1="314" y1="${f1(fol1Y)}" x2="314" y2="${f1(298 - lift1)}" stroke="#5a6269" stroke-width="4.5" stroke-linecap="round"/>
-        <line x1="366" y1="${f1(fol2Y)}" x2="366" y2="${f1(298 - lift2)}" stroke="#5a6269" stroke-width="4.5" stroke-linecap="round"/>`;
+      const fol1Z = 50 + scaleCamR(40 + 11 * s.shed);
+      const fol2Z = 50 + scaleCamR(40 - 11 * s.shed);
+      const [f1x, f1y] = P3(186, -38, fol1Z);
+      const [f2x, f2y] = P3(226, -38, fol2Z);
+      el('cw-cams').innerHTML =
+        camPoly3(186, 1, '#7c878e', '#464d53') +
+        camPoly3(226, -1, '#98a1a8', '#525960') +
+        line3([186, -38, fol1Z], [186, -58, z1 - 24], '#464d53', 4.2) +
+        line3([226, -38, fol2Z], [226, -22, z2 - 24], '#464d53', 4.2) +
+        `<circle cx="${f1(f1x)}" cy="${f1(f1y)}" r="5.5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>` +
+        `<circle cx="${f1(f2x)}" cy="${f1(f2y)}" r="5.5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
 
-      // Lliços i calada lateral
-      const y1 = 248 - lift1, y2 = 248 - lift2;
-      el('cw-heddles').innerHTML = `
-        <line x1="314" y1="${f1(y1 - 40)}" x2="338" y2="146" stroke="#8b6f47" stroke-width="2.2"/>
-        <line x1="366" y1="${f1(y2 - 40)}" x2="338" y2="146" stroke="#8b6f47" stroke-width="2.2"/>
-        <rect x="306" y="${f1(y1 - 40)}" width="16" height="80" rx="3" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.4"/>
-        <rect x="358" y="${f1(y2 - 40)}" width="16" height="80" rx="3" fill="url(#tx-fustaf)" stroke="${INK}" stroke-width="1.4"/>`;
-      el('cw-shed').innerHTML = `
-        <polygon points="154,248 314,${f1(y1)} 598,248 366,${f1(y2)}" fill="#fff3b8" opacity="${(0.45 * Math.abs(s.shed)).toFixed(2)}"/>
-        <polyline points="154,248 314,${f1(y1)} 598,248" fill="none" stroke="#3d747a" stroke-width="3.2" stroke-linejoin="round"/>
-        <polyline points="154,248 366,${f1(y2)} 598,248" fill="none" stroke="#859c7f" stroke-width="3.2" stroke-linejoin="round"/>`;
-
-      // Manovella i biela de longitud constant (180 u. en s -> escalada proporcionalment)
-      const beatNorm = (-82 - s.y) / 70; // 0 enrere -> 1 endavant fins a x=594
-      const crankX = 610 - 30 * Math.cos(s.angle), crankY = 466 - 30 * Math.sin(s.angle);
-      const reedX = 510 + beatNorm * 82;
-      el('cw-beater').innerHTML = `
-        <line x1="610" y1="466" x2="${f1(crankX)}" y2="${f1(crankY)}" stroke="#b88928" stroke-width="6" stroke-linecap="round"/>
-        <line x1="${f1(crankX)}" y1="${f1(crankY)}" x2="${f1(reedX)}" y2="335" stroke="#4b5258" stroke-width="6.5" stroke-linecap="round"/>
-        <circle cx="${f1(crankX)}" cy="${f1(crankY)}" r="6" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        <line x1="510" y1="148" x2="${f1(reedX)}" y2="335" stroke="url(#tx-fusta)" stroke-width="9" stroke-linecap="round"/>
-        <line x1="510" y1="148" x2="${f1(reedX)}" y2="335" stroke="${INK}" stroke-width="1.6" stroke-linecap="round"/>
-        <rect x="${f1(reedX - 4)}" y="206" width="8" height="84" rx="2" fill="url(#tx-acer)" stroke="${INK}" stroke-width="1.4"/>
-        <circle cx="${f1(reedX)}" cy="335" r="6" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
-
-      // Llançadora en secció i impulsor mecànic
-      const kick = Math.max(s.pickerLeft, s.pickerRight) > 1;
-      el('cw-shuttle-side').innerHTML = `
-        <ellipse cx="478" cy="248" rx="18" ry="8.5" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.5" opacity="${s.weaving ? 1 : 0.22}"/>
-        <line x1="450" y1="466" x2="${f1(450 - (kick ? 24 : 0))}" y2="318" stroke="${kick ? '#d97706' : '#5a6269'}" stroke-width="4.5" stroke-linecap="round"/>
-        <circle cx="450" cy="466" r="7" fill="url(#g-esf-ferro)" stroke="${INK}" stroke-width="1.2"/>`;
-
-      // Panell frontal sincronitzat
-      const sx = 193 + (s.x / 325) * 145;
-      const pickL = s.pickerLeft * 1.4, pickR = s.pickerRight * 1.4;
-      let fr = '';
-      for (let i = 0; i < 12; i++) {
-        const x = 58 + i * 24.5;
-        fr += `<line x1="${f1(x)}" y1="84" x2="${f1(x)}" y2="310" stroke="${i % 2 ? '#3d747a' : '#859c7f'}" stroke-width="1.8"/>`;
+      // Lliços 3D i balancí superior oscil·lant (barra inferior arriba fins a X=232 per connectar amb les lleves fora dels fils)
+      const heddleHTML = (y, zc, col) => {
+        let h = box3(-212, 212, y - 3, y + 3, zc + 22, zc + 28, 'fusta', 1.1);
+        h += box3(-212, 234, y - 3, y + 3, zc - 28, zc - 22, 'fusta', 1.1);
+        for (let i = 0; i < 8; i++) {
+          const hx = -182 + i * 52;
+          const [cx, cy] = P3(hx, y, zc);
+          h += line3([hx, y, zc - 22], [hx, y, zc + 22], col, 1.4);
+          h += `<circle cx="${f1(cx)}" cy="${f1(cy)}" r="2.4" fill="#fffcf5" stroke="${col}" stroke-width="1.2"/>`;
+        }
+        return h;
+      };
+      const bal1 = 234 + (z1 - 148) * 0.25, bal2 = 234 + (z2 - 148) * 0.25;
+      let heds = heddleHTML(-58, z1, '#2f6f68') + heddleHTML(-22, z2, '#b45309');
+      for (const rx of [-120, 120]) {
+        heds += line3([rx, -58, z1 + 28], [rx, -58, bal1], '#7a5c3a', 1.8);
+        heds += line3([rx, -22, z2 + 28], [rx, -22, bal2], '#7a5c3a', 1.8);
+        heds += line3([rx, -58, bal1], [rx, -22, bal2], '#8d5d2e', 5.5);
+        const [bx, by] = P3(rx, -40, 234);
+        heds += `<circle cx="${f1(bx)}" cy="${f1(by)}" r="4.5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
       }
-      const bShift = beatNorm * 46;
-      fr += `<rect x="44" y="254" width="298" height="72" rx="4" fill="url(#tx-tela)" stroke="${INK}" stroke-width="1.4"/>`;
-      s.wefts.forEach((w, idx) => {
-        const wy = w.y <= -150 ? 256 + idx * 7 : 186 + bShift;
-        const xA = w.reverse ? 330 - 274 * w.amount : 56;
-        const xB = w.reverse ? 330 : 56 + 274 * w.amount;
-        fr += `<line x1="${f1(xA)}" y1="${f1(wy)}" x2="${f1(xB)}" y2="${f1(wy)}" stroke="#c84b31" stroke-width="3.6" stroke-linecap="round"/>`;
+      el('cw-heddles').innerHTML = heds;
+
+      // Fils d'ordit en 3D i ressalt del túnel de la calada
+      let up = '', low = '';
+      for (let i = 0; i < 15; i++) {
+        const x = -196 + i * 28, odd = i % 2 === 1;
+        const yh = odd ? -58 : -22, zh = odd ? z1 : z2;
+        const isUp = (odd && s.shed >= 0) || (!odd && s.shed < 0);
+        const col = odd ? '#2f6f68' : '#b45309';
+        const seg = line3([x, -175, 148], [x, yh, zh], col, odd ? 2.1 : 1.9) +
+          line3([x, yh, zh], [x, 95, 148], col, odd ? 2.1 : 1.9);
+        if (isUp) up += seg; else low += seg;
+      }
+      el('cw-warp-low').innerHTML = low;
+      el('cw-warp-up').innerHTML = up;
+      const glowPts = [P3(204, -175, 148), P3(204, s.shed >= 0 ? -58 : -22, Math.max(z1, z2)), P3(204, 95, 148), P3(204, s.shed >= 0 ? -22 : -58, Math.min(z1, z2))];
+      el('cw-shed-glow').setAttribute('points', glowPts.map((pt) => `${f1(pt[0])},${f1(pt[1])}`).join(' '));
+      el('cw-shed-glow').setAttribute('opacity', (0.48 * Math.abs(s.shed)).toFixed(2));
+
+      // Batà penjant + pinta + caixes laterals
+      const kickL = s.pickerLeft * 2.4, kickR = s.pickerRight * 2.4;
+      el('cw-batten').innerHTML = batten3HTML(beatY, kickL, kickR);
+
+      // Manovella i biela al costat dret empenyent la cama dreta del batà
+      const crankY = -92 - 30 * Math.cos(s.angle), crankZ = 72 + 30 * Math.sin(s.angle);
+      const batPinY = beatY + 4, batPinZ = 114;
+      const [kx, ky] = P3(304, crankY, crankZ), [bx, by] = P3(254, batPinY, batPinZ);
+      el('cw-crank-rod').innerHTML =
+        line3([304, -92, 72], [304, crankY, crankZ], '#d4a63a', 6) +
+        line3([304, crankY, crankZ], [254, batPinY, batPinZ], INK, 8.5) +
+        line3([304, crankY, crankZ], [254, batPinY, batPinZ], '#8f98a0', 5.2) +
+        `<circle cx="${f1(kx)}" cy="${f1(ky)}" r="5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>` +
+        `<circle cx="${f1(bx)}" cy="${f1(by)}" r="5" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.2"/>`;
+
+      // Espases impulsores mecàniques laterals (sense cordill ni mà!)
+      const colL = s.pickerLeft > 1 ? '#d97706' : '#5a6269';
+      const colR = s.pickerRight > 1 ? '#d97706' : '#5a6269';
+      const [pLx, pLy] = P3(-324, beatY + 6, 48), [pRx, pRy] = P3(324, beatY + 6, 48);
+      el('cw-pickers').innerHTML =
+        line3([-324, beatY + 6, 48], [-312 + kickL, beatY + 6, 152], INK, 7.5) +
+        line3([-324, beatY + 6, 48], [-312 + kickL, beatY + 6, 152], colL, 4.5) +
+        line3([324, beatY + 6, 48], [312 - kickR, beatY + 6, 152], INK, 7.5) +
+        line3([324, beatY + 6, 48], [312 - kickR, beatY + 6, 152], colR, 4.5) +
+        `<circle cx="${f1(pLx)}" cy="${f1(pLy)}" r="5" fill="url(#g-esf-ferro)" stroke="${INK}" stroke-width="1.2"/>` +
+        `<circle cx="${f1(pRx)}" cy="${f1(pRy)}" r="5" fill="url(#g-esf-ferro)" stroke="${INK}" stroke-width="1.2"/>`;
+
+      // Llançadora en 3D dins la calada
+      const sx3 = (s.x / 325) * 268;
+      const [sx2, sy2] = P3(sx3, beatY + 5, 147);
+      el('cw-shuttle').setAttribute('transform', `translate(${f1(sx2)} ${f1(sy2)})`);
+
+      // Trames actives (+ fletxa direccional en el vol) i tela creixent
+      let actW = '';
+      if (s.weaving) {
+        const dir = s.half === 0 ? 1 : -1;
+        actW += line3([clamp(sx3 - dir * 68, -210, 210), beatY + 12, 162], [clamp(sx3 + dir * 48, -210, 210), beatY + 12, 162], '#d97706', 2.8, ' stroke-dasharray="5 4" marker-end="url(#m-fl)"');
+      }
+      s.wefts.forEach((w) => {
+        const wy = w.y <= -150 ? 96 : beatY + 4;
+        const xA = w.reverse ? 200 - 400 * w.amount : -200;
+        const xB = w.reverse ? 200 : -200 + 400 * w.amount;
+        if (xB > xA) actW += line3([xA, wy, 148], [xB, wy, 148], '#c84b31', 3.4);
       });
-      fr += `<rect x="28" y="${f1(188 + bShift)}" width="330" height="12" rx="3" fill="url(#tx-fusta)" stroke="${INK}" stroke-width="1.3"/>
-        <rect x="${f1(32 + pickL)}" y="${f1(178 + bShift)}" width="12" height="16" rx="2" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        <rect x="${f1(342 - pickR)}" y="${f1(178 + bShift)}" width="12" height="16" rx="2" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.2"/>
-        <g transform="translate(${f1(sx)} ${f1(184 + bShift)})">
-          <path d="M-24 0Q-12 -8 0 -8Q12 -8 24 0Q12 8 0 8Q-12 8 -24 0Z" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.5"/>
-          <rect x="-9" y="-3" width="18" height="6" rx="2" fill="url(#tx-cotobob)"/>
-        </g>`;
-      const steps = ['1 · Calada', '2 · Llançadora', '3 · Batuda'];
-      steps.forEach((nom, i) => {
+      el('cw-active-weft').innerHTML = actW;
+
+      let cl = poly3([P3(-206, 95, 148), P3(206, 95, 148), P3(206, 165, 148), P3(-206, 165, 148)], 'url(#tx-tela)', 1.5);
+      cl += poly3([P3(-206, 165, 148), P3(206, 165, 148), P3(206, 165, 92), P3(-206, 165, 92)], '#dfd1b3', 1.4);
+      for (let i = 0; i < 15; i++) cl += line3([-196 + i * 28, 95, 148], [-196 + i * 28, 165, 148], '#cbbd9c', 1.1);
+      for (let wy = 112; wy <= 156; wy += 11) cl += line3([-200, wy, 148], [200, wy, 148], '#d89b87', 1.8, ' opacity=".6"');
+      el('cw-cloth').innerHTML = cl;
+
+      // Indicador sincronitzat dels 3 temps automàtics
+      const noms = ['1 · Calada (lleves)', '2 · Llançadora (impulsors)', '3 · Batuda (biela)'];
+      let st = `<rect x="0" y="0" width="208" height="102" rx="11" fill="url(#tx-peça-fons)" stroke="#d6cbb5" stroke-width="1.4"/>
+        <text x="104" y="18" text-anchor="middle" font-size="11.5" font-weight="800" fill="#6f4e28">Un eix coordina el cicle</text>`;
+      noms.forEach((nom, i) => {
         const on = s.step === i;
-        fr += `<rect x="${26 + i * 114}" y="352" width="106" height="30" rx="15" fill="${on ? '#b9722a' : '#efe7d4'}" stroke="${on ? INK : '#d6cbb5'}" stroke-width="1.3"/>
-          <text x="${79 + i * 114}" y="371" text-anchor="middle" font-size="12.5" font-weight="700" fill="${on ? '#fff' : '#6c655c'}">${nom}</text>`;
+        st += `<rect x="10" y="${25 + i * 24}" width="188" height="20" rx="10" fill="${on ? '#b9722a' : '#efe7d4'}" stroke="${on ? INK : '#d6cbb5'}" stroke-width="1.1"/>
+          <text x="104" y="${39 + i * 24}" text-anchor="middle" font-size="10.8" font-weight="700" fill="${on ? '#fff' : '#6c655c'}">${nom}</text>`;
       });
-      fr += `<text x="193" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#897142">Mateix cicle en un sol eix motriu</text>`;
-      el('cw-front').innerHTML = fr;
+      el('cw-steps').innerHTML = st;
     };
   }
 
@@ -1066,14 +1257,14 @@
       ['bastidor', 540, 520, 540, 466]
     ],
     llancadora: [
-      ['ordit', 495, 118, 495, 168],
-      ['llicos', 345, 168, 345, 228],
-      ['caixes', 180, 412, 232, 342],
-      ['llancadora', 670, 292, 670, 334, null, 'll-shuttle@0,0'],
-      ['pinta', 965, 292, 965, 340],
-      ['cordill', 845, 505, 676, 492],
-      ['tela', 460, 505, 460, 465],
-      ['bastidor', 1125, 430, 1098, 430]
+      ['ordit', 755, 168, 740, 272],
+      ['llicos', 185, 242, 460, 267],
+      ['caixes', 150, 322, 286, 322],
+      ['llancadora', 336, 224, 336, 303, null, 'll-shuttle@0,0'],
+      ['pinta', 975, 336, 754, 357],
+      ['cordill', 350, 514, 474, 452],
+      ['tela', 185, 424, 415, 388],
+      ['bastidor', 885, 494, 738, 478]
     ],
     jenny: [
       ['metxes', 442, 420, 340, 434],
@@ -1099,14 +1290,14 @@
       ['bastidor', 140, 512, 140, 440]
     ],
     cartwright: [
-      ['ordit', 122, 188, 122, 248],
-      ['llicos', 338, 118, 338, 215],
-      ['eix', 435, 536, 435, 466],
-      ['pinta', 585, 195, 540, 248],
-      ['llancadora', 445, 298, 478, 252],
-      ['tela', 710, 462, 682, 376],
-      ['transmissio', 765, 102, 765, 140],
-      ['bastidor', 155, 512, 155, 548]
+      ['ordit', 735, 168, 740, 272],
+      ['llicos', 185, 242, 460, 267],
+      ['eix', 685, 526, 787, 435],
+      ['pinta', 1005, 344, 816, 404],
+      ['llancadora', 336, 224, 336, 303, null, 'cw-shuttle@0,0'],
+      ['tela', 185, 424, 415, 388],
+      ['transmissio', 900, 136, 902, 206],
+      ['bastidor', 155, 488, 265, 444]
     ]
   };
 
@@ -1139,11 +1330,11 @@
 
   const MODELS = {
     roda: 'Roda manual de fus · tall lateral animat',
-    llancadora: 'Teler manual amb llançadora volant · vista frontal i secció lateral',
+    llancadora: 'Teler manual amb llançadora volant · vista en perspectiva 3/4',
     jenny: 'Spinning Jenny de vuit fusos · tall lateral i vista simultània',
     water: 'Water Frame d’Arkwright · corrons, aleta i força hidràulica',
     mula: 'Mula de Crompton · tall lateral de corrons i carro mòbil',
-    cartwright: 'Teler mecànic (1787–1790) · eix de lleves 2:1, biela i vista frontal'
+    cartwright: 'Teler mecànic (1787–1790) · vista en perspectiva 3/4 amb eix i lleves 2:1'
   };
 
   RI.TEXTIL_DIBUIX = { svg, anima, ETIQUETES, MODELS };

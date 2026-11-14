@@ -480,22 +480,24 @@ body[data-capitol="textil"] .escenes button{padding-left:9px;padding-right:9px;g
 .mobil .ara{flex-wrap:wrap;gap:5px;align-items:center;font-size:.95rem}
 .mobil .ara .seg-hint{flex-basis:100%;margin-left:30px;white-space:normal;font-size:.7rem;line-height:1.25}
 
-/* Només al moviment del cotó: una comparació i una acció, sense més modes. */
-.tx-compara{position:absolute;top:10px;left:14px;right:14px;display:flex;justify-content:center;align-items:center;gap:14px;pointer-events:none;color:#4b534e;font-size:clamp(.75rem,1vw,.94rem);line-height:1.25}
-.tx-compara span{max-width:42%;text-align:center;background:#fffcf3e8;border:1px solid #ddd6c5;padding:6px 14px;border-radius:8px}
-.tx-compara small{display:block;font-size:.67em;letter-spacing:.04em;text-transform:uppercase;color:#788378;margin-bottom:3px}
-.tx-compara b{color:#879b92;font-size:1.3em;font-weight:400}
-.tx-resultat{position:absolute;bottom:40px;left:12px;right:12px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;pointer-events:none;line-height:1.3}
-.tx-resultat strong{font-size:clamp(.77rem,1.1vw,1.05rem);font-weight:600;color:#435954;background:#fcf8efeb;padding:2px 8px;border-radius:5px}
-.tx-resultat span{font-size:clamp(.68rem,.9vw,.84rem);color:#877347}
+/* Només al moviment del cotó: franges compactes fora del dibuix perquè l'SVG llueixi més gran. */
+.tx-compara{display:flex;justify-content:center;align-items:center;gap:10px;padding:4px 12px;background:#faf4e4;border-bottom:1px solid var(--linia);color:#4b534e;font-size:clamp(.72rem,.92vw,.84rem);line-height:1.2;flex:none}
+.tx-compara span{display:inline-flex;align-items:baseline;gap:6px;background:#fffdf7;border:1px solid #ddd6c5;padding:3px 10px;border-radius:999px;max-width:46%}
+.tx-compara small{display:inline;font-size:.76em;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#788378;margin:0}
+.tx-compara small::after{content:':'}
+.tx-compara b{color:#879b92;font-size:1.1em;font-weight:700}
+.tx-resultat{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 14px;background:#fbf6e8;border-top:1px solid var(--linia);line-height:1.25;flex:none}
+.tx-resultat strong{font-size:clamp(.75rem,1vw,.94rem);font-weight:700;color:#2f5952}
+.tx-resultat span{font-size:clamp(.68rem,.86vw,.8rem);font-weight:600;color:#7b6639;background:#fffdf7;border:1px solid #e3dac4;padding:2px 9px;border-radius:999px;white-space:nowrap}
 .escenari.real-activa .tx-compara,.escenari.exp-activa .tx-compara,.escenari.real-activa .tx-resultat,.escenari.exp-activa .tx-resultat{display:none}
-body[data-capitol="textil"] .tela:has(.tx-resultat) .llegenda{display:none}
-.mobil .tela:has(.tx-resultat){aspect-ratio:1/1;min-height:365px}
-.mobil .tx-compara{top:7px;left:6px;right:6px;gap:7px;font-size:.72rem}
-.mobil .tx-compara span{padding:5px 7px;max-width:45%}
-.mobil .tx-resultat{bottom:28px;left:5px;right:5px}
-.mobil .tx-resultat strong{font-size:.78rem}
-.mobil .tx-resultat span{font-size:.7rem}
+body[data-capitol="textil"] .escenari:has(.tx-resultat) .llegenda{display:none}
+.mobil .tx-compara{flex-wrap:wrap;padding:4px 6px;gap:4px 6px;font-size:.7rem}
+.mobil .tx-compara span{max-width:100%;padding:2px 8px}
+.mobil .tx-compara b{display:none}
+.mobil .tela:has(~ .tx-resultat){aspect-ratio:16/9}
+.mobil .tx-resultat{flex-wrap:wrap;padding:4px 8px;gap:4px}
+.mobil .tx-resultat strong{font-size:.75rem}
+.mobil .tx-resultat span{font-size:.68rem}
 .mobil .tx-detail .tx-context{display:none}
 
 /* Esquemes realistes: vores fines, foc, boira i vapor difuminats. */

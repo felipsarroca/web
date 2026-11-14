@@ -1,35 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/* Capítol 3 · El cotó: la cursa entre filar i teixir i les màquines que la van córrer. */
+/* Capítol 3 · El cotó: de la roda tradicional a la mecanització del fil i del teler. */
 (function () {
-  const { svg } = RI;
-  const fons = (c) => `<rect class="${c || 'crema'}" x="-60" width="1320" height="720"/>`;
-
-  /* Una seqüència causal sense quantitats de producció inventades. */
-  const INVENTS = [
-    ['1733','Llan\u00e7adora volant','Una m\u00e0 impulsa la trama','Teixir demana m\u00e9s fil'],
-    ['1764','Spinning Jenny','Una roda, diversos fusos','M\u00e9s fils treballats alhora'],
-    ['1769','Water Frame','Corrons i energia hidr\u00e0ulica','Fil resistent en continu'],
-    ['1779','Mula','Corrons i carro coordinats','Fil fi i resistent'],
-    ['1785','Teler mec\u00e0nic','Es mecanitza el teixit','La millora continua durant d\u00e8cades']
-  ];
-  function cursa(){
-    let s=fons();
-    s+=`<text x="600" y="93" class="tx-gg mig">Un canvi en una feina impulsa l'altra</text>`;
-    INVENTS.forEach(([date,name,mechanism,gain],i)=>{
-      const x=65+i*226;
-      s+=`<g id="tx-link-${i}"><rect x="${x}" y="205" width="205" height="275" rx="14" fill="#fffcf5" stroke="#d6cbb5" stroke-width="1.4"/><text x="${x+102}" y="250" class="tx-gg mig" fill="#527c77">${date}</text><text x="${x+102}" y="292" class="tx mig" style="font-weight:700;font-size:19px">${name}</text><foreignObject x="${x+14}" y="320" width="177" height="145"><div xmlns="http://www.w3.org/1999/xhtml" style="font:19px/1.45 Figtree,sans-serif;text-align:center;color:#5b6258">${mechanism}<hr style="border:0;border-top:1px solid #e6decb;margin:15px 0"/><b style="color:#897142">${gain}</b></div></foreignObject></g>`;
-      if(i<4)s+=`<path d="M${x+209} 335h12m-6-5 6 5-6 5" stroke="#98aca0" stroke-width="2" fill="none"/>`;
-    });
-    s+=`<text x="600" y="560" class="tx mig">Una cadena de problemes i solucions, no un salt instantani.</text><text x="600" y="600" class="tx-p mig">Dates d'invenci\u00f3 orientatives: la difusi\u00f3 i les millores posteriors van ser graduals.</text>`;
-    return svg(s);
-  }
-  function animaCursa({k,el}){
-    for(let i=0;i<5;i++){
-      const item=el('tx-link-'+i);item.setAttribute('opacity',k===0?.8:i===k-1?1:.48);
-      item.firstChild.setAttribute('fill',i===k-1?'#edf1e8':'#fffcf5');
-    }
-  }
-
   const cap = {
     id: "textil", titol: "El cot\u00f3", llegenda: false,
     escenes: [RI.RODA_ESCENA,
@@ -468,55 +439,6 @@
           "abans": "Quantitat de fil o fil resistent, amb límits",
           "ara": "Corrons i carro permeten fil fi i resistent"
         }
-      },
-      {
-        "id": "cursa",
-        "nom": "La cursa",
-        "any": "1733 – 1785",
-        "durada": 30,
-        "bucle": true,
-        "pregunta": "Per què un invent en demana un altre?",
-        "intro": "Filar transforma fibra en fil; teixir transforma fil en tela. Cada millora pot desplaçar el problema a una altra feina. Aquesta seqüència mostra <b>què resol cada invent</b>, sense comparar quantitats de producció inventades.",
-        "llegenda": false,
-        "fases": [
-          {
-            "fins": 0.1,
-            "nom": "Dues feines connectades",
-            "text": "Una peça de tela necessita fil. Millorar la filatura o el teixit canvia les necessitats de l’altra feina."
-          },
-          {
-            "fins": 0.28,
-            "nom": "1733 · Llançadora volant",
-            "text": "Facilita el pas de la trama i permet teixir peces més amples amb una persona. Creix la demanda de fil."
-          },
-          {
-            "fins": 0.46,
-            "nom": "1764 · Spinning Jenny",
-            "text": "Una persona treballa diversos fils alhora. Augmenta la capacitat de filar, però el fil primerenc és més adequat per a trama."
-          },
-          {
-            "fins": 0.64,
-            "nom": "1769 · Water Frame",
-            "text": "Els corrons mecanitzen l’estiratge. L’energia hidràulica permet produir fil resistent en continu en fàbriques."
-          },
-          {
-            "fins": 0.82,
-            "nom": "1779 · Mula",
-            "text": "La coordinació entre corrons i carro amplia la producció de fil fi i resistent. Es poden fer teixits de cotó més fins."
-          },
-          {
-            "fins": 1,
-            "nom": "1785 · Teler mecànic",
-            "text": "També es busca mecanitzar el teixit. Els primers telers requereixen moltes millores abans de difondre’s: la transformació no és instantània."
-          }
-        ],
-        "clau": "Cada invent resol un coll d’ampolla i en crea un altre: per això les innovacions arriben en cadena.",
-        "batx": {
-          "titol": "Invenció, difusió i productivitat",
-          "text": "Les primeres màquines no van assolir immediatament tots els guanys que sovint se’ls atribueixen. Les millores posteriors, els materials i l’organització també van ser decisius. Aquesta cadena explica relacions tècniques; no representa un equilibri exacte d’oferta i demanda.",
-          "font": "https://onlinelibrary.wiley.com/doi/10.1111/ehr.13082",
-          "fontNom": "Maw i altres · After the great inventions"
-        }
       }
     ],
     repte: [
@@ -614,19 +536,14 @@
       }
     ]
   };
-  cap.escenes.splice(cap.escenes.findIndex(e=>e.id==='cursa'),0,RI.CARTWRIGHT_ESCENA);
+  cap.escenes.push(RI.CARTWRIGHT_ESCENA);
   cap.repte.push({q:'Què aporta el teler mecànic respecte de la llançadora volant de Kay?',o:['Coordina mecànicament la calada, el pas de la trama i la batuda','Només afegeix una altra llançadora','Transforma la fibra en fil'],c:0,e:'La novetat és mecanitzar i coordinar les tres accions principals del teixit.'});
   cap.repte.push({tipus:'toca',esc:'cartwright',part:'eix',p:.1,q:'Toca l’eix i les lleves que coordinen el teler mecànic.',e:'El gir es transmet als òrgans de treball perquè actuïn en el moment adequat.'});
   for(const e of cap.escenes){
-    if(e.id==='cursa'){
-      e.svg=cursa;
-      e.anima=animaCursa;
-    }else{
-      e.svg=()=>RI.TEXTIL_DIBUIX.svg(e.id);
-      e.anima=RI.TEXTIL_DIBUIX.anima(e.id);
-      if(RI.TEXTIL_DIBUIX.ETIQUETES[e.id])e.etiquetes=RI.TEXTIL_DIBUIX.ETIQUETES[e.id];
-      if(RI.TEXTIL_DIBUIX.MODELS[e.id])e.model=RI.TEXTIL_DIBUIX.MODELS[e.id];
-    }
+    e.svg=()=>RI.TEXTIL_DIBUIX.svg(e.id);
+    e.anima=RI.TEXTIL_DIBUIX.anima(e.id);
+    if(RI.TEXTIL_DIBUIX.ETIQUETES[e.id])e.etiquetes=RI.TEXTIL_DIBUIX.ETIQUETES[e.id];
+    if(RI.TEXTIL_DIBUIX.MODELS[e.id])e.model=RI.TEXTIL_DIBUIX.MODELS[e.id];
   }
   RI.TEXTIL_ESCENES=Object.fromEntries(cap.escenes.map(e=>[e.id,e]));
   RI.capitol(cap);

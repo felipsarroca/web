@@ -55,7 +55,7 @@ with sync_playwright() as p:
      page.wait_for_timeout(45)
      bad=page.locator('#tela > svg').evaluate('(n)=>/NaN|Infinity/.test(n.innerHTML)')
      if bad: errors.append([cap,i,width,'invalid geometry'])
-     if cap=='textil' and i<6:
+     if cap=='textil':
       expected=page.evaluate('([id,p])=>RI.TEXTIL_ESTATS[id](p).action',[['roda','llancadora','jenny','water','mula','cartwright'][i],moment/1000])
       page.wait_for_function('(expected)=>document.querySelector("#tx-action")?.textContent===expected',arg=expected,timeout=2500)
       assert page.locator('#tx-action').inner_text()==expected
@@ -64,7 +64,7 @@ with sync_playwright() as p:
       assert page.locator('#tela > svg').count()==1
       assert page.locator('#tela > svg [data-part]').count()>=4
    if cap=='textil':
-    assert total==7
+    assert total==6
     if bounds['desktop']:
      assert page.locator('[data-esc="repte"]').evaluate('(n)=>n.getBoundingClientRect().right<=innerWidth+1')
     assert page.locator('#escenes [aria-selected="true"]').evaluate('(n)=>{const a=n.getBoundingClientRect(),b=n.parentElement.getBoundingClientRect();return a.left>=b.left-1&&a.right<=b.right+1;}')
