@@ -490,3 +490,9 @@ body[data-capitol="textil"] .tela:has(.tx-resultat) .llegenda{display:none}
 .mobil .tx-resultat strong{font-size:.78rem}
 .mobil .tx-resultat span{font-size:.7rem}
 .mobil .tx-detail .tx-context{display:none}
+
+/* «Abans i ara»: el sistema anterior i l'invent, sincronitzats. */
+.vistes .b-cmp{border-style:dashed;border-color:var(--cap,var(--tinta))}
+.vistes .b-cmp[aria-pressed=true]{border-style:solid}
+.esc .duo-vel{pointer-events:none;transition:opacity .4s}
+.esc .mesura rect{transition:width .25s linear}

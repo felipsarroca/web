@@ -124,6 +124,22 @@
     const ring = o.halo ? `<ellipse class="innova-halo innova-pols" cx="${o.halo[0]}" cy="${o.halo[1]}" rx="${o.halo[2]}" ry="${o.halo[3] || o.halo[2]}" fill="rgba(251,191,36,.14)" stroke="#d97706" stroke-width="3" stroke-dasharray="7 5"/>` : '';
     return `<g class="innova" ${o.attr || ''}>${ring}${ptr}<rect x="${f1(x - w / 2)}" y="${f1(y - h / 2)}" width="${f1(w)}" height="${h}" rx="${h / 2}" fill="${o.fons || '#fffbeb'}" stroke="${o.vora || '#d97706'}" stroke-width="2.4" filter="url(#f-ombra)"/><text x="${x}" y="${f1(y + 5)}" text-anchor="middle" font-size="14" font-weight="800" fill="${o.color || '#92400e'}" letter-spacing=".01em">${text}</text></g>`;
   };
+  /* «Abans i ara»: dues meitats sincronitzades (sistema anterior i invent) amb capçalera,
+     vel d'atenció per fase i comptadors comparables. */
+  RI.duo = (o) => {
+    const xm = o.mig || 600, cB = o.color || '#d9482b', yb = o.banda || 730;
+    const pill = (cx, k, nom, c) => { const w = Math.max(230, (k.length + nom.length + 3) * 9.4 + 44); return `<g><rect x="${f1(cx - w / 2)}" y="14" width="${f1(w)}" height="38" rx="19" fill="${c}" stroke="${TINTA}" stroke-width="2"/><text x="${cx}" y="39.5" text-anchor="middle" font-size="17" font-weight="800" fill="#fff"><tspan fill-opacity=".8" letter-spacing=".08em">${k}</tspan> · ${nom}</text></g>`; };
+    return `<rect x="-60" y="-70" width="${xm + 60}" height="800" fill="${o.fonsA || '#ece5d6'}"/><rect x="${xm}" y="-70" width="${1260 - xm}" height="800" fill="${o.fonsB || '#fcf8ef'}"/>${o.banda ? `<rect x="-60" y="${yb}" width="1320" height="${730 - yb}" fill="#fffdf7"/><line x1="-60" y1="${yb}" x2="1260" y2="${yb}" stroke="${TINTA}" stroke-width="2.5"/>` : ''}${o.sota || ''}<g id="duo-a">${o.a}</g><g id="duo-b">${o.b}</g><rect id="vel-a" class="duo-vel" x="-60" y="58" width="${xm + 60}" height="${yb - 58}" fill="${o.fonsA || '#ece5d6'}" opacity="0"/><rect id="vel-b" class="duo-vel" x="${xm}" y="58" width="${1260 - xm}" height="${yb - 58}" fill="${o.fonsB || '#fcf8ef'}" opacity="0"/><line x1="${xm}" y1="-70" x2="${xm}" y2="730" stroke="${TINTA}" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>${pill((xm - 60) / 2, 'ABANS', o.abans, '#6d665d')}${pill((xm + 1260) / 2, 'ARA', o.ara, cB)}${o.sobre || ''}`;
+  };
+  /* comptador: etiqueta, barra que s'omple i valor */
+  RI.mesura = (id, x, y, w, etq, c) => `<g class="mesura"><text x="${x}" y="${y - 8}" font-size="16.5" font-weight="700" fill="#4b433b">${etq}</text><rect x="${x}" y="${y}" width="${w}" height="20" rx="10" fill="#fffdf7" stroke="${TINTA}" stroke-width="2"/><rect id="${id}" x="${x + 3}" y="${y + 3}" width="0" height="14" rx="7" fill="${c || '#d9482b'}"/><text id="${id}-t" x="${x + w + 10}" y="${y + 16}" font-size="18" font-weight="800" fill="${TINTA}"></text></g>`;
+  RI.posaMesura = (el, id, k, w, text) => { const n = el(id); if (!n) return; n.setAttribute('width', (RI.clamp(k, 0, 1) * (w - 6)).toFixed(1)); if (text != null) { const t = el(id + '-t'); if (t && t.textContent !== text) t.textContent = text; } };
+  /* embolcalla l'animació d'una comparació: enfosqueix la meitat que no toca mirar a cada fase */
+  RI.animaDuo = (fn, focus) => (a) => {
+    const f = (focus || ['a', 'b', 'ab'])[a.k] || 'ab', va = a.el('vel-a'), vb = a.el('vel-b');
+    if (va) va.setAttribute('opacity', f === 'b' ? 0.62 : 0); if (vb) vb.setAttribute('opacity', f === 'a' ? 0.62 : 0);
+    fn(a);
+  };
   RI.lerp = (a, b, k) => a + (b - a) * k;
   RI.clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   RI.suau = (k) => { k = RI.clamp(k, 0, 1); return k * k * (3 - 2 * k); };
@@ -151,6 +167,7 @@
         e.laminaMuntada={img:art, parts:RI.LAMINA_PARTS[e.id]||[]};
         e.explotada=RI.EXPLOTADES[e.id];
       }
+      if (RI.ABANS && RI.ABANS[e.id] && !e.abans) e.abans = RI.ABANS[e.id];
     });
     st.cap = def;
   };
@@ -204,12 +221,13 @@
     document.addEventListener('keydown', tecles);
     RI._nav = { ant, seg };
     const obreHash = () => {
-      const h = location.hash.slice(1);
+      let h = location.hash.slice(1), cmp = false;
+      if (/-abans$/.test(h)) { cmp = true; h = h.replace(/-abans$/, ''); }
       if (h === 'repte') { if (!st.repte) obreRepte(); }
       else {
         const i = cap.escenes.findIndex((e) => e.id === h);
         const t = i >= 0 ? i : 0;
-        if (st.repte || st.iEsc !== t || !st.esc) obreEscena(t);
+        if (st.repte || st.iEsc !== t || !st.esc || !!st.esc._cmp !== (cmp && !!cap.escenes[t].abans)) obreEscena(t, { cmp });
       }
     };
     window.addEventListener('hashchange', obreHash);
@@ -258,15 +276,19 @@
     requestAnimationFrame(encaixaTab);
   }
 
-  function obreEscena(i) {
-    const cap = st.cap, e = cap.escenes[i];
+  function obreEscena(i, opts) {
+    opts = opts || {};
+    const cap = st.cap, base = cap.escenes[i], cmp = !!(opts.cmp && base.abans);
+    /* «Abans i ara» és una segona definició d'escena que hereta el context de la principal */
+    const e = cmp ? Object.assign({}, base, { parts: null, etiquetes: null, capes: null, capaFase: null, vistes: null, innova: null, innovacio: null, estatica: false, model: '', llegenda: false, batx: null }, base.abans, { _cmp: true, laminaMuntada: null, explotada: null }) : base;
+    const reduit = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
     const fases = e.fases || [];
     st.repte = false; st.esc = e; st.iEsc = i; st.p = 0; st.voltes = 0; st.iFase = -1; st.sel = null; st.capes = {}; st.vel = 1; st.zoom = false;
     (e.capes || []).forEach((c) => { st.capes[c.id] = !!c.on; });
-    st.play = !e.laminaMuntada && !e.estatica && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    st.play = !e.laminaMuntada && !e.estatica && !reduit;
     st.fiPas = st.play && st.pasAPas && fases.length ? fases[0].fins : null;
     marcaTab(i);
-    history.replaceState(null, '', '#' + e.id);
+    history.replaceState(null, '', '#' + base.id + (cmp ? '-abans' : ''));
     const LL = Array.isArray(cap.llegenda) ? cap.llegenda : [['#f08a4b', 'calor · vapor'], ['#2f7fb5', 'aigua · fred']];
     const llegenda = cap.llegenda ? `<div class="llegenda" aria-label="Codi de colors">${LL.map(([c, t]) => `<span><i style="background:${c}"></i>${esc(t)}</span>`).join('')}<span><i class="foc"></i>on mirar ara</span></div>` : '';
     const realHtml = e.laminaMuntada ? RI.laminaHTML(e,'muntada') : '';
@@ -274,7 +296,7 @@
     $('#cos').innerHTML = `
     <section class="escenari" id="escenari">
       <div class="barra">
-        <div class="vistes" id="vistes">${e.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button><button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}</div>
+        <div class="vistes" id="vistes">${base.laminaMuntada ? '<button type="button" data-capa="_real" aria-pressed="true">Màquina muntada</button><button type="button" data-capa="_exp" aria-pressed="false">Vista explotada</button>' : ''}${base.laminaMuntada || base.abans ? '<button type="button" data-capa="_mov" aria-pressed="false">Moviment</button>' : ''}${base.abans ? '<button type="button" data-capa="_cmp" class="b-cmp" aria-pressed="false" title="El sistema anterior i l’invent, treballant alhora">Abans i ara</button>' : ''}</div>
         <div class="capes" id="capes">${e.parts ? '<button type="button" data-capa="_etq" aria-pressed="false" title="Canvia les etiquetes: del pas, totes o cap">Etiquetes</button>' : ''}<button type="button" data-zoom aria-pressed="false" hidden>Zoom ×1,8</button>${(e.capes || []).map(c=>`<button type="button" data-capa="${c.id}" aria-pressed="${!!c.on}">${esc(c.nom)}</button>`).join('')}<button type="button" class="b-amplia" id="b-amplia" aria-pressed="false">Amplia</button></div>
       </div>
       <div class="tela" id="tela">${typeof e.svg === 'function' ? e.svg() : e.svg}
@@ -308,7 +330,9 @@
     st.vista = e.vistes && e.vistes.length ? e.vistes[0].id : null;
     st.explota = false; st.real = !!e.laminaMuntada;
     const bExp = $('.barra [data-capa="_exp"]'), bReal = $('.barra [data-capa="_real"]');
-    if (bExp) bExp.hidden = !e.explotada && !$$('[data-exp]', svgEl).length;
+    if (bExp) bExp.hidden = !base.explotada && !$$('[data-exp]', svgEl).length;
+    if (!cmp && opts.vista === '_exp' && e.explotada) { st.explota = true; st.real = false; }
+    else if (!cmp && opts.vista === '_mov') { st.real = false; st.explota = false; st.play = !e.estatica && !reduit; st.fiPas = st.play && st.pasAPas && fases.length ? fases[0].fins : null; }
     mostraVistes(); posaEtiquetes(e);  prepara(); pintaPeca();
     $('#b-play').addEventListener('click', togglePlay);
     $('#b-seg').addEventListener('click', () => vesFase(st.iFase + 1));
@@ -348,6 +372,8 @@
       if (bRec) { const on = bRec.getAttribute('aria-pressed') !== 'true'; bRec.setAttribute('aria-pressed', on); const lr = $('#lamina-real'); if (lr) lr.dataset.mode = on ? 'dibuix' : 'foto'; aplicaExplota(); return; }
       if (ev.target.closest('#b-amplia')) { amplia(); return; }
       const b = ev.target.closest('[data-capa]'); if (!b) return;
+      if (b.dataset.capa === '_cmp') { if (!e._cmp) obreEscena(i, { cmp: true }); return; }
+      if (e._cmp && /^_(real|exp|mov)$/.test(b.dataset.capa)) { obreEscena(i, { vista: b.dataset.capa }); return; }
       const on = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', on);
       if (b.dataset.capa === '_etq') { st.etq = st.etq === 'focus' ? 'totes' : st.etq === 'totes' ? 'cap' : 'focus'; aplicaEtiquetes(); }
@@ -462,7 +488,8 @@
     if (bz) { bz.hidden = !estatica; if (!estatica && st.zoom) setZoom(false); }
     $$('.barra [data-capa="_real"]').forEach(b=>b.setAttribute('aria-pressed',st.real));
     $$('.barra [data-capa="_exp"]').forEach(b=>b.setAttribute('aria-pressed',st.explota));
-    $$('.barra [data-capa="_mov"]').forEach(b=>b.setAttribute('aria-pressed',!st.real&&!st.explota));
+    $$('.barra [data-capa="_mov"]').forEach(b=>b.setAttribute('aria-pressed',!st.real&&!st.explota&&!(e&&e._cmp)));
+    $$('.barra [data-capa="_cmp"]').forEach(b=>b.setAttribute('aria-pressed',!!(e&&e._cmp)));
     botoPlay();
     actualitzaAra();
     svgEl.classList.toggle('explota', st.explota && !lam);
@@ -810,7 +837,7 @@
   }
 
   /* accés directe a una escena i un moment (proves i enllaços) */
-  RI.ves = (i, p) => { obreEscena(i); if (p != null) { st.play = false; st.fiPas = null; st.p = p; st.brut = true; botoPlay(); actualitzaAra(); } };
+  RI.ves = (i, p, cmp) => { obreEscena(i, { cmp: !!cmp }); if (p != null) { st.play = false; st.fiPas = null; st.p = p; st.brut = true; botoPlay(); actualitzaAra(); } };
 
   /* ---------- arrencada ---------- */
   document.addEventListener('DOMContentLoaded', () => {
