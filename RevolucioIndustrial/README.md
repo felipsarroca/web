@@ -6,7 +6,9 @@ Atles interactiu en català per entendre **com funcionen** les innovacions de la
 
 **Estat actual:** vuit capítols, 28 escenes i catorze parelles de làmines muntades i explotades amb ChatGPT. El cotó inclou la roda de filar tradicional i sis mecanismes animats amb una sola perspectiva obliqua, incloent-hi el [teler mecànic de Cartwright](textil.html#cartwright). Consulta [REDISSENY.md](REDISSENY.md) per veure els criteris i les revisions.
 
-**Revisió del cotó:** un detall funcional ampliat permet seguir un fil, amb el bastidor atenuat i una miniatura animada del conjunt des del mateix angle. La fibra solta és verdosa; el fil torçut, daurat; la trama, vermella. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. Es conserven tant [la primera revisió](versions/2026-11-13-coto-primera-revisio/textil.html) com [la versió inicial](versions/2026-11-13-coto-abans-revisio/textil.html), cadascuna amb el codi, les imatges i les empremtes dels originals. La còpia inicial també inclou el restaurador.
+**Revisió de realisme (14-11-2026):** els esquemes en moviment s’han redibuixat amb materials texturats (fusta, maó, pedra, coure, llautó i ferro), volum, talls que deixen veure l’interior i vores fines, prenent com a model les làmines il·lustrades. Al cotó es veu la màquina sencera en moviment, amb la mateixa cinemàtica verificada. Els dissenys anteriors es conserven, sense enllaç des del web, a [versions/2026-11-14-moviment-abans-realisme](versions/2026-11-14-moviment-abans-realisme/README.md).
+
+**Revisió anterior del cotó:** un detall funcional ampliat permetia seguir un fil, amb el bastidor atenuat i una miniatura animada del conjunt des del mateix angle. La fibra solta és verdosa; el fil torçut, daurat; la trama, vermella. La síntesi relaciona problemes i innovacions sense inventar xifres de producció. Es conserven tant [la primera revisió](versions/2026-11-13-coto-primera-revisio/textil.html) com [la versió inicial](versions/2026-11-13-coto-abans-revisio/textil.html), cadascuna amb el codi, les imatges i les empremtes dels originals. La còpia inicial també inclou el restaurador.
 
 ## Obrir el web
 
@@ -25,7 +27,7 @@ Després visita `http://localhost:4173/`. És un web estàtic: no requereix inst
 - Alternar entre l'explicació essencial i la capa d'anàlisi de **1r de Batxillerat**, amb una font pública per capítol.
 - Obrir **Màquina muntada**, **Vista explotada** i **Moviment**. Les làmines indiquen entre tres i cinc conjunts principals amb punts numerats i fitxes clicables.
 - Triar les etiquetes **del pas**, **totes** o **cap**, i tocar les peces per llegir-ne la funció.
-- Seguir un sol fil en el detall ampliat de cada mecanisme tèxtil. Una miniatura sincronitzada mostra com treballa el conjunt amb la mateixa perspectiva; en mòbil es prioritza el detall.
+- Veure cada mecanisme tèxtil sencer i en marxa, amb la fibra solta verdosa, el fil torçut daurat i la trama vermella.
 - Consultar la imatge històrica i la seva atribució en el desplegable de fonts.
 - Fer servir **Amplia** en mòbil; `Esc` tanca la vista ampliada.
 
@@ -65,7 +67,7 @@ Els sis mecanismes tèxtils utilitzen una projecció obliqua comuna calculada a 
 
 La roda tradicional representa una roda manual de fus del tipus *great wheel*, utilitzat també per al cotó, documentat al [Science Museum Group](https://collection.sciencemuseumgroup.org.uk/objects/co44851/great-wheel). La versió de Saxònia amb pedal i aleta es conserva a la carpeta anterior. La Water Frame representada té quatre caps de filatura i tres parelles de corrons; és una síntesi del principi, amb velocitats relatives il·lustratives. La data de 1769 identifica la invenció, no una reproducció exacta del prototip de patent. El [dossier de revisió](assets/revisio-coto.md) explica les fonts, les simplificacions i els límits.
 
-La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació, amb el servidor local actiu: `python assets/verifica_visual.py` (requereix Playwright i Chrome).
+La verificació visual inclou finestres de 1920 × 1080, 1366 × 768 i 390 × 844, i espais útils equivalents al 125 % i al 150 % d'escalat. L'escalat s'ha simulat al navegador; no s'ha canviat la configuració de Windows. Per repetir la comprovació: `python assets/verifica_visual.py` (requereix Playwright i Chrome; obre les pàgines directament del disc, sense servidor).
 
 `node assets/verifica-cinematica.cjs` comprova 1.001 posicions dels cicles de filatura i teixit manual, 1.001 posicions del teler mecànic i 126 geometries. Inclou marge de pas de la llançadora, direcció de la trama, batuda, corrons, rodament, recollida, guies, angles, longitud constant de la biela, contacte de les lleves i relació entre engranatges. També comprova la coherència entre projecció, profunditat i cares visibles. Els cons i els indicadors es reinicien en començar un nou cicle didàctic: no són comptadors acumulats de producció.
 

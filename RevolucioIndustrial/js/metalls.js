@@ -8,102 +8,87 @@
 
   /* ---------- 1 · del carbó al coc ---------- */
   function coc() {
-    let s = cel(560);
-    s += `<text x="180" y="76" class="tx-g mig">Abans: carbó vegetal</text><text x="600" y="76" class="tx-g mig">El forn de coc</text><text x="1020" y="76" class="tx-g mig">El resultat: coc</text><path d="M395 54V648M805 54V648" class="t1 nf" stroke-dasharray="4 8"/>`;
-    // bosc i soques arran de terra + pila de llenya + carbonera tradicional
-    [[34, 560, 0.92], [96, 560, 1.05], [164, 558, 0.88], [244, 560, 1.1], [318, 560, 0.94]].forEach(([x, y, k], i) => {
-      s += soca(x, y) + arbre(x, y, k, { id: 'ar' + i });
-    });
-    // pila de troncs tallats
-    s += `<g id="llenya" opacity="0.25"><circle class="t1" cx="42" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="56" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="70" cy="548" r="7" fill="#d9b383"/><circle class="t1" cx="49" cy="536" r="7" fill="#d9b383"/><circle class="t1" cx="63" cy="536" r="7" fill="#d9b383"/><circle class="t1" cx="56" cy="524" r="7" fill="#d9b383"/></g>`;
-    // carbonera cònica coberta de terra amb troncs visibles i xemeneia
-    s += `<path class="t" fill="#5c4632" d="M116 560l44-88h60l44 88z"/><path d="M138 560l26-84M190 476v84M242 560l-26-84" stroke="#3d2c1e" stroke-width="2" opacity=".6"/><rect class="t fosc" x="178" y="458" width="24" height="16" rx="2"/><g data-puf="190 452 24 -75 5 11 2.4" class="fum"></g>`;
-    s += retol(185, 616, 'un sol forn es menja un bosc', { fons: '#d9482b', vora: '#2a2420', w: 264, attr: 'data-en="0"' });
-    s += `<g>${retol(185, 224, '✗ s’acaben els boscos', { fons: '#a8452f', vora: '#2a2420', w: 230 })}${retol(185, 268, '✗ la fusta és cada cop més cara', { fons: '#a8452f', vora: '#2a2420', w: 270 })}${retol(185, 312, '✗ tou: s’esclafa en forns alts', { fons: '#a8452f', vora: '#2a2420', w: 262 })}</g>`;
-    // forn de coc (beehive oven)
-    s += `<g data-part="forn"><path class="t mao" d="M446 560V416Q446 266 600 266T754 416V560Z"/><path class="t ferro2" d="M438 560V420h14v140zM748 560V420h14v140z"/>
-      <path class="t" fill="#3a251c" d="M484 560V426Q484 308 600 308T716 426V560Z"/>
-      <path id="carrega" class="t carbo" d="M488 558V464q112-46 224 0V558z"/><path id="roent" d="M488 558V464q112-46 224 0V558z" fill="#ff9a2e" opacity="0"/>
-      <rect class="t fosc" x="580" y="246" width="40" height="24" rx="2"/><path class="t ferro" d="M558 560v-58q0-14 14-14h56q14 0 14 14v58z"/><path d="M576 504h48M576 524h48" class="t1"/></g>`;
-    s += `<g data-en="1"><g data-puf="600 240 28 -120 6 14 1.9" class="fum"></g>${retol(600, 616, 'marxen gasos, quitrà i sofre', { fons: '#2a2420', vora: '#2a2420', w: 280 })}${retol(600, 174, 'gairebé sense aire: no crema, es cou', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 330 })}</g>`;
-    // pila de coc porós amb contrast alt
+    const { caixa, cami, cartell, ombra } = RI, INK = '#2e221a';
+    let s = `<rect x="-60" y="0" width="1320" height="566" fill="url(#g-cel)"/><path d="M-60 520c220-60 420-20 600-40s430-50 720 6v90H-60z" fill="#b3cc93" opacity=".55"/>` + cami('M-60 560H1260V720H-60Z', 'terra', 'pla') + `<rect x="-60" y="554" width="1320" height="12" fill="url(#tx-herba)"/>`;
+    s += `<text x="180" y="76" class="tx-g mig">Abans: carbó vegetal</text><text x="600" y="76" class="tx-g mig">El forn de coc</text><text x="1020" y="76" class="tx-g mig">El resultat: coc</text><path d="M395 54V648M805 54V648" class="t1 nf" stroke-dasharray="4 8" opacity=".6"/>`;
+    // bosc que es va talant, pila de llenya i carbonera coberta de terra
+    [[34, 560, 0.92], [96, 560, 1.05], [164, 558, 0.88], [244, 560, 1.1], [318, 560, 0.94]].forEach(([x, y, k], i) => { s += soca(x, y) + arbre(x, y, k, { id: 'ar' + i }); });
+    s += `<g id="llenya" opacity="0.25">${[[42, 548], [56, 548], [70, 548], [49, 536], [63, 536], [56, 524]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" fill="#d9b383" stroke="${INK}" stroke-width="1.200"/><circle cx="${x}" cy="${y}" r="3.500" fill="none" stroke="#a8733f" stroke-width="1"/>`).join('')}</g>`;
+    s += ombra(190, 562, 86, 6) + cami('M116 560Q150 470 164 470h52q14 0 48 90z', 'terra', 'cup', { tint: '#3a2a1c', to: 0.35 }) + `<path d="M140 560l24-80M190 474v86M240 560l-24-80" stroke="#2e1f14" stroke-width="2" opacity=".5"/><rect x="178" y="458" width="24" height="15" rx="2" fill="#2b2826" stroke="${INK}" stroke-width="1.300"/><g data-puf="190 452 24 -75 5 11 2.400" class="fum boira"></g>`;
+    s += cartell(185, 616, 'un sol forn es menja un bosc', { fons: '#b23a1f', w: 264, attr: 'data-en="0"' });
+    s += cartell(185, 224, '✗ s’acaben els boscos', { fons: '#a8452f', w: 230 }) + cartell(185, 262, '✗ la fusta és cada cop més cara', { fons: '#a8452f', w: 270 }) + cartell(185, 300, '✗ tou: s’esclafa en forns alts', { fons: '#a8452f', w: 262 });
+    // forn de coc de volta (rusc), tallat per veure'n la càrrega
+    s += `<g data-part="forn">${ombra(600, 562, 180, 7)}<g filter="url(#f-projecta)">${cami('M446 560V416Q446 266 600 266T754 416V560Z', 'mao', 'cup')}</g>${caixa(438, 420, 14, 140, 'ferro', 'cil')}${caixa(748, 420, 14, 140, 'ferro', 'cil')}<path d="M484 560V426Q484 308 600 308T716 426V560Z" fill="#2a1710"/><path d="M484 560V426Q484 308 600 308T716 426V560Z" fill="url(#sh-fosc)"/>`;
+    s += `<path id="carrega" d="M488 558V464q112-46 224 0V558z" fill="url(#tx-carbo)"/><path id="roent" d="M488 558V464q112-46 224 0V558z" fill="url(#g-bany)" opacity="0"/><path d="M488 558V464q112-46 224 0V558z" class="vora"/><path d="M484 560V426Q484 308 600 308T716 426V560Z" fill="none" stroke="#e9b08c" stroke-width="2.600"/>`;
+    s += caixa(580, 246, 40, 24, 'ferro', 'llum', { rx: 2 }) + cami('M558 560v-58q0-14 14-14h56q14 0 14 14v58z', 'ferro', 'llum') + `<path d="M576 506h48M576 526h48" stroke="#b3bcc3" stroke-width="1.600"/></g>`;
+    s += `<g data-en="1"><g data-puf="600 240 28 -120 6 14 1.900" class="fum boira"></g>${cartell(600, 616, 'marxen gasos, quitrà i sofre', { w: 280 })}${cartell(600, 174, 'gairebé sense aire: no crema, es cou', { fons: '#fffdf7', color: '#2a2420', w: 330 })}</g>`;
+    // pila de coc: gris, porós i dur
     let pila = '';
-    [[0, 5], [1, 4], [2, 3], [3, 2], [4, 1]].forEach(([f, n]) => {
-      for (let c = 0; c < n; c++) {
-        const px = 900 + c * 42 + f * 21, py = 556 - f * 30;
-        pila += `<path class="t2" fill="#70777c" d="M${px} ${py}l9-22 23-6 14 13-6 17z"/><path d="M${px + 8} ${py - 18}l16-4" stroke="#a6aeb3" stroke-width="2.5" stroke-linecap="round"/><circle cx="${px + 14}" cy="${py - 11}" r="2.2" fill="#32373b"/><circle cx="${px + 26}" cy="${py - 8}" r="1.8" fill="#32373b"/><circle cx="${px + 20}" cy="${py - 17}" r="1.6" fill="#32373b"/>`;
-      }
-    });
-    s += `<g data-part="coc"><g id="pila" opacity="0">${pila}${retol(1020, 224, '✓ crema molt més calent', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${retol(1020, 268, '✓ dur: aguanta grans torres', { fons: '#3e6e22', vora: '#2a2420', w: 260 })}${retol(1020, 312, '✓ abundant: ve de la mina', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}${fletxa('M1020 572V624', '#d9482b', 6)}${retol(1020, 662, 'cap a l’alt forn →', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 190 })}</g></g>`;
-    s += RI.innova(600, 118, 'INNOVACIÓ · coure sense aire → coc pur i dur', { apunta: [600, 266], halo: [600, 420, 168, 150], w: 386 });
-    s += `<g data-en="0">${retol(600, 616, 'entra carbó mineral (de la mina)', { fons: '#2b2826', vora: '#2a2420', w: 290 })}</g><g data-en="2">${retol(600, 174, 'ha perdut els gasos i el sofre', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420', w: 280 })}${retol(600, 616, 'surt coc: gris, porós i dur', { fons: '#3e6e22', vora: '#2a2420', w: 250 })}</g>`;
+    [[0, 5], [1, 4], [2, 3], [3, 2], [4, 1]].forEach(([f, n]) => { for (let c = 0; c < n; c++) { const px = 900 + c * 42 + f * 21, py = 556 - f * 30; pila += `<path d="M${px} ${py}l9-22 23-6 14 13-6 17z" fill="url(#tx-plom)" stroke="${INK}" stroke-width="1.400" stroke-linejoin="round"/><path d="M${px} ${py}l9-22 23-6 14 13-6 17z" fill="url(#sh-cup)" opacity=".7"/><circle cx="${px + 14}" cy="${py - 11}" r="2.200" fill="#32373b"/><circle cx="${px + 26}" cy="${py - 8}" r="1.800" fill="#32373b"/><circle cx="${px + 20}" cy="${py - 17}" r="1.600" fill="#32373b"/><circle cx="${px + 32}" cy="${py - 16}" r="1.300" fill="#32373b"/>`; } });
+    s += `<g data-part="coc"><g id="pila" opacity="0">${ombra(1010, 560, 130, 6)}${pila}${cartell(1020, 224, '✓ crema molt més calent', { fons: '#3e6e22', w: 250 })}${cartell(1020, 262, '✓ dur: aguanta grans torres', { fons: '#3e6e22', w: 260 })}${cartell(1020, 300, '✓ abundant: ve de la mina', { fons: '#3e6e22', w: 250 })}${fletxa('M1020 572V624', '#d9482b', 6)}${cartell(1020, 662, 'cap a l’alt forn →', { fons: '#fffdf7', color: '#2a2420', w: 190 })}</g></g>`;
+    s += `<g data-en="0">${cartell(600, 616, 'entra carbó mineral (de la mina)', { w: 290 })}</g><g data-en="2">${cartell(600, 174, 'ha perdut els gasos i el sofre', { fons: '#fffdf7', color: '#2a2420', w: 280 })}${cartell(600, 616, 'surt coc: gris, porós i dur', { fons: '#3e6e22', w: 250 })}</g>`;
     return svg(s);
   }
   function animaCoc({ p, k, el }) {
     for (let i = 0; i < 5; i++) el('ar' + i).setAttribute('opacity', k === 0 ? (p > 0.05 + i * 0.05 ? 0.14 : 1) : 0.14);
     el('llenya').setAttribute('opacity', k === 0 ? (p > 0.12 ? 1 : 0.35) : 0.85);
-    el('roent').setAttribute('opacity', k === 1 ? (0.48 + 0.32 * Math.sin(p * 55)).toFixed(2) : 0);
-    el('carrega').setAttribute('fill', k >= 2 ? '#70777c' : '');
+    el('roent').setAttribute('opacity', k === 1 ? (0.5 + 0.3 * Math.sin(p * 55)).toFixed(2) : 0);
+    el('carrega').setAttribute('fill', k >= 2 ? 'url(#tx-plom)' : 'url(#tx-carbo)');
     el('pila').setAttribute('opacity', k >= 2 ? 1 : 0);
   }
 
   /* ---------- 2 · alt forn ---------- */
   function altForn() {
-    let s = `<rect class="cel" x="-60" width="1320" height="610"/>${nuvol(150, 96, 1.4)}${nuvol(390, 62, 1.0)}<rect class="terra" x="-60" y="610" width="1320" height="110"/>`;
-    s += `<path class="terra t" d="M740 150H1270V720H700Z"/><rect class="herba" x="740" y="144" width="530" height="10"/>`;
+    const { caixa, cami, cartell, ombra, figura, rodaR, brida, reblons, flamarada } = RI, T2 = RI.tub, INK = '#2e221a';
+    let s = `<rect x="-60" y="0" width="1320" height="614" fill="url(#g-cel)"/><g filter="url(#f-suau)">${nuvol(150, 96, 1.4)}${nuvol(390, 62, 1.0)}</g>` + cami('M-60 610H1260V720H-60Z', 'terra', 'pla');
+    // vessant on es recolza el forn: per dalt s'hi arriba amb la càrrega
+    s += cami('M740 150H1270V720H700Z', 'terra', 'llum') + `<rect x="740" y="143" width="530" height="12" fill="url(#tx-herba)"/><path d="M740 150L700 720" stroke="${INK}" stroke-width="1.500"/>`;
     s += `<defs><clipPath id="cl-cuba"><path d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/></clipPath></defs>`;
-    s += `<g data-part="cuba"><path class="t mao" d="M376 610L456 130H664L744 610Z"/><path d="M440 240h240M422 360h276M402 480h316" stroke="#3d454b" stroke-width="6"/><path d="M446 240h228M428 360h264M408 480h304" stroke="#d5dde2" stroke-width="1.8" stroke-dasharray="2 14" opacity=".75"/>
-      <path class="t" fill="#4a2a1c" d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/>
-      <g clip-path="url(#cl-cuba)"><g id="fcapes">${Array.from({ length: 7 }, (_, i) => `<rect class="carbo" x="440" y="${-120 + i * 90}" width="240" height="30"/><rect class="mineral" x="440" y="${-90 + i * 90}" width="240" height="30"/><rect class="calc" x="440" y="${-60 + i * 90}" width="240" height="30"/>`).join('')}</g>
-      <rect x="440" y="395" width="240" height="145" fill="url(#g-bany)" opacity=".92"/><rect x="440" y="315" width="240" height="90" fill="#ff9a2e" opacity=".48"/></g>
-      <path class="t nf" d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z"/></g>`;
-    // gresol amb dues capes separades: ferro colat (baix) + escòria (sobre)
-    s += `<g data-part="gresol"><rect x="518" y="562" width="84" height="24" fill="#fff3a0" stroke="#2a2420" stroke-width="1.4"/><rect x="518" y="544" width="84" height="18" fill="#6b635a" stroke="#2a2420" stroke-width="1.4"/><text x="560" y="579" class="tx-p mig" style="font-size:12px;font-weight:800">ferro</text><text x="560" y="557" class="tx-p mig" style="font-size:11px;fill:#fff">escòria</text></g>`;
+    s += `<g data-part="cuba">${ombra(560, 612, 200, 8)}<g filter="url(#f-projecta)">${cami('M376 610L456 130H664L744 610Z', 'mao', 'llum')}</g>`;
+    [[240, 440, 680], [360, 422, 698], [480, 402, 718]].forEach(([y, a, b]) => { s += `<rect x="${a}" y="${y - 4}" width="${b - a}" height="8" fill="#30353a" stroke="${INK}" stroke-width="1"/><rect x="${a}" y="${y - 4}" width="${b - a}" height="8" fill="url(#sh-tub)"/>` + reblons(a + 10, y, b - 10, y, 12, 1.800, '#8c959c'); });
+    s += `<path d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z" fill="#3a2016"/><g clip-path="url(#cl-cuba)"><g id="fcapes">${Array.from({ length: 7 }, (_, i) => `<rect x="440" y="${-120 + i * 90}" width="240" height="30" fill="url(#tx-carbo)"/><rect class="mineral" x="440" y="${-90 + i * 90}" width="240" height="30"/><rect class="calc" x="440" y="${-60 + i * 90}" width="240" height="30"/>`).join('')}</g>`;
+    s += `<rect x="440" y="395" width="240" height="200" fill="url(#g-bany)" opacity=".94"/><rect x="440" y="300" width="240" height="105" fill="#ff9a2e" opacity=".5"/><rect x="440" y="150" width="240" height="445" fill="url(#sh-cil)" opacity=".45"/></g><path d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z" fill="none" stroke="#e9b08c" stroke-width="2.800"/><path d="M526 150L466 426L516 516V588H604V516L654 426L594 150Z" class="vora"/></g>`;
+    // gresol: l'escòria sura sobre el ferro colat
+    s += `<g data-part="gresol"><rect x="518" y="562" width="84" height="24" fill="#fff3a0" stroke="${INK}" stroke-width="1.300"/><rect x="518" y="544" width="84" height="18" fill="#6b635a" stroke="${INK}" stroke-width="1.300"/><text x="560" y="579" class="tx-p mig" style="font-size:12px;font-weight:800">ferro</text><text x="560" y="557" class="tx-p mig" style="font-size:11px;fill:#fff">escòria</text></g>`;
     // boca de càrrega i passarel·la
-    s += `<g data-part="carrega"><rect class="t fusta" x="634" y="132" width="142" height="14"/><path d="M680 146v36M726 146v36" class="t" stroke="#8f6038" stroke-width="6"/>
-      ${persona(806, 146, 72, { color: '#3d5a80', barret: true, gir: true })}<path class="t fusta2" d="M694 132l36-28h42l-10 28z"/><path class="mineral" d="M712 114h42l-6 10h-34z"/>${roda(700, 128, 12, { raigs: 6 })}
-      <g data-fase="0-0.25"><g data-puf="596 122 -28 42 4 6 1" class="fum" opacity=".9"></g></g>
-      <g data-en="0">${retol(970, 224, 'mineral de ferro', { fons: '#9a4f32', vora: '#2a2420' })}${retol(970, 264, 'coc', { fons: '#2b2826', vora: '#2a2420', w: 80 })}${retol(970, 304, 'pedra calcària', { fons: '#fffdf7', color: '#2a2420', vora: '#2a2420' })}</g></g>`;
-    s += `<g data-puf="560 132 22 -90 6 16 2.1" class="fum" opacity=".6"></g>${foc(560, 150, 48, 66)}`;
-    // màquina bufadora realista amb volant, cilindre i toveres còniques
-    s += `<g data-part="bufadora"><rect class="t pedra" x="58" y="490" width="176" height="120"/><rect class="t" fill="url(#g-ferroc)" x="86" y="362" width="112" height="128" rx="6"/><rect x="96" y="372" width="92" height="108" fill="#dbe9ef" stroke="#2a2420" stroke-width="1.8"/>
-      <rect class="t" fill="url(#g-ferro)" x="128" y="330" width="28" height="32"/><g id="embol"><rect class="t" fill="url(#g-ferroc)" x="96" y="-8" width="92" height="16"/><rect class="t" fill="url(#g-ferroh)" x="136" y="-92" width="12" height="92"/></g>
-      ${roda(64, 420, 40, { raigs: 6, color: '#56636c', gruix: 8 })}<circle class="t llauto" cx="142" cy="300" r="10"/>
-      ${tub('M198 468H422V498H520', '#c9d6dc', 10)}<path class="t" fill="url(#g-llautoc)" d="M490 486l34 6v12l-34 6z"/><path d="M202 468H422V498H516" class="flux s-blau" data-flux="3" stroke-width="5"/>
-      <path d="M704 498H600" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M704 498H600" class="nf" stroke="#c9d6dc" stroke-width="10"/><path class="t" fill="url(#g-llautoc)" d="M630 486l-34 6v12l34 6z"/><path d="M700 498H604" class="flux s-blau" data-flux="3" stroke-width="5"/></g>`;
-    s += `<g data-en="1">${retol(308, 424, 'aire a pressió', { fons: '#2f7fb5', vora: '#2a2420' })}</g><g data-en="2">${retol(970, 412, 'més de 1.500 °C', { fons: '#d9482b', vora: '#2a2420' })}${retol(970, 184, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420' })}${fletxa('M900 390V212', '#d9482b', 5)}${retol(970, 494, 'calcària atrapa impureses → escòria', { fons: '#6b635a', vora: '#2a2420', w: 295 })}</g>`;
-    s += RI.innova(230, 184, 'INNOVACIÓ · coc + bufadora mecànica = temperatures molt altes', { apunta: [520, 496], halo: [560, 496, 86, 44], w: 435 });
-    // llit de colada pujat perquè no el tapi el peu .model
-    s += `<g data-part="llit"><path class="t" fill="#d8c49a" d="M130 622H496V684H130Z"/><path d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#8a6a4a" stroke-width="13" stroke-linecap="round"/>
-      <path id="colada" d="M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674" class="nf" stroke="#ffb02e" stroke-width="8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></g>`;
-    s += `<g data-en="3">${retol(312, 594, 'ferro colat en lingots', { fons: '#d9482b', vora: '#2a2420', w: 224 })}</g>`;
+    s += `<g data-part="carrega">${caixa(634, 132, 142, 13, 'fusta', 'tub')}${T2('M680 146v34M726 146v34', 6, 'fusta')}${figura(806, 146, 76, { gir: true })}${cami('M694 132l36-28h42l-10 28z', 'fustaf', 'llum')}<path class="mineral" d="M712 114h42l-6 10h-34z"/><g>${rodaR(700, 128, 12, { raigs: 6, gruix: 3, raig: 1.500 })}</g><g data-fase="0-0.25"><g data-puf="596 122 -28 42 4 6 1" class="fum" opacity=".9"></g></g><g data-en="0">${cartell(970, 224, 'mineral de ferro', { fons: '#9a4f32' })}${cartell(970, 262, 'coc', { fons: '#2b2826', w: 80 })}${cartell(970, 300, 'pedra calcària', { fons: '#fffdf7', color: '#2a2420' })}</g></g>`;
+    s += `<g data-puf="560 132 22 -90 6 16 2.100" class="fum boira" opacity=".6"></g>${flamarada(560, 150, 46, 70)}`;
+    // màquina bufadora: cilindre d'aire amb èmbol, volant i toveres
+    s += `<g data-part="bufadora">${ombra(146, 612, 110, 7)}${caixa(58, 490, 176, 120, 'pedra', 'pla')}${caixa(86, 362, 112, 128, 'ferro', 'cil', { rx: 6 })}${reblons(92, 370, 192, 370, 8, 2, '#8c959c')}${reblons(92, 482, 192, 482, 8, 2, '#8c959c')}<rect x="98" y="378" width="88" height="96" fill="#dbe9ef" stroke="${INK}" stroke-width="1.400"/><rect x="98" y="378" width="88" height="96" fill="url(#sh-cil)" opacity=".5"/>`;
+    s += `${caixa(128, 330, 28, 32, 'ferro', 'cil')}<g id="embol">${caixa(98, -8, 88, 16, 'ferro', 'tub')}${T2('M142 -92V0', 9, 'ferro')}</g><g data-girat="64 420 70">${rodaR(64, 420, 42, { raigs: 6, gruix: 9 })}</g><circle cx="142" cy="300" r="10" fill="url(#g-esf-llauto)" class="vora2"/>`;
+    s += `${T2('M198 468H422V498H520', 12, 'plom')}${brida(260, 468, 8, 20, 'ferro')}${brida(422, 484, 20, 8, 'ferro')}${cami('M490 486l34 6v12l-34 6z', 'llauto', 'tub')}<path d="M202 468H422V498H516" class="flux s-blau" data-flux="3" stroke-width="5"/>${T2('M704 498H600', 12, 'plom')}${cami('M630 486l-34 6v12l34 6z', 'llauto', 'tub')}<path d="M700 498H604" class="flux s-blau" data-flux="3" stroke-width="5"/></g>`;
+    s += `<g data-en="1">${cartell(308, 424, 'aire a pressió', { fons: '#2f7fb5' })}</g><g data-en="2">${cartell(970, 412, 'més de 1.500 °C', { fons: '#d9482b' })}${cartell(970, 184, 'a dalt, uns 200 °C', { fons: '#f2b632', color: '#2a2420' })}${fletxa('M900 390V212', '#d9482b', 5)}${cartell(970, 494, 'calcària atrapa impureses → escòria', { fons: '#6b635a', w: 295 })}</g>`;
+    // llit de colada: canals de sorra on el ferro fa lingots
+    const canals = 'M518 584Q468 592 468 634H160M434 634V674M384 634V674M334 634V674M284 634V674M234 634V674M184 634V674';
+    s += `<g data-part="llit"><path d="M130 622H496V684H130Z" fill="#d8c49a" stroke="${INK}" stroke-width="1.500"/><path d="M130 622H496V684H130Z" fill="url(#tx-terra)" opacity=".25"/><path d="${canals}" class="nf" stroke="#6b4f33" stroke-width="14" stroke-linecap="round"/><path d="${canals}" class="nf" stroke="#8a6a4a" stroke-width="10" stroke-linecap="round"/><path id="colada" d="${canals}" class="nf" stroke="#ffb02e" stroke-width="8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></g>`;
+    s += `<g data-en="3">${cartell(312, 594, 'ferro colat en lingots', { fons: '#d9482b', w: 224 })}</g>`;
     return svg(s);
   }
   function animaForn({ p, t, el }) {
     el('fcapes').setAttribute('transform', `translate(0 ${((t * 14) % 90).toFixed(1)})`);
-    el('embol').setAttribute('transform', `translate(0 ${(430 + 42 * Math.sin(t * 3)).toFixed(1)})`);
+    el('embol').setAttribute('transform', `translate(0 ${(430 + 40 * Math.sin(t * 3)).toFixed(1)})`);
     el('colada').setAttribute('stroke-dashoffset', p < 0.75 ? 900 : tram(p, 0.76, 0.95, 900, 0).toFixed(0));
   }
 
   /* ---------- 3 · pudelació i laminatge ---------- */
   function pudelat() {
-    let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="600" width="1320" height="120"/>`;
-    s += `<g data-part="xemeneia"><path class="t mao" d="M524 600V90h68V600z"/><path d="M558 330V100" class="flux s-gris" data-flux="2"/></g><g data-puf="558 84 30 -60 5 13 2.2" class="fum"></g>`;
-    // forn de reverber amb porta de fosa per al pudelador a l'esquerra del muntant
-    s += `<g data-part="forn"><path class="t mao" d="M36 600V330Q284 246 534 330V600Z"/><path class="t" fill="#4a2a1c" d="M68 520V370Q284 300 510 360V440H460V520H218V440H188V520Z"/>
-      <path d="M108 500Q200 330 330 400T520 380" class="flux s-taronja" stroke-width="9" data-flux="2.2"/><path d="M108 470Q210 350 340 430" class="flux s-groc" stroke-width="6" data-flux="2.6"/></g>`;
-    s += `<g data-part="fogar"><path d="M70 520H186" class="t4"/>${focs(96, 518, 3, 34, 30, 56)}<path class="t carbo" d="M74 518q54-22 110 0z"/></g>`;
-    s += `<g data-part="sola"><path class="t" fill="#ff9a2e" d="M222 518V478q116-18 234 0V518z"/><circle id="bola" class="t roent" cx="340" cy="484" r="26" opacity="0"/></g>`;
-    // pudelador situat clarament fora al costat de la boca de treball (amb davantal de cuir)
-    s += `<g data-part="pudelador">${persona(594, 600, 152, { color: '#7a5a3a', barret: true, gir: true, brac: 'M-8-68l-38 8M8-68l-42 16' })}<path d="M582 528h24l4 46h-32z" fill="#654022" stroke="#2a2420" stroke-width="2"/><line id="ganxo" x1="540" y1="510" x2="340" y2="486" class="t" stroke-width="6"/></g>`;
-    s += `<g data-en="0">${retol(286, 244, 'la flama passa per sobre: el carbó no toca el ferro', { fons: '#2a2420', vora: '#2a2420', w: 450 })}</g><g data-en="1">${retol(286, 244, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', vora: '#2a2420', w: 460 })}${retol(694, 244, '4 % → < 0,1 % C', { fons: '#a8452f', vora: '#2a2420', w: 160 })}</g>`;
-    s += RI.innova(286, 52, 'INNOVACIÓ · el mur separa el carbó del ferro + laminatge final', { apunta: [203, 470], halo: [203, 480, 24, 48], w: 485 });
-    // laminador amb castells i corrons acanalats
-    s += `<g data-part="laminador"><rect class="t pedra" x="804" y="582" width="192" height="18"/><path class="t" fill="url(#g-ferroc)" d="M820 582V226h160V582h-30V268H850V582z"/><rect class="t" fill="url(#g-ferro)" x="814" y="218" width="172" height="14" rx="3"/><path d="M835 245v325M965 245v325" stroke="#9aa6af" stroke-width="2" stroke-dasharray="2 16" opacity=".6"/>
-      <rect id="barra-e" x="660" y="369" width="230" height="34" rx="6" class="t roent"/><rect id="barra-s" x="900" y="377" width="0" height="18" rx="4" class="t roent"/>
-      <g id="corro1">${roda(900, 321, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 281v20M900 341v20M860 321h20M920 321h20" class="t"/></g><g id="corro2">${roda(900, 451, 56, { raigs: 6, color: '#56636c', gruix: 40, raig: 0.1, boto: '#c79a2c' })}<path d="M900 411v20M900 471v20M860 451h20M920 451h20" class="t"/></g></g>`;
-    s += `<g data-en="3">${retol(900, 184, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', vora: '#2a2420', w: 320 })}<text x="745" y="356" class="tx-p mig" style="font-weight:800">entra gruixuda</text><text x="1085" y="420" class="tx-p mig" style="font-weight:800">surt prima i llarga</text></g>`;
-    s += `<g><text x="1084" y="544" class="tx mig">barra · planxa · rail</text><rect class="t ferro2" x="1010" y="562" width="52" height="13" rx="2"/><rect class="t ferro2" x="1072" y="566" width="60" height="6" rx="1"/><path class="t ferro2" d="M1146 582h34v-6h-11v-14h7v-8h-26v8h7v14h-11z"/></g>`;
+    const { caixa, cami, cartell, ombra, figura, brasa, reblons } = RI, INK = '#2e221a';
+    let s = RI.fons(0) + cami('M-60 600H1260V720H-60Z', 'pedra', 'pla');
+    s += `<g data-part="xemeneia"><g filter="url(#f-projecta)">${cami('M520 600L528 90h60l8 510z', 'mao', 'llum')}</g>${caixa(522, 80, 72, 12, 'pedra', 'pla')}<path d="M558 330V100" class="flux s-gris" data-flux="2"/></g><g data-puf="558 78 30 -60 5 13 2.200" class="fum boira"></g>`;
+    // forn de reverber: la flama passa per sobre d'un mur i no toca el ferro
+    s += `<g data-part="forn">${ombra(290, 604, 270, 8)}<g filter="url(#f-projecta)">${cami('M36 600V330Q284 246 534 330V600Z', 'mao', 'pla')}</g>${caixa(30, 350, 12, 250, 'ferro', 'cil')}${caixa(526, 350, 12, 250, 'ferro', 'cil')}<path d="M68 520V370Q284 300 510 360V440H460V520H218V440H188V520Z" fill="#2a1710"/><path d="M68 520V370Q284 300 510 360V440H460V520H218V440H188V520Z" fill="url(#sh-fosc)" opacity=".6"/><path d="M68 520V370Q284 300 510 360V440H460V520H218V440H188V520Z" fill="none" stroke="#e9b08c" stroke-width="2.400"/>`;
+    s += `<path d="M108 500Q200 330 330 400T520 380" fill="none" stroke="#ff8a2a" stroke-width="20" stroke-linecap="round" opacity=".35" filter="url(#f-boira)"/><path d="M108 500Q200 330 330 400T520 380" class="flux s-taronja" stroke-width="9" data-flux="2.200"/><path d="M108 470Q210 350 340 430" class="flux s-groc" stroke-width="6" data-flux="2.600"/></g>`;
+    s += `<g data-part="fogar"><path d="M70 520H186" stroke="${INK}" stroke-width="4.500" stroke-linecap="round"/>${brasa(128, 518, 96, 58)}</g>`;
+    s += `<g data-part="sola"><path d="M222 518V478q116-18 234 0V518z" fill="url(#g-bany)" stroke="${INK}" stroke-width="1.500"/><ellipse cx="340" cy="476" rx="110" ry="14" fill="url(#g-resplendor)"/><g id="bola-g"><circle id="bola" cx="340" cy="484" r="26" fill="url(#g-roent)" stroke="${INK}" stroke-width="1.500" opacity="0"/></g></g>`;
+    // pudelador amb el ganxo
+    s += `<g data-part="pudelador">${figura(594, 600, 156, { gir: true, camisa: '#7a5a3a', brac: 'M-9-70q16 8 36 6M9-70q14 12 30 12' })}<path d="M582 524h24l4 50h-32z" fill="#5b3a20" stroke="${INK}" stroke-width="1.300"/><line id="ganxo" x1="540" y1="506" x2="340" y2="486" stroke="${INK}" stroke-width="6" stroke-linecap="round"/></g>`;
+    s += `<g data-en="0">${cartell(286, 244, 'la flama passa per sobre: el carbó no toca el ferro', { w: 450 })}</g><g data-en="1">${cartell(286, 244, 'remenant, el carboni es crema i el ferro s’espesseix', { fons: '#d9482b', w: 460 })}${cartell(694, 244, '4 % → < 0,1 % C', { fons: '#a8452f', w: 160 })}</g>`;
+    // laminador: castell de ferro colat i dos corrons que giren en sentit contrari
+    const corro = (id, y) => `<g id="${id}"><circle cx="900" cy="${y}" r="56" fill="url(#tx-acer)" stroke="${INK}" stroke-width="1.500"/><circle cx="900" cy="${y}" r="56" fill="url(#sh-bola)" opacity=".55"/><circle cx="900" cy="${y}" r="40" fill="none" stroke="${INK}" stroke-width="1" opacity=".5"/><circle cx="900" cy="${y}" r="17" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.300"/><path d="M900 ${y - 52}v24M900 ${y + 28}v24M848 ${y}h24M928 ${y}h24" stroke="${INK}" stroke-width="2.600" stroke-linecap="round" opacity=".7"/></g>`;
+    s += `<g data-part="laminador">${ombra(900, 604, 130, 7)}${caixa(804, 582, 192, 18, 'pedra', 'pla')}<g filter="url(#f-projecta)"><path d="M820 582V226h160V582h-30V268H850V582z" fill="url(#tx-ferro)"/><path d="M820 582V226h160V582h-30V268H850V582z" fill="url(#sh-llum)"/><path d="M820 582V226h160V582h-30V268H850V582z" class="vora"/></g>${caixa(814, 216, 172, 15, 'ferro', 'tub', { rx: 3 })}${reblons(835, 250, 835, 566, 9, 2.200, '#8c959c')}${reblons(965, 250, 965, 566, 9, 2.200, '#8c959c')}${caixa(888, 196, 24, 22, 'llauto', 'cil', { rx: 3 })}`;
+    s += `<rect id="barra-e" x="660" y="369" width="230" height="34" rx="6" fill="url(#g-roent)" stroke="${INK}" stroke-width="1.500"/><rect id="barra-s" x="900" y="377" width="0" height="18" rx="4" fill="url(#g-roent)" stroke="${INK}" stroke-width="1.500"/>${corro('corro1', 321)}${corro('corro2', 451)}</g>`;
+    s += `<g data-en="3">${cartell(900, 174, 'els corrons l’aprimen i l’allarguen', { fons: '#d9482b', w: 320 })}<text x="745" y="356" class="tx-p mig" style="font-weight:800">entra gruixuda</text><text x="1085" y="420" class="tx-p mig" style="font-weight:800">surt prima i llarga</text></g>`;
+    s += `<g><text x="1084" y="544" class="tx mig">barra · planxa · rail</text><rect x="1010" y="562" width="52" height="13" rx="2" fill="url(#tx-acer)" class="vora2"/><rect x="1072" y="566" width="60" height="6" rx="1" fill="url(#tx-acer)" class="vora2"/><path d="M1146 582h34v-6h-11v-14h7v-8h-26v8h7v14h-11z" fill="url(#tx-acer)" class="vora2"/></g>`;
     return svg(s);
   }
   function animaPud({ p, t, k, el }) {
@@ -122,21 +107,20 @@
   const PERA = 'M-45 -180C-70 -120 -125 -60 -125 20C-125 90 -100 150 -80 150H80C100 150 125 90 125 20C125 -60 70 -120 45 -180Z';
   const BUIT = 'M-30 -176C-52 -116 -102 -58 -102 20C-102 80 -84 128 -66 128H66C84 128 102 80 102 20C102 -58 52 -116 30 -176Z';
   function bessemer() {
-    let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="640" width="1320" height="80"/>`;
-    s += `<defs><clipPath id="cl-pera"><path d="${BUIT}"/></clipPath></defs>`;
-    s += `<g data-guia="1"><path d="M600 176V130M600 510v64M790 360h58M312 585l-46 28"/></g>`;
-    s += `<path class="t" fill="url(#g-ferroc)" d="M740 640L772 350h36L840 640zM360 640L392 350h36L460 640z" opacity=".92"/>`;
-    s += `<g data-en="0"><path class="t ferro" d="M130 148h168l40 40-12 12-34-28H130z"/><path d="M330 194Q378 248 424 306" class="nf" stroke="#ff9a2e" stroke-width="12" stroke-linecap="round"/>${retol(208, 118, 'ferro colat líquid', { fons: '#d9482b', vora: '#2a2420', w: 190 })}</g>`;
-    s += `<g id="pera" transform="translate(600 360)"><g data-part="convertidor" data-exp="0 -26"><path class="t" fill="url(#g-ferroc)" d="${PERA}"/><path d="M-112 -20H112M-118 40H118" stroke="#9aa6af" stroke-width="2.5" stroke-dasharray="2 14" opacity=".65"/><path d="${BUIT}" fill="#4a2a1c" class="t2"/><g clip-path="url(#cl-pera)"><g id="bany-g"><rect id="bany" x="-400" y="25" width="800" height="500" fill="#f08a4b"/><g id="bombolles" opacity="0">${Array.from({ length: 11 }, (_, i) => `<circle class="bb" cx="${-70 + i * 14}" cy="100" r="5" fill="#fffdf7"/>`).join('')}</g></g></g><path class="t nf" d="${BUIT}"/></g>
-      <g data-part="toveres" data-exp="0 54"><rect class="t" fill="url(#g-ferro)" x="-84" y="150" width="168" height="26" rx="4"/><path d="M-60 150v-22M-30 150v-22M0 150v-22M30 150v-22M60 150v-22" class="t" stroke="#c9d6dc"/></g>
-      <g id="flama" opacity="0">${foc(0, -176, 86, 200)}<g id="espurnes">${Array.from({ length: 10 }, (_, i) => `<circle class="esp" cx="${-28 + i * 6}" cy="-260" r="3" fill="#fff6b0"/>`).join('')}</g><g data-puf="0 -330 0 -160 8 9 0.9" class="calor"></g></g></g>`;
-    // eix i màquina bufadora mecànica realista
-    s += `<g data-part="eix" data-exp="56 10"><circle class="t llauto" cx="410" cy="360" r="20"/><circle class="t llauto" cx="790" cy="360" r="20"/>${tub('M790 360H1000V534', '#c9d6dc', 10)}<path d="M996 530V360H794" class="flux s-blau" stroke-width="5" data-flux="3" data-fase="0.3-0.7"/>
-      <rect class="t pedra" x="926" y="608" width="150" height="32"/><rect class="t" fill="url(#g-ferroc)" x="944" y="534" width="114" height="74" rx="6"/><circle class="t blanc" cx="980" cy="566" r="14"/><path d="M980 566l8-8" class="t2"/>${roda(1042, 570, 32, { raigs: 6, color: '#56636c', gruix: 7 })}<text x="980" y="598" class="tx-p mig" style="font-size:12px;fill:#fffdf7">bufadora</text></g>`;
-    // cullera i lingotera
-    s += `<g data-part="cullera" data-exp="-56 32"><path class="t" fill="url(#g-ferroc)" d="M236 550h144l-14 78H250z"/><path d="M236 550v-32M380 550v-32" class="t" stroke-width="5"/><path id="acer-c" d="M244 590h128l-8 36H252z" fill="#fff3a0" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
-    s += `<g data-en="2">${retol(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', vora: '#2a2420', w: 220 })}${retol(940, 186, 'C + O₂ → CO₂ ↑ (sense carbó)', { fons: '#2a2420', vora: '#2a2420', w: 264 })}${retol(980, 442, '1.200 → 1.600 °C (sense combustible)', { fons: '#a8452f', vora: '#2a2420', w: 290 })}<text id="minuts" x="940" y="256" class="tx-gg mig">minut 0 de 20</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${retol(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', vora: '#2a2420', w: 130 })}</g>`;
-    s += RI.innova(600, 44, 'INNOVACIÓ · aire fred pel fons: crema el carboni en 20 min, ZERO carbó', { apunta: [600, 520], halo: [600, 522, 92, 26], w: 545 });
+    const { caixa, cami, cartell, ombra, rodaR, reblons, flamarada, brida } = RI, T2 = RI.tub, INK = '#2e221a';
+    let s = RI.fons(0) + cami('M-60 640H1260V720H-60Z', 'pedra', 'pla');
+    s += `<defs><clipPath id="cl-pera"><path d="${BUIT}"/></clipPath></defs>` + ombra(600, 644, 280, 9);
+    s += `<g filter="url(#f-projecta)">${cami('M740 640L772 350h36L840 640z', 'ferro', 'llum')}${cami('M360 640L392 350h36L460 640z', 'ferro', 'llum')}</g>`;
+    s += `<g data-en="0">${cami('M130 148h168l40 40-12 12-34-28H130z', 'ferro', 'pla')}<path d="M330 194Q378 248 424 306" class="nf" stroke="#ff9a2e" stroke-width="12" stroke-linecap="round"/><path d="M330 194Q378 248 424 306" class="nf" stroke="#fff3a0" stroke-width="4" stroke-linecap="round"/>${cartell(208, 118, 'ferro colat líquid', { fons: '#d9482b', w: 190 })}</g>`;
+    s += `<g id="pera" transform="translate(600 360)"><g data-part="convertidor"><path d="${PERA}" fill="url(#tx-ferro)"/><path d="${PERA}" fill="url(#sh-cil)"/><path d="${PERA}" class="vora"/>${reblons(-112, -20, 112, -20, 13, 2.400, '#8c959c')}${reblons(-118, 40, 118, 40, 13, 2.400, '#8c959c')}<path d="${BUIT}" fill="#3a2016"/><g clip-path="url(#cl-pera)"><g id="bany-g"><rect id="bany" x="-400" y="25" width="800" height="500" fill="#f08a4b"/><g id="bombolles" opacity="0">${Array.from({ length: 11 }, (_, i) => `<circle class="bb" cx="${-70 + i * 14}" cy="100" r="5" fill="#fffdf7"/>`).join('')}</g></g><path d="${BUIT}" fill="url(#sh-cil)" opacity=".4"/></g><path d="${BUIT}" fill="none" stroke="#e9b08c" stroke-width="2.600"/><path d="${BUIT}" class="vora"/></g>`;
+    s += `<g data-part="toveres">${caixa(-84, 150, 168, 26, 'ferro', 'tub', { rx: 4 })}<path d="M-60 150v-22M-30 150v-22M0 150v-22M30 150v-22M60 150v-22" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><path d="M-60 150v-22M-30 150v-22M0 150v-22M30 150v-22M60 150v-22" stroke="#c9d6dc" stroke-width="2.400" stroke-linecap="round"/></g>`;
+    s += `<g id="flama" opacity="0">${flamarada(0, -176, 86, 200)}<g id="espurnes">${Array.from({ length: 10 }, (_, i) => `<circle class="esp" cx="${-28 + i * 6}" cy="-260" r="3" fill="#fff6b0"/>`).join('')}</g><g data-puf="0 -330 0 -160 8 9 0.900" class="calor boira"></g></g></g>`;
+    // eix buit per on entra l'aire, i màquina bufadora
+    s += `<g data-part="eix"><circle cx="410" cy="360" r="20" fill="url(#g-esf-llauto)" class="vora2"/><circle cx="790" cy="360" r="20" fill="url(#g-esf-llauto)" class="vora2"/>${T2('M790 360H1000V534', 12, 'plom')}${brida(880, 360, 8, 20, 'ferro')}${brida(1000, 450, 20, 8, 'ferro')}<path d="M996 530V360H794" class="flux s-blau" stroke-width="5" data-flux="3" data-fase="0.3-0.7"/>`;
+    s += `${caixa(926, 608, 150, 32, 'pedra', 'pla')}${caixa(944, 534, 114, 74, 'ferro', 'llum', { rx: 6 })}<circle cx="980" cy="566" r="14" fill="#fffdf7" class="vora2"/><path d="M980 566l8-8" stroke="${INK}" stroke-width="2.200" stroke-linecap="round"/><g data-girat="1042 570 160">${rodaR(1042, 570, 32, { raigs: 6, gruix: 7 })}</g><text x="980" y="598" class="tx-p mig" style="font-size:12px;fill:#fffdf7">bufadora</text></g>`;
+    // cullera de colada
+    s += `<g data-part="cullera">${cami('M236 550h144l-14 78H250z', 'ferro', 'llum')}${T2('M236 550v-32M380 550v-32', 5, 'ferro')}<path id="acer-c" d="M244 590h128l-8 36H252z" fill="url(#g-bany)" opacity="0"/><path id="raig" d="M440 440Q380 480 318 590" class="nf" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0"/></g>`;
+    s += `<g data-en="2">${cartell(940, 146, 'l’aire crema el carboni', { fons: '#d9482b', w: 220 })}${cartell(940, 182, 'C + O₂ → CO₂ ↑ (sense carbó)', { w: 264 })}${cartell(980, 442, '1.200 → 1.600 °C (sense combustible)', { fons: '#a8452f', w: 300 })}<text id="minuts" x="940" y="256" class="tx-gg mig">minut 0 de 20</text><text x="940" y="284" class="tx-p mig">4 % → 0,5 % de carboni</text></g><g data-en="3">${cartell(140, 514, 'acer líquid', { fons: '#f2b632', color: '#2a2420', w: 130 })}</g>`;
     return svg(s);
   }
   function animaBes({ p, t, el, svg: g }) {

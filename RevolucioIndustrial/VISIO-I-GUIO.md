@@ -198,3 +198,7 @@ Els SVG són esquemes originals i deliberadament simplificats. Les vistes de pec
 - Targeta afegida al menú general `https://felipsarroca.github.io/web/`, amb el curt de ja.cat com a destinació.
 - Commit inicial publicat: `df5f122eacf280dda929a10c11b89212ac29c83a`. El flux de GitHub Pages ha acabat correctament i s'han comprovat l'adreça directa, els fitxers estàtics, la navegació i la redirecció del curt al navegador.
 - Els esquemes continuen sent didàctics i simplificats. Per a les fases següents, prioritzar models històrics concrets, vistes tècniques validades, trajectes i temps de viatge documentats i proves d'escalat real del sistema al 125 % i 150 %.
+
+## 12. Decisió del 14-11-2026 sobre els esquemes en moviment
+
+Felip demana que els esquemes animats siguin molt realistes i estètics, i que mostrin el funcionament i l’avantatge de cada novetat dins del mateix esquema. Descarta afegir vistes de comparació «Abans i ara»: compliquen el web i aporten poc. Quan demana conservar els dissenys anteriors, vol una còpia de seguretat per poder tornar enrere, no que es continuïn mostrant. El detall de la revisió és a `REDISSENY.md`.

@@ -11,66 +11,84 @@
 
   /* ---------- màquina de balancí (Newcomen o Watt d'efecte simple) ---------- */
   function motor(w) {
-    let s = '';
-    // paisatge i subsòl
-    s += `<rect x="-60" y="-70" width="1320" height="790" fill="#fcf8ef"/>`;
-    s += `<rect fill="#d6c5ab" x="-60" y="560" width="1320" height="160"/><rect class="herba" x="620" y="556" width="640" height="9"/><rect class="herba" x="-60" y="556" width="120" height="9"/>`;
-    s += `<rect x="806" y="560" width="88" height="152" fill="#e7dcc3" class="t"/><rect x="640" y="640" width="520" height="72" fill="#e7dcc3" class="t"/><rect x="808" y="600" width="84" height="80" fill="#e7dcc3"/>`;
-    s += `<rect class="aigua" x="642" y="686" width="516" height="24" opacity=".9"/><path d="M650 686q12-6 24 0t24 0 24 0 24 0 24 0 24 0" class="nf t1 s-blanc"/>`;
-    s += persona(1050, 710, 56, { color: '#7a5a3a', barret: true }) + `<rect class="aigua" x="1020" y="688" width="60" height="22" opacity=".85"/>`;
-    s += txt(740, 672, 'la mina s’inunda', 'tx mig');
-    // casa de màquines
-    // Secció sense sostre: no oculta el moviment del balancí.
-    s += `<rect class="t mao" x="560" y="128" width="60" height="432"/>`;
-    s += `<rect x="90" y="556" width="470" height="8" class="t2 pedra"/>`;
+    const { caixa, cami, tub, brida, reblons, cadena, brasa, figura, ombra, cartell } = RI;
+    const INK = '#2e221a';
+    let s = RI.fons(-64);
+    // subsòl de roca, galeria inundada i pou de la mina
+    s += cami('M-60 560H1260V720H-60Z', 'roca', 'pla');
+    s += `<rect x="-60" y="556" width="110" height="10" fill="url(#tx-herba)"/><rect x="1096" y="556" width="164" height="10" fill="url(#tx-herba)"/>`;
+    s += `<path d="M640 640H1160V712H640Z" fill="#33271e"/><path d="M640 640H1160V712H640Z" fill="url(#sh-pou)" opacity=".7"/><rect x="822" y="560" width="56" height="84" fill="#2a2019"/><rect x="822" y="560" width="56" height="84" fill="url(#sh-pou)"/>`;
+    [700, 780, 930, 1010, 1100].forEach((x) => { s += caixa(x, 640, 9, 72, 'fustaf', 'cil') ; });
+    s += caixa(640, 636, 520, 8, 'fustaf', 'tub') + caixa(818, 560, 7, 80, 'fustaf', 'cil') + caixa(875, 560, 7, 80, 'fustaf', 'cil');
+    s += figura(1052, 708, 58, { color: '#3a2f27', camisa: '#6f5a45' }) + `<circle cx="1071" cy="672" r="3.500" fill="#ffd35c"/><circle cx="1071" cy="672" r="12" fill="url(#g-resplendor)"/>`;
+    s += `<rect x="641" y="688" width="518" height="24" fill="url(#g-aiguat)"/><path d="M644 689q12-5 24 0t24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0" fill="none" stroke="#fff" stroke-width="1.600" opacity=".8"/>`;
+    s += cartell(736, 668, 'la mina s’inunda', { fons: '#1d5f8f', mida: 14 });
+    // terra de lloses
+    s += caixa(50, 548, 1046, 16, 'pedra', 'pla');
+    // pilar de maó amb coixinet
+    s += ombra(600, 552, 70, 7) + `<g filter="url(#f-projecta)">` + caixa(538, 528, 104, 22, 'pedra', 'pla') + cami('M548 528L564 134H616L632 528Z', 'mao', 'llum') + `</g>` + caixa(554, 120, 72, 15, 'pedra', 'pla') + cami('M568 120L576 98H604L612 120Z', 'ferro', 'llum');
 
     if (!w) {
-      // Newcomen: caldera sota el cilindre
-      s += `<g data-guia="1"><path d="M150 180l-42-22M330 420v44M220 420l-48 34M590 110V64"/></g>`;
-      s += `<g data-part="caldera" data-exp="0 44"><rect class="t mao" x="215" y="470" width="240" height="90"/><rect class="t fosc" x="245" y="512" width="170" height="44" rx="4"/>${focs(275, 554, 4, 37, 30, 36)}
-        <path class="t" fill="url(#g-coure)" d="M225 506C225 426 435 426 435 506Z"/><path d="M232 484H428L434 505H226Z" class="aigua" opacity=".9"/><path d="M236 484h188M244 468h172" stroke="#7c3e16" stroke-width="1.5" stroke-dasharray="3 11" opacity=".65"/><path class="t nf" d="M225 506C225 426 435 426 435 506Z"/>
-        <rect class="t" fill="url(#g-coure)" x="318" y="384" width="24" height="64"/><rect class="t" fill="url(#g-llautoc)" x="314" y="408" width="32" height="8" rx="2"/></g>`;
-      s += `<g data-puf="330 478 0 -26 4 7 1.6" class="vap"></g>`;
-      s += `<g data-part="diposit" data-exp="-54 -28"><rect class="t" fill="url(#g-fustac)" x="105" y="140" width="80" height="55"/><rect class="aigua" x="108" y="152" width="74" height="40"/><path class="t nf" d="M90 200h100"/><path d="M145 195V358H272" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M145 195V358H272" class="nf" stroke="#58a9d6" stroke-width="8"/></g>`;
-      s += `<g data-part="desguas" data-exp="-52 38"><path d="M296 384V404H175V522" class="nf" stroke="#2a2420" stroke-width="11"/><path d="M296 384V404H175V522" class="nf" stroke="#9fb4c0" stroke-width="6"/><path class="t fusta" d="M150 520h50l-5 38h-40z"/><path d="M175 404V520" class="flux2 s-blau" data-flux="1.5" data-fase="0.84-1"/></g>`;
+      // bastida de fusta al voltant de la caldera
+      s += caixa(84, 196, 14, 352, 'fusta-v', 'cil') + caixa(502, 196, 14, 352, 'fusta-v', 'cil') + caixa(70, 196, 462, 15, 'fusta', 'tub');
+      s += tub('M98 262L146 212', 9, 'fusta') + tub('M502 262L454 212', 9, 'fusta');
+      // dipòsit d'aigua freda i canonada d'injecció
+      s += `<g data-part="diposit">${caixa(105, 142, 80, 54, 'plom', 'llum', { rx: 3 })}<ellipse cx="145" cy="143" rx="40" ry="5" fill="#3f7fae" stroke="${INK}" stroke-width="1.300"/><ellipse cx="139" cy="142" rx="18" ry="1.600" fill="#fff" opacity=".6"/>${tub('M145 196V358H272', 9, 'coure')}${brida(145, 232, 16, 7, 'llauto')}${brida(200, 358, 7, 16, 'llauto')}<path d="M145 200V358H270" class="flux2 s-blau" stroke-width="3" data-flux="2.500" data-fase="0.34-0.47"/></g>`;
+      // desguàs cap al pou calent
+      s += `<g data-part="desguas">${tub('M296 386V404H175V522', 8, 'plom')}${cami('M148 518h56l-6 30h-44z', 'fustaf', 'llum')}<path d="M150 528h52M152 540h48" stroke="#30353a" stroke-width="2.600"/><ellipse cx="176" cy="519" rx="27" ry="3.500" fill="#5fa6cf" stroke="${INK}" stroke-width="1"/><path d="M175 408V516" class="flux2 s-blau" stroke-width="3" data-flux="1.500" data-fase="0.84-1"/></g>`;
+      // caldera de coure sobre el fogar de maó
+      s += `<g data-part="caldera">${ombra(330, 552, 140, 7)}${caixa(205, 470, 250, 78, 'mao', 'pla')}<path d="M284 548V512Q330 470 376 512V548Z" fill="#1a110b"/><path d="M284 512Q330 470 376 512" fill="none" stroke="#d99a72" stroke-width="7" stroke-dasharray="10 2.500"/><path d="M284 512Q330 470 376 512" fill="none" stroke="${INK}" stroke-width="1" transform="translate(0 -3.500)"/>${brasa(330, 546, 72, 40)}${cami('M262 506h16v42h-16z', 'ferro', 'llum')}${caixa(199, 462, 262, 9, 'pedra', 'pla')}`;
+      s += cami('M226 464C226 384 434 384 434 464Z', 'coure', 'cup') + `<path d="M246 440Q330 398 414 440" fill="none" stroke="#7a3d1b" stroke-width="1.200" opacity=".7"/>`;
+      for (let i = 0; i <= 8; i++) { const k = i / 8, x = (1 - k) * (1 - k) * 246 + 2 * k * (1 - k) * 330 + k * k * 414, y = (1 - k) * (1 - k) * 440 + 2 * k * (1 - k) * 398 + k * k * 440; s += reblons(x, y - 3, x, y - 3, 1, 2.200); }
+      // finestra de tall: es veu l'aigua que bull i el vapor
+      s += `<clipPath id="tall-cald"><path d="M300 458C300 432 318 420 348 420C384 420 408 438 412 458Z"/></clipPath><g clip-path="url(#tall-cald)"><rect x="296" y="414" width="120" height="48" fill="#4a2616"/><rect x="296" y="414" width="120" height="26" fill="#f6d9b8" opacity=".5"/><rect x="296" y="440" width="120" height="22" fill="url(#g-aiguat)"/><path d="M296 441q8-4 16 0t16 0 16 0 16 0 16 0 16 0 16 0 16 0" fill="none" stroke="#fff" stroke-width="1.300"/><g data-puf="330 458 0 -16 3 2.200 0.900" class="vap"></g><g data-puf="380 458 0 -16 3 2.200 1.100" class="vap"></g></g><path d="M300 458C300 432 318 420 348 420C384 420 408 438 412 458Z" fill="none" stroke="#f3c59c" stroke-width="2.600"/><path d="M300 458C300 432 318 420 348 420C384 420 408 438 412 458Z" fill="none" stroke="${INK}" stroke-width=".9" transform="translate(0 -1.600)"/>`;
+      s += caixa(220, 458, 220, 9, 'coure', 'tub', { tint: '#5b2a10', to: 0.3 }) + reblons(230, 462.5, 430, 462.5, 15, 2.400) + tub('M330 386V414', 20, 'llauto') + `</g>`;
+      s += `<g data-puf="330 430 0 -34 4 6 1.500" class="vap boira" data-fase="0-0.34"></g>`;
     } else {
-      // Watt: caldera a part, camisa de vapor, condensador separat
-      s += `<g data-guia="1"><path d="M180 420l-42 32M220 220l-42-24M330 300l42-16M405 300h48M480 460l46 38M590 110V64"/></g>`;
-      s += `<g data-part="caldera" data-exp="-48 38"><rect class="t mao" x="95" y="452" width="170" height="108"/><rect class="t fosc" x="115" y="512" width="130" height="44" rx="4"/>${focs(142, 554, 3, 38, 30, 36)}
-        <rect class="t" fill="url(#g-coure)" x="105" y="400" width="150" height="108" rx="40"/><path d="M108 462h144v10q0 33-36 33h-72q-36 0-36-33z" class="aigua" opacity=".9"/><path d="M138 402v104M222 402v104" stroke="#2a2420" stroke-width="4" opacity=".45"/><path d="M138 412v86M222 412v86" stroke="#fff3d6" stroke-width="1.5" stroke-dasharray="2 10" opacity=".7"/><rect class="t nf" x="105" y="400" width="150" height="108" rx="40"/></g>`;
-      s += `<g data-puf="180 448 0 -24 4 7 1.6" class="vap"></g>`;
-      s += `<g data-part="tub" data-exp="-46 -32"><path d="M180 400V196H272V232" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M180 400V196H272V232" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M180 396V196H270" class="flux s-blanc" data-flux="2" data-fase="0-0.45"/></g>`;
-      s += `<rect class="t pedra" x="262" y="384" width="136" height="176"/>`;
-      s += `<g data-part="camisa" data-exp="42 -16"><rect class="t" x="258" y="216" width="144" height="172" rx="8" fill="url(#g-coure)"/><path d="M262 246h136M262 356h136" stroke="#7c3e16" stroke-width="2" stroke-dasharray="3 12" opacity=".55"/></g>`;
-      s += `<g data-part="equilibri" data-exp="54 0"><path d="M388 240H420V364H388" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M388 240H420V364H388" class="nf" stroke="#f0ab68" stroke-width="8"/><path d="M392 240H420V364H392" class="flux s-blanc" data-flux="2" data-fase="0.55-0.97"/></g>`;
-      s += `<g data-part="condensador" data-exp="54 44"><rect class="t" fill="url(#g-fustac)" x="430" y="436" width="122" height="124"/><rect class="aigua" x="434" y="448" width="114" height="108"/>
-        <path d="M300 384V414H457V470" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M300 384V414H457V470" class="nf" stroke="#c9d6dc" stroke-width="8"/><path d="M300 388V414H457V466" class="flux s-taronja" data-flux="2.5" data-fase="0-0.34"/>
-        <rect class="t" x="440" y="466" width="36" height="78" rx="6" fill="#eaf4f8"/><g id="gotes"><circle cx="450" cy="500" r="3.5" class="blau"/><circle cx="462" cy="514" r="3.5" class="blau"/><circle cx="454" cy="528" r="3.5" class="blau"/><circle cx="466" cy="492" r="3.5" class="blau"/></g></g>`;
-      s += `<g data-part="bomba" data-exp="54 44"><rect class="t" x="492" y="466" width="36" height="78" rx="4" fill="#eaf4f8"/><path d="M476 536h16" class="t4"/><g id="bomba-m"><path d="M510 122V500" class="t" stroke-width="5"/><rect class="t" fill="url(#g-ferroc)" x="494" y="494" width="32" height="10"/></g></g>`;
+      // Watt: caldera a part
+      s += `<g data-part="caldera">${ombra(180, 552, 100, 7)}${caixa(95, 456, 170, 92, 'mao', 'pla')}<path d="M140 548V516Q180 480 220 516V548Z" fill="#1a110b"/><path d="M140 516Q180 480 220 516" fill="none" stroke="#d99a72" stroke-width="7" stroke-dasharray="10 2.500"/>${brasa(180, 546, 62, 36)}${caixa(89, 448, 182, 9, 'pedra', 'pla')}`;
+      s += cami('M108 450V414Q108 372 180 372Q252 372 252 414V450Z', 'coure', 'cup') + reblons(116, 444, 244, 444, 12, 2.400) + `<path d="M112 420Q180 396 248 420" fill="none" stroke="#7a3d1b" stroke-width="1.200" opacity=".7"/>`;
+      s += `<clipPath id="tall-cald"><path d="M150 440C150 414 164 400 188 400C214 400 232 416 236 440Z"/></clipPath><g clip-path="url(#tall-cald)"><rect x="146" y="396" width="94" height="48" fill="#4a2616"/><rect x="146" y="396" width="94" height="24" fill="#f6d9b8" opacity=".5"/><rect x="146" y="420" width="94" height="24" fill="url(#g-aiguat)"/><path d="M146 421q8-4 16 0t16 0 16 0 16 0 16 0 16 0" fill="none" stroke="#fff" stroke-width="1.300"/><g data-puf="176 440 0 -16 3 2.200 0.900" class="vap"></g><g data-puf="214 440 0 -16 3 2.200 1.100" class="vap"></g></g><path d="M150 440C150 414 164 400 188 400C214 400 232 416 236 440Z" fill="none" stroke="#f3c59c" stroke-width="2.600"/></g>`;
+      // tub de vapor cap a dalt del cilindre
+      s += `<g data-part="tub">${tub('M180 374V196H272V230', 13, 'coure')}${brida(180, 362, 22, 8, 'llauto')}${brida(180, 250, 20, 7, 'llauto')}${brida(272, 222, 20, 8, 'llauto')}<path d="M180 370V196H270V226" class="flux s-blanc" stroke-width="5" data-flux="2" data-fase="0-0.45"/></g>`;
+      s += ombra(330, 552, 90, 7) + caixa(262, 394, 136, 154, 'pedra', 'pla');
+      // camisa de vapor: una segona paret que manté calent el cilindre
+      s += `<g data-part="camisa">${caixa(250, 206, 160, 190, 'llauto', 'cil', { rx: 9 })}<rect x="262" y="214" width="136" height="176" rx="4" fill="#f3a56a"/><rect x="262" y="214" width="136" height="176" rx="4" fill="url(#sh-cil)" opacity=".5"/>${reblons(256, 226, 256, 380, 8, 2.200, '#a8801e')}${reblons(404, 226, 404, 380, 8, 2.200, '#a8801e')}</g>`;
+      s += `<g data-part="equilibri">${tub('M396 240H420V364H396', 9, 'coure')}${brida(420, 262, 16, 7, 'llauto')}${brida(420, 342, 16, 7, 'llauto')}<path d="M398 240H420V364H398" class="flux s-blanc" stroke-width="4" data-flux="2" data-fase="0.55-0.97"/></g>`;
+      // condensador separat dins d'una cisterna d'aigua freda, amb la bomba d'aire
+      s += `<g data-part="condensador">${tub('M300 392V414H457V468', 10, 'plom')}<path d="M300 394V414H457V464" class="flux s-taronja" stroke-width="4" data-flux="2.500" data-fase="0-0.34"/>${caixa(428, 436, 126, 112, 'fustaf', 'llum')}<rect x="435" y="446" width="112" height="98" fill="url(#g-aiguat)"/><path d="M436 447q7-4 14 0t14 0 14 0 14 0 14 0 14 0 14 0 14 0" fill="none" stroke="#fff" stroke-width="1.300"/><path d="M428 462h126M428 524h126" stroke="#30353a" stroke-width="3.400"/>`;
+      s += `${caixa(440, 466, 36, 76, 'llauto', 'cil', { rx: 6 })}<rect x="445" y="472" width="26" height="64" rx="4" fill="#e9f3f7"/><g id="gotes"><circle cx="452" cy="486" r="3.200" fill="#2f7fb5"/><circle cx="463" cy="500" r="3.200" fill="#2f7fb5"/><circle cx="455" cy="514" r="3.200" fill="#2f7fb5"/><circle cx="465" cy="478" r="3.200" fill="#2f7fb5"/></g></g>`;
+      s += `<g data-part="bomba">${caixa(492, 466, 36, 76, 'llauto', 'cil', { rx: 4 })}<rect x="497" y="472" width="26" height="64" rx="3" fill="#e9f3f7"/>${tub('M476 534H492', 8, 'plom')}<g id="bomba-m">${tub('M510 122V498', 5, 'ferro')}${caixa(497, 494, 26, 9, 'ferro', 'tub')}</g></g>`;
     }
 
-    // cilindre
-    s += `<g data-part="cilindre"><rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0"/>' : ''}
-      <path id="cil" d="M272 222V384H388V222H378V372H282V222Z" class="t" fill="url(#g-ferroc)"/>${w ? '<path class="t" fill="url(#g-ferro)" d="M268 212h124v12H268z"/><rect class="t" fill="url(#g-llautoc)" x="320" y="202" width="20" height="12"/>' : ''}</g>`;
-    if (!w) s += `<g data-fase="0.34-0.47"><path d="M284 358l60-34M284 358l72-14M284 358l40-52M284 358l76 6" class="nf s-blau" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="8 7"/></g>`;
+    // cilindre en secció: les parets canvien de color amb la temperatura
+    const paret = w ? 'M268 210H392V378Q392 390 380 390H280Q268 390 268 378ZM282 224V372H378V224Z' : 'M268 214V378Q268 390 280 390H380Q392 390 392 378V214H378V372H282V214Z';
+    s += `<g data-part="cilindre">${caixa(282, w ? 224 : 214, 96, w ? 148 : 158, 'llauto', 'cil', { tint: '#2a1a0c', to: 0.62, vora: 0.01 })}<rect id="vap" x="282" y="300" width="96" height="72" fill="#f9c9a0" opacity=".88"/>${w ? '<rect id="vap2" x="282" y="224" width="96" height="60" fill="#f9c9a0" opacity=".88"/>' : ''}`;
+    s += `<path id="cil" d="${paret}" fill="#f08a4b" fill-rule="evenodd"/><path d="${paret}" fill="url(#p-seccio)" fill-rule="evenodd"/><path d="${paret}" class="vora" fill-rule="evenodd"/>`;
+    s += w ? caixa(260, 202, 140, 10, 'llauto', 'tub', { rx: 2 }) + reblons(270, 207, 390, 207, 8, 2.200, '#a8801e') + caixa(318, 190, 24, 13, 'llauto', 'cil', { rx: 2 }) : caixa(258, 208, 26, 9, 'llauto', 'tub', { rx: 2 }) + caixa(376, 208, 26, 9, 'llauto', 'tub', { rx: 2 });
+    s += `</g>`;
+    if (!w) s += `<g data-fase="0.34-0.47"><ellipse cx="326" cy="336" rx="42" ry="30" fill="#bfe3f5" opacity=".75" filter="url(#f-boira)"/><path d="M284 358l58-36M284 358l74-16M284 358l38-54M284 358l80 6M284 358l22-58" fill="none" stroke="#2f7fb5" stroke-width="3.400" stroke-linecap="round" stroke-dasharray="7 6"/><path d="M284 358l58-36M284 358l74-16M284 358l38-54M284 358l80 6" fill="none" stroke="#fff" stroke-width="1.200" stroke-linecap="round" stroke-dasharray="3 10"/></g>`;
     s += `<text id="buit" x="330" y="350" class="mig" fill="#1d5f8f" opacity="0" style="font-weight:900;font-size:22px;paint-order:stroke;stroke:#fff;stroke-width:5px">BUIT</text>`;
-    s += `<g data-part="piston" id="piston"><rect class="t" fill="url(#g-ferroh)" x="325" y="-112" width="10" height="112"/><rect class="t" fill="url(#g-ferroc)" x="282" y="-11" width="96" height="22" rx="3"/><rect x="284" y="-3" width="92" height="6" fill="url(#g-llauto)"/></g>`;
-    s += `<line id="cad1" x1="330" y1="110" x2="330" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
+    // pistó amb l'estopada (i, a Newcomen, una capa d'aigua que segella)
+    s += `<g data-part="piston" id="piston">${tub('M330 -114V0', 8, 'ferro')}${w ? '' : '<rect x="284" y="-18" width="92" height="8" fill="#5fa6cf" opacity=".85"/>'}${caixa(283, -11, 94, 22, 'ferro', 'tub', { rx: 2 })}<rect x="283" y="-3.500" width="94" height="7" fill="#d9c08a" stroke="${INK}" stroke-width=".8"/><path d="M286 0h88" stroke="#a88f58" stroke-width="1" stroke-dasharray="3 3"/>${cami('M322 -126h16v14h-16z', 'ferro', 'llum')}</g>`;
+    s += cadena('cad1', 330, 108, 200);
     // vàlvules
-    s += w ? valv('v-adm', 228, 196) + valv('v-eq', 420, 300) + valv('v-esc', 380, 414) : valv('v-adm', 330, 416) + valv('v-inj', 145, 290);
+    s += w ? valv('v-adm', 228, 196) + valv('v-eq', 420, 300) + valv('v-esc', 380, 414) : valv('v-adm', 330, 400) + valv('v-inj', 145, 290);
     // pressió atmosfèrica (Newcomen) o vapor (Watt)
-    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M290 120V214', '#2f7fb5', 11)}${fletxa('M330 116V200', '#2f7fb5', 11)}${fletxa('M370 120V214', '#2f7fb5', 11)}${retol(500, 150, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 205 })}</g>`;
-    else s += `<g data-fase="0.03-0.45">${fletxa('M304 232V272', '#d9482b', 6)}${fletxa('M356 232V272', '#d9482b', 6)}${retol(495, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
-    // bomba de la mina
-    s += `<g data-part="bombamina"><rect class="t" x="832" y="535" width="36" height="172" fill="#58a9d6"/><path d="M850 696V544" class="flux s-blanc" stroke-width="5" data-flux="2.5" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><path class="t ferro2" d="M868 541h96v12h-96z"/>
-      <path d="M962 551q22 0 24 12" class="nf s-blau" stroke-width="9" stroke-linecap="round" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><ellipse class="aigua" cx="1010" cy="566" rx="70" ry="9"/>
-      <g id="vareta"><rect class="t fusta" x="843" y="-400" width="14" height="400"/><rect class="t ferro" x="836" y="-6" width="28" height="14" rx="3"/><rect class="t ferro" x="838" y="-436" width="24" height="40"/></g></g>`;
-    s += `<line id="cad2" x1="850" y1="110" x2="850" y2="200" stroke="#2a2420" stroke-width="5" stroke-dasharray="3 5" stroke-linecap="round"/>`;
-    // balancí
-    s += `<g data-exp="0 -48"><g data-part="balanci" id="biga"><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#2a2420" stroke-width="19"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#2a2420" stroke-width="19"/>
-      <path d="M345 44L420 104M345 176L420 116M835 44L760 104M835 176L760 116" class="t"/>
-      <rect class="t" fill="url(#g-fustac)" x="342" y="97" width="496" height="26" rx="4"/><path d="M340 38A260 260 0 0 0 340 182" class="nf" stroke="#c7935c" stroke-width="13"/><path d="M840 38A260 260 0 0 1 840 182" class="nf" stroke="#c7935c" stroke-width="13"/>
-      <circle class="t llauto" cx="590" cy="110" r="11"/></g></g>`;
+    if (!w) s += `<g data-fase="0.47-0.84">${fletxa('M298 126V204', '#2f7fb5', 10)}${fletxa('M362 126V204', '#2f7fb5', 10)}${cartell(196, 100, 'pressió de l’aire (1 atm)', { fons: '#2f7fb5', w: 208 })}</g>`;
+    else s += `<g data-fase="0.03-0.45">${fletxa('M304 232V268', '#d9482b', 6)}${fletxa('M356 232V268', '#d9482b', 6)}${cartell(500, 250, 'el vapor empeny', { fons: '#d9482b' })}</g>`;
+    // bomba de la mina: vareta, tub d'elevació i canal de sortida
+    s += `<g data-part="bombamina">${caixa(838, 536, 24, 172, 'ferro', 'cil')}<rect x="842" y="540" width="16" height="166" fill="url(#g-aiguat)"/><path d="M850 700V546" class="flux s-blanc" stroke-width="4" data-flux="2.500" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/>${brida(850, 590, 30, 7, 'ferro')}${brida(850, 650, 30, 7, 'ferro')}`;
+    s += cami('M862 534h104l-4 14h-100z', 'fusta', 'tub') + `<path d="M864 538h98" stroke="#5fa6cf" stroke-width="4" stroke-linecap="round" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/><path d="M964 544q14 2 16 20" fill="none" stroke="#5fa6cf" stroke-width="7" stroke-linecap="round" data-fase="${w ? '0.03-0.45' : '0.47-0.84'}"/>`;
+    s += cami('M948 560h140l-8 14h-124z', 'pedra', 'pla') + `<ellipse cx="1018" cy="561" rx="66" ry="5" fill="#5fa6cf" stroke="${INK}" stroke-width="1"/><ellipse cx="1004" cy="560" rx="28" ry="1.500" fill="#fff" opacity=".6"/>`;
+    s += `<g id="vareta">${caixa(843, -400, 14, 400, 'fusta-v', 'cil')}${caixa(836, -6, 28, 14, 'ferro', 'tub', { rx: 3 })}${caixa(839, -250, 22, 9, 'ferro', 'tub')}${caixa(838, -436, 24, 40, 'ferro', 'llum', { rx: 2 })}</g>`;
+    s += caixa(806, 452, 12, 96, 'fusta-v', 'cil') + caixa(882, 452, 12, 96, 'fusta-v', 'cil') + caixa(798, 464, 104, 12, 'fusta', 'tub') + `</g>`;
+    s += cadena('cad2', 850, 108, 200);
+    // balancí de fusta amb caps d'arc i ferramenta
+    s += `<g data-part="balanci" id="biga">${cami('M340 38A260 260 0 0 0 340 182Q372 128 452 126Q590 138 728 126Q808 128 840 182A260 260 0 0 0 840 38Q808 92 728 94Q590 82 452 94Q372 92 340 38Z', 'fusta', 'tub')}`;
+    s += `<path d="M340 38A260 260 0 0 0 340 182" fill="none" stroke="#30353a" stroke-width="6"/><path d="M840 38A260 260 0 0 1 840 182" fill="none" stroke="#30353a" stroke-width="6"/><path d="M340 38A260 260 0 0 0 330 110" fill="none" stroke="#1f2327" stroke-width="8" stroke-dasharray="11 6" stroke-linecap="round"/><path d="M840 38A260 260 0 0 1 850 110" fill="none" stroke="#1f2327" stroke-width="8" stroke-dasharray="11 6" stroke-linecap="round"/>`;
+    s += caixa(444, 90, 12, 40, 'ferro', 'cil') + caixa(724, 90, 12, 40, 'ferro', 'cil') + caixa(356, 60, 9, 100, 'ferro', 'cil') + caixa(815, 60, 9, 100, 'ferro', 'cil') + caixa(562, 84, 56, 52, 'ferro', 'pla', { rx: 3 }) + reblons(570, 92, 610, 92, 3, 2.400, '#22272b') + reblons(570, 128, 610, 128, 3, 2.400, '#22272b');
+    s += `<circle cx="590" cy="110" r="13" fill="url(#tx-llauto)" class="vora2"/><circle cx="590" cy="110" r="13" fill="url(#sh-bola)"/><circle cx="590" cy="110" r="4" fill="${INK}" opacity=".7"/></g>`;
     return svg(s, '-60 -64 1320 784');
   }
 
@@ -87,17 +105,17 @@
       const yp = 296 + 54 * u, a = (54 * u) / 260;
       el('piston').setAttribute('transform', `translate(0 ${yp.toFixed(1)})`);
       el('biga').setAttribute('transform', `rotate(${((-a * 180) / Math.PI).toFixed(2)} 590 110)`);
-      el('cad1').setAttribute('y2', (yp - 110).toFixed(1));
+      ['cad1', 'cad1b'].forEach((id) => el(id).setAttribute('y2', (yp - 122).toFixed(1)));
       const yv = 625 - 54 * u;
       el('vareta').setAttribute('transform', `translate(0 ${yv.toFixed(1)})`);
-      el('cad2').setAttribute('y2', (yv - 434).toFixed(1));
+      ['cad2', 'cad2b'].forEach((id) => el(id).setAttribute('y2', (yv - 432).toFixed(1)));
       const v = el('vap'); v.setAttribute('y', (yp + 11).toFixed(1)); v.setAttribute('height', Math.max(0, 372 - yp - 11).toFixed(1));
       if (!w) {
         const buit = p >= 0.38 && p < 0.86;
         v.setAttribute('fill', p < 0.34 ? '#f9c9a0' : color('#f9c9a0', '#bcdcef', (p - 0.34) / 0.08));
         el('buit').setAttribute('opacity', buit && u < 0.3 ? 1 : 0); el('buit').setAttribute('y', (yp + 11 + (372 - yp - 11) / 2 + 6).toFixed(1));
         el('cil').setAttribute('fill', color('#8fc3e0', '#f08a4b', calent));
-        posaValv(el, 'v-adm', 330, 416, p < 0.34, true); posaValv(el, 'v-inj', 145, 290, p >= 0.34 && p < 0.47, true);
+        posaValv(el, 'v-adm', 330, 400, p < 0.34, true); posaValv(el, 'v-inj', 145, 290, p >= 0.34 && p < 0.47, true);
       } else {
         const v2 = el('vap2'); v2.setAttribute('y', 224); v2.setAttribute('height', Math.max(0, yp - 11 - 224).toFixed(1));
         const baix = p < 0.34 ? color('#f9c9a0', '#eef4f6', p / 0.2) : p < 0.55 ? '#eef4f6' : '#f9c9a0';
@@ -113,33 +131,39 @@
   /* ---------- màquina rotativa de Watt ---------- */
   const O = { x: 520, y: 170 }, L = 270, S = { x: 790, y: 470 }, R = 90, LB = 300;
   function rotativa() {
-    let s = `<rect class="crema" x="-60" width="1320" height="720"/><rect class="t pedra" x="-60" y="600" width="1320" height="120"/><rect x="640" y="596" width="300" height="124" fill="#e7dcc3" class="t"/>`;
-    s += `<rect x="-60" y="0" width="1320" height="40" class="mao t"/>`;
-    s += `<g data-guia="1"><path d="M250 420l-42 18M160 420l-52-14M520 170V116M790 470l48 30M1040 420l54-22M1070 117l40-36"/></g>`;
-    // eix de transmissió i corretja
-    s += `<g data-part="corretja" data-exp="18 -38"><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#2a2420" stroke-width="9"/><path d="M790 430L1058 96M790 510L1082 150" class="nf" stroke="#8f6038" stroke-width="5"/><path d="M790 430L1058 96" class="flux2 s-groc" data-flux="3" stroke-width="3"/>
-      <rect class="t ferro" x="1040" y="110" width="160" height="14"/><g data-girat="1070 117 300">${roda(1070, 117, 34, { raigs: 4, color: '#a67547' })}</g>${fletxa('M1108 184H1198', '#d9482b', 5)}<text x="1152" y="166" class="tx mig">cap a les màquines</text></g>`;
-    // volant
-    s += `<g data-part="volant" data-exp="52 34"><g id="volant">${roda(S.x, S.y, 168, { raigs: 6, color: '#56636c', gruix: 22, raig: 9 })}</g></g>`;
-    // columna
-    s += `<path class="t" fill="url(#g-fustac)" d="M490 600L508 190h24l18 410z"/><path class="t fusta2" d="M440 600h160v-14H440z"/>`;
-    // cilindre de doble efecte
-    s += `<g data-part="cilindre" data-exp="-44 20"><rect class="t pedra" x="190" y="540" width="120" height="60"/><rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6"/>
-      <path d="M195 312V540H305V312H293V530H207V312Z" class="t" fill="url(#g-ferroc)"/><rect class="t" fill="url(#g-ferro)" x="190" y="300" width="120" height="14"/><rect class="t" fill="url(#g-llautoc)" x="240" y="290" width="20" height="12"/></g>`;
-    s += `<g data-part="distribucio" data-exp="-66 -18"><rect class="t" fill="url(#g-ferroc)" x="140" y="330" width="40" height="190" rx="6"/><path d="M180 350h16M180 500h16" class="t4"/><path d="M60 300H160V330" class="nf" stroke="#2a2420" stroke-width="15"/><path d="M60 300H160V330" class="nf" stroke="#f0ab68" stroke-width="10"/><path d="M62 300H160V328" class="flux s-blanc" data-flux="2"/><circle id="papallona" cx="110" cy="300" r="6.5" fill="#fbbf24" stroke="#92400e" stroke-width="1.8"/>
-      <text x="62" y="282" class="tx-p">vapor de la caldera</text><path d="M160 520V566H100" class="nf" stroke="#2a2420" stroke-width="13"/><path d="M160 520V566H100" class="nf" stroke="#c9d6dc" stroke-width="8"/><rect class="t" x="52" y="540" width="56" height="56" rx="6" fill="#a9d6ee"/><text x="80" y="528" class="tx-p mig">condensador</text>
-      <g id="fl-d">${fletxa('M186 350H232', '#d9482b', 6)}${fletxa('M250 330V374', '#d9482b', 5)}</g><g id="fl-b">${fletxa('M186 500H232', '#d9482b', 6)}${fletxa('M250 518V474', '#d9482b', 5)}</g></g>`;
-    s += `<g data-part="piston" id="rpiston"><rect class="t" fill="url(#g-ferroh)" x="245" y="-250" width="10" height="250"/><rect class="t" fill="url(#g-ferroc)" x="207" y="-8" width="86" height="16" rx="3"/><rect x="209" y="-2" width="82" height="4" fill="url(#g-llauto)"/></g>`;
-    // balancí
-    s += `<g data-exp="0 -54"><g data-part="balanci" id="rbiga"><path class="t" fill="url(#g-fustac)" d="M250 158L520 146 790 158V182L520 194 250 182Z"/><circle class="t llauto" cx="250" cy="170" r="9"/><circle class="t llauto" cx="790" cy="170" r="9"/><circle class="t llauto" cx="520" cy="170" r="12"/></g></g>`;
-    // biela + planeta + sol
-    s += `<g data-part="sol" data-exp="-38 42"><g id="sol">${engranatge(S.x, S.y, 45, 14, { color: '#c79a2c', boto: '#fffdf7' })}</g></g>`;
-    s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="#2a2420" stroke-width="17" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#b9c3c9" stroke-width="10" stroke-linecap="round"/></g>`;
-    s += `<g data-part="planeta" data-exp="38 -38"><g id="planeta">${engranatge(0, 0, 45, 14, { color: '#d9482b', boto: '#fffdf7' })}</g></g>`;
-    // regulador amb màniga i tirant cap a la vàlvula del vapor
-    s += `<g data-part="regulador" data-exp="60 -22"><path id="tirant" d="M1040 436L520 264L110 292" fill="none" stroke="#d97706" stroke-width="2.6" stroke-dasharray="5 4" opacity=".8"/><rect class="t" fill="url(#g-ferroh)" x="1034" y="300" width="12" height="300"/><path class="t fusta2" d="M990 600h100v-12H990z"/><g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" class="t" stroke-width="5"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" class="t" stroke-width="5"/><circle id="reg-1" class="t" fill="url(#g-llautoc)" cx="990" cy="390" r="19"/><circle id="reg-2" class="t" fill="url(#g-llautoc)" cx="1090" cy="390" r="19"/><rect id="reg-m" class="t llauto" x="1028" y="424" width="24" height="22" rx="4"/></g><circle class="t ferro" cx="1040" cy="316" r="9"/></g>`;
-    s += RI.innova(540, 74, 'INNOVACIÓ · doble efecte + sol i planeta + regulador centrífug', { apunta: [790, 470], halo: [790, 470, 94, 94], w: 468 });
-    s += persona(380, 600, 150, { color: '#3d5a80', barret: true, attr: 'class="atenua"' });
+    const { caixa, cami, tub, brida, reblons, figura, ombra, cartell, rodaR, engranatgeR } = RI;
+    const INK = '#2e221a';
+    let s = RI.fons(0);
+    // sala de màquines: paret al fons, terra de lloses i fossa del volant
+    s += caixa(-60, 0, 1320, 38, 'mao', 'fosc') + cami('M-60 600H1260V720H-60Z', 'pedra', 'pla');
+    s += `<rect x="640" y="600" width="300" height="120" fill="#2a2019"/><rect x="640" y="600" width="300" height="120" fill="url(#sh-pou)"/><path d="M640 600V720M940 600V720" stroke="${INK}" stroke-width="1.500"/>`;
+    // eix de transmissió del sostre i corretja de cuir
+    s += `<g data-part="corretja">${caixa(1052, 38, 10, 66, 'ferro', 'cil')}${caixa(1180, 38, 10, 66, 'ferro', 'cil')}${tub('M1030 117H1210', 12, 'ferro')}<path d="M790 428L1058 86M790 512L1084 148" fill="none" stroke="${INK}" stroke-width="9"/><path d="M790 428L1058 86M790 512L1084 148" fill="none" stroke="#7a4e2c" stroke-width="6.500"/><path d="M790 428L1058 86" class="flux2" stroke="#d9b98a" data-flux="3" stroke-width="2"/><g data-girat="1070 117 300">${rodaR(1070, 117, 34, { raigs: 4, tex: 'fusta', gruix: 9 })}</g>${fletxa('M1112 190H1196', '#d9482b', 5)}<text x="1154" y="172" class="tx mig">cap a les màquines</text></g>`;
+    // volant d'inèrcia
+    s += `<g data-part="volant">${ombra(790, 716, 150, 6, 0.3)}<g id="volant">${rodaR(S.x, S.y, 168, { raigs: 6, gruix: 24, raig: 12, boto: 30 })}</g>${cami('M742 600L762 480H818L838 600Z', 'ferro', 'llum')}${caixa(756, 456, 68, 28, 'ferro', 'tub', { rx: 5 })}</g>`;
+    // bancada de fusta i columna de ferro colat
+    s += ombra(560, 612, 430, 8) + caixa(150, 584, 470, 22, 'fusta', 'tub') + caixa(150, 580, 14, 30, 'ferro', 'cil') + caixa(380, 580, 14, 30, 'ferro', 'cil') + caixa(606, 580, 14, 30, 'ferro', 'cil');
+    s += `<g filter="url(#f-projecta)">${caixa(474, 562, 92, 22, 'ferro', 'pla', { rx: 3 })}${cami('M490 562Q506 500 508 204H532Q534 500 550 562Z', 'ferro', 'cil')}${caixa(498, 190, 44, 14, 'ferro', 'tub', { rx: 3 })}<path d="M514 210V556M526 210V556" stroke="#000" stroke-opacity=".22" stroke-width="2"/></g>`;
+    // cilindre de doble efecte, en secció
+    const paret = 'M193 312H307V528Q307 540 295 540H205Q193 540 193 528ZM207 322V530H293V322Z';
+    s += `<g data-part="cilindre">${cami('M178 600L190 540H310L322 600Z', 'ferro', 'llum')}<path d="M226 600V574Q250 556 274 574V600Z" fill="#1a110b"/>${caixa(207, 322, 86, 208, 'llauto', 'cil', { tint: '#2a1a0c', to: 0.62, vora: 0.01 })}<rect id="cam-d" x="207" y="322" width="86" height="100" fill="#f9c9a0" opacity=".9"/><rect id="cam-b" x="207" y="430" width="86" height="100" fill="#eef4f6" opacity=".9"/>`;
+    s += `<path d="${paret}" fill="#f08a4b" fill-rule="evenodd"/><path d="${paret}" fill="url(#p-seccio)" fill-rule="evenodd"/><path d="${paret}" class="vora" fill-rule="evenodd"/>${caixa(184, 300, 132, 13, 'llauto', 'tub', { rx: 2 })}${reblons(194, 306.500, 306, 306.500, 7, 2.300, '#a8801e')}${caixa(238, 286, 24, 15, 'llauto', 'cil', { rx: 2 })}${caixa(184, 536, 132, 9, 'llauto', 'tub', { rx: 2 })}</g>`;
+    // distribució: caixa de vàlvules, vapor que arriba de la caldera i sortida al condensador
+    s += `<g data-part="distribucio">${tub('M40 300H160V332', 13, 'coure')}${brida(72, 300, 8, 22, 'llauto')}${brida(160, 322, 22, 8, 'llauto')}<path d="M44 300H160V328" class="flux s-blanc" stroke-width="5" data-flux="2"/><circle id="papallona" cx="110" cy="300" r="6.500" fill="#fbbf24" stroke="#92400e" stroke-width="1.800"/>`;
+    s += `${tub('M160 518V566H104', 11, 'plom')}${caixa(138, 330, 44, 190, 'ferro', 'cil', { rx: 7 })}${reblons(145, 340, 175, 340, 3, 2.200, '#22272b')}${reblons(145, 510, 175, 510, 3, 2.200, '#22272b')}${tub('M182 350H196', 10, 'llauto')}${tub('M182 500H196', 10, 'llauto')}`;
+    s += `${caixa(48, 540, 60, 58, 'plom', 'llum', { rx: 5 })}<rect x="54" y="552" width="48" height="40" rx="3" fill="url(#g-aiguat)"/><text x="62" y="282" class="tx-p">vapor de la caldera</text><text x="78" y="528" class="tx-p mig">condensador</text>`;
+    s += `<g id="fl-d">${fletxa('M186 350H230', '#d9482b', 6)}${fletxa('M250 332V376', '#d9482b', 5)}</g><g id="fl-b">${fletxa('M186 500H230', '#d9482b', 6)}${fletxa('M250 520V476', '#d9482b', 5)}</g></g>`;
+    s += `<g data-part="piston" id="rpiston">${tub('M250 -250V0', 9, 'ferro')}${caixa(208, -9, 84, 18, 'ferro', 'tub', { rx: 2 })}<rect x="208" y="-3" width="84" height="6" fill="#d9c08a" stroke="${INK}" stroke-width=".8"/></g>`;
+    // balancí de ferro colat
+    s += `<g data-part="balanci" id="rbiga">${cami('M238 170Q238 154 256 152L520 138L784 152Q802 154 802 170Q802 186 784 188L520 202L256 188Q238 186 238 170Z', 'ferro', 'tub')}<path d="M296 164L486 154V186L296 176Z" fill="#000" opacity=".2"/><path d="M554 154L744 164V176L554 186Z" fill="#000" opacity=".2"/><path d="M296 164L486 154M554 154L744 164" stroke="#fff" stroke-opacity=".25" stroke-width="1.400"/>`;
+    s += `<circle cx="250" cy="170" r="11" fill="url(#g-esf-llauto)" class="vora2"/><circle cx="790" cy="170" r="11" fill="url(#g-esf-llauto)" class="vora2"/><circle cx="520" cy="170" r="17" fill="url(#tx-ferro)" class="vora2"/><circle cx="520" cy="170" r="11" fill="url(#g-esf-llauto)" class="vora2"/></g>`;
+    // sol i planeta amb la biela
+    s += `<g data-part="sol"><g id="sol">${engranatgeR(S.x, S.y, 45, 14, { tex: 'llauto' })}</g></g>`;
+    s += `<g data-part="biela"><line id="rbiela" x1="790" y1="170" x2="790" y2="380" stroke="${INK}" stroke-width="16" stroke-linecap="round"/><line id="rbiela2" x1="790" y1="170" x2="790" y2="380" stroke="#6d767d" stroke-width="12.500" stroke-linecap="round"/><line id="rbiela3" x1="790" y1="170" x2="790" y2="380" stroke="#c3ccd2" stroke-width="3.500" stroke-linecap="round"/></g>`;
+    s += `<g data-part="planeta"><g id="planeta">${engranatgeR(0, 0, 45, 14, { tex: 'ferro', pern: 'llauto' })}</g></g>`;
+    // regulador centrífug i tirant fins a la vàlvula del vapor
+    s += `<g data-part="regulador"><path id="tirant" d="M1040 436L520 264L110 292" fill="none" stroke="#d97706" stroke-width="2.600" stroke-dasharray="5 4" opacity=".8"/>${ombra(1040, 604, 60, 6)}${cami('M996 600L1012 548H1068L1084 600Z', 'ferro', 'llum')}${caixa(1034, 300, 12, 250, 'ferro', 'cil')}<g id="reg"><line id="reg-a" x1="1040" y1="318" x2="990" y2="390" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><line id="reg-b" x1="1040" y1="318" x2="1090" y2="390" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><circle id="reg-1" cx="990" cy="390" r="20" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.400"/><circle id="reg-2" cx="1090" cy="390" r="20" fill="url(#g-esf-llauto)" stroke="${INK}" stroke-width="1.400"/><rect id="reg-m" x="1027" y="424" width="26" height="22" rx="4" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.400"/></g><circle cx="1040" cy="314" r="9" fill="url(#g-esf-ferro)" class="vora2"/><path d="M1040 296l-6 10h12z" fill="url(#tx-llauto)" class="vora2"/></g>`;
+    s += figura(396, 600, 150, { attr: 'class="atenua"' });
     return svg(s);
   }
   function animaRot({ p, t, el }) {
@@ -148,7 +172,7 @@
     const fi = Math.asin((by - O.y) / L), B = { x: O.x + L * Math.cos(fi), y: O.y + L * Math.sin(fi) };
     const psi = Math.atan2(B.x - P.x, P.y - B.y), sol = 2 * th - psi;
     el('rbiga').setAttribute('transform', `rotate(${((fi * 180) / Math.PI).toFixed(2)} ${O.x} ${O.y})`);
-    ['rbiela', 'rbiela2'].forEach((id) => { const l = el(id); l.setAttribute('x1', B.x.toFixed(1)); l.setAttribute('y1', B.y.toFixed(1)); l.setAttribute('x2', P.x.toFixed(1)); l.setAttribute('y2', P.y.toFixed(1)); });
+    ['rbiela', 'rbiela2', 'rbiela3'].forEach((id) => { const l = el(id); l.setAttribute('x1', B.x.toFixed(1)); l.setAttribute('y1', B.y.toFixed(1)); l.setAttribute('x2', P.x.toFixed(1)); l.setAttribute('y2', P.y.toFixed(1)); });
     el('planeta').setAttribute('transform', `translate(${P.x.toFixed(1)} ${P.y.toFixed(1)}) rotate(${((psi * 180) / Math.PI + 12.86).toFixed(2)})`);
     el('sol').setAttribute('transform', `rotate(${((sol * 180) / Math.PI).toFixed(2)} ${S.x} ${S.y})`);
     el('volant').setAttribute('transform', `rotate(${((sol * 180) / Math.PI).toFixed(2)} ${S.x} ${S.y})`);

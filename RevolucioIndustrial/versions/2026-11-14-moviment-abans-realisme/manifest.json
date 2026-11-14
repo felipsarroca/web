@@ -1,0 +1,31 @@
+{
+ "revisio_git": "4a5c8d6fef552a8944bc0c1cc98de24ee9d85e57",
+ "fitxers": {
+  "camp.html": "59e6ab2f4941c7efb8ee05adbd57bc68ec7d03efdc2455ce9607ea6b9720e8fb",
+  "capital.html": "0383ba37f755fabcaca1f334c5aa188e361c1c2900a7cc527841f03a923b37bc",
+  "css/estil.css": "b137322ca025ce61bff274e48393e3fe1c246b96c70b31b13e38719c998fe1f4",
+  "fabrica.html": "ad62fe0f89b1b3668b5f5602dcc70a46e8ea27947fe512cabd22f7c4dca4fac1",
+  "index.html": "5abbf02c7a0dd83e372784c56efe24aa0c16eab940c6133b857c67272efea002",
+  "js/camp.js": "48616f6f1834bb0467362a04694714777d8c20e0eef81adb59c362f651fd8728",
+  "js/capital.js": "1391f536c44623a643e0cdbc1309f7ca905d61d0603216f97dab27b923b19489",
+  "js/fabrica.js": "9787f89a42a95229e503b18cd7f07cc926037847097c83ab2ffb433921d85fe2",
+  "js/metalls.js": "ffc6f1cb4e5da120b612a09bd7ee9e29893218be76e892fa4eb99cf7e278614d",
+  "js/nucli.js": "45779ea8909b50d53ed54b3d2aa6d90358cac4f070a28e4d8e400967392dda40",
+  "js/portada.js": "7badd8335949061b398d2f2fe82b57ff43885e087b094e1a4d8aacdf3c2a2c70",
+  "js/reals.js": "85c8310e0a578036aa30577f8380ad63088caf36d42ca6fbb0d2381ec1bc3bc4",
+  "js/textil-cartwright.js": "863cf9f0be8d1ee774cf04d8848fa0ef0157fb3fd1dba5897252f800f56c0de3",
+  "js/textil-detalls.js": "f050029315e15c7b12c04abeb97c199da432464343e3ed3fc2d8f897630dad55",
+  "js/textil-estats.js": "0312d28be1f88bc8cf5db9023a096b99c5b96ad919cffe1639b996963fe5b6f7",
+  "js/textil-models.js": "29c4cbf391bdc8cb30b0684b5ad5d20dce383ebffaf01a920933fdebed11392a",
+  "js/textil-roda.js": "ac3952688f95acc1e1d9a8b19f365a0271112961a2a894b7cc9036e178fe35a4",
+  "js/textil.js": "b43f944021eca8f8567fba2578d922dbbff555b405eaf2a185daecc8f4592073",
+  "js/tren.js": "0157306cd191d17c3795d20c77ac96d9569f4e95056463bc0121dcade60da14b",
+  "js/vaixell.js": "a1613bd71e1da82474246491b0bd751f4eb76a787bcfc565b9deeea1f1433863",
+  "js/vapor.js": "ea2f145accda66c40b189bb3eb59ec6b840fca170875c8d47f4d2b53382ccbff",
+  "metalls.html": "fe58d3343b07a376a6369d3c5fdc27683cb0cce583bf772aca8177e5784c471a",
+  "textil.html": "628c671f559a372375b26db4abf1b7f0d0116dc524d92e50ca5c48da550e6404",
+  "tren.html": "be2b4969775932be8a42201bebd9b4c7f2d4f199c086ffd24cf0d2955ff2b75f",
+  "vaixell.html": "174717cdbd3a15411e81bf0816c5ea22a53d046e33669bdb70aa0afe71c259b0",
+  "vapor.html": "91235da6d737907bfbf47d73f68b1c8dfd803325942c7298c1c82425ef52c459"
+ }
+}

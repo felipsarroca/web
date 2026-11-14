@@ -145,3 +145,21 @@ Felip detecta que només s’esmentava a «La cursa». S’afegeix una escena pr
 La data de 1785 s’identifica com a patent. La representació horitzontal il·lustra el principi de les millores de 1787–1790, documentat a la memòria de J. M. Strickland (1843). No s’atribueix al prototip d’ordit vertical de 1785 la forma del model posterior. Les dimensions, les lleis de les lleves i la transmissió són una síntesi didàctica, no mesures extretes de la patent. La font gravada de 1790 es conserva a `img/real-cartwright-1790.jpg`; el desplegable n’indica la procedència i el domini públic. Les dues làmines noves de ChatGPT i els prompts es documenten a `assets/prompts-cartwright.json`.
 
 S’amplia el repte amb una pregunta de comparació amb Kay i una de selecció de l’eix. Es compacta lleument l’espai horitzontal de les pestanyes del cotó per mantenir visible el botó del repte després d’afegir l’escena. En pantalles estretes, el desplaçament horitzontal de la barra manté visible la pestanya seleccionada, també en obrir un enllaç directe o redimensionar.
+
+## Revisió de realisme dels esquemes en moviment (14 de novembre de 2026)
+
+**Encàrrec de Felip:** els esquemes animats (SVG) han de ser molt realistes i estètics, i han de deixar veure perfectament el funcionament i l’avantatge de la novetat de cada invent. La millora es fa dins de la vista «Moviment» de cada escena. Una vista afegida «Abans i ara» (sistema antic i nou costat per costat) es va provar i es va descartar el mateix dia: complicava el web i aportava poc.
+
+**Què s’ha fet**
+
+- `js/materials.js` (nou, carregat després de `nucli.js`): textures procedurals generades un sol cop (fusta, maó, pedra, roca, terra, coure, llautó, ferro, acer, plom, carbó, herba), ombrejats de volum (`sh-cil`, `sh-tub`, `sh-cup`, `sh-pla`, `sh-llum`) i peces de dibuix: `RI.sol`, `RI.caixa`, `RI.cami`, `RI.tub`, `RI.brida`, `RI.reblons`, `RI.cadena`, `RI.brasa`, `RI.flamarada`, `RI.rodaR`, `RI.engranatgeR`, `RI.figura`, `RI.cavallR`, `RI.ombra`, `RI.cartell`, `RI.fons`.
+- Redibuixats amb aquests materials, conservant geometria, identificadors, fases, peces i animacions: Newcomen, Watt i rotativa (`vapor.js`); Rocket (`tren.js`); forn de coc, alt forn, pudelació i laminador, i Bessemer (`metalls.js`); fàbrica d’aigua i de vapor (`fabrica.js`); *Great Western* i pales contra hèlix (`vaixell.js`); sembradora i arada (`camp.js`).
+- Cotó: `js/textil-realista.js` (nou) pinta la màquina sencera amb la geometria i els estats ja verificats (`textil-models.js`, `textil-estats.js`), amb textures i llum segons l’orientació de cada cara. El pintor anterior (`textil-detalls.js`) continua al repositori.
+- `RI.svg` retalla el dibuix al seu marc: res no sobresurt a les bandes laterals.
+- Els rètols didàctics (`RI.cartell`), les fletxes i les etiquetes es mantenen plans i nets, per distingir-los del dibuix realista.
+
+**Sense tocar en aquesta revisió:** rotació Norfolk, la cursa Liverpool–Manchester, el mapa de l’Atlàntic, «Tres metalls», «La cursa» del cotó i el capítol del capital (són esquemes o mapes, no màquines).
+
+**Còpia de seguretat:** `versions/2026-11-14-moviment-abans-realisme/` (codi exacte a `originals/` amb empremtes SHA-256, i versió navegable). No s’enllaça des del web.
+
+**Verificació:** `python assets/verifica_visual.py` (140 combinacions d’escena i mida, sense errors) i `node assets/verifica-cinematica.cjs`. Totes dues funcionen sense servidor local.

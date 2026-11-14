@@ -75,29 +75,29 @@
   }
 
   /* ---------- sembradora de Jethro Tull ---------- */
+  const paisatge = (h) => `<rect x="-60" y="0" width="1320" height="${h + 4}" fill="url(#g-cel)"/><path d="M-60 ${h - 70}c220-50 420-16 620-34s430-40 700 10v100H-60z" fill="#b9cf9a" opacity=".7"/><path d="M-60 ${h - 30}c200-34 420-10 640-22s440-24 680 8v60H-60z" fill="#9dbb78" opacity=".8"/>`;
   function sembradora() {
-    let s = `<rect class="cel" x="-60" width="1320" height="540"/>${nuvol(120, 100, 1.4)}<rect class="terra" x="-60" y="540" width="1320" height="180"/>`;
-    // terra llaurada al darrere (esquerra), solc obert sota la rella/tub, herba sense sembrar davant (dreta)
-    s += `<rect x="-60" y="540" width="510" height="22" fill="#705236"/><rect x="450" y="546" width="125" height="16" fill="#5e432a"/><rect class="herba" x="574" y="534" width="690" height="10"/>`;
-    s += `<g id="llavors">${Array.from({ length: 11 }, () => `<g class="ll"><path class="brot" d="M0 0v-30m0 12q-12-2-14-14m14 6q12-2 14-14" stroke="#4f8a3a" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse class="t1" cx="0" cy="4" rx="6" ry="4.5" fill="#e6b93c"/></g>`).join('')}</g>`;
-    s += `${cavall(880, 540, 2.35, { arnes: true })}<path d="M708 424L834 406M708 438L848 420" class="t nf" stroke-width="4.5"/>${persona(280, 540, 170, { color: '#7a5a3a', barret: true, brac: 'M-8-68l37.4 12.7M8-68l21.4 19.8' })}`;
-    s += `<g data-guia="1"><path d="M530 248v-58M530 340h-46M530 386v40M445 450l-52 30M564 520l44 30M640 468l60-16M370 415l-56-24"/></g>`;
-    s += `<g data-part="esteves" data-exp="-64 -26"><path d="M330 446L416 436M330 458L416 446" class="t" stroke="#8f6038" stroke-width="9" stroke-linecap="round"/></g>`;
-    s += `<g data-part="bastidor"><path class="t" fill="url(#g-fustac)" d="M410 422H712V444H410Z"/><path class="t fusta2" d="M480 340L446 422M580 340L616 422" stroke-width="8"/></g>`;
-    s += `<g data-part="rasclet" data-exp="-54 34"><path d="M426 444V550M446 444V550M464 444V548" class="t ferro2" stroke-width="5.5"/></g>`;
-    s += `<g data-part="tremuja" data-exp="0 -56"><path class="t" fill="url(#g-fustac)" d="M450 248H610L580 340H480Z"/><path class="t2" d="M462 260H598L574 330H486Z" fill="#e6b93c"/><path d="M472 270h10m14 6h10m20-8h10m-50 22h10m24 0h10m16-12h10m-70 26h10m30 4h10" stroke="#9e6e14" stroke-width="4.5" stroke-linecap="round"/></g>`;
-    s += `<g data-part="dosador" data-exp="-46 -18"><rect class="t" fill="url(#g-ferroc)" x="496" y="340" width="68" height="46" rx="6"/><g id="dos"><circle class="t fusta3" cx="530" cy="363" r="17"/><path d="M530 346v8M530 372v8M513 363h8M539 363h8M518 351l6 6M536 369l6 6M542 351l-6 6M524 369l-6 6" class="t2"/></g></g>`;
-    s += `<g data-part="tub" data-exp="0 28"><path class="t" fill="#d9b383" d="M518 386h24l22 156h-12z"/></g><ellipse id="cau" class="t1" cx="540" cy="400" rx="6" ry="4.5" fill="#e6b93c"/>`;
-    s += `<g data-part="rella" data-exp="48 34"><path class="t" fill="url(#g-ferroc)" d="M554 516h34l-18 46z"/></g>`;
-    s += `<g data-part="roda" data-exp="64 -16"><g id="sroda">${roda(640, 468, 72, { raigs: 10, color: '#a67547', gruix: 10 })}<circle class="t2 ferro" cx="640" cy="468" r="14"/></g><path d="M634 455L524 348M646 481L536 378" class="t1 nf" stroke-dasharray="5 4"/><path d="M634 455L524 348" class="flux2 s-taronja" stroke-width="3" data-flux="-2.2"/></g>`;
-    s += RI.innova(350, 48, 'INNOVACIÓ · roda → dosador + rella + tub (sembra exacta)', { apunta: [530, 356], halo: [534, 424, 62, 108], w: 425 });
-    // comparació: ocells menjant les llavors tirades a mà vs sembra en fileres tapades
-    s += `<g><rect class="t" x="770" y="46" width="200" height="190" rx="14" fill="#9e825e"/><rect class="t" x="990" y="46" width="200" height="190" rx="14" fill="#8b6d46"/>
-      ${[1040, 1090, 1140].map((x) => `<rect x="${x - 8}" y="82" width="16" height="146" fill="#6f5232" rx="4"/>` + Array.from({ length: 6 }, (_, i) => `<ellipse cx="${x}" cy="${98 + i * 22}" rx="4.5" ry="3.2" fill="#e6b93c" stroke="#2a2420"/>`).join('')).join('')}
-      ${Array.from({ length: 30 }, (_, i) => `<ellipse cx="${790 + ((i * 71 + 13) % 160)}" cy="${96 + ((i * 113 + 29) % 124)}" rx="4.5" ry="3.2" fill="#e6b93c" stroke="#2a2420"/>`).join('')}
-      <g transform="translate(838 118)"><ellipse cx="0" cy="0" rx="10" ry="6" fill="#3a332d"/><circle cx="9" cy="-4" r="4.5" fill="#3a332d"/><path d="M13-4l5 2-5 2z" fill="#e69e2c"/><path d="M-8 0l-8-4v6z" fill="#2a2420"/></g>
-      <g transform="translate(918 176) scale(-1 1)"><ellipse cx="0" cy="0" rx="10" ry="6" fill="#4f453d"/><circle cx="9" cy="-4" r="4.5" fill="#4f453d"/><path d="M13-4l5 2-5 2z" fill="#e69e2c"/><path d="M-8 0l-8-4v6z" fill="#2a2420"/></g>
-      <path d="M840 72q10-12 20 0q10-12 20 0M900 102q8-10 16 0q8-10 16 0" class="t2 nf"/>${retol(870, 60, 'a eixam (a mà)', { fons: '#d9482b', w: 150 })}${retol(1090, 60, 'en fileres', { fons: '#5b8c35', w: 110 })}
+    const { caixa, cami, cartell, figura, rodaR, cavallR, ombra } = RI, T2 = RI.tub, INK = '#2e221a';
+    let s = paisatge(540) + `<g filter="url(#f-suau)">${nuvol(120, 100, 1.4)}</g>` + cami('M-60 540H1260V720H-60Z', 'terra', 'pla');
+    // terra ja sembrada (esquerra), solc obert sota la rella i rostoll sense sembrar (dreta)
+    s += `<path d="M-60 540H450V562H-60Z" fill="#5e432a" opacity=".55"/><path d="M450 546H575V562H450Z" fill="#3f2c1a" opacity=".6"/><rect x="574" y="532" width="690" height="12" fill="url(#tx-herba)"/><path d="M-60 541H452" stroke="#3f2c1a" stroke-width="2" stroke-dasharray="14 6" opacity=".6"/>`;
+    s += `<g id="llavors">${Array.from({ length: 11 }, () => `<g class="ll"><path class="brot" d="M0 0v-30m0 12q-12-2-14-14m14 6q12-2 14-14" stroke="#4f8a3a" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="4" rx="6" ry="4.500" fill="#e6b93c" stroke="${INK}" stroke-width="1"/></g>`).join('')}</g>`;
+    s += cavallR(900, 540, 1.24) + `<path d="M708 424L946 446M708 438L946 452" stroke="${INK}" stroke-width="3.400" fill="none"/>` + figura(280, 540, 176, { camisa: '#7a5a3a', brac: 'M-9-70q16 6 36 12M9-70q8 12 22 20' });
+    s += `<g data-part="esteves">${T2('M330 446L416 436M330 458L416 446', 8, 'fusta', { cap: 'round' })}</g>`;
+    s += `<g data-part="bastidor">${ombra(560, 548, 170, 6)}${caixa(410, 422, 302, 22, 'fusta', 'tub')}${T2('M480 340L446 422M580 340L616 422', 8, 'fusta')}</g>`;
+    s += `<g data-part="rasclet">${T2('M426 444V550M446 444V550M464 444V548', 4.500, 'ferro', { cap: 'round' })}</g>`;
+    s += `<g data-part="tremuja">${cami('M450 248H610L580 340H480Z', 'fusta', 'llum')}<path d="M462 260H598L574 330H486Z" fill="#e6b93c" stroke="${INK}" stroke-width="1.300"/><path d="M462 260H598L574 330H486Z" fill="url(#sh-pla)"/><path d="M472 270h10m14 6h10m20-8h10m-50 22h10m24 0h10m16-12h10m-70 26h10m30 4h10" stroke="#9e6e14" stroke-width="4.500" stroke-linecap="round"/></g>`;
+    s += `<g data-part="dosador">${caixa(496, 340, 68, 46, 'ferro', 'llum', { rx: 6 })}<circle cx="530" cy="363" r="19" fill="#1d1712"/><g id="dos"><circle cx="530" cy="363" r="17" fill="url(#tx-llauto)" stroke="${INK}" stroke-width="1.400"/><path d="M530 346v8M530 372v8M513 363h8M539 363h8M518 351l6 6M536 369l6 6M542 351l-6 6M524 369l-6 6" stroke="${INK}" stroke-width="2.600" stroke-linecap="round"/><circle cx="530" cy="363" r="4" fill="url(#g-esf-ferro)"/></g></g>`;
+    s += `<g data-part="tub">${cami('M518 386h24l22 156h-12z', 'fustac', 'cil')}</g><ellipse id="cau" cx="540" cy="400" rx="6" ry="4.500" fill="#e6b93c" stroke="${INK}" stroke-width="1"/>`;
+    s += `<g data-part="rella">${cami('M554 516h34l-18 46z', 'acer', 'llum')}</g>`;
+    s += `<g data-part="roda"><g id="sroda">${rodaR(640, 468, 72, { raigs: 10, tex: 'fusta', gruix: 10, raig: 4, botoTex: 'ferro', extra: `<circle cx="640" cy="468" r="70.500" fill="none" stroke="#3a3f44" stroke-width="3.400"/>` })}</g><path d="M634 455L524 348M646 481L536 378" stroke="#7a4e2c" stroke-width="2.400" fill="none"/><path d="M634 455L524 348" class="flux2 s-taronja" stroke-width="3" data-flux="-2.200"/></g>`;
+    // comparació: llavors tirades a mà (i ocells) o colgades en fileres
+    s += `<g><rect x="770" y="46" width="200" height="190" rx="14" fill="url(#tx-terra)" stroke="${INK}" stroke-width="1.500"/><rect x="990" y="46" width="200" height="190" rx="14" fill="url(#tx-terra)" stroke="${INK}" stroke-width="1.500"/><rect x="990" y="46" width="200" height="190" rx="14" fill="#3f2c1a" opacity=".2"/>
+      ${[1040, 1090, 1140].map((x) => `<rect x="${x - 8}" y="82" width="16" height="146" fill="#4a3320" opacity=".7" rx="4"/>` + Array.from({ length: 6 }, (_, i) => `<ellipse cx="${x}" cy="${98 + i * 22}" rx="4.500" ry="3.200" fill="#e6b93c" stroke="${INK}"/>`).join('')).join('')}
+      ${Array.from({ length: 30 }, (_, i) => `<ellipse cx="${790 + ((i * 71 + 13) % 160)}" cy="${96 + ((i * 113 + 29) % 124)}" rx="4.500" ry="3.200" fill="#e6b93c" stroke="${INK}"/>`).join('')}
+      <g transform="translate(838 118)"><ellipse cx="0" cy="0" rx="10" ry="6" fill="#3a332d"/><circle cx="9" cy="-4" r="4.500" fill="#3a332d"/><path d="M13-4l5 2-5 2z" fill="#e69e2c"/><path d="M-8 0l-8-4v6z" fill="#2a2420"/></g>
+      <g transform="translate(918 176) scale(-1 1)"><ellipse cx="0" cy="0" rx="10" ry="6" fill="#4f453d"/><circle cx="9" cy="-4" r="4.500" fill="#4f453d"/><path d="M13-4l5 2-5 2z" fill="#e69e2c"/><path d="M-8 0l-8-4v6z" fill="#2a2420"/></g>
+      ${cartell(870, 60, 'a eixam (a mà)', { fons: '#d9482b', w: 150 })}${cartell(1090, 60, 'en fileres', { fons: '#5b8c35', w: 110 })}
       <text x="870" y="262" class="tx-p mig">moltes se les mengen o es perden</text><text x="1090" y="262" class="tx-p mig">colgades, totes arrelen</text></g>`;
     return svg(s);
   }
@@ -112,24 +112,19 @@
 
   /* ---------- arada de Rotherham ---------- */
   function arada() {
-    let s = `<rect class="cel" x="-60" width="1320" height="500"/>${nuvol(1000, 100, 1.4)}${nuvol(200, 140, 1)}<rect class="terra" x="-60" y="500" width="1320" height="220"/><rect class="herba" x="640" y="494" width="640" height="10"/>`;
-    // gleves capgirades sota l'orelló: herba verda que queda enterrada sota la terra girada
-    s += `<g id="solcs">${Array.from({ length: 10 }, (_, i) => {
-      const sx = 560 - i * 80;
-      return `<path class="t2" fill="#6b4e33" d="M${sx} 500q-34-44-70-6l-10 6z"/><path d="M${sx - 12} 498q-18-16-36-4" stroke="#4f8236" stroke-width="3.5" fill="none" opacity=".75"/>`;
-    }).join('')}</g><rect x="-60" y="500" width="700" height="6" fill="#6b4e33"/>`;
-    // 2 cavalls tirant en tàndem + cadena fins a la cama
-    s += `${cavall(1030, 500, 2.3, { color: '#5a4636', arnes: true })}${cavall(915, 500, 2.3, { arnes: true })}<path d="M798 380L874 374M798 386L988 378" class="t nf" stroke-width="4" stroke-dasharray="6 3"/>${persona(232, 500, 170, { color: '#3d5a80', barret: true, brac: 'M-8-68l31.5 21M8-68l15.5 30.4' })}`;
-    s += `<g data-guia="1"><path d="M330 432v-60M690 378v-54M600 508l50 28M490 446l-34 38"/></g>`;
-    s += `<g data-part="esteves" data-exp="-60 -30"><path d="M272 420L470 462M272 436L478 478" class="nf" stroke="#2a2420" stroke-width="14" stroke-linecap="round"/><path d="M272 420L470 462M272 436L478 478" class="nf" stroke="#c7935c" stroke-width="8" stroke-linecap="round"/></g>`;
-    s += `<g data-part="cama" data-exp="0 -14"><path class="t" fill="url(#g-fustac)" d="M400 352L800 372V392L400 380Z"/><path d="M480 384L520 440" class="t" stroke-width="7"/><circle class="t2 ferro" cx="796" cy="382" r="7"/></g>`;
-    s += `<g data-part="orello" data-exp="-34 42"><path class="t" fill="url(#g-acer)" d="M560 492Q520 414 432 398L414 476Q500 482 540 530Z"/><path d="M450 420q50 14 76 60" class="t1 nf" opacity=".6"/><path id="gleba-gira" d="M548 498Q500 442 440 448" class="flux s-verd" stroke-width="4" data-flux="-1.8"/></g>`;
-    s += `<g data-part="rella" data-exp="56 32"><path class="t" fill="url(#g-ferroc)" d="M660 528L540 532L560 490Z"/></g>`;
-    s += `<g data-part="ganivet" data-exp="0 -56"><path class="t" fill="url(#g-ferroc)" d="M690 378h14l-22 150-10-6z"/></g>`;
-    s += RI.innova(995, 240, 'INNOVACIÓ · bastidor triangular + orelló corbat de ferro', { apunta: [530, 456], halo: [518, 468, 128, 62], w: 420 });
-    s += `<g data-en="0">${retol(820, 560, 'talla la terra en vertical', { fons: '#2a2420', w: 240 })}</g><g data-en="1">${retol(760, 600, 'talla per sota i l’aixeca', { fons: '#2a2420', w: 230 })}</g><g data-en="2">${retol(300, 566, 'la gira i colga les males herbes', { fons: '#2a2420', w: 290 })}</g>`;
-    s += `<g><rect class="t" x="48" y="38" width="356" height="156" rx="14" fill="#fffdf7"/><text x="226" y="68" class="tx mig">Arada pesant antiga</text>${cavall(96, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(144, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(192, 150, 0.85, { color: '#9a8468', arnes: true })}${cavall(240, 150, 0.85, { color: '#9a8468', arnes: true })}${persona(316, 150, 56, { color: '#7a5a3a' })}${persona(352, 150, 56, { color: '#7a5a3a' })}<text x="226" y="178" class="tx-p mig">4 o més animals i 2 persones</text>
-      <rect class="t" x="424" y="38" width="330" height="156" rx="14" fill="#fff6d6"/><text x="589" y="68" class="tx mig">Arada de Rotherham</text>${cavall(510, 150, 0.85, { arnes: true })}${cavall(562, 150, 0.85, { arnes: true })}${persona(646, 150, 56, { color: '#3d5a80' })}<text x="589" y="178" class="tx-p mig">2 cavalls i 1 persona</text></g>`;
+    const { caixa, cami, cartell, figura, cavallR, ombra } = RI, T2 = RI.tub, INK = '#2e221a';
+    let s = paisatge(500) + `<g filter="url(#f-suau)">${nuvol(1000, 100, 1.4)}${nuvol(200, 140, 1)}</g>` + cami('M-60 500H1260V720H-60Z', 'terra', 'pla') + `<rect x="640" y="492" width="640" height="12" fill="url(#tx-herba)"/>`;
+    // gleves capgirades darrere de l'orelló: l'herba queda colgada sota la terra girada
+    s += `<g id="solcs">${Array.from({ length: 10 }, (_, i) => { const sx = 560 - i * 80; return `<path d="M${sx} 500q-34-44-70-6l-10 6z" fill="#5e432a" stroke="${INK}" stroke-width="1.300" stroke-linejoin="round"/><path d="M${sx} 500q-34-44-70-6l-10 6z" fill="url(#sh-cup)" opacity=".5"/><path d="M${sx - 12} 498q-18-16-36-4" stroke="#4f8236" stroke-width="3.500" fill="none" opacity=".8"/>`; }).join('')}</g><rect x="-60" y="500" width="700" height="6" fill="#5e432a"/>`;
+    s += cavallR(1060, 500, 1.2, { color: '#5e4634', fosc: '#33231a' }) + cavallR(930, 500, 1.2) + `<path d="M798 380L962 412M798 386L962 420" stroke="${INK}" stroke-width="3" fill="none" stroke-dasharray="7 3"/>` + figura(232, 500, 176, { camisa: '#3d5a80', brac: 'M-9-70q14 8 32 22M9-70q6 14 16 32' });
+    s += `<g data-part="esteves">${T2('M272 420L470 462M272 436L478 478', 9, 'fusta', { cap: 'round' })}</g>`;
+    s += `<g data-part="cama">${ombra(600, 508, 220, 6)}${cami('M400 352L800 372V392L400 380Z', 'fusta', 'tub')}${T2('M480 384L520 440', 7, 'fusta')}<circle cx="796" cy="382" r="7" fill="url(#g-esf-ferro)" class="vora2"/></g>`;
+    s += `<g data-part="orello">${cami('M560 492Q520 414 432 398L414 476Q500 482 540 530Z', 'acer', 'cup')}<path d="M446 414q54 14 82 64" fill="none" stroke="#fff" stroke-width="3" opacity=".65" stroke-linecap="round"/><path id="gleba-gira" d="M548 498Q500 442 440 448" class="flux s-verd" stroke-width="4" data-flux="-1.800"/></g>`;
+    s += `<g data-part="rella">${cami('M660 528L540 532L560 490Z', 'ferro', 'llum')}</g>`;
+    s += `<g data-part="ganivet">${cami('M690 378h14l-22 150-10-6z', 'acer', 'cil')}</g>`;
+    s += `<g data-en="0">${cartell(820, 560, 'talla la terra en vertical', { w: 240 })}</g><g data-en="1">${cartell(760, 600, 'talla per sota i l’aixeca', { w: 230 })}</g><g data-en="2">${cartell(300, 566, 'la gira i colga les males herbes', { w: 290 })}</g>`;
+    s += `<g><rect x="48" y="38" width="356" height="156" rx="14" fill="#fffdf7" stroke="${INK}" stroke-width="1.500"/><text x="226" y="68" class="tx mig">Arada pesant antiga</text>${[96, 150, 204, 258].map((x) => cavallR(x, 150, 0.36, { color: '#9a8468', fosc: '#5c4a34' })).join('')}${figura(322, 150, 56)}${figura(356, 150, 56)}<text x="226" y="178" class="tx-p mig">4 o més animals i 2 persones</text>
+      <rect x="424" y="38" width="330" height="156" rx="14" fill="#fff6d6" stroke="${INK}" stroke-width="1.500"/><text x="589" y="68" class="tx mig">Arada de Rotherham</text>${cavallR(510, 150, 0.36)}${cavallR(570, 150, 0.36, { color: '#5e4634', fosc: '#33231a' })}${figura(650, 150, 56, { camisa: '#3d5a80' })}<text x="589" y="178" class="tx-p mig">2 cavalls i 1 persona</text></g>`;
     return svg(s);
   }
   function animaArada({ t, el }) { el('solcs').setAttribute('transform', `translate(${(-((t * 50) % 80)).toFixed(1)} 0)`); }

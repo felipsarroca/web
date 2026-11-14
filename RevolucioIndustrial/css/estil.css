@@ -491,8 +491,18 @@ body[data-capitol="textil"] .tela:has(.tx-resultat) .llegenda{display:none}
 .mobil .tx-resultat span{font-size:.7rem}
 .mobil .tx-detail .tx-context{display:none}
 
-/* «Abans i ara»: el sistema anterior i l'invent, sincronitzats. */
-.vistes .b-cmp{border-style:dashed;border-color:var(--cap,var(--tinta))}
-.vistes .b-cmp[aria-pressed=true]{border-style:solid}
-.esc .duo-vel{pointer-events:none;transition:opacity .4s}
-.esc .mesura rect{transition:width .25s linear}
+/* Esquemes realistes: vores fines, foc, boira i vapor difuminats. */
+.esc .vora{fill:none;stroke:#2e221a;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+.esc .vora2{stroke:#2e221a;stroke-width:1.2;stroke-linejoin:round}
+.flama2{animation:flama2 .9s ease-in-out infinite alternate}
+@keyframes flama2{from{transform:scale(1,.9) skewX(-4deg)}to{transform:scale(.88,1.14) skewX(5deg)}}
+.pampallugueja{animation:pampa 1.3s ease-in-out infinite alternate}
+@keyframes pampa{from{opacity:.6}to{opacity:1}}
+.esc [data-puf].boira{filter:url(#f-boira)}
+.esc [data-puf].boira circle{stroke:none}
+@media (prefers-reduced-motion:reduce){.flama2,.pampallugueja{animation:none}}
+.esc.tx3 [data-part]{transition:none}
+.esc.tx3 [data-part].sel{filter:none}
+.esc.tx3 polygon[data-part].sel{stroke:#d97706;stroke-width:1.8;stroke-opacity:1}
+.tela > .esc.tx3.te-focus [data-part]:not(.foc){opacity:1}
+.esc.tx3.te-sel [data-part]:not(.sel){opacity:.4}
