@@ -210,3 +210,7 @@ Felip considera que les primeres vistes explotades s'assemblen massa a les munta
 ## 14. Llegibilitat mòbil i connexions del 14-11-2026
 
 En mòbil, la vista explotada presenta primer la màquina i després la llegenda de les peces. La làmina té més alçada perquè la imatge es vegi més gran sense tapar les explicacions. «Connecta amb…» mostra dues relacions entre capítols, amb el nom complet i una explicació breu; la navegació entre màquines continua als botons anterior i següent del panell. Verificat amb 135 combinacions d'escena i mida de pantalla, i revisades les captures del teler a 390 i 1366 píxels.
+
+## 15. Tipografia de les idees clau del 14-11-2026
+
+El text de «La idea clau» de totes les escenes passa de la tipografia de títols en seminegreta a la lletra de lectura de pes normal. L'etiqueta continua destacada i el contingut no canvia.
