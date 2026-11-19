@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261119b">
-<script src="js/comu.js?v=20261119b" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119c">
+<script src="js/comu.js?v=20261119c" defer></script>
 </head>
 <body data-cap="5">
 <main id="contingut">
@@ -67,6 +67,12 @@
       <div class="mult"><span>× 1,6</span></div>
       <div class="grao" style="--h:83%;--c:var(--terra)"><div class="col-zona"><div class="col"><span class="v">20-30 g</span></div></div><b>Resta d’Europa</b><small>a la botiga</small></div>
     </div>
+    <p class="avui-fila mt1"><span>Quant seria avui un quilo de pebre a cada lloc?</span>
+      <span data-avui="1.5 g-plata" data-bt="Malabar" data-e="Un quilo de pebre a Malabar (1-2 g de plata)"></span>
+      <span data-avui="12 g-plata" data-bt="Alexandria" data-e="Un quilo de pebre a Alexandria (10-14 g de plata)"></span>
+      <span data-avui="16 g-plata" data-bt="Venècia" data-e="Un quilo de pebre a Venècia (14-18 g de plata)"></span>
+      <span data-avui="25 g-plata" data-bt="Resta d’Europa" data-e="Un quilo de pebre a la resta d’Europa (20-30 g de plata)" data-ara="Avui, un quilo de pebre costa uns 19 € al supermercat."></span>
+    </p>
     <p class="mt2 mb0">El salt més gran és entre <strong>Malabar i Alexandria</strong> (unes <strong>8 vegades</strong>): el viatge per l’Índic i el mar Roig, els aranzels d’Aden i d’Egipte i els guanys dels mercaders musulmans. En total, de Malabar a la resta d’Europa, el preu es multiplicava per <strong>més de deu</strong> (uns 16 cops, amb els valors del mig).</p>
   </div>
 </section>
@@ -86,7 +92,7 @@
   <div class="panell" id="joc">
     <div class="panell-cap">
       <h3 class="amb-ic"><span class="h-ic" data-icona="dau"></span>Joc: ets un mercader venecià</h3>
-      <p class="instr">Compres 1.000 kg de pebre a Alexandria a 10 g de plata el quilo. Has de portar-los a Venècia i vendre’ls.</p>
+      <p class="instr">Compres 1.000 kg de pebre a Alexandria a 10 g de plata el quilo. Has de portar-los a Venècia i vendre’ls.<span data-avui="10000 g-plata" data-e="10.000 g de plata"></span></p>
     </div>
     <div class="trajecte" id="j-traj" aria-hidden="true">
       <img class="nau-pos" id="j-nau-img" src="img/vinyetes/galera.webp" alt="">
@@ -128,16 +134,16 @@
       <table class="taula">
         <thead><tr><th>Espècia</th><th>Preu per lliura</th><th style="width:45%">Comparació</th></tr></thead>
         <tbody>
-          <tr><td>Safrà</td><td class="x">18 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="100%"></div></div></td></tr>
-          <tr><td>Gingebre</td><td class="x">12 s</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="65%"></div></div></td></tr>
-          <tr><td>Canyella</td><td class="x">6 s 2 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="33%"></div></div></td></tr>
-          <tr><td>Pebre</td><td class="x">4 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="24%"></div></div></td></tr>
+          <tr><td>Safrà</td><td class="x" data-avui="18.5 sous-val" data-e="Una lliura de safrà (18 s 6 d)">18 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="100%"></div></div></td></tr>
+          <tr><td>Gingebre</td><td class="x" data-avui="12 sous-val" data-e="Una lliura de gingebre (12 s)">12 s</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="65%"></div></div></td></tr>
+          <tr><td>Canyella</td><td class="x" data-avui="6.1667 sous-val" data-e="Una lliura de canyella (6 s 2 d)">6 s 2 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="33%"></div></div></td></tr>
+          <tr><td>Pebre</td><td class="x" data-avui="4.5 sous-val" data-e="Una lliura de pebre (4 s 6 d)">4 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="24%"></div></div></td></tr>
         </tbody>
       </table>
     </div>
     <img src="img/vinyetes/pebre-canyella.webp" alt="Pebre i canyella pintats a l'aquarel·la" style="max-width:170px;justify-self:center">
   </div>
-  <p class="instr mt1">El pebre era la més barata de les espècies cares: per això també era la més venuda.</p>
+  <p class="instr mt1">El pebre era la més barata de les espècies cares: per això també era la més venuda. Per passar els sous a dies de feina fem servir el jornal d’un peó de València, uns 2 sous al dia al segle XV: és una estimació. Amb aquest jornal, la lliura de pebre costava ≈ 2,25 dies, igual que a Londres el 1438.</p>
 </section>
 
 <section class="sec wrap reveal" data-tab="Intermediaris" data-ic="cadena">

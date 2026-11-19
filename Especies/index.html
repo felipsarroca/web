@@ -12,8 +12,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261119b">
-<script src="js/comu.js?v=20261119b" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119c">
+<script src="js/comu.js?v=20261119c" defer></script>
 </head>
 <body data-pag="inici">
 <main id="contingut">
@@ -27,11 +27,11 @@
       <div class="paradoxa-mini">
         <div class="t"><span class="dada">2 dies</span>de feina per comprar una lliura de pebre a Londres, el 1438</div>
         <span class="vs">i avui?</span>
-        <div class="t"><span class="dada" style="color:var(--sage)">&lt; 1 hora</span>de feina per comprar la mateixa lliura avui</div>
+        <div class="t"><span class="dada" style="color:var(--sage)">≈ 1 hora</span>de feina per comprar la mateixa lliura avui</div>
       </div>
       <div class="bts mt2">
         <a class="bt terra" href="paradoxa.html" id="bt-comenca">Comença el viatge →</a>
-        <a class="bt sec2" href="repte.html">Vés al repte final</a>
+        <a class="bt sec2" href="repte.html" id="bt-sec">Vés al repte final</a>
       </div>
       <div class="progres-mini">
         <div class="panell-cap" style="margin-bottom:6px"><b class="amb-ic"><span class="h-ic" data-icona="bruixola"></span>El teu viatge</b><span class="instr" id="prog-txt">Encara no has començat cap capítol.</span></div>
@@ -54,7 +54,7 @@
   <div class="graella mt1">
     <div class="targeta"><h3 class="amb-ic"><span class="h-ic" data-icona="comenca"></span>En 30 segons</h3><p>Cada capítol comença amb un resum. Activa <b>Lectura fàcil</b> (a dalt) si vols una versió més senzilla.</p></div>
     <div class="targeta"><h3 class="amb-ic"><span class="h-ic" data-icona="lupa"></span>Infografies</h3><p>Toca-les per veure-les grans, fer-hi zoom i passar d’una a l’altra. Les trobaràs totes a <a href="fonts.html#descarregues">Glossari i fonts</a>.</p></div>
-    <div class="targeta"><h3 class="amb-ic"><span class="h-ic" data-icona="dau"></span>Experimenta</h3><p>Calculadores, mapes amb vents, un joc de mercaders i fitxes que giren: toca-ho tot!</p></div>
+    <div class="targeta"><h3 class="amb-ic"><span class="h-ic" data-icona="dau"></span>Experimenta</h3><p>Calculadores, mapes amb vents, un joc de mercaders i fitxes que giren: toca-ho tot! Els botons <span class="avui demo">≈ € avui</span> et diuen quant serien avui les monedes d’aleshores.</p></div>
     <div class="targeta"><h3 class="amb-ic"><span class="h-ic" data-icona="escriu"></span>Posa-t’hi</h3><p>Preguntes amb correcció immediata. En acabar, <b>guarda les proves</b> del capítol per al repte final. Les paraules <button class="gl" data-gl="espècia">subratllades així</button> tenen definició.</p></div>
   </div>
 </section>
@@ -65,14 +65,19 @@
     <button type="button" class="temps-nav" id="t-esq" aria-label="Desplaça la cronologia a l'esquerra">‹</button>
     <div class="temps-h" id="temps-h" aria-label="Cronologia">
       <a href="marco-polo.html"><b>1271-1295</b><span>Viatges de Marco Polo</span></a>
+      <a href="compradors.html"><b>1324</b><span>Receptes especiades del <i>Sent Soví</i></span></a>
       <a href="indic.html"><b>1328-1349</b><span>Ibn Battuta navega per l’Índic</span></a>
       <a href="compradors.html"><b>1330-1430</b><span>Barcelona, port de les espècies</span></a>
+      <a href="marco-polo.html"><b>1375</b><span>L’Atles Català dibuixa Àsia</span></a>
+      <a href="indic.html"><b>1405-1433</b><span>La flota xinesa de Zheng He</span></a>
       <a href="paradoxa.html"><b>1438</b><span>Pebre a Londres: 2 dies de sou</span></a>
       <a href="colom-gama.html"><b>1488</b><span>Dias passa el cap de Bona Esperança</span></a>
       <a href="colom-gama.html"><b>1492</b><span>Colom arriba a Amèrica</span></a>
       <a href="colom-gama.html"><b>1498</b><span>Gama arriba a Calicut</span></a>
+      <a href="volta-mon.html"><b>1512</b><span>Els portuguesos arriben a les Moluques</span></a>
       <a href="volta-mon.html"><b>1519-1522</b><span>Primera volta al món</span></a>
       <a href="volta-mon.html"><b>1529</b><span>Tractat de Saragossa</span></a>
+      <a href="avui.html"><b>1602</b><span>Neix la VOC, empresa amb accions</span></a>
       <a href="avui.html"><b>1621</b><span>Els holandesos conquereixen Banda</span></a>
       <a href="avui.html"><b>1770</b><span>Poivre trasplanta clau i nou moscada</span></a>
       <a href="avui.html"><b>Avui</b><span>El Vietnam, primer productor de pebre</span></a>
@@ -91,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const estat = q
       ? `<span class="estat fet">✓ Posa-t’hi: ${q.enc}/${q.tot}</span>`
       : (vist[c.n] ? `<span class="estat llegit">Llegit</span>` : '');
-    cont.insertAdjacentHTML('beforeend', `<a class="cap-card reveal" href="${c.id}.html">${estat}<img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360"><div class="cos"><span class="num">Capítol ${c.n}</span><h3>${c.tit}</h3><p>${c.preg}</p><span class="act-et"><i class="ic-l" data-icona="dau"></i> ${c.act}</span></div></a>`);
+    cont.insertAdjacentHTML('beforeend', `<a class="cap-card reveal" href="${c.id}.html"><img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360"><div class="cos">${estat}<span class="num">Capítol ${c.n}</span><h3>${c.tit}</h3><p>${c.preg}</p><span class="act-et"><i class="ic-l" data-icona="dau"></i> ${c.act}</span></div></a>`);
   });
   const nVist = Object.keys(vist).length;
   const nQuiz = CAPS.filter(c => qz['c' + c.n]).length;
@@ -103,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : `Has recorregut ${nVist} de 9 capítols` + (nQuiz ? ` (${nQuiz} Posa-t’hi fets).` : '.');
     const seg = CAPS.find(c => !vist[c.n]);
     const b = document.getElementById('bt-comenca');
-    if (seg) { b.href = seg.id + '.html'; b.textContent = `Continua pel capítol ${seg.n} →`; } else { b.href = 'repte.html'; b.textContent = 'Fes el repte final →'; }
+    if (seg) { b.href = seg.id + '.html'; b.textContent = `Continua pel capítol ${seg.n} →`; } else { b.href = 'repte.html'; b.textContent = 'Fes el repte final →'; const b2 = document.getElementById('bt-sec'); b2.href = 'paradoxa.html'; b2.textContent = 'Repassa des del capítol 1'; }
   }
   document.getElementById('prog-copia').onclick = async () => {
     const pr = Prog.proves();

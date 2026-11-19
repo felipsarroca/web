@@ -12,7 +12,7 @@
     { n: 5, id: 'preus', tit: 'Ports, intermediaris i preus', curt: 'Intermediaris i preus', preg: 'Per què el pebre multiplicava el preu pel camí?', il: 'balanca', act: 'Joc de la galera de Venècia', t: [1368, 1500], sint: 'Perquè cada tram hi afegia transport, riscos, impostos i el benefici de cada intermediari. De Malabar a la resta d’Europa, el preu es multiplicava per més de deu.' },
     { n: 6, id: 'compradors', tit: 'Qui les comprava a Europa', curt: 'Usos i Barcelona', preg: 'Per a què les volien i quin paper hi tenia Barcelona?', il: 'olla', act: 'Mapa català i entra o surt?', t: [1330, 1470], sint: 'Per cuinar, curar-se, pregar i mostrar riquesa. Barcelona les comprava a Alexandria i Beirut i les pagava amb draps de llana, corall, safrà i altres productes catalans.' },
     { n: 7, id: 'colom-gama', tit: 'Colom i Gama: dues apostes', curt: 'Colom i Gama', preg: 'Per què buscar un camí nou per mar fins a les espècies?', il: 'caravella', act: 'Rutes animades i regals', t: [1488, 1499], sint: 'Per saltar-se els intermediaris i quedar-se el guany. Portugal ho va aconseguir voltant l’Àfrica; Colom, cap a l’oest i amb una Terra massa petita al cap, va topar amb Amèrica.' },
-    { n: 8, id: 'volta-mon', tit: 'La primera volta al món', curt: 'Primera volta al món', preg: 'Va valer la pena el viatge de la Victoria?', il: 'nau-victoria', act: '14 etapes i mercader a Tidore', t: [1519, 1529], sint: 'Depèn de com ho mesuris: en diners, a penes un 5 % de guany; en vides, una tragèdia (de 239 homes, en van tornar 18); en coneixement, un descobriment immens: tots els oceans estan connectats.' },
+    { n: 8, id: 'volta-mon', tit: 'La primera volta al món', curt: 'Primera volta al món', preg: 'Va valer la pena el viatge de la Victoria?', il: 'nau-victoria', act: '14 etapes i mercader a Tidore', t: [1519, 1529], sint: 'Depèn de com ho mesuris: en diners, a penes un 5 % de guany; en vides, una tragèdia (de 239 homes, en van tornar 18); en coneixement, un descobriment immens per als europeus: tots els oceans estan connectats.' },
     { n: 9, id: 'avui', tit: 'Per què avui són barates', curt: 'Per què avui són barates', preg: 'Què va canviar i les podríem plantar aquí?', il: 'plantacio', act: 'Es pot plantar a Catalunya?', t: [1430, 2026], et: '1430-avui', sint: 'Les plantes es van trasplantar a moltes terres tropicals i el transport es va abaratir: ningú no en podia controlar el preu. A Catalunya no hi podem fer pebre, però sí safrà.' }
   ];
   window.CAPS = CAPS;
@@ -24,7 +24,7 @@
     'dhow': 'Vaixell de vela de l’oceà Índic, amb les fustes cosides amb corda de fibra de coco en lloc de claus de ferro.',
     'galera': 'Vaixell llarg mogut per rems i veles. Venècia les feia servir per portar mercaderies cares amb seguretat.',
     'Moluques': 'Arxipèlag de l’actual Indonèsia, les «illes de les espècies». L’únic lloc on creixia el clau.',
-    'ducat': 'Moneda d’or de Venècia, molt acceptada a tot el Mediterrani. Servia com a referència de valor.',
+    'ducat': 'Moneda d’or. El ducat de Venècia era la referència de valor a tot el Mediterrani. A Castella, un ducat valia 375 maravedisos.',
     'maravedí': 'Moneda de compte de Castella. Els comptes de l’expedició de Magalhães-Elcano es van fer en maravedisos.',
     'quintar': 'Mesura de pes antiga. A Castella, un quintar eren 4 arroves, uns 46 kg.',
     'bahar': 'Mesura de pes de l’Índic i de les Moluques, d’uns 185 kg de clau.',
@@ -50,7 +50,9 @@
     'adroguer': 'Botiguer que venia espècies, sucre, cera i ingredients per a remeis. D’aquí ve la paraula «drogueria».',
     'khan': 'Títol dels sobirans mongols. Kublai Khan governava la Xina quan hi va arribar Marco Polo.',
     'estigma': 'Part de la flor que rep el pol·len. Els tres estigmes vermells de la flor del safrà són l’espècia.',
-    'nòlit': 'Preu que es paga per transportar mercaderies en un vaixell.'
+    'nòlit': 'Preu que es paga per transportar mercaderies en un vaixell.',
+    'descobriment': 'Trobar una cosa que no es coneixia. Quan diem que els europeus van «descobrir» rutes o terres, vol dir que les van conèixer ells: la gent que hi vivia o hi navegava ja les coneixia.',
+    'acció': 'Part petita d’una empresa que es pot comprar i vendre. Qui en té cobra una part dels guanys, però si l’empresa perd, l’acció perd valor.'
   };
   window.GLOSSARI = GLOSSARI;
 
@@ -62,7 +64,8 @@
     'Galè': [6], 'càssia': [2, 9], 'cauri': [4], 'aranzel': [4, 5],
     'Tordesillas': [7, 8], 'antimeridià': [8], 'trasplantament': [9], 'tona': [8],
     'samorí': [7], 'mameluc': [5], 'VOC': [9], 'capitulacions': [8], 'apotecari': [6],
-    'adroguer': [5], 'khan': [3], 'estigma': [2], 'nòlit': [5]
+    'adroguer': [5], 'khan': [3], 'estigma': [2], 'nòlit': [5],
+    'descobriment': [7, 8], 'acció': [9]
   };
   window.GLOSSARI_CAPS = GLOSSARI_CAPS;
 
@@ -74,9 +77,14 @@
     { t: 'Barcelona pagava les espècies amb draps de llana, corall i safrà', c: 6, a: 'eco' },
     { t: 'La Victoria va guanyar només un 5 %', c: 8, a: 'eco' },
     { t: 'Carles I va vendre les Moluques per 350.000 ducats (1529)', c: 8, a: 'eco' },
+    { t: 'La VOC (1602) va ser la primera gran empresa amb accions que es compraven i venien a la borsa', c: 9, a: 'eco' },
+    { t: 'Una lliura de pebre: 2,25 dies de feina el 1438; avui, poc més d’una hora', c: 9, a: 'eco' },
     { t: 'El clau només creixia a les Moluques', c: 2, a: 'geo' },
     { t: 'A Zayton (Xina) arribava cent vegades més pebre que a Alexandria', c: 3, a: 'geo' },
     { t: 'Els monsons canvien de direcció a l’hivern i a l’estiu', c: 4, a: 'geo' },
+    { t: 'El 1405, la flota xinesa de Zheng He tenia uns 250 vaixells; Gama en va portar 4 el 1497', c: 4, a: 'geo' },
+    { t: 'L’ají americà va arribar a l’Índia amb els portuguesos al segle XVI', c: 7, a: 'geo' },
+    { t: 'Els portuguesos ja eren a les Moluques des de 1512', c: 8, a: 'geo' },
     { t: 'Colom creia que la Terra feia uns 30.000 km de volta', c: 7, a: 'geo' },
     { t: 'Gama arriba a Calicut el 1498 voltant l’Àfrica', c: 7, a: 'geo' },
     { t: 'Pierre Poivre trasplanta clau i nou moscada (1770)', c: 9, a: 'geo' },
@@ -86,11 +94,71 @@
     { t: 'A Calicut es van riure dels regals de Gama: l’Índia era molt més rica', c: 7, a: 'hum' },
     { t: 'Van sortir 239 homes i en van tornar 18 amb la Victoria (1522)', c: 8, a: 'hum' },
     { t: 'Lapu-Lapu va derrotar Magalhães a Mactan (1521)', c: 8, a: 'hum' },
-    { t: 'Conquesta holandesa de Banda (1621): la major part de la població va morir, va ser expulsada o esclavitzada', c: 9, a: 'hum' }
+    { t: 'Conquesta holandesa de Banda (1621): la major part de la població va morir, va ser expulsada o esclavitzada', c: 9, a: 'hum' },
+    { t: 'Avui, Madagascar fa uns 80 % de la vainilla del món, sobretot amb petits pagesos que viuen amb preus molt inestables', c: 9, a: 'hum' }
   ];
   window.BANC = BANC;
   const ARGS = { eco: 'Argument econòmic', geo: 'Argument geogràfic i tècnic', hum: 'Argument humà' };
   window.ARGS = ARGS;
+
+  /* ---------- monedes d'aleshores comparades amb els sous d'avui ----------
+     Mètode: temps de feina. Quants dies (o mesos) havia de treballar algú d'aleshores
+     i quant cobraria avui algú pels mateixos dies. Fonts: Munro (Londres), Llotja de València,
+     Armada de Magalhães (AGI, Cuaderno 86), tractat de Saragossa. Vegeu fonts.html («Monedes»). */
+  const SOUS_AVUI = { min: 1200, mitja: 1500 }, DIES_MES = 22;
+  const MONEDES = {
+    dies: { nom: 'dies de feina', perDia: 1, qui: 'temps de feina d’un fuster especialitzat de Londres, que cobrava 8 diners al dia (1438)', font: 'J. Munro' },
+    'd-lon': { nom: 'diners (penics) de Londres', perDia: 8, qui: 'un fuster especialitzat de Londres cobrava 8 diners al dia (1438)', font: 'J. Munro' },
+    'sous-val': { nom: 'sous de València', perDia: 2, qui: 'un peó de la construcció de València cobrava uns 2 sous al dia (segle XV)', font: 'obres de la Llotja de València' },
+    'g-plata': { nom: 'grams de plata', perDia: 6, qui: 'un artesà qualificat de Londres cobrava uns 6 g de plata al dia (cap al 1500)', font: 'jornal de 8 diners i plata del penic' },
+    mrs: { nom: 'maravedisos', perMes: 1200, qui: 'un mariner de l’expedició de Magalhães cobrava 1.200 maravedisos al mes (1519)', font: 'Arxiu General d’Índies' },
+    ducat: { nom: 'ducats', perMes: 1200 / 375, qui: 'un ducat valia 375 maravedisos, i un mariner en cobrava 1.200 al mes', font: 'tractat de Saragossa i Arxiu General d’Índies' }
+  };
+  const fmtN = (x, d = 0) => x.toLocaleString('ca', { maximumFractionDigits: d, minimumFractionDigits: 0 });
+  function eurosText(e) {
+    if (e >= 1e6) return `${fmtN(e / 1e6, e >= 1e8 ? 0 : 1)} milions d’euros`;
+    if (e >= 1e4) return `${fmtN(Math.round(e / 1000) * 1000)} €`;
+    if (e >= 1000) return `${fmtN(Math.round(e / 10) * 10)} €`;
+    return `${fmtN(Math.round(e))} €`;
+  }
+  function tempsText(dies) {
+    if (dies < 1) return `${fmtN(dies * 8, 1)} hores de feina`;
+    if (dies < 44) return `${fmtN(dies, dies < 10 ? 2 : 0)} dies de feina`;
+    const mesos = dies / DIES_MES;
+    if (mesos < 24) return `${fmtN(mesos, mesos < 10 ? 1 : 0)} mesos de feina`;
+    const anys = mesos / 12;
+    return `${fmtN(anys, anys < 10 ? 1 : 0)} anys de feina`;
+  }
+  /* Retorna { dies, mesos, min, mitja, temps, qui } per a una quantitat en una moneda */
+  window.Equival = function (q, m) {
+    const M = MONEDES[m]; if (!M) return null;
+    const mesos = M.perMes ? q / M.perMes : q / M.perDia / DIES_MES;
+    const dies = mesos * DIES_MES;
+    return { dies, mesos, min: mesos * SOUS_AVUI.min, mitja: mesos * SOUS_AVUI.mitja, temps: tempsText(dies), qui: M.qui, font: M.font || '', nom: M.nom, eur: eurosText };
+  };
+  window.MONEDES = MONEDES; window.SOUS_AVUI = SOUS_AVUI; window.DIES_MES = DIES_MES;
+  function htmlAvui(b) {
+    const r = Equival(parseFloat(b.dataset.q), b.dataset.m); if (!r) return '';
+    const etiq = b.dataset.e ? `<b>${b.dataset.e}</b>` : `<b>${fmtN(parseFloat(b.dataset.q), 2)} ${r.nom}</b>`;
+    return `<p class="av-tit">${etiq}${b.dataset.m === 'dies' ? '' : ' = ≈ ' + r.temps}</p>
+      <p class="av-qui">${r.qui[0].toUpperCase() + r.qui.slice(1)}.</p>
+      <p class="av-sub">Els mateixos ${r.mesos >= 2 ? 'mesos' : 'dies'} de feina, avui:</p>
+      <p class="av-eur"><span><b>≈ ${eurosText(r.min)}</b><small>amb el salari mínim (${fmtN(SOUS_AVUI.min)} €/mes)</small></span><span><b>≈ ${eurosText(r.mitja)}</b><small>amb un salari de ${fmtN(SOUS_AVUI.mitja)} €/mes</small></span></p>
+      ${b.dataset.ara ? `<p class="av-ara">${b.dataset.ara}</p>` : ''}
+      <a class="av-com" href="fonts.html#monedes">Com ho calculem?</a>`;
+  }
+  /* Afegeix el botó «€ avui» a cada element amb data-avui="quantitat moneda" */
+  function posaAvui() {
+    document.querySelectorAll('[data-avui]').forEach(x => {
+      if (x.querySelector('.avui')) return;
+      const [q, m] = x.dataset.avui.split(' ');
+      const txt = x.dataset.bt ? `${x.dataset.bt} <span>≈ €</span>` : '≈ € avui';
+      const b = el('button', { type: 'button', class: 'avui', 'data-q': q, 'data-m': m, title: 'Quant seria avui, en temps de feina?', 'aria-label': (x.dataset.bt ? x.dataset.bt + ': ' : '') + 'quant seria avui?' }, txt);
+      if (x.dataset.e) b.dataset.e = x.dataset.e;
+      if (x.dataset.ara) b.dataset.ara = x.dataset.ara;
+      x.appendChild(b);
+    });
+  }
 
   /* ---------- emmagatzematge segur ---------- */
   const KEY = 'especies:v1';
@@ -344,12 +412,14 @@
     let pop = null, scroll0 = 0, deQui = null, tHover = null;
     const tanca = () => { if (pop) { pop.remove(); pop = null; deQui = null; } };
     const mostra = (g) => {
-      const k = g.dataset.gl || g.textContent.trim();
-      const def = GLOSSARI[k]; if (!def) return;
+      let html;
+      if (g.classList.contains('avui')) html = htmlAvui(g);
+      else { const k = g.dataset.gl || g.textContent.trim(); const def = GLOSSARI[k]; if (def) html = `<b>${k}</b>: ${def}`; }
+      if (!html) return;
       if (deQui === g) return;
       tanca();
       deQui = g;
-      pop = el('div', { class: 'gl-pop', role: 'tooltip' }, `<b>${k}</b>: ${def}`);
+      pop = el('div', { class: 'gl-pop' + (g.classList.contains('avui') ? ' av-pop' : ''), role: 'tooltip' }, html);
       document.body.appendChild(pop);
       scroll0 = window.scrollY;
       const z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ui-zoom')) || 1;
@@ -360,7 +430,7 @@
       if (pop.getBoundingClientRect().bottom > window.innerHeight - 70) pop.style.top = (r.top / z + window.scrollY / z - pop.offsetHeight - 8) + 'px';
     };
     document.addEventListener('click', (e) => {
-      const g = e.target.closest('.gl');
+      const g = e.target.closest('.gl, .avui');
       if (!g) { if (!e.target.closest('.gl-pop')) tanca(); return; }
       e.preventDefault();
       if (deQui === g && !g.dataset.hover) { tanca(); return; }
@@ -713,7 +783,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     pestanyes();
     construeixNav(); construeixFil(); construeixCronos(); construeixSeguent(); construeixPeu();
-    lightbox(); glossari(); revela(); vigilaLectura();
+    posaAvui(); lightbox(); glossari(); revela(); vigilaLectura();
     document.querySelectorAll('[data-quiz]').forEach(quiz);
   });
 })();

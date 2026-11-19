@@ -27,7 +27,11 @@ Web educativa en català per a l’ESO sobre el comerç de les espècies, de Mar
 | 8 | La primera volta al món | Va valer la pena el viatge de la Victoria? | Viatge en 14 etapes i mercader a Tidore |
 | 9 | Per què avui són barates | Què va canviar i les podríem plantar aquí? | Cinc segles de preus i «Es pot plantar a Catalunya?» |
 
-A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc de dades, còpia per a Classroom i rúbrica d’autoavaluació) i **glossari i fonts** (33 termes, fonts primàries i acadèmiques, descàrregues i orientacions per al professorat).
+A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc de dades, còpia per a Classroom i rúbrica d’autoavaluació) i **glossari i fonts** (35 termes, convertidor de monedes, fonts primàries i acadèmiques, descàrregues i orientacions per al professorat).
+
+**Monedes d’aleshores, euros d’avui.** Els botons daurats «≈ € avui» dels capítols 1, 5 i 8 passen diners, sous, grams de plata, maravedisos i ducats a temps de feina i a euros d’avui, amb el salari mínim (1.200 € al mes) i amb un sou de 1.500 €. El mètode, les equivalències i les seves fonts són a la pestanya «Monedes» de Glossari i fonts. És una estimació orientativa, i així s’indica.
+
+**Continguts afegits.** La flota de Zheng He (cap. 4), l’Atles Català amb zoom (cap. 3), una recepta del *Llibre de Sent Soví* (cap. 6), el debat Lane i O’Rourke-Williamson sobre Venècia i el viatge de l’ají cap a Àsia (cap. 7), els portuguesos a les Moluques el 1512 (cap. 8), la VOC com a primera empresa amb accions, «Barates… per a qui?» (vainilla, frau i comerç just) i l’esquema de la paradoxa resolta (cap. 9).
 
 ![Mapa de l’Índic](captures/03-mapa-index.png)
 

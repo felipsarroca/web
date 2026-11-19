@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261119b">
-<script src="js/comu.js?v=20261119b" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119c">
+<script src="js/comu.js?v=20261119c" defer></script>
 <style>
   .glossari { display: grid; gap: 10px 28px; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); margin: 0; }
   .glossari > div { background: var(--card); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 14px -10px rgba(0,0,0,.4); }
@@ -43,6 +43,48 @@
   <p class="gl-buit mt1" id="gl-buit" hidden>No hi ha cap paraula del glossari que coincideixi amb aquesta cerca.</p>
 </section>
 
+<section class="sec wrap reveal" id="monedes" data-tab="Monedes" data-ic="monedes">
+  <h2 class="amb-ic"><span class="h-ic" data-icona="monedes"></span>Monedes d’aleshores, euros d’avui</h2>
+  <p class="intro">Un maravedí no es pot canviar per euros com qui canvia dòlars: els preus i la manera de viure eren molt diferents. El que sí que podem comparar és el <strong>temps de feina</strong>: quants dies havia de treballar algú per guanyar aquella quantitat, i quant cobraria avui una persona pels mateixos dies.</p>
+  <div class="panell mt1" id="conv">
+    <div class="conv-g">
+      <div>
+        <div class="conv-camps">
+          <label class="camp">Quantitat<input type="number" id="cv-q" min="0" step="any" value="350000" inputmode="decimal"></label>
+          <label class="camp">Moneda<select id="cv-m"></select></label>
+        </div>
+        <p class="instr mt1 mb0" id="cv-qui"></p>
+        <p class="mt2 mb0"><b>Prova amb aquests exemples:</b></p>
+        <div class="bts conv-ex" id="cv-ex"></div>
+      </div>
+      <div class="conv-res" aria-live="polite">
+        <p class="conv-temps" id="cv-t"></p>
+        <div class="conv-eur">
+          <div><span>Amb el salari mínim</span><b id="cv-min"></b><small>1.200 € al mes</small></div>
+          <div><span>Amb un sou de 1.500 €</span><b id="cv-mit"></b><small>1.500 € al mes</small></div>
+        </div>
+        <p class="instr mb0">Comptem 22 dies de feina al mes: un dia són ≈ 55 € amb el salari mínim i ≈ 68 € amb un sou de 1.500 €.</p>
+      </div>
+    </div>
+  </div>
+  <div class="graella g2 mt2">
+    <div class="panell">
+      <h3 class="mb0">Les equivalències que fem servir</h3>
+      <div class="taula-wrap mt1"><table class="taula">
+        <thead><tr><th>Moneda</th><th>Equival a</th><th>Font</th></tr></thead>
+        <tbody>
+          <tr><td>8 diners (penics) de Londres</td><td>1 dia de feina d’un fuster especialitzat (1438)</td><td>J. Munro</td></tr>
+          <tr><td>2 sous de València</td><td>≈ 1 dia de feina d’un peó (segle XV)</td><td>Obres de la Llotja de València</td></tr>
+          <tr><td>6 g de plata</td><td>≈ 1 dia de feina d’un artesà qualificat (cap al 1500)</td><td>Estimació: jornal de 8 diners</td></tr>
+          <tr><td>1.200 maravedisos</td><td>1 mes de sou d’un mariner (1519)</td><td>Arxiu General d’Índies</td></tr>
+          <tr><td>1 ducat</td><td>375 maravedisos</td><td>Castella, segle XVI</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="avis mite"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Compte: és una estimació</p><p>Fem servir sous de feines diferents (fuster, peó, mariner), i el mariner, a més, menjava a bord. Aleshores es treballava de sol a sol, sense vacances, i la major part del sou se n’anava en menjar.</p><p class="mb0">Per això el resultat serveix per fer-se una idea, no és un preu exacte. A tota la web, les xifres de les fonts van en negreta i les conversions porten el signe <b>≈</b>. Busca el botó <span class="avui demo">≈ € avui</span> als capítols 1, 5 i 8.</p></div></div>
+  </div>
+</section>
+
 <section class="sec wrap reveal" id="fonts" data-tab="Fonts" data-ic="fonts">
   <h2 class="amb-ic"><span class="h-ic" data-icona="fonts"></span>Fonts consultades</h2>
   <p class="intro">Tot el contingut s’ha elaborat a partir d’aquestes fonts, reunides i contrastades en un quadern de NotebookLM. Quan dues fonts no coincidien, s’ha indicat o s’ha triat la més fiable.</p>
@@ -55,6 +97,8 @@
     <li>Diari anònim del primer viatge de Vasco da Gama (1497-1499).</li>
     <li>Antonio Pigafetta, <i>La primera volta al món</i> (1519-1522).</li>
     <li>Sous, mercaderies i clau de l’Armada de l’Especieria (Portal d’Arxius Espanyols, PARES).</li>
+    <li><i>Llibre de Sent Soví</i> (1324), salsa per al paó: text medieval (edició de Barcino).</li>
+    <li>Atles Català (1375), atribuït a Abraham Cresques. Biblioteca Nacional de França (imatge de domini públic a Wikimedia Commons).</li>
   </ul>
   <h3 class="mt2">Estudis d’historiadors</h3>
   <ul class="fonts-llista">
@@ -62,6 +106,7 @@
     <li>F. C. Lane, «Pepper prices before Da Gama» (1968).</li>
     <li>M. N. Pearson, preus del pebre al llarg de la ruta de l’Índic a Europa (finals del segle XV).</li>
     <li>K. O’Rourke i J. Williamson, «Did Vasco da Gama matter for European markets?» (NBER).</li>
+    <li>Jornals de la construcció a València (obres de la Llotja, segle XV) i valor del penic anglès: referència per a les conversions de «Monedes».</li>
     <li>D. Coulon, <i>Barcelona i el gran comerç amb Orient a l’edat mitjana</i> (c. 1330-1430), Institut d’Estudis Catalans.</li>
     <li>J. A. García Marsilla, alimentació i salut a la València medieval (CSIC).</li>
     <li>C. Malfatto, cosmografia i viatges transatlàntics: Colom i Toscanelli.</li>
@@ -70,9 +115,11 @@
   <h3 class="mt2">Divulgació i obres de referència</h3>
   <ul class="fonts-llista">
     <li>World History Encyclopedia: comerç a l’Índic, comerç global al segle XIII, el pebre a l’Orient Mitjà, el clau i la nou moscada, l’era dels descobriments, dotze espècies que van canviar el món.</li>
+    <li>Comissió Europea (DG SANTE i JRC), pla coordinat de control del frau en herbes i espècies (2021).</li>
+    <li>Verité, informe sobre la vainilla de Madagascar i les condicions de treball.</li>
     <li>Library of Congress: monsons i cartografia de l’Índic; l’Àfrica al món de l’oceà Índic.</li>
     <li>UNESCO, la cuina àrab medieval.</li>
-    <li>Viquipèdia: espècia, pebre negre, clau, nou moscada, canyella, gingebre, cardamom, safrà, ruta de les espècies, expedició de Magalhães-Elcano, tractat de Saragossa. Wikipedia (anglès): <i>Black pepper</i>.</li>
+    <li>Viquipèdia: espècia, pebre negre, clau, nou moscada, canyella, gingebre, cardamom, safrà, ruta de les espècies, expedició de Magalhães-Elcano, tractat de Saragossa, Zheng He, Atles Català, <i>Llibre de Sent Soví</i>, Francisco Serrão, l’ají, la VOC i la conquesta de les illes Banda. Wikipedia (anglès): <i>Black pepper</i>, <i>Spice trade</i>, <i>Ming treasure voyages</i>.</li>
     <li>El safrà a Catalunya (revista Milfulles); el safrà de la Conca de Barberà (Diari de Tarragona).</li>
     <li>Preus actuals d’espècies en un supermercat (Carrefour, 11/11/2026) i estimació del safrà en brins.</li>
     <li>Audiovisuals: Crash Course (comerç de l’Índic; era de les exploracions); RTVE, <i>La odisea de las especias</i> i Òrbita Laika.</li>
@@ -159,6 +206,26 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="peu-d"><b>${c.n}. ${c.curt}</b><a href="${png}" download>PNG ↓</a></div>
     </div>`);
   });
+
+  // Convertidor de monedes (fa servir window.Equival de comu.js)
+  const cvQ = document.getElementById('cv-q'), cvM = document.getElementById('cv-m');
+  Object.entries(window.MONEDES).forEach(([k, m]) => { if (k !== 'dies') cvM.insertAdjacentHTML('beforeend', `<option value="${k}">${m.nom}</option>`); });
+  cvM.value = 'ducat';
+  const EXEMPLES = [
+    ['Una rata a la Victoria', 0.5, 'ducat'], ['Una lliura de pebre a Londres', 18, 'd-lon'], ['Una lliura de safrà a Gandia', 18.5, 'sous-val'],
+    ['Un quilo de pebre a Europa', 25, 'g-plata'], ['El cost de l’expedició de Magalhães', 8334335, 'mrs'], ['La venda de les Moluques', 350000, 'ducat']
+  ];
+  const cvEx = document.getElementById('cv-ex');
+  EXEMPLES.forEach(([t, q, m]) => { const b = el('button', { type: 'button', class: 'bt sec2' }, t); b.onclick = () => { cvQ.value = q; cvM.value = m; conv(); }; cvEx.appendChild(b); });
+  function conv() {
+    const q = parseFloat(String(cvQ.value).replace(',', '.'));
+    const r = window.Equival(isFinite(q) && q > 0 ? q : 0, cvM.value);
+    document.getElementById('cv-qui').textContent = `Referència: ${r.qui}.`;
+    document.getElementById('cv-t').innerHTML = q > 0 ? `≈ <b>${r.temps}</b>` : 'Escriu una quantitat';
+    document.getElementById('cv-min').textContent = q > 0 ? '≈ ' + r.eur(r.min) : '–';
+    document.getElementById('cv-mit').textContent = q > 0 ? '≈ ' + r.eur(r.mitja) : '–';
+  }
+  cvQ.addEventListener('input', conv); cvM.addEventListener('change', conv); conv();
 
   const RUBRICA_TSV = [
     ['Criteri', 'Excel·lent (4)', 'Notable (3)', 'Suficient (2)', 'Cal millorar (1)'],

@@ -941,3 +941,96 @@ button.xip:hover { border-color: var(--c, var(--navy)); background: #fff; }
   .fitxa .cara.dors { margin-top: 6px; }
   .sec, .panell, .preg, .targeta, .fitxa, figure, .avis, .cita { break-inside: avoid; }
 }
+
+/* ===== Ampliació: monedes d'avui, Zheng He, Atles Català, debat i paradoxa resolta ===== */
+.avui { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: 4px; margin: 0 2px 0 6px; padding: 1px 9px; border-radius: 999px; background: rgba(217, 154, 30, .16); border: 1px solid rgba(217, 154, 30, .55); color: #7a4f08; font: 700 .78rem/1.5 var(--sans); white-space: nowrap; cursor: pointer; vertical-align: .08em; transition: background .2s; }
+.avui:hover, .avui:focus-visible { background: rgba(217, 154, 30, .32); }
+.avui:focus-visible { outline: 2px solid var(--saffron); outline-offset: 2px; }
+.avui span { opacity: .8; }
+.avui.demo { cursor: default; }
+.avui-fila { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; font-size: .95rem; color: var(--ink-2); }
+.avui-fila > span:first-child { margin-right: 4px; font-weight: 600; }
+.avui-fila .avui { margin: 0; font-size: .85rem; padding: 3px 12px; }
+.taula td.x .avui { margin-left: 8px; }
+.gl-pop.av-pop { max-width: 340px; padding: 12px 16px; }
+.av-pop p { margin: 0 0 6px; }
+.av-pop .av-tit { font-size: 1rem; }
+.av-pop .av-qui, .av-pop .av-sub { color: #d7dcea; font-size: .85rem; }
+.av-pop .av-eur { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0 8px; }
+.av-pop .av-eur span { background: rgba(255, 255, 255, .08); border-radius: 10px; padding: 6px 8px; }
+.av-pop .av-eur b { display: block; color: var(--saffron-2); font-size: 1.12rem; }
+.av-pop .av-eur small { display: block; color: #d7dcea; font-size: .74rem; line-height: 1.25; }
+.av-pop .av-ara { border-left: 3px solid var(--sage-2); padding-left: 8px; font-size: .86rem; }
+.av-pop .av-com { color: var(--saffron-2); font-size: .84rem; }
+
+/* Atles Català */
+.atles { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 26px; align-items: start; }
+.atles-fig figcaption { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-top: 8px; font-size: .85rem; color: var(--muted); }
+
+/* Zheng He */
+.flotes { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; display: grid; gap: 14px; align-content: start; }
+.fl-tit { margin: 0 0 6px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; }
+.fl-tit b { font-family: var(--serif); color: var(--navy); font-size: 1.08rem; }
+.fl-tit span { color: var(--ink-2); font-size: .9rem; }
+.fl-punts { display: grid; grid-template-columns: repeat(25, 1fr); gap: 3px; }
+.fl-punts i { aspect-ratio: 1; border-radius: 50%; background: var(--ocean); opacity: .85; }
+.fl-punts.gama i { background: var(--terra); opacity: 1; }
+
+/* Debat d'historiadors */
+.debat-g { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.db-op { background: var(--paper-2); border-radius: 14px; padding: 12px 16px; border-top: 4px solid var(--ocean); }
+.db-op + .db-op { border-top-color: var(--terra); }
+.db-qui { margin: 0 0 4px; font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.db-conc { margin-top: 12px; padding: 10px 14px; border-radius: 12px; background: rgba(111, 143, 93, .14); }
+
+/* Paradoxa resolta */
+.causes { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px 12px; align-items: stretch; }
+.ca-cap { margin: 0; font-family: var(--serif); font-weight: 800; color: var(--terra); font-size: 1.1rem; }
+.ca-cap.canvi { color: var(--ok); }
+.ca-cau { background: rgba(180, 80, 44, .09); border-left: 4px solid var(--terra); border-radius: 10px; padding: 8px 12px; display: flex; flex-direction: column; justify-content: center; }
+.ca-cau.canvi { background: rgba(63, 125, 70, .1); border-left-color: var(--ok); }
+.ca-cau small { color: var(--muted); font-size: .8rem; }
+.ca-f { align-self: center; font-size: 1.5rem; color: var(--saffron); font-weight: 800; }
+.ca-res { text-align: center; font-family: var(--serif); font-size: 1.22rem; color: var(--navy); background: var(--card); border-radius: 14px; padding: 10px 16px; box-shadow: var(--shadow); }
+.h-ic.ic-gran { margin: 2px 0 8px; }
+
+/* Convertidor de monedes */
+.conv-g { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.conv-camps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 12px; }
+.conv-camps input, .conv-camps select { display: block; width: 100%; margin-top: 4px; font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); box-sizing: border-box; }
+.conv-ex { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.conv-ex .bt { font-size: .85rem; padding: 5px 12px; }
+.conv-res { background: var(--paper-2); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 12px; }
+.conv-temps { margin: 0; font-family: var(--serif); font-size: 1.35rem; color: var(--navy); text-align: center; }
+.conv-eur { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.conv-eur > div { background: var(--card); border-radius: 14px; padding: 10px 12px; text-align: center; box-shadow: var(--shadow); }
+.conv-eur span { display: block; font-size: .85rem; color: var(--ink-2); }
+.conv-eur b { display: block; font-family: var(--serif); font-size: 1.45rem; color: var(--terra); margin: 2px 0; }
+.conv-eur small { color: var(--muted); font-size: .78rem; }
+
+@media (max-width: 900px) {
+  .atles, .debat-g, .conv-g { grid-template-columns: 1fr; }
+  .causes { grid-template-columns: 1fr; gap: 4px; }
+  .causes .ca-buit, .causes .ca-cap.canvi { display: none; }
+  .ca-f { transform: rotate(90deg); justify-self: center; line-height: 1; }
+  .ca-cau.canvi { margin-bottom: 10px; }
+  .fl-punts { grid-template-columns: repeat(20, 1fr); }
+}
+@media (max-width: 520px) {
+  .conv-camps, .conv-eur { grid-template-columns: 1fr; }
+  .gl-pop.av-pop { max-width: calc(100vw - 32px); }
+}
+@media print { .avui { display: none; } }
+
+/* Portada: graella de capítols 3 x 3, sense targetes òrfenes */
+@media (min-width: 901px) { .caps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* L'etiqueta d'estat va a la vora entre la infografia i el text, sense tapar-ne el títol */
+.cap-card .cos { position: relative; }
+.cap-card .cos .estat { top: -14px; right: 12px; box-shadow: 0 4px 10px -6px rgba(0, 0, 0, .45); }
+.ingredients { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.ingredients li { background: var(--card); border-radius: 12px; box-shadow: var(--shadow); padding: 8px 4px; text-align: center; border-bottom: 4px solid var(--ocean); }
+.ingredients li.aprop { border-bottom-color: var(--sage); }
+.ingredients img { width: 100%; max-width: 64px; height: 52px; object-fit: contain; margin: 0 auto 2px; }
+.ingredients b { display: block; font-size: .85rem; line-height: 1.15; }
+.ingredients small { display: block; font-size: .72rem; color: var(--muted); line-height: 1.2; }
+@media (max-width: 520px) { .ingredients { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
