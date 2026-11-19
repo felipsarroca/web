@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
 </head>
 <body data-cap="5">
 <main id="contingut">
@@ -50,7 +50,7 @@
       <img src="img/infografies/preus.webp" alt="Infografia: la cadena d'intermediaris i com pujava el preu del pebre de Malabar a Europa." loading="lazy" width="1920" height="1080">
       <span class="lupa"><i class="ic-l" data-icona="lupa"></i> Amplia</span>
     </button>
-    <figcaption><span>Infografia del capítol 5. Toca-la per veure-la gran.</span></figcaption>
+    <figcaption><span>Infografia del capítol 5.</span></figcaption>
   </figure>
 </section>
 
@@ -58,13 +58,16 @@
   <div class="sec-tit"><span class="n">1</span><h2>L’escala dels preus</h2></div>
   <p class="intro">Preu aproximat d’un quilo de pebre, en grams de plata, a cada etapa del camí (finals del segle XV, segons l’historiador Michael Pearson).</p>
   <div class="panell mt1">
-    <div class="barres">
-      <div class="barra"><span class="n">Malabar</span><div><div class="b" data-w="5%" style="background:var(--sage)"></div></div><span class="v">1-2 g</span></div>
-      <div class="barra"><span class="n">Alexandria</span><div><div class="b" data-w="40%" style="background:var(--saffron)"></div></div><span class="v">10-14 g</span></div>
-      <div class="barra"><span class="n">Venècia</span><div><div class="b" data-w="53%" style="background:var(--terra-2)"></div></div><span class="v">14-18 g</span></div>
-      <div class="barra"><span class="n">Resta d’Europa</span><div><div class="b" data-w="83%"></div></div><span class="v">20-30 g</span></div>
+    <div class="escala" role="img" aria-label="Preu d’un quilo de pebre: Malabar 1-2 g de plata; Alexandria 10-14 g (unes 8 vegades més); Venècia 14-18 g (1,3 vegades més); resta d’Europa 20-30 g (1,6 vegades més).">
+      <div class="grao" style="--h:5%;--c:var(--sage)"><div class="col-zona"><div class="col"><span class="v">1-2 g</span></div></div><b>Malabar</b><small>on es cull</small></div>
+      <div class="mult"><span>× 8</span></div>
+      <div class="grao" style="--h:40%;--c:var(--saffron)"><div class="col-zona"><div class="col"><span class="v">10-14 g</span></div></div><b>Alexandria</b><small>després de l’Índic i el mar Roig</small></div>
+      <div class="mult"><span>× 1,3</span></div>
+      <div class="grao" style="--h:53%;--c:var(--terra-2)"><div class="col-zona"><div class="col"><span class="v">14-18 g</span></div></div><b>Venècia</b><small>després de la galera</small></div>
+      <div class="mult"><span>× 1,6</span></div>
+      <div class="grao" style="--h:83%;--c:var(--terra)"><div class="col-zona"><div class="col"><span class="v">20-30 g</span></div></div><b>Resta d’Europa</b><small>a la botiga</small></div>
     </div>
-    <p class="mt2 mb0">El salt més gran és entre <strong>Malabar i Alexandria</strong>: el viatge per l’Índic i el mar Roig, els aranzels d’Aden i d’Egipte i els guanys dels mercaders musulmans. Del port a la taula europea, el preu es multiplicava per més de deu.</p>
+    <p class="mt2 mb0">El salt més gran és entre <strong>Malabar i Alexandria</strong> (unes <strong>8 vegades</strong>): el viatge per l’Índic i el mar Roig, els aranzels d’Aden i d’Egipte i els guanys dels mercaders musulmans. En total, de Malabar a la resta d’Europa, el preu es multiplicava per <strong>més de deu</strong> (uns 16 cops, amb els valors del mig).</p>
   </div>
 </section>
 
@@ -75,7 +78,7 @@
     <div class="targeta"><img class="il" src="img/vinyetes/dhow.webp" alt=""><h3>2. El mercader de l’Índic</h3><p>Gujarat o àrab, el porta en dhow fins a Aden. Paga aranzels.</p></div>
     <div class="targeta"><img class="il" src="img/vinyetes/camell.webp" alt=""><h3>3. La caravana</h3><p>Pel mar Roig i en camell pel desert fins al Caire i Alexandria. Paga al sultà d’Egipte.</p></div>
     <div class="targeta"><img class="il" src="img/vinyetes/galera.webp" alt=""><h3>4. El venecià</h3><p>Compra a Alexandria, el porta en <button class="gl" data-gl="galera">galera</button> a Venècia i el revèn a mercaders de tot Europa.</p></div>
-    <div class="targeta"><img class="il" src="img/vinyetes/balanca.webp" alt=""><h3>5. L’adroguer</h3><p>A Barcelona, Londres o Bruges, el ven a l’engròs i al detall, per unces.</p></div>
+    <div class="targeta"><img class="il" src="img/vinyetes/balanca.webp" alt=""><h3>5. L’<button class="gl" data-gl="adroguer">adroguer</button></h3><p>A Barcelona, Londres o Bruges, el ven a l’engròs i al detall, per unces.</p></div>
   </div>
 </section>
 
@@ -85,6 +88,13 @@
       <h3 class="amb-ic"><span class="h-ic" data-icona="dau"></span>Joc: ets un mercader venecià</h3>
       <p class="instr">Compres 1.000 kg de pebre a Alexandria a 10 g de plata el quilo. Has de portar-los a Venècia i vendre’ls.</p>
     </div>
+    <div class="trajecte" id="j-traj" aria-hidden="true">
+      <img class="nau-pos" id="j-nau-img" src="img/vinyetes/galera.webp" alt="">
+      <div class="etapa-t ara"><div class="punt-t"></div><span>Alexandria</span></div>
+      <div class="etapa-t"><div class="punt-t"></div><span>Creta</span></div>
+      <div class="etapa-t"><div class="punt-t"></div><span>Adriàtic</span></div>
+      <div class="etapa-t"><div class="punt-t"></div><span>Venècia</span></div>
+    </div>
     <div class="dues">
       <div>
         <p><b>1. Tria el vaixell</b></p>
@@ -93,11 +103,12 @@
           <button type="button" data-n="coca" aria-pressed="false">Nau barata</button>
         </div>
         <p class="instr mt1" id="j-desc"></p>
-        <div class="bts mt2"><button class="bt terra" type="button" id="j-go"><i class="ic-l" data-icona="vaixell"></i> Salpa</button><button class="bt sec2" type="button" id="j-reset" hidden>Torna a jugar</button></div>
+        <div class="bts mt2"><button class="bt terra" type="button" id="j-go"><i class="ic-l" data-icona="vaixell"></i> Salpa</button><button class="bt sec2" type="button" id="j-reset" hidden><i class="ic-l" data-icona="reinicia"></i> Torna a jugar</button></div>
         <div class="comptadors mt2">
           <div class="comptador"><b id="j-kg">1.000</b><span>kg de pebre</span></div>
           <div class="comptador"><b id="j-cost">10.000</b><span>g de plata gastats</span></div>
         </div>
+        <div class="hist-joc" id="j-hist"></div>
       </div>
       <div>
         <p><b>2. El viatge</b> <span class="dau" id="j-dau" aria-hidden="true"><i class="ic-l" data-icona="dau"></i></span></p>
@@ -105,22 +116,26 @@
       </div>
     </div>
     <p class="mt2 mb0" id="j-fi" style="font-family:var(--serif);font-size:1.2rem;color:var(--navy)"></p>
+    <div class="comptes-joc" id="j-comptes" hidden></div>
   </div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Els preus" data-ic="grafic">
   <div class="sec-tit"><span class="n">3</span><h2>Quant costava a València?</h2></div>
   <p class="intro">Els comptes de la casa ducal de Gandia del juny de 1368 ens diuen el preu d’una lliura de cada espècia, en sous (s) i diners (d). Un sou valia 12 diners.</p>
-  <div class="taula-wrap mt1">
-    <table class="taula">
-      <thead><tr><th>Espècia</th><th>Preu per lliura</th><th style="width:45%">Comparació</th></tr></thead>
-      <tbody>
-        <tr><td>Safrà</td><td class="x">18 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="100%"></div></div></td></tr>
-        <tr><td>Gingebre</td><td class="x">12 s</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="65%"></div></div></td></tr>
-        <tr><td>Canyella</td><td class="x">6 s 2 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="33%"></div></div></td></tr>
-        <tr><td>Pebre</td><td class="x">4 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="24%"></div></div></td></tr>
-      </tbody>
-    </table>
+  <div class="vinyeta-fita mt1">
+    <div class="taula-wrap">
+      <table class="taula">
+        <thead><tr><th>Espècia</th><th>Preu per lliura</th><th style="width:45%">Comparació</th></tr></thead>
+        <tbody>
+          <tr><td>Safrà</td><td class="x">18 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="100%"></div></div></td></tr>
+          <tr><td>Gingebre</td><td class="x">12 s</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="65%"></div></div></td></tr>
+          <tr><td>Canyella</td><td class="x">6 s 2 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="33%"></div></div></td></tr>
+          <tr><td>Pebre</td><td class="x">4 s 6 d</td><td><div class="barra" style="grid-template-columns:1fr"><div class="b" data-w="24%"></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <img src="img/vinyetes/pebre-canyella.webp" alt="Pebre i canyella pintats a l'aquarel·la" style="max-width:170px;justify-self:center">
   </div>
   <p class="instr mt1">El pebre era la més barata de les espècies cares: per això també era la més venuda.</p>
 </section>
@@ -128,7 +143,7 @@
 <section class="sec wrap reveal" data-tab="Intermediaris" data-ic="cadena">
   <div class="graella g2">
     <div class="avis sabies"><span class="ic h-ic" data-icona="baixa"></span><div><p class="etiq">Abans de Gama</p><p>L’historiador Frederic Lane va mostrar que el preu del pebre a Venècia ja <strong>baixava</strong> entre 1430 i 1470, abans de la ruta portuguesa. Els preus depenien de molts factors: guerres, pestes i acords amb el sultà.</p></div></div>
-    <div class="avis mite"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Mite</p><p>«Els turcs van tancar la ruta de les espècies el 1453 i per això els europeus van buscar camins nous.» No és cert: les espècies continuaven arribant per Egipte i Síria, controlades pels mamelucs, no pels otomans.</p></div></div>
+    <div class="avis mite"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Mite</p><p>«Els turcs van tancar la ruta de les espècies el 1453 i per això els europeus van buscar camins nous.» No és cert: les espècies continuaven arribant per Egipte i Síria, controlades pels <button class="gl" data-gl="mameluc">mamelucs</button>, no pels otomans.</p></div></div>
   </div>
 </section>
 
@@ -144,46 +159,76 @@
 
 <script>
 window.QUIZ = { c5: [
-  { t: 'ordena', e: 'Ordena les etapes del pebre des de la planta fins a l’adroguer europeu.', o: ['Pagès de Malabar', 'Mercader de l’Índic (Aden)', 'Caravana fins a Alexandria', 'Mercader venecià', 'Adroguer europeu'], r: 'Cinc mans o més: cadascuna hi sumava costos i guanys.' },
-  { t: 'xifra', e: 'Si un quilo de pebre costava 2 g de plata a Malabar i 24 g a Europa, per quant s’havia multiplicat el preu?', c: 12, tol: 0, u: 'vegades', r: '24 ÷ 2 = 12. El preu es multiplicava per 12.' },
-  { t: 'tria', e: 'En quin tram pujava més el preu?', o: ['De Malabar a Alexandria', 'D’Alexandria a Venècia', 'De Venècia a la botiga'], c: 0, r: 'L’Índic, el mar Roig i els aranzels d’Egipte multiplicaven el preu per deu.' },
-  { t: 'vf', e: 'Els otomans van tancar la ruta de les espècies el 1453.', c: false, r: 'És un mite. Les espècies continuaven arribant per Egipte i Síria.' },
-  { t: 'tria', e: 'Segons els comptes de Gandia (1368), quina espècia era la més cara?', o: ['Pebre', 'Canyella', 'Gingebre', 'Safrà'], c: 3, r: 'El safrà: 18 sous i 6 diners la lliura.' }
+  { t: 'ordena', e: 'Ordena les etapes del pebre des de la planta fins a l’adroguer europeu.', o: ['Pagès de Malabar', 'Mercader de l’Índic (Aden)', 'Caravana fins a Alexandria', 'Mercader venecià', 'Adroguer europeu'], r: 'Cinc mans o més: cadascuna hi sumava costos i guanys.', on: 'p3' },
+  { t: 'xifra', e: 'Si un quilo de pebre costava 2 g de plata a Malabar i 24 g a Europa, per quant s’havia multiplicat el preu?', c: 12, tol: 0, u: 'vegades', r: '24 ÷ 2 = 12. El preu es multiplicava per 12.', on: 'p2' },
+  { t: 'tria', e: 'En quin tram pujava més el preu?', o: ['De Malabar a Alexandria', 'D’Alexandria a Venècia', 'De Venècia a la botiga'], c: 0, r: 'L’Índic, el mar Roig i els aranzels d’Egipte multiplicaven el preu per vuit.', on: 'p2' },
+  { t: 'vf', e: 'Els otomans van tancar la ruta de les espècies el 1453.', c: false, r: 'És un mite. Les espècies continuaven arribant per Egipte i Síria.', on: 'p3' },
+  { t: 'tria', e: 'Segons els comptes de Gandia (1368), quina espècia era la més cara?', o: ['Pebre', 'Canyella', 'Gingebre', 'Safrà'], c: 3, r: 'El safrà: 18 sous i 6 diners la lliura.', on: 'p2' }
 ] };
 
 document.addEventListener('DOMContentLoaded', () => {
   const N = {
-    galera: { desc: 'Galera de l’Estat venecià, amb remers i soldats. Paga un nòlit (transport) més car: 1 g de plata per quilo. Poc risc de pirates.', nolit: 1, pirates: 0.08, temp: 0.2 },
-    coca: { desc: 'Nau de vela particular. Transport barat: 0,4 g per quilo. Però és més lenta i els pirates la poden atacar fàcilment.', nolit: 0.4, pirates: 0.35, temp: 0.3 }
+    galera: { nom: 'Galera', il: 'galera', desc: 'Galera de l’Estat venecià, amb remers i soldats. Paga un <button class="gl" data-gl="nòlit">nòlit</button> (transport) més car: 1 g de plata per quilo. Poc risc de pirates.', nolit: 1, pirates: 0.08, temp: 0.2 },
+    coca: { nom: 'Nau barata', il: 'coca', desc: 'Nau de vela particular. Transport barat: 0,4 g per quilo. Però és més lenta i els pirates la poden atacar fàcilment.', nolit: 0.4, pirates: 0.35, temp: 0.3 }
   };
   let nau = 'galera', jugant = false;
+  const hist = { galera: [], coca: [] };
   const $ = (id) => document.getElementById(id), fmt = (x) => Math.round(x).toLocaleString('ca');
-  const desc = () => { $('j-desc').textContent = N[nau].desc; }; desc();
+  const etapesEl = document.querySelectorAll('#j-traj .etapa-t');
+  const posaTraj = (pas) => {
+    const pos = [12, 37.5, 62.5, 88][pas] || 12;
+    $('j-nau-img').style.left = pos + '%';
+    etapesEl.forEach((el, k) => { el.classList.toggle('feta', k < pas); el.classList.toggle('ara', k === pas); });
+  };
+  const pintaHist = () => {
+    const parts = [];
+    ['galera', 'coca'].forEach(k => {
+      const a = hist[k]; if (!a.length) return;
+      const mitj = Math.round(a.reduce((s, x) => s + x, 0) / a.length);
+      parts.push(`<span>${N[k].nom} (${a.length} ${a.length === 1 ? 'viatge' : 'viatges'}): mitjana ${mitj >= 0 ? '+' : ''}${fmt(mitj)} g</span>`);
+    });
+    $('j-hist').innerHTML = parts.join('');
+  };
+  const desc = () => { $('j-desc').innerHTML = N[nau].desc; $('j-nau-img').src = `img/vinyetes/${N[nau].il}.webp`; };
+  desc(); posaTraj(0);
   document.querySelectorAll('#joc .seg button').forEach(b => b.addEventListener('click', () => { if (jugant) return; nau = b.dataset.n; document.querySelectorAll('#joc .seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); desc(); }));
   const espera = (ms) => new Promise(r => setTimeout(r, ms));
   $('j-go').onclick = async () => {
     jugant = true; $('j-go').disabled = true; const log = $('j-log'); log.innerHTML = '';
     document.querySelectorAll('#joc .seg button').forEach(x => x.disabled = true);
     let kg = 1000, cost = 10000 + N[nau].nolit * 1000;
+    posaTraj(0);
     const pas = (t) => { log.insertAdjacentHTML('beforeend', `<li>${t}</li>`); $('j-kg').textContent = fmt(kg); $('j-cost').textContent = fmt(cost); };
     pas(`Pagues el transport: ${fmt(N[nau].nolit * 1000)} g de plata. Salpes d’Alexandria.`);
     const trams = ['Sortida d’Egipte', 'Travessia per Creta', 'Mar Adriàtic'];
-    for (const t of trams) {
-      $('j-dau').classList.add('roda'); await espera(900); $('j-dau').classList.remove('roda');
+    for (let idx = 0; idx < trams.length; idx++) {
+      const t = trams[idx];
+      $('j-dau').classList.add('roda'); posaTraj(idx + 1); await espera(850); $('j-dau').classList.remove('roda');
       const r = Math.random();
       if (r < N[nau].pirates) { const p = Math.round(kg * 0.3); kg -= p; pas(`<i class="ic-l" data-icona="bandera"></i> <b>${t}:</b> pirates! Et roben ${fmt(p)} kg.`); }
       else if (r < N[nau].pirates + N[nau].temp) { const p = Math.round(kg * 0.15); kg -= p; pas(`<i class="ic-l" data-icona="onada"></i> <b>${t}:</b> tempesta. Llances ${fmt(p)} kg per la borda per no enfonsar-te.`); }
       else pas(`<i class="ic-l" data-icona="sol"></i> <b>${t}:</b> bon vent, sense incidents.`);
     }
+    const kgPerduts = 1000 - kg;
     const imp = Math.round(kg * 0.5); cost += imp; pas(`<i class="ic-l" data-icona="duana"></i> Arribes a Venècia i pagues impostos: ${fmt(imp)} g.`);
-    await espera(500);
+    await espera(450);
     const preu = 14 + Math.round(Math.random() * 4);
     const venda = kg * preu, guany = venda - cost;
+    hist[nau].push(guany); pintaHist();
     pas(`<i class="ic-l" data-icona="balanca"></i> Vens ${fmt(kg)} kg a ${preu} g el quilo: ${fmt(venda)} g de plata.`);
     $('j-fi').innerHTML = guany >= 0 ? `Has guanyat <strong>${fmt(guany)} g de plata</strong> (${Math.round(guany / cost * 100)} %). Ara entens per què el venecià revenia més car: arriscava molt.` : `Has perdut <strong>${fmt(-guany)} g de plata</strong>. El comerç d’espècies era un gran negoci… però també una aposta.`;
+    // Comptes del viatge: on han anat els diners
+    const nolit = N[nau].nolit * 1000, max = Math.max(cost, venda, 1);
+    const pc = (x) => (x / max * 100).toFixed(1) + '%';
+    $('j-comptes').innerHTML = `<p class="etiq">Els comptes del teu viatge</p>
+      <div class="cj-fila"><span class="cj-et">Has gastat</span><div class="cj-barra"><span class="s-compra" style="width:${pc(10000)}">Compra 10.000</span><span class="s-transp" style="width:${pc(nolit)}" title="Transport ${fmt(nolit)} g">${nolit >= 700 ? 'Transport' : ''}</span><span class="s-imp" style="width:${pc(imp)}" title="Impostos ${fmt(imp)} g"></span></div><b>${fmt(cost)} g</b></div>
+      <div class="cj-fila"><span class="cj-et">Has cobrat</span><div class="cj-barra"><span class="s-venda" style="width:${pc(venda)}">Venda de ${fmt(kg)} kg</span></div><b>${fmt(venda)} g</b></div>
+      <p class="cj-llegenda"><span><i class="s-compra"></i>compra</span><span><i class="s-transp"></i>transport ${fmt(nolit)} g</span><span><i class="s-imp"></i>impostos ${fmt(imp)} g</span></p>
+      <p class="instr mb0">${kgPerduts ? `Pel camí has perdut <b>${fmt(kgPerduts)} kg</b>: a Venècia t’haurien donat ${fmt(kgPerduts * preu)} g més.` : 'No has perdut ni un quilo pel camí: viatge perfecte!'} Prova l’altre vaixell: quins comptes canvien?</p>`;
+    $('j-comptes').hidden = false;
     $('j-reset').hidden = false;
   };
-  $('j-reset').onclick = () => { jugant = false; $('j-go').disabled = false; $('j-reset').hidden = true; $('j-fi').textContent = ''; $('j-kg').textContent = '1.000'; $('j-cost').textContent = '10.000'; $('j-log').innerHTML = '<li>Encara a port, a Alexandria.</li>'; document.querySelectorAll('#joc .seg button').forEach(x => x.disabled = false); };
+  $('j-reset').onclick = () => { jugant = false; $('j-go').disabled = false; $('j-reset').hidden = true; $('j-fi').textContent = ''; $('j-comptes').hidden = true; $('j-kg').textContent = '1.000'; $('j-cost').textContent = '10.000'; $('j-log').innerHTML = '<li>Encara a port, a Alexandria.</li>'; posaTraj(0); document.querySelectorAll('#joc .seg button').forEach(x => x.disabled = false); };
 });
 </script>
 </body>

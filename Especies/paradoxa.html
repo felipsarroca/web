@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
 </head>
 <body data-cap="1">
 <main id="contingut">
@@ -32,13 +32,13 @@
     <h2 class="amb-ic"><span class="h-ic" data-icona="comenca"></span>En 30 segons</h2>
     <ul class="normal">
       <li>A Londres, el 1438, un fuster havia de treballar <strong>més de dos dies</strong> per pagar una lliura de pebre (uns 450 grams).</li>
-      <li>Avui, un pot de pebre costa uns pocs minuts de feina: és <strong>desenes de vegades més barat</strong>.</li>
+      <li>Avui, la mateixa lliura de pebre costa <strong>menys d’una hora de feina</strong>: el pebre és <strong>desenes de vegades més barat</strong>.</li>
       <li>El pebre no havia canviat. Va canviar <strong>el camí</strong>: qui el cultivava, per on viatjava i quants <button class="gl" data-gl="intermediari">intermediaris</button> en treien profit.</li>
       <li>Entendre aquesta diferència és la clau de tota la història: per arribar a les espècies, els europeus van creuar oceans.</li>
     </ul>
     <div class="facil">
       <p>Fa 600 anys, el pebre era <strong>molt car</strong>. Un treballador necessitava <strong>2 dies de feina</strong> per comprar-ne una bossa petita.</p>
-      <p>Avui el pebre és <strong>barat</strong>. En pocs minuts de feina en pots comprar.</p>
+      <p>Avui el pebre és <strong>barat</strong>. Amb <strong>menys d’una hora</strong> de feina en compres la mateixa quantitat.</p>
       <p>Per què? Perquè el pebre venia de <strong>molt lluny</strong> i passava per <strong>moltes mans</strong>. Cada persona en treia diners.</p>
     </div>
   </div>
@@ -50,7 +50,7 @@
       <img src="img/infografies/paradoxa.webp" alt="Infografia: el pebre a Londres el 1438 costava més de dos dies de sou d'un fuster; avui, uns minuts de feina." loading="lazy" width="1920" height="1080">
       <span class="lupa"><i class="ic-l" data-icona="lupa"></i> Amplia</span>
     </button>
-    <figcaption><span>Infografia del capítol 1. Toca-la per veure-la gran.</span><span>Dades: J. Munro (Universitat de Toronto), comptes de Londres 1438-1439.</span></figcaption>
+    <figcaption><span>Dades: J. Munro (Universitat de Toronto), comptes de Londres 1438-1439.</span></figcaption>
   </figure>
 </section>
 
@@ -64,7 +64,10 @@
       <div class="barra"><span class="n">Clau</span><div><div class="b" data-w="19.4%"></div></div><span class="v">4,44 dies</span></div>
       <div class="barra"><span class="n">Safrà</span><div><div class="b" data-w="100%"></div></div><span class="v">22,86 dies</span></div>
     </div>
-    <p class="instr mt1">El safrà era la més cara: més de tres setmanes de feina per una lliura. Al capítol 9 descobriràs per què encara avui és car.</p>
+    <div class="calc-il">
+      <img src="img/vinyetes/eines-fuster.webp" alt="Eines de fuster pintades a l'aquarel·la">
+      <p class="instr mb0">El safrà era la més cara: més de tres setmanes de feina per una lliura. Prova de seleccionar-lo a la calculadora de sota i al capítol 9 descobriràs per què encara avui és car.</p>
+    </div>
   </div>
 </section>
 
@@ -79,6 +82,7 @@
         <div class="seg" role="group" aria-label="Espècie">
           <button type="button" data-e="pebre" aria-pressed="true">Pebre</button>
           <button type="button" data-e="clau" aria-pressed="false">Clau</button>
+          <button type="button" data-e="safra" aria-pressed="false">Safrà</button>
         </div>
         <label class="camp mt2">Quantitat: <span id="c-g">100 g</span>
           <input type="range" id="c-q" min="25" max="1000" step="25" value="100">
@@ -86,14 +90,17 @@
         <label class="camp mt2">Sou d’avui que vols comparar: <span id="c-s">10 € per hora</span>
           <input type="range" id="c-sou" min="8" max="25" step="1" value="10">
         </label>
-        <p class="instr mt1">Preus d’avui: pebre negre 18,89 €/kg i clau 41,33 €/kg (supermercat, 11/11/2026). Per passar els dies de 1438 a hores, comptem jornades d’unes 10 hores, de sol a sol.</p>
+        <p class="instr mt1">Preus d’avui: pebre negre 18,89 €/kg, clau 41,33 €/kg (supermercat, 11/11/2026) i safrà en brins aprox. 6.000 €/kg. Per passar els dies de 1438 a hores, comptem jornades d’unes 10 hores, de sol a sol.</p>
       </div>
       <div class="cercles" aria-live="polite">
         <div class="centre"><div class="cercle" id="c-ll" style="background:var(--terra)"></div><p class="mt1"><b>Londres, 1438</b><br><span id="c-llt"></span></p></div>
         <div class="centre"><div class="cercle" id="c-ar" style="background:var(--sage)"></div><p class="mt1"><b>Avui</b><br><span id="c-art"></span></p></div>
       </div>
     </div>
-    <p class="mt2 mb0" id="c-conc" style="font-family:var(--serif);font-size:1.2rem;color:var(--navy)"></p>
+    <div class="calc-il">
+      <img id="c-il" src="img/vinyetes/grans-pebre.webp" alt="">
+      <p class="mb0" id="c-conc" style="font-family:var(--serif);font-size:1.2rem;color:var(--navy)"></p>
+    </div>
   </div>
 </section>
 
@@ -110,7 +117,7 @@
 
 <section class="sec wrap reveal" data-tab="Investiga" data-ic="lupa">
   <div class="graella g2">
-    <div class="avis sabies"><span class="ic h-ic" data-icona="monedes"></span><div><p class="etiq">Sabies que…?</p><p>El 1529, el rei Carles I va vendre a Portugal els seus drets sobre les illes del clau per <strong>350.000 ducats</strong>. Una sola espècie podia valer tant com un regne petit. Ho veuràs al capítol 8.</p></div></div>
+    <div class="avis sabies"><span class="ic h-ic" data-icona="monedes"></span><div><p class="etiq">Sabies que…?</p><p>El 1529, el rei Carles I va vendre a Portugal els seus drets sobre les illes del clau per <strong>350.000 <button class="gl" data-gl="ducat">ducats</button></strong>. Una sola espècie podia valer tant com un regne petit. Ho veuràs al capítol 8.</p></div></div>
     <div class="avis mite"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Compte amb aquest mite</p><p>Sovint es diu que les espècies servien per dissimular la carn podrida. No és cert: qui podia pagar espècies, podia pagar carn fresca de sobres. Ho expliquem al capítol 6.</p></div></div>
   </div>
 </section>
@@ -128,15 +135,19 @@
 
 <script>
 window.QUIZ = { c1: [
-  { t: 'tria', e: 'A Londres, el 1438, quants dies havia de treballar un fuster per comprar una lliura de pebre?', o: ['Mitja hora', 'Uns 2 dies', 'Un mes', 'Un any'], c: 1, r: 'Segons Munro, 2,25 dies de sou per una lliura (≈ 450 g).' },
-  { t: 'tria', e: 'Quina era l’espècie més cara de les tres que va estudiar Munro?', o: ['El pebre', 'El clau', 'El safrà'], c: 2, r: 'El safrà: gairebé 23 dies de feina per una lliura.' },
-  { t: 'vf', e: 'El pebre era car perquè el de l’edat mitjana era d’una planta diferent, més rara que la d’avui.', c: false, r: 'És la mateixa planta. El que encaria el pebre era el viatge i els intermediaris.' },
-  { t: 'vf', e: 'Avui, amb el que guanyes en una hora de feina pots comprar més d’un pot de pebre.', c: true, r: 'Un pot de 50 g costa menys d’un euro: és desenes de vegades més barat que fa sis segles.' },
-  { t: 'tria', e: 'Quina d’aquestes explicacions ajuda a entendre el preu del pebre medieval?', o: ['Venia de molt lluny i passava per moltes mans', 'Només el podien menjar els reis per llei', 'Es feia servir com a moneda a tot Europa'], c: 0, r: 'Cada intermediari (ports, mercaders, impostos) hi afegia el seu benefici.' }
+  { t: 'tria', e: 'A Londres, el 1438, quants dies havia de treballar un fuster per comprar una lliura de pebre?', o: ['Mitja hora', 'Uns 2 dies', 'Un mes', 'Un any'], c: 1, r: 'Segons Munro, 2,25 dies de sou per una lliura (≈ 450 g).', on: 'p2' },
+  { t: 'tria', e: 'Quina era l’espècie més cara de les tres que va estudiar Munro?', o: ['El pebre', 'El clau', 'El safrà'], c: 2, r: 'El safrà: gairebé 23 dies de feina per una lliura.', on: 'p2' },
+  { t: 'vf', e: 'El pebre era car perquè el de l’edat mitjana era d’una planta diferent, més rara que la d’avui.', c: false, r: 'És la mateixa planta. El que encaria el pebre era el viatge i els intermediaris.', on: 'p1' },
+  { t: 'vf', e: 'Avui, amb el que guanyes en una hora de feina pots comprar més d’un pot de pebre.', c: true, r: 'Un pot de 50 g costa menys d’un euro: és desenes de vegades més barat que fa sis segles.', on: 'p2' },
+  { t: 'tria', e: 'Quina d’aquestes explicacions ajuda a entendre el preu del pebre medieval?', o: ['Venia de molt lluny i passava per moltes mans', 'Només el podien menjar els reis per llei', 'Es feia servir com a moneda a tot Europa'], c: 0, r: 'Cada intermediari (ports, mercaders, impostos) hi afegia el seu benefici.', on: 'p3' }
 ] };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const DIES = { pebre: 2.25, clau: 4.44 }, EUR = { pebre: 18.89, clau: 41.33 }, LLIURA = 453.6;
+  const DIES = { pebre: 2.25, clau: 4.44, safra: 22.86 };
+  const EUR = { pebre: 18.89, clau: 41.33, safra: 6000 };
+  const IL = { pebre: 'grans-pebre', clau: 'clau', safra: 'flor-safra' };
+  const NOM = { pebre: 'pebre', clau: 'clau', safra: 'safrà' };
+  const LLIURA = 453.6;
   let esp = 'pebre';
   const q = document.getElementById('c-q'), s = document.getElementById('c-sou');
   const f = (x, d) => x.toLocaleString('ca', { maximumFractionDigits: d, minimumFractionDigits: d });
@@ -144,20 +155,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const g = +q.value, sou = +s.value;
     document.getElementById('c-g').textContent = g + ' g';
     document.getElementById('c-s').textContent = sou + ' € per hora';
-    const dies = DIES[esp] * g / LLIURA;            // jornals de 1438
-    const hores1438 = dies * 10;                     // jornada medieval aproximada de 10 h (de sol a sol)
+    document.getElementById('c-il').src = `img/vinyetes/${IL[esp]}.webp`;
+    const dies = DIES[esp] * g / LLIURA;
+    const hores1438 = dies * 10;
     const eur = EUR[esp] * g / 1000, minuts = eur / sou * 60;
     document.getElementById('c-llt').innerHTML = `${f(dies, 2)} dies de feina<br><small>(unes ${f(hores1438, 0)} hores)</small>`;
-    document.getElementById('c-art').innerHTML = `${f(minuts, minuts < 10 ? 1 : 0)} minuts de feina<br><small>(${f(eur, 2)} €)</small>`;
-    const mx = 210, a = Math.sqrt(hores1438 * 60), b = Math.sqrt(minuts), k = mx / Math.max(a, b);
+    const txtAvui = minuts >= 120
+      ? `${f(minuts / 60, 1)} hores de feina<br><small>(≈ ${f(eur, 0)} €)</small>`
+      : `${f(minuts, minuts < 10 ? 1 : 0)} minuts de feina<br><small>(${f(eur, 2)} €)</small>`;
+    document.getElementById('c-art').innerHTML = txtAvui;
+    const mx = 170, a = Math.sqrt(hores1438 * 60), b = Math.sqrt(minuts), k = mx / Math.max(a, b);
     const ll = document.getElementById('c-ll'), ar = document.getElementById('c-ar');
     ll.style.width = ll.style.height = Math.max(26, a * k) + 'px';
-    ar.style.width = ar.style.height = Math.max(14, b * k) + 'px';
+    ar.style.width = ar.style.height = Math.max(16, b * k) + 'px';
     const vegades = (hores1438 * 60) / minuts;
-    document.getElementById('c-conc').innerHTML = `Avui necessites unes <strong>${f(Math.round(vegades), 0)} vegades</strong> menys temps de feina per comprar el mateix ${esp === 'pebre' ? 'pebre' : 'clau'}.`;
+    if (esp === 'safra') {
+      document.getElementById('c-conc').innerHTML = `<strong>Sorpresa!</strong> El safrà continua costant un temps de feina semblant al de 1438 (unes ${f(hores1438, 0)} h llavors vs. ${f(minuts / 60, 0)} h avui). Al capítol 9 veuràs per què: encara es cull flor a flor a mà.`;
+    } else {
+      document.getElementById('c-conc').innerHTML = `Avui necessites unes <strong>${f(Math.round(vegades), 0)} vegades</strong> menys temps de feina per comprar el mateix ${NOM[esp]}.`;
+    }
   }
   document.querySelectorAll('#calc .seg button').forEach(b => b.addEventListener('click', () => {
-    esp = b.dataset.e; document.querySelectorAll('#calc .seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); calc();
+    esp = b.dataset.e;
+    if (esp === 'safra') { q.min = 1; q.max = 50; q.step = 1; q.value = 5; }
+    else { q.min = 25; q.max = 1000; q.step = 25; if (+q.value < 25) q.value = 100; }
+    document.querySelectorAll('#calc .seg button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    calc();
   }));
   q.addEventListener('input', calc); s.addEventListener('input', calc); calc();
 });

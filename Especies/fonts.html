@@ -9,18 +9,22 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
 <style>
   .glossari { display: grid; gap: 10px 28px; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); margin: 0; }
-  .glossari div { background: var(--card); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 14px -10px rgba(0,0,0,.4); }
+  .glossari > div { background: var(--card); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 14px -10px rgba(0,0,0,.4); }
   .glossari dt { font: 800 1.1rem var(--serif); color: var(--terra); }
   .glossari dd { margin: 2px 0 0; }
   .fonts-llista { columns: 2 380px; column-gap: 32px; padding-left: 1.2em; }
   .fonts-llista li { margin: 0 0 8px; break-inside: avoid; }
-  .desc { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
-  .desc a { display: block; text-decoration: none; color: var(--ink); background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); font-weight: 700; font-size: .92rem; }
-  .desc a span { display: block; padding: 8px 12px; }
+  .desc { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); }
+  .desc-card { background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .desc-card button.vis { all: unset; cursor: zoom-in; display: block; }
+  .desc-card button.vis img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .desc-card .peu-d { padding: 8px 12px 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .desc-card .peu-d b { font-size: .88rem; color: var(--navy); }
+  .desc-card .peu-d a { font-size: .82rem; font-weight: 700; white-space: nowrap; }
   #cerca { width: min(420px, 100%); }
 </style>
 </head>
@@ -36,6 +40,7 @@
 <section class="sec wrap" id="glossari" data-tab="Glossari" data-ic="glossari">
   <div class="panell-cap"><h2 class="mb0 amb-ic"><span class="h-ic" data-icona="glossari"></span>Glossari</h2><input type="text" id="cerca" placeholder="Cerca una paraula…" aria-label="Cerca al glossari"></div>
   <dl class="glossari mt1" id="gl-llista"></dl>
+  <p class="gl-buit mt1" id="gl-buit" hidden>No hi ha cap paraula del glossari que coincideixi amb aquesta cerca.</p>
 </section>
 
 <section class="sec wrap reveal" id="fonts" data-tab="Fonts" data-ic="fonts">
@@ -55,6 +60,7 @@
   <ul class="fonts-llista">
     <li>J. Munro, preus de les espècies en dies de sou (Universitat de Toronto).</li>
     <li>F. C. Lane, «Pepper prices before Da Gama» (1968).</li>
+    <li>M. N. Pearson, preus del pebre al llarg de la ruta de l’Índic a Europa (finals del segle XV).</li>
     <li>K. O’Rourke i J. Williamson, «Did Vasco da Gama matter for European markets?» (NBER).</li>
     <li>D. Coulon, <i>Barcelona i el gran comerç amb Orient a l’edat mitjana</i> (c. 1330-1430), Institut d’Estudis Catalans.</li>
     <li>J. A. García Marsilla, alimentació i salut a la València medieval (CSIC).</li>
@@ -68,14 +74,14 @@
     <li>UNESCO, la cuina àrab medieval.</li>
     <li>Viquipèdia: espècia, pebre negre, clau, nou moscada, canyella, gingebre, cardamom, safrà, ruta de les espècies, expedició de Magalhães-Elcano, tractat de Saragossa. Wikipedia (anglès): <i>Black pepper</i>.</li>
     <li>El safrà a Catalunya (revista Milfulles); el safrà de la Conca de Barberà (Diari de Tarragona).</li>
-    <li>Preus actuals d’espècies en un supermercat (Carrefour, 11/11/2026).</li>
+    <li>Preus actuals d’espècies en un supermercat (Carrefour, 11/11/2026) i estimació del safrà en brins.</li>
     <li>Audiovisuals: Crash Course (comerç de l’Índic; era de les exploracions); RTVE, <i>La odisea de las especias</i> i Òrbita Laika.</li>
   </ul>
 </section>
 
 <section class="sec wrap reveal" id="descarregues" data-tab="Descàrregues" data-ic="descarregues">
   <h2 class="amb-ic"><span class="h-ic" data-icona="descarregues"></span>Descàrregues</h2>
-  <p class="intro">Les nou infografies a mida completa (1920 × 1080) i la presentació per projectar-les a l’aula.</p>
+  <p class="intro">Les nou infografies a mida completa (1920 × 1080) i la presentació per projectar-les a l’aula. Toca qualsevol imatge per obrir-la al visor amb zoom i fletxes.</p>
   <div class="bts mt1"><a class="bt" href="infografies/El comerç de les espècies.pptx" download><i class="ic-l" data-icona="barres"></i> Presentació PowerPoint (9 diapositives)</a></div>
   <div class="desc mt2" id="desc"></div>
 </section>
@@ -102,29 +108,71 @@
     </div>
     <div class="targeta">
       <h3>Atenció a la diversitat</h3>
-      <p class="mb0">El botó <b>Lectura fàcil</b> canvia els resums per una versió amb frases curtes i vocabulari bàsic, útil per a alumnat nouvingut o amb NESE. Les infografies i els mapes permeten treballar amb poc text, i el glossari explica cada paraula difícil.</p>
+      <p class="mb0">El botó <b>Lectura fàcil</b> canvia els resums i els textos més llargs (Barcelona, l’error de Colom, Saragossa) per una versió amb frases curtes i vocabulari bàsic, útil per a alumnat nouvingut o amb NESE. Les infografies i els mapes, amb llegenda, permeten treballar amb poc text, i el glossari explica cada paraula difícil en tocar-la o en passar-hi el ratolí.</p>
     </div>
     <div class="targeta">
       <h3>Avaluació</h3>
-      <p class="mb0">Les preguntes «Posa-t’hi» són d’autocorrecció (avaluació formativa). El progrés només es desa al navegador de l’alumne. El producte final és el text argumentat del <a href="repte.html">repte</a>, amb una rúbrica de cinc criteris que es pot copiar a Google Classroom.</p>
+      <p>Les preguntes «Posa-t’hi» són d’autocorrecció (avaluació formativa): quan l’alumne s’equivoca, un enllaç el porta a la part del capítol on hi ha la resposta. En acabar, guarda les proves del capítol, que li surten destacades al banc de dades del repte. El producte final és el text argumentat del <a href="repte.html">repte</a>, amb una rúbrica de cinc criteris llesta per copiar a Google Sheets o Classroom.</p>
+      <p>El progrés només es desa al navegador de l’alumne. Des de la portada, el botó <b>Copia el meu progrés</b> genera un resum (capítols, encerts, paraules del text i autoavaluació) per enganxar a Classroom. El botó <b>Imprimeix</b> de cada capítol l’imprimeix sencer, amb totes les pestanyes.</p>
+      <button type="button" class="bt sec2" id="copia-rubrica" style="padding:8px 14px;font-size:.9rem"><i class="ic-l" data-icona="copia"></i> Copia la rúbrica (taula)</button>
     </div>
   </div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Fonts" data-ic="fonts">
-  <h2>Crèdits</h2>
+  <h2>Crèdits i suggeriments</h2>
   <p class="text">Infografies i il·lustracions a l’aquarel·la generades amb IA a partir d’encàrrecs verificats, i revisades una a una. Mapes amb contorns de <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a> (domini públic). Tipografies Alegreya i Alegreya Sans (Google Fonts, SIL Open Font License).</p>
+  <p class="text mb0">Has trobat un error o tens un suggeriment? Pots comunicar-ho al <a href="https://github.com/felipsarroca/web/issues/new?template=especies.yml" target="_blank" rel="noopener noreferrer">formulari d’incidències</a>.</p>
 </section>
 </main>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const ll = document.getElementById('gl-llista');
-  Object.keys(GLOSSARI).sort((a, b) => a.localeCompare(b, 'ca')).forEach(k => ll.insertAdjacentHTML('beforeend', `<div data-k="${k.toLowerCase()}"><dt>${k[0].toUpperCase() + k.slice(1)}</dt><dd>${GLOSSARI[k]}</dd></div>`));
-  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-  document.getElementById('cerca').addEventListener('input', (e) => { const q = norm(e.target.value); ll.querySelectorAll('div').forEach(d => d.hidden = q && !norm(d.textContent).includes(q)); });
+  const buit = document.getElementById('gl-buit');
+  Object.keys(GLOSSARI).sort((a, b) => a.localeCompare(b, 'ca')).forEach(k => {
+    const caps = (GLOSSARI_CAPS[k] || []).map(n => {
+      const c = CAPS[n - 1];
+      return c ? `<a href="${c.id}.html" title="${c.n}. ${c.tit}">Cap. ${c.n}</a>` : '';
+    }).join('');
+    ll.insertAdjacentHTML('beforeend', `<div data-k="${k.toLowerCase()}"><dt>${k[0].toUpperCase() + k.slice(1)}</dt><dd>${GLOSSARI[k]}</dd>${caps ? `<div class="gl-caps">${caps}</div>` : ''}</div>`);
+  });
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  document.getElementById('cerca').addEventListener('input', (e) => {
+    const q = norm(e.target.value);
+    let visibles = 0;
+    ll.querySelectorAll(':scope > div').forEach(d => {
+      const amaga = Boolean(q && !norm(d.textContent).includes(q));
+      d.hidden = amaga;
+      if (!amaga) visibles++;
+    });
+    buit.hidden = visibles > 0;
+  });
+
   const d = document.getElementById('desc');
-  CAPS.forEach(c => d.insertAdjacentHTML('beforeend', `<a href="infografies/El comerç de les espècies - (${c.n}).png" download><img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360"><span>${c.n}. ${c.tit}</span></a>`));
+  CAPS.forEach(c => {
+    const png = `infografies/El comerç de les espècies - (${c.n}).png`;
+    d.insertAdjacentHTML('beforeend', `<div class="desc-card">
+      <button type="button" class="vis" data-gran="img/infografies/${c.id}.webp" data-png="${png}" data-tit="Capítol ${c.n} · ${c.tit}" aria-label="Amplia la infografia del capítol ${c.n}">
+        <img src="img/infografies/${c.id}-mini.webp" alt="" loading="lazy" width="640" height="360">
+      </button>
+      <div class="peu-d"><b>${c.n}. ${c.curt}</b><a href="${png}" download>PNG ↓</a></div>
+    </div>`);
+  });
+
+  const RUBRICA_TSV = [
+    ['Criteri', 'Excel·lent (4)', 'Notable (3)', 'Suficient (2)', 'Cal millorar (1)'],
+    ['Tesi', 'Clara, pròpia i respon tota la pregunta.', 'Clara però parcial.', 'Hi és, però confusa.', 'No hi ha resposta clara.'],
+    ['Proves', '3 o més dades correctes de la web (xifres, dates, fonts).', '2 dades correctes.', '1 dada o dades poc precises.', 'Cap dada.'],
+    ['Perspectives', 'Compara europeus, pobles d’Àsia o Amèrica i mariners.', 'Dues perspectives.', 'Només la dels europeus.', 'No es planteja.'],
+    ['Causes i conseqüències', 'Relaciona preus, rutes i canvis fins avui.', 'Relaciona dos d’aquests elements.', 'Enumera fets sense relacionar-los.', 'Fets aïllats o erronis.'],
+    ['Expressió', 'Ben estructurat, connectors i vocabulari històric correcte.', 'Alguns errors que no dificulten la lectura.', 'Desordenat o amb errors freqüents.', 'Difícil d’entendre.']
+  ].map(r => r.join('\t')).join('\n');
+
+  document.getElementById('copia-rubrica').onclick = async () => {
+    try { await navigator.clipboard.writeText(RUBRICA_TSV); avisa('Rúbrica copiada! Enganxa-la directament a Google Sheets.'); }
+    catch (e) { const a = el('textarea'); a.value = RUBRICA_TSV; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); avisa('Rúbrica copiada!'); } catch (e2) { } a.remove(); }
+  };
 });
 </script>
 </body>

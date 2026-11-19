@@ -27,7 +27,7 @@ Web educativa en català per a l’ESO sobre el comerç de les espècies, de Mar
 | 8 | La primera volta al món | Va valer la pena el viatge de la Victoria? | Viatge en 14 etapes i mercader a Tidore |
 | 9 | Per què avui són barates | Què va canviar i les podríem plantar aquí? | Cinc segles de preus i «Es pot plantar a Catalunya?» |
 
-A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc de dades, còpia per a Classroom i rúbrica d’autoavaluació) i **glossari i fonts** (24 termes, fonts primàries i acadèmiques, descàrregues i orientacions per al professorat).
+A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc de dades, còpia per a Classroom i rúbrica d’autoavaluació) i **glossari i fonts** (33 termes, fonts primàries i acadèmiques, descàrregues i orientacions per al professorat).
 
 ![Mapa de l’Índic](captures/03-mapa-index.png)
 
@@ -36,11 +36,17 @@ A més: **repte final** (10 preguntes de repàs, text argumentat guiat amb banc 
 ## Pensada per a l’aula
 
 - **Per etapes, sense desplaçaments eterns**: cada capítol es divideix en pestanyes (Comença · activitats · Posa-t’hi) amb una barra fixa, i les preguntes es responen d’una en una com a targetes.
-- **En 30 segons**: cada capítol comença amb un resum i té una versió de **lectura fàcil** per a alumnat nouvingut o amb NESE.
-- **Glossari emergent**: les paraules subratllades mostren la definició en tocar-les.
+- **En 30 segons**: cada capítol comença amb un resum i té una versió de **lectura fàcil** per a alumnat nouvingut o amb NESE, que també s’aplica als textos llargs (Barcelona, l’error de Colom, Saragossa).
+- **Glossari emergent**: les paraules subratllades mostren la definició en tocar-les o en passar-hi el ratolí.
+- **Situar-se en el temps i en l’espai**: cada capítol té una mini cronologia a la capçalera, i els mapes porten llegenda i ports que conviden a tocar-los.
+- **Errors que ensenyen**: si una resposta del «Posa-t’hi» és incorrecta, un enllaç porta a la pestanya on hi ha la resposta.
+- **Del capítol al repte**: en acabar cada capítol, l’alumnat veu la resposta a la pregunta inicial i guarda les proves del capítol, que li surten destacades al banc de dades del repte, ordenades per arguments (econòmic, geogràfic i tècnic, humà).
+- **L’altra mirada**: Calicut, Mactan i les illes Banda expliquen els fets des del punt de vista dels pobles de l’Índic i el Pacífic.
+- **Fets visibles**: escala de preus amb els multiplicadors, comptes del joc de la galera, flotes de Gama i Magalhães nau a nau, pictograma dels 239 homes de la volta al món i termòmetre de «Es pot plantar?».
+- **Imprimir i compartir**: el botó *Imprimeix* treu el capítol sencer, i *Copia el meu progrés* (a la portada) genera un resum per enganxar a Classroom.
 - **Fonts primàries** traduïdes: Marco Polo, Pigafetta, el diari de Colom i el del viatge de Gama.
 - **Mites desmuntats**: la carn podrida, el tancament otomà de 1453, la Terra plana.
-- **Progrés** desat només al navegador: cada capítol fet queda marcat a la portada i al menú.
+- **Progrés** desat només al navegador: cada capítol fet queda marcat a la portada i al menú, amb les proves guardades per al repte.
 - **Encaix curricular**: Ciències Socials: Geografia i Història (Decret 175/2022), 2n i 3r d’ESO. Proposta de 6-8 sessions a la pàgina de fonts.
 
 | | |
@@ -69,7 +75,7 @@ Especies/
 └── eines/                 scripts Python per regenerar imatges i mapes
 ```
 
-- **Adaptació a la pantalla**: com a `edu-apps/Equacions`, la interfície s’escala uniformement en portàtils petits (1366 × 768, mínim 80 %) i es recalcula en canviar la mida. En mòbil passa a una sola columna, sense desplaçament horitzontal.
+- **Adaptació a la pantalla**: com a `edu-apps/Equacions`, la interfície s’escala uniformement en portàtils petits (1366 × 768, mínim 80 %) i es recalcula en canviar la mida. En pantalles baixes, la capçalera de cada capítol es compacta per deixar més espai al contingut. En mòbil passa a una sola columna, sense desplaçament horitzontal.
 - **Accessibilitat**: navegació amb teclat, focus visible, textos alternatius, `prefers-reduced-motion`.
 - **Provar-la en local**: des de la carpeta `web`, `python -m http.server` i obrir `http://localhost:8000/Especies/`.
 

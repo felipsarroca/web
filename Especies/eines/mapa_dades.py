@@ -5,9 +5,10 @@ from shapely.geometry import shape, box
 from shapely.ops import unary_union
 land = [shape(f['geometry']) for f in json.load(open('infografies/obres/ne_land.geojson', encoding='utf-8'))['features']]
 VISTES = {
-  'indic': dict(lon0=5, lon1=135, lat0=-15, lat1=50, W=1000, tol=0.12),
+  'indic': dict(lon0=5, lon1=137, lat0=-15, lat1=50, W=1000, tol=0.12),
   'atlantic': dict(lon0=-95, lon1=85, lat0=-45, lat1=62, W=1000, tol=0.18),
   'mon': dict(lon0=-180, lon1=180, lat0=-58, lat1=72, W=1200, tol=0.3),
+  'med': dict(lon0=-4, lon1=38, lat0=29, lat1=46, W=900, tol=0.08),
 }
 out = {}
 for k, v in VISTES.items():

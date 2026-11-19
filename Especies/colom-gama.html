@@ -9,10 +9,10 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
-<script src="js/mapes-dades.js?v=20261112d" defer></script>
-<script src="js/mapa.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
+<script src="js/mapes-dades.js?v=20261119b" defer></script>
+<script src="js/mapa.js?v=20261119b" defer></script>
 </head>
 <body data-cap="7">
 <main id="contingut">
@@ -52,7 +52,7 @@
       <img src="img/infografies/colom-gama.webp" alt="Infografia: la ruta de Colom cap a l'oest i la de Vasco da Gama per l'Àfrica." loading="lazy" width="1920" height="1080">
       <span class="lupa"><i class="ic-l" data-icona="lupa"></i> Amplia</span>
     </button>
-    <figcaption><span>Infografia del capítol 7. Toca-la per veure-la gran.</span></figcaption>
+    <figcaption><span>Infografia del capítol 7.</span></figcaption>
   </figure>
 </section>
 
@@ -67,24 +67,36 @@
         <button type="button" data-r="gama" aria-pressed="false">Gama 1497-1499</button>
       </div>
     </div>
-    <div class="mapa" id="mapa-rutes"></div>
-    <p class="mapa-peu">Rutes aproximades. <span style="color:#7a4b7b">■</span> Dias · <span style="color:#3d6f91">■</span> Colom · <span style="color:#b4502c">■</span> Gama. Contorns: Natural Earth.</p>
+    <div class="passos">
+      <div class="mapa" id="mapa-rutes"></div>
+      <div class="pas-card mapa-info" id="info-ruta" aria-live="polite">
+        <p class="quan">Tria una ruta o toca un port</p>
+        <p class="mb0">Portugal va explorar la costa africana durant dècades fins a passar el cap de Bona Esperança (1488). Castella va acceptar l’aposta de Colom cap a l’oest (1492). Toca qualsevol port del mapa per saber-ne el paper.</p>
+      </div>
+    </div>
+    <p class="mapa-peu">Rutes aproximades. Contorns: Natural Earth.</p>
   </div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Vasco da Gama" data-ic="vaixell">
-  <div class="sec-tit"><span class="n">1</span><h2>El viatge de Vasco da Gama, pas a pas</h2></div>
-  <div class="passos mt1">
-    <div class="pas-card" id="gama-pas" aria-live="polite" style="min-height:260px"></div>
-    <div>
-      <div class="comptadors">
-        <div class="comptador"><b id="g-naus">4</b><span>naus</span></div>
-        <div class="comptador"><b id="g-dies">0</b><span>dies de viatge</span></div>
-      </div>
-      <div class="pas-nav">
+  <div class="panell">
+    <div class="panell-cap">
+      <div class="sec-tit"><span class="n">1</span><h2 style="margin:0;font-size:1.45rem">El viatge de Vasco da Gama, pas a pas</h2></div>
+      <div class="pas-nav" style="margin:0">
         <button class="bt sec2" type="button" id="g-ant">← Anterior</button>
         <button class="bt" type="button" id="g-seg">Següent →</button>
+        <button class="bt terra" type="button" id="g-play"><i class="ic-l" data-icona="play"></i> Reprodueix</button>
         <span class="compte" id="g-n"></span>
+      </div>
+    </div>
+    <div class="passos">
+      <div class="mapa" id="mapa-gama"></div>
+      <div>
+        <div class="flota-fila">
+          <div id="g-flota" aria-label="Estat de les naus"></div>
+          <div class="comptador"><b id="g-dies">0</b><span>dies de viatge</span></div>
+        </div>
+        <div class="pas-card" id="gama-pas" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -94,7 +106,7 @@
   <div class="panell" id="regals">
     <div class="panell-cap">
       <h3 class="amb-ic"><span class="h-ic" data-icona="regal"></span>Els regals de Gama per al rei de Calicut</h3>
-      <p class="instr">El 29 de maig de 1498, Gama va preparar aquests regals per al samorí, el rei de Calicut.</p>
+      <p class="instr">El 29 de maig de 1498, Gama va preparar aquests regals per al <button class="gl" data-gl="samorí">samorí</button>, el rei de Calicut.</p>
     </div>
     <div class="dues">
       <ul style="margin:0;columns:2;column-gap:28px">
@@ -113,21 +125,38 @@
   </div>
 </section>
 
+<section class="sec wrap reveal" data-tab="Vasco da Gama" data-ic="vaixell">
+  <div class="avis altra"><span class="ic h-ic" data-icona="ull"></span><div><p class="etiq">L’altra mirada: des de Calicut</p><p>Per al samorí, Calicut era un port obert on des de feia segles comerciaven àrabs, gujarats, perses, africans i fins i tot xinesos. Aquells estrangers arribaven amb regals pobres i volien tractes especials. Al segon viatge (1502), Gama va tornar amb una flota armada, va bombardejar Calicut i va atacar naus de mercaders i de pelegrins musulmans. Des d’aleshores, els portuguesos van exigir permisos per navegar per l’Índic i atacaven qui no els pagava. <strong>Com creus que ho van viure els mercaders de l’Índic?</strong></p></div></div>
+</section>
+
 <section class="sec wrap reveal" data-tab="Colom" data-ic="globus">
   <div class="sec-tit"><span class="n">2</span><h2>L’error de Colom: una Terra massa petita</h2></div>
   <div class="dues mt1">
     <div class="text">
+      <div class="facil caixa-facil">
+        <p class="facil-tit">Lectura fàcil</p>
+        <p>La gent que havia estudiat ja sabia que la Terra és <strong>rodona</strong>.</p>
+        <p>Colom creia que la Terra era <strong>molt més petita</strong> del que és.</p>
+        <p>Pensava que, anant cap a l’oest, arribaria aviat al Japó i a la Xina.</p>
+        <p>Va navegar <strong>36 dies</strong> sense veure terra. El 12 d’octubre de 1492 va arribar a una illa d’<strong>Amèrica</strong>.</p>
+        <p class="mb0">Si Amèrica no hi hagués estat, s’haurien quedat sense menjar ni aigua.</p>
+      </div>
+      <div class="normal">
       <p>Que la Terra era rodona ho sabia tota la gent instruïda de l’època. El problema era <strong>la mida</strong>. El 1474, el savi florentí Paolo Toscanelli va escriure una carta (que Colom va copiar) on deia que, navegant cap a l’oest, s’arribava aviat a la Xina i a Cipango (el Japó).</p>
       <p>Colom va fer servir els càlculs de l’astrònom àrab Alfragà (56⅔ milles per grau), però en milles italianes, més curtes. Li sortia una Terra d’uns <strong>30.000 km</strong> de volta, un 25 % més petita que la real (uns 40.000 km). Calculava que Cipango era a unes 2.500 milles de les Canàries.</p>
       <p>Colom va sortir de l’illa de la Gomera (Canàries) el <strong>6 de setembre de 1492</strong> i no va veure terra fins al <strong>12 d’octubre</strong>, a l’illa de Guanahaní (Bahames): 36 dies d’oceà, molt més del que havia promès a la tripulació.</p>
       <p>Si Amèrica no hi hagués estat, Colom i els seus homes haurien mort de gana i set enmig de l’oceà.</p>
+      </div>
     </div>
     <div class="panell" style="padding:20px">
       <div class="cercles">
         <div class="centre"><div class="cercle" style="width:150px;height:150px;background:var(--ocean)">Terra de Colom<br>≈ 30.000 km</div></div>
         <div class="centre"><div class="cercle" style="width:200px;height:200px;background:var(--sage)">Terra real<br>≈ 40.000 km</div></div>
       </div>
-      <p class="instr mt1 centre">La distància real de les Canàries al Japó, cap a l’oest, és més de quatre vegades la que va calcular Colom.</p>
+      <div class="calc-il">
+        <img src="img/vinyetes/nau-castella.webp" alt="Nau castellana pintada a l'aquarel·la">
+        <p class="instr mb0">La distància real de les Canàries al Japó, cap a l’oest, és més de quatre vegades la que va calcular Colom.</p>
+      </div>
     </div>
   </div>
   <div class="avis mite mt2"><span class="ic h-ic" data-icona="creu"></span><div><p class="etiq">Mite</p><p>«Colom volia demostrar que la Terra era rodona.» Fals: ningú instruït no creia que fos plana. La discussió era sobre <strong>quant</strong> mesurava. I els seus crítics tenien raó: era molt més gran.</p></div></div>
@@ -136,7 +165,7 @@
 <section class="sec wrap reveal" data-tab="Colom" data-ic="globus">
   <div class="sec-tit"><span class="n">3</span><h2>La font parla: Colom i l’ají</h2></div>
   <div class="dues mt1">
-    <blockquote class="cita"><p>També hi ha molt d’ají, que és el seu pebre, i que val més que el pebre, i tota la gent no en menja d’altre perquè és molt sa. Es podran carregar cinquanta caravel·les cada any a l’Espanyola.</p><footer>Cristòfor Colom, diari de bord, 15 de gener de 1493 (adaptat)</footer></blockquote>
+    <blockquote class="cita"><p>També hi ha molt d’ají, que és el seu pebre, i que val més que el pebre, i tota la gent no en menja d’altre perquè és molt sa. Es podran carregar cinquanta <button class="gl" data-gl="caravel·la">caravel·les</button> cada any a l’Espanyola.</p><footer>Cristòfor Colom, diari de bord, 15 de gener de 1493 (adaptat)</footer></blockquote>
     <div class="text">
       <img src="img/vinyetes/aji.webp" alt="Ají o pebrot picant" style="max-width:260px">
       <p>Colom buscava pebre i va trobar l’<strong>ají</strong> (<i>Capsicum</i>), una planta americana desconeguda a Europa. Va intentar convèncer els reis que valia tant com les espècies d’Àsia.</p>
@@ -161,58 +190,119 @@
 
 <script>
 window.QUIZ = { c7: [
-  { t: 'ordena', e: 'Ordena aquests fets.', o: ['Dias passa el cap de Bona Esperança (1488)', 'Colom arriba a Guanahaní (1492)', 'Tractat de Tordesillas (1494)', 'Gama arriba a Calicut (1498)'], r: '1488, 1492, 1494, 1498.' },
-  { t: 'tria', e: 'Quin era el gran error de càlcul de Colom?', o: ['Creia que la Terra era plana', 'Creia que la Terra era molt més petita', 'Creia que Àsia era al sud'], c: 1, r: 'Calculava uns 30.000 km de volta, un 25 % menys que la realitat.' },
-  { t: 'tria', e: 'Com van reaccionar a Calicut davant els regals de Gama?', o: ['Se’n van riure: eren massa pobres per a un rei', 'Els van agrair molt', 'Els van tornar sense obrir'], c: 0, r: 'Deien que el mercader més pobre de la Meca en portaria de millors, i que el rei volia or.' },
-  { t: 'vf', e: 'Colom va trobar a Amèrica el pebre negre que buscava.', c: false, r: 'Va trobar l’ají (Capsicum), una planta diferent, i va intentar fer-la passar per un tresor.' },
-  { t: 'tria', e: 'Quina va ser una de les grans dificultats de la tornada de Gama?', o: ['L’escorbut, que va matar desenes d’homes', 'Que no trobava el camí', 'Que el rei de Portugal el volia empresonar'], c: 0, r: 'Més de 55 homes van morir d’escorbut, i van haver de cremar una nau perquè no hi havia prou mariners.' }
+  { t: 'ordena', e: 'Ordena aquests fets.', o: ['Dias passa el cap de Bona Esperança (1488)', 'Colom arriba a Guanahaní (1492)', 'Tractat de Tordesillas (1494)', 'Gama arriba a Calicut (1498)'], r: '1488, 1492, 1494, 1498.', on: 'p2' },
+  { t: 'tria', e: 'Quin era el gran error de càlcul de Colom?', o: ['Creia que la Terra era plana', 'Creia que la Terra era molt més petita', 'Creia que Àsia era al sud'], c: 1, r: 'Calculava uns 30.000 km de volta, un 25 % menys que la realitat.', on: 'p4' },
+  { t: 'tria', e: 'Com van reaccionar a Calicut davant els regals de Gama?', o: ['Se’n van riure: eren massa pobres per a un rei', 'Els van agrair molt', 'Els van tornar sense obrir'], c: 0, r: 'Deien que el mercader més pobre de la Meca en portaria de millors, i que el rei volia or.', on: 'p3' },
+  { t: 'vf', e: 'Colom va trobar a Amèrica el pebre negre que buscava.', c: false, r: 'Va trobar l’ají (Capsicum), una planta diferent, i va intentar fer-la passar per un tresor.', on: 'p4' },
+  { t: 'tria', e: 'Quina va ser una de les grans dificultats de la tornada de Gama?', o: ['L’escorbut, que va matar desenes d’homes', 'Que no trobava el camí', 'Que el rei de Portugal el volia empresonar'], c: 0, r: 'Més de 55 homes van morir d’escorbut, i van haver de cremar una nau perquè no hi havia prou mariners.', on: 'p3' }
 ] };
 
 const GAMA = [
-  { d: 0, naus: 4, q: '8 de juliol de 1497', t: 'Surt de Lisboa amb 4 naus (São Gabriel, São Rafael, Bérrio i una nau de provisions) i entre 118 i 170 homes.', k: 0 },
-  { d: 122, naus: 4, q: 'Agost-novembre de 1497', t: 'Per aprofitar els vents, s’allunya de la costa i navega <strong>93 dies seguits sense veure terra</strong> per l’Atlàntic sud: més de 5.000 milles.', k: 3 },
-  { d: 137, naus: 4, q: '22 de novembre de 1497', t: 'Passa el cap de Bona Esperança, com havia fet Dias. Poc després desfan la nau de provisions, ja buida.', k: 5 },
-  { d: 280, naus: 3, q: '14 d’abril de 1498', t: 'A Malindi (Kenya) el rei li ofereix un <strong>pilot gujarat</strong> que coneix el camí i els monsons de l’Índic.', k: 8 },
-  { d: 316, naus: 3, q: '20 de maig de 1498', t: 'Arriba a <strong>Calicut</strong>, el gran mercat del pebre. Ha fet el camí per mar d’Europa a l’Índia!', k: 10 },
-  { d: 325, naus: 3, q: '29 de maig de 1498', t: 'Els regals per al samorí provoquen rialles. Els mercaders musulmans de Calicut desconfien dels portuguesos.', k: 10 },
-  { d: 418, naus: 3, q: '30 d’agost de 1498', t: 'Surt de Calicut amb pebre i espècies, però sense acord comercial i contra el monsó: la tornada per l’Índic dura més de tres mesos.', k: 10 },
-  { d: 554, naus: 2, q: '13 de gener de 1499', t: 'L’<button class="gl" data-gl="escorbut">escorbut</button> ha matat desenes d’homes. No hi ha mariners per a tres naus: cremen el São Rafael.', k: 8 },
-  { d: 732, naus: 2, q: 'Juliol-setembre de 1499', t: 'El Bérrio arriba a Lisboa el 10 de juliol; Gama, a finals d’agost o al setembre. Han mort molts homes (més de 55 només d’escorbut), però la càrrega d’espècies es ven amb grans guanys.', k: 0 }
+  { d: 0, naus: 4, q: '8 de juliol de 1497', t: 'Surt de Lisboa amb 4 naus (<i>São Gabriel</i>, <i>São Rafael</i>, <i>Bérrio</i> i una nau de provisions) i entre 118 i 170 homes.', k: 0 },
+  { d: 122, naus: 4, q: 'Agost-novembre de 1497', t: 'Per aprofitar els vents, s’allunya de la costa i navega <strong>93 dies seguits sense veure terra</strong> per l’Atlàntic sud: més de 5.000 milles.', k: 4 },
+  { d: 137, naus: 4, q: '22 de novembre de 1497', t: 'Passa el cap de Bona Esperança, com havia fet Dias. Poc després desfan la nau de provisions, ja buida.', k: 7 },
+  { d: 280, naus: 3, q: '14 d’abril de 1498', t: 'A Malindi (Kenya) el rei li ofereix un <strong>pilot gujarat</strong> que coneix el camí i els monsons de l’Índic.', k: 11 },
+  { d: 316, naus: 3, q: '20 de maig de 1498', t: 'Arriba a <strong>Calicut</strong>, el gran mercat del pebre. Ha fet el camí per mar d’Europa a l’Índia!', k: 13 },
+  { d: 325, naus: 3, q: '29 de maig de 1498', t: 'Els regals per al samorí provoquen rialles. Els mercaders musulmans de Calicut desconfien dels portuguesos.', k: 13 },
+  { d: 418, naus: 3, q: '30 d’agost de 1498', t: 'Surt de Calicut amb pebre i espècies, però sense acord comercial i contra el monsó: la tornada per l’Índic dura més de tres mesos.', k: 12 },
+  { d: 554, naus: 2, q: '13 de gener de 1499', t: 'L’<button class="gl" data-gl="escorbut">escorbut</button> ha matat desenes d’homes. No hi ha mariners per a tres naus: cremen la nau <i>São Rafael</i>.', k: 10 },
+  { d: 732, naus: 2, q: 'Juliol-setembre de 1499', t: 'La <button class="gl" data-gl="caravel·la">caravel·la</button> <i>Bérrio</i> arriba a Lisboa el 10 de juliol; Gama, a finals d’agost o al setembre. Han mort molts homes (més de 55 només d’escorbut), però la càrrega d’espècies es ven amb grans guanys.', k: 0 }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const m = Mapa(document.getElementById('mapa-rutes'), 'atlantic', { titol: 'Rutes de Dias, Colom i Gama' });
-  m.text(-35, 30, 'Oceà Atlàntic'); m.text(70, -20, 'Oceà Índic');
   const ROUTES = {
     dias: [[-9.1, 38.7], [-16, 28], [-17.5, 14.7], [-10, 4], [8, -5], [11.5, -18], [15, -28], [18.5, -35], [22, -34.6], [26.6, -33.9]],
     colom: [[-6.9, 37.2], [-13, 32], [-17.2, 28.1], [-35, 27.5], [-55, 26.5], [-74.5, 24.1], [-77.5, 21.5], [-72.5, 19.8]],
     gama: [[-9.1, 38.7], [-16, 28], [-23.5, 15], [-26, 0], [-30, -18], [-15, -32], [18, -32.7], [18.5, -35], [26, -34.5], [40.7, -15], [39.7, -4], [40.1, -3.2], [60, 6], [75.8, 11.25]]
   };
   const COL = { dias: '#7a4b7b', colom: '#3d6f91', gama: '#b4502c' };
+  const TXT_RUTA = {
+    tot: '<p class="quan">Dues apostes per arribar a Àsia</p><p class="mb0">Portugal explora l’Àfrica (Dias i Gama); Castella creua l’Atlàntic cap a l’oest (Colom). Toca qualsevol port o tria una ruta a dalt.</p>',
+    dias: '<p class="quan">Bartolomeu Dias (1488)</p><p class="mb0">Passa el cap de Bona Esperança i demostra que l’Atlàntic i l’Índic estan connectats. Obre la porta a l’Índia.</p>',
+    colom: '<p class="quan">Cristòfor Colom (1492)</p><p class="mb0">Surt de Palos i les Canàries cap a l’oest convençut d’arribar al Japó. Toca terra a Guanahaní (Bahames) després de 36 dies d’oceà.</p>',
+    gama: '<p class="quan">Vasco da Gama (1497-1499)</p><p class="mb0">Fa una gran volta per l’Atlàntic sud per aprofitar els vents, passa el cap i arriba a Calicut (Índia) guiat per un pilot gujarat.</p>'
+  };
+
+  // Mapa comparatiu de la pestanya «Les rutes» amb tots els ports clicables
+  const m = Mapa(document.getElementById('mapa-rutes'), 'atlantic', { titol: 'Rutes de Dias, Colom i Gama', rosa: 'bl' });
+  m.text(-35, 32, 'Oceà Atlàntic'); m.text(65, -20, 'Oceà Índic');
   const R = {};
   for (const k in ROUTES) R[k] = m.ruta(ROUTES[k], { stroke: COL[k], 'stroke-width': 3.6, 'marker-end': m.fletxa('f' + k, COL[k]) });
+  m.llegenda([
+    { c: '#7a4b7b', t: 'Dias (1488)', tipus: 'fletxa' },
+    { c: '#3d6f91', t: 'Colom (1492)', tipus: 'fletxa' },
+    { c: '#b4502c', t: 'Gama (1497-1499)', tipus: 'fletxa' }
+  ], 'tr');
+  const infoR = document.getElementById('info-ruta');
   const ports = [
-    [-9.1, 38.7, 'Lisboa', { dx: 8, dy: -8 }], [-6.9, 37.2, 'Palos', { dx: 10, dy: 12 }], [-17.2, 28.1, 'Canàries', { dx: -10, anchor: 'end' }],
-    [-74.5, 24.1, 'Guanahaní', { dx: -10, anchor: 'end', dy: -6 }], [18.5, -34.6, 'Cap de Bona Esperança', { dx: -10, anchor: 'end', dy: 18 }],
-    [40.1, -3.2, 'Malindi', { dx: 10 }], [75.8, 11.25, 'Calicut', { dx: -10, anchor: 'end', dy: -8 }]
+    [-9.1, 38.7, 'Lisboa', { dx: 8, dy: -8 }, 'Capital de Portugal i port de sortida de Bartolomeu Dias (1487) i Vasco da Gama (1497).'],
+    [-6.9, 37.2, 'Palos', { dx: 10, dy: 12 }, 'Port andalús d’on va salpar Cristòfor Colom el 3 d’agost de 1492 amb tres naus.'],
+    [-17.2, 28.1, 'Canàries', { dx: -10, anchor: 'end' }, 'Última escala de Colom (illa de la Gomera) per agafar aigua, queviures i els vents alisis cap a l’oest.'],
+    [-74.5, 24.1, 'Guanahaní', { dx: -10, anchor: 'end', dy: -6 }, 'Illa de les Bahames on Colom va tocar terra el 12 d’octubre de 1492, pensant que era prop de l’Índia.'],
+    [18.5, -34.6, 'Cap de Bona Esperança', { dx: -10, anchor: 'end', dy: 18 }, 'Extrem sud d’Àfrica. Dias el va passar el 1488; Gama, el 1497. Marca l’entrada a l’oceà Índic.'],
+    [40.1, -3.2, 'Malindi', { dx: 10 }, 'Port de la costa swahili (Kenya) on el rei va donar a Gama un pilot gujarat expert en els monsons.'],
+    [75.8, 11.25, 'Calicut', { dx: -10, anchor: 'end', dy: -8 }, 'El gran mercat del pebre de Malabar (Índia). Gama hi va arribar el 20 de maig de 1498.']
   ];
-  ports.forEach(([lo, la, n, o]) => m.port(lo, la, n, Object.assign({ focus: false }, o)));
+  ports.forEach(([lo, la, n, o, txt]) => m.port(lo, la, n, Object.assign({}, o, { onSel: (g) => {
+    m.svg.querySelectorAll('.port').forEach(p => p.classList.toggle('actiu', p === g));
+    infoR.innerHTML = `<p class="quan">${n}</p><p class="mb0">${txt}</p>`;
+  } })));
   document.querySelectorAll('.seg [data-r]').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('.seg [data-r]').forEach(x => x.setAttribute('aria-pressed', x === b));
-    for (const k in R) { R[k].style.opacity = (b.dataset.r === 'tot' || b.dataset.r === k) ? 1 : .12; if (b.dataset.r === k) { R[k].style.transition = 'none'; m.traça(R[k], 0); R[k].getBoundingClientRect(); R[k].style.transition = 'stroke-dashoffset 2.2s ease'; m.traça(R[k], 1); } }
+    infoR.innerHTML = TXT_RUTA[b.dataset.r];
+    m.svg.querySelectorAll('.port').forEach(p => p.classList.remove('actiu'));
+    for (const k in R) {
+      R[k].style.opacity = (b.dataset.r === 'tot' || b.dataset.r === k) ? 1 : .12;
+      if (b.dataset.r === k) { R[k].style.transition = 'none'; m.traça(R[k], 0); R[k].getBoundingClientRect(); R[k].style.transition = 'stroke-dashoffset 2.2s ease'; m.traça(R[k], 1); }
+    }
   }));
 
-  // pas a pas de Gama
-  let i = 0;
+  // Mapa i pas a pas de Vasco da Gama amb vaixell animat i Reprodueix
+  const mg = Mapa(document.getElementById('mapa-gama'), 'atlantic', { titol: 'Viatge de Vasco da Gama (1497-1499)', rosa: 'bl' });
+  mg.text(-35, 32, 'Atlàntic'); mg.text(64, -20, 'Índic');
+  mg.ruta(ROUTES.gama, { stroke: 'rgba(180,80,44,.22)', 'stroke-dasharray': '6 6', 'stroke-width': 2.4 });
+  const rG = mg.ruta(ROUTES.gama, { stroke: '#b4502c', 'stroke-width': 3.5 });
+  const vaixG = mg.vaixell();
+  const portsG = [
+    [-9.1, 38.7, 'Lisboa', { dx: 8, dy: -8 }, 0],
+    [18.5, -34.6, 'Bona Esperança', { dx: -10, anchor: 'end', dy: 16 }, 2],
+    [40.1, -3.2, 'Malindi', { dx: 10 }, 3],
+    [75.8, 11.25, 'Calicut', { dx: -10, anchor: 'end', dy: -8 }, 4]
+  ].map(([lo, la, n, o, stepIdx]) => mg.port(lo, la, n, Object.assign({}, o, { onSel: () => { paraG(); i = stepIdx; pinta(); } })));
+
+  mg.llegenda([
+    { c: '#b4502c', t: 'Camí fet', tipus: 'linia' },
+    { c: 'rgba(180,80,44,.45)', t: 'Camí per fer', tipus: 'discont' }
+  ], 'tr');
+  const posaFlota = Flota(document.getElementById('g-flota'), ['São Gabriel', 'São Rafael', 'Bérrio', 'Provisions']);
+  const fatsGama = (k) => [k === 8 ? 'arriba' : '', k >= 7 ? 'cremada' : '', k === 8 ? 'arriba' : '', k >= 3 ? 'desfeta' : ''];
+  let i = 0, timerG = null;
+  const btPlayG = document.getElementById('g-play');
+  const paraG = () => { if (timerG) { clearInterval(timerG); timerG = null; btPlayG.innerHTML = '<i class="ic-l" data-icona="play"></i> Reprodueix'; } };
   const pinta = () => {
     const p = GAMA[i];
     document.getElementById('gama-pas').innerHTML = `<p class="quan">${p.q}</p><p class="mb0">${p.t}</p>`;
-    document.getElementById('g-naus').textContent = p.naus; document.getElementById('g-dies').textContent = p.d;
+    posaFlota(fatsGama(i)); document.getElementById('g-dies').textContent = p.d;
     document.getElementById('g-n').textContent = `${i + 1} / ${GAMA.length}`;
     document.getElementById('g-ant').disabled = i === 0; document.getElementById('g-seg').disabled = i === GAMA.length - 1;
+    // La ruta dibuixada no s'escurça a la tornada: el vaixell desfà el camí sobre la línia ja feta
+    const kMax = Math.max(...GAMA.slice(0, i + 1).map(x => x.k));
+    rG.style.transition = 'stroke-dashoffset .85s ease';
+    mg.traça(rG, mg.fr(ROUTES.gama, kMax));
+    mg.posaVaixell(vaixG, rG, mg.fr(ROUTES.gama, p.k));
+    document.getElementById('mapa-gama').classList.toggle('tornada', i >= 6);
   };
-  document.getElementById('g-ant').onclick = () => { if (i > 0) { i--; pinta(); } };
-  document.getElementById('g-seg').onclick = () => { if (i < GAMA.length - 1) { i++; pinta(); } };
+  document.getElementById('g-ant').onclick = () => { paraG(); if (i > 0) { i--; pinta(); } };
+  document.getElementById('g-seg').onclick = () => { paraG(); if (i < GAMA.length - 1) { i++; pinta(); } };
+  btPlayG.onclick = () => {
+    if (timerG) { paraG(); return; }
+    if (i >= GAMA.length - 1) { i = 0; pinta(); }
+    btPlayG.innerHTML = '<i class="ic-l" data-icona="pause"></i> Pausa';
+    timerG = setInterval(() => {
+      if (i < GAMA.length - 1) { i++; pinta(); }
+      else paraG();
+    }, 2200);
+  };
   pinta();
 
   // regals

@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
 </head>
 <body data-pag="repte">
 <main id="contingut">
@@ -39,42 +39,52 @@
   <p class="intro">Respon la gran pregunta en un text breu (150-250 paraules). Fes servir les caixes com a guia: cada una és un paràgraf. El text es desa en aquest navegador mentre escrius.</p>
 
   <div class="panell mt1">
-    <h3 class="amb-ic"><span class="h-ic" data-icona="caixa"></span>Banc de dades: fes-les servir com a proves</h3>
-    <div class="meta" id="banc"></div>
-    <p class="instr mt1 mb0">Toca una dada per afegir-la al paràgraf on tens el cursor.</p>
+    <div class="panell-cap"><h3 class="amb-ic"><span class="h-ic" data-icona="caixa"></span>Banc de dades: fes-les servir com a proves</h3><span class="instr" id="banc-comp"></span></div>
+    <p class="instr mb0">Toca una dada i s’afegirà al paràgraf del seu color. Les que vas guardar als capítols porten una estrella (★); les que ja has fet servir es marquen amb ✓.</p>
+    <div class="banc-grups mt1" id="banc"></div>
   </div>
 
-  <div class="graella g2 mt2" id="escrit">
-    <label class="camp">1. La meva resposta (tesi)<small class="instr">En una o dues frases: per què eren tan importants les espècies?</small><textarea data-k="tesi" placeholder="Crec que les espècies van moure vaixells i imperis perquè…"></textarea></label>
-    <label class="camp">2. Argument econòmic<small class="instr">Preus, intermediaris, guanys i pèrdues.</small><textarea data-k="a1" placeholder="En primer lloc, …"></textarea></label>
-    <label class="camp">3. Argument geogràfic i tècnic<small class="instr">On creixien, rutes, vents, vaixells, la mida de la Terra.</small><textarea data-k="a2" placeholder="A més, …"></textarea></label>
-    <label class="camp">4. Argument humà<small class="instr">Qui hi guanyava i qui hi perdia: mariners, pobles d’Àsia i d’Amèrica, pagesos.</small><textarea data-k="a3" placeholder="Però també cal tenir en compte que…"></textarea></label>
-    <label class="camp" style="grid-column:1/-1">5. Conclusió: i avui?<small class="instr">Què va canviar i què en podem aprendre.</small><textarea data-k="conc" placeholder="En conclusió, …"></textarea></label>
+  <div class="escrit-grid mt2" id="escrit">
+    <label class="camp ample">1. La meva resposta (tesi)<small class="instr">En una o dues frases: per què eren tan importants les espècies?</small><textarea data-k="tesi" placeholder="Crec que les espècies van moure vaixells i imperis perquè…"></textarea></label>
+    <label class="camp arg-eco">2. Argument econòmic<small class="instr">Preus, intermediaris, guanys i pèrdues.</small><textarea data-k="a1" placeholder="En primer lloc, …"></textarea></label>
+    <label class="camp arg-geo">3. Argument geogràfic i tècnic<small class="instr">On creixien, rutes, vents, vaixells, la mida de la Terra.</small><textarea data-k="a2" placeholder="A més, …"></textarea></label>
+    <label class="camp arg-hum">4. Argument humà<small class="instr">Qui hi guanyava i qui hi perdia: mariners, pobles d’Àsia i d’Amèrica, pagesos.</small><textarea data-k="a3" placeholder="Però també cal tenir en compte que…"></textarea></label>
+    <label class="camp ample">5. Conclusió: i avui?<small class="instr">Què va canviar i què en podem aprendre.</small><textarea data-k="conc" placeholder="En conclusió, …"></textarea></label>
   </div>
-  <div class="bts mt2">
+
+  <div class="paraules-wrap">
+    <div class="paraules-bar" id="p-bar" aria-hidden="true"><span></span></div>
+    <span class="instr" id="estat" aria-live="polite"></span>
+  </div>
+
+  <div class="bts mt1">
     <button class="bt" type="button" id="copia"><i class="ic-l" data-icona="copia"></i> Copia el text</button>
+    <button class="bt sec2" type="button" id="bt-prev"><i class="ic-l" data-icona="ull"></i> Vista prèvia</button>
     <button class="bt sec2" type="button" id="esborra">Esborra</button>
-    <span class="instr" id="estat" aria-live="polite" style="align-self:center"></span>
   </div>
+  <div class="preview-box" id="prev-box" hidden></div>
   <p class="instr mt1">Enganxa el text copiat a Google Classroom o al document que et digui el professor.</p>
 </section>
 
 <section class="sec wrap reveal" data-tab="Rúbrica" data-ic="regle">
   <div class="sec-tit"><h2 class="amb-ic"><span class="h-ic" data-icona="regle"></span>Rúbrica: com t’avaluaran</h2></div>
-  <p class="intro">Fes-te una autoavaluació abans d’entregar: marca el nivell que creus que tens a cada criteri.</p>
+  <p class="intro">Fes-te una autoavaluació abans d’entregar: marca el nivell que creus que tens a cada criteri. La selecció es desa en aquest navegador.</p>
   <div class="taula-wrap mt1">
     <table class="taula" id="rubrica">
       <thead><tr><th>Criteri</th><th>Excel·lent (4)</th><th>Notable (3)</th><th>Suficient (2)</th><th>Cal millorar (1)</th></tr></thead>
       <tbody>
         <tr><td><b>Tesi</b></td><td>Clara, pròpia i respon tota la pregunta.</td><td>Clara però parcial.</td><td>Hi és, però confusa.</td><td>No hi ha resposta clara.</td></tr>
-        <tr><td><b>Proves</b></td><td>3 o més dades correctes del web (xifres, dates, fonts).</td><td>2 dades correctes.</td><td>1 dada o dades poc precises.</td><td>Cap dada.</td></tr>
+        <tr><td><b>Proves</b></td><td>3 o més dades correctes de la web (xifres, dates, fonts).</td><td>2 dades correctes.</td><td>1 dada o dades poc precises.</td><td>Cap dada.</td></tr>
         <tr><td><b>Perspectives</b></td><td>Compara europeus, pobles d’Àsia o Amèrica i mariners.</td><td>Dues perspectives.</td><td>Només la dels europeus.</td><td>No es planteja.</td></tr>
         <tr><td><b>Causes i conseqüències</b></td><td>Relaciona preus, rutes i canvis fins avui.</td><td>Relaciona dos d’aquests elements.</td><td>Enumera fets sense relacionar-los.</td><td>Fets aïllats o erronis.</td></tr>
         <tr><td><b>Expressió</b></td><td>Ben estructurat, connectors i vocabulari històric correcte.</td><td>Alguns errors que no dificulten la lectura.</td><td>Desordenat o amb errors freqüents.</td><td>Difícil d’entendre.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="mt1" id="autoav" style="font-weight:700;color:var(--navy)"></p>
+  <div class="q-peu">
+    <p class="mb0" id="autoav" style="font-weight:700;color:var(--navy)"></p>
+    <button type="button" class="bt sec2" id="copia-tot" style="padding:8px 16px;font-size:.92rem"><i class="ic-l" data-icona="copia"></i> Copia el text i l’autoavaluació</button>
+  </div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Rúbrica" data-ic="regle">
@@ -84,39 +94,136 @@
 
 <script>
 window.QUIZ = { final: [
-  { t: 'tria', e: 'A Londres, el 1438, una lliura de pebre costava…', o: ['uns 2 dies de feina d’un fuster', 'uns minuts de feina', 'un any de feina'], c: 0, r: 'Capítol 1: 2,25 dies, segons Munro.' },
-  { t: 'aparella', e: 'Relaciona cada espècia amb el seu origen.', p: [['Clau', 'Moluques'], ['Pebre', 'Malabar (Índia)'], ['Canyella', 'Sri Lanka'], ['Safrà', 'Mediterrània, també Catalunya']], r: 'Capítol 2.' },
-  { t: 'vf', e: 'Marco Polo va explicar que el pebre es conrea, i que a la Xina n’arribava molt més que a Europa.', c: true, r: 'Capítol 3.' },
-  { t: 'tria', e: 'Què eren els monsons?', o: ['Vents que canvien de direcció segons l’estació', 'Vaixells de l’Índic', 'Impostos dels sultans'], c: 0, r: 'Capítol 4: els vents marcaven el calendari del comerç.' },
-  { t: 'tria', e: 'Per què el pebre es multiplicava de preu pel camí?', o: ['Per la suma de transport, riscos, impostos i guanys de cada intermediari', 'Perquè es podria pel camí', 'Perquè el pagès el venia molt car'], c: 0, r: 'Capítol 5.' },
-  { t: 'vf', e: 'A l’edat mitjana les espècies servien per amagar la carn podrida.', c: false, r: 'Capítol 6: és un mite.' },
-  { t: 'tria', e: 'Què exportava sobretot Barcelona cap a Orient?', o: ['Draps de llana', 'Clau', 'Seda xinesa'], c: 0, r: 'Capítol 6.' },
+  { t: 'tria', e: 'A Londres, el 1438, una lliura de pebre costava…', o: ['uns 2 dies de feina d’un fuster', 'uns minuts de feina', 'un any de feina'], c: 0, r: 'Capítol 1: 2,25 dies, segons Munro.', cap: 1 },
+  { t: 'aparella', e: 'Relaciona cada espècia amb el seu origen.', p: [['Clau', 'Moluques'], ['Pebre', 'Malabar (Índia)'], ['Canyella', 'Sri Lanka'], ['Safrà', 'Mediterrània, també Catalunya']], r: 'Capítol 2.', cap: 2 },
+  { t: 'vf', e: 'Marco Polo va explicar que el pebre es conrea, i que a la Xina n’arribava molt més que a Europa.', c: true, r: 'Capítol 3.', cap: 3 },
+  { t: 'tria', e: 'Què eren els monsons?', o: ['Vents que canvien de direcció segons l’estació', 'Vaixells de l’Índic', 'Impostos dels sultans'], c: 0, r: 'Capítol 4: els vents marcaven el calendari del comerç.', cap: 4 },
+  { t: 'tria', e: 'Per què el pebre es multiplicava de preu pel camí?', o: ['Per la suma de transport, riscos, impostos i guanys de cada intermediari', 'Perquè es podria pel camí', 'Perquè el pagès el venia molt car'], c: 0, r: 'Capítol 5.', cap: 5 },
+  { t: 'vf', e: 'A l’edat mitjana les espècies servien per amagar la carn podrida.', c: false, r: 'Capítol 6: és un mite.', cap: 6 },
+  { t: 'tria', e: 'Què exportava sobretot Barcelona cap a Orient?', o: ['Draps de llana', 'Clau', 'Seda xinesa'], c: 0, r: 'Capítol 6.', cap: 6 },
   { t: 'ordena', e: 'Ordena aquests viatges.', o: ['Marco Polo torna per mar', 'Colom arriba a Amèrica', 'Gama arriba a Calicut', 'La Victoria completa la volta al món'], r: '1295, 1492, 1498, 1522.' },
-  { t: 'tria', e: 'Quants homes van tornar amb la Victoria el 1522?', o: ['18', '118', '239'], c: 0, r: 'Capítol 8: n’havien sortit uns 239.' },
-  { t: 'tria', e: 'Quin canvi va fer que les espècies es tornessin barates?', o: ['Trasplantar-les i conrear-les a molts països', 'La invenció de la nevera', 'Que es van deixar de fer servir a la cuina'], c: 0, r: 'Capítol 9.' }
+  { t: 'tria', e: 'Quants homes van tornar amb la Victoria el 1522?', o: ['18', '118', '239'], c: 0, r: 'Capítol 8: n’havien sortit uns 239.', cap: 8 },
+  { t: 'tria', e: 'Quin canvi va fer que les espècies es tornessin barates?', o: ['Trasplantar-les i conrear-les a molts països', 'La invenció de la nevera', 'Que es van deixar de fer servir a la cuina'], c: 0, r: 'Capítol 9.', cap: 9 }
 ] };
 
-const BANC = ['2,25 dies de feina per una lliura de pebre (Londres, 1438)', 'El pebre passava de 1-2 g de plata a Malabar a 20-30 g a Europa', 'Els monsons canvien de direcció a l’hivern i a l’estiu', 'El clau només creixia a les Moluques', 'Colom creia que la Terra feia uns 30.000 km de volta', 'Gama arriba a Calicut el 1498', 'Van sortir 239 homes i en van tornar 18 (1522)', 'La Victoria va guanyar només un 5 %', 'Carles I va vendre les Moluques per 350.000 ducats (1529)', 'Conquesta holandesa de Banda (1621)', 'Pierre Poivre trasplanta clau i nou moscada (1770)', 'Avui, el Vietnam és el primer productor de pebre'];
 const KEY = 'especies:repte';
+const KEY_RUB = 'especies:rubrica';
+
 document.addEventListener('DOMContentLoaded', () => {
   const tas = [...document.querySelectorAll('#escrit textarea')];
   let dades = {}; try { dades = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { }
   tas.forEach(t => { t.value = dades[t.dataset.k] || ''; t.addEventListener('input', desa); t.addEventListener('focus', () => ultim = t); });
   let ultim = tas[1];
-  function desa() { const o = {}; tas.forEach(t => o[t.dataset.k] = t.value); try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { } const n = tas.map(t => t.value.trim()).join(' ').split(/\s+/).filter(Boolean).length; document.getElementById('estat').textContent = `${n} paraules · desat`; }
+
   const banc = document.getElementById('banc');
-  BANC.forEach(b => { const x = el('button', { type: 'button', class: 'xip', style: 'cursor:pointer' }, b); x.onclick = () => { ultim.value = (ultim.value.trim() ? ultim.value.trim() + ' ' : '') + b + '.'; desa(); ultim.focus(); }; banc.appendChild(x); });
-  document.getElementById('copia').onclick = async () => {
+  const guardades = Prog.proves();
+  const nGuard = Object.keys(guardades).length;
+  document.getElementById('banc-comp').textContent = nGuard ? `Has guardat proves de ${nGuard} de 9 capítols` : 'Guarda proves en acabar cada «Posa-t’hi»';
+  const DEST = { eco: 'a1', geo: 'a2', hum: 'a3' };
+  const xips = [];
+  ['eco', 'geo', 'hum'].forEach(a => {
+    const g = el('div', { class: 'banc-grup arg-' + a }, `<p class="banc-tit">${ARGS[a]}</p>`);
+    const llista = window.BANC.filter(b => b.a === a).sort((x, y) => (guardades[y.c] ? 1 : 0) - (guardades[x.c] ? 1 : 0));
+    llista.forEach(b => {
+      const x = el('button', { type: 'button', class: 'xip' + (guardades[b.c] ? ' guardada' : ''), title: `Capítol ${b.c}` }, b.t);
+      x.onclick = () => {
+        const t = tas.find(z => z.dataset.k === DEST[a]);
+        t.value = (t.value.trim() ? t.value.trim() + ' ' : '') + b.t + '.'; desa(); t.focus();
+        t.setSelectionRange(t.value.length, t.value.length);
+      };
+      g.appendChild(x);
+      xips.push({ el: x, txt: b.t });
+    });
+    banc.appendChild(g);
+  });
+
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const textComplet = () => {
     const tit = 'Per què unes llavors tan petites van moure vaixells, diners i imperis?';
-    const txt = tit + '\n\n' + tas.map(t => t.value.trim()).filter(Boolean).join('\n\n');
-    try { await navigator.clipboard.writeText(txt); document.getElementById('estat').textContent = 'Text copiat! Ja el pots enganxar.'; }
-    catch (e) { const a = el('textarea'); a.value = txt; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); document.getElementById('estat').textContent = 'Text copiat!'; } catch (e2) { } a.remove(); }
+    const cos = tas.map(t => t.value.trim()).filter(Boolean).join('\n\n');
+    return cos ? tit + '\n\n' + cos : '';
   };
-  document.getElementById('esborra').onclick = () => { if (tas.some(t => t.value.trim()) && !document.getElementById('esborra').dataset.seg) { document.getElementById('esborra').dataset.seg = '1'; document.getElementById('esborra').textContent = 'Segur? Torna a tocar'; return; } tas.forEach(t => t.value = ''); desa(); document.getElementById('esborra').textContent = 'Esborra'; delete document.getElementById('esborra').dataset.seg; };
+
+  function desa() {
+    const o = {}; tas.forEach(t => o[t.dataset.k] = t.value);
+    try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { }
+    const tot = tas.map(t => t.value.trim()).join(' ');
+    const n = tot.split(/\s+/).filter(Boolean).length;
+    const bar = document.getElementById('p-bar');
+    bar.querySelector('span').style.width = Math.min(100, n / 250 * 100) + '%';
+    bar.classList.toggle('ok', n >= 150 && n <= 260);
+    bar.classList.toggle('alt', n > 260);
+    const guia = n < 150 ? ' (objectiu: 150-250)' : n <= 260 ? ' · dins de l’objectiu!' : ' · una mica llarg';
+    document.getElementById('estat').textContent = `${n} paraules${guia} · desat`;
+    const totN = norm(tot);
+    xips.forEach(x => {
+      const claus = norm(x.txt).split(/\s+/).filter(w => w.length > 3);
+      const coincid = claus.filter(w => totN.includes(w)).length;
+      x.el.classList.toggle('usat', coincid >= Math.min(3, claus.length));
+    });
+    const pb = document.getElementById('prev-box');
+    if (!pb.hidden) pb.textContent = textComplet() || 'Encara no has escrit cap paràgraf.';
+  }
+
+  async function copiaAlPortaretalls(txt, msgOk) {
+    if (!txt) { avisa('Primer escriu alguna cosa als paràgrafs.'); return; }
+    try { await navigator.clipboard.writeText(txt); avisa(msgOk); }
+    catch (e) { const a = el('textarea'); a.value = txt; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); avisa(msgOk); } catch (e2) { } a.remove(); }
+  }
+
+  document.getElementById('copia').onclick = () => copiaAlPortaretalls(textComplet(), 'Text copiat! Ja el pots enganxar.');
+  const btPrev = document.getElementById('bt-prev'), prevBox = document.getElementById('prev-box');
+  btPrev.onclick = () => {
+    prevBox.hidden = !prevBox.hidden;
+    prevBox.textContent = textComplet() || 'Encara no has escrit cap paràgraf.';
+    btPrev.innerHTML = prevBox.hidden ? '<i class="ic-l" data-icona="ull"></i> Vista prèvia' : '<i class="ic-l" data-icona="ull"></i> Amaga la vista prèvia';
+  };
+  document.getElementById('esborra').onclick = () => {
+    if (tas.some(t => t.value.trim()) && !document.getElementById('esborra').dataset.seg) {
+      document.getElementById('esborra').dataset.seg = '1'; document.getElementById('esborra').textContent = 'Segur? Torna a tocar'; return;
+    }
+    tas.forEach(t => t.value = ''); desa();
+    document.getElementById('esborra').textContent = 'Esborra'; delete document.getElementById('esborra').dataset.seg;
+  };
   desa();
-  // autoavaluació a la rúbrica
-  const files = document.querySelectorAll('#rubrica tbody tr'); const sel = {};
-  files.forEach((tr, f) => tr.querySelectorAll('td').forEach((td, c) => { if (!c) return; td.tabIndex = 0; td.style.cursor = 'pointer'; const tria = () => { tr.querySelectorAll('td').forEach(x => x.style.background = ''); td.style.background = 'rgba(217,154,30,.28)'; sel[f] = 5 - c; const v = Object.values(sel); document.getElementById('autoav').textContent = `Autoavaluació: ${v.reduce((a, b) => a + b, 0)} punts de ${files.length * 4}` + (v.length < files.length ? ` (falten ${files.length - v.length} criteris)` : ''); }; td.onclick = tria; td.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tria(); } }; }));
+
+  // autoavaluació a la rúbrica amb persistència a localStorage
+  const files = document.querySelectorAll('#rubrica tbody tr');
+  const nomsCriteris = [...files].map(tr => tr.querySelector('td').textContent.trim());
+  const nivells = ['', 'Cal millorar (1)', 'Suficient (2)', 'Notable (3)', 'Excel·lent (4)'];
+  let sel = {}; try { sel = JSON.parse(localStorage.getItem(KEY_RUB) || '{}'); } catch (e) { }
+
+  const pintaAutoav = () => {
+    const v = Object.values(sel);
+    if (!v.length) { document.getElementById('autoav').textContent = 'Toca una casella de cada fila per fer-te l’autoavaluació.'; return; }
+    document.getElementById('autoav').textContent = `Autoavaluació: ${v.reduce((a, b) => a + b, 0)} punts de ${files.length * 4}` + (v.length < files.length ? ` (falten ${files.length - v.length} criteris)` : ' · Completa!');
+  };
+
+  files.forEach((tr, f) => tr.querySelectorAll('td').forEach((td, c) => {
+    if (!c) return;
+    const punts = 5 - c;
+    td.tabIndex = 0; td.style.cursor = 'pointer'; td.setAttribute('role', 'button');
+    const aplica = (desaAra) => {
+      tr.querySelectorAll('td').forEach(x => { x.classList.remove('triat'); x.setAttribute('aria-pressed', 'false'); });
+      td.classList.add('triat'); td.setAttribute('aria-pressed', 'true');
+      sel[f] = punts;
+      if (desaAra) { try { localStorage.setItem(KEY_RUB, JSON.stringify(sel)); } catch (e) { } }
+      pintaAutoav();
+    };
+    if (sel[f] === punts) aplica(false);
+    td.onclick = () => aplica(true);
+    td.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); aplica(true); } };
+  }));
+  pintaAutoav();
+
+  document.getElementById('copia-tot').onclick = () => {
+    const txt = textComplet();
+    const liniesRub = nomsCriteris.map((nom, f) => `- ${nom}: ${sel[f] ? nivells[sel[f]] : 'sense marcar'}`).join('\n');
+    const v = Object.values(sel);
+    const total = v.reduce((a, b) => a + b, 0);
+    const bloc = (txt ? txt + '\n\n---\n' : '') + `Autoavaluació (${total}/${files.length * 4}):\n${liniesRub}`;
+    copiaAlPortaretalls(bloc, 'Text i autoavaluació copiats!');
+  };
 });
 </script>
 </body>

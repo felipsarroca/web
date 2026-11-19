@@ -9,10 +9,10 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estil.css?v=20261112d">
-<script src="js/comu.js?v=20261112d" defer></script>
-<script src="js/mapes-dades.js?v=20261112d" defer></script>
-<script src="js/mapa.js?v=20261112d" defer></script>
+<link rel="stylesheet" href="css/estil.css?v=20261119b">
+<script src="js/comu.js?v=20261119b" defer></script>
+<script src="js/mapes-dades.js?v=20261119b" defer></script>
+<script src="js/mapa.js?v=20261119b" defer></script>
 </head>
 <body data-cap="4">
 <main id="contingut">
@@ -52,7 +52,7 @@
       <img src="img/infografies/indic.webp" alt="Infografia: la xarxa de ports de l'Índic i els monsons d'hivern i d'estiu." loading="lazy" width="1920" height="1080">
       <span class="lupa"><i class="ic-l" data-icona="lupa"></i> Amplia</span>
     </button>
-    <figcaption><span>Infografia del capítol 4. Toca-la per veure-la gran.</span></figcaption>
+    <figcaption><span>Infografia del capítol 4.</span></figcaption>
   </figure>
 </section>
 
@@ -67,12 +67,24 @@
     </div>
     <div class="passos">
       <div class="mapa hivern" id="mapa-indic"></div>
-      <div class="pas-card mapa-info" id="info-port" aria-live="polite">
-        <p class="quan">Toca un port</p>
-        <p id="txt-vent"></p>
+      <div>
+        <div class="pas-card mapa-info" id="info-port" aria-live="polite">
+          <p class="quan">Toca un port</p>
+          <p id="txt-vent"></p>
+        </div>
+        <div class="pas-card mt1" id="repte-vent">
+          <p class="quan">Prova el monsó</p>
+          <p id="rv-preg" style="font-weight:700;margin-bottom:8px"></p>
+          <div class="bts">
+            <button type="button" class="bt sec2" data-rv="hivern" style="padding:7px 12px;font-size:.88rem">Hivern (nov.-gen.)</button>
+            <button type="button" class="bt sec2" data-rv="estiu" style="padding:7px 12px;font-size:.88rem">Estiu (abr.-ag.)</button>
+            <button type="button" class="bt" id="rv-nou" hidden style="padding:7px 12px;font-size:.88rem">Un altre repte →</button>
+          </div>
+          <p class="instr mt1 mb0" id="rv-res" aria-live="polite"></p>
+        </div>
       </div>
     </div>
-    <p class="mapa-peu">Fletxes: direcció general del monsó. Contorns: Natural Earth.</p>
+    <p class="mapa-peu">Fletxes: direcció general del monsó i sentit favorable de les rutes. Contorns: Natural Earth.</p>
   </div>
 </section>
 
@@ -101,23 +113,26 @@
 
 <section class="sec wrap reveal" data-tab="El comerç" data-ic="balanca">
   <div class="sec-tit"><span class="n">3</span><h2>Què s’intercanviava?</h2></div>
-  <div class="taula-wrap mt1">
-    <table class="taula">
-      <thead><tr><th>Lloc</th><th>Hi portaven…</th><th>…i se n’enduien</th></tr></thead>
-      <tbody>
-        <tr><td>Malaca</td><td>Teixits de cotó del Gujarat</td><td>Clau, nou moscada, macis</td></tr>
-        <tr><td>Calicut</td><td>Or, plata, coure, coral</td><td>Pebre, gingebre, teixits de cotó (el «calicó»)</td></tr>
-        <tr><td>Sri Lanka</td><td>Cavalls, monedes xineses, seda, ceràmica</td><td>Canyella, pedres precioses</td></tr>
-        <tr><td>Costa swahili (Kilwa)</td><td>Cotó, seda, porcellana</td><td>Or i ivori</td></tr>
-        <tr><td>Alexandria</td><td>Fusta, plantes medicinals, seda, mobles, persones esclavitzades</td><td>Espècies cap a Europa</td></tr>
-      </tbody>
-    </table>
+  <div class="vinyeta-fita mt1">
+    <div class="taula-wrap">
+      <table class="taula">
+        <thead><tr><th>Lloc</th><th>Hi portaven…</th><th>…i se n’enduien</th></tr></thead>
+        <tbody>
+          <tr><td>Malaca</td><td>Teixits de cotó del Gujarat</td><td>Clau, nou moscada, macis</td></tr>
+          <tr><td>Calicut</td><td>Or, plata, coure, coral</td><td>Pebre, gingebre, teixits de cotó (el «calicó»)</td></tr>
+          <tr><td>Sri Lanka</td><td>Cavalls, monedes xineses, seda, ceràmica</td><td>Canyella, pedres precioses</td></tr>
+          <tr><td>Costa swahili (Kilwa)</td><td>Cotó, seda, porcellana</td><td>Or i ivori</td></tr>
+          <tr><td>Alexandria</td><td>Fusta, plantes medicinals, seda, mobles, persones esclavitzades</td><td>Espècies cap a Europa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <img src="img/vinyetes/mans-sac.webp" alt="Mans intercanviant un sac d'espècies" style="max-width:190px;justify-self:center">
   </div>
   <div class="avis mite mt2"><span class="ic h-ic" data-icona="balanca"></span><div><p class="etiq">Mirada crítica</p><p>En aquest comerç també es venien persones esclavitzades. La riquesa de les espècies convivia amb grans injustícies, i això es farà encara més evident amb l’arribada dels europeus.</p></div></div>
 </section>
 
 <section class="sec wrap reveal" data-tab="El comerç" data-ic="balanca">
-  <div class="avis sabies"><span class="ic h-ic" data-icona="temps"></span><div><p class="etiq">Què passarà després?</p><p>El 1498 arriba a Calicut Vasco da Gama. Poc després, els portuguesos s’instal·len a Cochin (1503) i conquereixen Goa (1510) i Malaca (1511). Intenten controlar per la força una xarxa que funcionava des de feia segles. Ho veuràs al capítol 7.</p></div></div>
+  <div class="avis sabies"><span class="ic h-ic" data-icona="temps"></span><div><p class="etiq">Què passarà després?</p><p>El 1498 arriba a Calicut Vasco da Gama. Poc després, els portuguesos aixequen una fortalesa i una <button class="gl" data-gl="factoria">factoria</button> a Cochin (1503) i conquereixen Goa (1510) i Malaca (1511). Intenten controlar per la força una xarxa que funcionava des de feia segles. Ho veuràs al capítol 7.</p></div></div>
 </section>
 
 <section class="sec wrap reveal" data-tab="Posa-t’hi" data-ic="escriu">
@@ -132,17 +147,17 @@
 
 <script>
 window.QUIZ = { c4: [
-  { t: 'tria', e: 'Ets un mercader a Calicut i vols anar a Aden, a Aràbia. Quan surts?', o: ['De novembre a gener', 'D’abril a agost', 'Quan vulguis: el vent no importa'], c: 0, r: 'El monsó d’hivern bufa del nord-est i et porta cap a Aràbia i l’Àfrica.' },
-  { t: 'vf', e: 'Un mateix mercader portava les espècies des de les Moluques fins a Venècia.', c: false, r: 'Cada mercader feia un tram i venia la càrrega al port següent.' },
-  { t: 'aparella', e: 'Relaciona cada lloc amb el que s’hi obtenia.', p: [['Kilwa', 'Or i ivori'], ['Calicut', 'Pebre'], ['Sri Lanka', 'Canyella'], ['Malaca', 'Clau i nou moscada']], r: 'Cada port tenia la seva especialitat.' },
-  { t: 'tria', e: 'Com es pagaven moltes espècies a Malaca?', o: ['Amb teixits de cotó del Gujarat', 'Amb blat d’Europa', 'Amb bitllets de paper'], c: 0, r: 'Els teixits indis eren la «moneda» del comerç de l’Índic.' },
-  { t: 'tria', e: 'Què tenien d’especial els dhows?', o: ['Les fustes anaven cosides amb corda de coco', 'Eren de ferro', 'Anaven a rem'], c: 0, r: 'Sense claus de ferro: flexibles, però fràgils.' }
+  { t: 'tria', e: 'Ets un mercader a Calicut i vols anar a Aden, a Aràbia. Quan surts?', o: ['De novembre a gener', 'D’abril a agost', 'Quan vulguis: el vent no importa'], c: 0, r: 'El monsó d’hivern bufa del nord-est i et porta cap a Aràbia i l’Àfrica.', on: 'p2' },
+  { t: 'vf', e: 'Un mateix mercader portava les espècies des de les Moluques fins a Venècia.', c: false, r: 'Cada mercader feia un tram i venia la càrrega al port següent.', on: 'p1' },
+  { t: 'aparella', e: 'Relaciona cada lloc amb el que s’hi obtenia.', p: [['Kilwa', 'Or i ivori'], ['Calicut', 'Pebre'], ['Sri Lanka', 'Canyella'], ['Malaca', 'Clau i nou moscada']], r: 'Cada port tenia la seva especialitat.', on: 'p4' },
+  { t: 'tria', e: 'Com es pagaven moltes espècies a Malaca?', o: ['Amb teixits de cotó del Gujarat', 'Amb blat d’Europa', 'Amb bitllets de paper'], c: 0, r: 'Els teixits indis eren la «moneda» del comerç de l’Índic.', on: 'p4' },
+  { t: 'tria', e: 'Què tenien d’especial els dhows?', o: ['Les fustes anaven cosides amb corda de coco', 'Eren de ferro', 'Anaven a rem'], c: 0, r: 'Sense claus de ferro: flexibles, però fràgils.', on: 'p3' }
 ] };
 
 const PORTS = [
   { n: 'Alexandria', lon: 29.9, lat: 31.2, t: 'Gran port d’Egipte on els mercaders venecians, genovesos i catalans compraven les espècies. Hi pagaven amb fusta, plantes medicinals, seda, mobles i persones esclavitzades.', o: { dx: -10, anchor: 'end' } },
-  { n: 'Aden', lon: 45.0, lat: 12.8, t: 'La porta del mar Roig. Hi cobraven <button class="gl" data-gl="aranzel">aranzels</button> a totes les mercaderies que passaven. En aquests mercats també circulaven els <button class="gl" data-gl="cauri">cauris</button>, petxines que feien de moneda.', o: { dy: 16 } },
-  { n: 'Zeila', lon: 43.5, lat: 11.35, t: 'Port africà davant d’Aden. D’aquí fins a Mogadiscio, Ibn Battuta hi va trigar 15 dies.', o: { dx: -10, anchor: 'end' } },
+  { n: 'Aden', lon: 45.0, lat: 12.8, t: 'La porta del mar Roig. Hi cobraven <button class="gl" data-gl="aranzel">aranzels</button> a totes les mercaderies que passaven. En aquests mercats també circulaven els <button class="gl" data-gl="cauri">cauris</button>, petxines que feien de moneda.', o: { dx: 10, dy: 14 } },
+  { n: 'Zeila', lon: 43.5, lat: 11.35, t: 'Port africà davant d’Aden. D’aquí fins a Mogadiscio, Ibn Battuta hi va trigar 15 dies.', o: { dx: -10, anchor: 'end', dy: 8 } },
   { n: 'Mogadiscio', lon: 45.3, lat: 2.0, t: 'Ciutat rica de la costa somali, amb mercaders que feien de mediadors per als estrangers.', o: {} },
   { n: 'Kilwa', lon: 39.5, lat: -8.9, t: 'La ciutat swahili més rica: exportava l’or de l’interior d’Àfrica i ivori. Tenia cases de pedra de fins a tres pisos.', o: {} },
   { n: 'Zafar', lon: 54.1, lat: 17.0, t: 'Port d’Aràbia (avui Oman). De l’Índia fins aquí, Ibn Battuta hi va trigar 28 dies amb el monsó a favor.', o: { dy: -6 } },
@@ -151,51 +166,95 @@ const PORTS = [
   { n: 'Calicut', lon: 75.8, lat: 11.25, t: 'El gran mercat del pebre de la costa de Malabar. D’aquí ve la paraula «calicó», un teixit de cotó. Hi arribarà Vasco da Gama el 1498.', o: { dx: -10, anchor: 'end' } },
   { n: 'Sri Lanka', lon: 80.7, lat: 7.3, t: 'L’illa de la canyella i les pedres precioses. Importava cavalls, monedes xineses, seda i ceràmica.', o: { dy: 16 } },
   { n: 'Malaca', lon: 102.25, lat: 2.2, t: 'L’estret que unia l’Índic i el mar de la Xina. Hi vivien un miler de mercaders gujarats i entre 4.000 i 5.000 mariners. Aquí es canviava cotó per clau i nou moscada.', o: { dy: -8 } },
-  { n: 'Moluques', lon: 127.4, lat: 0.7, t: 'Les illes del clau: Ternate, Tidore i tres més. L’única terra del món on creixia.', o: { dx: -10, anchor: 'end' } },
-  { n: 'Banda', lon: 129.9, lat: -4.5, t: 'Illetes de la nou moscada, governades per assemblees de notables (els <i>orang kaya</i>). Els seus habitants navegaven en canoes amb balancí.', o: { dy: 16 } },
-  { n: 'Quanzhou (Zayton)', lon: 118.6, lat: 24.9, t: 'El gran port xinès. Hi arribava molt més pebre que a tot Europa junta.', o: {} }
+  { n: 'Moluques', lon: 127.4, lat: 0.7, t: 'Les illes del clau: Ternate, Tidore i tres més. L’única terra del món on creixia.', o: { dx: -10, anchor: 'end', dy: -4 } },
+  { n: 'Banda', lon: 129.9, lat: -4.5, t: 'Illetes de la nou moscada, governades per assemblees de notables (els <i>orang kaya</i>). Els seus habitants navegaven en canoes amb balancí.', o: { dx: -10, anchor: 'end', dy: 14 } },
+  { n: 'Quanzhou (Zayton)', lon: 118.6, lat: 24.9, t: 'El gran port xinès. Hi arribava molt més pebre que a tota Europa.', o: { dx: -10, anchor: 'end', dy: -4 } }
+];
+
+const REPTES_VENT = [
+  { p: 'Vols portar pebre de Calicut (Índia) fins a Aden (Aràbia). Quan salpes?', c: 'hivern', r: 'Correcte! De novembre a gener el monsó del nord-est t’empeny cap a Aràbia.' },
+  { p: 'Portes or i ivori de Kilwa (Àfrica) cap a l’Índia. Quan surts?', c: 'estiu', r: 'Exacte! D’abril a agost el monsó del sud-oest bufa de l’Àfrica cap a l’Índia.' },
+  { p: 'Com Ibn Battuta, vols anar de l’Índia fins a Zafar (Aràbia) en 28 dies. Quin monsó triaries?', c: 'hivern', r: 'Ben vist! El monsó d’hivern era el camí ràpid de l’Índia cap a Aràbia.' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const cont = document.getElementById('mapa-indic');
-  const m = Mapa(cont, 'indic', { titol: 'Ports i monsons de l’oceà Índic' });
+  const m = Mapa(cont, 'indic', { titol: 'Ports i monsons de l’oceà Índic', rosa: 'bl' });
   m.text(70, -6, 'Oceà Índic'); m.text(62, 15, 'Mar d’Aràbia').style.fontSize = '12px'; m.text(88, 15, 'Golf de Bengala').style.fontSize = '12px'; m.text(113, 12, 'Mar de la Xina').style.fontSize = '12px';
-  // rutes principals
-  const rC = { stroke: 'rgba(180,80,44,.55)', 'stroke-width': 2.4 };
-  m.ruta([[39.5, -8.9], [45.3, 2.0], [49, 11.5], [45.0, 12.8]], rC);
-  m.ruta([[45.0, 12.8], [42, 15], [38.5, 21], [34, 27], [32.5, 29.9]], rC);
-  m.ruta([[45.0, 12.8], [54.1, 15.5], [62, 15], [72, 13], [75.8, 11.25]], rC);
-  m.ruta([[56.3, 27.1], [62, 23], [69, 21], [72.6, 22.3]], rC);
-  m.ruta([[75.8, 11.25], [77, 7], [80, 5.8], [88, 5], [95, 6], [100, 4], [102.25, 2.2]], rC);
-  m.ruta([[102.25, 2.2], [106, -3], [114, -6], [122, -5.5], [127.4, 0.7]], rC);
-  m.ruta([[122, -5.5], [129.9, -4.5]], rC);
-  m.ruta([[102.25, 2.2], [106, 6], [110, 13], [114, 20], [118.6, 24.9]], rC);
+  // rutes principals (base + capes direccionals per estació)
+  const rC = { stroke: 'rgba(143,84,40,.32)', 'stroke-width': 2.2 };
+  const TRAMS = [
+    [[39.5, -8.9], [45.3, 2.0], [49, 11.5], [45.0, 12.8]],
+    [[45.0, 12.8], [42, 15], [38.5, 21], [34, 27], [32.5, 29.9]],
+    [[45.0, 12.8], [54.1, 15.5], [62, 15], [72, 13], [75.8, 11.25]],
+    [[56.3, 27.1], [62, 23], [69, 21], [72.6, 22.3]],
+    [[75.8, 11.25], [77, 7], [80, 5.8], [88, 5], [95, 6], [100, 4], [102.25, 2.2]],
+    [[102.25, 2.2], [106, -3], [114, -6], [122, -5.5], [127.4, 0.7]],
+    [[122, -5.5], [129.9, -4.5]],
+    [[102.25, 2.2], [106, 6], [110, 13], [114, 20], [118.6, 24.9]]
+  ];
+  TRAMS.forEach(t => m.ruta(t, rC));
   m.ruta([[32.5, 29.9], [30.5, 30.4], [29.9, 31.2]], Object.assign({ class: 'ruta terra-r' }, rC));
-  // vents
+
+  // Rutes animades en la direcció favorable del monsó
+  const rFlux = m.capa('flux');
+  const tramsEst = [TRAMS[0], TRAMS[2], TRAMS[4], TRAMS[7]]; // direcció general O→E (Estiu)
+  const tramsOest = tramsEst.map(t => t.slice().reverse());  // direcció general E→O (Hivern)
   const fH = m.fletxa('fh', '#3d6f91'), fE = m.fletxa('fe', '#b4502c');
+  tramsOest.forEach(t => m.ruta(t, { class: 'vent fav h', stroke: '#3d6f91' }, rFlux));
+  tramsEst.forEach(t => m.ruta(t, { class: 'vent fav e', stroke: '#b4502c' }, rFlux));
+
+  // vents principals amb fletxes
   const vents = [
     [[[88, 18], [80, 14], [70, 10]], 'h'], [[[72, 18], [64, 14], [56, 10]], 'h'], [[[100, 12], [92, 8], [84, 4]], 'h'], [[[66, 4], [58, 1], [50, -3]], 'h'],
     [[[50, 2], [58, 7], [66, 11]], 'e'], [[[56, 14], [64, 17], [70, 20]], 'e'], [[[78, 2], [86, 6], [92, 12]], 'e'], [[[44, -6], [52, -1], [60, 3]], 'e']
   ];
   vents.forEach(([p, k]) => m.ruta(p, { class: `vent vent-p ${k}`, stroke: k === 'h' ? '#3d6f91' : '#b4502c', 'marker-end': k === 'h' ? fH : fE }, m.capa('vents')));
+  m.llegenda([
+    { c: '#3d6f91', t: 'Monsó d’hivern (nov.-gen.)', tipus: 'fletxa' },
+    { c: '#b4502c', t: 'Monsó d’estiu (abr.-ag.)', tipus: 'fletxa' },
+    { c: 'rgba(143,84,40,.55)', t: 'Rutes comercials', tipus: 'linia' },
+    { c: '#9b2c22', t: 'Port (toca’l)', tipus: 'punt' }
+  ], 'tr');
   const info = document.getElementById('info-port');
   const TXT = {
-    hivern: '<b>Monsó d’hivern (novembre-gener).</b> El vent bufa del nord-est: les naus surten de l’Índia cap a Aràbia i l’Àfrica.',
-    estiu: '<b>Monsó d’estiu (abril-agost).</b> El vent bufa del sud-oest, amb pluges fortes: les naus tornen cap a l’Índia.'
+    hivern: '<b>Monsó d’hivern (novembre-gener).</b> El vent bufa del nord-est: les naus surten de l’Índia i Malaca cap a Aràbia i l’Àfrica.',
+    estiu: '<b>Monsó d’estiu (abril-agost).</b> El vent bufa del sud-oest, amb pluges fortes: les naus tornen de l’Àfrica i Aràbia cap a l’Índia.'
   };
   let estacio = 'hivern';
   const posaTxt = () => { document.getElementById('txt-vent') && (document.getElementById('txt-vent').innerHTML = TXT[estacio]); };
   posaTxt();
-  document.querySelectorAll('.seg [data-v]').forEach(b => b.addEventListener('click', () => {
-    estacio = b.dataset.v;
-    document.querySelectorAll('.seg [data-v]').forEach(x => x.setAttribute('aria-pressed', x === b));
-    cont.classList.toggle('hivern', estacio === 'hivern'); cont.classList.toggle('estiu', estacio === 'estiu');
+  const canviaEstacio = (v) => {
+    estacio = v;
+    document.querySelectorAll('.seg [data-v]').forEach(x => x.setAttribute('aria-pressed', x.dataset.v === v));
+    cont.classList.toggle('hivern', v === 'hivern'); cont.classList.toggle('estiu', v === 'estiu');
     info.innerHTML = `<p class="quan">Els vents</p><p id="txt-vent"></p>`; posaTxt();
-  }));
+  };
+  document.querySelectorAll('.seg [data-v]').forEach(b => b.addEventListener('click', () => canviaEstacio(b.dataset.v)));
   PORTS.forEach(p => m.port(p.lon, p.lat, p.n, Object.assign({}, p.o, { onSel: (g) => {
     m.svg.querySelectorAll('.port').forEach(x => x.classList.toggle('actiu', x === g));
     info.innerHTML = `<p class="quan">${p.n}</p><p class="mb0">${p.t}</p><p class="instr mt1">${TXT[estacio]}</p>`;
   } })));
+
+  // Mini-repte interactiu de monsons
+  let ri = 0;
+  const rvP = document.getElementById('rv-preg'), rvR = document.getElementById('rv-res'), rvN = document.getElementById('rv-nou');
+  const rvBts = document.querySelectorAll('[data-rv]');
+  const pintaRepte = () => {
+    rvP.textContent = REPTES_VENT[ri].p;
+    rvR.textContent = ''; rvN.hidden = true;
+    rvBts.forEach(b => { b.disabled = false; b.classList.remove('be', 'mal'); });
+  };
+  rvBts.forEach(b => b.addEventListener('click', () => {
+    const r = REPTES_VENT[ri], ok = b.dataset.rv === r.c;
+    rvBts.forEach(x => { x.disabled = true; if (x.dataset.rv === r.c) x.classList.add('be'); });
+    if (!ok) b.classList.add('mal');
+    rvR.innerHTML = ok ? `<b>${r.r}</b>` : `<b>Al revés!</b> ${r.r}`;
+    canviaEstacio(r.c);
+    rvN.hidden = false;
+  }));
+  rvN.onclick = () => { ri = (ri + 1) % REPTES_VENT.length; pintaRepte(); };
+  pintaRepte();
 });
 </script>
 </body>
