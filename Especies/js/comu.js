@@ -78,7 +78,7 @@
     { t: 'La Victoria va guanyar només un 5 %', c: 8, a: 'eco' },
     { t: 'Carles I va vendre les Moluques per 350.000 ducats (1529)', c: 8, a: 'eco' },
     { t: 'La VOC (1602) va ser la primera gran empresa amb accions que es compraven i venien a la borsa', c: 9, a: 'eco' },
-    { t: 'Una lliura de pebre: 2,25 dies de feina el 1438; avui, poc més d’una hora', c: 9, a: 'eco' },
+    { t: 'Una lliura de pebre: 2,25 dies de feina el 1438; avui, menys d’una hora', c: 9, a: 'eco' },
     { t: 'El clau només creixia a les Moluques', c: 2, a: 'geo' },
     { t: 'A Zayton (Xina) arribava cent vegades més pebre que a Alexandria', c: 3, a: 'geo' },
     { t: 'Els monsons canvien de direcció a l’hivern i a l’estiu', c: 4, a: 'geo' },
@@ -105,7 +105,7 @@
      Mètode: temps de feina. Quants dies (o mesos) havia de treballar algú d'aleshores
      i quant cobraria avui algú pels mateixos dies. Fonts: Munro (Londres), Llotja de València,
      Armada de Magalhães (AGI, Cuaderno 86), tractat de Saragossa. Vegeu fonts.html («Monedes»). */
-  const SOUS_AVUI = { min: 1200, mitja: 1500 }, DIES_MES = 22;
+  const SOU_AVUI = 1700, DIES_MES = 22;   // sou mensual mitjà d'una persona d'avui (estimació)
   const MONEDES = {
     dies: { nom: 'dies de feina', perDia: 1, qui: 'temps de feina d’un fuster especialitzat de Londres, que cobrava 8 diners al dia (1438)', font: 'J. Munro' },
     'd-lon': { nom: 'diners (penics) de Londres', perDia: 8, qui: 'un fuster especialitzat de Londres cobrava 8 diners al dia (1438)', font: 'J. Munro' },
@@ -129,21 +129,20 @@
     const anys = mesos / 12;
     return `${fmtN(anys, anys < 10 ? 1 : 0)} anys de feina`;
   }
-  /* Retorna { dies, mesos, min, mitja, temps, qui } per a una quantitat en una moneda */
+  /* Retorna { dies, mesos, euros, temps, qui } per a una quantitat en una moneda */
   window.Equival = function (q, m) {
     const M = MONEDES[m]; if (!M) return null;
     const mesos = M.perMes ? q / M.perMes : q / M.perDia / DIES_MES;
     const dies = mesos * DIES_MES;
-    return { dies, mesos, min: mesos * SOUS_AVUI.min, mitja: mesos * SOUS_AVUI.mitja, temps: tempsText(dies), qui: M.qui, font: M.font || '', nom: M.nom, eur: eurosText };
+    return { dies, mesos, euros: mesos * SOU_AVUI, temps: tempsText(dies), qui: M.qui, font: M.font || '', nom: M.nom, eur: eurosText };
   };
-  window.MONEDES = MONEDES; window.SOUS_AVUI = SOUS_AVUI; window.DIES_MES = DIES_MES;
+  window.MONEDES = MONEDES; window.SOU_AVUI = SOU_AVUI; window.DIES_MES = DIES_MES;
   function htmlAvui(b) {
     const r = Equival(parseFloat(b.dataset.q), b.dataset.m); if (!r) return '';
     const etiq = b.dataset.e ? `<b>${b.dataset.e}</b>` : `<b>${fmtN(parseFloat(b.dataset.q), 2)} ${r.nom}</b>`;
     return `<p class="av-tit">${etiq}${b.dataset.m === 'dies' ? '' : ' = ≈ ' + r.temps}</p>
       <p class="av-qui">${r.qui[0].toUpperCase() + r.qui.slice(1)}.</p>
-      <p class="av-sub">Els mateixos ${r.mesos >= 2 ? 'mesos' : 'dies'} de feina, avui:</p>
-      <p class="av-eur"><span><b>≈ ${eurosText(r.min)}</b><small>amb el salari mínim (${fmtN(SOUS_AVUI.min)} €/mes)</small></span><span><b>≈ ${eurosText(r.mitja)}</b><small>amb un salari de ${fmtN(SOUS_AVUI.mitja)} €/mes</small></span></p>
+      <div class="av-eur"><span class="av-et">Avui, el mateix temps de feina equivaldria a</span><b>≈ ${eurosText(r.euros)}</b><small>amb un sou mitjà d’uns ${fmtN(SOU_AVUI)} € al mes</small></div>
       ${b.dataset.ara ? `<p class="av-ara">${b.dataset.ara}</p>` : ''}
       <a class="av-com" href="fonts.html#monedes">Com ho calculem?</a>`;
   }

@@ -952,16 +952,17 @@ button.xip:hover { border-color: var(--c, var(--navy)); background: #fff; }
 .avui-fila > span:first-child { margin-right: 4px; font-weight: 600; }
 .avui-fila .avui { margin: 0; font-size: .85rem; padding: 3px 12px; }
 .taula td.x .avui { margin-left: 8px; }
-.gl-pop.av-pop { max-width: 340px; padding: 12px 16px; }
+.gl-pop.av-pop { max-width: 340px; padding: 14px 18px 12px; background: var(--card); color: var(--ink); border: 1px solid rgba(143, 84, 40, .28); border-top: 4px solid var(--saffron); box-shadow: 0 18px 36px -14px rgba(70, 45, 15, .45), 0 2px 8px -2px rgba(70, 45, 15, .2); }
 .av-pop p { margin: 0 0 6px; }
-.av-pop .av-tit { font-size: 1rem; }
-.av-pop .av-qui, .av-pop .av-sub { color: #d7dcea; font-size: .85rem; }
-.av-pop .av-eur { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0 8px; }
-.av-pop .av-eur span { background: rgba(255, 255, 255, .08); border-radius: 10px; padding: 6px 8px; }
-.av-pop .av-eur b { display: block; color: var(--saffron-2); font-size: 1.12rem; }
-.av-pop .av-eur small { display: block; color: #d7dcea; font-size: .74rem; line-height: 1.25; }
-.av-pop .av-ara { border-left: 3px solid var(--sage-2); padding-left: 8px; font-size: .86rem; }
-.av-pop .av-com { color: var(--saffron-2); font-size: .84rem; }
+.av-pop b { color: inherit; }
+.av-pop .av-tit { font-family: var(--serif); font-size: 1.05rem; color: var(--navy); line-height: 1.25; }
+.av-pop .av-qui { color: var(--ink-2); font-size: .84rem; }
+.av-pop .av-eur { background: var(--paper-2); border-radius: 12px; padding: 10px 12px; margin: 8px 0; text-align: center; }
+.av-pop .av-eur .av-et { display: block; font-size: .85rem; color: var(--ink-2); }
+.av-pop .av-eur b { display: block; font-family: var(--serif); font-size: 1.9rem; line-height: 1.15; color: var(--terra); margin: 2px 0; }
+.av-pop .av-eur small { display: block; color: var(--muted); font-size: .76rem; }
+.av-pop .av-ara { border-left: 3px solid var(--sage); padding-left: 8px; font-size: .86rem; color: var(--ink-2); }
+.av-pop .av-com { color: var(--terra); font-size: .84rem; }
 
 /* Atles Català */
 .atles { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 26px; align-items: start; }
@@ -1002,10 +1003,10 @@ button.xip:hover { border-color: var(--c, var(--navy)); background: #fff; }
 .conv-ex .bt { font-size: .85rem; padding: 5px 12px; }
 .conv-res { background: var(--paper-2); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 12px; }
 .conv-temps { margin: 0; font-family: var(--serif); font-size: 1.35rem; color: var(--navy); text-align: center; }
-.conv-eur { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.conv-eur { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .conv-eur > div { background: var(--card); border-radius: 14px; padding: 10px 12px; text-align: center; box-shadow: var(--shadow); }
 .conv-eur span { display: block; font-size: .85rem; color: var(--ink-2); }
-.conv-eur b { display: block; font-family: var(--serif); font-size: 1.45rem; color: var(--terra); margin: 2px 0; }
+.conv-eur b { display: block; font-family: var(--serif); font-size: 2.1rem; line-height: 1.15; color: var(--terra); margin: 2px 0; }
 .conv-eur small { color: var(--muted); font-size: .78rem; }
 
 @media (max-width: 900px) {
