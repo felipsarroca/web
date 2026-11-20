@@ -11,3 +11,5 @@
 - Versiona els enllaços CSS i JS amb `?v=` perquè es vegin els canvis publicats.
 - `.gitignore` exclou originals de generació i composició; publica només els recursos finals lleugers. Respecta la llicència doble, els identificadors SPDX, `LICENSE` i el formulari d'errors.
 - Si GitHub Pages queda encallat, comprova l'execució abans de tornar-la a llançar.
+- No hi afegeixis activitats noves (decisió de Felip, 19-11-2026): millora les que hi ha i complementa els continguts dins de les pestanyes existents.
+- En carregar una pàgina, `pestanyes()` no escriu el hash (`#pN`) a l'adreça: el navegador hi salta i s'amaga el títol. Només s'actualitza quan l'usuari canvia de pestanya, i `.tab-panel` porta `scroll-margin-top`.
